@@ -24,7 +24,7 @@ Understand the well-known discovery metadata requirements for your resource app 
 
 ## Overview
 
-To establish a Cross App Access (XAA) connection to your resource app and its authorization server, requesting clients need to understand how your app handles token exchanges and authorization.
+To establish a Cross App Access (XAA) connection to your resource app and its authorization server, the requesting client needs to understand how your app handles token exchanges and authorization. See the [Cross App Access (XAA)](/docs/concepts/xaa/) concept for an overview, and specifically, the roles of the resource app and its authorization server.
 
 When you build an XAA resource app, provide discovery metadata through a standard, well-known URI so that requesting apps can determine your OAuth 2.0 protected resources information. See [RFC 9728: OAuth 2.0 Protected Resource Metadata](https://datatracker.ietf.org/doc/html/rfc9728).
 
