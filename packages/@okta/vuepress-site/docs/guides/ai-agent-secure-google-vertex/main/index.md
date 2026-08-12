@@ -5,9 +5,9 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Google Vertex AI agent. In Vertex AI, an agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow. It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with Reasoning Engine. It then sends the user's prompt and polls for the agent's response.
+This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's token exchange, and then calls a Google Vertex AI agent. In Vertex AI, an agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow. It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with Reasoning Engine. It then sends the user's prompt and polls for the agent's response.
 
-The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Google Vertex AI-specific code and configuration that consumes it.
+The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Google Vertex AI-specific code and the configuration that consumes it.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -38,7 +38,7 @@ An AI agent has no inherent knowledge of an Okta user. To let it act for a speci
 The integration has two parts:
 
 * Okta authentication. The agent performs a two-step token exchange:
-  1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
+  1. Exchange the user's `id_token` for an identity assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
   This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
@@ -179,7 +179,7 @@ def create_session(access_token: str, user_id: str) -> str:
     return resp.json()["name"].rsplit("/", 1)[-1]
 ```
 
-> **Note:** `userId` identifies the session owner to the Reasoning Engine. Use a stable identifier for the signed-in user, such as the `sub` claim from their `id_token`.
+> **Note:** The `userId` identifies the session owner to the Reasoning Engine. Use a stable identifier for the signed-in user, such as the `sub` claim from their `id_token`.
 
 ### Send the prompt
 
@@ -200,7 +200,7 @@ def send_prompt(access_token: str, session_id: str, prompt: str) -> None:
 
 ### Poll for the response
 
-The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one that's authored by the agent.
+The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one the agent authors.
 
 ```python
 import time
