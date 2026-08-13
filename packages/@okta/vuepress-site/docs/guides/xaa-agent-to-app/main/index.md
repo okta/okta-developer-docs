@@ -202,7 +202,9 @@ If you've previously configured an AI agent with user access delegation links, t
 Review the following scenarios to determine if you have to reconfigure your AI agent or user access links:
 
 * If you have a single SAML app as a user-access delegation link for your AI agent, you don't need to reconfigure the AI agent's user access app. Your XAA flow still works with the current configuration.
-* If you have a single OIDC app as a user-access delegation link for your AI agent, delete the AI agent and re-register the AI agent with a new or existing custom OIDC app instance. See [Delete and re-register your AI agent](#delete-and-re-register-your-ai-agent).
+* If you have a single OIDC app for your AI agent's user-access delegation link, you have two options depending on what configuration you want to preserve.
+    * If you want to keep your AI agent configuration and can reconfigure a new OIDC app integration for linking, then See [Delete your previous user access apps](#delete-previous-user-access-apps) and [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+    * If you want to keep your OIDC app configuration and can reconfigure the AI agent, then [Delete and re-register your AI agent](#delete-and-re-register-your-ai-agent) and link to the existing OIDC app.
 * If you previously had multiple apps as user-access delegation links, delete the existing user-access apps and recreate only one user-access app for linking. See [Delete your previous user access apps](#delete-previous-user-access-apps), then see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 * If you want to modify your previous delegation configuration, see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 
