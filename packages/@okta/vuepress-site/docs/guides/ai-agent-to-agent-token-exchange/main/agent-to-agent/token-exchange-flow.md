@@ -1,5 +1,3 @@
-During the initial authentication request in a user access flow, the AI agent must obtain an ID token directly. For machine access, another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access:
-
 ### User access
 
   ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/??.svg)
@@ -30,9 +28,9 @@ The token exchange flow for an AI agent involves the following steps:
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1192893 -->
 
-1. AI agent 1 sends the `subject_token` (T1) to the org authorization server and requests an exchange for an ID-JAG token. The server performs validation based on the [Resource Connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) configuration and returns the requested ID-JAG (T2).
-1. Because the requested credential was an ID-JAG, AI agent 1 sends the ID-JAG (T2) to the custom authorization server to exchange it for a usable access token. The server performs validation and returns an access token (T3).
-1. AI agent 1 sends that access token (T3) to AI agent 2 so that it can also perform actions on the client or user's behalf through AI agent 1.
-1. AI agent 2 sends the `subject_token` (T3) to the org authorization server and requests an exchange for an ID-JAG token. The server performs validation [Resource Connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) and returns the requested ID-JAG (T4).
-1. Because the requested credential was an ID-JAG, AI agent 2 sends the ID-JAG to the custom authorization server to exchange it for a usable access token. The server performs validation and returns an access token (T5).
-1. The AI agent uses the access token to request access to the resource.
+2. AI agent 1 sends the `subject_token` (T1) to the org authorization server and requests an exchange for an ID-JAG token. The server performs validation based on the [Resource Connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) configuration and returns the requested ID-JAG (T2).
+3. Because the requested credential was an ID-JAG, AI agent 1 sends the ID-JAG (T2) to the custom authorization server to exchange it for a usable access token. The server performs validation and returns an access token (T3).
+4. AI agent 1 sends that access token (T3) to AI agent 2 so that it can also perform actions on the client or user's behalf through AI agent 1.
+5. AI agent 2 sends the `subject_token` (T3) to the org authorization server and requests an exchange for an ID-JAG token. The server performs validation [Resource Connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) and returns the requested ID-JAG (T4).
+6. Because the requested credential was an ID-JAG, AI agent 2 sends the ID-JAG to the custom authorization server to exchange it for a usable access token. The server performs validation and returns an access token (T5).
+7. The AI agent uses the access token to request access to the resource.

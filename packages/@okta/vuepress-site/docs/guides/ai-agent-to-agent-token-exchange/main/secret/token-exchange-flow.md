@@ -1,5 +1,3 @@
-During the initial authentication request in a user access flow, the AI agent must obtain an ID token directly. For machine access, another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access:
-
 ### User access
 
   ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/??.svg)
@@ -30,5 +28,5 @@ The token exchange flow for an AI agent involves the following steps:
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
-1. The AI agent sends the token to the org authorization server and requests an exchange for the resource token. The server validates the request based on the **Resource Connections** [configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) and returns the requested secret that's vaulted in Okta Privileged Access.
-1. The AI agent uses the secret or service account credentials to request access to the resource.
+2. The AI agent sends the token to the org authorization server and requests an exchange for the resource token. The server validates the request based on the **Resource Connections** [configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) and returns the requested secret that's vaulted in Okta Privileged Access.
+3. The AI agent uses the secret or service account credentials to request access to the resource.
