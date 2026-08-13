@@ -1,5 +1,3 @@
-During the initial authentication request in a user access flow, the AI agent must obtain an ID token directly. For machine access, another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access:
-
 ### User access
 
   ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/??.svg)
@@ -30,8 +28,6 @@ The token exchange flow for an AI agent involves the following steps:
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
-1. The initiating client authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (T1) that satisfies a delegation link for the AI agent.
-1. The client passes the token to the AI agent so that it can perform actions on the user's behalf.
-1. The AI agent sends the token to the org authorization server and requests an exchange for an ID-JAG token. The server validates the request based on the **Resource Connections** [configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) and returns the requested ID-JAG.
-1. Because the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) to exchange it for a usable access token.
-1. The AI agent uses the access token to request access to the resource.
+2. The AI agent sends the token to the org authorization server and requests an exchange for an ID-JAG token. The server validates the request based on the **Resource Connections** [configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) and returns the requested ID-JAG.
+3. Because the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) to exchange it for a usable access token.
+4. The AI agent uses the access token to request access to the resource.

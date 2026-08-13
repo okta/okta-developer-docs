@@ -25,13 +25,13 @@ Learn how to configure token exchange for agent-to-agent connections so that AI 
 
 > **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent (STS) flow.
 
-- A delegation link that's configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Add delegations** section of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
+- [User access or machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Configure user access** or **Configure machine access** sections of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
 
 ---
 
 ## Overview
 
-You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register), including adding the [delegations](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) that you require. Delegations are the users, apps, and other AI agents that can authorize an AI agent to act on their behalf. See [Agent-to-agent connections](https://help.okta.com/okta_help.htm?type=oie&id=agent-to-agent).
+You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register), and configured the [access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) that you require. Configuring this access defines the users, apps, and other AI agents that can authorize an AI agent to act on their behalf. See [Agent-to-agent connections](https://help.okta.com/okta_help.htm?type=oie&id=agent-to-agent).
 
 You've also created [resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) that define the AI agent's access to your org's resources. Now, the agent must obtain the actual tokens or credentials to perform tasks.
 
@@ -52,6 +52,8 @@ After the resource type is configured and the AI agent has the token or credenti
 ## Token Exchange flow
 
 The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.
+
+During the initial authentication request in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent must obtain an ID token directly. For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access:
 
 <StackSnippet snippet="token-exchange-flow" />
 
