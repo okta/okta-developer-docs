@@ -4,14 +4,23 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.08.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-08-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-08-1</guid>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#new-ip-service-categories-for-enhanced-dynamic-zones">New IP service categories for enhanced dynamic zones</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-08-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-08-0</guid>
       <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production">New Proxy service for enhanced dynamic zones is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production">New System Log events for Office 365 app-based provisioning is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production">Replace a Group Rule API can now update assigned groups is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#anything-as-a-source-device-import-is-ea">Anything-as-a-Source device import is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#new-research-release-lifecycle">New Research Release lifecycle</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-08-0">Developer documentation updates in 2026.08.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#bug-fixed-in-2026-08-0">Bug fixed in 2026.08.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production">New Proxy service for enhanced dynamic zones is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production">New System Log events for Office 365 app-based provisioning is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production">Replace a Group Rule API can now update assigned groups is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#anything-as-a-source-device-import-is-ea">Anything-as-a-Source device import is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#new-research-release-lifecycle">New Research Release lifecycle</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#new-user-behavior-permissions">New user behavior permissions</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-08-0">Developer documentation updates in 2026.08.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#bug-fixed-in-2026-08-0">Bug fixed in 2026.08.0</a>]]></description>
     </item>
   
 

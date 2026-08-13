@@ -13,6 +13,17 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## August
 
+### Weekly release 2026.08.1
+<!-- Published on: 2026-08-12T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.08.1](#bug-fixed-in-2026-08-1) | August 12, 2026 |
+
+#### Bug fixed in 2026.08.1
+
+Developers couldn't delete push groups after an app was added to a collection because the Collections API didn't return the resource identifier required for deletion. (OKTA-1233410)
+
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-05T12:00:00Z -->
 

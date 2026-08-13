@@ -13,6 +13,28 @@ title: Okta Identity Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.1
+<!-- Published on: 2026-08-12T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
+| [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
+
+#### New IP service categories for enhanced dynamic zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
+
+#### Bugs fixed in 2026.08.1
+
+* In some cases, the [Create a log stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/logstream/other/createlogstream) limit of two active streams could be exceeded. (OKTA-1179998)
+
+* When an AI agent import returned a 404 error, the [Validate an AI agent provider](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/validateaiagentprovider) endpoint returned an HTTP 500 error. (OKTA-1216248)
+
+* The `okta.users.credentials.resetFactors` permission incorrectly allowed you to enroll authenticators on behalf of users (`POST /users/{userId}/factors`). (OKTA-1220095)
+
+* For some orgs, when you [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent) with a name shorter than five characters, a minimum-length validation error was returned, even though the minimum had been reduced to three characters. (OKTA-1242199)
+
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-05T12:00:00Z -->
 
