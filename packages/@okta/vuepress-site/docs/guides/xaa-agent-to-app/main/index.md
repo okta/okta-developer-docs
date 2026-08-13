@@ -140,7 +140,7 @@ To deactivate the AI agent:
 
 ## Configure the resource app
 
-The resource app contains the protected resources that your AI agent wants to access on behalf of the user.
+The resource app contains the protected resources that your AI agent can access on behalf of the user.
 Create the app integration instance that represents your resource app in Okta before configuring the resource connection.
 
 If you created your resource app instance from the OIN catalog, it already has XAA configured, so you don't have to enable XAA. You can go directly to [configure the XAA connection](#configure-the-xaa-connection).
