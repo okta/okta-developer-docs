@@ -155,7 +155,7 @@ If you created a custom app integration instance for your resource with the [Cla
 
 For each resource app you want to connect to the AI agent, create a custom or OIN app integration instance in Okta with OIDC or SAML SSO configured. If you use an OIN app as the resource app, it must already have XAA enabled. To enable XAA on a custom app, follow [Enable XAA on a custom app integration](#enable-xaa-on-a-custom-app-integration).
 
-> **Note:** To create a custom SSO app integration instance, see [Create OpenID Connect app integrations]((https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations)) or [Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml) in the product documentation. To create an OIN app integration instance, see [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app).
+> **Note:** To create a custom SSO app integration instance, see [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations) or [Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml) in the product documentation. To create an OIN app integration instance, see [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app).
 
 ### Enable XAA on a custom app integration
 
