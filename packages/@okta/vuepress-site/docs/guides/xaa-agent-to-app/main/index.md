@@ -208,8 +208,7 @@ Review the following scenarios to determine if you have to reconfigure your AI a
     * If you want to keep your AI agent configuration and can reconfigure a new OIDC app integration for linking:
         1. Delete your linked app (see [Delete your previous user access apps](#delete-previous-user-access-apps)).
         1. Relink a user access app by selecting the **Create a new OIDC app linked to this agent** option (see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent)).
-    * If you want to keep your OIDC app configuration and can reconfigure the AI agent:
-        1. [Delete and re-register your AI agent](#delete-and-re-register-your-ai-agent) and link to the existing OIDC app.
+    * If you want to keep your OIDC app configuration and can reconfigure the AI agent, [delete and re-register your AI agent](#delete-and-re-register-your-ai-agent) and link to the existing OIDC app.
 * If you previously had multiple apps as user-access delegation links, delete the existing user-access apps and recreate only one user-access app for linking. See [Delete your previous user access apps](#delete-previous-user-access-apps), then see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 * If you want to modify your previous delegation configuration, see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 
