@@ -127,14 +127,16 @@ Assign users to access the AI agent by assigning them to the linked requesting a
 You can also activate the AI agent indirectly by activating the linked requesting app.
 
 1. Go to **Applications and Resources** > **Applications**.
-1. Select the **Inactive** tab from the **STATUS** column, and find the linke requesting app that you want to activate.
-1. Select **Activate** from the dropdown menu beside your app integration. The AI agent is automatically activated when the linked requesting app is activated.
+1. Select the **Inactive** tab from the **STATUS** column, and find the linked requesting app that you want to activate.
+1. Select **Activate** from the dropdown menu beside your app integration. The AI agent is automatically activated when you activate the linked app.
 
 To deactivate the AI agent:
 
 1. On the AI agent page, select **Actions** > **Deactivate**.
 
-> **Note:** Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
+> **Notes:**
+> * Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
+> * The rquesting app linked to the AI agent is also deactivated.
 
 ## Configure the resource app
 
