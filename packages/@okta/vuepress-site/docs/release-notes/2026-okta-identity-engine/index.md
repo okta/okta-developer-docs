@@ -28,7 +28,7 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 
 #### Authorization and token endpoints now support multiple resources per refresh token is GA in Preview
 
-The `/authorize` and `/token` endpoints for custom authorization servers now accept multiple `resource` parameters. Request a refresh token that's scoped to several resources at authorization time. Then exchange it at `/token` (`grant_type=refresh_token`) for an access token whose `aud` claim is a single one of those resources. One refresh token now covers multiple resources, and each call mints a precisely scoped, single-audience token, instead of one refresh token per resource. See [Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707).
+The `/authorize` and `/token` endpoints for custom authorization servers now accept multiple `resource` parameters. Request a refresh token that's scoped to several resources at authorization time. Then exchange it at `/token` (`grant_type=refresh_token`) for an access token whose `aud` claim is just one of those resources. One refresh token now covers multiple resources, and each call mints a precisely scoped, single-audience token, instead of one refresh token per resource. See [Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707).
 
 This feature is only available for orgs that are subscribed to Okta for AI Agents and have the agent-to-agent connections feature enabled. <!-- OKTA-1245853 FF: SECURE_AI_A2A_SERVERS -->
 
