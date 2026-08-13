@@ -65,14 +65,23 @@ Start your integration submission for OIN publication:
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
-1. Go to **Applications and Resources** > **Your OIN Integrations** in the Admin Console.
+1. On the **Home** page, do one of the following:
 
-   > **Note:** If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+    * Click **Create new app** to create a new app that you want to list in the Okta Integration Network.
+    * Click **Add Integration** to add an additional integration to an existing app. The **Add Integration** page appears.
+    * Click **Edit** > **Integration** to edit your integration in the OIN Wizard, or click **Edit** > **Catalog Info** to edit only your catalog listing.
 
-1. Click **Build new OIN integration**. The OIN Wizard appears.
-1. Select the capability (**Universal Logout** or **Provisioning** ) and **API integration actions** as the builder tool from the **Add integration capabilities** section.
+        > **Note:** **Catalog Info** is available only if your integration is already published. Otherwise, this option is disabled. See [Update catalog information only](/docs/guides/update-oin-app/wfactions/main/#update-catalog-information-only).
+
+1. Select the capability (**Universal Logout** or **Provisioning**) and **API integration actions** as the builder tool.
+
+    > **Note:** You can't select new or disabled capabilities for existing submissions.
 
 1. Click **Add integration details**.
+
+    > **Note:** Alternatively, you can go to **Applications and Resources** > **Your OIN Integrations** to build your integration and select your capabilities.
+
+    If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 
 ### Integration details
 
@@ -147,9 +156,7 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 1. Click **Save and start building**.
 
-  The OIN Wizard redirects you to the Integration Builder to define API actions for your integration. See [Build integrations with API integration actions](/docs/guides/build-api-actions/main/).
-
- > **Note**: You can click **Skip to configure your integration** to bypass building your API integration actions. Continue to [Configure your integration](#configure-your-integration) if you have already defined all your API integration actions.
+    > **Note:** The OIN Wizard redirects you to the Integration Builder to define API actions for your integration. See [Build integrations with API integration actions](/docs/guides/build-api-actions/main/). Click **Skip to configure your integration** to bypass building your API integration actions. Continue to [Configure your integration](#configure-your-integration) if you've already defined all your API integration actions.
 
 ### Configure your integration
 
