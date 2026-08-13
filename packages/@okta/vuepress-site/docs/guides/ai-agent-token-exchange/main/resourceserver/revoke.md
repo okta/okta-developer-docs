@@ -29,11 +29,11 @@ The endpoint returns `200 OK` regardless of whether the token was valid or alrea
 
 ### Force re-consent for STS services
 
-To prompt a user for consent again, clear authorization from both Okta and the third-party provider because consent is stored with the third-party.
+To prompt a user for consent again, clear authorization from both Okta and the third-party provider, because consent is stored with the third-party.
 
 1. First, call the `/revoke` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/revoke) to clear the OAuth STS access token on the org authorization server.
 
-> **Note**: You can also use the **Clear and revoke** button in the Admin Console. Access the [Clear User Sessions function](https://help.okta.com/okta_help.htm?type=oie&id=csh-session-revoke) through the user's profile.
+> **Note**: You can also use the **Clear and revoke** button in the Admin Console. You can access the [Clear User Sessions function](https://help.okta.com/okta_help.htm?type=oie&id=csh-session-revoke) through the user's profile.
 
 ```bash
   curl --location --request POST \
