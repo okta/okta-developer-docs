@@ -1,6 +1,8 @@
 
 After obtaining an OAuth STS access token through the token exchange flow, the AI agent can revoke that token using the org authorization server's `/oauth2/v1/revoke` endpoint and the same client credentials that it used for token exchange.
 
+This request supports multiple client authentication methods. The example below changes, depending on how the agent was configured to authenticate it's identity to Okta. See [Add client registration details](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) on the Add AI agents manually page in the help docs.
+
 ``` http
 POST /oauth2/v1/revoke HTTP/1.1
 Host: example.okta.com

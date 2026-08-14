@@ -10,7 +10,7 @@ This request supports multiple client authentication methods. The example below 
     --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
     --data-urlencode "requested_token_type=urn:okta:params:oauth:token-type:oauth-sts" \
     --data-urlencode "subject_token=eyJraWQiOiJz..." \
-    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:id_token" \
+    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGci..." \
     --data-urlencode "resource=resource:indicator:from:resource:connection"
