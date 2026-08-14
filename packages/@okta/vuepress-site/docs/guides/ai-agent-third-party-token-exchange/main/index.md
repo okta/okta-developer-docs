@@ -89,7 +89,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
 1. Under **Profile**, add a name and description for your AI Agent, for example, "third-party AI Agent."
-1. Optional: under **Identifier (Recommended if available)**, select the agent builder platfrom if available.
+1. Optional. Under **Identifier (Recommended if available)**, select the agent builder platfrom if available.
 1. Click **Next**.
 1. Under **User access and authentication**, check **Allow users to access this agent**, then select **Create a new OIDC app liked to this AI Agent** to create an OIDC SSO app instance to bind to the AI agent.
 
