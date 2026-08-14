@@ -1,6 +1,6 @@
 ### User access
 
-  ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/??.svg)
+  ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/user-access-authentication-step-service-account-1192893v2.svg)
 
 1. The AI agent authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (T1) that satisfies the access requirement for the AI agent.
 
@@ -8,7 +8,7 @@ Okta accepts only ID token subject tokens minted for the current requesting clie
 
 ### Machine access
 
-  ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/??.svg)
+  ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/machine-access-authentication-step-service account-1192893v2.svg)
 
 1. The initiating client authenticates with a [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (access token) that satisfies a delegation link for the AI agent.
 
@@ -22,7 +22,7 @@ The token exchange flow for an AI agent involves the following steps:
 
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_service_accountv2.svg)
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_service_account-1192893v2.svg)
 
 </div>
 
