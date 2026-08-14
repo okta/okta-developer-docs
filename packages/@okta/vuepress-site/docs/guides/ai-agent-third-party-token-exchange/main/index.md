@@ -113,7 +113,7 @@ After you create the AI Agent, configure the associated OIDC app that's bound to
 1. Select your AI Agent from the list of AI Agents, and click **User access**. Click **Application** > **General**. The OIDC app appears.
 1. On the **General** tab, click **Edit** on the **General Settings** tile. Update the **Sign-in redirect URIs** field. In this example, use `http://locahost:5000/callback`. Click **Save**.
 1. On the **Assignments** tab, click **Assign** to assign people or groups to this app. These users sign in to begin the token exchange flow.
-1. Ensure that the OIDC is in an **Active** state. Click the dropdown near the app name to activate the app.
+1. Ensure that the OIDC is in an **Active** state. Click the dropdown next to the app name to activate the app.
 
 ### Configure the access policy
 
