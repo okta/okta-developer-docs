@@ -99,7 +99,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Client registration**. Make a note of the **Client ID** available in **Step 2: Provide client ID to AI agent builder or developer**.
    > **Note:** The `OIDC_CLIENT_ID` variable is set to the client ID value in the sample app. See [Create your environment file](#create-your-environment-file).
-1. Under **Client registration** > **Client secret**, click **Generate secret** to generate a client secret. Copy and save the secret.
+1. Under **Client registration** > **Client secret**, click **Configure**. Click **Generate secret**. Copy and save the secret.
    > **Note:** The `OIDC_CLIENT_SECRET` variable is set to the client secret value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. From **Step 3: Activate for your AI agent**, click **Activate**. Then click **Enable**.
 1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
@@ -108,7 +108,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 
 ### Configure the OIDC integration app
 
-After you create the AI Agent, configure the associated OIDC app that's bound to that agent.
+After you create the AI Agent, configure the associated OIDC app that's bound to the agent.
 
 1. Select your AI Agent from the list of AI Agents, and click **User access**. Click **Application** > **General**. The OIDC app appears.
 1. On the **General** tab, click **Edit** on the **General Settings** tile. Update the **Sign-in redirect URIs** field. In this example, use `http://locahost:5000/callback`. Click **Save**.
@@ -693,8 +693,8 @@ The following errors come from the Okta token exchange module:
 | `invalid_client: Client authentication failed` | The `client_secret` is missing or doesn't match the AI Agent's registered secret | Confirm `AGENT_CLIENT_SECRET`/`OIDC_CLIENT_SECRET` matches the secret generated in **Client registration** |
 | `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
 | `access_denied: no_matching_policy` | The custom authorization server access policy is missing the JWT bearer grant | In the custom authorization server access policy rule, enable the JWT bearer grant |
-| `Only service apps can use client_credentials` | Wrong client type at the org authorization server | Only an Okta client can perform step 1; OIDC apps can't |
-| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for step 1, not the OIDC app |
+| `Only service apps can use client_credentials` | Wrong grant type sent to the org authorization server | Use `grant_type=urn:ietf:params:oauth:grant-type:token-exchange` for step 1, not `client_credentials` |
+| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Confirm the request uses the token-exchange grant type and endpoint described in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag), not a Web SSO code exchange |
 
 ## Next steps
 
