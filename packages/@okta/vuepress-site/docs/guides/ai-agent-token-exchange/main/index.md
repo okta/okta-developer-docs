@@ -23,8 +23,7 @@ Learn how to configure token exchange for AI agents so that you can securely req
 - A **Resource connection** that's configured for each AI agent, defining which resources they're allowed to access. See [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
   > **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent (STS) flow.
 - [User access or machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Configure user access** or **Configure machine access** sections of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
-??- An OIDC web app that's configured to authenticate users and obtain an ID token.
-
+- For the agent-to-agent connection type, you also need an OIDC web app that's configured to authenticate users and obtain an ID token.
 
 ---
 
