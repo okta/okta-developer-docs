@@ -33,7 +33,7 @@ This guide explains how to configure Smart Card authentication and access polici
 
 Access Gateway offline mode supports two authenticators:
 
-* `password`: Authenticates users against your configured offline mode directory. This authenticator is automatically configured, always active, and read-only.
+* `password`: Authenticates users against your configured offline mode directory. This authenticator is automatically configured, always active, and read-only. Read-only means that you can't modify the `password` authenticator object in Access Gateway. Passwords come from your offline mode directory and are managed there, not in Access Gateway.
 * `smart_card`: Authenticates users with a certificate-based Smart Card, such as a Personal Identity Verification (PIV) or Common Access Card (CAC). You create and manage this authenticator.
 
 An access policy determines which authenticator, or combination of authenticators, a group of users must use to sign in to an app during offline mode. A policy contains one or more rules, and each rule has a group condition and an action that defines an ordered chain of authentication methods.
@@ -68,6 +68,15 @@ The following sections explain how to configure the mTLS certificate, hostname, 
 ### Configure the mTLS certificate and hostname
 
 Before you create a Smart Card authenticator, configure the mTLS certificate and hostname that Access Gateway uses for Smart Card authentication.
+
+The `hostname` is the fully qualified domain name of the mTLS virtual host that Access Gateway uses for Smart Card authentication. It points to your Access Gateway authentication service and is typically an `mtls` subdomain of that service's public domain, such as `mtls.domain.tld`. The `hostname` must be covered by the certificate that you set in `certificateId`.
+
+The `hostname` value must also meet the following requirements:
+
+* It must be a valid, resolvable hostname.
+* It can't be the same as the authentication service's public domain (`offlineIdpServiceHostname`).
+* It can't be the same as the authentication service's admin hostname.
+* If your certificate is a wildcard certificate, the hostname must match a single label. For example, if the certificate matches `*.domain.local`, the mTLS hostname can be `mtls.domain.local`.
 
 1. Retrieve your `certificateId` by using the [List all certificates](https://developer.okta.com/docs/api/openapi/oag/oag/tags/certificates/other/listcertificates) endpoint.
 1. Then, use the [Replace a certificate used by the authentication service](https://developer.okta.com/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/replaceauthenticationservicecertificate) endpoint.
@@ -343,7 +352,7 @@ Copy the `id` from the response. You use it as the `accessPolicyId` in the next 
 
 > **Note:** The [Assign a group to an application's offline mode policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodegrouppolicy) endpoint is deprecated. It's no longer supported as of Access Gateway version `2026.08.1` and returns an HTTP 405 error. The [Retrieve the offline mode group policy for an application](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/getapplicationofflinemodegrouppolicy) endpoint is retained for backwards compatibility. To assign and view offline mode policies, use the [Assign an offline mode access policy to an application](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodeaccesspolicy) and [Retrieve the offline mode access policy that's assigned to an application](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/getapplicationofflinemodeaccesspolicy) endpoints instead.
 
-Assign the access policy to an app so that Access Gateway enforces it when the app is in offline mode. A policy can be assigned to one or more apps. If you don't assign one explicitly, Access Gateway enforces the IdP's default password-only policy instead.
+Assign the access policy to an app so that Access Gateway enforces it when the app is in offline mode. A policy can be assigned to one or more apps. The users and groups named in the policy's rules are the ones that can access the app when Access Gateway is in offline mode. You don't assign users or groups to the app separately. If you don't assign one explicitly, Access Gateway enforces the IdP's default password-only policy instead.
 
 1. Retrieve your app's ID by using the [List all apps](https://developer.okta.com/docs/api/openapi/oag/oag/tags/applications/other/listapplication) endpoint.
 1. Use the `accessPolicyId` from the [previous step](#create-an-access-policy).
@@ -378,7 +387,7 @@ You've configured a Smart Card authenticator and an access policy for Access Gat
 ## See also
 
 * [Configure offline mode for Access Gateway](/docs/guides/oag-offline-mode/main/)
-* [Identity Providerss Offline Mode Authenticators API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators)
-* [Identity Providerss Offline Mode Access Policy API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-access-policy)
+* [Identity Providers Offline Mode Authenticators API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators)
+* [Identity Providers Offline Mode Access Policy API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-access-policy)
 * [Access Gateway API documentation](https://developer.okta.com/docs/api/openapi/oag/guides/overview)
 * [Okta Access Gateway documentation](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_main)
