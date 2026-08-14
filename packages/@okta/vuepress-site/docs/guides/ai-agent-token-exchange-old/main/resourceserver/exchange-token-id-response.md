@@ -1,7 +1,3 @@
-#### Response
-
-The response contains the requested resource token.
-
 The response during the token exchange depends on if Okta has a stored token.
 
 ##### Interaction required response
@@ -21,7 +17,7 @@ Pragma: no-cache
 
 If Okta doesn't have a valid token, it returns an HTTP 400 error. Your agent's logic must handle this by initiating the user consent flow.
 
-To handle this, your app should do the following:
+To handle this, your app should:
 
 1. Parse the `interaction_uri` from the JSON response.
 1. Redirect the end user's browser to this URL.
@@ -39,4 +35,4 @@ To handle this, your app should do the following:
 }
 ```
 
-Your AI agent should use the `access_token` from this response to make authenticated API calls to the target resource, including it in the `Authorization` header as a Bearer token.
+Your agent should use the `access_token` from this response to make authenticated API calls to the target resource, including it in the `Authorization` header as a Bearer token.
