@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-Okta's AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta to access the agentic app, the app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
+The Okta for AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta to access the agentic app, the app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
 
 In this guide, learn how to configure token exchange for third-party AI agents.
 
