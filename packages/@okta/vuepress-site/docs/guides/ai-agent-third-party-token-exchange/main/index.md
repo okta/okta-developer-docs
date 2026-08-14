@@ -168,7 +168,7 @@ curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
 | client_id | The AI Agent's OAuth client ID, generated during AI Agent registration. |
 | client_secret | The AI Agent's client secret, generated during AI Agent registration. |
 | subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token`. |
-| subject_token | A valid ID token associated with signed in user. |
+| subject_token | A valid ID token associated with a signed-in user. |
 | requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | scope | A list of scopes at the resource app being requested. This defines the permissions for the final access token. Use `xaa:read` |
 | audience | The issuer URL of the resource app's authorization server. |
