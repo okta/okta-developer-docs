@@ -1,6 +1,3 @@
-#### Response
-
-The response contains the requested resource token.
 
 ``` bash
 HTTP/1.1 200 OK
@@ -18,4 +15,5 @@ Pragma: no-cache
   "token_type": "N_A",
   "expires_in": 300
 }
+
 ```
