@@ -10,7 +10,7 @@ This request supports multiple client authentication methods. The example below 
     --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
     --data-urlencode "requested_token_type=urn:okta:params:oauth:token-type:service-account" \
     --data-urlencode "subject_token=eyJraWQiOiJzMTZ0cVNtODhwREo4VGZCXzdrSEtQ..." \
-    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:id_token" \
+    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsImtpZCI6IjIyIn0..." \
     --data-urlencode "resource=orn:okta:pam:00osvp3k63Qlcc9wUS9a:apps:salesforce:0oasvp7bhmwdzEWZhckT:service_accounts:3ad38bbd-c057-4a69-9d8d-06b8ca86f411"

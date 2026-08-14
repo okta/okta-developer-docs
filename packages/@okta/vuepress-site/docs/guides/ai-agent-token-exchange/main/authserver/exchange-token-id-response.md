@@ -9,7 +9,7 @@ Cache-Control: no-store
 Pragma: no-cache
 
 {
-  "token_type": "Bearer",
+  "token_type": "N_A",
   "expires_in": 300,
   "access_token": "eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWV...",
   "issued_token_type": "urn:ietf:params:oauth:token-type:id-jag"

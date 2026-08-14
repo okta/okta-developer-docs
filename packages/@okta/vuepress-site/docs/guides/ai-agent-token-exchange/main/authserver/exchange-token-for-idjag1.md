@@ -11,7 +11,7 @@ This request supports multiple client authentication methods. The example below 
     --header "Accept: application/json" \
     --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
     --data-urlencode "subject_token=eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0bl...." \
-    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:id_token" \
+    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
     --data-urlencode "audience=https://{yourOktaDomain}/oauth2/default" \
     --data-urlencode "scope=chat.read+chat.history" \
