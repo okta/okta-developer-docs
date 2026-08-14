@@ -8,7 +8,7 @@ Okta accepts only ID token subject tokens minted for the current requesting clie
 
 ### Machine access
 
-  ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/machine-access-authentication-step-service account-1192893v2.svg)
+  ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/machine-access-authentication-step-service-account-1192893v2.svg)
 
 1. The initiating client authenticates with a [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (access token) that satisfies a delegation link for the AI agent.
 
