@@ -18,9 +18,20 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Cross App Access support for AI agents and apps for all customers](#cross-app-access-for-ai-agents-and-apps) | August 17, 2026 |
 | [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
 | [Authorization and token endpoints now support multiple resources per refresh token is GA in Preview](#authorization-and-token-endpoints-now-support-multiple-resources-per-refresh-token-is-ga-in-preview) | August 12, 2026 |
 | [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
+
+#### Cross App Access support for AI agents and apps for all customers
+
+Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols. See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
+
+Admins in Okta for AI Agent orgs can now configure direct user authentication for the AI agent. The previous **Delegation** tab, which allowed admins to configure users assigned to an app to delegate their identity to the AI agent, has been changed to the **User access** tab. Admins can configure direct user authentication for an AI agent without delegation from the **User access** tab.
+
+For admins who previously configured AI agent access through delegation links in an Okta for AI Agent org, see the following [Migration from Okta for AI Agent delegation link](/docs/guides/xaa-agent-to-app/main/#migration-from-okta-for-ai-agent-delegation-link) guidance.
+
+<!-- OKTA-1212187 SECURE_AI_XAA Preview: Aug 17, 2026 -->
 
 #### New IP service categories for enhanced dynamic zones
 
