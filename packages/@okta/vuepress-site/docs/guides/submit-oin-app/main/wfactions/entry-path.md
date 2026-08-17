@@ -1,14 +1,14 @@
 2. On the **Home** page, do one of the following:
 
-    * Click **Create app** to create a new app that you want to list in the Okta Integration Network. <br><br>
+    * Click **Create new app** to create a new app that you want to list in the Okta Integration Network. <br><br>
     **OR**<br>
-    * If there's an existing app without an integration, click **Add Integration** for that app. The **Add Integration** page appears. <br><br>
+    * Click **Add Integration** to add addtional integration to an existing app. The **Add Integration** page appears. <br><br>
     **OR**<br>
-    * If there's an existing integration for an app, click **Edit** > **Integration** to edit your integration in the OIN Wizard, or click **Edit** > **Catalog Info** to edit only your catalog listing.
+    * Click **Edit** > **Integration** to edit your integration in the OIN Wizard, or click **Edit** > **Catalog Info** to edit only your catalog listing.
 
-        > **Note:** **Catalog Info** is available only if your integration is already published. Otherwise, this option is disabled.
+        > **Note:** **Catalog Info** is available only if your integration is already published. Otherwise, this option is disabled. See [Update catalog information only ](/docs/guides/update-oin-app/wfactions/main/#update-catalog-information-only).
 
-3. Select the capability and protocol that your integration supports from the **Add integration capabilities** section.
+3. Select the capability and protocol that your integration supports.
 
     > **Note:** You can't select new or disabled capabilities for existing submissions.
 
