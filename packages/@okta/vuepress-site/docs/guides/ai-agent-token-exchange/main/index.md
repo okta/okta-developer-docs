@@ -40,7 +40,7 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - **Service account**: Uses a static credential for an app that's specified in Universal Directory. This resource is vaulted in Okta Privileged Access.
 
-- **Resource server**: Uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
+- **Resource server (STS)**: Uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
 - **Agent-to-agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
 

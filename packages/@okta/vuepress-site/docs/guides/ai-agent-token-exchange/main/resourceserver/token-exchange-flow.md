@@ -4,7 +4,7 @@
 
 1. The AI agent authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (T1) that satisfies the access requirement for the AI agent.
 
-Okta accepts only ID token subject tokens minted for the current requesting client, which is the AI agent. So, the inititating client and the AI agent are the same thing, using the same client credentials during authentication.
+   Okta accepts only ID token subject tokens minted for the current requesting client, which is the AI agent. So, the inititating client and the AI agent are the same thing, using the same client credentials during authentication.
 
 ### Machine access
 
@@ -12,9 +12,9 @@ Okta accepts only ID token subject tokens minted for the current requesting clie
 
 1. The initiating client authenticates with a [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (access token) that satisfies a delegation link for the AI agent.
 
-Okta accepts access tokens minted for a different client as subject tokens. This requires a delegation link authorizing that client to delegate to your AI agent, and the token must target your agent's resource URL.
+   Okta accepts access tokens minted for a different client as subject tokens. This requires a delegation link authorizing that client to delegate to your AI agent, and the token must target your agent's resource URL.
 
-The OIDC client passes the access token (`subject_token`) (T1) to the AI agent so that it can perform actions on the client's behalf.
+   The OIDC client passes the access token (`subject_token`) (T1) to the AI agent so that it can perform actions on the client's behalf.
 
 ## Token exchange flow
 
