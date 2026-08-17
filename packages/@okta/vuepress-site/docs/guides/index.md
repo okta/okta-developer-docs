@@ -224,6 +224,7 @@ guides:
  - oag-configure-apps-offline-mode
  - configure-identity-claims-sourcing-policy
  - xaa-resource-metadata
+ - xaa-agent-to-app
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

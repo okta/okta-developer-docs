@@ -82,9 +82,7 @@ Common AI agent scenarios include:
 * **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker). They also inspect app performance metric tools (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
 * **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions. This prevents data leaks across organizational boundaries.
 
-<!--
-> **Note:** See [Configure AI agent-to-app with Cross App Access] for Okta Admin Console instructions on how to configure an AI agent-to-app connection with XAA.
--->
+> **Note:** See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app) for Okta Admin Console instructions on how to configure an AI agent-to-app connection with XAA.
 
 ### App-to-app
 
@@ -131,6 +129,8 @@ Okta supports requesting apps that use the following protocols for SSO:
 
 If you're an independent software vendor (ISV) looking to add the XAA requesting-app role to your current SSO app integration in the OIN, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
+> **Note:** For the AI agent-to-app use case, see [Supported requesting apps](/docs/guides/xaa-agent-to-app/main/#supported-requesting-apps) in Okta.
+
 <!--
 * **[Build a requesting app]**: Follow the requesting app journey if your app needs to access an external resource app on behalf of signed-in users.
 -->
@@ -144,6 +144,7 @@ Okta supports resource apps that use the following protocols for SSO:
 
 If you're an ISV wanting to add your resource app to the OIN with XAA capabilities, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
+> **Note:** For the AI agent-to-app use case, see [Supported resource apps](/docs/guides/xaa-agent-to-app/main/#supported-resource-apps) in Okta.
 <!--
 * **[Build a resource app]**: Follow the resource app journey if your app exposes APIs that need to accept incoming XAA authorization requests.
 -->
