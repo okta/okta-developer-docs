@@ -18,9 +18,20 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Cross App Access support for AI agents and apps for all customers](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers) | August 17, 2026 |
 | [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
 | [Authorization and token endpoints now support multiple resources per refresh token is GA in Preview](#authorization-and-token-endpoints-now-support-multiple-resources-per-refresh-token-is-ga-in-preview) | August 12, 2026 |
 | [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
+
+#### Cross App Access support for AI agents and apps for all customers
+
+Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols. See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
+
+For agentic requesting apps that use OIDC for SSO, Okta enables binding an AI agent with an OIDC SSO app so that they share the same credentials. If you want to remove this configuration in Okta, delete the AI agent and the corresponding OIDC app.
+
+From this AI agent-app binding capability, admins can now configure direct user authentication for the AI agent. If you have an Okta for AI Agent org and have previously used the **Delegation** tab to configure AI agent access through delegation links, you need to reconfigure them with the **User access** tab. See the [Migration from Okta for AI Agent delegation link](/docs/guides/xaa-agent-to-app/main/#migration-from-okta-for-ai-agent-delegation-link) guidance.
+
+<!-- OKTA-1212187 SECURE_AI_XAA Preview: Aug 17, 2026 -->
 
 #### New IP service categories for enhanced dynamic zones
 
