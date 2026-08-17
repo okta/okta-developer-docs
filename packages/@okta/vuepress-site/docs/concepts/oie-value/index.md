@@ -14,7 +14,7 @@ Okta Identity Engine (OIE) is a new authentication pipeline that gives you a mor
 
 ## Why upgrade from Classic Engine to OIE
 
-Upgrading from Classic Engine to OIE gives you enhanced security, finer policy control, and modern authentication capabilities. In practice, that means you can:
+Upgrading from Classic Engine to OIE gives you enhanced security, finer policy control, and modern authentication capabilities. That means you can:
 
 * Adapt authentication to risk and context instead of applying one fixed flow to everyone.
 * Adopt modern authenticators, including passwordless and passkeys, as they become available, often without rebuilding your app.
@@ -32,8 +32,8 @@ At a high level, OIE introduces a policy-driven authentication pipeline and a se
 * **Identifier-first, adaptive sign-in**: OIE can recognize the user first and then choose the next step (password, passwordless, passkey, or a federated identity provider) based on policy.
 * **Flexible deployment models**: Choose Okta-hosted (redirect), an embedded Sign-In Widget, an embedded SDK, or embedded APIs (Direct Authentication), depending on how much of the experience you want Okta to host.
 * **Embedded authentication through the Interaction Code grant**: Manage the authentication interaction directly from your app instead of relying on a browser redirect.
-* **Stronger security posture**: Integrate CAPTCHA for registration, sign-in flows, and recovery. Use Universal Logout to terminate sessions and tokens when Identity Threat Protection detects a risk change. Use the Device Authorization grant type for input-constrained devices.
-* **Operational improvements**: There is improved Terraform support and a current set of SDKs and sample apps for building OIE features.
+* **Stronger security posture**: Integrate CAPTCHA for registration, sign-in flows, and recovery. Use Universal Logout to terminate sessions and tokens when Identity Threat Protection detects a risk change. Use the [Device Authorization grant type](/docs/guides/device-authorization-grant/main/) for input-constrained devices.
+* **Operational improvements**: There's improved Terraform support and a current set of SDKs and sample apps for building OIE features.
 
 ## How these capabilities support sign-in flows and SSO modernization
 
@@ -52,7 +52,7 @@ OIE lets you replace Classic-era authentication patterns with a supported, polic
 
 ## Where to go next
 
-**Ready to modernize?** Continue with the [Modernize your sign-in and SSO flows with Okta Identity Engine journey](??).
+<!-- **Ready to modernize?** Continue with the [Modernize your sign-in and SSO flows with Okta Identity Engine journey](??). -->
 
 **Not upgraded yet?** Start with [Prepare to upgrade to Okta Identity Engine journey](/docs/journeys/OCI-prepare-upgrade-oie/main/) and the [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/main/).
 
