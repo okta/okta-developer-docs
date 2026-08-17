@@ -4,7 +4,7 @@
 
 1. The AI agent authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (T1) that satisfies the access requirement for the AI agent.
 
-   Okta accepts only ID token subject tokens minted for the current requesting client, which is the AI agent. So, the inititating client and the AI agent are the same thing, using the same client credentials during authentication.
+   Okta accepts only ID token subject tokens minted for the current requesting client, which is the AI agent. So, the initiating client and the AI agent are the same thing, using the same client credentials during authentication.
 
 ### Machine access
 
