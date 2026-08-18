@@ -115,7 +115,7 @@ These accounts also link to the user's original account in the source Data Store
 To complement your user migration campaign, consider a way to provision and deprovision applications to your new users.
 
 * [Adding a SCIM interface to your apps](/docs/guides/scim-provisioning-integration-overview/main/) allows admins to control user access centrally.
-<!-- * [Creating a custom provisioning flow]() for third party apps with Okta Workflows -->
+* [Creating a custom provisioning flow](https://support.okta.com/help/s/article/how-to-provision-users-using-okta-workflows) for third party apps with Okta Workflows
 * [Search the Okta Integration Network](https://www.okta.com/integrations/) for provisioning flows and SCIM-ready apps that exist.
 
 Learn more about working with non-human identities (NHIs):
