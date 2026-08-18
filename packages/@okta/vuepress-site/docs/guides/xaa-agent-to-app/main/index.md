@@ -189,6 +189,8 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 1. Click **Add**.
 
+> **Note:** Use of XAA as part of SSO is limited to 250 access tokens per user, per resource app, per month. For the purposes of this limit, a "User" must be a licensed "User of Single Sign-On in an Active Status," and the total number of users using XAA can't exceed the org's total purchased SSO users. One access token is consumed each time an AI agent uses XAA to access a resource app. If usage exceeds 250 access tokens per user, XAA is rate-limited and suspended until the next monthly reset period for that user. If you require more tokens beyond this limit, you must purchase Okta for AI Agents or API Access Management.
+
 ## Migration from Okta for AI Agent delegation link
 
 If your org is subscribed to Okta for AI Agents, the **Delegations** tab has been renamed **User access** and **Machine access** on the AI agent page. The **User access** tab contains configuration on the users that can access the AI agent, and the **Machine access** tab contains configuration on the AI agent's non-human access.
