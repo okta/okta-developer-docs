@@ -47,9 +47,7 @@ At a high level, Identity Engine introduces a policy-driven authentication pipel
 | Platform capabilities |  | Universal Logout, CAPTCHA, Device Authorization Grant, improved Terraform support |
 
 ## Where to go next
-
 <!-- **Ready to modernize?** Continue with the [Modernize your sign-in and SSO flows with Okta Identity Engine journey](??). -->
-
 **Not upgraded yet?** Start with [Prepare to upgrade to Okta Identity Engine journey](/docs/journeys/OCI-prepare-upgrade-oie/main/) and the [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/main/).
 
 ## Related topics
