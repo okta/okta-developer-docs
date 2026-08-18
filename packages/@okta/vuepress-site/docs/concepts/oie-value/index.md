@@ -4,7 +4,7 @@ meta:
   - content: See what upgrading from Classic Engine unlocks, such as flexible policies, modern authenticators, passwordless, and stronger security.
   - date updated: September 4, 2026
 personas:
-  - primary personad: Developers
+  - primary persona: Developers
   - secondary personas: Application architects, identity engineers, security architects
 ---
 
@@ -21,7 +21,7 @@ Upgrading from Classic Engine to Identity Engine gives you enhanced security, fi
 * Move toward supported, standards-based integration patterns that are easier to maintain.
 * Unlock newer Okta security controls and ecosystem capabilities that build on the Identity Engine platform.
 
-> **Note**: New Okta orgs have been Identity Engine orgs since March 1, 2022. Identity Engine is the platform Okta builds new capabilities on.
+> **Note**: New Okta orgs have been Identity Engine orgs since March 1, 2022. Identity Engine is the platform that Okta builds new capabilities on.
 
 ## What Identity Engine adds
 
@@ -42,8 +42,8 @@ At a high level, Identity Engine introduces a policy-driven authentication pipel
 | Authentication model | Fixed sign-in flow | Policy-driven pipeline evaluated at runtime |
 | Policy control | App sign-on policies with limited flexibility | Shareable app sign-in policies, risk-based step-up flows, and the ability to change methods without code changes |
 | Authenticators | Traditional factors | Modern authenticators, passwordless, passkeys, Okta FastPass |
-| Sign-in experience | Username + password together | Identifier-first and adaptive options |
-| Deployment | Mostly widget/redirect patterns | Redirect, embedded widget, embedded SDK, and embedded API (Direct Auth) |
+| Sign-in experience | Username and password together | Identifier-first and adaptive options |
+| Deployment | Mostly widget/redirect patterns | Redirect, embedded widget, embedded SDK, and embedded API (direct authentication) |
 | Platform capabilities |  | Universal Logout, CAPTCHA, Device Authorization Grant, improved Terraform support |
 
 ## Where to go next
