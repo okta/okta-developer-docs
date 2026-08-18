@@ -150,6 +150,11 @@ There are two new OAuth 2.0 scopes available for the interclient endpoints:
 
 The following section outlines the requests required to perform Native to Web SSO. These example requests use a native app as the origin app. You can obtain a token with the `interclient_access` scope using your preferred [authentication method](/docs/guides/implement-grant-type/authcode/main/). The example below uses Resource Owner Password as the authentication flow for simplicity.
 
+> **Note**: The lifetime of the refresh token that's issued with the `interclient_access` scope depends on how you request the scope.
+>
+> * **Front channel methods:** These methods establish an interactive Okta session. The Sign-In Widget, an Okta SDK, or the interaction code flow are examples of front channel methods. Okta binds the refresh token to the user's Okta session. The refresh token's lifetime matches the global session lifetime that's set by your org's global session policy, regardless of the refresh token lifetime that's configured for the app. When the global session expires, the refresh token is no longer valid.
+> * **Back channel methods:** These methods, such as direct authentication or the Resource Owner Password grant, don't establish an interactive session. Okta doesn't bind the refresh token to a session. The refresh token uses the lifetime that's configured in the authorization server's access policy.
+
 ### Request for initial tokens
 
 Before you can begin this flow, collect the required credentials from the user in a manner of your choosing. Then, make a single API call to the Okta authorization server `/token` endpoint. Your request should look something like the following example:
