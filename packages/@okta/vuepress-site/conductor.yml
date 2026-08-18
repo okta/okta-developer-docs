@@ -1,4 +1,34 @@
 redirects:
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/index.html
+    to: /docs/guides/ai-agent-token-exchange/main/
+  - from: /docs/guides/ai-agent-to-agent-token-exchange
+    to: /docs/guides/ai-agent-token-exchange/
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/
+    to: /docs/guides/ai-agent-token-exchange/main/
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/
+    to: /docs/guides/ai-agent-token-exchange/
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#learning-outcomes
+    to: /docs/guides/ai-agent-token-exchange/main/#learning-outcomes
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#what-you-need
+    to: /docs/guides/ai-agent-token-exchange/main/#what-you-need
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#overview
+    to: /docs/guides/ai-agent-token-exchange/main/#overview
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#token-exchange-flow
+    to: /docs/guides/ai-agent-token-exchange/main/#token-exchange-flow
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#flow-specifics
+    to: /docs/guides/ai-agent-token-exchange/main/#flow-specifics
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#initial-authentication
+    to: /docs/guides/ai-agent-token-exchange/main/#initial-authentication
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#id-token
+    to: /docs/guides/ai-agent-token-exchange/main/#id-token
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#response
+    to: /docs/guides/ai-agent-token-exchange/main/#response
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#access-token
+    to: /docs/guides/ai-agent-token-exchange/main/#access-token
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#exchange-subject-token-for-resource-token
+    to: /docs/guides/ai-agent-token-exchange/main/#exchange-subject-token-for-resource-token
+  - from: /docs/guides/ai-agent-to-agent-token-exchange/main/#revoke-tokens
+    to: /docs/guides/ai-agent-token-exchange/main/#revoke-tokens
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
