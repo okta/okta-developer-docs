@@ -50,7 +50,7 @@ The following steps describe the enrollment process for a user with a new NFC ca
 1. The Sign-In Widget contacts Okta Verify through a deep link to initiate the NFC read.
 1. The user taps their NFC card on the reader.
 1. Okta Verify reads the card's unique identifier (UID) and sends it to Okta. Okta uses this UID during verification to look up the user's enrollment record and confirm that the card is registered to a user.
-1. For hardware-protected tags only, Okta generates cryptographic keys, and Okta Verify writes them to the card's secure element, locking the card against tampering. Factory-fresh hardware-protected cards can be provisioned without admin intervention.
+1. For hardware-protected tags only, Okta generates cryptographic keys, and Okta Verify writes them to the card's secure element. This step also locks the card, which prevents any entity other than Okta from writing to it. Factory-fresh hardware-protected cards can be provisioned without admin intervention.
 1. Okta creates the enrollment record.
 1. The Sign-In Widget prompts the user to enter and confirm a PIN.
 1. The PIN is hashed and stored server-side and isn't written to the card.
@@ -64,7 +64,7 @@ The following steps describe the sign-in process for a user with an enrolled NFC
 1. If enabled for your org, the Sign-In Widget shows a **Sign in with NFC** button on managed devices. The user can select this button, or NFC authentication can trigger automatically after they enter their username, depending on your authentication policy. Okta Verify launches automatically in the background when possible. If it isn't running, the user must launch it manually.
 1. The user taps their NFC card on the reader.
 1. Okta Verify reads the card.
-1. For hardware-protected tags only, Okta Verify relays a cryptographic challenge between Okta and the card. The card must prove it holds the correct keys from its secure element before Okta accepts the authentication. This confirms that the physical card is present. A copied identifier alone can’t pass this check.
+1. For hardware-protected tags only, Okta and the NFC card authenticate each other in a challenge-response exchange relayed through Okta Verify. The card sends Okta an encrypted challenge, and Okta responds with its own. Each side verifies the other before Okta accepts the card as genuine. A copied identifier alone can't pass this exchange.
 1. Okta identifies the user from their enrollment record and sends a PIN challenge to the Sign-In Widget.
 1. The user enters their PIN in the browser to complete their sign-in.
 
