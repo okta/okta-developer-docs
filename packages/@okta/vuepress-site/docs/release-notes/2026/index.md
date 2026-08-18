@@ -11,12 +11,23 @@ title: Okta Classic Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [](#) | August 12, 2026 |
+
+####
+
+
+
 ### Weekly release 2026.08.1
 <!-- Published on: 2026-08-12T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
+| [Bug fixed in 2026.08.2](#bug-fixed-in-2026-08-2) | August 19, 2026 |
 
 #### New IP service categories for enhanced dynamic zones
 
