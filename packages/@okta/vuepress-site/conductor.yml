@@ -6150,7 +6150,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/openidconnect/main/#build-your-integration
     to: /docs/guides/submit-app-prereq/main/#oin-wizard-requirements
   - from: /docs/guides/build-sso-integration/openidconnect/main/#scopes
-    to: /docs/concepts/oauth-claims/
+    to: /docs/concepts/oauth-claims/#claims-versus-scopes
   - from: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
     to: /docs/reference/rate-limits/
   - from: /docs/guides/build-sso-integration/saml2/index.html
