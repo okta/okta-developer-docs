@@ -13,16 +13,6 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## August
 
-### Weekly release 2026.08.2
-
-| Change | Expected in Preview Orgs | Expected in Production |
-| ------ | ------------------------ | ---------------------- |
-| [Static JWKS content for workload connections is GA](#static-jwks-content-for-workload-connections-is-ga) | August 19, 2026 | ?? |
-
-#### Static JWKS content for workload connections is GA
-
-You can now configure Non-Human Identity workload connections to verify JWTs using static JWKS content. See [Workload Connections](https://developer.okta.com/docs/api/openapi/opa/opa/workload-connections).
-
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-03T12:00:00Z -->
 

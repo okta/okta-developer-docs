@@ -14,18 +14,19 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 ## August
 
 ### Weekly release 2026.08.2
+<!-- Published on: 2026-08-19T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2026.08.2](#bugs-fixed-in-2026-08-2) | August 19, 2026 |
+| [Bug fixed in 2026.08.2](#bug-fixed-in-2026-08-2) | August 19, 2026 |
 
-#### Bugs fixed in 2026.08.2
+#### Bug fixed in 2026.08.2
 
-* The following endpoints weren't visible in the Rate limit report:
-* `/governance/api/v1/my/campaigns/{campaignId}/reviews`
-* `/governance/api/v1/my/campaigns/{campaignId}/reviews/actions`
-* `/governance/api/v1/my/campaigns/{campaignId}/reviews/bulk-decisions`
-* `/governance/api/v1/my/campaigns/{campaignId}/reviews/bulk-decisions/jobs/{jobId}` (OKTA-1211609)
+The following endpoints weren't visible in the Rate limit report:
+  * `/governance/api/v1/my/campaigns/{campaignId}/reviews`
+  * `/governance/api/v1/my/campaigns/{campaignId}/reviews/actions`
+  * `/governance/api/v1/my/campaigns/{campaignId}/reviews/bulk-decisions`
+  * `/governance/api/v1/my/campaigns/{campaignId}/reviews/bulk-decisions/jobs/{jobId}` (OKTA-1211609)
 
 ### Weekly release 2026.08.1
 <!-- Published on: 2026-08-12T12:00:00Z -->

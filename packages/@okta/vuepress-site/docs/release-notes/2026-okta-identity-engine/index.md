@@ -14,12 +14,13 @@ title: Okta Identity Engine API release notes 2026
 ## August
 
 ### Weekly release 2026.08.2
+<!-- Published on: 2026-08-19T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Unified identity for AI agents is GA in Production](#unified-identity-for-ai-agents-is-ga-in-production) | August 19, 2026 |
 | [Authorization and token endpoints support multiple resources per refresh token is GA in Preview](#authorization-and-token-endpoints-support-multiple-resources-per-refresh-token-is-ga-in-preview) | August 19, 2026 |
-| [Bugs fixed in 2026.08.2](#bugs-fixed-in-2026082)| August 19, 2026 |
+| [Bugs fixed in 2026.08.2](#bugs-fixed-in-2026-08-2) | August 19, 2026 |
 
 #### Unified identity for AI agents is GA in Production
 
@@ -39,7 +40,7 @@ This feature is only available for orgs that are subscribed to Okta for AI Agent
 
 * When you sent a PATCH request to `/resource-servers/api/v1/mcp-servers/{mcpServerId}/authorization-servers/{authServerId}` that included the immutable `issuer` or `type` fields, the API silently ignored those fields instead of returning an HTTP 4xx error. (OKTA-1244902)
 
-* POST `/api/v1/users` and POST `/api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697) (OKTA-1210697)
+* `POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697) (OKTA-1210697)
 
 ### Weekly release 2026.08.1
 <!-- Published on: 2026-08-12T12:00:00Z -->
