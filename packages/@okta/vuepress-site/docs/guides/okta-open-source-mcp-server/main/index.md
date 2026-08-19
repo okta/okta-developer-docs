@@ -14,7 +14,7 @@ The [Okta Open Source MCP Server](/docs/concepts/mcp-server/) is a self-hosted s
 
 ## Okta Managed MCP Server
 
-The Okta Managed MCP Server is a cloud-hosted server where Okta hosts and manages the server on your behalf. Your chat client streams instructions over secure HTTPS, which removes the need for local software installation, hosting, and maintenance.
+The [Okta Managed MCP Server](https://help.okta.com/okta_help.htm?type=mcp&id=mcpserver-mcpserver) is a cloud-hosted server where Okta hosts and manages the server on your behalf. Your chat client streams instructions over secure HTTPS, which removes the need for local software installation, hosting, and maintenance.
 
 ## Choose a deployment option
 
