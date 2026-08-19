@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.2
+<!-- Published on: 2026-08-19T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.08.2](#bug-fixed-in-2026-08-2) | August 19, 2026 |
+
+#### Bug fixed in 2026.08.2
+
+The endpoints `POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697)
+
 ### Weekly release 2026.08.1
 <!-- Published on: 2026-08-12T12:00:00Z -->
 
@@ -43,6 +54,7 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 #### New System Log events for Office 365 app-based provisioning is GA in Production
 
 The System Log now logs the following events for app-based authentication for Office 365 provisioning:
+
 * `app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app that's registered and used for Office 365 provisioning.
 * `app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
 
@@ -84,7 +96,7 @@ See [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-manag
 
 #### Bug fixed in 2026.08.0
 
-* The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
+The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
 
 ## July
 
