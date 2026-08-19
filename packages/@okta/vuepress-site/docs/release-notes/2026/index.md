@@ -20,7 +20,7 @@ title: Okta Classic Engine API release notes 2026
 
 #### Bug fixed in 2026.08.2
 
-`POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697) (OKTA-1210697)
+The endpoints `POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697)
 
 ### Weekly release 2026.08.1
 <!-- Published on: 2026-08-12T12:00:00Z -->

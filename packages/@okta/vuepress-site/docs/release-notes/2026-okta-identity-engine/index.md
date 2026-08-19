@@ -19,18 +19,11 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Unified identity for AI agents is GA in Production](#unified-identity-for-ai-agents-is-ga-in-production) | August 19, 2026 |
-| [Authorization and token endpoints support multiple resources per refresh token is GA in Preview](#authorization-and-token-endpoints-support-multiple-resources-per-refresh-token-is-ga-in-preview) | August 19, 2026 |
 | [Bugs fixed in 2026.08.2](#bugs-fixed-in-2026-08-2) | August 19, 2026 |
 
 #### Unified identity for AI agents is GA in Production
 
 Okta now resolves AI agent identities across every registration path into a single authoritative record per org. Each agent can now carry an `externalId` and `platform` value to ensure agents are unique. This feature adds new endpoints for listing, reviewing, resolving staged conflicts and managing provider priority. See [AI Agent Providers](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders). <!-- OKTA-1246247 FF: SECURE_AI_AGENTS_UNIFY_IDENTITY -->
-
-#### Authorization and token endpoints support multiple resources per refresh token is GA in Preview
-
-The `/authorize` and `/token` endpoints for custom authorization servers now accept multiple `resource` parameters. Request a refresh token that's scoped to several resources at authorization time. Then exchange it at `/token` (`grant_type=refresh_token`) for an access token whose `aud` claim is a single one of those resources. One refresh token now covers multiple resources, and each call mints a precisely scoped, single-audience token, instead of one refresh token per resource. See [Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707).
-
-This feature is only available for orgs that are subscribed to Okta for AI Agents and have the agent-to-agent connections feature enabled.
 
 #### Bugs fixed in 2026.08.2
 
@@ -40,7 +33,7 @@ This feature is only available for orgs that are subscribed to Okta for AI Agent
 
 * When you sent a PATCH request to `/resource-servers/api/v1/mcp-servers/{mcpServerId}/authorization-servers/{authServerId}` that included the immutable `issuer` or `type` fields, the API silently ignored those fields instead of returning an HTTP 4xx error. (OKTA-1244902)
 
-* `POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697) (OKTA-1210697)
+* The endpoints `POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697)
 
 ### Weekly release 2026.08.1
 <!-- Published on: 2026-08-12T12:00:00Z -->
