@@ -189,7 +189,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 1. Click **Add**.
 
-> **Note:** Use of XAA as part of SSO is limited to 250 ID JAG tokens per user, per resource app, per month. For the purposes of this limit, a "User" must be a licensed "User of Single Sign-On in an Active Status," and the total number of users using XAA can't exceed the org's total purchased SSO users. One ID JAG token is consumed each time an AI agent uses XAA to access a resource app. If you require ID-JAG token volumes above the limit, contact your Okta account team to subscribe to Okta for AI Agents for a platform-wide agentic identity security solution.
+> **Note:** Use of XAA as part of SSO is limited to 250 ID-JAG tokens per user, per resource app, per month. For the purposes of this limit, a "User" must be a licensed "User of Single Sign-On in an Active Status," and the total number of users using XAA can't exceed the org's total purchased SSO users. One ID-JAG token is consumed each time an AI agent uses XAA to access a resource app. If you require ID-JAG token volumes above the limit, contact your Okta account team to subscribe to Okta for AI Agents for a platform-wide agentic identity security solution.
 
 ## Migration from Okta for AI Agent delegation link
 
