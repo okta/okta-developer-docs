@@ -82,9 +82,19 @@ The AI Agent is the machine identity that your calling app uses to sign token ex
 
 The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
 
-In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. That import generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms).
+> **Note:** Importing an agent (for example, enabling AI Agent Imports for the AWS or Azure app integration and running an import) only creates the AI Agent record under **Directory** > **AI Agents**. You still have to register client credentials, bind the OIDC app, and configure machine access before the agent can complete a token exchange. See [Configure a real imported AI Agent](#configure-a-real-imported-ai-agent).
 
-This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
+#### Configure a real imported AI Agent
+
+In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. That import creates the AI Agent record, but you still configure its credentials, sign-on app, and authorization server, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms):
+
+<AiAgentImportedAgentSetup/>
+
+That process generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests.
+
+#### Register a stand-in AI Agent for this walkthrough
+
+This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end without a real imported agent, manually register a stand-in AI Agent identity instead. This path uses a client secret rather than the key-pair authentication that [a real imported agent](#configure-a-real-imported-ai-agent) uses:
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
@@ -107,6 +117,8 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 > **Note:** Make a note of the AI Agent ID and client credentials.
 
 ### Configure the OIDC integration app
+
+> **Note:** This section continues the stand-in agent walkthrough above. If you're using a real imported agent, [Configure a real imported AI Agent](#configure-a-real-imported-ai-agent) already covers binding the OIDC app.
 
 After you create the AI Agent, configure the associated OIDC app that's bound to the agent.
 
@@ -691,6 +703,8 @@ The following errors come from the Okta token exchange module:
 | --- | --- | --- |
 | `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS and the managed connection |
 | `invalid_client: Client authentication failed` | The `client_secret` is missing or doesn't match the AI Agent's registered secret | Confirm `AGENT_CLIENT_SECRET`/`OIDC_CLIENT_SECRET` matches the secret generated in **Client registration** |
+| `invalid_client: JWKSet not configured` | The agent's client registration uses **Public/private key** authentication, but no public key is registered | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Client registration**. See [Configure a real imported AI Agent](#configure-a-real-imported-ai-agent) |
+| `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Client registration** page into your code's key ID variable |
 | `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
 | `access_denied: no_matching_policy` | The custom authorization server access policy is missing the JWT bearer grant | In the custom authorization server access policy rule, enable the JWT bearer grant |
 | `Only service apps can use client_credentials` | Wrong grant type sent to the org authorization server | Use `grant_type=urn:ietf:params:oauth:grant-type:token-exchange` for step 1, not `client_credentials` |
