@@ -94,7 +94,9 @@ That process generates the client ID, key ID, and private key that your agent's 
 
 #### Register a stand-in AI Agent for this walkthrough
 
-This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end without a real imported agent, manually register a stand-in AI Agent identity instead. This path uses a client secret rather than the key-pair authentication that [a real imported agent](#configure-an-imported-ai-agent) uses:
+This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end without a real imported agent, manually register a stand-in AI Agent identity instead. This path uses a client secret rather than the key-pair authentication that [a real imported agent](#configure-an-imported-ai-agent) uses.
+
+> **Note:** The `curl` calls and demo scripts later in this guide (starting at [Complete the token exchange flow](#complete-the-token-exchange-flow)) authenticate with `client_id`/`client_secret`, matching this stand-in path. If you're testing with a real imported agent that uses public/private key authentication instead, sign a `client_assertion` JWT with the agent's private key rather than sending a `client_secret`. See the `token_exchange.py` module in the platform-specific guides listed under [Supported platforms](#supported-platforms) for a working example.
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
@@ -146,6 +148,8 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 1. Exchange the ID-JAG for an `access_token`
 
 > **Note:** These two calls implement the **Authorization server** resource type described generically in [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/). The request and response shapes are the same; if you change scopes, grant types, or parameters here, check that guide too so the two stay in sync.
+
+> **Note:** The following calls authenticate with `client_id`/`client_secret`, matching the [stand-in agent](#register-a-stand-in-ai-agent-for-this-walkthrough) path. For a real [imported agent](#configure-an-imported-ai-agent) using public/private key authentication, replace `client_secret` with a signed `client_assertion` JWT, as shown in the `token_exchange.py` module in the platform-specific guides under [Supported platforms](#supported-platforms).
 
 To test this flow, use the following `curl` calls with your configured data.
 
