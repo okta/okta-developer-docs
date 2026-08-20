@@ -8,10 +8,11 @@
 
     <ol>
       <li>Select your imported AI Agent from <strong>Directory</strong> &gt; <strong>AI Agents</strong>, and click <strong>Client registration</strong>.</li>
-      <li>Select <strong>Public/private key</strong> as the client authentication method.</li>
+      <li>Click <strong>Configure</strong> in the <strong>Public/private key</strong> tile.</li>
+      <li>In <strong>Step 1: Define where keys are managed</strong>, select <strong>Okta</strong>.</li>
       <li>Click <strong>Add public key</strong>, then <strong>Generate new key</strong> to have Okta generate an RSA key pair, or paste a public key you generated yourself. Click <strong>Done</strong>.</li>
       <li>Copy the private key (JSON or PEM) and store it in a secrets manager immediately. Okta shows it only once.</li>
-      <li>Copy the <strong>Client ID</strong>. Click <strong>Activate</strong>, then <strong>Enable</strong> in the confirmation dialog.</li>
+      <li>Copy the <strong>Client ID</strong>. In <strong>Step 2: Activate for your AI agent</strong>, click <strong>Activate</strong>, then <strong>Enable</strong> in the confirmation dialog.</li>
     </ol>
 
     <blockquote>
