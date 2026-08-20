@@ -38,7 +38,8 @@
 
     <ol>
       <li>On the agent's <strong>Machine access</strong> tab, click <strong>Configure</strong>.</li>
-      <li>Select your custom <strong>Authorization server</strong>, and enter the <strong>Audience/resource URL</strong>. Click <strong>Save</strong>.
+      <li>
+        Select your custom <strong>Authorization server</strong>, and enter the <strong>Audience/resource URL</strong>. Click <strong>Save</strong>.
         <blockquote>
           <p><strong>Note:</strong> You can't edit the audience value after you save it.</p>
         </blockquote>
