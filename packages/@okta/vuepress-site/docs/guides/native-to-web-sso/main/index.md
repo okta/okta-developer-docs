@@ -192,6 +192,16 @@ If the credentials are valid, Okta responds with the required tokens. This examp
 }
 ```
 
+### Refresh token lifetime
+
+When you request both the `interclient_access` and `offline_access` scopes, the refresh token that Okta issues follows the token lifetime that's configured in the authorization server's access policy. It isn't determined by your org's global session policy. This applies whether you use the Okta org authorization server or a custom authorization server.
+
+The refresh token remains valid after the global session expires. You can continue to refresh the access token and exchange tokens for an `interclient_token` for the configured lifetime of the refresh token.
+
+The app sign-in policy for the target web app still applies. Okta doesn't re-prompt the user for factors that they already satisfied, but it challenges the user when the target app requires a factor or re-authentication that the current assurance level doesn't meet. A refresh token that outlives the global session doesn't guarantee that the user is never prompted again.
+
+Without the `offline_access` scope, Okta doesn't issue a refresh token.
+
 ### Request to initialize Native to Web SSO
 
 When the user requests access to a resource from the target web app, the native app needs to launch a trusted target web app. It makes a request to refresh the access token, if necessary, and gets back refreshed tokens from Okta. Then, the OIDC origin app needs to exchange the tokens for a single-use interclient token from an Okta authorization server. The Okta org authorization server is used in this example. Your request should look something like this example. The tokens are truncated for brevity.
