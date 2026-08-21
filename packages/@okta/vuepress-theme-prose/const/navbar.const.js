@@ -591,6 +591,10 @@ export const guides = [
                 title: "Secure an Amazon Bedrock AgentCore agent",
                 guideName: "ai-agent-secure-amazon-bedrock",
               },
+              {
+                title: "Secure Azure AI Foundry agents",
+                guideName: "ai-agent-secure-azure",
+              },
             ],
           },
         ],
