@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.08.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-2</guid>
+      <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[SaaS Application Accounts APIs now support workload_end_user role<br>API keys for workload connections is GA<br>Static JWKS content for workload connections is GA]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-08-0</link>

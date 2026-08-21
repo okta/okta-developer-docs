@@ -13,6 +13,28 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## August
 
+### Weekly release 2026.08.2
+<!-- Published on: 2026-08-20T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| SaaS Application Accounts APIs now support workload_end_user role | August 20, 2026 | |
+| API keys for workload connections is GA | August 20, 2026 | |
+| Static JWKS content for workload connections is GA | August 20, 2026 |
+
+#### SaaS Application Accounts APIs now support workload_end_user role
+
+The SaaS Application Accounts APIs now support workload principals (non-human identity) through the workload_end_user role. In addition, you can now filter end-user SaaS app instances and SaaS app service accounts using the new app_instance_name, account_name, and username query parameters. See the [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts) API. <!-- OKTA-1103325, FF: cedar_pam_saas_nhi, Preview Aug 20, 2026 -->
+
+#### API keys for workload connections is GA
+
+Okta Privileged Access now supports API keys as an authentication method for workload connections. See [Workload Connections](https://developer.okta.com/docs/api/openapi/opa/opa/workload-connections).  <! --- FF: nhi_api_key, Preview Aug 20, 2026 -->
+
+#### Static JWKS content for workload connections is GA
+
+You can now configure Non-Human Identity workload connections to verify JWTs using static JWKS content. This enables workload authentication for high-security on-premises systems without requiring public key discovery endpoints. See [Workload Connections](https://developer.okta.com/docs/api/openapi/opa/opa/workload-connections).
+<!-- OKTA-1156336, FF : nhi_static_jwks, Preview Aug 20, 2026 -->
+
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-03T12:00:00Z -->
 
