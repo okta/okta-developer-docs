@@ -67,6 +67,8 @@ When you enable the Flexible Okta Verify authenticator configuration feature, Ok
 { "key": "okta_verify_fastpass", "enroll": { "self": "REQUIRED" } }
 ```
 
+> **Note:** The `enroll.self` values, along with the user's device, determine how the Okta Verify enrollment flow starts, including whether same-device Okta FastPass enrollment is available. Because Okta Verify on desktop doesn't support push notifications, some configurations require users to enroll on a mobile device. For the enrollment-flow logic and recommended configurations, see [How Okta determines the enrollment flow](https://help.okta.com/okta_help.htm?id=ov-breakdown).
+
 #### Okta Verify in app sign-in policies
 
 For app sign-in policies, Okta maps each `okta_verify` key to the corresponding per-method key based on the rule's `method` value. For example, the following app sign-in policy rule references `okta_verify` for the TOTP and Okta FastPass methods:
