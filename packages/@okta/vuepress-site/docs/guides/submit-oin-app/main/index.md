@@ -62,7 +62,6 @@ Configure your OIN catalog properties:
 
 <StackSnippet snippet="tenant-settings"/>
 
-
 <StackSnippet snippet="auth-settings"/>
 
 ### Configure your integration
