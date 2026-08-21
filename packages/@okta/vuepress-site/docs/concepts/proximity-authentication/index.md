@@ -9,7 +9,7 @@ meta:
 
 <ApiLifecycle access="ea" />
 
-Proximity authentication verifies a user's identity by detecting the physical proximity of a paired card, token, or other device to a host system. Implementations vary in the detection mechanism and token type they use to establish proximity. Some systems verify a user's palm or face as they approach a reader, rather than requiring a physical card or token.
+Proximity authentication verifies a user's identity by detecting the physical proximity of a paired card, token, or other device to a host system. Implementations vary in the detection mechanism and token type that they use to establish proximity. Some systems verify a user's palm or face as they approach a reader, rather than requiring a physical card or token.
 
 In Okta, the [NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-nfc-authenticator) implements proximity authentication by using NFC cards. A user taps an NFC card to a compatible reader, and Okta Verify reads the card and identifies the user. The Sign-In Widget then prompts the user to enter a PIN. The NFC authenticator is the only proximity authenticator that Okta currently supports.
 
@@ -38,6 +38,8 @@ Proximity authentication using the NFC authenticator involves the following thre
 * **Okta**: Okta creates and manages enrollment records, generates and stores cryptographic material for hardware-protected tags, and identifies the user during verification.
 
 Because Okta Verify runs on the device and not in a browser, it doesn't handle PIN entry. The PIN challenge is always routed to the Sign-In Widget.
+
+> **Note:** A managed Okta Verify installation is registered to a single Okta org. In an [Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) (hub-and-spoke) configuration, a user signs in to a target org through an Org2Org IdP. NFC authentication is available only for the org that the device's Okta Verify installation is registered to, not for a target org reached from that device. As a result, in a multi-org deployment, a worker on a shared device can use NFC authentication only for the device's registered org.
 
 The NFC card's role in proximity authentication depends on how authentication data is stored on it. Every NFC card has a unique identifier (UID) assigned by the manufacturer. During enrollment, Okta reads this UID and stores a record that links it to a user. Cards without hardware protection expose their UID as plain, readable data. Those cards are typically low-cost and easy to reuse and reassign between users. The PIN is the primary security control.
 
@@ -88,8 +90,7 @@ Authentication assurance differs by tag type. The `authenticatorCharacteristics.
 | Non-hardware-protected (NTAG) | `false` | Possession and knowledge | `user`, `pin`, `kba`, `mfa` |
 | Hardware-protected (DESFire) | `true` | Possession and knowledge | `user`, `pin`, `kba`, `hwk`, `mfa` |
 
-The `hwk` claim indicates that the possession factor required a physical device with a secure element. The mutual authentication step during verification proves that the physical card is authentic, and not only that someone has the right identifier. Use this claim when configuring authenticator assurance policies that require
-hardware-bound authentication.
+The `hwk` claim indicates that the possession factor required a physical device with a secure element. The mutual authentication step during verification proves that the physical card is authentic, and not only that someone has the right identifier. Use this claim when configuring authenticator assurance policies that require hardware-bound authentication.
 
 ## See also
 
