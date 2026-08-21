@@ -4,17 +4,17 @@ excerpt: Implement XAA token exchange for your requesting app
 layout: Guides
 ---
 
-This guide explains how to enable Cross App Access (XAA) token exchange for a requesting app (client) that federates enterprise users through Security Assertion Markup Language (SAML) 2.0.
+This guide explains how to enable Cross App Access (XAA) token exchange for a requesting agentic app (client) that federates enterprise users through Security Assertion Markup Language (SAML) 2.0.
 
 ---
 
 #### Learning outcomes
 
-Understand how to implement the XAA token exchange sequences necessary for a requesting app (the XAA client).
+Understand how to implement the XAA token exchange sequences necessary for a requesting agentic app (the XAA client).
 
 #### What you need
 
-* An app that federates enterprise users through SAML 2.0, and assumes the requesting app role in the XAA flow
+* An agentic app that federates enterprise users through SAML 2.0, and assumes the requesting app role in the XAA flow
 * An Okta org used for SAML 2.0 federation, such as an [Okta Integrator Free Plan org](https://developer.okta.com/signup)
   * You've registered your requesting app with SAML SSO and XAA capabilities in your Okta org. See [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) and [Configure the requesting app](/docs/guides/xaa-agent-to-app/main/#configure-the-ai-agent-requesting-app).
   [[style="list-style-type:square"]]
@@ -23,9 +23,9 @@ Understand how to implement the XAA token exchange sequences necessary for a req
 
 ## Overview
 
-The [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) specification, which forms the basis for XAA, was originally designed for OpenID Connect (OIDC). By following this guide, you can support XAA in SAML-based apps without migrating your core authentication infrastructure to OIDC. Review the [XAA concept](/docs/concepts/xaa/) for more information.
+The [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) specification, which forms the basis for XAA, was originally designed for OpenID Connect (OIDC). By following this guide, you can support XAA in SAML-based agentic apps without migrating your core authentication infrastructure to OIDC. Review the [XAA concept](/docs/concepts/xaa/) for more information.
 
-In the following XAA token exchange flow, this guide focuses on the interactions required for the **Client (requesting app)**.
+This guide focuses on the interactions required for the **Client (requesting app)** in the following XAA token exchange flow:
 
 <div class="full">
 
@@ -50,6 +50,36 @@ WebApp -> RS: 7 Resource request with access token (such as API requests)
 RS -> WebApp: Returns resource data
 @enduml
 -->
+
+## Okta configuration variables
+
+You need to to pass configuration values from the Okta org and resource server to your requesting app at runtime to complete the XAA flow. The table below provides the minimium variables you need to pass to your SAML requesting app:
+
+| Variable | Description |
+|---|---|
+| `{yourOktaDomain}` | Your Okta org domain. For example, `integrator-1234567.okta.com`. |
+| `{samlMetadataUrl}` | The URL to your SAML SSO metadata in XML format. For example, `https://integrator-1234567.okta.com/app/my-saml-requesting-app_1/exkzkmlrpqpLBtMPL1d7/sso/saml` |
+| `{spAcsUrl}` | The service provider (SP) ACS URL. The SP is your requesting app. For example: `http://localhost:52118/saml/acs` |
+| `{spEntityId}` | The SP entity ID. This is a globally unique URI that identifies your SAML requesting app to the IdP. For example: `http://localhost/sso-debug` |
+| `{spSigningKey}` | The SP signing key. `private key JWK (kid 623a99274239c682f400554a325c3f40)` |
+| `{agentId}` | The AI agent ID. The agent assumes the role of the client, so this is also referred to as the client ID. For example, `wlpzkmw02c30VEZru1d7`. |
+| `{agentKey}` | The AI agent's private key. The agent assumes the role of the client, so this is also referred to as the client private key. |
+| `{resourceAud}` | The resource audience. For example, `http://motd.local3:31245/`. |
+| `{resourceTokenUrl}` | The resource token URL. For example, `http://motd.local3:31245/token` |
+| `{resourceApiUrl}` | The resource API URL. For example, `http://motd.local3:31245/motd` |
+| `{clientRefreshScopes}` | The refresh scopes for the SAML requesting app. For example, `openid offline_access email`. |
+| `{idJagScopes}` | The scopes for the ID-JAG token. For example, `my.xaa.a.read my.xaa.b.manage` |
+| `{idPSignCert}` | The IdP signing certificate for the SAML requesting app in PEM format. |
+
+Some values are obtained after you register your agentic requesting app and resource server in your Okta org.
+
+1. See [Configure the AI agent (requesting app)](/docs/guides/xaa-agent-to-app/main/#configure-the-ai-agent-requesting-app) to register your agentic requesting app in Okta. At the end of this process, you have two objects and the following variables to pass to your app:
+    1. AI agent: `{agentId}` as the AI agent's unique ID, `{agentKey}` as the AI agent's client private key.
+    [[style="list-style-type:lower-alpha"]]
+    1. The SAML app integration instance: `{samlMetadataUrl}` as the SAML assertion in XML, `{idPSignCert}` as the IdP's SAML signing certificates
+1. See [Configure the resource app](/docs/guides/xaa-agent-to-app/main/#configure-the-resource-app) to register your resource server in Okta. At the end of this process, you have an app integration instance and the following variables to pass to your app:
+    1. App integration instance : `{resourceAud}` as the resource audience, `{resourceTokenUrl}` as the resource token URL, and `{resourceApiUrl}` as the resource API URLs your AI agent wants to access.
+    [[style="list-style-type:lower-alpha"]]
 
 ## Flow specifics for SAML requesting app
 
@@ -81,14 +111,14 @@ RS -> WebApp: 9. Returns resource data
 @enduml
 -->
 
-1. **User SSO**:
+1. **[User SSO](#user-sso)**:
    1. The user initiates sign in to your app, which uses the IdP to SSO with SAML 2.0
    [[style="list-style-type:lower-alpha"]]
    1. After the user is authenticated, the IdP returns the SAML assertion response to your app.
    1. Your app uses the SAML assertion to request for a refresh token from the IdP
 
-1. **ID/refresh token issued**: The IdP returns a refresh token.
-1. **Token exchange for ID-JAG**: To access a specific resource on behalf of the user, your app exchanges the refresh token to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
+1. **Refresh token issued**: The IdP returns a refresh token.
+1. **[Token exchange for ID-JAG](#token-exchange-for-id-jag)**: To access a specific resource on behalf of the user, your app exchanges the refresh token to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
 1. **ID-JAG token issued**: The IdP issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
 1. **JWT Authorization Grant**: Your app presents the ID-JAG token to the resource authorization server.
 1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
@@ -99,83 +129,89 @@ RS -> WebApp: 9. Returns resource data
 ### User SSO
 
 1. When a user signs into your federated app, your app uses SAML and redirects the user to the IdP for SSO. As a prerequisite for this to happen, your app has to integrate and register with the IdP with SAML SSO. See [SAML concept](/docs/concepts/saml/) and [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) in the product documentation for details.
-[[style="list-style-type:lower-alpha"]]
 
-2. After the user is authenticated, the IdP returns the users's SAML assertion response to your requesting app (`SAMLResponse>`).
+2. After the user is authenticated, the IdP returns the users's SAML assertion response (`<SAMLResponse>`) to your requesting app. Save this base64-encoded SAML response as `{SAMLReponse}` for the refresh token exchange.
 
-1. Use the SAML assertion to exchange for a refresh token from your IdP's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token). Add code to your app to handle the token exchange.
+3. Use the SAML assertion to exchange for a refresh token from your Okta org's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token). This exchange follows the [OAuth 2.0 Token Exchange (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693) specification.
 
-    1. Create the client assertion JWT.
-       This assertion is in `private_key_jwt` form and tells the IdP who the client is. See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/js/main/). Specify the following claims in your JWT payload:
+   Add code to your app to handle the token exchange:
 
-        | Claim    | Description                                                  | Type        |
-        |----------|--------------------------------------------------------------|-------------|
-        | `aud`      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://{yourOktaDomain}/oauth2/default/v1/token` | String  |
-        | `exp`      | Required. The token expiration time in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555594819`. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired.            | Integer     |
-        | `iss`      | Required. The issuer of the token. This value must be the same as the `client_id` of the application that you’re accessing.  | String      |
-        | `sub`      | Required. The subject of the token. This value must be the same as the `client_id` of the application that you’re accessing. | String       |
-        | `jti`      | Optional. The unique token identifier. If you specify this parameter, the token can only be used once and, as a result, subsequent token requests don't succeed. | String    |
-        | `iat`      | Optional. When the token was issued in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555591219`. If specified, it must be a time before the request is received. | Integer     |
-        
+   1. Create the client assertion JWT (the `{client_assertion}` used in the token exchange). See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/js/main/).
+    [[style="list-style-type:lower-alpha"]]
 
-        ```json
-        // header
-        { "typ": "JWT", "alg": "RS256", "kid": "623a99274239c682f400554a325c3f40" }
-        // payload
-        {
-          "iss": "wlpzkmw02c30VEZru1d7",   // THE AGENT (issuer == subject)
-          "sub": "wlpzkmw02c30VEZru1d7",
-          "aud": "https://dev-njoshi-oie-op3.oktapreview.com/oauth2/v1/token",
-          "exp": 1781224051,
-          "iat": 1781223751,               // exp = iat + 300s
-          "jti": "17845943-3f7c-418a-90c8-6cc499c6a6a3"
-        }
-        ```
+      This assertion is in `private_key_jwt` form and tells the IdP who the client is.  Specify the following claims in your JWT payload:
 
+      | Claim    | Description                                                  | Type        |
+      |----------|--------------------------------------------------------------|-------------|
+      | `aud`      | The full URL of the resource that you're trying to access using the JWT to authenticate. Set to the Okta IdP's token exchange endpoint: `https://{yourOktaDomain}/oauth2/v1/token` | String  |
+      | `iss`      | Set to `{agentId}`. The issuer of the token. | String      |
+      | `sub`      | Set to `{agentId}`. The subject of the token.  | String      |
+      | `exp`      | The token expiration time in UNIX timestamp format. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired. | Integer |
+      | `jti`      | Optional. The unique token identifier. If you specify this parameter, the token can only be used once and, as a result, subsequent token requests don't succeed. | String   |
+      | `iat`      | Optional. When the token was issued in UNIX timestamp format. If specified, it must be a time before the request is received. | Integer |
 
-    ```http
-    POST /oauth2/v1/token HTTP/1.1
-    Host: {yourOktaDomain}
-    Content-Type: application/x-www-form-urlencoded
+      Sign your JWT with the private key from the AI agent (`{agentKey}`) in Okta. See [Build a JWT with a private key](https://developer.okta.com/docs/guides/build-self-signed-jwt/js/main/#build-a-jwt-with-a-private-key) for guidance on how to build your JWT with a private key.
 
-    grant_type=uurn:ietf:params:oauth:grant-type:token-exchange
-    &assertion={base64_encoded_saml_assertion}
-    &client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-    &client_assertion={your_requesting_signed_client_jwt}
-    &scope=offline_access
-    ```
-    
-1. 
-1. 
-1. 
+     1. Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token) with the following parameters to obtain a refresh token.
 
+        | Parameter             | Type   | Required | Description   |
+        |-----------------------|--------|----------|-----------------------------|
+        | `grant_type`          | String | Yes      | Set to `urn:ietf:params:oauth:grant-type:token-exchange`. |
+        | `client_id`           | String | Yes      | Set to `{agentId}`. This is client ID of the requesting app role, which is the AI agent in Okta. |
+        | `client_assertion_type` | String | Yes    | Set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+        | `client_assertion`    | String | Yes      | Set to `{client_assertion}`, the signed JWT generated from the previous step. |
+        | `subject_token`       | String | Yes      | Set to `{SAMLResponse}`, the base64-encoded SAML 2.0 assertion received from the IdP.  |
+        | `subject_token_type`  | String | Yes      | Set to `urn:ietf:params:oauth:token-type:saml2` |
+        | `requested_token_type` | String | Yes     | Set to `urn:ietf:params:oauth:token-type:refresh_token` |
+        | `scope`               | String | Yes      | Set to `openid offline_access email` (`offline_access` is required to issue a refresh token). |
 
+          ```bash
+          POST /oauth2/v1/token HTTP/1.1
+          Host: {yourOktaDomain}
+          Content-Type: application/x-www-form-urlencoded
 
-Request Format
-Send an HTTP POST request to your Okta org authorization server /token endpoint using client_credentials authentication signed by your AI Agent's private key (private_key_jwt).
-HTTP
+          grant_type=urn:ietf:params:oauth:grant-type:token-exchange&
+          subject_token={SAMLResponse}&
+          subject_token_type=urn:ietf:params:oauth:token-type:saml2&
+          requested_token_type=urn:ietf:params:oauth:token-type:refresh_token&
+          scope=openid+offline_access+email&
+          client_id={agentId}&
+          client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&
+          client_assertion={client_assertion}
+          ```
 
-### Token request parameters
+4. After the refresh token exchange request is sent, the IdP (Okta) responds with the requested token. For example:
+
+```JSON
+{
+    "access_token": "eyJraWQ.....rm8EA4osYg",
+    "expires_in": 7776000,
+    "issued_token_type": "urn:ietf:params:oauth:token-type:refresh_token",
+    "scope": "offline_access openid",
+    "token_type": "N_A",
+}
+```
+
+Despite the returned property name of `access_token`, this value is the refresh token. The `issued_token_type` is authoritative and indicates what type of token is returned. Save the `access_token` value as the `{refresh_token}` variable to use in your token exchange for ID-JAG in the next step.
+
+### Token exchange for ID-JAG
+
+Use the refresh token obtained from the previous step to request an ID-JAG token from the Okta org authorization server. The ID-JAG acts as the signed identity assertion presented to the target resource.
+
+> **Note:** You're using the same Okta org authorization server's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token) for this token exchange.
+
 | Parameter             | Type   | Required | Description   |
 |-----------------------|--------|----------|-----------------------------|
-| `grant_type`          | String | Yes      | Must be set to `urn:ietf:params:oauth:grant-type:saml2-bearer`.                             |
-| `assertion`           | String | Yes      | The Base64-encoded SAML 2.0 assertion received from the IdP.                                |
-| `client_assertion_type` | String | Yes    | Must be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.                    |
-| `client_assertion`    | String | Yes      | A signed JWT generated by your app using the registered AI Agent's private key.             |
-| `scope`               | String | Yes      | Must include `offline_access` to issue a refresh token.                                      |
-<!-- ...existing code... -->
+| `grant_type`          | String | Yes      | Set to `urn:ietf:params:oauth:grant-type:token-exchange`. |
+| `client_id`           | String | Yes      | Set to `{agentId}`. This is client ID of the requesting app role, which is the AI agent in Okta. |
+| `client_assertion_type` | String | Yes    | Set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion`    | String | Yes      | Set to `{client_assertion_idjag}`, the signed JWT generated from the previous step. |
+| `subject_token`       | String | Yes      | Set to `{refresh_token}`, which identifies the user. |
+| `subject_token_type`  | String | Yes      | Set to `urn:ietf:params:oauth:token-type:refresh_token` |
+| `requested_token_type` | String | Yes     | Set to `urn:ietf:params:oauth:token-type:id-jag` |
+| `scope`               | String | Yes      | Set to `{idJagScopes}`, the scopes allowed to access the resource server |
 
-Response Example
-JSON
-{
-  "access_token": "eyJhbGciOi...",
-  "token_type": "Bearer",
-  "expires_in": 3600,
-  "refresh_token": "r10a_example_refresh_token_value",
-  "scope": "offline_access"
-}
-Step 2: Request the ID-JAG Token
-Use the refresh token obtained in Step 1 to request an ID-JAG token from the Okta org authorization server. The ID-JAG acts as the signed identity assertion presented to the target resource.
+
 Request Format
 Send an HTTP POST request to the org authorization server's /token endpoint:
 HTTP
@@ -189,35 +225,8 @@ grant_type=refresh_token
 &client_assertion={ai_agent_signed_client_jwt}
 &requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Aid-jag
 &resource={target_resource_authorization_server_issuer_url}
-Parameter Reference
-Parameter
-Type
-Required
-Description
-grant_type
-String
-Yes
-Must be set to refresh_token.
-refresh_token
-String
-Yes
-The refresh token obtained during Step 1.
-client_assertion_type
-String
-Yes
-Must be set to urn:ietf:params:oauth:client-assertion-type:jwt-bearer.
-client_assertion
-String
-Yes
-A signed client assertion JWT generated with the AI Agent private key.
-requested_token_type
-String
-Yes
-Must be set to urn:ietf:params:oauth:token-type:id-jag.
-resource
-String
-Yes
-The Issuer URL of the target resource's authorization server (matches the aud claim in the issued ID-JAG).
+
+
 
 Response Example
 JSON
@@ -236,37 +245,6 @@ HTTP
 POST /oauth2/v1/token HTTP/1.1
 Host: {resourceAuthServerDomain}
 Content-Type: application/x-www-form-urlencoded
-
-grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
-&assertion={id_jag_token}
-&client_id={resource_app_client_id}
-&client_secret={resource_app_client_secret}
-&scope={requested_scopes}
-Parameter Reference
-Parameter
-Type
-Required
-Description
-grant_type
-String
-Yes
-Must be set to urn:ietf:params:oauth:grant-type:jwt-bearer.
-assertion
-String
-Yes
-The ID-JAG JWT string received in Step 2.
-client_id
-String
-Yes
-The Client ID registered for the resource application.
-client_secret
-String
-Yes
-The Client Secret associated with the resource application.
-scope
-String
-Optional
-Space-separated list of custom scopes requested on the target authorization server (for example, xaa:read).
 
 Response Example
 JSON
