@@ -58,7 +58,7 @@ You need to to pass configuration values from the Okta org and resource server t
 | Variable | Description |
 |---|---|
 | `{yourOktaDomain}` | Your Okta org domain. For example, `integrator-1234567.okta.com`. |
-| `{clientId}` | The AI agent assumes the role of the client, so this is the AI agent's client ID. You can find this value in the AI agent's **Client registration** tab. For example, `wlpzkmw02c30VEZru1d7`. |
+| `{clientId}` | The AI agent assumes the role of the client, so this is the AI agent's client ID. You can find this value in the AI agent's **Client registration** tab. For example, `wlpa0eiuaoCNrpoaE0g7`. |
 | `{clientKey}` | The agent assumes the role of the client, so this is the AI agent's client private key. You can find this value in the AI agent's **Client registration** tab.|
 | `{clientRefreshScopes}` | The refresh scopes for the SAML requesting app. For example, `openid offline_access email`. |
 | `{SAMLReponse}` | The base64-encoded SAML assertion response from the IdP to the agentic requesting app after the user is authenticated. |
@@ -66,6 +66,8 @@ You need to to pass configuration values from the Okta org and resource server t
 | `{resourceAud}` | The resource's authorization server issuer URI. This is the resource audience where the client intends to send the ID-JAG. For example, `https://as.myresource.com`. |
 | `{resourceTokenUrl}` | The resource token URL. For example, `https://as.myresource.com/oauth/v1/token` |
 | `{resourceApiUrl}` | The resource server's API base URL. For example, `https://myresource.example.com/api/v1/` |
+| `{resourceClientId}` | The resource server's client ID. If you've registered the resource server in Okta, this is the resource app's client ID value. |
+| `{resourceClientSecret}` | The resource server's client secret. If you've registered the resource server in Okta, this is the resource app's client secret value. |
 | `{idPSignCert}` | The IdP signing certificate for the SAML requesting app in PEM format. |
 | `{samlMetadataUrl}` | The URL to your SAML SSO metadata in XML format. For example, `https://integrator-1234567.okta.com/app/my-saml-requesting-app_1/exkzkmlrpqpLBtMPL1d7/sso/saml` |
 | `{spAcsUrl}` | The service provider (SP) ACS URL. The SP is your requesting app. For example: `http://localhost:52118/saml/acs` |
@@ -121,7 +123,7 @@ RS -> WebApp: 9. Returns resource data
 1. **Refresh token issued**: The IdP returns a refresh token.
 1. **[Token exchange for ID-JAG](#token-exchange-for-id-jag)**: To access a specific resource on behalf of the user, your app exchanges the refresh token to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
 1. **ID-JAG token issued**: The IdP issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
-1. **Exchange ID-JAG for access tokenr**: Your app presents the ID-JAG token to the resource authorization server for an access token.
+1. **Exchange ID-JAG for access token**: Your app presents the ID-JAG token to the resource authorization server for an access token.
 1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
 1. **Client accesses resource data**: The requesting client (AI agent) uses the short-lived, scoped token to access the protected resource app on the user's behalf.
 
@@ -193,7 +195,7 @@ RS -> WebApp: 9. Returns resource data
 }
 ```
 
-Despite the returned property name of `access_token`, this value is the refresh token. The `issued_token_type` is authoritative and indicates what type of token is returned. Save the `access_token` value as the `{refresh_token}` variable to use in your token exchange for ID-JAG in the next step.
+The `access_token` property value contains the refresh token. The `issued_token_type` is authoritative and indicates what type of token is returned. Save the `access_token` value as the `{refresh_token}` variable to use in your token exchange for ID-JAG in the next step.
 
 ### Token exchange for ID-JAG
 
@@ -232,7 +234,7 @@ Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://develo
 | `audience`             | String | Set to `{resourceAud}`, the issuer URL of the resource app's authorization server. |
 | `scope`                | String | Set to `{idJagScopes}`, the scopes requested to access the resource server. |
 | `resource`             | String | Set to `{resourceApiUrl}`, the resource server's API base URL. |
-| `actor_token`          | String | Set to `{client_assertion}`, the signed JWT generated from [Create a client assertion JWT](#create-a-client-assertion-jwt). In the SAML requesting app XAA flow, this parameter is the delegated actor: the party authorized to act on behalf of the subject. |
+| `actor_token`          | String | Set to `{client_assertion}`, the signed JWT generated from [Create a client assertion JWT](#create-a-client-assertion-jwt). In the SAML requesting app XAA flow, this parameter is the delegated actor (the party authorized to act on behalf of the subject). |
 | `actor_token_type`     | String | Set to `urn:ietf:params:oauth:token-type:jwt`. Specify this parameter when `actor_token` is provided. |
 
 For example:
@@ -269,18 +271,11 @@ After the ID-JAG token exchange request is sent, the IdP (Okta) responds with th
 
 The returned `access_token` value contains the ID-JAG token. The `issued_token_type` indicates what type of token is returned. Save the `access_token` value in the `{id-jag_token}` variable to use in your request for an access token from the resource's authorization server.
 
-### Send ID-JAG to resource authorization server
+#### Contents of ID-JAG
 
-```bash
-POST /token HTTP/1.1
-Host: the-resource-server.example.com
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic <base64(resource_as_client_id:resource_as_client_secret)>
+If you decode the ID-JAG token, the following payload appears for a SAML requesting app that has the AI agent as a delegated actor.
 
-grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
-assertion=<ID-JAG token>&
-scope=todos.read
-```
+ID-JAG payload example:
 
 ```JSON
 // header
@@ -288,22 +283,46 @@ scope=todos.read
   "typ": "oauth-id-jag+jwt", "alg": "RS256" }
 // payload
 {
-  "sub": "00uzkk8ctx1WtQ8fy1d7",     // THE USER (from the SAML NameID)
+  "sub": "00uzkk8ctx1WtQ8fy1d7",     // The user (from SAML NameID)
   "sub_profile": "user",
-  "act": {                           // THE DELEGATION
-    "sub": "wlpzkmw02c30VEZru1d7",   // THE AGENT (from client_assertion)
+  "act": {                           // The delegation
+    "sub": "wlpa0eiuaoCNrpoaE0g7",   // The AI agent (from {client_assertion})
     "sub_profile": "ai_agent"
   },
-  "aud": "http://motd.local3:31245/",
-  "client_id": "agent-id-motd-001",
-  "email": "haisheng.wu@okta.com",
-  "scope": "motd_tc_xaa",
-  "iss": "https://dev-njoshi-oie-op3.oktapreview.com",
+  "aud": "https://as.myresource.com", // The resource audience: {resourceAud}
+  "client_id": "0oaa0esowyOyPreaI0g7",   // The resource server's client ID: {resourceClientId}
+  "email": "example.user@okta.com",    // The user's email
+  "scope": "my.xaa.a.read my.xaa.b.manage",             // resource server scopes requested: {idJagScopes}
+  "iss": "https://{yourOktaDomain}", // The Okta org that issued the ID-JAG
   "iat": 1781223753,
   "exp": 1781224053,                 // 5-minute lifetime
   "jti": "IDAAG.OmT8mh0IPyEwvTM6MYodfTFB_dYo4JmZIHP4tnh9xoA"
 }
 ```
+
+### Exchange ID-JAG for access token
+
+Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value make the access token request. For authorization, the following examples used the base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. You need to use the authorization scheme supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
+
+Access token request example:
+
+```bash
+POST {resourceTokenUrl} HTTP/1.1
+Host: the-resource-server.example.com
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic <base64({resourceClientId}:{resourceClientSecret})>
+
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
+assertion={id-jag_token}&
+scope={IdJagScopes}
+```
+
+Access token response example:
+
+
+
+
+
 
 Note: The access_token field in this response contains the raw ID-JAG JWT string.
 
