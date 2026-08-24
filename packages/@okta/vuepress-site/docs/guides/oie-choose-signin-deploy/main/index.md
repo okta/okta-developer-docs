@@ -186,10 +186,10 @@ If you currently use a Classic deployment, this table maps the migration to the 
 | Mobile app using a Classic-era language SDK | Embedded SDK with the IDX SDK for the platform, or redirect |
 | Mobile app using a custom WebView form | Redirect to the Okta-hosted Sign-In Widget. Don't authenticate inside a WebView. |
 
-> **Note:** Authentication in mobile WebViews isn't supported. See [OAuth 2.0 for Native Apps](/docs/guides/auth-oauth-2-native-app/) for the underlying reason. Use the platform's native browser tab or the Okta mobile SDK redirect flow.
+> **Note:** Authentication in mobile WebViews isn't supported. See [OAuth 2.0 for Native Apps](https://datatracker.ietf.org/doc/html/rfc8252) for the underlying reason. Use the platform's native browser tab or the Okta mobile SDK redirect flow.
 
 ## Related resources
 
-- The [SSO journey](/docs/journeys/oci-replace-oce-auth-flows-with-OIE/) doc that links to this guide.
-- [Redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for a deeper explanation of the model differences.
+<!-- - The [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/oci-replace-oce-auth-flows-with-OIE/) journey that links to this guide. -->
+[Redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for a deeper explanation of the model differences.
 <!-- - [Plan for the visible UX change when moving to OIE](/docs/guides/plan-ui-upgrade/). -->
