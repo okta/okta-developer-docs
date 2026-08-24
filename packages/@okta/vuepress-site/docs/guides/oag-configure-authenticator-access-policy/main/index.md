@@ -75,7 +75,7 @@ The `hostname` value must also meet the following requirements:
 
 * It must be a valid, resolvable hostname.
 * It can't be the same as the authentication service's public domain (`offlineIdpServiceHostname`).
-* It can't be the same as the authentication service's admin hostname.
+* It can't be the same as the authentication service's admin hostname. Access Gateway autogenerates the admin hostname from the public domain. You don't set it directly. For example, if the public domain is `offline-idp-service.domain.tld`, the admin hostname is `offline-idp-service-admin.domain.tld`.
 * If your certificate is a wildcard certificate, the hostname must match a single label. For example, if the certificate matches `*.domain.local`, the mTLS hostname can be `mtls.domain.local`.
 
 1. Retrieve your `certificateId` by using the [List all certificates](https://developer.okta.com/docs/api/openapi/oag/oag/tags/certificates/other/listcertificates) endpoint.
@@ -120,7 +120,7 @@ A Smart Card authenticator is created with a status of `INACTIVE`. It isn't visi
 Before you configure the authenticator, review the following settings:
 
 * `certificates` is your organization's own CA certificate chain, not one issued by Okta or Access Gateway. Ask your security team for this chain if you don't already have it. The array must form a valid, ordered certificate chain. This means that the issuer of each certificate must match the subject of the next certificate in the array.
-* `offlineCrlFailover.url` is optional. Set it only if your organization publishes a CRL endpoint that Access Gateway can reach while in offline mode. If you don't set it, Access Gateway checks the CRL Distribution Point (CDP) URLs embedded in the end user's Smart Card certificate instead.
+* `offlineCrlFailover.url` is optional. Set it only if your organization publishes a CRL endpoint that Access Gateway can reach while in offline mode. If you don't set it, Access Gateway checks the CRL Distribution Point (CDP) URLs embedded in the end user's Smart Card certificate instead. If Access Gateway can't reach any CRL endpoint to check for revocation, it fails closed. That means that Access Gateway rejects the certificate and the user can't sign in instead of allowing a certificate that it can't verify.
 * `userMatching` maps an identity value from the Smart Card certificate to an Okta user. `identitySource` is the certificate field that Access Gateway reads, and `matchType` is the type of Okta user attribute it's compared against. Choose values for both that match how your organization issues certificates and how your Okta users are set up. See the [Identity Providers Offline Mode Authenticators](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators) API documentation for the full list of supported values.
 * `matchAttribute` is required. If you set `matchType` to `CUSTOM`, set `matchAttribute` to the name of the custom attribute. Otherwise, set `matchAttribute` to an empty string.
 * `allowMultipleUserMatching` controls whether a single certificate is allowed to match more than one Okta user. Leave it `false` unless you expect certificates to be shared.
