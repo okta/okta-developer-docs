@@ -53,10 +53,10 @@ With this model, your app uses a standards-based federation integration (SAML, O
 
 #### Learn more
 
-- [Sign users in to your web app using the redirect model](/docs/guides/sign-in-redirect/)
-- [Sign users in to your SPA using the redirect model](/docs/guides/sign-in-redirect-spa/)
-- [Sign users in to your mobile app using the redirect model](/docs/guides/sign-in-redirect-mobile/)
-- [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget/). This guides offers customization options for the Okta-hosted Gen3 sign-in experience.
+- [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
+- [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/)
+- [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
+- [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/). This guides offers customization options for the Okta-hosted Gen3 sign-in experience.
 
 ### Self-hosted Sign-In Widget (Gen2)
 
@@ -83,8 +83,8 @@ With the self-hosted widget, you host the Okta Sign-In Widget (second generation
 
 #### Learn more
 
-- [Upgrade the Okta Sign-In Widget](/docs/guides/sign-in-widget-gen2/)
-- [Style the Sign-In Widget](/docs/guides/custom-widget/). This guide helps you apply your branding to the self-hosted Gen2 widget.
+- [Upgrade the Okta Sign-In Widget](/docs/guides/okta-sign-in-widget-upgrade/)
+- [Style the Sign-In Widget](/docs/guides/custom-widget-gen3/main/). This guide helps you apply your branding to the self-hosted Gen2 widget.
 
 ### Embedded SDK or Auth.js
 
@@ -112,10 +112,10 @@ With the embedded SDK model, your app uses Okta's Identity Engine SDK (IDX SDK) 
 
 #### Learn more
 
-- [Upgrade your app to the Identity Engine SDK](/docs/guides/idx-sdk-overview/)
+- [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)
 - [Auth.js fundamentals](/docs/guides/auth-js/)
-- [Plan embedded auth app upgrades](/docs/guides/plan-embedded-upgrades/)
-- [Okta SDKs reference](/docs/reference/)
+- [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/)
+- [Okta SDKs reference](https://developer.okta.com/code/)
 
 ### Direct Authentication APIs
 
@@ -140,7 +140,7 @@ With direct authentication, your app calls Okta's APIs directly to authenticate 
 
 #### Learn more
 
-[Configure Direct Authentication](/docs/guides/direct-authn/)
+[Configure Direct Authentication](/docs/guides/configure-direct-auth-grants/)
 
 ## Compare at a glance
 
@@ -191,6 +191,5 @@ If you currently use a Classic deployment, this table maps the migration to the 
 ## Related resources
 
 - The [SSO journey](/docs/journeys/oci-replace-oce-auth-flows-with-OIE/) doc that links to this guide.
-- [Redirect vs. embedded](/docs/guides/redirect-vs-embedded/) for a deeper explanation of the model differences.
-- [Authentication options](/docs/guides/authentication/) for a high-level overview.
+- [Redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for a deeper explanation of the model differences.
 <!-- - [Plan for the visible UX change when moving to OIE](/docs/guides/plan-ui-upgrade/). -->
