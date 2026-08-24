@@ -123,9 +123,9 @@ RS -> WebApp: 9. Returns resource data
 1. **Refresh token issued**: The IdP returns a refresh token.
 1. **[Token exchange for ID-JAG](#token-exchange-for-id-jag)**: To access a specific resource on behalf of the user, your app exchanges the refresh token to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
 1. **ID-JAG token issued**: The IdP issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
-1. **Exchange ID-JAG for access token**: Your app presents the ID-JAG token to the resource authorization server for an access token.
+1. **[Exchange ID-JAG for access token](#exchange-id-jag-for-access-token)**: Your app presents the ID-JAG token to the resource authorization server for an access token.
 1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
-1. **Client accesses resource data**: The requesting client (AI agent) uses the short-lived, scoped token to access the protected resource app on the user's behalf.
+1. **[Client accesses resource data](#client-access-resource-data)**: The requesting client (AI agent) uses the short-lived, scoped token to access the protected resource app on the user's behalf.
 
 ---
 
@@ -300,9 +300,11 @@ ID-JAG payload example:
 }
 ```
 
+> **Note:** When the ID-JAG expires, you can request for a new ID-JAG using the refresh token. If you use an expired refresh token, your ID-JAG request returns an `invalid_grant` error. You need to obtain a new refresh token by having the user sign in through SSO again.
+
 ### Exchange ID-JAG for access token
 
-Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value make the access token request. For authorization, the following examples used the base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. You need to use the authorization scheme supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
+Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value to send the access token request. For authorization, the following examples used the base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. You need to use the authorization scheme supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
 
 Access token request example:
 
@@ -317,76 +319,55 @@ assertion={id-jag_token}&
 scope={IdJagScopes}
 ```
 
+The resource authorization server validates the ID-JAG token. It resolves the user ID and verifies that the user has access to the requested resources before returning an access token.
+
 Access token response example:
 
-
-
-
-
-
-Note: The access_token field in this response contains the raw ID-JAG JWT string.
-
-Step 3: Redeem the ID-JAG for an Access Token
-
-Present the ID-JAG token to the target resource application's OAuth authorization server to receive a scoped access token.
-
-Send an HTTP POST request to the resource authorization server's /token endpoint:
-
-```bash
-POST /oauth2/v1/token HTTP/1.1
-Host: {resourceAuthServerDomain}
-Content-Type: application/x-www-form-urlencoded
-```
-
-Response Example
-```JSON
+```json
 {
-  "access_token": "eyJhbGciOiJSUzI1Ni...",
-  "token_type": "Bearer",
+  "access_token": "cd1c5a78d5e5d257aa257fa967f377218151f935d085899285e56a92c45a4c438e0aa389bfcbef0b",
   "expires_in": 3600,
-  "scope": "xaa:read"
+  "token_type": "Bearer"
 }
 ```
 
-Step 4: Make Authorized Requests to the Resource API
+In this example, the resource authorization server returns an access token for the AI agent to use on behalf of the specified user for one hour.
+Save the access token value as `{resource_access_token}` and use it to access the resource APIs.
 
-Include the access token obtained in Step 3 in the Authorization header of HTTP requests sent to the protected resource server.
-Request Example
-HTTP
-GET /api/v1/todos HTTP/1.1
-Host: api.example.com
-Authorization: Bearer eyJhbGciOiJSUzI1Ni...
-Accept: application/json
+### Client access resource data
 
-Step 5: Handle Token Expiration and Renewal
+The requesting client (AI agent) uses the short-lived, scoped access token to access the protected resource app on the user's behalf. For example:
 
-Manage token lifetimes properly to maintain continuous session access without forcing users to complete SAML SSO repeatedly.
+```bash
+GET https://{resourceApiUrl}/{resourceXXX}/
+Authorization: Bearer {resource_access_token}
+```
 
-1.Monitor Access Token Lifetime:Short-lived credentials.
-Access tokens issued by the resource authorization server are short-lived (typically valid for 60 minutes). Store the token expiration time (expires_in) in your application session context.
+## Handle token expiration and renewal
 
-2.Exchange Refresh Token for a New ID-JAG:Org authorization server call.
+If your tokens expire in the XAA flow, you can request for another token depending on the condition of the token:
 
-When the access token expires or is about to expire, do not re-trigger SAML SSO. Instead, use your cached OAuth refresh_token to request a new ID-JAG from the Okta org authorization server (repeat Step 2).
+* When the resource access token expires, you need to request for another access token through the ID-JAG request. See [Exchange ID-JAG for access token](#exchange-id-jag-for-access-token) if the ID-JAG token hasn't expired and you're requesting for the same resource scopes as the original ID-JAG.
+* If the ID-JAG token expired, you need can reuse the refresh token to perform another token exchange. See [Token exchange for ID-JAG](#token-exchange-for-id-jag) with the existing refresh token.
+* If the refresh token expired, obtain a new refresh token by having the user sign in through SSO again. See [User SSO](#user-sso).
 
-3.Redeem New ID-JAG for a Fresh Access Token:Resource authorization server call.
-Pass the newly issued ID-JAG to the resource authorization server token endpoint to obtain a new access token (repeat Step 3).
 
-4.Re-authenticate User on Refresh Token Expiration:Fallback mechanism.
+## Troubleshooting
 
-If the refresh token itself expires or is revoked, clear the user session and redirect the user through the standard SAML SSO workflow.
+The following list provides common issues, causes, and resolutions for the XAA token exchange.
 
-### Troubleshooting & Verification
-
-If token exchange fails during testing, verify your configuration against the following common issues:
 | Issue / Error | Cause | Resolution |
 | --- | --- | --- |
-| `invalid_grant`: SAML assertion invalid | The SAML assertion is expired or signature validation failed. | Ensure clock skew is within tolerance and check that your application passes a fresh, unexpired SAML assertion. |
-| `invalid_client`: Private key JWT signature verification failed | The `client_assertion` was signed with an unrecognized key or invalid AI Agent ID. | Verify that the `kid` in the client assertion header matches the public key registered under **Directory > AI Agents > Credentials** in Okta. |
-| `invalid_target`: Resource mismatch | The `resource` parameter in Step 2 doesn't match the configured Resource Connection. | Confirm the resource URL matches the exact issuer string configured in **Directory > AI Agents > Resource Connections**. |
-| `unauthorized_client`: Scope not permitted | Requested scope isn't allowed in the AI Agent resource policy. | Update the Scope Condition in the Resource Connection settings to allow the requested scope. |
+| `invalid_client`: Private key JWT signature verification failed | The `client_assertion` was signed with an unrecognized key or invalid AI Agent ID. | Verify that the `kid` in the client assertion header matches the public key registered under **Directory > AI Agents > Client registration** in Okta. See [Create a client assertion JWT](#create-a-client-assertion-jwt). |
+| `invalid_grant`: SAML assertion invalid | The SAML assertion is expired or signature validation failed. | Ensure that your app passes a fresh, unexpired SAML assertion. |
+| `invalid_target`: Resource mismatch | The `resource` parameter in [Token exchange for ID-JAG](#token-exchange-for-id-jag) doesn't match the configured resource connection in Okta. | Confirm that the resource URL matches the exact issuer string configured in **Directory > AI Agents > Resource connections**. |
+| `unauthorized_client`: Scope not permitted | Requested scope isn't allowed in the AI Agent resource connection policy. | Update the scopes in the **Directory > AI Agents > Resource connections** settings to allow the requested scope. |
+| "invalid subject token" | Possible cause is that the the SAML audience isn't configured properly. | The SAML audience needs to be set to the client ID of the AI agent.  |
+| "Failed to save XAA configuration. Please try again." | An error message appears from configuring XAA resource app in Okta. A possible reason is that the issuer URL is assgined to another app. | Verify the issuer URL in the resource app configuration in Okta. |
+| No email appears in ID-JAG | `email` isn't populated in the decoded ID-JAG payload. | Ensure that the "Name ID format" is set to `EmailAddress` on the SAML resource app. Also ensure that the user is assigned to the resource app. |
+| `requested_token_type` invalid or not supported | IdP authorization server might not support XAA | Verify that you're making the request to the Okta org authorization server, and not to an Okta custom authorization server. There should be no `/default/` in the token endpoint URL. | 
 
-See also
+## See also
 
 * [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/agent-to-agent/main/): For the Okta for AI Agents token exchange guide
 * [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications): July 2026 blog on enabling SAML requesting apps for XAA
