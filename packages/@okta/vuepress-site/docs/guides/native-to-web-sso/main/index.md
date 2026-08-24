@@ -194,7 +194,7 @@ If the credentials are valid, Okta responds with the required tokens. This examp
 
 ### Refresh token lifetime
 
-When you request both the `interclient_access` and `offline_access` scopes, the refresh token that Okta issues follows the token lifetime that's configured in the authorization server's access policy. It isn't determined by your org's global session policy. This applies whether you use the Okta org authorization server or a custom authorization server.
+When you request both the `interclient_access` and `offline_access` scopes, the refresh token that Okta issues follows the token lifetime that's configured in the authorization server's access policy. It isn't determined by your org's global session policy. This applies whether you use the Okta org authorization server or a custom authorization server and only when both the `interclient_access` and `offline_access` scopes are requested.
 
 The refresh token remains valid after the global session expires. You can continue to refresh the access token and exchange tokens for an `interclient_token` for the configured lifetime of the refresh token.
 
