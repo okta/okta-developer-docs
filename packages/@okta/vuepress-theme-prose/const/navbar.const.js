@@ -1018,6 +1018,10 @@ export const guides = [
             guideName: "oie-upgrade-registration-inline-hook",
           },
           {
+            title: "Identity Engine auth modernization approach",
+            guideName: "oie-choose-signin-deploy",
+          },
+          {
             title: "Okta Sign-In Widget upgrade",
             subLinks: [
               {
