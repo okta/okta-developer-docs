@@ -1,9 +1,7 @@
 2. On the **Home** page, do one of the following:
 
-    * Click **Create new app** to create a new app that you want to list in the Okta Integration Network. <br><br>
-    **OR**<br>
-    * Click **Add Integration** to add addtional integration to an existing app. The **Add Integration** page appears. <br><br>
-    **OR**<br>
+    * Click **Create new app** to create a new app that you want to list in the Okta Integration Network.
+    * Click **Add Integration** to add an additional integration to an existing app. The **Add Integration** page appears.
     * Click **Edit** > **Integration** to edit your integration in the OIN Wizard, or click **Edit** > **Catalog Info** to edit only your catalog listing.
 
         > **Note:** **Catalog Info** is available only if your integration is already published. Otherwise, this option is disabled. See [Update catalog information only ](/docs/guides/update-oin-app/wfactions/main/#update-catalog-information-only).
