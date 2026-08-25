@@ -36,6 +36,8 @@ As part of this change, the Assign a group to an application's offline mode poli
 
 <!-- OKTA-1252703 -->
 
+## August
+
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-06T12:00:00Z -->
 
