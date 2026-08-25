@@ -18,13 +18,13 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |
-| SaaS Application Accounts APIs now support workload_end_user role | August 20, 2026 | |
-| API keys for workload connections is GA | August 20, 2026 | |
-| Static JWKS content for workload connections is GA | August 20, 2026 |
+| [SaaS Application Accounts APIs now support workload_end_user role is GA](#saas-application-accounts-apis-now-support-workload_end_user-role-is-ga) | August 20, 2026 | |
+| [API keys for workload connections is GA](#api-keys-for-workload-connections-is-ga) | August 20, 2026 | |
+| [Static JWKS content for workload connections is GA](#static-jwks-content-for-workload-connections-is-ga) | August 20, 2026 | |
 
-#### SaaS Application Accounts APIs now support workload_end_user role
+#### SaaS Application Accounts APIs now support workload_end_user role is GA
 
-The SaaS Application Accounts APIs now support workload principals (non-human identity) through the workload_end_user role. In addition, you can now filter end-user SaaS app instances and SaaS app service accounts using the new app_instance_name, account_name, and username query parameters. See the [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts) API. <!-- OKTA-1103325, FF: cedar_pam_saas_nhi, Preview Aug 20, 2026 -->
+The SaaS Application Accounts APIs now support workload principals (non-human identity) through the workload_end_user role. In addition, you can now filter end-user SaaS app instances and SaaS app service accounts using the new app_instance_name, account_name, and username query parameters. See the [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts) API and [Available roles](https://developer.okta.com/docs/api/openapi/opa#available-roles). <!-- OKTA-1103325, FF: cedar_pam_saas_nhi, Preview Aug 20, 2026 -->
 
 #### API keys for workload connections is GA
 
