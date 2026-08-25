@@ -188,6 +188,7 @@ guides:
  - oie-upgrade-test-widget-custom
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
+ - oie-choose-signin-deploy
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
