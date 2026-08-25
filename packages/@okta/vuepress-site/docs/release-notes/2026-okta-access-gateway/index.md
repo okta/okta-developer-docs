@@ -14,13 +14,13 @@ Access Gateway is available for both Okta Classic Engine and Okta Identity Engin
 
 ## August
 
-### Monthly release 2026.08.1
-<!-- Published on: 2026-08-DDT12:00:00Z -->
+### Monthly release 2026.09.X
+<!-- Published on: 2026-09-XT12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Smart Card authentication for Access Gateway offline mode is Limited EA in Preview](#smart-card-authentication-for-access-gateway-offline-mode-is-limited-ea-in-preview) | Month DD, 2026 |
-| [Access policies for Access Gateway offline mode is Limited EA in Preview](#access-policies-for-access-gateway-offline-mode-is-limited-ea-in-preview) | Month DD, 2026 |
+| [Smart Card authentication for Access Gateway offline mode is Limited EA in Preview](#smart-card-authentication-for-access-gateway-offline-mode-is-limited-ea-in-preview) | September X, 2026 |
+| [Access policies for Access Gateway offline mode is Limited EA in Preview](#access-policies-for-access-gateway-offline-mode-is-limited-ea-in-preview) | September X, 2026 |
 
 #### Smart Card authentication for Access Gateway offline mode is Limited EA in Preview
 
