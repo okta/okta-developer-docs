@@ -12,13 +12,13 @@ date-updated: September 9, 2026
 
 After you upgrade to Okta Identity Engine, you can update your sign-in flows by replacing Classic Engine authentication patterns with OIE-supported deployment models. This guide helps you choose the right model for your app.
 
-Okta supports four authentication deployment models. They are presented here in the order that Okta recommends, from simplest and most secure to most custom and complex.
+Okta supports four authentication deployment models. They’re presented here in the order that Okta recommends, from simplest and most secure to most custom and complex.
 
 <!-- > **Note:** If you haven't yet decided to modernize, start with the [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/oci-replace-oce-auth-flows-with-OIE/) journey for context. -->
 
 ## Quick guidance
 
-When in doubt, choose Okta's standards-based integration using the Okta-hosted sign-in experience (redirect). It's the most secure, lowest-maintenance, and fastest-to-implement option. You can move to a self-hosted or embedded model later if your requirements change.
+When in doubt, choose standards-based integration using the Okta-hosted sign-in experience (redirect). It's the most secure, lowest-maintenance, and fastest-to-implement option. You can move to a self-hosted or embedded model later if your requirements change.
 
 > **Note**: If you can satisfy your UX requirements with a customized Okta-hosted widget, don't build an embedded flow only for branding reasons.
 
@@ -26,7 +26,7 @@ When in doubt, choose Okta's standards-based integration using the Okta-hosted s
 
 ### Standards-based federation integration with the Okta-hosted sign-in experience - redirect (recommended)
 
-With this model, your app uses a standards-based federation integration (SAML, OIDC, or OAuth) to delegate the sign-in experience to Okta. Your app invokes the federation flow, Okta presents the Okta-hosted sign-in experience, and Okta returns the user to your app after authentication.
+With this model, your app uses a standards-based federation integration (SAML, OIDC, or OAuth) to delegate the user's sign-in experience to Okta. Your app invokes the federation flow, Okta presents the Okta-hosted sign-in steps, and Okta returns the user to your app after authentication.
 
 #### Why choose this model
 
@@ -37,7 +37,7 @@ With this model, your app uses a standards-based federation integration (SAML, O
 - Branding and domain customization are available without custom code.
 - Okta handles the evolution of authentication methods over time. As Okta adds support for new authenticators (passkeys, WebAuthn, YubiKey, and others), your app inherits the change without code updates.
 - It's the easiest path for adopting passkeys and other modern authenticators. The Okta-hosted experience can detect device-bound credentials and prompt the user appropriately.
-- It's an easy add-on for additional Okta capabilities, such as Identity Threat Protection (ITP) and other ecosystem products.
+- It's an easy add-on for more Okta capabilities, such as Identity Threat Protection (ITP) and other ecosystem products.
 
 #### Trade-offs
 
@@ -56,7 +56,7 @@ With this model, your app uses a standards-based federation integration (SAML, O
 - [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
 - [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/)
 - [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
-- [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/). This guides offers customization options for the Okta-hosted Gen3 sign-in experience.
+- [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/). This guide offers customization options for the Okta-hosted Gen3 sign-in experience.
 
 ### Self-hosted Sign-In Widget (Gen2)
 
@@ -70,11 +70,11 @@ With the self-hosted widget, you host the Okta Sign-In Widget (second generation
 
 #### Trade-offs
 
-- You are responsible for keeping the widget package up to date.
+- You’re responsible for keeping the widget package up to date.
 - You share responsibility for Cross-Site Scripting (XSS) and other client-side security concerns.
   XSS is a security vulnerability where an attacker injects malicious JavaScript code into a web page, which then executes in the browsers of other users who visit that page. This can allow attackers to steal session cookies, credentials, or other sensitive data, or perform actions on behalf of the victim.
 - There's more implementation effort than redirect.
-- You don't get the full benefit of Okta's evolving authenticator support. New authenticators or sign-in patterns may require widget upgrades or additional code changes.
+- You don't get the full benefit of Okta's evolving authenticator support. New authenticators or sign-in patterns may require widget upgrades or other code changes.
 
 #### When not to use this model
 
@@ -95,14 +95,14 @@ With the embedded SDK model, your app uses the Identity Engine SDK (IDX SDK) or 
 
 - You need complete control over the authentication UX and flow logic.
 - Your app requires a custom authentication UI that can't be achieved with widget customization.
-- You are building a fully branded, native-feeling authentication experience.
+- You’re building a fully branded, native-feeling authentication experience.
 
 #### Trade-offs
 
 - It's the highest implementation effort of the embedded and self-hosted options.
 - Your team is responsible for security, maintenance, and SDK version updates.
 - Each authenticator flow requires separate implementation work.
-- You must adapt to SDK changes over time.
+- You have to adapt to SDK changes over time.
 - Authenticator support varies by scenario. Some authenticators (notably passkeys) work in some embedded SDK scenarios and not others, and behavior can be platform-dependent. Confirm support for the authenticators that you need before committing to this path.
 
 #### When not to use this model
@@ -141,7 +141,7 @@ With direct authentication, your app calls Okta's APIs directly to authenticate 
 
 #### Learn more
 
-[Configure Direct Authentication](/docs/guides/configure-direct-auth-grants/)
+[Configure Direct Authentication](/docs/guides/configure-direct-auth-grants/).
 
 ## Compare at a glance
 
@@ -168,7 +168,7 @@ Use this checklist to guide your choice.
 | Is your flow a native app, server-side, or machine-to-machine without a browser? | Direct Authentication |
 | Are passkeys, WebAuthn, or other modern authenticators on your roadmap? | Okta-hosted Sign-in Widget (preferred). Confirm authenticator support before committing to embedded SDK or Auth.js. Passkey support in self-hosted embedded SDK and Auth.js implementations is limited and platform-dependent. |
 
-> **Note**: When in doubt, choose redirect. You can revisit later if your requirements change.
+> **Note**: When in doubt, choose the redirect model. You can revisit later if your requirements change.
 
 ### Don't choose embedded for branding alone
 
@@ -187,7 +187,7 @@ If you currently use a Classic Engine deployment, this table maps the migration 
 | Mobile app using a Classic Engine-era language SDK | Embedded SDK with the IDX SDK for the platform, or redirect |
 | Mobile app using a custom WebView form | Redirect to the Okta-hosted Sign-In Widget. Don't authenticate inside a WebView. |
 
-> **Note:** Authentication in mobile WebViews isn't supported. See [OAuth 2.0 for Native Apps](https://datatracker.ietf.org/doc/html/rfc8252) for the underlying reason. Use the platform's native browser tab or the Okta mobile SDK redirect flow.
+> **Note:** Authentication in mobile WebView isn't supported. See [OAuth 2.0 for Native Apps](https://datatracker.ietf.org/doc/html/rfc8252) for the underlying reason. Use the platform's native browser tab or the Okta mobile SDK redirect flow.
 
 ## Related resources
 
