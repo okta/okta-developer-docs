@@ -28,3 +28,28 @@ The endpoint returns `200 OK` regardless of whether the token was valid or alrea
 > - If Okta still holds a valid refresh token for the connection, the next token exchange request obtains a new access token automatically.
 > - If Okta's refresh token is also expired or invalid, the next token exchange request returns an `interaction_required` response and a new user consent flow is required.
 > - The access token isn't automatically revoked from the external resource authorization server. If the access token was shared or copied elsewhere, you must revoke it directly with the external provider.
+
+### Force re-consent for STS services
+
+To prompt a user for consent again, you need to clear authorization from both Okta and the third-party provider.
+
+For example, if the user has an active session in their browser at the third-party platform (where they are expecting to be prompted for consent), they may not be prompted for consent at all. The flow can pass through silently, even if their access has been revoked.
+
+Forcing re-consent requires clearing both Okta tokens and the third-party session.
+
+1. Call the `/revoke` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/revoke) to clear the OAuth STS access token on the org authorization server.
+
+> **Note**: You can also use the **Clear and revoke** button in the Admin Console. You can access the [Clear User Sessions function](https://help.okta.com/okta_help.htm?type=oie&id=csh-session-revoke) through the user's profile.
+
+```bash
+  curl --location --request POST \
+    --url 'https://{yourOktaDomain}/oauth2/v1/revoke' \
+    --header "Content-Type: application/x-www-form-urlencoded" \
+    --header "Accept: application/json" \
+    --data-urlencode "token=<access_token_value>" \
+    --data-urlencode "token_type_hint=oauth_sts"
+```
+
+1. Revoke access on the third-party platform. Locate the 'revoke all user tokens' or similar setting in the third-party provider's console.
+
+  After you call the `/revoke` endpoint to clear access tokens from cache and revoke all user tokens at the third-party service, the user should be reprompted for consent.
