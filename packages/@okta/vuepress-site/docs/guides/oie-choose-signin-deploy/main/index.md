@@ -1,8 +1,8 @@
 ---
-title: Choose an OIE sign-in deployment model
+title: Choose an Identity Engine sign-in deployment model
 meta:
   - name: description
-    content: Update your sign-in flows by replacing Classic Engine authentication patterns with OIE-supported deployment models.
+    content: Update your sign-in flows by replacing Classic Engine authentication patterns with Identity Engine-supported deployment models.
 layout: Guides
 personas: Developers, Admins
 date-updated: September 9, 2026
@@ -10,7 +10,7 @@ date-updated: September 9, 2026
 
 ## Overview
 
-After upgrading to Okta Identity Engine, you can update your sign-in flows by replacing Classic Engine authentication patterns with OIE-supported deployment models. This guide helps you choose the right model for your app.
+After you upgrade to Okta Identity Engine, you can update your sign-in flows by replacing Classic Engine authentication patterns with OIE-supported deployment models. This guide helps you choose the right model for your app.
 
 Okta supports four authentication deployment models. They are presented here in the order that Okta recommends, from simplest and most secure to most custom and complex.
 
@@ -32,7 +32,7 @@ With this model, your app uses a standards-based federation integration (SAML, O
 
 - It's the lowest implementation effort.
 - Okta hosts, maintains, and secures the sign-in experience.
-- Single sign-on is implicit. Users already signed in to another app in your org are signed in to this app automatically.
+- SSO is implicit. Users already signed in to another app in your org are signed in to this app automatically.
 - Policy changes, authenticator updates, and widget upgrades require no code changes on your side.
 - Branding and domain customization are available without custom code.
 - Okta handles the evolution of authentication methods over time. As Okta adds support for new authenticators (passkeys, WebAuthn, YubiKey, and others), your app inherits the change without code updates.
@@ -71,7 +71,8 @@ With the self-hosted widget, you host the Okta Sign-In Widget (second generation
 #### Trade-offs
 
 - You are responsible for keeping the widget package up to date.
-- You share responsibility for XSS and other client-side security concerns.
+- You share responsibility for Cross-Site Scripting (XSS) and other client-side security concerns.
+  XSS is a security vulnerability where an attacker injects malicious JavaScript code into a web page, which then executes in the browsers of other users who visit that page. This can allow attackers to steal session cookies, credentials, or other sensitive data, or perform actions on behalf of the victim.
 - There's more implementation effort than redirect.
 - You don't get the full benefit of Okta's evolving authenticator support. New authenticators or sign-in patterns may require widget upgrades or additional code changes.
 
@@ -88,7 +89,7 @@ With the self-hosted widget, you host the Okta Sign-In Widget (second generation
 
 ### Embedded SDK or Auth.js
 
-With the embedded SDK model, your app uses Okta's Identity Engine SDK (IDX SDK) or Auth.js to implement authentication directly in your own UI. There's no Okta-hosted form. Your code drives every step of the authentication flow.
+With the embedded SDK model, your app uses the Identity Engine SDK (IDX SDK) or Auth.js to implement authentication directly in your own UI. There's no Okta-hosted form. Your code drives every step of the authentication flow.
 
 #### Why choose this
 
@@ -125,7 +126,7 @@ With direct authentication, your app calls Okta's APIs directly to authenticate 
 
 - Your app is a native or command-line app without a browser.
 - Your flow is server-side, service-to-service, or involves an AI agent.
-- You're replacing Classic Authn API calls and can't use a browser-based flow.
+- You're replacing Classic Engine Authn API calls and can't use a browser-based flow.
 
 #### Trade-offs
 
@@ -173,17 +174,17 @@ Use this checklist to guide your choice.
 
 Don't choose an embedded or self-hosted model only because you want to match your brand. The Okta-hosted sign-in experience [supports substantial customization](/docs/guides/custom-widget-gen3/main/): custom domains, custom CSS, and brand-aligned page layouts. Review the [customization guides](/docs/guides/custom-widget/main/) before committing to an embedded path for branding reasons alone.
 
-## Migrate from a Classic deployment model
+## Migrate from a Classic Engine deployment model
 
-If you currently use a Classic deployment, this table maps the migration to the recommended OIE target.
+If you currently use a Classic Engine deployment, this table maps the migration to the recommended Identity Engine target.
 
-| Classic deployment | Recommended OIE target |
+| Classic deployment | Recommended Identity Engine target |
 |---|---|
-| Redirect to a Classic Okta-hosted Sign-In Widget | Redirect to the OIE Okta-hosted Sign-In Widget |
+| Redirect to a Classic Engine Okta-hosted Sign-In Widget | Redirect to the Identity Engine Okta-hosted Sign-In Widget |
 | Self-hosted Sign-In Widget v2 or earlier | Self-hosted Gen2 Sign-In Widget (or move to redirect) |
 | Custom UI calling `/api/v1/authn` (Classic Authn API) on the front end | Self-hosted Gen2 widget if UI control is a requirement. Embedded SDK if full UX control is required. |
 | Custom UI calling `/api/v1/authn` from a server (no browser) | Direct authentication |
-| Mobile app using a Classic-era language SDK | Embedded SDK with the IDX SDK for the platform, or redirect |
+| Mobile app using a Classic Engine-era language SDK | Embedded SDK with the IDX SDK for the platform, or redirect |
 | Mobile app using a custom WebView form | Redirect to the Okta-hosted Sign-In Widget. Don't authenticate inside a WebView. |
 
 > **Note:** Authentication in mobile WebViews isn't supported. See [OAuth 2.0 for Native Apps](https://datatracker.ietf.org/doc/html/rfc8252) for the underlying reason. Use the platform's native browser tab or the Okta mobile SDK redirect flow.
