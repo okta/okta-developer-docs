@@ -18,7 +18,7 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Manual MCP registration is GA in Preview](#manual-mcp-registration-is-ga-in-preview) | August 26, 2026 |
-| [Bug fixed in 2026.08.3](#bug-fixed-in-2026083)| August 26, 2026 |
+| [Bug fixed in 2026.08.3](#bug-fixed-in-2026-08-3)| August 26, 2026 |
 
 #### Manual MCP registration is GA in Preview
 
