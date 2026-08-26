@@ -980,6 +980,10 @@ export const guides = [
             guideName: "iga-security-access-review"
           },
           {
+            title: "Manage access request tasks",
+            guideName: "iga-ar-tasks"
+          },
+          {
             title: "Manage delegates for governance",
             guideName: "iga-delegates"
           },
