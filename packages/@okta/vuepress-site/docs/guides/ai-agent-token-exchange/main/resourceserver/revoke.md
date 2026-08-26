@@ -33,11 +33,9 @@ The endpoint returns `200 OK` regardless of whether the token was valid or alrea
 
 To prompt a user for consent again, you need to clear authorization from both Okta and the third-party provider.
 
-For example, if the user has an active session in their browser at the third-party platform (where they are expecting to be prompted for consent), they may not be prompted for consent at all. The flow can pass through silently, even if their access has been revoked.
+For example, if the user has an active session in their browser at the third-party platform, and has previously provided consent, they may not be prompted for consent at all. The flow can pass through silently. Forcing re-consent requires clearing the tokens stored in Okta and revoking the third-party tokens and consent.
 
-Forcing re-consent requires clearing both Okta tokens and the third-party session.
-
-1. Call the `/revoke` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/revoke) to clear the OAuth STS access token on the org authorization server.
+1. Call the `/revoke` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/revoke) to clear the OAuth STS access token on the Okta org authorization server.
 
 > **Note**: You can also use the **Clear and revoke** button in the Admin Console. You can access the [Clear User Sessions function](https://help.okta.com/okta_help.htm?type=oie&id=csh-session-revoke) through the user's profile.
 
