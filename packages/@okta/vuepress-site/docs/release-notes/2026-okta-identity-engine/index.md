@@ -27,7 +27,7 @@ Admins can now manually configure authorization server details and client creden
 
 #### Bug fixed in 2026.08.3
 
-* After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
+After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
 
 ### Weekly release 2026.08.2
 <!-- Published on: 2026-08-19T12:00:00Z -->
