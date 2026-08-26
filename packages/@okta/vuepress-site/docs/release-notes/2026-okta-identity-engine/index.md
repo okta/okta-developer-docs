@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 
 #### Manual MCP registration is GA in Preview
 
-Admins can now manually configure authorization server details and client credentials when registering MCP servers. This allows registration of internal or legacy MCP servers that don’t support automated metadata discovery endpoints. See [Add MCP servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
+Admins can now manually configure authorization server details and client credentials when registering MCP servers. This allows registration of internal or legacy MCP servers that don't support automated metadata discovery endpoints. See [Add MCP servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 <!-- OKTA-1255807 SECURE_AI_MCP_SERVER_ENHANCEMENTS -->
 
 #### Bug fixed in 2026.08.3
