@@ -6,8 +6,8 @@ Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://develo
 | `client_assertion_type`| String | Set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion`     | String | Set to `{client_assertion}`, the signed JWT generated from [Create a client assertion JWT](#create-a-client-assertion-jwt). |
 | `subject_token`        | String | Set to `{id_token}`, which identifies the user. |
-| `subject_token_type`   | String | Set to `urn:ietf:params:oauth:token-type:id_token` |
-| `requested_token_type` | String | Set to `urn:ietf:params:oauth:token-type:id-jag` |
+| `subject_token_type`   | String | Set to `urn:ietf:params:oauth:token-type:id_token`. |
+| `requested_token_type` | String | Set to `urn:ietf:params:oauth:token-type:id-jag`. |
 | `audience`             | String | Set to `{resourceAud}`, the issuer URL of the resource app's authorization server. |
 | `scope`                | String | Set to `{idJagScopes}`, the scopes requested to access the resource server. |
 | `resource`             | String | Set to `{resourceApiUrl}`, the resource server's API base URL. |

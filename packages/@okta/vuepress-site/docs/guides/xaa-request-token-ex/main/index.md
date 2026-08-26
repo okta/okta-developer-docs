@@ -142,7 +142,7 @@ Authorization: Bearer {resource_access_token}
 
 <StackSnippet snippet="handle-exp" />
 
-## Troubleshooting
+## Troubleshoot
 
 The following list provides common issues, causes, and resolutions for the XAA token exchange.
 
