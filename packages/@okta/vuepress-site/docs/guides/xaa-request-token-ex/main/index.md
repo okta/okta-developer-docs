@@ -16,18 +16,19 @@ Understand how to implement the XAA token exchange sequences necessary for a req
 
 * An agentic app that federates enterprise users through SAML 2.0 or OIDC, and assumes the requesting app role in the XAA flow
 * An Okta org used for Single Sign-On (SSO), such as an [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-
-  You've registered your requesting app with SSO and XAA capabilities in your Okta org.
+  Register your requesting app with SSO and XAA capabilities in your Okta org.
   <StackSnippet snippet="see-need"/>
-
 
 ---
 
 ## Overview
 
-The [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) specification, which forms the basis for XAA, was originally designed for OpenID Connect (OIDC). By following this guide, you can also support XAA in SAML-based agentic apps without migrating your core authentication infrastructure to OIDC. Review the [XAA concept](/docs/concepts/xaa/) for more information.
+To secure resource access for AI agents acting on behalf of authenticated users through Cross App Access (XAA), your AI agent app must implement XAA token exchange. Under this mechanism, the token exchange sequence takes place following initial user authentication with the agentic app through an identity provider (IdP) Single Sign-On (SSO).
+Although the [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) specification, which forms the basis for XAA, was originally designed for OpenID Connect (OIDC), you can also support XAA in SAML-based agentic apps without migrating your core authentication infrastructure to OIDC.
 
-This guide focuses on the interactions required for the **Client (requesting app)** in the following XAA token exchange flow:
+Review the [XAA concept](/docs/concepts/xaa/) for more information.
+
+This guide focuses on the interactions required for the agentic app, which assumes the **Client (requesting app)** role in the following XAA token exchange flow:
 
 <div class="full">
 
@@ -63,7 +64,7 @@ The following sequence steps follow the XAA token exchange interactions required
 
 ### Variables used in the XAA token exchange
 
-You need to to pass configuration values from the Okta org and resource server to your requesting app at runtime to complete the XAA flow. The following table provides the variables you need in your requesting app.
+You need to pass configuration values from the Okta org and resource server to your requesting app at runtime to complete the XAA flow. The following table provides the variables that you need in your requesting app.
 
 <StackSnippet snippet="variables" />
 
@@ -81,7 +82,7 @@ Before the token exchange request, create a client assertion JWT (`{client_asser
 
 | Claim    | Type    | Description                                                  |
 |----------|---------|--------------------------------------------------------------|
-| `aud`    | String  | Set to `https://{yourOktaDomain}/oauth2/v1/token` (Okta's token exchange endpoint). This is the full URL of the resource that you're trying to access using the JWT to authenticate. |
+| `aud`    | String  | Set to `https://{yourOktaDomain}/oauth2/v1/token` (Okta token exchange endpoint). This is the full URL of the resource that you're trying to access using the JWT to authenticate. |
 | `iss`    | String  | Set to `{clientId}`. The AI agent's client ID, which is the issuer of the token. |
 | `sub`    | String  | Set to `{clientId}`. The AI agent's client ID, which the subject of the token.  |
 | `exp`    | Integer | The token expiration time in UNIX timestamp format. The request fails from this claim if the expiration time is more than one hour in the future or if the token is already expired. |
@@ -96,7 +97,7 @@ Sign your JWT with the client private key from the AI agent (`{clientKey}`) in O
 
 ### Exchange ID-JAG for access token
 
-Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value to send the access token request. For authorization, the following examples used the base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. You need to use the authorization scheme supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
+Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value to send the access token request. For authorization, the following examples used the Base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. Use the authorization scheme supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
 
 Access token request example:
 

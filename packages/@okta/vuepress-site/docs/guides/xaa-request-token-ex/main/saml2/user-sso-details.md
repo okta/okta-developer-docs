@@ -13,15 +13,15 @@ In a SAML-based XAA flow, after the user is authenticated, it delegates the requ
     participant OAS as "IdP (Okta)"
     User -> WebApp: 1. User signs in
     WebApp -> OAS: 2. Redirect user to sign in to IdP
-    OAS -> WebApp: 3. Returns SAML assertion response after user successully signs in
-    WebApp -> OAS: 4. Use SAML assertion to request for a refresh token
+    OAS -> WebApp: 3. Returns SAML assertion response after user successfully signs in
+    WebApp -> OAS: 4. Use SAML assertion to request a refresh token
     OAS -> WebApp: 5. Returns refresh token
     @enduml
     -->
 
 1. When a user signs into your federated app.
 
-1. Your app uses SAML and redirects the user to the IdP for SSO. As a prerequisite for this to happen, your app has to integrate and register with the IdP (Okta) as an SAML SSO integration. See [SAML concept](/docs/concepts/saml/) and [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) in the product documentation for details.
+1. Your app uses SAML and redirects the user to the IdP for SSO. As a prerequisite for this to happen, your app has to integrate and register SAML SSO with the IdP (Okta). See [SAML concept](/docs/concepts/saml/) and [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) in the product documentation for details.
 
 1. After the user is authenticated, the IdP returns the users's SAML assertion response (`<SAMLResponse>`) to your requesting app. Save this base64-encoded SAML response as `{SAMLReponse}` for the refresh token exchange.
 
