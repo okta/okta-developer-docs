@@ -4,7 +4,7 @@
 | `{clientId}` | The AI agent assumes the role of the client, so this is the AI agent's client ID. You can find this value in the AI agent's **Client registration** tab. For example, `wlpa0eiuaoCNrpoaE0g7`. |
 | `{clientKey}` | The agent assumes the role of the client, so this is the AI agent's client private key. You can find this value in the AI agent's **Client registration** tab.|
 | `{clientRefreshScopes}` | The refresh scopes for the SAML requesting app. For example, `openid offline_access`. |
-| `{SAMLReponse}` | The base64-encoded SAML assertion response from the IdP to the agentic requesting app after the user is authenticated. |
+| `{SAMLReponse}` | The Base64-encoded SAML assertion response (`<SAMLResponse>`) from the IdP to the agentic requesting app after the user is authenticated. Okta also accepts the Base64-encoded inner XML SAML assertion (`<saml:Assertion>`) instead of the full response. |
 | `{idJagScopes}` | The scopes for the ID-JAG token. These are the scopes that the AI agent wants to access in the resource server. For example, `my.xaa.a.read my.xaa.b.manage`. |
 | `{resourceAud}` | The resource's authorization server issuer URI. This is the resource audience where the client intends to send the ID-JAG. For example, `https://as.myresource.com`. |
 | `{resourceTokenUrl}` | The resource token URL. For example, `https://as.myresource.com/oauth/v1/token` |
