@@ -78,7 +78,7 @@ You need to pass configuration values from the Okta org and resource server to y
 
 #### Create a client assertion JWT
 
-Before the token exchange request, create a client assertion JWT (`{client_assertion}`) for the payload. This assertion is in `private_key_jwt` form and informs the IdP who the client is. Specify the following claims in your JWT payload:
+Before the token exchange request, create a client assertion JWT (`{client_assertion}`) for the `/token` request payload. This assertion is in `private_key_jwt` form and informs the IdP who the client is. Specify the following claims in your JWT payload:
 
 | Claim    | Type    | Description                                                  |
 |----------|---------|--------------------------------------------------------------|
@@ -97,7 +97,7 @@ Sign your JWT with the client private key from the AI agent (`{clientKey}`) in O
 
 ### Exchange ID-JAG for access token
 
-Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value to send the access token request. For authorization, the following examples used the Base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. Use the authorization scheme supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
+Send the ID-JAG token to the resource authorization server for an access token. Your requesting app uses the `{resourceTokenUrl}` value to send the access token request. For authorization, the following examples used the Base64-encoded `{resourceClientId}` and `{resourceClientSecret}` values. Use the authorization scheme that's supported by the resource server. These values need to be preconfigured in your app or passed in as a variable (see [Variables used in the XAA token exchange](#variables-used-in-the-xaa-token-exchange)).
 
 Access token request example:
 

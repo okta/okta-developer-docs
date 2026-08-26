@@ -3,7 +3,7 @@ Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://develo
 | Parameter              | Type   | Description |
 |------------------------|--------|-------------|
 | `grant_type`           | String | Set to `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| `client_id`            | String | Set to `{clientId}`. This is client ID of the requesting app role, which is the AI agent in Okta. |
+| `client_id`            | String | Set to `{clientId}`. This is the client ID of the requesting app role, which is the AI agent in Okta. |
 | `client_assertion_type`| String | Set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion`     | String | Set to `{client_assertion}`, the signed JWT generated from [Create a client assertion JWT](#create-a-client-assertion-jwt). |
 | `subject_token`        | String | Set to `{refresh_token}`, which identifies the user. |
@@ -51,9 +51,7 @@ The returned `access_token` value contains the ID-JAG token. The `issued_token_t
 
 #### Contents of ID-JAG
 
-If you decode the ID-JAG token, the following payload appears for a SAML requesting app that has the AI agent as a delegated actor.
-
-ID-JAG payload example:
+If you decode the ID-JAG token, the following claims appear for a SAML requesting app that has the AI agent as a delegated actor.
 
 ```JSON
 // header
@@ -62,10 +60,16 @@ ID-JAG payload example:
 // payload
 {
   "sub": "00uzkk8ctx1WtQ8fy1d7",     // The user (from SAML NameID)
-  "sub_profile": "user",
+  "sub_profile": "user",             // Appears if your resource app is also SAML
   "act": {                           // The delegation
     "sub": "wlpa0eiuaoCNrpoaE0g7",   // The AI agent (from {client_assertion})
     "sub_profile": "ai_agent"
+  },
+  "sub_id": {
+    "format": "saml-nameid",
+    "issuer": "http://www.okta.com/exk2410vjbjB62Oc61d8",
+    "nameid": "example.user@okta.com",
+    "nameid_format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
   },
   "aud": "https://as.myresource.com", // The resource audience: {resourceAud}
   "client_id": "0oaa0esowyOyPreaI0g7",   // The resource server's client ID: {resourceClientId}
@@ -76,13 +80,6 @@ ID-JAG payload example:
   "jti": "IDAAG.OmT8mh0IPyEwvTM6MYodfTFB_dYo4JmZIHP4tnh9xoA",
   "resource": "{resourceApiUrl}",
   "scope": "my.xaa.a.read my.xaa.b.manage",  // resource server scopes requested: {idJagScopes}
-  "sub_id": {
-    "format": "saml-nameid",
-    "issuer": "http://www.okta.com/exk2410vjbjB62Oc61d8",
-    "nameid": "example.user@okta.com",
-    "nameid_format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
-  },
-  "sub_profile": "user"    // Appears if your resource app is also SAML
 }
 ```
 
