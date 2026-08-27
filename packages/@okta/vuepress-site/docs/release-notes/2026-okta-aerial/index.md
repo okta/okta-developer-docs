@@ -17,6 +17,18 @@ These release notes list customer-visible changes to the Okta Aerial API. Okta A
 
 See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/).
 
+## August
+
+### Weekly release
+
+| Change | Expected in Aerial services preview | Expected in Aerial services production |
+|--------|-----------------------------| -----------------------------|
+| [Bug fixed in weekly release](#bug-fixed-in-weekly-release)| August 26, 2026  |   |
+
+#### Bug fixed in weekly release
+
+The `GET /api/v1/orgs` response returned the `Next` and `Link` header pagination values with an `HTTP` link instead of an `HTTPS` link. (OKTA-1231990)
+
 ## April
 
 ### Monthly release

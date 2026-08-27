@@ -13,6 +13,22 @@ title: Okta Identity Engine API release notes 2026
 
 ## August
 
+## Weekly release 2026.08.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Manual MCP registration is GA in Preview](#manual-mcp-registration-is-ga-in-preview) | August 26, 2026 |
+| [Bug fixed in 2026.08.3](#bug-fixed-in-2026-08-3)| August 26, 2026 |
+
+#### Manual MCP registration is GA in Preview
+
+Admins can now manually configure authorization server details and client credentials when registering MCP servers. This allows registration of internal or legacy MCP servers that don't support automated metadata discovery endpoints. See [Add MCP servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
+<!-- OKTA-1255807 SECURE_AI_MCP_SERVER_ENHANCEMENTS -->
+
+#### Bug fixed in 2026.08.3
+
+After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
+
 ### Weekly release 2026.08.2
 <!-- Published on: 2026-08-19T12:00:00Z -->
 
