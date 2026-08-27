@@ -13,6 +13,23 @@ title: Okta Identity Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.3
+<!-- Published on: 2026-08-27T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Manual MCP registration is Beta](#manual-mcp-registration-is-beta) | August 26, 2026 |
+| [Bug fixed in 2026.08.3](#bug-fixed-in-2026-08-3)| August 26, 2026 |
+
+#### Manual MCP registration is Beta
+
+You can now add manually configured authorization servers to a third-party MCP server using the **Add an authorization server to an MCP server** API. Include the `issuer`, `authorizationEndpoint`, and `tokenEndpoint` parameters in your request. You can also update authorization servers (discovered or manually added). The `issuer` parameter is immutable. An MCP server can have multiple authorization servers, including a mix of discovered and manually added ones. See the [Add an authorization server to an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/addmcpserverauthorizationserver) and [Update an authorization server for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/updatemcpserverauthorizationserver) APIs.
+<!-- SECURE_AI_MCP_SERVER_ENHANCEMENTS to Beta 2026.08.3 OKTA-1255807 -->
+
+#### Bug fixed in 2026.08.3
+
+After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
+
 ### Weekly release 2026.08.2
 <!-- Published on: 2026-08-19T12:00:00Z -->
 
