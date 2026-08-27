@@ -22,8 +22,8 @@ title: Okta Identity Engine API release notes 2026
 
 #### Manual MCP registration is Beta
 
-Admins can now manually configure authorization server details and client credentials when registering MCP servers. This allows registration of internal or legacy MCP servers that don't support automated metadata discovery endpoints. See [Add MCP servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
-<!-- OKTA-1255807 SECURE_AI_MCP_SERVER_ENHANCEMENTS -->
+You can now add manually configured authorization servers to a third-party MCP server using the **Add an authorization server to an MCP server** API. Include the `issuer`, `authorizationEndpoint`, and `tokenEndpoint` parameters in your request. You can also update authorization servers (discovered or manually added). The issuer parameter is immutable. An MCP server can have multiple authorization servers, including a mix of discovered and manually added ones. See the [Add an authorization server to an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/addmcpserverauthorizationserver) and [Update an authorization server for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/updatemcpserverauthorizationserver) APIs.
+<!-- SECURE_AI_MCP_SERVER_ENHANCEMENTS to Beta 2026.08.3 OKTA-1255807 -->
 
 #### Bug fixed in 2026.08.3
 
