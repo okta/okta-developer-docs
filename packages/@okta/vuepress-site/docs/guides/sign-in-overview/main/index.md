@@ -16,6 +16,15 @@ Choose your app type and get started with signing users in.
   <Card href="/docs/guides/quickstart/main/#mobile-native-app" headerImage="/img/app-types/icon-mobile-app.png">Mobile/native app</Card>
 </Cards>
 
+## Already on Identity Engine and modernizing an existing flow?
+
+If you've already upgraded to Okta Identity Engine, and you're updating an existing Classic Engine authentication implementation:
+
+<!-- * Modernize your sign-in and SSO flows with Okta Identity Engine (link to journey): A step-by-step journey for teams replacing Classic Engine auth patterns with Identity Engine-supported deployment models. -->
+[Choose your Identity Engine authentication modernization approach](/docs/guides/oie-choose-signin-deploy/main/): A ranked decision guide for choosing between redirect, embedded widget, embedded SDK, and direct authentication.
+<!-- * Manage the identifier-first sign-in transition (New - see link for details): Plan for the visible UX changes when moving an existing app to Identity Engine. -->
+
+
 ## Primary considerations
 
 Each app that you add authentication to has slightly different requirements. But there are some primary considerations that you need to think about regardless of which app you’re dealing with.
@@ -30,14 +39,15 @@ After reviewing the primary considerations, you can integrate Okta authenticatio
 
 ## Choose your auth
 
-| &nbsp; | Okta-hosted Sign-In Widget | Embedded Sign-In Widget | Embedded SDK-driven sign-in flow|
-| ------ | -------------------------- | ----------------------- | ------------------------- |
-| &nbsp; | Use the Okta-hosted Sign-in Widget to redirect your users to authenticate, then redirect back to your app. This is the recommended approach because it's the most secure and fastest to implement. | Embed the Okta Sign-In Widget into your own code base to host the authentication client on your servers. This provides a balance between complexity and customization. | Use our SDKs to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control. |
-| **Effort** | <span style="width: 50%;display:block">![Low](/img/ratings/low.png)</span> | <span style="width: 50%;display:block">![Medium](/img/ratings/medium.png)</span> | <span style="width: 50%;display:block">![High](/img/ratings/high.png)</span> |
-| **Maintenance** | <span style="width: 50%;display:block">![Low](/img/ratings/low.png)</span> No updates required | <span style="width: 50%;display:block">![Medium](/img/ratings/medium.png)</span> Requires updating widget packages | <span style="width: 50%;display:block">![High](/img/ratings/high.png)</span> Requires updating SDK packages and adapting to changes |
-| **Security** | The most secure option. No XSS attacks, Okta takes care of it all | Responsibility shared with Okta | Security is your responsibility |
-| **Customization** | Managed branding and customization options for domains, emails, sign-in page, and more. | Most substantial customization options | Full customization |
-| **Learn more** | <ul><li>Redirect auth for [web apps](/docs/guides/sign-into-web-app-redirect/), [mobile apps](/docs/guides/sign-into-mobile-app-redirect/), and [single-page apps](/docs/guides/sign-into-spa-redirect/)</li><li>[Redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/android/main/)</li><li>[Customize the hosted widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)</li></ul> | <ul><li>[Embedded widget fundamentals](/docs/guides/embedded-siw/)</li><li>[Sample app setup](/docs/guides/set-up-org/)</li><li>[Embedded widget use cases](/docs/guides/oie-embedded-widget-use-case-load/)</li><li>[Customize the embedded widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget)</li></ul> | <ul><li>[Auth JS fundamentals](/docs/guides/auth-js/)</li><li>[Sample app setup](/docs/guides/oie-embedded-common-org-setup/android/main/)</li><li>[Embedded SDK use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/)</li><li>[Okta SDKs reference](/code/)</li></ul>|
+| &nbsp; | Okta-hosted Sign-In Widget | Embedded Sign-In Widget (Gen 2) | Embedded SDK-driven sign-in flow| Direct authentication |
+| ------ | -------------------------- | ----------------------- | ------------------------- | ------------------------- |
+| &nbsp; | Use a standards-based federation flow (SAML, OIDC, or OAuth) to delegate the entire sign-in experience to Okta. Okta hosts, maintains, and evolves the sign-in experience for you. This is the recommended approach because it's the most secure, easiest to maintain, and inherits new authenticator support automatically. | Embed the Okta Sign-In Widget (Gen2) into your own code base to host the authentication client on your servers. The third-generation (Gen3) widget is delivered as the Okta-hosted sign-in flow that's supported for self-hosted embedding. Embedding provides a balance between complexity and customization. | Use our SDKs to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control. | Use direct authentication for native, server-side, or machine-to-machine flows where a browser flow isn't possible. |
+| **Effort** | <img src="/img/ratings/low.png" alt="Low" style="width: 100px; max-width: 100px;"> | <img src="/img/ratings/medium.png" alt="Medium" style="width: 100px; max-width: 100px;"> | <img src="/img/ratings/high.png" alt="High" style="width: 100px; max-width: 100px;"> | <img src="/img/ratings/medium.png" alt="Medium" style="width: 100px; max-width: 100px;"> to <img src="/img/ratings/high.png" alt="High" style="width: 100px; max-width: 100px;"> |
+| **Maintenance** | <img src="/img/ratings/low.png" alt="Low" style="width: 100px; max-width: 100px;"><br> No updates required | <img src="/img/ratings/medium.png" alt="Medium" style="width: 100px; max-width: 100px;"><br> Requires updating widget packages | <img src="/img/ratings/high.png" alt="High" style="width: 100px; max-width: 100px;"><br> Requires updating SDK packages and adapting to changes | <img src="/img/ratings/medium.png" alt="Medium" style="width: 100px; max-width: 100px;"> |
+| **Security** | The most secure option. No XSS attacks, Okta takes care of it all | Responsibility shared with Okta | Security is your responsibility | Security is your responsibility |
+| **Customization** | Substantial managed customization options for domains, emails, sign-in page CSS, and brand-aligned page customization, all without taking on the maintenance and security burden of self-hosting. | Most substantial customization options | Full customization | Full UX, no UI |
+| **Authenticator evolution** | Inherited from Okta automatically (passkeys, WebAuthn, YubiKey, future authenticators) | Tied to your widget version. Requires upgrades | Tied to SDK version. Varies by platform. Some authenticators (notably passkeys) are limited or platform-dependent | Tied to API version. Limited UI aﬀordances for modern authenticators |
+| **Learn more** | <ul><li>Redirect auth for [web apps](/docs/guides/sign-into-web-app-redirect/), [mobile apps](/docs/guides/sign-into-mobile-app-redirect/), and [single-page apps](/docs/guides/sign-into-spa-redirect/)</li><li>[Redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/android/main/)</li><li>[Customize the hosted widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)</li></ul> | <ul><li>[Embedded widget fundamentals](/docs/guides/embedded-siw/)</li><li>[Sample app setup](/docs/guides/set-up-org/)</li><li>[Embedded widget use cases](/docs/guides/oie-embedded-widget-use-case-load/)</li><li>[Customize the embedded widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget)</li></ul> | <ul><li>[Auth JS fundamentals](/docs/guides/auth-js/)</li><li>[Sample app setup](/docs/guides/oie-embedded-common-org-setup/android/main/)</li><li>[Embedded SDK use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/)</li><li>[Okta SDKs reference](/code/)</li></ul>| [Configure Direct Authentication](/docs/guides/configure-direct-auth-grants/main/) |
 
 For more background on the different deployment models, including basic flows and help with choosing between models, see [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/).
 
@@ -50,6 +60,8 @@ For more background on the different deployment models, including basic flows an
 If you’re a Classic Engine customer who wants to upgrade their apps to use Identity Engine for authentication, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
 Before you start, [identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/) to inventory every sign-in, SDK, API, and automation point that needs testing.
+
+<!-- After you upgrade, see [Replace Classic Engine auth flows with Identity Engine]() to replace Classic Engine auth patterns with Identity Engine-supported flows. -->
 
 ## Next steps
 
