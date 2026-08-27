@@ -189,6 +189,7 @@ guides:
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
  - oie-choose-signin-deploy
+ - oie-manage-id-first-signin
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
