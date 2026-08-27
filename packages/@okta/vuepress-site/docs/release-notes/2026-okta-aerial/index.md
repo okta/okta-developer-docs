@@ -20,6 +20,7 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 ## August
 
 ### Weekly release
+<!-- Published on: 2026-08-27T12:00:00Z -->
 
 | Change | Expected in Aerial services preview | Expected in Aerial services production |
 |--------|-----------------------------| -----------------------------|
