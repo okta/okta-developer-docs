@@ -28,6 +28,8 @@ Although the [Identity Assertion JWT Authorization Grant](https://datatracker.ie
 
 Review the [XAA concept](/docs/concepts/xaa/) for more information.
 
+> **Note:** Select the SSO protocol in the **Instructions for** dropdown list on the right to view implementation instructions for that specific protocol.
+
 This guide focuses on the interactions required for the agentic app that assumes the **Client (requesting app)** role in the following XAA token exchange flow:
 
 <div class="full">
