@@ -4,7 +4,7 @@
 
       1. The user initiates the sign-in flow to your app.
       [[style="list-style-type:lower-alpha"]]
-      1. The app redirects the user to the IdP to SSO with SAML 2.0
+      1. The app redirects the user to the IdP to SSO with SAML 2.0.
       1. After the user is authenticated, the IdP returns the SAML assertion response to your app.
       1. Your app uses the SAML assertion to request a refresh token from the IdP.
 
