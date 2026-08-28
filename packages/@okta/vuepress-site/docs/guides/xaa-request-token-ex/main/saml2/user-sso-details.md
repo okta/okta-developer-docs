@@ -43,6 +43,8 @@ In a SAML-based XAA flow, after the user is authenticated, it delegates the requ
 
       Sign your JWT with the private key from the AI agent (`{clientKey}`) in Okta. See [Build a JWT with a private key](https://developer.okta.com/docs/guides/build-self-signed-jwt/js/main/#build-a-jwt-with-a-private-key) for guidance on how to build your JWT with a private key.
 
+      > **Note:** Creating a client assertion JWT is unnecessary if your client uses an authentication method other than `private_key_jwt`. You can pass client ID (`{client_id}`) and client secret (`{client_secret}`) directly as token exchange parameters instead.
+
    1. Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token) with the following parameters to obtain a refresh token.
 
         | Parameter              | Type   | Description |

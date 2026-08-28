@@ -3,7 +3,6 @@ Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://develo
 | Parameter              | Type   | Description |
 |------------------------|--------|-------------|
 | `grant_type`           | String | Set to `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| `client_id`            | String | Set to `{clientId}`. This is the client ID of the requesting app role, which is the AI agent in Okta. |
 | `client_assertion_type`| String | Set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion`     | String | Set to `{client_assertion}`, the signed JWT generated from [Create a client assertion JWT](#create-a-client-assertion-jwt). |
 | `subject_token`        | String | Set to `{refresh_token}`, which identifies the user. |
@@ -12,8 +11,6 @@ Send a POST request to your Okta org's [OAuth 2.0 token endpoint](https://develo
 | `audience`             | String | Set to `{resourceAud}`, the issuer URL of the resource app's authorization server. |
 | `scope`                | String | Set to `{idJagScopes}`, the scopes requested to access the resource server. |
 | `resource`             | String | Set to `{resourceApiUrl}`, the resource server's API base URL. |
-| `actor_token`          | String | Set to `{client_assertion}`, the signed JWT generated from [Create a client assertion JWT](#create-a-client-assertion-jwt). In the SAML requesting app XAA flow, this parameter is the delegated actor (the party authorized to act on behalf of the subject). |
-| `actor_token_type`     | String | Set to `urn:ietf:params:oauth:token-type:jwt`. Specify this parameter when `actor_token` is provided. |
 
 For example:
 
@@ -23,7 +20,6 @@ Host: your-okta-domain.okta.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=urn:ietf:params:oauth:grant-type:token-exchange&
-client_id={clientId}&
 client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&
 client_assertion={client_assertion}&
 subject_token={refresh_token}&
@@ -31,9 +27,7 @@ subject_token_type=urn:ietf:params:oauth:token-type:refresh_token&
 requested_token_type=urn:ietf:params:oauth:token-type:id-jag&
 audience={resourceAud}&
 scope={idJagScopes}&
-resource={resourceApiUrl}&
-actor_token={client_assertion}&
-actor_token_type=urn:ietf:params:oauth:token-type:jwt
+resource={resourceApiUrl}
 ```
 
 After the ID-JAG token exchange request is sent, the IdP (Okta) responds with the requested token. For example:
@@ -65,7 +59,7 @@ If you decode the ID-JAG token, the following claims appear for a SAML requestin
     "sub": "wlpa0eiuaoCNrpoaE0g7",   // The AI agent (from {client_assertion})
     "sub_profile": "ai_agent"
   },
-  "sub_id": {
+  "sub_id": {                        // The sub_id claim appears for SAML resource apps
     "format": "saml-nameid",
     "issuer": "http://www.okta.com/exk2410vjbjB62Oc61d8",
     "nameid": "example.user@okta.com",
