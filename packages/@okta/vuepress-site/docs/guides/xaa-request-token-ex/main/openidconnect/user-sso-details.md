@@ -2,7 +2,7 @@ In a OIDC-based XAA flow, after the user is authenticated, the IdP returns the I
 
 <div class="three-quarters">
 
-   ![XAA token exchange flow](/img/guides/xaa/xaa-oidc-sso.png)
+   ![XAA token exchange flow](/img/guides/xaa/xaa-oidc-sso.svg)
 
    </div>
     <!--

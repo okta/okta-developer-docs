@@ -2,7 +2,7 @@ In a SAML-based XAA flow, after the user is authenticated, it delegates the requ
 
 <div class="three-quarters">
 
-   ![XAA token exchange flow](/img/guides/xaa/xaa-saml-sso.png)
+   ![XAA token exchange flow](/img/guides/xaa/xaa-saml-sso.svg)
 
    </div>
     <!--
