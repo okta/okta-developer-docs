@@ -23,7 +23,7 @@ In a SAML-based XAA flow, after the user is authenticated, it delegates the requ
 
 1. Your app uses SAML and redirects the user to the IdP for SSO. As a prerequisite for this to happen, your app has to integrate and register SAML SSO with the IdP (Okta). See the [SAML concept](/docs/concepts/saml/) and [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) topic in the product documentation for details.
 
-1. After the user is authenticated, the IdP returns the users's SAML assertion response (`<SAMLResponse>`) to your requesting app. Save this Base64-encoded SAML response as `{SAMLReponse}` for the refresh token exchange.
+1. After the user is authenticated, the IdP returns the users's SAML assertion response (`<saml:Assertion>`) to your requesting app. Save this Base64-encoded SAML response as `{SAMLReponse}` for the refresh token exchange.
 
 1. Exchange the SAML assertion for a refresh token at your Okta org's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token). This exchange follows the [OAuth 2.0 Token Exchange (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693) specification.
 
@@ -53,7 +53,7 @@ In a SAML-based XAA flow, after the user is authenticated, it delegates the requ
         | `client_id`            | String | Optional. Set to `{clientId}`. This is the client ID of the requesting app role, which is the AI agent in Okta. You don't need this value if you have the `client_assertion`. |
         | `client_assertion_type`| String | Set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
         | `client_assertion`     | String | Set to `{client_assertion}`, the signed JWT generated from the previous step. |
-        | `subject_token`        | String | Set to `{SAMLResponse}`, the Base64-encoded SAML 2.0 assertion received from the IdP. |
+        | `subject_token`        | String | Set to `{SAMLAssertion}`, the Base64-encoded SAML 2.0 assertion received from the IdP. |
         | `subject_token_type`   | String | Set to `urn:ietf:params:oauth:token-type:saml2`. |
         | `requested_token_type` | String | Set to `urn:ietf:params:oauth:token-type:refresh_token`. |
         | `scope`                | String | Set to `openid offline_access` (`offline_access` is required to issue a refresh token). |
@@ -66,7 +66,7 @@ In a SAML-based XAA flow, after the user is authenticated, it delegates the requ
         Content-Type: application/x-www-form-urlencoded
 
         grant_type=urn:ietf:params:oauth:grant-type:token-exchange&
-        subject_token={SAMLResponse}&
+        subject_token={SAMLAssertion}&
         subject_token_type=urn:ietf:params:oauth:token-type:saml2&
         requested_token_type=urn:ietf:params:oauth:token-type:refresh_token&
         scope=openid+offline_access&
