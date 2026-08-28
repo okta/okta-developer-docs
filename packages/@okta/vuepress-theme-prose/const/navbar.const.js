@@ -710,6 +710,10 @@ export const guides = [
             guideName: "xaa-agent-to-app",
           },
           {
+            title: "Implement XAA token exchange for your requesting app",
+            guideName: "xaa-request-token-ex",
+          },
+          {
             title: "Expose XAA metadata for your resource app",
             guideName: "xaa-resource-metadata",
           },

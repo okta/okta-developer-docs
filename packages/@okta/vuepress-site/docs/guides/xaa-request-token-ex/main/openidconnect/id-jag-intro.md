@@ -1,0 +1,1 @@
+Use the ID token obtained from the previous step to request an ID-JAG token from the Okta org authorization server's [OAuth 2.0 token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/token).

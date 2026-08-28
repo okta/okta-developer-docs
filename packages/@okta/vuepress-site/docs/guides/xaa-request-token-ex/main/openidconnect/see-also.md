@@ -1,0 +1,2 @@
+* [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/agent-to-agent/main/): For the Okta for AI Agents token exchange guide
+* [Build Secure Agent-to-App Connections with Cross App Access (XAA) Using OIDC](https://developer.okta.com/blog/2025/09/03/cross-app-access): September 2025 blog on building XAA AI agent-to-app connections using OIDC
