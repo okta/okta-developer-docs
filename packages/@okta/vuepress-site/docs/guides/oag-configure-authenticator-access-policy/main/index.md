@@ -23,9 +23,9 @@ This guide explains how to configure Smart Card authentication and access polici
 #### What you need
 
 * Offline mode configured for Access Gateway. See [Configure offline mode for Access Gateway](/docs/guides/oag-offline-mode/main/).
-* An identity provider (IdP) in your Access Gateway instance with failover mode set to `AUTOMATIC`.
+* An identity provider (IdP) in your Access Gateway instance with failover mode set to `AUTOMATIC`
 * An app in your Access Gateway instance, such as a [generic app](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_app_gen_header) or OpenID Connect (OIDC) app. See [Add an app for Access Gateway offline mode](/docs/guides/oag-configure-apps-offline-mode/main/).
-* A Certificate Authority (CA) certificate chain for your Smart Card, as one or more Base64-encoded X.509 certificates in Distinguished Encoding Rules (DER) format.
+* A Certificate Authority (CA) certificate chain for your Smart Card, as one or more Base64-encoded X.509 certificates in Distinguished Encoding Rules (DER) format
 
 ---
 
@@ -42,7 +42,7 @@ An access policy determines which authenticator, or combination of authenticator
 
 Access Gateway automatically creates a default access policy for each IdP that has offline mode enabled with failover mode set to `AUTOMATIC`. The default policy requires only a password. If you don't explicitly assign an access policy to an app before enabling offline mode, Access Gateway enforces this password-only default policy instead. Assign an access policy that includes the Smart Card authenticator before enabling offline mode for the app.
 
-Currently, an access policy supports a single rule with one authentication method chain. See [Create an access policy](#create-an-access-policy) for the supported chains. `actions.access` must be set to `allow`. It's currently the only supported value.
+Currently, an access policy supports a single rule with one authentication method chain. See [Create an access policy](#create-an-access-policy) for the supported chains. `actions.access` must be set to `allow`. 
 
 ## Scopes required for Smart Card authentication and access policies
 
