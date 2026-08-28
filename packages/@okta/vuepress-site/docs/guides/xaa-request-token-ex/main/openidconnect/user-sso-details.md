@@ -17,7 +17,7 @@ In a OIDC-based XAA flow, after the user is authenticated, the IdP returns the I
     @enduml
     -->
 
-1. User signs into your OIDC agentic app.
+1. User signs in to your OIDC agentic app.
 
 1. Your agentic app redirects the user to the IdP for SSO. As a prerequisite for this to happen, your app has to integrate and register OIDC SSO with the IdP (Okta). See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc) in the product documentation for details.
 

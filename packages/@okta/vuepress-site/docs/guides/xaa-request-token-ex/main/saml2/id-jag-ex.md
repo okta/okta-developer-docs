@@ -83,4 +83,4 @@ If you decode the ID-JAG token, the following claims appear for a SAML requestin
 }
 ```
 
-> **Note:** When the ID-JAG expires, you can request for a new ID-JAG using the refresh token. If you use an expired refresh token, your ID-JAG request returns an `invalid_grant` error. You need to obtain a new refresh token by having the user sign in through SSO again.
+> **Note:** When the ID-JAG expires, you can request a new ID-JAG using the refresh token. If you use an expired refresh token, your ID-JAG request returns an `invalid_grant` error. You need to obtain a new refresh token by having the user sign in through SSO again.

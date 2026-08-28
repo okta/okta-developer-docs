@@ -1,4 +1,4 @@
-1. **[User SSO](#user-sso)**: In a OIDC-based XAA flow, your requesting app acts on behalf of an authenticated user. The requesting app obtains the user ID token after authentication.
+1. **[User SSO](#user-sso)**: In an OIDC-based XAA flow, your requesting app acts on behalf of an authenticated user. The requesting app obtains the user ID token after authentication.
 
 1. **ID token issued**: The IdP returns an ID token.
 1. **[Token exchange for ID-JAG](#token-exchange-for-id-jag)**: To access a specific resource on behalf of the user, your app exchanges the ID token to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
