@@ -209,23 +209,25 @@ Use the [jwt.io](https://jwt.io/) tool to create the sample identifier-changed S
       "jti": "24c63fb56e5a2d77a6b512616ca9fa24",
       "iat": 1615305159,
       "aud": "https://customer.okta.com/",
-      "https://schemas.okta.com/secevent/okta/event-type/user-risk-change": {
-        "subject": {
-          "user": {
-            "format": "email",
-            "email": "user@issuer.com"
-          }
-        },
-        "event_timestamp": 1750980770,
-        "initiating_entity": "admin",
-        "reason_admin": {
-          "en": "critical security activity detected"
-        },
-        "reason_user": {
-          "en": "critical security activity detected"
-        },
-        "previous_level": "low",
-        "current_level": "high"
+      "events": {
+        "https://schemas.okta.com/secevent/okta/event-type/user-risk-change": {
+          "subject": {
+            "user": {
+              "format": "email",
+              "email": "user@issuer.com"
+              }
+            },
+          "event_timestamp": 1750980770,
+          "initiating_entity": "admin",
+          "reason_admin": {
+            "en": "critical security activity detected"
+            },
+          "reason_user": {
+            "en": "critical security activity detected"
+            },
+          "previous_level": "low",
+          "current_level": "high"
+        }
       }
     }
     ```
