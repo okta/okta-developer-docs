@@ -265,6 +265,25 @@ For details about configuring enrollment promotion in the Admin Console, see [Au
 
 To see the promotion object in the API reference, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=1/settings/authenticators/enroll/promotion).
 
+##### Authenticator groups
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+> **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To enable it, contact [Okta Support](https://support.okta.com).
+
+An authenticator group is a reusable, named set of authenticators that an authenticator enrollment policy references to define an enrollment requirement. Instead of marking each authenticator required or optional, you can require users to enroll a minimum number of authenticators from the group. Users choose which ones to enroll, so a single policy can cover users who don't all have access to the same devices.
+
+Two objects define the requirement:
+
+* **The group**: A named set of authenticator types that you manage through the Authenticator Groups API. A group defines only its members, so more than one policy can reference it.
+* **The policy reference**: An entry in the policy's `settings.authenticatorGroups` property that points to a group and sets the enrollment threshold. Each `criteria` entry has a `type` of `authenticatorCount` and a `count` that specifies how many authenticators from the group a user must enroll. A `count` of `0` makes the group's authenticators available but not required.
+
+For example, you can create a group named Recovery Methods that contains the Email, Phone, and Okta Verify authenticators, and then reference that group from a policy with a `count` of `2`. Users must enroll any two of the three authenticators before they can proceed. To use this configuration, set the policy's `settings.type` property to `AUTHENTICATOR_GROUPS`.
+
+For details about configuring authenticator groups in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+
+To see the authenticator group object in the API reference documentation, see the [Authenticator Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorGroup/).
+
 #### User profile policies
 
 <ApiLifecycle access="ie" />
