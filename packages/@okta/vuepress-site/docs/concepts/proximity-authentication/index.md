@@ -49,6 +49,9 @@ Hardware-protected cards store encryption keys in a secure element, a chip desig
 
 The following steps describe the enrollment process for a user with a new NFC card:
 
+1. The user signs in to Okta with their username and password.
+1. The user starts enrollment for the NFC authenticator.
+1. Okta evaluates the Okta account management policy and verifies that the user meets its requirements for enrolling an authenticator.
 1. The Sign-In Widget contacts Okta Verify through a deep link to initiate the NFC read.
 1. The user taps their NFC card on the reader.
 1. Okta Verify reads the card's unique identifier (UID) and sends it to Okta. Okta uses this UID during verification to look up the user's enrollment record and confirm that the card is registered to a user.
