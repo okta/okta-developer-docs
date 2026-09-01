@@ -1,5 +1,7 @@
 
-After obtaining an OAuth STS access token through the token exchange flow, the AI agent can revoke that token using the org authorization server's `/oauth2/v1/revoke` endpoint and the same client credentials used for token exchange.
+After obtaining an OAuth STS access token through the token exchange flow, the AI agent can revoke that token using the org authorization server's `/oauth2/v1/revoke` endpoint and the same client credentials that it used for token exchange.
+
+This request supports multiple client authentication methods. The example below changes, depending on how the agent was configured to authenticate it's identity to Okta. See [Add client registration details](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) on the Add AI agents manually page in the help docs.
 
 ``` http
 POST /oauth2/v1/revoke HTTP/1.1
@@ -17,7 +19,7 @@ token=eyJhbGciOiJIUzI1NiIsI...
 | token | The `access_token` value from the successful token exchange response. |
 | token_type_hint | The value must be `oauth_sts`. |
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |  A signed JWT used for client authentication. You must sign the JWT using the key created during AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
+| client_assertion |  A signed JWT that's used for client authentication. You must sign the JWT using the key that you created when you registered the AI agent. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
 The endpoint returns `200 OK` regardless of whether the token was valid or already expired, to prevent information leaks.
 
@@ -26,3 +28,26 @@ The endpoint returns `200 OK` regardless of whether the token was valid or alrea
 > - If Okta still holds a valid refresh token for the connection, the next token exchange request obtains a new access token automatically.
 > - If Okta's refresh token is also expired or invalid, the next token exchange request returns an `interaction_required` response and a new user consent flow is required.
 > - The access token isn't automatically revoked from the external resource authorization server. If the access token was shared or copied elsewhere, you must revoke it directly with the external provider.
+
+### Force re-consent for STS services
+
+To prompt a user for consent again, you need to clear authorization from both Okta and the third-party provider.
+
+For example, if the user has an active session in their browser at the third-party platform, and has previously provided consent, they may not be prompted for consent at all. The flow can pass through silently. Forcing re-consent requires clearing the tokens stored in Okta and revoking the third-party tokens and consent.
+
+1. Call the `/revoke` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/revoke) to clear the OAuth STS access token on the Okta org authorization server.
+
+> **Note**: You can also use the **Clear and revoke** button in the Admin Console. You can access the [Clear User Sessions function](https://help.okta.com/okta_help.htm?type=oie&id=csh-session-revoke) through the user's profile.
+
+```bash
+  curl --location --request POST \
+    --url 'https://{yourOktaDomain}/oauth2/v1/revoke' \
+    --header "Content-Type: application/x-www-form-urlencoded" \
+    --header "Accept: application/json" \
+    --data-urlencode "token=<access_token_value>" \
+    --data-urlencode "token_type_hint=oauth_sts"
+```
+
+1. Revoke access on the third-party platform. Locate the 'revoke all user tokens' or similar setting in the third-party provider's console.
+
+  After you call the `/revoke` endpoint to clear access tokens from cache and revoke all user tokens at the third-party service, the user should be reprompted for consent.

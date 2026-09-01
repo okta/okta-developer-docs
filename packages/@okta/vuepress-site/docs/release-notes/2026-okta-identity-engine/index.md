@@ -13,6 +13,87 @@ title: Okta Identity Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.3
+<!-- Published on: 2026-08-27T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Manual MCP registration is Beta](#manual-mcp-registration-is-beta) | August 26, 2026 |
+| [Bug fixed in 2026.08.3](#bug-fixed-in-2026-08-3)| August 26, 2026 |
+
+#### Manual MCP registration is Beta
+
+You can now add manually configured authorization servers to a third-party MCP server using the **Add an authorization server to an MCP server** API. Include the `issuer`, `authorizationEndpoint`, and `tokenEndpoint` parameters in your request. You can also update authorization servers (discovered or manually added). The `issuer` parameter is immutable. An MCP server can have multiple authorization servers, including a mix of discovered and manually added ones. See the [Add an authorization server to an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/addmcpserverauthorizationserver) and [Update an authorization server for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/updatemcpserverauthorizationserver) APIs.
+<!-- SECURE_AI_MCP_SERVER_ENHANCEMENTS to Beta 2026.08.3 OKTA-1255807 -->
+
+#### Bug fixed in 2026.08.3
+
+* After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
+
+* When a user who was removed from an app in Okta was re-assigned to it, the status remained in a "Disabled" state in the app's UI. (OKTA-1217473)
+
+### Weekly release 2026.08.2
+<!-- Published on: 2026-08-19T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Unified identity for AI agents is GA in Production](#unified-identity-for-ai-agents-is-ga-in-production) | August 19, 2026 |
+| [Bugs fixed in 2026.08.2](#bugs-fixed-in-2026-08-2) | August 19, 2026 |
+
+#### Unified identity for AI agents is GA in Production
+
+Okta now resolves AI agent identities across every registration path into a single authoritative record per org. Each agent can now carry an `externalId` and `platform` value to ensure agents are unique. This feature adds new endpoints for listing, reviewing, resolving staged conflicts and managing provider priority. See [AI Agent Providers](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders). <!-- OKTA-1246247 FF: SECURE_AI_AGENTS_UNIFY_IDENTITY -->
+
+#### Bugs fixed in 2026.08.2
+
+* When you added a URL value to parameters for resource server API endpoints, the trailing slash was removed. (OKTA-1250066)
+
+* When you added a manual MCP server with an incomplete URL, the endpoint `POST /resource-servers/api/v1/mcp-servers` returned an HTTP 400 error.  (OKTA-1246008)
+
+* When you sent a PATCH request to `/resource-servers/api/v1/mcp-servers/{mcpServerId}/authorization-servers/{authServerId}` that included the immutable `issuer` or `type` fields, the API silently ignored those fields instead of returning an HTTP 4xx error. (OKTA-1244902)
+
+* The endpoints `POST /api/v1/users` and `POST /api/v1/users/{userId}` intermittently returned an HTTP 400 error stating that a profile property wasn't defined, even though the property existed on the user's schema. (OKTA-1210697)
+
+### Weekly release 2026.08.1
+<!-- Published on: 2026-08-12T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Cross App Access support for AI agents and apps for all customers](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers) | August 17, 2026 |
+| [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
+| [Authorization and token endpoints now support multiple resources per refresh token is GA in Preview](#authorization-and-token-endpoints-now-support-multiple-resources-per-refresh-token-is-ga-in-preview) | August 12, 2026 |
+| [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
+
+#### Cross App Access support for AI agents and apps for all customers
+
+Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols. See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
+
+For agentic requesting apps that use OIDC for SSO, Okta enables binding an AI agent with an OIDC SSO app so that they share the same credentials. If you want to remove this configuration in Okta, delete the AI agent and the corresponding OIDC app.
+
+From this AI agent-app binding capability, admins can now configure direct user authentication for the AI agent. If you have an Okta for AI Agent org and have previously used the **Delegation** tab to configure AI agent access through delegation links, you need to reconfigure them with the **User access** tab. See the [Migration from Okta for AI Agent delegation link](/docs/guides/xaa-agent-to-app/main/#migration-from-okta-for-ai-agent-delegation-link) guidance.
+
+<!-- OKTA-1212187 SECURE_AI_XAA Preview: Aug 17, 2026 -->
+
+#### New IP service categories for enhanced dynamic zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
+
+#### Authorization and token endpoints now support multiple resources per refresh token is GA in Preview
+
+The `/authorize` and `/token` endpoints for custom authorization servers now accept multiple `resource` parameters. Request a refresh token that's scoped to several resources at authorization time. Then exchange it at `/token` (`grant_type=refresh_token`) for an access token whose `aud` claim is just one of those resources. One refresh token now covers multiple resources, and each call mints a precisely scoped, single-audience token, instead of one refresh token per resource. See [Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707).
+
+This feature is only available for orgs that are subscribed to Okta for AI Agents and have the agent-to-agent connections feature enabled. <!-- OKTA-1245853 FF: SECURE_AI_A2A_SERVERS -->
+
+#### Bugs fixed in 2026.08.1
+
+* In some cases, the [Create a log stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/logstream/other/createlogstream) limit of two active streams could be exceeded. (OKTA-1179998)
+
+* When an AI agent import returned a 404 error, the [Validate an AI agent provider](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/validateaiagentprovider) endpoint returned an HTTP 500 error. (OKTA-1216248)
+
+* The `okta.users.credentials.resetFactors` permission incorrectly allowed you to enroll authenticators on behalf of users (`POST /users/{userId}/factors`). (OKTA-1220095)
+
+* For some orgs, when you [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent) with a name shorter than five characters, a minimum-length validation error was returned, even though the minimum had been reduced to three characters. (OKTA-1242199)
+
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-05T12:00:00Z -->
 
@@ -33,6 +114,8 @@ title: Okta Identity Engine API release notes 2026
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Advanced device posture checks is GA in Production](#advanced-device-posture-checks-is-ga-in-production) |  April 9, 2025 |
+| [New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production](#new-fields-query-parameter-for-groups-realms-and-devices-list-endpoints-is-ga-in-production) | July 1, 2026 |
+| [Submit Identity Verification integration is GA in Production](#submit-identity-verification-integration-is-ga-in-production)| |
 | [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026-08-0) | August 5, 2026 |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0) | August 5, 2026 |
 
@@ -112,6 +195,14 @@ A new Research Release lifecycle, marked with a Research Release badge, is now a
 #### Advanced device posture checks is GA in Production
 
 Advanced device posture checks let admins enforce compliance based on customized device attributes that extend beyond Okta's standard checks. Using osquery, the feature facilitates real-time security assessments across macOS and Windows devices, giving orgs enhanced visibility and control over their device fleet to ensure that only trusted devices can access sensitive resources. This feature is available only if you're subscribed to *Okta Device Access (ODA)*. See [Configure advanced posture checks and custom remediation|https://developer.okta.com/docs/guides/device-assurance-posture-checks-and-remediation/main/] and the [Device Posture Checks API|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/]. <!-- OSQUERY_CUSTOM_DEVICE_POSTURE_CHECKS_RELEASE, DEVICE_UNMANAGED_CHECKS, DEVICE_AUTHENTICATOR_INTEGRATIONS OKTA-1162878 OKTA-1193941 Preview date: April 9, 2025 -->
+
+#### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production
+
+The `GET /api/v1/groups`, `GET /api/v1/realms`, and `GET /api/v1/devices` endpoints now support the fields query parameter that specifies which fields to include in the response. Use this parameter to reduce the response payload size when your integration only needs a subset of fields. See [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group), [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/realm), and [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device). <!--OKTA-1208394 Preview: July 1, 2026, Prod: August 5, 2026 -->
+
+#### Submit Identity Verification integration is GA in Production
+
+ISVs can now build, test, and submit Identity Verification (IDV) integrations to the Okta Integration Network (OIN) using the OIN Wizard. This enables customers and Okta admins to discover and configure their preferred IDV providers directly from the OIN app catalog, without manually entering IDV-specific details each time. See [Submit an IDV integration with the OIN Wizard](/docs/guides/submit-oin-app/xidv/main/).<!-- IDV Submission on OIN Wizard - Q2 OKTA-1148097-->
 
 #### Developer documentation updates in 2026.08.0
 
@@ -213,7 +304,7 @@ This feature allows admins to securely connect AI agents and apps to take action
 
 #### Agent-to-agent connections is GA in Production
 
-Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links. Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-to-agent-token-exchange/agent-to-agent/main/).
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links. Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-token-exchange/agent-to-agent/main/).
 
 The Delegation Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See [Delegation Links](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 
@@ -342,7 +433,7 @@ The [List all authorization servers for an API server](https://developer.okta.co
 #### Agent-to-agent connections is EA in Preview
 
 Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
-Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-to-agent-token-exchange/agent-to-agent/main/).
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-token-exchange/agent-to-agent/main/).
 
 The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 
@@ -421,7 +512,7 @@ Validation for the [Create a client authentication settings endpoint](https://de
 #### Agent-to-agent connections is EA in Preview
 
 Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
-Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-to-agent-token-exchange/agent-to-agent/main/).
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-token-exchange/agent-to-agent/main/).
 
 The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 

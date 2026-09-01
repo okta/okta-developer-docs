@@ -382,7 +382,7 @@
                           Privacy Policy
                         </SmartLink>
                         . If I am acting on behalf of an employer or another entity, I represent and warrant that I have the legal authority to bind that entity and its users to these terms. 
-                        I acknowledge that my access to the Integrator Free Plan will automatically expire after 180 consecutive days of inactivity.
+                        I acknowledge that my access to the Integrator Free Plan automatically expires after 90 consecutive days of inactivity.
                       </p>
                       <p>
                         I agree that Okta may contact me with marketing communications.

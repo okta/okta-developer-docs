@@ -4,8 +4,17 @@
   <title>Okta Open Source MCP Server API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/</link>
   <description>Recent release notes for Okta Open Source MCP Server</description>
-  <pubDate>Thu, 04 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.08.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/#weekly-release-2026-08-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/#weekly-release-2026-08-1</guid>
+      <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/#okta-managed-mcp-server-is-ea-in-production">Okta Managed MCP Server is EA in Production</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/#monthly-release-2026-06-0</link>

@@ -8,7 +8,7 @@ layout: Guides
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to create an app for use with Access Gateway offline mode.
+This guide explains how to create an app for use with Access Gateway offline mode. It covers both OpenID Connect (OIDC) and SAML 2.0 apps. To choose which set of instructions appears, use the **Instructions for** selector at the top of the page.
 
 > **Note:** The Access Gateway APIs used in this guide are available in a Limited Early Access program and may be updated or changed based on feedback.
 
@@ -41,6 +41,10 @@ Offline mode apps require you to configure the authentication service and direct
 ## What to know before creating the app
 
 <StackSnippet snippet="requirements" />
+
+## Scopes required to create the app
+
+<StackSnippet snippet="scopes" />
 
 ## Create the app
 

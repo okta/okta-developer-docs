@@ -11,7 +11,6 @@ guides:
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
  - ai-configure-agent-for-gateway
- - ai-agent-to-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
@@ -190,6 +189,8 @@ guides:
  - oie-upgrade-test-widget-custom
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
+ - oie-choose-signin-deploy
+ - oie-manage-id-first-signin
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
@@ -224,6 +225,9 @@ guides:
  - oag-offline-mode
  - oag-configure-apps-offline-mode
  - configure-identity-claims-sourcing-policy
+ - xaa-resource-metadata
+ - xaa-agent-to-app
+ - xaa-request-token-ex
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

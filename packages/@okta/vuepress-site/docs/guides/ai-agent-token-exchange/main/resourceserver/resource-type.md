@@ -1,1 +1,1 @@
-Resource server
+Resource server (STS)

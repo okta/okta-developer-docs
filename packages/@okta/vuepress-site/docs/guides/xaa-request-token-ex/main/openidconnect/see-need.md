@@ -1,0 +1,1 @@
+See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc) and [Configure the requesting app](/docs/guides/xaa-agent-to-app/main/#configure-the-ai-agent-requesting-app).

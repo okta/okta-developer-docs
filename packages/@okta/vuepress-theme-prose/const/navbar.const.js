@@ -16,6 +16,10 @@ export const concepts = [
         path: "/docs/concepts/auth-servers/",
       },
       {
+        title: "Cross App Access (XAA)",
+        path: "/docs/concepts/xaa/",
+      },
+      {
         title: "Brands",
         path: "/docs/concepts/brands/",
       },
@@ -572,10 +576,6 @@ export const guides = [
             guideName: "ai-agent-token-exchange",
           },
           {
-            title: "Set up AI agent-to-agent token exchange",
-            guideName: "ai-agent-to-agent-token-exchange",
-          },
-          {
             title: "Set up third-party AI agent token exchange",
             guideName: "ai-agent-third-party-token-exchange",
           },
@@ -597,6 +597,7 @@ export const guides = [
       },
       {
         title: "Okta Open Source MCP Server",
+        path: "/docs/guides/okta-open-source-mcp-server/main/",
         subLinks: [
           {
             title: "Install and initialize",
@@ -698,6 +699,23 @@ export const guides = [
               },
               { title: "Validate ID tokens", guideName: "validate-id-tokens" },
             ],
+          },
+        ],
+      },
+      {
+        title: "Cross App Access (XAA)",
+        subLinks: [
+          {
+            title: "Configure AI agent-to-app with XAA",
+            guideName: "xaa-agent-to-app",
+          },
+          {
+            title: "Implement XAA token exchange for your requesting app",
+            guideName: "xaa-request-token-ex",
+          },
+          {
+            title: "Expose XAA metadata for your resource app",
+            guideName: "xaa-resource-metadata",
           },
         ],
       },
@@ -980,8 +998,8 @@ export const guides = [
         guideName: "oie-upgrade-overview/main",
         subLinks: [
           {
-            title: "Plan upgrade rollout",
-            guideName: "oie-upgrade-rollout-plan",
+            title: "Authn enrollment policy changes",
+            guideName: "oie-upgrade-mfa-enroll-policy"
           },
           {
             title: "Identify integrations and customizations",
@@ -996,8 +1014,24 @@ export const guides = [
             guideName: "oie-upgrade-plan-embedded-upgrades",
           },
           {
+            title: "Identity Engine auth modernization approach",
+            guideName: "oie-choose-signin-deploy",
+          },
+          {
+            title: "Manage the identifier-first sign-in transition",
+            guideName: "oie-manage-id-first-signin",
+          },
+          {
             title: "Okta API changes for Identity Engine",
             guideName: "oie-upgrade-api-changes",
+          },
+          {
+            title: "Plan embedded app upgrades",
+            guideName: "oie-upgrade-plan-embedded-upgrades",
+          },
+          {
+            title: "Plan upgrade rollout",
+            guideName: "oie-upgrade-rollout-plan",
           },
           {
             title: "Update your event hooks for Identity Engine",
@@ -1048,10 +1082,6 @@ export const guides = [
                 guideName: "oie-upgrade-sessions-api",
               },
             ],
-          },
-          {
-            title: "Authn enrollment policy changes",
-            guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
       },
