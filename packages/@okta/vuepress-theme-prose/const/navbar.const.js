@@ -998,20 +998,32 @@ export const guides = [
         guideName: "oie-upgrade-overview/main",
         subLinks: [
           {
-            title: "Plan upgrade rollout",
-            guideName: "oie-upgrade-rollout-plan",
+            title: "Authn enrollment policy changes",
+            guideName: "oie-upgrade-mfa-enroll-policy"
           },
           {
             title: "Identify integrations and customizations",
             guideName: "oie-upgrade-identify-integrations",
           },
           {
-            title: "Plan embedded app upgrades",
-            guideName: "oie-upgrade-plan-embedded-upgrades",
+            title: "Identity Engine auth modernization approach",
+            guideName: "oie-choose-signin-deploy",
+          },
+          {
+            title: "Manage the identifier-first sign-in transition",
+            guideName: "oie-manage-id-first-signin",
           },
           {
             title: "Okta API changes for Identity Engine",
             guideName: "oie-upgrade-api-changes",
+          },
+          {
+            title: "Plan embedded app upgrades",
+            guideName: "oie-upgrade-plan-embedded-upgrades",
+          },
+          {
+            title: "Plan upgrade rollout",
+            guideName: "oie-upgrade-rollout-plan",
           },
           {
             title: "Update your event hooks for Identity Engine",
@@ -1020,10 +1032,6 @@ export const guides = [
           {
             title: "Upgrade registration inline hooks to Identity Engine",
             guideName: "oie-upgrade-registration-inline-hook",
-          },
-          {
-            title: "Identity Engine auth modernization approach",
-            guideName: "oie-choose-signin-deploy",
           },
           {
             title: "Okta Sign-In Widget upgrade",
@@ -1066,10 +1074,6 @@ export const guides = [
                 guideName: "oie-upgrade-sessions-api",
               },
             ],
-          },
-          {
-            title: "Authn enrollment policy changes",
-            guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
       },
