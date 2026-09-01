@@ -28,7 +28,9 @@ You can now add manually configured authorization servers to a third-party MCP s
 
 #### Bug fixed in 2026.08.3
 
-After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
+* After an org upgraded to Identity Engine, `sms` and `call` factors that were migrated from Classic Engine returned an incorrect `created` date from the Factors API (`GET /api/v1/users/{userId}/factors`). The date reflected the factor's first use for authentication rather than its original enrollment date. (OKTA-1172610)
+
+* When a user who was removed from an app in Okta was re-assigned to it, the status remained in a "Disabled" state in the app's UI. (OKTA-1217473)
 
 ### Weekly release 2026.08.2
 <!-- Published on: 2026-08-19T12:00:00Z -->
