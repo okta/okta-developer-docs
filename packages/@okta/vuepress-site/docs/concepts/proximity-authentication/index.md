@@ -7,7 +7,7 @@ meta:
 
 # Proximity authentication
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" /><ApiLifecycle access="ea" />
 
 Proximity authentication verifies a user's identity by detecting the physical proximity of a paired card, token, or other device to a host system. Implementations vary in the detection mechanism and token type that they use to establish proximity. Some systems verify a user's palm or face as they approach a reader, rather than requiring a physical card or token.
 
@@ -47,7 +47,16 @@ Hardware-protected cards store encryption keys in a secure element, a chip desig
 
 ### Enroll an NFC authenticator
 
-The following steps describe the enrollment process for a user with a new NFC card:
+The following diagram and steps describe the enrollment process for a user with a new NFC card.
+
+<div class="full border">
+
+![A diagram that shows the enrollment process for a user with a new NFC card.](/img/concepts/nfc-authenticator-enrollment-flow.svg)
+
+  <!--
+    Source image: https://www.figma.com/design/h3K9ekEcArC31R1lnhjc9a/NFC-PIN-feature-diagrams?node-id=0-1&p=f&t=spP148Teygs8xc2r-0
+  -->
+</div>
 
 1. The user signs in to Okta with their username and password.
 1. The user starts enrollment for the NFC authenticator.
@@ -64,7 +73,16 @@ See [End-user experience for the NFC authenticator](https://help.okta.com/okta_h
 
 ### Sign in with an NFC authenticator
 
-The following steps describe the sign-in process for a user with an enrolled NFC card:
+The following diagram and steps describe the sign-in process for a user with an enrolled NFC card:
+
+<div class="full border">
+
+![A diagram that shows the sign-in process for a user with an enrolled NFC card.](/img/concepts/nfc-authenticator-sign-in-flow.svg)
+
+  <!--
+    Source image: https://www.figma.com/design/h3K9ekEcArC31R1lnhjc9a/NFC-PIN-feature-diagrams?node-id=0-1&p=f&t=spP148Teygs8xc2r-0
+  -->
+</div>
 
 1. If enabled for your org, the Sign-In Widget shows a **Sign in with NFC** button on managed devices. The user can select this button, or NFC authentication can trigger automatically after they enter their username, depending on your authentication policy. Okta Verify launches automatically in the background when possible. If it isn't running, the user must launch it manually.
 1. The user taps their NFC card on the reader.
