@@ -26,7 +26,7 @@ The NFC authenticator satisfies two factor types simultaneously:
 * **Possession:** The physical NFC card proves that the user has a specific object in their control.
 * **Knowledge:** The PIN proves that the user knows a secret value.
 
-A single sign-in with the NFC authenticator can satisfy an MFA requirement without requiring other authenticators. The assurance level that it contributes to a session depends on the NFC tag type. Hardware-protected NFC tags require a mutual authentication step. Mutual authentication is a process where both the card and Okta verify each other's identity using cryptographic keys. This step proves that the physical card is present and contributes to the `hwk` AMR claim. See [Authentication assurance](#authentication-assurance).
+The NFC authenticator can satisfy an MFA requirement without requiring other authenticators. The assurance level that it contributes to a session depends on the NFC tag type. Hardware-protected NFC tags require a mutual authentication step. Mutual authentication is a process where both the card and Okta verify each other's identity using cryptographic keys. This step proves that the physical card is present and contributes to the `hwk` AMR claim. See [Authentication assurance](#authentication-assurance).
 
 ## How NFC authentication works
 
