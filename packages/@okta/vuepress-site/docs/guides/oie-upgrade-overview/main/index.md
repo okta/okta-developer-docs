@@ -108,9 +108,9 @@ To fully take advantage of Identity Engine, replace Classic Engine authenticatio
 
 <!-- * [Replace Classic Engine auth flows with Identity Engine](): A step-by-step journey for replacing Classic Engine auth patterns with Identity Engine-supported deployment models. -->
 
-* [Choose your Identity Engine authentication modernization approach](/docs/guides/oie-choose-signin-deploy/main/): A ranked decision guide for choosing between redirect, embedded widget, embedded SDK, and direct authentication.
+[Choose your Identity Engine authentication modernization approach](/docs/guides/oie-choose-signin-deploy/main/): A ranked decision guide for choosing between redirect, embedded widget, embedded SDK, and direct authentication.
 
-* [Manage the identifier-first sign-in transition](/docs/guides/oie-manage-id-first-signin/main/): Plan for the visible UX change when an existing app moves to Identity Engine.
+<!-- * [Manage the identifier-first sign-in transition](/docs/guides/oie-manage-id-first-signin/main/): Plan for the visible UX change when an existing app moves to Identity Engine. -->
 
 If your app is staying on its current deployment model and the org upgrade alone is sufficient, you can stop here. Most teams benefit from continuing into modernization. This unlocks Identity Engine capabilities such as flexible authenticator policies, passwordless sign-in flows, and AI agent authentication.
 
