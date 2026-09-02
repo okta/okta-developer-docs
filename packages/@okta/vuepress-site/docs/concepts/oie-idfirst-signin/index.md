@@ -15,13 +15,13 @@ This guide explains what the identifier-first sign-in experience is. It defines 
 
 In a password-first flow, the Sign-In Widget shows the username field and the password field on the same page. The user supplies both at once. This is the traditional flow that Classic Engine uses.
 
-In an identifier-first flow, the Sign-In Widget shows the username field first. The user enters an identifier, which is typically the full username (email), and continues. Identity Engine then presents the appropriate next step on a following page.
+In an identifier-first experience, the Sign-In Widget shows the username field first. The user enters an identifier, which is typically the full username (email), and continues. Identity Engine then presents the appropriate next step on a following page.
 
 The difference isn't only visual. Asking for the identifier first lets Identity Engine make a runtime decision about how a specific user should authenticate before it prompts for any credential.
 
 ## How identifier-first works in Identity Engine
 
-Identity Engine is an authentication pipeline. When a user starts a sign-in flow, Identity Engine evaluates the global session policy. It then evaluates the app sign-in policy, and other relevant policies, to determine what the user must do next. In an identifier-first flow, that evaluation happens after the identifier is known and before a credential is requested.
+Identity Engine is an authentication pipeline. When a user starts a sign-in flow, Identity Engine evaluates the global session policy. It then evaluates the app sign-in policy, and other relevant policies, to determine what the user must do next. In an identifier-first experience, that evaluation happens after the identifier is known and before a credential is requested.
 
 The sequence is similar to the following steps:
 
@@ -40,11 +40,11 @@ Identifying the user first rather than collecting a password first is what makes
 
 ## Is identifier-first required or configurable?
 
-The identifier-first sign-in flow is conditional and configurable, not mandatory and not universally on by default. Whether a user sees a password-first or an identifier-first flow depends on how the global session policy is configured:
+The identifier-first sign-in experience is conditional and configurable, not mandatory and not universally on by default. Whether a user sees a password-first or an identifier-first experience depends on how the global session policy is configured:
 
-* **Password-first flow:** If a global session policy rule establishes the user session with a password, the username and password appear on the same page. This is the Classic Engine-style experience.
+* **Password-first experience:** If a global session policy rule establishes the user session with a password, the username and password appear on the same page. This is the Classic Engine-style experience.
 
-* **Identifier-first flow:** If a global session policy rule establishes the user session with any authentication factor, the username prompt appears first. Accepted factors include passwords, identity providers, or any other factors allowed by app sign-in rules.
+* **Identifier-first experience:** If a global session policy rule establishes the user session with any authentication factor, the username prompt appears first. Accepted factors include passwords, identity providers, or any other factors allowed by app sign-in rules.
 
 Because the behavior follows policy, an administrator can choose it. To keep (or return to) a single-page password-first experience, an org ensures that it doesn’t require a specific identity provider for authentication. It then sets all global session policy rules to establish the session with a password. Conversely, configuring the global session policy to accept any allowed factor produces the identifier-first experience.
 
