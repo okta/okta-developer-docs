@@ -13,7 +13,7 @@ This guide explains what the identifier-first sign-in experience is. And then it
 
 ## A definition of the identifier-first sign-in experience
 
-In a password-first flow, the Sign-In Widget shows the username field and the password field on the same page. The user supplies both at once. This is the traditional flow that Classic Engine uses.
+In a password-first experience, the Sign-In Widget shows the username field and the password field on the same page. The user supplies both at once. This is the traditional flow that Classic Engine uses.
 
 In an identifier-first experience, the Sign-In Widget shows the username field first. The user enters an identifier, which is typically the full username (email), and continues. Identity Engine then presents the appropriate next step on a following page.
 
