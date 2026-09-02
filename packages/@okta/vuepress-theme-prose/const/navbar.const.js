@@ -104,6 +104,10 @@ export const concepts = [
         path: "/docs/concepts/oie-intro/",
       },
       {
+        title: "Okta Identity Engine identifier-first sign-in experience",
+        path: "/docs/concepts/oie-idfirst-signin/",
+      },
+      {
         title: "Org Creator",
         path: "/docs/concepts/org-creator/",
       },
