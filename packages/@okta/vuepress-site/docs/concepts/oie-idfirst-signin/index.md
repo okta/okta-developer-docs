@@ -9,7 +9,7 @@ Identity Engine introduces a sign-in pattern that many teams notice immediately 
 
 Instead of asking for the username/password on one page, the sign-in flow can ask who you are first, and then decide how you prove it. This is the identifier-first sign-in pattern.
 
-This guide explains what the identifier-first sign-in experience is. It defines what Identity Engine identifies first. And then defines how Identity Engine uses the identifier to choose the next authentication step and whether the behavior is required or configurable.
+This guide explains what the identifier-first sign-in experience is. And then it defines what Identity Engine identifies first. And then defines how Identity Engine uses the identifier to choose the next authentication step and whether the behavior is required or configurable.
 
 ## A definition of the identifier-first sign-in experience
 
