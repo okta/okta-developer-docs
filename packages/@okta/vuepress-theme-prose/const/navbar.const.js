@@ -969,6 +969,10 @@ export const guides = [
           {
             title: "Add apps for offline mode",
             guideName: "oag-configure-apps-offline-mode"
+          },
+          {
+            title: "Configure Smart Card authenticator and access policies",
+            guideName: "oag-configure-authenticator-access-policy"
           }
         ]
       },
