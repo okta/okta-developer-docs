@@ -13,6 +13,19 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## August
 
+### Weekly release 2026.08.4
+<!-- Published on: 2026-09-02T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Configure access to the resource catalog is EA](#configure-access-to-the-resource-catalog-is-ea) | September 2, 2026 |
+
+#### Configure access to the resource catalog is EA
+
+Previously, the ability to view resource catalog entry points, such as the **Request Access** button in the End-User Dashboard, was available to all users in an org by default. Now, admins can configure this visibility to allow all members of an org to view the entry points, no users to view them, or restrict entry point visibility to a specific set of Okta groups. For the Unified requester experience, this configuration also controls the **Resource Catalog** links and search options from the Okta Access Request app, Slack, and Microsoft Teams. See [Configure resource catalog entry point visibility](https://help.okta.com/okta_help.htm?type=oie&id=ar-configure-catalog-visibility).
+
+See `resourceCatalogVisibility` in [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) to configure this setting through the API.
+
 ### Weekly release 2026.08.2
 <!-- Published on: 2026-08-19T12:00:00Z -->
 
