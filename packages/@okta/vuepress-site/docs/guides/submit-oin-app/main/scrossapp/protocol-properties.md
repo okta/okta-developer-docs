@@ -50,5 +50,3 @@ Specify the following properties for your resource app:
 `*` Required properties
 
 Though optional, add resource identifiers and scopes to complete your integration setup.
-
-Click **Get started with testing** to save your edits and move to **Enter test information**.
