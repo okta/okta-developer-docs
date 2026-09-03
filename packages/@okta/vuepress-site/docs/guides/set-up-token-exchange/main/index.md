@@ -234,6 +234,8 @@ Properties sent in the request body:
 
 To check the returned access token payload, you can copy the value and paste it into any JWT decoder (for example: https://jwt.io/). Then, verify that the scope claim (`scp`) and the audience claim (`aud`) are correct. The audience should match the custom authorization server audience.
 
+The actor claim (`act`) identifies the service app that requested the token exchange, while the `sub` claim remains the user on whose behalf the request is made.
+
 ```json
 {
   "ver": 1,
@@ -249,7 +251,11 @@ To check the returned access token payload, you can copy the value and paste it 
     "api:access:write"
   ],
   "auth_time": 1675220791,
-  "sub": "user@example.com"
+  "sub": "user@example.com",
+  "act": {
+    "sub": "0oa9aw62CPUnXomeU9c5",
+    "sub_profile": "service"
+  }
 }
 ```
 
@@ -333,7 +339,7 @@ Properties sent in the request body:
 
 **Access token decoded**
 
-The decoded access token shows the audience of the authorization server, the requested scopes, and the original user as the value of the `sub` parameter.
+The decoded access token shows the audience of the authorization server, the requested scopes, and the original user as the value of the `sub` parameter. The actor claim (`act`) identifies the service app that requested the token exchange.
 
 ```json
 {
@@ -350,6 +356,10 @@ The decoded access token shows the audience of the authorization server, the req
     "api:access:write"
   ],
   "auth_time": 1675287544,
-  "sub": "user@example.com"
+  "sub": "user@example.com",
+  "act": {
+    "sub": "0oa9aw62CPUnXomeU9c5",
+    "sub_profile": "service"
+  }
 }
 ```
