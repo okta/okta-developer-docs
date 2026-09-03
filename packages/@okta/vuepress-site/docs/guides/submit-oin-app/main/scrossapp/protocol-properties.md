@@ -3,8 +3,6 @@ Configure your SSO properties for the protocols that you selected:
 * SAML 2.0: See [SAML properties](#saml-properties).
 * OpenID Connect: See [OIDC properties](#oidc-properties).
 
-Cross App Access doesn't add or change any fields in the SAML or OIDC properties sections.
-
 #### Cross App Access (XAA) roles
 
 > **Notes:**
