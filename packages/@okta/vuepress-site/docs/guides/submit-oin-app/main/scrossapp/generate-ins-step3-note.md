@@ -1,1 +1,1 @@
-> **Note:** When you submit OIDC client app, you can directly submit the app without testing.
+> **Note:** If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
