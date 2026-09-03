@@ -18,10 +18,10 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |
-| [Simplified privileged access management with Assignments](#simplified-privileged-access-management-with-assignments) | August 20, 2026 | |
-| [Manual password configuration for resource credentials](#manual-password-configuration-for-resource-credentials) | August 20, 2026 | |
-| [Workload access control for secrets](#workload-access-control-for-secrets) | | August 20, 2026 | |
-| [Bulk password rotation for Active Directory accounts](#bulk-password-rotation-for-active-directory-accounts) | | August 20, 2026 | |
+| [Simplified privileged access management with Assignments](#simplified-privileged-access-management-with-assignments) | August 31, 2026 | |
+| [Manual password configuration for resource credentials](#manual-password-configuration-for-resource-credentials) | August 31, 2026 | |
+| [Workload access control for secrets](#workload-access-control-for-secrets) | September 30, 2026 | |
+| [Bulk password rotation for Active Directory accounts](#bulk-password-rotation-for-active-directory-accounts) | August 31, 2026 | |
 
 #### Simplified privileged access management with Assignments
 
