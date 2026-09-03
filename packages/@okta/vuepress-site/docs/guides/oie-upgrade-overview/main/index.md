@@ -116,6 +116,7 @@ If your app is staying on its current deployment model and the org upgrade alone
 
 ## More Resources
 
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/): Find Classic patterns that remain in your apps after the upgrade and map them to a supported path
 * [Identity Engine on Okta TV](https://www.youtube.com/playlist?list=PLIid085fSVduvUaN-gBdN1cudndqR9IH8)
 * [Test plan template](https://help.okta.com/okta_help.htm?type=oie&id=ext-test-upgrade)
 * [Upgrade FAQs](https://help.okta.com/okta_help.htm?type=oie&id=ext-upgrade-faq)

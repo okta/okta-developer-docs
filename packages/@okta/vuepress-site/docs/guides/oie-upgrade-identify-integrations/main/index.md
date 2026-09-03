@@ -285,6 +285,7 @@ After you finish discovery, take these actions:
 * Replace or update Classic-only API calls with Identity Engine-supported equivalents where needed.
 * Assign integration owners and collect upgrade readiness sign-off from each team before the production upgrade.
 * Return to the [Prepare your upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-overview/) journey for planning, rollout, and timeline steps.
+* After the upgrade, [audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/) to find any Classic patterns that remain and plan their replacement.
 
 ## Related topics
 

@@ -1010,6 +1010,14 @@ export const guides = [
             guideName: "oie-upgrade-identify-integrations",
           },
           {
+            title: "Audit your Classic API dependencies",
+            guideName: "oie-upgrade-audit-classic-api-dependencies",
+          },
+          {
+            title: "Plan embedded app upgrades",
+            guideName: "oie-upgrade-plan-embedded-upgrades",
+          },
+          {
             title: "Identity Engine auth modernization approach",
             guideName: "oie-choose-signin-deploy",
           },

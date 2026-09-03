@@ -145,6 +145,7 @@ Before you upgrade, audit your integrations against the following checklist:
 
 ## See also
 
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/main/): Inventory your Classic API usage and map each dependency to a supported path
 * [Identity Engine limitations](/docs/guides/ie-limitations/main/): Full reference for current Identity Engine limitations and behavioral differences
 * [Session changes after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/): How sessions work in Identity Engine
 * [Upgrade your app SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/): Migrate to the Identity Engine SDKs

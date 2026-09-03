@@ -176,6 +176,7 @@ guides:
  - oie-upgrade-rollout-plan
  - oie-upgrade-api-changes
  - oie-upgrade-identify-integrations
+ - oie-upgrade-audit-classic-api-dependencies
  - oie-upgrade-plan-embedded-upgrades
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
