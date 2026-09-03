@@ -1,1 +1,1 @@
-> **Note:** When you test OIDC client app submission, you can directly submit the app without testing.
+> **Note:** When you submit OIDC client app, you can directly submit the app without testing.

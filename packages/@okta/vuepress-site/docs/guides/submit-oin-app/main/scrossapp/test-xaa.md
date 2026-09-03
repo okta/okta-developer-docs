@@ -14,7 +14,7 @@ Choose the walkthrough that matches your role and protocol:
 * [Testing a SAML resource app](#testing-a-saml-resource-app)
 * [Testing an OIDC resource app](#testing-an-oidc-resource-app)
 
-> **Note:** When you test OIDC client app submission, you can directly submit the app without testing.
+> **Note:** When you submit OIDC client app, you can directly submit the app without testing.
 
 ### Testing a SAML client app
 
@@ -27,7 +27,7 @@ Choose the walkthrough that matches your role and protocol:
 1. Enter these values in the **Resource client registrations** table under [XAA client app properties](#xaa-client-app-properties).
 1. Click **View testing information**, and then close the wizard to open the testing page.
 1. Click **Generate instance** to create your client app instance.
-1. Assign your test user to the client app instance.
+1. Assign your test user to the client app.
 
 #### Step 2: Create a custom SAML Resource app
 

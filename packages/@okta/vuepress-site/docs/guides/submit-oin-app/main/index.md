@@ -56,8 +56,6 @@ Start your integration submission for OIN publication:
 
 ### Integration details
 
-Configure your OIN catalog properties:
-
 <StackSnippet snippet="catalog-properties"/>
 
 <StackSnippet snippet="tenant-settings"/>
