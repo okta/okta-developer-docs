@@ -94,7 +94,7 @@ The following example property list (`.plist`) enables custom checks for two org
   <key>OktaVerify.OSQueryAllowedDomains</key>
   <string>your-subdomain.okta.com;your-other-subdomain.okta.com</string>
   <key>OktaVerify.OSQueryCustomChecksTimeout</key>
-  <integer>2</integer>
+  <string>2</string>
 </dict>
 </plist>
 ```
