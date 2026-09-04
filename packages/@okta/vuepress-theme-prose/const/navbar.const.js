@@ -669,6 +669,10 @@ export const guides = [
             guideName: "key-management",
           },
           {
+            title: "Register apps with CIMD",
+            guideName: "app-cimd-registration",
+          },
+          {
             title: "Set up On-Behalf-Of Token Exchange",
             guideName: "set-up-token-exchange",
           },
