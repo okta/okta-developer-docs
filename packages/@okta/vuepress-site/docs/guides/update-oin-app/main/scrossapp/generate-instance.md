@@ -6,4 +6,3 @@
 
 1. Recreate the counterpart app for your Cross App Access role, and reconnect the AI agent and resource connection. See [Test your Cross App Access (XAA) integration with xaa.dev](/docs/guides/submit-oin-app/scrossapp/main/#test-your-cross-app-access-xaa-integration-with-xaa-dev).
 
-Next, go to [Test your integration](#test-your-integration).

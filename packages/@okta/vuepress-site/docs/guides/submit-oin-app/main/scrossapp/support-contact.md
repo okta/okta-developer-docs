@@ -1,0 +1,1 @@
+* Specify a support contact from your organization as described in the [Support contact](/docs/guides/submit-oin-app/openidconnect/main/#support-contact) section.

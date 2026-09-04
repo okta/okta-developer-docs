@@ -2,4 +2,4 @@
 
 * Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
 
-* An xaa.dev test account and test registration pair (Issuer URL and Client ID)
+* An xaa.dev test account

@@ -7,6 +7,5 @@ The **Required app instances** section shows you the instances detected in your 
 
 > **Notes:**
 > * Generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol per instance.
-> * For Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
 > * You should already have an instance of your published integration for backwards compatibility testing. If you don't have a published-version instance, exit the OIN Wizard and create the OIN-published instance. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an OIN-published instance for backwards compatibility testing.
 > * For a Cross App Access (XAA) role, you also need a counterpart app instance to complete the token exchange. See [Test your Cross App Access (XAA) integration with xaa.dev](/docs/guides/submit-oin-app/scrossapp/main/#test-your-cross-app-access-xaa-integration-with-xaa-dev).

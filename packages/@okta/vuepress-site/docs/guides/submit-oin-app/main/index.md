@@ -60,8 +60,10 @@ Start your integration submission for OIN publication:
 
 <StackSnippet snippet="tenant-settings"/>
 
+<StackSnippet snippet="support-contact"/>
 
 <StackSnippet snippet="auth-settings"/>
+
 
 ### Configure your integration
 
@@ -69,13 +71,6 @@ Configure your integration settings. Settings appear based on your capability se
 
 <StackSnippet snippet="express-submission-note" inline/>
 
-#### Support contact
-
-1. Specify a support contact from your organization:
-
-    | <div style="width:150px">Property</div> | Description  |
-    | ----------------- | ------------ |
-    | **Support email** `*` | Specify an email that the Okta team can use to contact your organization for emergencies and escalations. This field is private and not visible to customers. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
 <StackSnippet snippet="protocol-properties"/>
 
