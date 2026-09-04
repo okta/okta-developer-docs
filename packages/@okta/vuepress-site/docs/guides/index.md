@@ -11,6 +11,7 @@ guides:
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
  - ai-configure-agent-for-gateway
+ - app-cimd-registration
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
