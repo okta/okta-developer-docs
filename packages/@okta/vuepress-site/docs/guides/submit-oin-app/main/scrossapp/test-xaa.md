@@ -56,8 +56,6 @@ Create a connection between the client app and the resource app before you test 
 1. Click **Next**.
 1. Under the **Owners** section, set your test user as the owner.
 1. Click **Save**.
-1. Under **Client Registration**, generate or register a public or private key pair to obtain the **Client ID**, **Key ID**, and private key.
-1. Confirm that **User Access** links the client app to your assigned test user.
 1. Under **Resource Connections**, click **+ Add resource connection**.
 1. Under **Application**, select **Connect to**, and select the custom resource app (created in Step 2) from the **Application instance** dropdown list.
 1. Enter the client app's **Client ID** from [xaa.dev](https://xaa.dev/).
@@ -144,12 +142,18 @@ Create a counterpart client app in Okta that redirects SAML sign-in responses to
 
 #### Step 3: Set up the AI agent and resource connection
 
-Follow [Step 3](#step-3-set-up-the-ai-agent-and-resource-connection) in Testing a SAML client app, with these differences:
-
-* Under **User access and Authentication**, select the custom client app instance that you created in Step 2.
-* Skip the step to confirm that **User Access** links the client app to your test user. This step doesn't apply to the resource app role.
-* Under **Resource Connections**, select your resource app, not a custom resource app, from the **Application instance** dropdown list.
-* In the **Client ID** field, enter the client ID that the authorization server provides for the connection, not a client ID from xaa.dev.
+1. In the Okta Admin Console, go to **Directory** > **AI Agents**, and then click **Register AI agent**.
+1. Enter a name and a description.
+1. In the **User access and Authentication** section, select the custom client app instance that you created in Step 2.
+1. Click **Next**.
+1. Under the **Owners** section, set your test user as the owner.
+1. Click **Save**.
+1. Under **Client Registration**, generate or register a public or private key pair to obtain the **Client ID**, **Key ID**, and private key. These values are needed to copy to [xaa.dev](https://xaa.dev/) later.
+1. Under **Resource Connections**, click **+ Add resource connection**.
+1. Under **Application**, select **Connect to**, and select your resource app from the **Application instance** dropdown list.
+1. Enter the client ID that the authorization server provides for the connections in the **Client ID** field.
+1. Allow the required scopes (for example, `todos.read`).
+1. Go to **Actions**, and select **Activate**. Confirm that every checkmark on the agent configuration page is green.
 
 > **Important:** The client app instance and the resource app only appear as connectable if you fully configured the XAA properties and the resource server settings, including a valid Issuer URL.
 
@@ -226,12 +230,17 @@ Create a counterpart client app in Okta that redirects OIDC sign-in responses to
 
 #### Step 3: Set up the AI agent and resource connection
 
-Follow [Step 3](#step-3-set-up-the-ai-agent-and-resource-connection) in Testing a SAML client app, with these differences:
-
-* Under **User access and Authentication**, select the custom client app instance that you created in Step 2.
-* Skip the step to confirm that **User Access** links the client app to your test user. This step doesn't apply to the resource app role.
-* Under **Resource Connections**, select your resource app, not a custom resource app, from the **Application instance** dropdown list.
-* In the **Client ID** field, enter the client ID that the authorization server provides for the connection, not a client ID from xaa.dev.
+1. In the Okta Admin Console, go to **Directory** > **AI Agents**, and then click **Register AI agent**.
+1. Enter a name and a description.
+1. In the **User access and Authentication** section, select the custom client app instance that you created in Step 2.
+1. Click **Next**.
+1. Under the **Owners** section, set your test user as the owner.
+1. Click **Save**.
+1. Under **Resource Connections**, click **+ Add resource connection**.
+1. Under **Application**, select **Connect to**, and select your resource app from the **Application instance** dropdown list.
+1. Enter the client ID that the authorization server provides for the connection in the **Client ID** field.
+1. Allow the required scopes (for example, `todos.read`).
+1. Go to **Actions**, and select **Activate**. Confirm that every checkmark on the agent configuration page is green.
 
 > **Important:** The client app instance and the resource app only appear as connectable if you fully configured the XAA properties and the resource server settings, including a valid Issuer URL.
 
