@@ -13,6 +13,17 @@ title: Okta Identity Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.4
+<!-- Published on: 2026-09-02T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.08.4](#bug-fixed-in-2026-08-4) | September 2, 2026 |
+
+#### Bug fixed in 2026.08.4
+
+API calls to `GET /api/v1/mappings` using filter parameters, such as `sourceId` or `afterId`, returned an invalid link in the response header. (OKTA-1193755)
+
 ### Weekly release 2026.08.3
 <!-- Published on: 2026-08-27T12:00:00Z -->
 
