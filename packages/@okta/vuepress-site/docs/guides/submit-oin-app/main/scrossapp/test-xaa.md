@@ -1,6 +1,6 @@
 ## Test your Cross App Access (XAA) integration with xaa.dev
 
-Test the ID-JAG token exchange with [xaa.dev](https://xaa.dev/) before you upload your test log.
+Test the ID-JAG token exchange with [xaa.dev](https://xaa.dev/) before you upload your conformance log.
 
 **What you need:**
 
@@ -20,7 +20,7 @@ Choose the walkthrough that matches your role and protocol:
 
 **Prerequisite:** An SSO submission with SAML and Cross App Access, in draft or completed state, with **Client app** selected under Cross App Access roles. Testing this role requires a corresponding SAML resource app, which you create in Step 2.
 
-#### Step 1: Update the OIN Wizard submission
+#### Step 1: Update the SAML client app submission in OIN Wizard
 
 1. Go to [xaa.dev](https://xaa.dev/), and copy the value of the **Audience (AUD claim)** field. This value is the URL of xaa.dev's authorization server (for example, `https://auth.resource.xaa.dev`), and it's the **Issuer URL** you add as an XAA client app property.
 1. Copy the **Client ID** from [xaa.dev](https://xaa.dev/). xaa.dev assigns this ID when you register the client app.
@@ -97,8 +97,8 @@ See [Enable your SAML client app for Cross App Access](https://developer.okta.co
 
 Confirm that:
 
-* The auth server accepted the ID-JAG as a JWT Bearer grant.
-* Okta issued the access token with the `todos.read` scope.
+* The authorization server accepted the ID-JAG as a JWT Bearer grant.
+* The authorization server issued the access token with the `todos.read` scope.
 * The resource server accepted the access token.
 * The API call to `/api/todos` completed successfully.
 
@@ -117,7 +117,7 @@ Download the conformance log from [xaa.dev](https://xaa.dev/).
 
 **Prerequisite:** An SSO submission with SAML and Cross App Access, in draft or completed state, with **Resource app** selected under Cross App Access roles. Testing this role requires a corresponding SAML client app, which you create in Step 3.
 
-#### Step 1: Update the OIN Wizard submission
+#### Step 1: Update the SAML resource app submission in OIN Wizard
 
 1. Ensure that you have used the values from your authorization server in the **Default ACS URL** and **Entity ID / audience restriction** fields.
 1. Enter your resource app's **Issuer URL** under [XAA resource app properties](#xaa-resource-app-properties).
@@ -201,7 +201,7 @@ Follow [Step 5](#step-5-complete-testing-and-submit) in Testing a SAML client ap
 
 **Prerequisite:** An SSO submission with OIDC and Cross App Access, in draft or completed state, with **Resource app** selected under Cross App Access roles. Testing this role requires a corresponding OIDC client app, which you create in Step 3.
 
-#### Step 1: Update the OIN Wizard submission
+#### Step 1: Update the OIDC resource app submission in OIN Wizard
 
 1. Confirm that you've entered the redirect URIs for your app in [OIDC properties](#oidc-properties), and also enter the URI of the XAA authorization server.
 1. Enter your resource app's **Issuer URL** under [XAA resource app properties](#xaa-resource-app-properties).

@@ -5,9 +5,8 @@ Configure your SSO properties for the protocols that you selected:
 
 #### Cross App Access (XAA) roles
 
-> **Notes:**
-> * This section appears if you select Cross App Access with SAML 2.0 or OIDC.
-> * Cross App Access (XAA) requires SSO (SAML or OIDC).
+> **Note:**
+> * This section appears if you select Cross App Access with SAML 2.0 or OIDC or both.
 
 Under **Cross App Access (XAA) roles**, select the role that your app plays in the token exchange:
 
@@ -43,10 +42,8 @@ Specify the following properties for your resource app:
 | Property | Description |
 | ----- | ----------- |
 | **Issuer URL** `*` | URL of the resource app's authorization server. |
-| **Audience tenant ID** | The issuer URL includes a per-tenant identifier that Okta validates per customer. Select **Enable** to configure this tenant ID during app installation. |
-| **Resource identifier** | API resource URLs available in your resource app. You can add up to 25 registrations. Click **Add resource identifiers** to add another row. |
-| **Scopes** | Resource scopes that your resource app's authorization server accepts, such as read or write. You can add up to 25 registrations. Click **Add scopes** to add another row. |
+| **Audience tenant ID** | Enable this checkbox to require the Okta IDP to send an audience tenant claim (`aud_tenant`) in the ID-JAG token. This scopes token issuance to a specific organization, workspace, or tenant in the Resource Authorization Server when XAA is enabled. |
+| **Resource identifier** | API resource URLs available in your resource app. You can add up to 20 resource identifiers. Click **Add resource identifiers** to add another row. |
+| **Scopes** | Resource scopes that your resource app's authorization server accepts, such as read or write. You can add up to 1oo scopes. Click **Add scopes** to add another row. |
 
 `*` Required properties
-
-Though optional, add resource identifiers and scopes to complete your integration setup.
