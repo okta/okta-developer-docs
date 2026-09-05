@@ -190,4 +190,6 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/xidv/main/" headerImage="/img/icons/customer_identity.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
 
+<Card href="/docs/guides/submit-oin-app/scrossapp/main/" headerImage="/img/customLanding/features-5.svg" cardTitle="Cross-App Access" :showFooter=false>Submit a Cross-App Access integration</Card>
+
 </Cards>

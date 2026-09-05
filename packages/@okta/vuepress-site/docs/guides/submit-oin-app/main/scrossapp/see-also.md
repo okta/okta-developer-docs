@@ -1,0 +1,5 @@
+* [Cross App Access (XAA)](/docs/concepts/xaa/)
+* [Enable your SAML client app for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester)
+* [Enabling Cross App Access for SAML-based resource apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml)
+* [Enable your OIDC resource app for Cross App Access](https://developer.okta.com/blog/2026/08/24/xaa-oidc-resource)
+* [Submit an integration with the OIN Wizard: SAML 2.0](/docs/guides/submit-oin-app/saml2/main/)

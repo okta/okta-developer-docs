@@ -141,7 +141,18 @@
                     linkText: 'Get started with Identity Verification integrations',
                     list: [
                         'Allow customers to find and easily connect your identity verification app through the Okta Integration Network catalog.'
-                        
+
+                    ]
+                },
+                {
+                    id: 5,
+                    title: 'Enable Cross-App Access',
+                    text: "Let your app securely exchange tokens with other apps and AI agents on a user's behalf, without repeated sign-in prompts.",
+                    link: '/docs/guides/submit-oin-app/scrossapp/main/',
+                    linkText: 'Get started with Cross-App Access integrations',
+                    list: [
+                        'Delegate secure app-to-app and AI agent-to-app API access using the <a href="/docs/concepts/xaa/">Cross-App Access (XAA)</a> ID-JAG token exchange',
+                        'Allow customers to find and configure your integration through the Okta Integration Network catalog'
                     ]
                 }
             ]

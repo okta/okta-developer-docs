@@ -5,9 +5,11 @@ meta:
     content: Learn how to submit your integration to the Okta Integration Network (OIN) team for publication. The submission task is performed in the Okta Admin Console through the OIN Wizard.
 layout: Guides
 ---
-Learn how to submit an integration with SSO, Universal Logout, provisioning, Entitlement Management, API service, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an integration with SSO, Universal Logout, provisioning, Entitlement Management, API service, Cross App Access, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
+
+> **Notes:** The content below is for **<StackSnippet snippet="protocol-name" inline/>**. If you want to view content for a different capability, select a different option from the **Instructions for** dropdown list.
 
 #### What you need
 
@@ -56,14 +58,14 @@ Start your integration submission for OIN publication:
 
 ### Integration details
 
-Configure your OIN catalog properties:
-
 <StackSnippet snippet="catalog-properties"/>
 
 <StackSnippet snippet="tenant-settings"/>
 
+<StackSnippet snippet="support-contact"/>
 
 <StackSnippet snippet="auth-settings"/>
+
 
 ### Configure your integration
 
@@ -71,13 +73,6 @@ Configure your integration settings. Settings appear based on your capability se
 
 <StackSnippet snippet="express-submission-note" inline/>
 
-#### Support contact
-
-1. Specify a support contact from your organization:
-
-    | <div style="width:150px">Property</div> | Description  |
-    | ----------------- | ------------ |
-    | **Support email** `*` | Specify an email that the Okta team can use to contact your organization for emergencies and escalations. This field is private and not visible to customers. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
 <StackSnippet snippet="protocol-properties"/>
 
@@ -213,6 +208,8 @@ Alternatively, to deactivate an app instance without the OIN Wizard, see [Deacti
 <StackSnippet snippet="test-ul-int"/>
 
 <StackSnippet snippet="test-scim"/>
+
+<StackSnippet snippet="test-xaa"/>
 
 ## Submit your integration
 
