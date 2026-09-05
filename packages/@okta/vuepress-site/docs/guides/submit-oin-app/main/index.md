@@ -9,6 +9,8 @@ Learn how to submit an integration with SSO, Universal Logout, provisioning, Ent
 
 ---
 
+> **Notes:** The content below is for **<StackSnippet snippet="protocol-name" inline/>**. If you want to view content for a different capability, select a different option from the **Instructions for** dropdown list.
+
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/). The OIN Wizard is only available in Integrator Free Plan orgs.
