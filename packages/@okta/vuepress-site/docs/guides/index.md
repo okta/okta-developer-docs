@@ -223,6 +223,7 @@ guides:
  - custom-smtp
  - oag-offline-mode
  - oag-configure-apps-offline-mode
+ - oag-configure-authenticator-access-policy
  - configure-identity-claims-sourcing-policy
  - xaa-resource-metadata
  - xaa-agent-to-app

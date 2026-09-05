@@ -12,6 +12,30 @@ title: Okta Access Gateway API release notes 2026
 
 Access Gateway is available for both Okta Classic Engine and Okta Identity Engine.
 
+## September
+
+### Weekly release 2026.09.1
+<!-- Published on: 2026-09-04T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Smart Card authentication for Access Gateway offline mode is Limited EA in Preview](#smart-card-authentication-for-access-gateway-offline-mode-is-limited-ea-in-preview) | September 4, 2026 |
+| [Access policies for Access Gateway offline mode is Limited EA in Preview](#access-policies-for-access-gateway-offline-mode-is-limited-ea-in-preview) | September 4, 2026 |
+
+#### Smart Card authentication for Access Gateway offline mode is Limited EA in Preview
+
+Admins can now require users to sign in with a Smart Card to access apps when Access Gateway is in offline mode. Access Gateway offline mode supports a certificate-based Smart Card authenticator, such as a Personal Identity Verification (PIV) or Common Access Card (CAC), alongside the existing password authenticator. See [Configure Smart Card authentication and access policies](/docs/guides/oag-configure-authenticator-access-policy/main/).
+
+<!-- OKTA-1252702 -->
+
+#### Access policies for Access Gateway offline mode is Limited EA in Preview
+
+Admins can now create access policies that control which authentication methods a group of users must use when they sign in to an app when Access Gateway is in offline mode. A policy assigns a chain of authenticators, such as a password, a Smart Card, or both, to a group of users for a given app. See [Configure Smart Card authentication and access policies](/docs/guides/oag-configure-authenticator-access-policy/main/).
+
+As part of this change, the Assign a group to an application's offline mode policy [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodegrouppolicy) is deprecated and returns an HTTP 405 error. Use the Assign an offline mode access policy to an application [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodeaccesspolicy) instead.
+
+<!-- OKTA-1252703 -->
+
 ## August
 
 ### Monthly release 2026.08.0

@@ -4,8 +4,17 @@
   <title>Okta Access Gateway API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/</link>
   <description>Recent release notes for Okta Access Gateway</description>
-  <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
+  <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.09.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#weekly-release-2026-09-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#weekly-release-2026-09-1</guid>
+      <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#smart-card-authentication-for-access-gateway-offline-mode-is-limited-ea-in-preview">Smart Card authentication for Access Gateway offline mode is Limited EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#access-policies-for-access-gateway-offline-mode-is-limited-ea-in-preview">Access policies for Access Gateway offline mode is Limited EA in Preview</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#monthly-release-2026-08-0</link>
