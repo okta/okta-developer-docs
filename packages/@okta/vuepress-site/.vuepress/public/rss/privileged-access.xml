@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.08.4</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-4</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-4</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#simplified-privileged-access-management-with-assignments">Simplified privileged access management with Assignments</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#manual-password-configuration-for-resource-credentials">Manual password configuration for resource credentials</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#workload-access-control-for-secrets">Workload access control for secrets</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#bulk-password-rotation-for-active-directory-accounts">Bulk password rotation for Active Directory accounts</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-2</link>

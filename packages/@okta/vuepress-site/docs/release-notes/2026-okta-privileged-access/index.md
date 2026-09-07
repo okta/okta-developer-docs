@@ -13,6 +13,32 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## August
 
+### Weekly release 2026.08.4
+<!-- Published on: 2026-09-03T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| [Simplified privileged access management with Assignments](#simplified-privileged-access-management-with-assignments) | August 31, 2026 | |
+| [Manual password configuration for resource credentials](#manual-password-configuration-for-resource-credentials) | August 31, 2026 | |
+| [Workload access control for secrets](#workload-access-control-for-secrets) | September 3, 2026 | |
+| [Bulk password rotation for Active Directory accounts](#bulk-password-rotation-for-active-directory-accounts) | August 31, 2026 | |
+
+#### Simplified privileged access management with Assignments
+
+Security admins can now use Assignments in Okta Privileged Access to streamline and manage access to privileged resources at scale. This relationship-aware model reduces redundant permission records by replacing thousands of static assignments with dynamic policies. See [Assignments](https://developer.okta.com/docs/api/openapi/opa/opa/assignments) API and [Relationships](https://developer.okta.com/docs/api/openapi/opa/opa/relationships) API.
+
+#### Manual password configuration for resource credentials
+
+You can now set passwords for Active Directory, SaaS, and Okta Universal Directory service accounts without triggering target system synchronization. This enhancement simplifies account migration and onboarding workflows while preserving continuous access to connected accounts. See [Projects](https://developer.okta.com/docs/api/openapi/opa/opa/projects) API.
+
+#### Workload access control for secrets
+
+Security admins can now extend least-privilege access controls to machine identities by assigning workload roles to secret policies. This allows workloads to perform operations on secrets while generating individual workload audit logs for tracking. See [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/secrets) API.
+
+#### Bulk password rotation for Active Directory accounts
+
+Admins can now force password rotation for up to 100 Active Directory accounts simultaneously within a project. This enhancement streamlines daily administrative workflows by eliminating the need to rotate individual account passwords manually. See [Active Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/active-directory-accounts) API.
+
 ### Weekly release 2026.08.2
 <!-- Published on: 2026-08-20T12:00:00Z -->
 
