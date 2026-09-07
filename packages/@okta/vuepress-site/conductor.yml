@@ -6160,6 +6160,6 @@ redirects:
   - from: /docs/guides/ea-ai-agent-token-exchange/main/index.html
     to: /docs/guides/ai-agent-to-agent-token-exchange/
   - from: /docs/guides/build-sso-integration/openidconnect/main
-    to: /docs/concepts/oauth-claims/
+    to: /docs/concepts/oauth-claims/#claims-versus-scopes
   - from: /docs/guides/build-sso-integration/openidconnect/main/
-    to: /docs/concepts/oauth-claims/
+    to: /docs/concepts/oauth-claims/#claims-versus-scopes
