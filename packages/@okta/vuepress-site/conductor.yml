@@ -4683,8 +4683,6 @@ redirects:
     to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main/index.html
     to: /docs/concepts/sso-overview/
-  - from: /docs/guides/oin-oidc-best-practices/main/#rate-restrictions
-    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-multi-tenancy/main
     to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
   - from: /docs/guides/oin-oidc-multi-tenancy/main/index.html
