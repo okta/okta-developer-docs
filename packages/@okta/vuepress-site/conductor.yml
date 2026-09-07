@@ -1922,7 +1922,7 @@ redirects:
   - from: /docs/api/getting_started/api_test_client
     to: /docs/reference/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
-    to: /docs/guides/create-an-app-integration/penidconnect/main/#next-steps
+    to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
     to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
@@ -4238,7 +4238,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/openidconnect/test-your-app
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/next-steps
-    to: /docs/guides/create-an-app-integration/penidconnect/main/#next-steps
+    to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/openidconnect/overview/index.html
     to: /docs/guides/create-an-app-integration/enidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/before-you-begin/index.html
