@@ -4240,7 +4240,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/openidconnect/next-steps
     to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/openidconnect/overview/index.html
-    to: /docs/guides/create-an-app-integration/enidconnect/main/
+    to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/before-you-begin/index.html
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/create-your-app/index.html
@@ -4684,7 +4684,7 @@ redirects:
   - from: /docs/guides/oin-oidc-best-practices/main/index.html
     to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main/#rate-restrictions
-    to: /docs/concepts/sso-overview/#rate-restrictions
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-multi-tenancy/main
     to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
   - from: /docs/guides/oin-oidc-multi-tenancy/main/index.html
