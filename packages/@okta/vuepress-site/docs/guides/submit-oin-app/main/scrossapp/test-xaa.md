@@ -22,8 +22,8 @@ Choose the walkthrough that matches your role and protocol:
 
 #### Step 1: Update the SAML client app submission in OIN Wizard
 
-1. Go to [xaa.dev](https://xaa.dev/), and copy the value of the **Audience (AUD claim)** field. This value is the URL of xaa.dev's authorization server (for example, `https://auth.resource.xaa.dev`), and it's the **Issuer URL** you add as an XAA client app property.
-1. Copy the **Client ID** from [xaa.dev](https://xaa.dev/). xaa.dev assigns this ID when you register the client app.
+1. Go to [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml), and copy the value of the **Audience (AUD claim)** field. This value is the URL of xaa.dev's authorization server (for example, `https://auth.resource.xaa.dev`), and it's the **Issuer URL** you add as an XAA client app property.
+1. Copy the **Client ID** from [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml). xaa.dev assigns this ID when you register the client app.
 1. Enter these values in the **Resource client registrations** table under [XAA client app properties](#xaa-client-app-properties).
 1. Click **View testing information**, and then close the wizard to open the testing page.
 1. In the Okta Admin Console, go to **Applications and Resources** > **Your OIN Integrations**, and go directly to the **Test integration** page for your submission.
@@ -32,7 +32,7 @@ Choose the walkthrough that matches your role and protocol:
 
 #### Step 2: Create a custom SAML resource app
 
-Create a counterpart resource app in Okta that points to [xaa.dev](https://xaa.dev/), since [xaa.dev](https://xaa.dev/) acts as the resource app for this test.
+Create a counterpart resource app in Okta that points to [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml), since [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml) acts as the resource app for this test.
 
 1. In the Okta Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and select **SAML 2.0**.
@@ -40,15 +40,15 @@ Create a counterpart resource app in Okta that points to [xaa.dev](https://xaa.d
 1. Click **Save**.
 1. Select the **Resource Server** tab.
 1. Set **Cross App Access (XAA)** to **Enabled**.
-1. In the **Issuer URL** field, enter the same value you copied from [xaa.dev](https://xaa.dev/) in Step 1.
+1. In the **Issuer URL** field, enter the same value you copied from [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml) in Step 1.
 1. Click **Save**.
 1. Assign your test user to the custom resource app.
 
-> **Note:** Point the custom resource app at [xaa.dev](https://xaa.dev/)'s authorization server, not a real third-party app, so [xaa.dev](https://xaa.dev/) can independently verify the token exchange.
+> **Note:** Point the custom resource app at [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml)'s authorization server, not a real third-party app, so [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml) can independently verify the token exchange.
 
 #### Step 3: Set up the AI agent and resource connection
 
-Create a connection between the client app and the resource app before you test on [xaa.dev](https://xaa.dev/).
+Create a connection between the client app and the resource app before you test on [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml).
 
 1. In the Okta Admin Console, go to **Directory** > **AI Agents**, and then click **Register AI agent**.
 1. Enter a name and a description.
@@ -58,13 +58,13 @@ Create a connection between the client app and the resource app before you test 
 1. Click **Save**.
 1. Under **Resource Connections**, click **+ Add resource connection**.
 1. Under **Application**, select **Connect to**, and select the custom resource app (created in Step 2) from the **Application instance** dropdown list.
-1. Enter the client app's **Client ID** from [xaa.dev](https://xaa.dev/).
+1. Enter the client app's **Client ID** from [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml.
 1. Allow the required scopes (for example, `todos.read`).
 1. Go to **Actions**, and select **Activate**. Confirm that every checkmark on the agent configuration page is green.
 
 #### Step 4: Configure the xaa.dev test environment
 
-You need to perform the following steps in [xaa.dev](https://xaa.dev/):
+You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml):
 
 * Register your client app
 * Run live verification
@@ -102,7 +102,7 @@ Confirm that:
 
 **Export conformance log**
 
-Download the conformance log from [xaa.dev](https://xaa.dev/).
+Download the conformance log from [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml).
 
 #### Step 5: Complete testing and submit
 
@@ -128,12 +128,12 @@ Download the conformance log from [xaa.dev](https://xaa.dev/).
 
 #### Step 2: Create a custom SAML client app
 
-Create a counterpart client app in Okta that redirects SAML sign-in responses to [xaa.dev](https://xaa.dev/), since [xaa.dev](https://xaa.dev/) acts as the client app for this test.
+Create a counterpart client app in Okta that redirects SAML sign-in responses to [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml), since [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) acts as the client app for this test.
 
 1. In the Okta Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and select **SAML 2.0**.
 1. Enter a name (for example, `SAML XAA Client Testing App`), and configure the SAML properties as described in [SAML properties](#saml-properties).
-1. Go to [xaa.dev](https://xaa.dev/)'s SAML test page, and copy the **Single Sign-On URL** and **Audience URI (SP Entity ID)**.
+1. Go to [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml)'s SAML test page, and copy the **Single Sign-On URL** and **Audience URI (SP Entity ID)**.
 1. Enter these values as the custom client app's **Single Sign-On URL** and **Audience URI (SP Entity ID)**.
 1. Set **Name ID format** to `EmailAddress`.
 1. Set **Application username** to `Email`.
@@ -148,7 +148,7 @@ Create a counterpart client app in Okta that redirects SAML sign-in responses to
 1. Click **Next**.
 1. Under the **Owners** section, set your test user as the owner.
 1. Click **Save**.
-1. Under **Client Registration**, generate or register a public or private key pair to obtain the **Client ID**, **Key ID**, and private key. These values are needed to copy to [xaa.dev](https://xaa.dev/) later.
+1. Under **Client Registration**, generate or register a public or private key pair to obtain the **Client ID**, **Key ID**, and private key. These values are needed to copy to [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) later.
 1. Under **Resource Connections**, click **+ Add resource connection**.
 1. Under **Application**, select **Connect to**, and select your resource app from the **Application instance** dropdown list.
 1. Enter the client ID that the authorization server provides for the connections in the **Client ID** field.
@@ -159,7 +159,7 @@ Create a counterpart client app in Okta that redirects SAML sign-in responses to
 
 #### Step 4: Configure the xaa.dev test environment
 
-You need to perform the following steps in [xaa.dev](https://xaa.dev/):
+You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml):
 
 * Register your client app
 * Run tests
@@ -167,7 +167,7 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/):
 
 **Register your client app**
 
-1. Enter the SAML app metadata URL from your custom client app's **Sign On** tab. [xaa.dev](https://xaa.dev/) discovers the SSO and token endpoints from this URL.
+1. Enter the SAML app metadata URL from your custom client app's **Sign On** tab. [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) discovers the SSO and token endpoints from this URL.
 1. Enter the AI agent's **Client ID** and **Key ID** that you obtained in **Client Registration**.
 1. Enter the AI agent's private key.
 1. Enter your resource app's issuer URL in the **Resource AS Issuer (ID-JAG Audience)** field.
@@ -179,16 +179,16 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/):
 
 **Run tests**
 
-[xaa.dev](https://xaa.dev/) runs the exchange in stages. Confirm that each stage completes:
+[xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) runs the exchange in stages. Confirm that each stage completes:
 
 1. **Start SAML login at your IdP** - sign in to your custom client app.
-1. **SAML assertion -> refresh token** - [xaa.dev](https://xaa.dev/) exchanges your SAML sign-in response for a refresh token.
-1. **Refresh token -> ID-JAG** - [xaa.dev](https://xaa.dev/) exchanges the refresh token for an ID-JAG through your Okta org.
-1. **Redeem ID-JAG at your Resource AS** - [xaa.dev](https://xaa.dev/) redeems the ID-JAG for an access token at your resource app's authorization server. While testing this, provide the following:
+1. **SAML assertion -> refresh token** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) exchanges your SAML sign-in response for a refresh token.
+1. **Refresh token -> ID-JAG** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) exchanges the refresh token for an ID-JAG through your Okta org.
+1. **Redeem ID-JAG at your Resource AS** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) redeems the ID-JAG for an access token at your resource app's authorization server. While testing this, provide the following:
     * Enter the authorization server token URL in the **Resource AS token endpoint** field.
     * Enter the authorization server client ID in the **Client ID (at your resource AS)** field.
     * Enter the authorization server client secret in the **Client secret (at your resource AS)** field.
-1. **Call your API with the access token** - [xaa.dev](https://xaa.dev/) calls your resource app's API with the access token.
+1. **Call your API with the access token** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=saml) calls your resource app's API with the access token.
 1. Confirm that a green **Conformance passed** panel appears.
 
 **Export conformance log**
@@ -218,12 +218,12 @@ Follow [Step 5](#step-5-complete-testing-and-submit) in Testing a SAML client ap
 
 #### Step 2: Create a custom OIDC client app
 
-Create a counterpart client app in Okta that redirects OIDC sign-in responses to [xaa.dev](https://xaa.dev/), since [xaa.dev](https://xaa.dev/) acts as the client app for this test.
+Create a counterpart client app in Okta that redirects OIDC sign-in responses to [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc), since [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc) acts as the client app for this test.
 
 1. In the Okta Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and select **OpenID Connect (OIDC)**.
 1. Enter a name (for example, `OIDC XAA Client Testing App`), and configure the OIDC properties as described in [OIDC properties](#oidc-properties).
-1. Go to [xaa.dev](https://xaa.dev/)'s OIDC test page, and copy the **Sign-in redirect URIs**.
+1. Go to [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc)'s OIDC test page, and copy the **Sign-in redirect URIs**.
 1. Enter this value as the custom client app's **Sign-in redirect URIs**.
 1. Click **Save**.
 1. Assign your test user to the client app instance.
@@ -246,7 +246,7 @@ Create a counterpart client app in Okta that redirects OIDC sign-in responses to
 
 #### Step 4: Configure the xaa.dev test environment
 
-You need to perform the following steps in [xaa.dev](https://xaa.dev/):
+You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc):
 
 * Register your client app
 * Run tests
@@ -266,15 +266,15 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/):
 
 **Run tests**
 
-[xaa.dev](https://xaa.dev/) runs the exchange in stages. Confirm that each stage completes:
+[xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc) runs the exchange in stages. Confirm that each stage completes:
 
 1. **Start OIDC login at your IdP** - sign in to your OIDC custom client app.
-1. **ID token -> ID-JAG** - [xaa.dev](https://xaa.dev/) exchanges the ID token from sign-in for an ID-JAG through your Okta org.
-1. **Redeem ID-JAG at your Resource AS** - [xaa.dev](https://xaa.dev/) redeems the ID-JAG for an access token at your resource app's authorization server. While testing this, provide the following:
+1. **ID token -> ID-JAG** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc) exchanges the ID token from sign-in for an ID-JAG through your Okta org.
+1. **Redeem ID-JAG at your Resource AS** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc) redeems the ID-JAG for an access token at your resource app's authorization server. While testing this, provide the following:
     * Enter the authorization server token URL in the **Resource AS token endpoint** field.
     * Enter the authorization server client ID in the **Client ID (at your resource AS)** field.
     * Enter the authorization server client secret in the **Client secret (at your resource AS)** field.
-1. **Call your API with the access token** - [xaa.dev](https://xaa.dev/) calls your resource app's API with the access token.
+1. **Call your API with the access token** - [xaa.dev](https://xaa.dev/developer/test-resource-app?tab=oidc) calls your resource app's API with the access token.
 1. Confirm that a green **Conformance passed** panel appears.
 
 **Export conformance log**
