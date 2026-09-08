@@ -2,7 +2,7 @@
 
  The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
 
-1. Add your [tenant settings](#tenant-settings) in the OIN Wizard. These settings become fields for customer admins to enter during your OIN integration installation to identify their tenant.
+1. Add your [tenant settings](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings) in the OIN Wizard. These settings become fields for customer admins to enter during your OIN integration installation to identify their tenant.
 
 2.  Language format in your integration properties for dynamic values based on customer information.
  
@@ -14,7 +14,7 @@ The following are Expression Language specifics for XAA properties:
 
 * Any XAA tenant settings that you define in the OIN Wizard are considered app properties. They have an `app. prefix` when you reference them in Expression Language. For example, if your tenant variable name is `subdomain`, then you can reference that variable using `app.subdomain`.
 
-XAA properties support Expression Language conditional expressions. For example:
+* XAA properties support Expression Language conditional expressions. For example:
 
 ````
 'https://' + app.subdomain + '.example.org/strawberry/'`

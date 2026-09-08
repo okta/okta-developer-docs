@@ -37,9 +37,9 @@ Specify the following properties for your resource app:
 
 | Property | Description |
 | ----- | ----------- |
-| **Issuer URL** `*` | URL of the resource app's authorization server. The issuer URL must support the HTTPS protocol. If you're using a per tenant design, include the variable names that you created in your URL. For example:` 'https://' + app.subdomain + '.example.com/' `. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).<br>.  |
+| **Issuer URL** `*` | URL of the resource app's authorization server. The issuer URL must support the HTTPS protocol. If you're using a per tenant design, include the variable names that you created in your URL. For example:` 'https://' + app.subdomain + '.example.com/' `. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).  |
 | **Audience tenant ID** | Enable this checkbox to require the Okta IDP to send an audience tenant claim (`aud_tenant`) in the ID-JAG token. This scopes token issuance to a specific organization, workspace, or tenant in the Resource Authorization Server when XAA is enabled. |
 | **Resource identifier** | API resource URLs available in your resource app. You can add up to 20 resource identifiers. Click **Add resource identifiers** to add another row. |
-| **Scopes** | Resource scopes that your resource app's authorization server accepts, such as read or write. You can add up to 1oo scopes. Click **Add scopes** to add another row. |
+| **Scopes** | Resource scopes that your resource app's authorization server accepts, such as read or write. You can add up to 100 scopes. Click **Add scopes** to add another row. |
 
 `*` Required properties
