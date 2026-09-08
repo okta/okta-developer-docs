@@ -269,7 +269,7 @@ To see the promotion object in the API reference, see the [Policies API](https:/
 
 <ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
 
-> **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To enable it, contact [Okta Support](https://support.okta.com).
+> **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To enable it, contact [Okta Support](https://support.okta.com). You can't enable it in an org that uses the [Flexible Okta Verify authenticator configuration](/docs/guides/authenticators-okta-verify/main/#configure-okta-verify-as-standalone-authenticators) feature.
 
 An authenticator group is a named set of authenticators that an authenticator enrollment policy references to define an enrollment requirement. Instead of marking each authenticator required or optional, you can require users to enroll a minimum number of authenticators from the group. Users choose which ones to enroll. If some users only have access to certain authenticators, they can still meet the enrollment requirement by enrolling in the authenticators that are available to them.
 
