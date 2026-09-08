@@ -36,7 +36,7 @@ The following table summarizes the API changes in Identity Engine.
 | Factors API: reset email factor | Behavior changed | Email auto-enrolls, so the reset behavior differs. |
 | Factors API: reset question factor | Behavior changed | Recovery questions appear in factor responses. |
 | Factors API: SMS lifecycle operations | Not supported | You can't activate or deactivate SMS through the Factors API. |
-| Classic Authentication API: password recovery | Limited | New Identity Engine recovery options aren't accessible through the classic API. |
+| Classic Engine Authentication API: password recovery | Limited | New Identity Engine recovery options aren't accessible through the Classic Engine API. |
 | Classic Engine APIs: Identity Engine features | Not supported | Identity Engine-only features require updated SDKs. |
 
 ## Authentication API changes
@@ -59,7 +59,7 @@ Direct device token passing is no longer the primary method for device context i
 | Redirect-based authentication | Migrate to Okta-hosted sign-in pages. | Device context policies are handled automatically. |
 | Updated SDKs | Adopt Identity Engine SDKs for embedded apps. | Full access to Identity Engine Device Trust capabilities. |
 
-See [Device Token in Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US) for details.
+See [Device Token in the Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US) for details.
 
 ## Sessions API changes
 
@@ -110,14 +110,14 @@ The following Identity Engine features aren't supported when you use the Factors
 
 You can't activate or deactivate the SMS factor through the Factors API (`/api/v1/org/factors`) in Identity Engine.
 
-### Password recovery limitations with the Classic Authentication API
+### Password recovery limitations with the Classic Engine Authentication API
 
 If you use the `/api/v1/authn` API for custom password reset experiences, be aware of these limitations in Identity Engine:
 
-* New Identity Engine recovery options, such as Okta Verify Push and "any enrolled authenticator" verification, aren't available through the Classic Authentication API.
+* New Identity Engine recovery options, such as Okta Verify Push and "any enrolled authenticator" verification, aren't available through the Classic Engine Authentication API.
 * End users are denied recovery if these modern options are the only ones configured.
 
-**Action:** If you rely on classic API password recovery flows, keep at least one Classic-compatible recovery option configured. Alternatively, migrate to the Identity Engine SDK-based recovery flow.
+**Action:** If you rely on Classic Engine API password recovery flows, keep at least one Classic Engine-compatible recovery option configured. Alternatively, migrate to the Identity Engine SDK-based recovery flow.
 
 ### Identity Engine features not accessible from Classic Engine APIs
 
@@ -145,6 +145,7 @@ Before you upgrade, audit your integrations against the following checklist:
 
 ## See also
 
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/main/): Inventory your Classic Engine API usage and map each dependency to a supported path
 * [Identity Engine limitations](/docs/guides/ie-limitations/main/): Full reference for current Identity Engine limitations and behavioral differences
 * [Session changes after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/): How sessions work in Identity Engine
 * [Upgrade your app SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/): Migrate to the Identity Engine SDKs

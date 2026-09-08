@@ -669,3 +669,8 @@ These methods encapsulate the password recovery flow using recursive calls to Id
 ## Map basic sign-out code to the Identity Engine SDK
 
 <StackSelector snippet="signout" noSelector />
+
+## Related topics
+
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/)
+* [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/)

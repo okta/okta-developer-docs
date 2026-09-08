@@ -39,3 +39,8 @@ The following section discusses different use cases and what the changes are aft
 5. **Did a user authenticate in Classic Engine before the upgrade was completed?** If a user authenticates in Classic Engine, they receive a sessionToken that remains valid for five minutes. If the upgrade to Identity Engine completes while this sessionToken is still valid, the user's existing session becomes invalid. When the user attempts to access an OpenID Connect app after the upgrade, they’re prompted for their password again.
 
     > **Note:** This scenario only happens during an upgrade from Classic Engine to Identity Engine. It doesn't continue to happen after the upgrade.
+
+## Related topics
+
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/)
+* [Okta API changes for Identity Engine](/docs/guides/oie-upgrade-api-changes/)

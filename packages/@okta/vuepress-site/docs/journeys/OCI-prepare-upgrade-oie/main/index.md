@@ -153,3 +153,4 @@ Before you can schedule your upgrade from Classic Engine to Identity Engine, [co
 * [Find troubleshooting docs at the Okta Knowledge base center](https://support.okta.com/help/s/knowledge?selectedTopics&sortValue=Most%20Popular&searchTerm).
 * [Check out the video resources on the Okta Support Center's Identity Engine upgrade page](https://support.okta.com/help/s/product-hub/oie/upgrading-to-okta-identity-engine?language=en_US).
 * [Get an overview of the Identity Engine upgrade process](/docs/guides/oie-upgrade-overview/main/).
+* After you upgrade, [audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/main/) to plan your authentication modernization work.

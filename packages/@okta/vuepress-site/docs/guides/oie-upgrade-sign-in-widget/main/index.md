@@ -268,3 +268,5 @@ The ability for end users to specify a security image when they first register f
 * [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)
 
 * [Okta Identity Engine overview](/docs/concepts/oie-intro/)
+
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/main/)
