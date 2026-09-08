@@ -46,7 +46,7 @@ When you finish the audit, choose a destination for each app. Then follow the fo
 <!-- TODO(OKTA-1216283 follow-up): link "Choose your OIE authentication modernization approach" to /docs/guides/choose-oie-authentication-approach/main/ when that guide publishes. -->
 <!-- TODO(OKTA-1216283 follow-up): link "Modernize your sign-in and SSO flow with Okta Identity Engine" to /docs/journeys/modernize-sso-flow-with-oie/main/ when that journey publishes. -->
 
-**Note:** An Identity Engine upgrade doesn't automatically rewrite your application code. Sign-in can keep working on Classic patterns. A code and configuration audit is the only reliable way to find remaining Classic dependencies.
+**Note:** An Identity Engine upgrade doesn't automatically rewrite your application code. Sign-in flows can keep working on Classic patterns. A code and configuration audit is the only reliable way to find remaining Classic dependencies.
 
 If you don't have an app inventory yet, build one first. The audit is complete only when you've reviewed every active app that uses Okta authentication.
 
