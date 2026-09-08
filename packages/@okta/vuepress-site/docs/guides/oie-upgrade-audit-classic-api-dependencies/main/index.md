@@ -52,7 +52,7 @@ If you don't have an app inventory yet, build one first. The audit is complete o
 
 ## What to audit
 
-Work through each application and check the following places. The goal is to find every point where your code or configuration touches a Classic Engine authentication pattern.
+Work through each app and check the following places. The goal is to find every point where your code or configuration touches a Classic Engine authentication pattern.
 
 * **Application source code:** Search for direct calls to Okta authentication endpoints and for hardcoded Okta API paths.
 * **Server-side authentication handlers:** Review the code that starts sign-in, exchanges credentials, and creates sessions.
