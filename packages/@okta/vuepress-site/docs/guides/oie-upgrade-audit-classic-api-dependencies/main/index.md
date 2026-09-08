@@ -60,7 +60,7 @@ Work through each app and check the following places. The goal is to find every 
 * **SDK imports and package manifests:** Check `package.json`, `pom.xml`, `requirements.txt`, `.csproj`, `Gemfile`, `go.mod`, and similar files for Okta authentication SDK versions.
 * **Sign-In Widget version:** Identify the widget version your app loads and whether it's self-hosted or Okta-hosted.
 * **Okta API calls:** Inventory every call to `/api/v1/authn`, `/api/v1/users/{id}/factors`, and `/api/v1/sessions/{id}`.
-* **Session-handling code:** Look for logic that creates, reads, validates, or revokes Okta sessions, and for assumptions about Classic session behavior.
+* **Session-handling code:** Look for logic that creates, reads, validates, or revokes Okta sessions, and for assumptions about Classic Engine session behavior.
 * **Factor enrollment, challenge, or verification code:** Look for any flow that enrolls or verifies factors through the Factors API instead of relying on authenticator policies.
 * **Configuration files and environment variables:** Check for endpoint URLs, grant types, client settings, and feature flags that pin your app to a Classic pattern.
 * **Logs, API gateways, and network traces:** Use these, where available, to catch runtime calls to Classic endpoints that a code search might miss.
