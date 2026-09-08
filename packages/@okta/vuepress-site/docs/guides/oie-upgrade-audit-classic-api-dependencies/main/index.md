@@ -65,7 +65,7 @@ Work through each app and check the following places. The goal is to find every 
 * **Configuration files and environment variables:** Check for endpoint URLs, grant types, client settings, and feature flags that pin your app to a Classic Engine pattern.
 * **Logs, API gateways, and network traces:** Use these, where available, to catch runtime calls to Classic Engine endpoints that a code search might miss.
 
-Tip: Search your code and logs for the literal strings `/api/v1/authn`, `/api/v1/users`, `factors`, and `/api/v1/sessions`. These strings quickly surface most Classic API usage.
+Tip: Search your code and logs for the literal strings `/api/v1/authn`, `/api/v1/users`, `factors`, and `/api/v1/sessions`. These strings quickly surface most Classic Engine API usage.
 
 Keep the audit at planning level. Record what you find and where you found it, but don't rewrite code during the audit.
 
