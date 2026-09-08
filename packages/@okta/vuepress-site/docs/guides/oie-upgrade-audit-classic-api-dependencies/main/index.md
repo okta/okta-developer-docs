@@ -63,7 +63,7 @@ Work through each app and check the following places. The goal is to find every 
 * **Session-handling code:** Look for logic that creates, reads, validates, or revokes Okta sessions, and for assumptions about Classic Engine session behavior.
 * **Factor enrollment, challenge, or verification code:** Look for any flow that enrolls or verifies factors through the Factors API instead of relying on authenticator policies.
 * **Configuration files and environment variables:** Check for endpoint URLs, grant types, client settings, and feature flags that pin your app to a Classic Engine pattern.
-* **Logs, API gateways, and network traces:** Use these, where available, to catch runtime calls to Classic endpoints that a code search might miss.
+* **Logs, API gateways, and network traces:** Use these, where available, to catch runtime calls to Classic Engine endpoints that a code search might miss.
 
 Tip: Search your code and logs for the literal strings `/api/v1/authn`, `/api/v1/users`, `factors`, and `/api/v1/sessions`. These strings quickly surface most Classic API usage.
 
