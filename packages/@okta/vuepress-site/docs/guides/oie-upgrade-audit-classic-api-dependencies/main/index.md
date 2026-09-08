@@ -96,7 +96,7 @@ Record one row per application, or per integration if an app has more than one O
 | --- | --- |
 | App name | The application or integration being audited |
 | Owner | The team or person responsible for the app |
-| Current Classic dependency | The Classic pattern found: Authn API, Factors API, Sessions API, widget version, or SDK version |
+| Current Classic dependency | The Classic Engine pattern found: Authn API, Factors API, Sessions API, widget version, or SDK version |
 | Evidence or file location | Repo path, file, config key, log query, or endpoint where you found it |
 | Risk or issue | Why this dependency matters: a blocked feature, a security gap, or an unsupported version |
 | Recommended Identity Engine destination | Redirect, embedded widget (Gen2), embedded SDK or Auth.js, Direct Authentication, authenticator policy, or session alignment |
