@@ -38,7 +38,7 @@ Use this guide to:
 * Find Classic Engine authentication dependencies that might still exist after an Identity Engine upgrade.
 * Understand why each dependency matters in Identity Engine.
 * Map each dependency to a supported Identity Engine replacement or modernization path.
-* Produce a per-application audit record that drives your migration plan.
+* Produce a per-app audit record that drives your migration plan.
 
 This guide is for planning and auditing. It doesn't replace the implementation guides for the redirect model, the embedded Sign-In Widget, the embedded SDK or Auth.js, Direct Authentication, authentication policies, or sessions.
 
