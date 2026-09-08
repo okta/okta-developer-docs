@@ -13,7 +13,7 @@ These flows often still work, but they don't unlock Identity Engine capabilities
 
 This guide helps you inventory those Classic Engine dependencies and map each one to its Identity Engine replacement path.
 
-The result is an evidence backed audit that you can hand to app owners, architects, and security reviewers. They can use it to plan and sequence the rest of your modernization work.
+The result is an evidence-backed audit that you can hand to app owners, architects, and security reviewers. They can use it to plan and sequence the rest of your modernization work.
 
 ---
 
