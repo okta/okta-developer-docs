@@ -271,14 +271,27 @@ To see the promotion object in the API reference, see the [Policies API](https:/
 
 > **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To enable it, contact [Okta Support](https://support.okta.com).
 
-An authenticator group is a reusable, named set of authenticators that an authenticator enrollment policy references to define an enrollment requirement. Instead of marking each authenticator required or optional, you can require users to enroll a minimum number of authenticators from the group. Users choose which ones to enroll, so a single policy can cover users who don't all have access to the same devices.
+An authenticator group is a named set of authenticators that an authenticator enrollment policy references to define an enrollment requirement. Instead of marking each authenticator required or optional, you can require users to enroll a minimum number of authenticators from the group. Users choose which ones to enroll. If some users only have access to certain authenticators, they can still meet the enrollment requirement by enrolling in the authenticators that are available to them.
 
-Two objects define the requirement:
+An authenticator enrollment policy uses either authenticator groups or individual authenticators. You can't use both. To use authenticator groups, set the authenticator enrollment policy's `settings.type` property to `AUTHENTICATOR_GROUPS` and configure the authenticators in `settings.authenticatorGroups`.
 
-* **The group**: A named set of authenticator types that you manage through the Authenticator Groups API. A group defines only its members, so more than one policy can reference it.
-* **The policy reference**: An entry in the policy's `settings.authenticatorGroups` property that points to a group and sets the enrollment threshold. Each `criteria` entry has a `type` of `authenticatorCount` and a `count` that specifies how many authenticators from the group a user must enroll. A `count` of `0` makes the group's authenticators available but not required.
+You manage authenticator groups through the Authenticator Groups API, and each group holds only its list of authenticators. The enrollment requirement is an entry in the policy's `settings.authenticatorGroups` property that names a group and sets a `criteria` entry with a `type` of `authenticatorCount` and a `settings.count` value. The count is how many of the group's authenticators that a user must enroll.
 
-For example, you can create a group named Recovery Methods that contains the Email, Phone, and Okta Verify authenticators, and then reference that group from a policy with a `count` of `2`. Users must enroll any two of the three authenticators before they can proceed. To use this configuration, set the policy's `settings.type` property to `AUTHENTICATOR_GROUPS`.
+For example, you create a group named "Recovery Methods" that contains the email, phone, and Okta Verify authenticators, and an authenticator enrollment policy that references the group with a `settings.count` of `2`. After the user enrolls two of the authenticators, the third becomes optional for enrollment and the user can finish enrolling.
+
+If you set `settings.count` to `0`, none of the group's authenticators are required and all of them are optional for enrollment. Omitting `criteria` or setting it to an empty array has the same effect.
+
+The number of required authenticators (the `count` value) remains the same even when you add more authenticators to the group. In the previous example, adding a fourth authenticator to "Recovery Methods" means that users enroll two of four authenticators rather than two of three. Update `settings.count` on the policy if you want the requirement to change with the group.
+
+Keep the following constraints in mind:
+
+* An authenticator must be enabled for your org before you can add it to a group.
+* An authenticator can belong to only one of the groups that a policy references.
+* `settings.count` can't be greater than the number of authenticators in the group.
+* Only one authenticator enrollment policy can reference a group.
+* You can't delete a group while an authenticator enrollment policy references it. Remove the reference from the policy first.
+* You can't disable an authenticator for your org while it belongs to any group. Remove it from each group first.
+* Changes to a group's authenticators apply immediately to the policy that references the group.
 
 For details about configuring authenticator groups in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 
