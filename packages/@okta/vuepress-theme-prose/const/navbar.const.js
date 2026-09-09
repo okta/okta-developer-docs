@@ -20,6 +20,10 @@ export const concepts = [
         path: "/docs/concepts/xaa/",
       },
       {
+        title: "Okta Agent Gateway",
+        path: "/docs/concepts/agent-gateway/",
+      },
+      {
         title: "Brands",
         path: "/docs/concepts/brands/",
       },
@@ -590,6 +594,14 @@ export const guides = [
           {
             title: "Set up third-party AI agent token exchange",
             guideName: "ai-agent-third-party-token-exchange",
+          },
+          {
+            title: "Configure an AI agent for Agent Gateway",
+            guideName: "ai-configure-agent-for-gateway",
+          },
+          {
+            title: "Configure an Agent Gateway",
+            guideName: "ai-configure-agent-gateway",
           },
           {
             title: "Secure third-party AI agents",
