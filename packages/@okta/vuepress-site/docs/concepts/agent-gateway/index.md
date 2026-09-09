@@ -7,8 +7,6 @@ meta:
 
 # Okta Agent Gateway
 
-<ApiLifecycle access="research" />
-
 Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple remote MCP servers behind a single Okta-secured endpoint, enforces identity and policy on every tool call, and produces a unified audit trail. Agent Gateway extends the Okta identity fabric to AI agents that the enterprise doesn't build or control.
 
 ## The problem it solves
