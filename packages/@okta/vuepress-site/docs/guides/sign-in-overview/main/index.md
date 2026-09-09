@@ -20,9 +20,9 @@ Choose your app type and get started with signing users in.
 
 If you've already upgraded to Okta Identity Engine, and you're updating an existing Classic Engine authentication implementation:
 
-<!-- * Modernize your sign-in and SSO flows with Okta Identity Engine (link to journey): A step-by-step journey for teams replacing Classic Engine auth patterns with Identity Engine-supported deployment models. -->
+* [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/main/): A step-by-step journey for teams replacing Classic Engine auth patterns with Identity Engine-supported deployment models.
 [Choose your Identity Engine authentication modernization approach](/docs/guides/oie-choose-signin-deploy/main/): A ranked decision guide for choosing between redirect, embedded widget, embedded SDK, and direct authentication.
-<!-- * Manage the identifier-first sign-in transition (New - see link for details): Plan for the visible UX changes when moving an existing app to Identity Engine. -->
+* [Manage the identifier-first sign-in transition](/docs/guides/oie-manage-id-first-signin/main/): Plan for the visible UX changes when moving an existing app to Identity Engine. -->
 
 
 ## Primary considerations
@@ -62,7 +62,8 @@ If you’re a Classic Engine customer who wants to upgrade their apps to use Ide
 Before you start, [identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/) to inventory every sign-in, SDK, API, and automation point that needs testing.
 
 After you upgrade, [audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/) to find any Classic Engine patterns that remain and map each one to a supported Identity Engine path.
-<!-- After you upgrade, see [Replace Classic Engine auth flows with Identity Engine]() to replace Classic Engine auth patterns with Identity Engine-supported flows. -->
+
+After you upgrade, see [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/main/) to replace Classic Engine auth patterns with Identity Engine-supported flows.
 
 ## Next steps
 

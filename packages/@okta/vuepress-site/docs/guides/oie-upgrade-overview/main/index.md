@@ -13,7 +13,7 @@ Upgrading also provides more flexibility to manage your user authentication. Thi
 
 > **Note:** If your app integration with Okta is standards-based redirection (SAML/OIDC) to the default Okta domain, then no development changes are needed during your upgrade.
 
-The upgrade is a multi-phase journey. The first phase is the org upgrade itself, covered on this page. The second phase is modernizing your authentication implementation to get the most out of your Identity Engine investment. <!-- After you complete the steps below, see [Replace Classic Engine auth flows with Identity Engine]() -->
+The upgrade is a multi-phase journey. The first phase is the org upgrade itself, covered on this page. The second phase is modernizing your authentication implementation to get the most out of your Identity Engine investment. After you complete the steps below, see [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/main/).
 
 ## Plan your upgrade
 

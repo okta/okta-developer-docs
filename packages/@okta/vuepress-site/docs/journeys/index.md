@@ -9,6 +9,7 @@ journeys:
  - OCI-web-sign-up
  - OCI-migrate-users
  - OCI-prepare-upgrade-oie
+ - OCI-replace-ce-auth-flows
 ---
 
 # Journeys
@@ -36,4 +37,5 @@ Journeys break down your development project into consumable steps:
 <br>
 <Cards>
   <Card href="/docs/journeys/OCI-prepare-upgrade-oie/main/" cardTitle="Prepare to upgrade to Okta Identity Engine">Plan, update, test, and validate your setup so that you can confidently complete a smooth Production upgrade.</Card>
+  <Card href="/docs/journeys/OCI-replace-ce-auth-flows/main/" cardTitle="Replace Classic Engine auth flows with Identity Engine">Replace Classic Engine authentication patterns after the Identity Engine upgrade by choosing a supported deployment model and configuring policies.</Card>
 </Cards>
