@@ -1346,6 +1346,10 @@ export const journeys = [
             title: "Prepare to upgrade to Okta Identity Engine",
             journeyName: "OCI-prepare-upgrade-oie"
           },
+          {
+            title: "Replace Classic Engine auth flows with Identity Engine",
+            journeyName: "OCI-replace-ce-auth-flows"
+          },
         ]
       },
     ],
