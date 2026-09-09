@@ -14,7 +14,7 @@ After you upgrade to Okta Identity Engine, you can update your sign-in flows by 
 
 Okta supports four authentication deployment models. They’re presented here in the order that Okta recommends, from simplest and most secure to most custom and complex.
 
-<!-- > **Note:** If you haven't yet decided to modernize, start with the [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/oci-replace-oce-auth-flows-with-OIE/) journey for context. -->
+> **Note:** If you haven't yet decided to modernize, start with the [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/main/) journey for context.
 
 ## Quick guidance
 
@@ -191,6 +191,6 @@ If you currently use a Classic Engine deployment, this table maps the migration 
 
 ## Related resources
 
-<!-- - The [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/oci-replace-oce-auth-flows-with-OIE/) journey that links to this guide. -->
+- The [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/main/) journey that links to this guide.
 [Redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for a deeper explanation of the model differences.
-<!-- - [Plan for the visible UX change when moving to OIE](/docs/guides/plan-ui-upgrade/). -->
+- [Manage the identifier-first sign-in transition](/docs/guides/oie-manage-id-first-signin/main/).

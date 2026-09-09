@@ -24,7 +24,7 @@ This guide defines the identifier-first flow, how it appears in each deployment 
 
 In the identifier-first flow, Okta collects the user's identifier (usually a username or email address) on its own page first. After the user submits the identifier, Okta evaluates the user's identity and authentication policy. Okta then presents the next appropriate factor or challenge on a second page.
 
-<!-- Link to a dedicated identifier-first concept page here once one exists. -->
+See the [Okta Identity Engine identifier-first sign-in experience](https://developer.okta.com/docs/concepts/oie-idfirst-signin/) concept.
 
 ### How it differs from Classic Engine
 
@@ -115,4 +115,4 @@ The Identifier-first sign-in experience is responsive and adaptive, but it invol
 * [Style the sign-in page](/docs/guides/custom-widget/)
 * [Updates to widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/)
 * [Authenticators overview](/docs/guides/authenticators-overview/)
-<!-- - The journey doc that links to this guide (New - see link for details). -->
+* T[he journey doc that links to this guide](/docs/journeys/OCI-replace-ce-auth-flows/main/)
