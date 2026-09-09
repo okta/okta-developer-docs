@@ -145,6 +145,7 @@ Okta supports resource apps that use the following protocols for SSO:
 If you're an ISV wanting to add your resource app to the OIN with XAA capabilities, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
 > **Note:** For the AI agent-to-app use case, see [Supported resource apps](/docs/guides/xaa-agent-to-app/main/#supported-resource-apps) in Okta.
+
 <!--
 * **[Build a resource app]**: Follow the resource app journey if your app exposes APIs that need to accept incoming XAA authorization requests.
 -->
