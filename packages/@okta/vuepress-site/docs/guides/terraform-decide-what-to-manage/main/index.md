@@ -22,7 +22,7 @@ Not every part of your Okta org is a good fit for Terraform. Use this guide to d
 
 ## Decide whether to use Terraform
 
-Terraform works best for configuration that changes rarely, needs a review step before it takes effect, or must be reproducible across environments. If your team makes infrequent, ad hoc changes through the Admin Console, adopting Terraform adds process overhead that might not pay off yet.
+Terraform works best for configuration that changes rarely, needs a review step before it takes effect, or must be reproducible across environments. If your team makes infrequent, ad hoc changes through the Admin Console, adopting Terraform adds process overhead that might not provide the intended benefit.
 
 You don't need to manage your entire org with Terraform to get value from it. Start with a small, well-understood set of resources and expand as your team gains confidence.
 
@@ -36,9 +36,11 @@ Some Okta resources are a good fit for Terraform. Others create more risk than b
 
 * **Safe to manage:** Static, rarely changing configuration, such as group definitions (`okta_group`), group assignment rules (`okta_group_rules`), authentication policies, and global session policies. These resources change infrequently, so putting them under Terraform gives you a review history and an audit trail.
 
-* **Risky to manage:** Resources with high turnover, or where a bad `apply` immediately breaks a user's access. The clearest example is group membership: it changes constantly as people join, move teams, and leave, and every change has to go through your Terraform workflow instead of a quick Admin Console edit. A stale configuration or a reverted `apply` can silently remove someone from a group they still need. This mirrors the trade-off described in [Avoid importing user objects with Terraform](/docs/guides/terraform-import-existing-resources/main/#avoid-importing-user-objects-with-terraform): user data is large, changes often, and is usually better left out of your Terraform configuration.
+* **Risky to manage:** Resources with high turnover, or where a bad `apply` immediately breaks a user's access. Group membership is the clearest example: assigning users with `okta_group_memberships` or `okta_user_group_memberships` (see [Manage groups](/docs/guides/terraform-manage-groups)) means every join, transfer, or departure has to go through your Terraform workflow instead of a quick Admin Console edit, and a stale configuration or a reverted `apply` can silently remove someone from a group they still need. This is the same trade-off behind the guidance in [Avoid importing user objects with Terraform](/docs/guides/terraform-import-existing-resources/main/#avoid-importing-user-objects-with-terraform).
 
-As a rule of thumb, the less often a resource changes, and the less damage a mistake causes, the safer it is to manage with Terraform.
+  Managing app sign-on policy rules one at a time is risky for a different reason. Individual `okta_app_signon_policy_rule` resources often cause priority drift, where the actual rule order in your org no longer matches your Terraform configuration and every `plan` shows changes that never resolve. See [Migrate to consolidated app sign-on policy rules](/docs/guides/terraform-migrate-consolidated-app-sign-on-policy-rules) for a resource that avoids this.
+
+A resource is a safer candidate for Terraform when it changes infrequently and a mistake there wouldn't cause much damage.
 
 ## Where to start
 
