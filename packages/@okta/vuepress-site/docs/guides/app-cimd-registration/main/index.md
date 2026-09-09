@@ -26,16 +26,16 @@ Learn how to register a custom OpenID Connect (OIDC) app integration with a Clie
 
 ## Overview
 
-A CIMD is a JSON document that an app owner hosts at an HTTPS URL. It describes the app's OAuth client: its redirect URIs, grant types, and signing keys. The URL serves as the app's `client_id`.
+A CIMD is a JSON document that an app owner hosts at an HTTPS URL. It describes the app's OAuth 2.0 client: its redirect URIs, grant types, and signing keys. The URL serves as the app's `client_id`.
 
-When you register an app integration with a CIMD URL, you add that URL to an allowlist in your org. You don't enter any other client configuration. The OAuth client doesn't exist in your org yet. Okta creates it the first time that the app sends a request that uses the CIMD URL as its `client_id`.
+When you register an app integration with a CIMD URL, Okta creates the OAuth 2.0 client and registers the CIMD URL as its exact-match client identifier. You don't enter any other client configuration. When the client requests a token, Okta fetches the document and uses it to configure the client's redirect URIs, grant types, and signing keys for that request.
 
-For example, your company uses Okta to protect the APIs behind its platform, and a partner builds an app that calls those APIs. Before that app can request a token, it needs an OAuth client in your Okta org.
+For example, your company uses Okta to protect the APIs behind its platform, and a partner builds an app that calls those APIs. Before that app can request a token, it needs an OAuth 2.0 client in your Okta org.
 
 - Without CIMD, you create that client manually. The partner sends you its redirect URIs, grant types, token endpoint authentication method, and signing keys. You then enter them in Okta, and you send the client ID and secret that Okta generates back to the partner.
 - With CIMD, you add the partner's CIMD URL and stop there. Okta reads all of those values from the document that the partner hosts. There's no client secret to send, and the partner rotates its own signing keys without any Okta API call.
 
-CIMD doesn't change how users authenticate or what access they get. It changes how the app's OAuth client is registered.
+CIMD doesn't change how users authenticate or what access they get. It changes how the app's OAuth 2.0 client is registered.
 
 > **Note:** CIMD is available for custom OIDC app integrations only. You can't use a CIMD URL with an app integration from the Okta Integration Network (OIN), or with a SAML, SWA, or SCIM app integration.
 
@@ -64,10 +64,10 @@ See the following resources for the full CIMD specification, beyond the properti
 
 You complete the first three steps in your Okta org. The app owner completes the last two in their own code.
 
-1. [Add a CIMD client to an app integration](#add-a-cimd-client-to-an-app-integration), either by [registering a new app integration](#register-a-new-app-integration) or by [converting an existing one](#convert-an-existing-app-integration). This adds the CIMD URL to an allowlist in your org. No OAuth client exists yet.
+1. [Add a CIMD client to an app integration](#add-a-cimd-client-to-an-app-integration), either by [registering a new app integration](#register-a-new-app-integration) or by [converting an existing one](#convert-an-existing-app-integration). For either method, the CIMD URL becomes the client identifier for that app integration's OAuth 2.0 client.
 1. [Assign users to the app integration](#assign-users-to-the-app-integration) so that they can authorize the app.
 1. [Scope an authorization server policy to the CIMD client](#scope-an-authorization-server-policy-to-a-cimd-client) so that your authorization server issues tokens to it.
-1. The app [requests a token](#request-a-token-with-the-cimd-client-id) and sends the CIMD URL as its `client_id`. Okta matches the URL against the allowlist, retrieves the document, and creates the OAuth client from the values in it.
+1. The app [requests a token](#request-a-token-with-the-cimd-client-id) and sends the CIMD URL as its `client_id`. Okta matches the URL against the client that you registered, retrieves the document, and uses it to process the request.
 1. Okta returns an access token. The app sends that access token when it calls your APIs.
 
 ## Add a CIMD client to an app integration
@@ -118,6 +118,7 @@ Send a `PUT` request to `/api/v1/apps/{appId}` with `settings.oauthClient.cimdCl
 Conversion replaces the app integration's Okta-generated client with a CIMD client. Okta makes the following changes:
 
 - Okta deletes the existing client, its client secret, and any JWKS keys stored in Okta.
+- Okta sets the `profile` attribute information to null.
 - Okta revokes refresh tokens issued to the previous client ID.
 - Okta removes the app integration's Universal Logout and Single Logout configuration, along with any network zone bound to the previous client ID.
 - Okta disables Federation Broker Mode for the app integration.
@@ -152,7 +153,7 @@ Scope a custom authorization server access policy to a CIMD client, the same way
 
 ## Request a token with the CIMD client ID
 
-Okta accepts the CIMD URL as the `client_id` in an OAuth request, in place of an Okta-generated client ID. The first time that the app makes a request, Okta matches the `client_id` against the CIMD URLs registered in your org, retrieves the document, creates the OAuth client from it, and then processes the request.
+Okta accepts the CIMD URL as the `client_id` in an OAuth 2.0 request, in place of an Okta-generated client ID. Okta matches the `client_id` against the CIMD URL that you registered, retrieves the document, and uses it to process the request.
 
 Start an authorization code flow by sending the CIMD URL as the `client_id` to the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) of your custom authorization server:
 
