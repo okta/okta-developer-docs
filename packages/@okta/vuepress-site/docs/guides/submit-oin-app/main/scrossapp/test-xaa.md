@@ -93,7 +93,7 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/t
 
 See [Enable your SAML client app for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester) for full request and response examples.
 
-Confirm that:
+Confirm the following:
 
 * The authorization server accepted the ID-JAG as a JWT Bearer grant.
 * The authorization server issued the access token with the `todos.read` scope.
