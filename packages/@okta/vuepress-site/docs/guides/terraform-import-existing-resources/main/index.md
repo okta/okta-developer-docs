@@ -44,6 +44,8 @@ An imported Okta user object is much larger than other types of objects. A users
 
 Group resources are much smaller. Importing those into your configuration enables using group names and IDs for other Terraform contexts. For example, [defining group assignments by ID for access to an Okta app](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_group_assignment).
 
+This is one example of a broader trade-off: some resources are riskier to manage with Terraform than others. See [Decide what's safe to manage](/docs/guides/terraform-decide-what-to-manage/main/#decide-whats-safe-to-manage) for guidance on which parts of your org are a good fit for Terraform.
+
 ## Find the ID of an existing object
 
 To import an object, Terraform requires the Okta ID of the existing infrastructure resource. For example, if you plan to import an Okta app integration of type `okta_app_oauth`, you must find its ID before importing it.

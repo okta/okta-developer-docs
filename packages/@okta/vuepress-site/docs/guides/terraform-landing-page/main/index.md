@@ -17,7 +17,7 @@ Some of the features of managing your Okta org with Terraform include:
 
 Terraform uses plugins called Providers to communicate with a managed service. To automate your Okta org, you use the Okta Terraform Provider.
 
-Start with the [Terraform overview](/docs/guides/terraform-overview), and then see [Enable Terraform access](/docs/guides/terraform-enable-org-access) to set up Terraform with your Okta org.
+Start by [deciding what to manage with Terraform](/docs/guides/terraform-decide-what-to-manage), then see the [Terraform overview](/docs/guides/terraform-overview), and [Enable Terraform access](/docs/guides/terraform-enable-org-access) to set up Terraform with your Okta org.
 
 ## Automate management
 
