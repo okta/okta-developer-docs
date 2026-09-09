@@ -6,11 +6,9 @@ meta:
 layout: Guides
 ---
 
-<ApiLifecycle access="research" />
-
 Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple remote MCP servers and enforces identity and policy on every tool call. In the Okta API, an Agent Gateway is represented as a virtual MCP server (vMCP). This guide walks you through the API steps to configure an Agent Gateway. After you finish, an MCP client, such as Claude Code or Agentforce, can connect to the gateway and invoke tools.
 
-> **Note:** This guide covers the steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that is already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/).
+> **Note:** This guide covers the steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that's already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/).
 
 ---
 
