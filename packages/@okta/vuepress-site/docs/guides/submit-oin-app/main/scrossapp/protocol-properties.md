@@ -12,7 +12,7 @@ Under **Cross App Access (XAA) roles**, select the role that your app plays in t
 
 | Role | Description |
 | ----- | ----------- |
-| **Client app** | App that exchanges its Okta token for an Identity Assertion JWT Authorization Grant (ID-JAG) token, then exchanges the ID-JAG token at the resource app's authorization server for an access token, which the client app can then use to access the resource app's data and APIs. It registers as a client at that authorization server and shares the issuer and client ID with Okta to enable the exchange. |
+| **Client app** | App that exchanges its Okta token for an Identity Assertion JWT Authorization Grant (ID-JAG) token, then exchanges the ID-JAG token at the resource app's authorization server for an access token. The client app uses this access token to access the resource app's data and APIs.It registers as a client at that authorization server and shares the issuer and client ID with Okta to enable the exchange. |
 | **Resource app** | App that uses its auth server to validate the ID-JAG token and return an access token, which the client app can then use to access its data and APIs. |
 
 #### XAA client app properties
