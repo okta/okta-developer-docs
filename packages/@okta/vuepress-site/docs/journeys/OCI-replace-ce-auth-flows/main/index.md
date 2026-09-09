@@ -69,7 +69,7 @@ This path offloads the sign-in experience to Okta using SAML, OIDC, or OAuth. Ok
 The third-generation (Gen3) widget is Okta-hosted and not supported for self-hosted embedding. If you need to embed directly in your app, use the Gen2 self-hosted widget instead.
 
 - [Upgrade your existing self-hosted widget](/docs/guides/oie-upgrade-sign-in-widget/main/) to a version that supports Identity Engine.
-- [Apply your branding](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) to the self-hosted Gen2 widget.
+- [Apply your branding](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) to the Gen2 self-hosted widget.
 
 #### Path C: Embedded SDK or Auth.js
 
@@ -88,7 +88,7 @@ This path calls the Okta Direct Authentication APIs to authenticate users withou
 
 ### Configure your authentication policies
 
-Authentication policies in Identity Engine replace Classic ENgine app sign-in policies. Configure them to define how users must authenticate in your apps.
+Authentication policies in Identity Engine replace Classic Engine app sign-on policies. Configure them to define how users must authenticate in your apps.
 
 - [Set up the policies that control how users authenticate in your Identity Engine apps](/docs/guides/configure-signon-policy/main/), including MFA requirements and session lifetime.
 - [Understand which authenticators you can enable](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) and how they integrate with your authentication policies.
