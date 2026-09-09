@@ -31,10 +31,10 @@ You can configure the AI agent-to-app flow with Cross App Access (XAA) in an Okt
 
 In the AI agent-to-app XAA flow, the AI agent assumes the requesting app role and the resource app can be any SSO app integration in Okta that has the XAA feature enabled. You must build your AI agent app and resource app to have XAA features before registering and configuring them in the Admin Console.
 
-See [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) for the AI agent-to-app token exchange flow.
+See [XAA flow specifics for an OIDC or SAML requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/#xaa-flow-specifics-for-requesting-app) for the AI agent-to-app token exchange flow.
 
 > **Note:** For developer guidance on requesting and resource apps:
-> * See [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications).
+> * See [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/).
 > * See [Enabling Cross App Access for SAML-Based Resource Apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml).
 
 To configure the AI agent-to-app flow with XAA, perform the following process steps in Okta:

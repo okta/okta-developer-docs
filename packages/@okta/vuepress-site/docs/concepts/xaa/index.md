@@ -61,8 +61,10 @@ RS -> WebApp: Returns resource data
 1. **Token exchange for ID-JAG**: The client exchanges its user ID assertion at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token. The user ID assertion can be an ID or refresh token.
 1. **ID-JAG token issued**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
 1. **JWT Authorization Grant**: The client presents the ID-JAG token to the resource authorization server.
-1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
+1. **Validates ID-JAG and resolves user identity**: The resource authorization server validates the ID-JAG and resolves the user identity.
+1. **Resource access token issued**: After the ID-JAG is validated, the authorization server issues a short-lived, scoped access token.
 1. **Client accesses resource data**: The requesting client uses the short-lived, scoped token to access the protected resource app on the user's behalf.
+1. **Returned resource data**: The resource app returns requested data that's scoped to the access token.
 
 See [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/) for the AI agent-to-app token exchange implementation in Okta.
 
