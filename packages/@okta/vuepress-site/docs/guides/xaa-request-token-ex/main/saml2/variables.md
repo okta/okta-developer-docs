@@ -5,6 +5,7 @@
 | `{clientKey}` | The agent assumes the role of the client, so this is the AI agent's client private key. You can find this value in the AI agent's **Client registration** tab.|
 | `{clientRefreshScopes}` | The refresh scopes for the SAML requesting app. For example, `openid offline_access`. |
 | `{SAMLAssertion}` | The Base64-encoded inner XML SAML assertion (`<saml:Assertion>`) from the IdP to the agentic requesting app after the user is authenticated. Don't use the full SAML response (`<SAMLResponse>`). |
+| `{refresh_token}` | The refresh token returned from the IdP after a SAML assertion token exchange. |
 | `{idJagScopes}` | The scopes for the ID-JAG token. These are the scopes that the AI agent wants to access in the resource server. For example, `my.xaa.a.read my.xaa.b.manage`. |
 | `{resourceAud}` | The resource's authorization server issuer URI. This is the resource audience where the client intends to send the ID-JAG. For example, `https://as.myresource.com`. |
 | `{resourceTokenUrl}` | The resource token URL. For example, `https://as.myresource.com/oauth/v1/token`. |

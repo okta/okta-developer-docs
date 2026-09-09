@@ -5,6 +5,7 @@
 | `{clientKey}` | The agent assumes the role of the client, so this is the AI agent's client private key. You can find this value in the AI agent's **Client registration** tab. The OIDC app instance that's bound to the AI agent share the same client private key. |
 | `{clientAuthScopes}` | Scopes required for the authorization request. For example, `openid`. |
 | `{id_token}` | The ID token returned from the IdP after the user successfully authenticates using OIDC. |
+| `{refresh_token}` | The refresh token returned from the IdP after the user successfully authenticates using OIDC (if refresh tokens are supported in the OIDC client app). |
 | `{idJagScopes}` | The scopes for the ID-JAG token. These are the scopes that the AI agent wants to access in the resource server. For example, `my.xaa.a.read my.xaa.b.manage`. |
 | `{resourceAud}` | The resource authorization server issuer URI. This is the resource audience where the client intends to send the ID-JAG. For example, `https://as.myresource.com`. |
 | `{resourceTokenUrl}` | The resource token URL. For example, `https://as.myresource.com/oauth/v1/token`. |
