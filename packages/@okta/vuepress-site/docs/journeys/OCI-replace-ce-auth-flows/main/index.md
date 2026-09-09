@@ -1,12 +1,8 @@
 ---
 title: Replace Classic Engine auth flows with Identity Engine
-navigationTitle: Replace Classic Engine auth flows with Identity Engine
 abstract: Replace Classic Engine authentication patterns after the Identity Engine upgrade by choosing a supported deployment model and configuring policies.
 personas:
-  - name: Developers
-    type: primary
-  - name: Administrators
-    type: secondary
+  - name: Developers, Administrators
 ---
 
 # Replace Classic Engine auth flows with Identity Engine
@@ -15,13 +11,13 @@ You've upgraded to Okta Identity Engine. Now it's time to get the most out of yo
 
 After an upgrade, many orgs continue to run Classic Engine authentication patterns. These include the Classic Authentication API, Factors API, Sessions API, or an older self-hosted Sign-In Widget. These flows still work in Identity Engine, but they don't unlock Identity Engine's capabilities. They can block you from adopting stronger security controls, flexible authentication policies, or newer authentication methods like passkeys.
 
-This journey helps you move from Classic Engine authentication to a supported Identity Engine flow. Choose your deployment model, update your implementation, configure policies, and validate changes.
+This journey helps you move from Classic Engine authentication to a supported Identity Engine flow. The guide helps you choose your deployment model, update your implementation, configure policies, and validate changes.
 
 ## Before you begin
 
 - Your Okta org has been upgraded to Identity Engine and is stable.
-- You have developer-level access to your application code.
-- You have admin access to your Okta org (super admin or application admin role).
+- You have developer-level access to your app code.
+- You have admin access to your Okta org (super admin or app admin role).
 - You have an inventory of apps that use Okta and their deployment patterns.
 
 ## Understand Identity Engine authentication
