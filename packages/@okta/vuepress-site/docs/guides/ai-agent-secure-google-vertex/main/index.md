@@ -276,10 +276,8 @@ python3 main_vertex.py
 A successful run looks like this, and confirms the full round trip:
 
 ```text
+Paste a test Okta id_token: eyJraWQiOiJoZnpMS3...
 💬 Enter custom prompt for vertex ai: Hello
-🔄 Initializing identity validation pipeline against Okta API endpoints...
-✅ Identity verified and access token generated successfully via Okta!
-🚀 Forwarding secure runtime bundle to the Vertex AI Reasoning Engine...
 Hello! How can I help you today?
 ```
 
