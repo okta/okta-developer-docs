@@ -66,7 +66,7 @@ You can now use the Okta Integration Network property `registrationType` to regi
 
 #### Cross App Access submission though the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/).
+ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog.
 
 #### New IP Service available for enhanced dynamic network zones
 
