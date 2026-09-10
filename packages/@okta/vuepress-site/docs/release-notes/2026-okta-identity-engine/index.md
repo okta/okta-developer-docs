@@ -11,6 +11,107 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## September
+
+### Monthly release 2026.09.0
+<!-- Published on: 2026-09-02T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [NFC authenticator is self-service EA in Preview](#nfc-authenticator-is-self-service-ea-in-preview) | September 2, 2026 |
+| [Additional telephony inline hook payload fields are self-service EA in Preview](#additional-telephony-inline-hook-payload-fields-are-self-service-ea-in-preview) | August 26, 2026 |
+| [API support for Dynamic Client Registration is Beta](#api-support-for-dynamic-client-registration-is-beta) | September 10, 2026 |
+| [Okta Integration Network MCP server registration is Beta](#okta-integration-network-mcp-server-registration-is-beta) | September 10, 2026 |
+| [Cross App Access submission though the OIN Wizard is GA in Production](#cross-app-access-submission-though-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
+| [New IP Service available for enhanced dynamic network zones is GA in Production](#new-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | September 10, 2026 |
+| [Refresh token lifetimes in Native to Web SSO flows is GA in Production](#refresh-token-lifetimes-in-native-to-web-sso-flows-is-ga-in-production) | September 10, 2026 |
+| [Prompt users to enroll a passkey is GA in Preview](#prompt-users-to-enroll-a-passkey-is-ga-in-preview) | August 5, 2026 |
+| [WebAuthn authenticator enrollments include `transports` values is GA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-preview) | August 5, 2026 |
+| [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
+| [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
+| [Developer documentation updates in 2026.09.0](#developer-documentation-updates-in-2026-09-0) | September 2, 2026 |
+
+#### NFC authenticator is self-service EA in Preview
+
+Okta now supports an NFC authenticator as an authentication method for frontline workers signing in to Okta-protected apps on Windows desktop shared workstations. To authenticate, an end user taps their NFC badge on a reader and enters a short PIN to meet MFA requirements, without needing a phone, password, or shared account.
+
+The NFC authenticator uses the `proximity` authenticator type and the `nfc_pin` key. Use the Proximity Providers API to list supported proximity provider types (`GET /api/v1/proximity-providers`) and to retrieve the supported items for a type, such as the NFC tags available for the NFC authenticator (`GET /api/v1/proximity-providers/{proximityProviderType}`). Each item reports an `authenticatorCharacteristics.hardwareProtected` value that determines whether a successful sign-in returns the `hwk` AMR claim. See [Proximity authentication](/docs/concepts/proximity-authentication/) and the [Proximity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProximityProvider/).
+
+<!-- NFC_AUTHENTICATOR, OKTA-1247733, preview date: Sep 2, 2026 -->
+
+#### Additional telephony inline hook payload fields are self-service EA in Preview
+
+The telephony inline hook request payload now includes two new fields:
+
+- [`data.context.app.clientId`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/context/app/clientid): The `clientId` field identifies the app that the user signs in to. It's included only for client-initiated Identity Engine sign-ins to an OIDC or OAuth 2.0 app.
+- [`data.messageProfile.isResend`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/messageprofile/isresend): The `isResend` field indicates whether the one-time passcode (OTP) is a resend within the same authentication session. It's present in every request when the feature is enabled.
+
+See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable the Additional Telephony Inline Hook Payload Fields feature.
+
+<!-- FF: TELEPHONY_INLINE_HOOK_ADDITIONAL_PAYLOAD_FIELDS, OKTA-1180957 preview date: Aug 26, 2026 -->
+
+#### API support for Dynamic Client Registration is Beta
+
+The MCP Server Registrations API now includes a `registrationEndpoint` property that provides the URL of the OAuth 2.0 Dynamic Client Registration endpoint. See the `registrationEndpoint` [property](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/updatemcpserverauthorizationserver#other/updatemcpserverauthorizationserver/t=request&path=registrationendpoint).
+
+Also, the Client Authentication Settings API now includes a `registrationMethod` property that enables you to define how OAuth client credentials for a resource connection are registered. See the `registrationMethod` [property](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings#other/createclientauthsettings/t=request&path=registrationmethod).
+
+This feature is following a slow rollout with preview deployment throughout mid-September, followed by production.
+<!-- SECURE_AI_MCP__SERVER_DCR Beta release 2026.09.0 -->
+
+#### Okta Integration Network MCP server registration is Beta
+
+You can now use the Okta Integration Network property `registrationType` to register an MCP server from an Okta Integration Network catalog entry. See [Register an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/registermcpserver#other/registermcpserver/t=request&path=&oneof=0/registrationtype). This feature is following a slow rollout with preview deployment throughout mid-September, followed by production.
+<!-- SECURE_AI_MCP_OIN_CATALOG preview release 2026.09.0-->
+
+#### Cross App Access submission though the OIN Wizard is GA in Production
+
+ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/).
+
+#### New IP Service available for enhanced dynamic network zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `REMOTE_DESKTOP` service.
+
+#### Refresh token lifetimes in Native to Web SSO flows is GA in Production
+
+When a native app requests the `interclient_access` and `offline_access` scopes from the `/authorize` endpoint, the refresh token that Okta issues now follows the token lifetime configured in the authorization server's access policy instead of expiring with the org's global session. This allows you to configure a long-lived refresh token alongside a short global session policy, so that the native app can keep refreshing the access token and exchanging tokens for an `interclient_token` after the browser session ends. The app sign-in policy for the target web app still applies. See [Refresh token lifetime](/docs/guides/native-to-web-sso/main/#refresh-token-lifetime). <!-- OKTA-1232523 -->
+
+#### Prompt users to enroll a passkey is GA in Preview
+
+You can now configure a passkey enrollment promotion nudge that prompts users to enroll a passkey authenticator when they sign in. The nudge is non-blocking. It only applies when the passkey authenticator is optional, and users who skip it can still sign in with another authenticator. You can control how often the prompt reappears and how many times a user can skip it before Okta stops showing it. See [Passkey enrollment promotion](/docs/concepts/policies/#passkey-enrollment-promotion/). <!-- OKTA-1230760, ENROLLMENT_POLICY_PROMOTION, preview date: aug 5, 2026 -->
+
+#### WebAuthn authenticator enrollments include `transports` values is GA in Preview
+
+The WebAuthn enrollment profile now includes a `transports` field that’s returned in responses used by Okta's embedded Identity Engine SDKs. The `transports` field reports how an enrolled authenticator communicates with a client device, such as `usb`, `nfc`, or `ble`. <!-- OKTA-1196205, WEBAUTHN_AUTHENTICATION_TRANSPORTS, preview date: aug 5, 2026 -->
+
+#### New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports a new `MALWARE_PROXIES` IP service category. This category is powered by Okta's CyberDefense, covering proxy services associated with malware and botnet activity (including 911 S5, NSOCKS, iProxy, BHProxies, and others). <!-- OKTA-1195474 FF: NETWORK_ZONE_MALWARE_PROXY_DETECTION GA Preview August 5, 2026 -->
+
+#### PowerShell scripts for Active Directory is GA in Preview
+
+Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory|https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script] and [Invoke a remote script on the AD agent|https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript].
+
+#### Developer documentation updates in 2026.09.0
+
+* The new [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/oci-replace-ce-auth-flows/main/) journey helps orgs that have already upgraded to Identity Engine retire lingering Classic Engine authentication patterns, such as the Classic Authentication API, Factors API, Sessions API, or an older self-hosted Sign-In Widget. This journey covers choosing a supported deployment model (redirect, self-hosted widget, embedded SDK, or direct authentication APIs), configuring authentication policies, and validating the modernized flow. <!-- OKTA-1215415 -->
+
+* The [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/javascript/main/) guide now includes JavaScript instructions. This addition explains how to install the Okta Auth JS SDK as a preparatory step before upgrading a JavaScript app's authentication flows to Identity Engine. It highlights that a single package (`@okta/okta-auth-js`) supports both Classic Engine and Identity Engine, and flags the need to register the app's origin as a trusted origin for browser-based apps that call the Okta org directly. <!-- OKTA-1220257 -->
+
+* The new [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/main/) guide helps organizations inventory Classic Engine authentication dependencies after upgrading to Okta Identity Engine. It provides guidance on searching for direct Classic API calls, factor enrollment, session management, and legacy SDKs, then mapping each dependency to supported Identity Engine replacement paths with an audit worksheet template. <!-- OKTA-1216283 -->
+
+* The new [Manage the identifier-first sign-in transition](/docs/guides/oie-manage-id-first-signin/main/) guide explains how the move from Classic Engine to Identity Engine changes the sign-in experience from a combined form to a two-page identifier-first flow. It covers how this enables adaptive authentication across different deployment models and provides guidance on testing strategies and security considerations before going live. <!-- OKTA-1216275 -->
+
+* The new [Okta Identity Engine identifier-first sign-in experience](/docs/concepts/oie-idfirst-signin/) concept doc explains how Identity Engine implements an identifier-first authentication pattern that asks users for their identifier first, then dynamically determines the appropriate authentication method. It details how this approach enables adaptive authentication, supports passwordless and passkey options, and can be configured to match your organization's security policies. <!-- OKTA-1216265 -->
+
+* The new [Choose an Identity Engine sign-in deployment model](/docs/guides/oie-choose-signin-deploy/main/) guide outlines four authentication deployment approaches for apps upgraded to Okta Identity Engine, ranked from simplest to most complex. It covers Okta-Hosted Redirect, Self-Hosted Gen2 Widget, Embedded SDK or Auth.js, and Direct Authentication APIs, helping developers select the deployment model that best fits their needs. <!-- OKTA-1216227 -->
+
+* Learn how to implement Cross App Access (XAA) for your AI agent (agentic requesting app) in [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/main/). <!-- OKTA-1250906 -->
+
+* A new guide is available for vendors to [expose XAA metadata for their resource app](/docs/guides/xaa-resource-metadata/main/). <!-- OKTA-1232140 -->
+
+* The [Cross App Access (XAA)](/docs/concepts/xaa/) concept has been added to the developer.okta.com portal, providing an overview of how XAA works and how it's implemented in Okta. <!-- OKTA-1232137 -->
+
 ## August
 
 ### Weekly release 2026.08.4
