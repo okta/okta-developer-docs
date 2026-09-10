@@ -14,7 +14,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 #### Learning outcomes
 
-* Retrieve org-level virtual MCP settings.
+* Retrieve a virtual MCP server.
 * Register an Agent Gateway.
 * Connect the Agent Gateway to a remote MCP server and expose specific tools.
 * Activate the gateway so AI agents can invoke tools.
@@ -41,14 +41,14 @@ Create a custom authorization server and configure an access policy rule that gr
 
 > **Note:** When you create the Agent Gateway in the next step, Okta automatically links it to this custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
 
-## Retrieve Agent Gateway settings
+## Retrieve the virtual MCP server
 
-Before you create an Agent Gateway, retrieve your org's virtual MCP settings. The response includes the `basePath` you use to construct the gateway URL, and the org-level limits that apply to virtual MCPs. See [Retrieve the Virtual MCP Settings](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpsettings/other/getvirtualmcpsettings).
+Before you create an Agent Gateway, retrieve your org's virtual MCP server. The response includes the `resourcePath` andj `resourceUrl` that you use to construct the gateway URL. See [Retrieve the Virtual MCP Server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource/other/getvirtualmcpserver).
 
 ### Request
 
 ```http
-  GET /workload-principals/api/v1/virtual-mcp-settings
+  GET /resource-servers/api/v1/virtual-mcp-servers/{virtualMcpServerId}
   Authorization: Bearer {token}
 ```
 
@@ -56,26 +56,30 @@ Before you create an Agent Gateway, retrieve your org's virtual MCP settings. Th
 
 ```json
 {
-  "supportedConnectionTypes": [
-    "STS_ACCESS_TOKEN"
-  ],
-  "limits": {
-    "maxVirtualMCPs": 100,
-    "maxCapabilitiesPerVirtualMCP": 1000,
-    "maxResourceServersPerVirtualMCP": 100
+  "id": "wlp1aB2cD3eF4gH5iJ6k",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+  "resourcePath": "production",
+  "resourceUrl": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/production",
+  "status": "ACTIVE",
+  "profile": {
+    "displayName": "Production MCP Servers",
+    "description": "Groups all production MCP servers for the engineering team"
   },
-  "features": [],
-  "basePath": "https://subdomain.gateway.okta.com"
+  "created": "2025-06-01T10:00:00Z",
+  "lastUpdated": "2025-06-15T14:30:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k"
+    },
+    "authorization-servers": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/authorization-servers"
+    },
+    "tools": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/tools"
+    }
+  }
 }
 ```
-
-| Field | Description |
-| --- | --- |
-| `basePath` | The domain you use to construct the gateway URL: `{basePath}/mcp/{resourcePath}`. |
-| `limits.maxVirtualMCPs` | Maximum number of Agent Gateways you can create for this org. |
-| `limits.maxCapabilitiesPerVirtualMCP` | Maximum number of tools you can add to a single Agent Gateway. |
-| `limits.maxResourceServersPerVirtualMCP` | Maximum number of remote MCP server connections you can add to a single Agent Gateway. |
-| `supportedConnectionTypes` | Connection types that Okta supports for resource connections. Currently, this is always `STS_ACCESS_TOKEN`. |
 
 ## Create the Agent Gateway
 
@@ -97,7 +101,7 @@ Content-Type: application/json
 }
 ```
 
-The `resourcePath` value must be unique within your org and can't change after creation. The full gateway URL combines the `basePath` from [Retrieve Agent Gateway settings](/docs/guides/ai-configure-agent-gateway/main/#retrieve-agent-gateway-settings) with this path: `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`.
+The `resourcePath` value must be unique within your org and can't change after creation. The full gateway URL combines the `resourcePath` with the `resourceUrl` value from [Retrieve the virtual MCP server](#retrieve-the-virtual-mcp-server): `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`.
 
 ### Response
 
@@ -141,6 +145,8 @@ When the operation completes, retrieve the Agent Gateway ([Retrieve a virtual MC
 }
 ```
 
+> **Note**: Make note of the `orn` in the response. You need this for additional requests.
+
 ## Create a delegation link
 
 The delegation link declares that the MCP client app is authorized to delegate to this Agent Gateway on behalf of users. The gateway rejects token exchanges without a valid delegation link in place. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
@@ -164,7 +170,7 @@ Content-Type: application/json
 }
 ```
 
-The `from.clientOrn` value in this example references the MCP client app's OAuth 2.0 ORN. If you're delegating to an AI agent that you registered through the Agent Registration API instead of a plain OAuth app, reference the agent's ORN instead (`orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}`).
+The `resourceOrn` is the `orn` value from the create the agent gateway response in the [last section](#create-the-agent-gateway). The `from.clientOrn` value in this example references the MCP client app's OAuth 2.0 ORN. If you're delegating to an AI agent that you registered through the Agent Registration API instead of a plain OAuth app, reference the agent's ORN instead (`orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}`).
 
 ### Response
 
