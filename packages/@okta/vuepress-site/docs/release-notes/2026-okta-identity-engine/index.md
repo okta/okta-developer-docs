@@ -23,7 +23,7 @@ title: Okta Identity Engine API release notes 2026
 | [API support for Dynamic Client Registration is Beta](#api-support-for-dynamic-client-registration-is-beta) | September 10, 2026 |
 | [Okta Integration Network MCP server registration is Beta](#okta-integration-network-mcp-server-registration-is-beta) | September 10, 2026 |
 | [Cross App Access submission though the OIN Wizard is GA in Production](#cross-app-access-submission-though-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
-| [New IP Service available for enhanced dynamic network zones is GA in Production](#new-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | September 10, 2026 |
+| [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
 | [Refresh token lifetimes in Native to Web SSO flows is GA in Production](#refresh-token-lifetimes-in-native-to-web-sso-flows-is-ga-in-production) | September 10, 2026 |
 | [Prompt users to enroll a passkey is GA in Preview](#prompt-users-to-enroll-a-passkey-is-ga-in-preview) | August 5, 2026 |
 | [WebAuthn authenticator enrollments include `transports` values is GA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-preview) | August 5, 2026 |
