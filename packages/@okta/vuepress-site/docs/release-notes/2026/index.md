@@ -17,7 +17,7 @@ title: Okta Classic Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Additional telephony inline hook payload fields are self-service EA in Preview](#additional-telephony-inline-hook-payload-fields-are-self-service-ea-in-preview) | August 26, 2026 |
-| [Cross App Access submission through the OIN Wizard is GA in Production](#cross-app-access-submission-though-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
+| [Cross App Access submission through the OIN Wizard is GA in Production](#cross-app-access-submission-through-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
 | [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
