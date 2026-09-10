@@ -5,5 +5,7 @@
    > **Note:** You can also use a refresh token to exchange for an ID-JAG token.
 1. **ID-JAG token issued**: The IdP issues an ID-JAG token to the client if the client has a trusted connection to the resource server. See [Configure the XAA connection](/docs/guides/xaa-agent-to-app/main/#configure-the-xaa-connection).
 1. **[Exchange ID-JAG for access token](#exchange-id-jag-for-access-token)**: Your app presents the ID-JAG token to the resource authorization server for an access token.
-1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
+1. **Validates ID-JAG and resolves user identity**: The resource authorization server validates the ID-JAG and resolves the user identity.
+1. **Resource access token issued**: After the ID-JAG is validated, the authorization server issues a short-lived, scoped access token.
 1. **[Client accesses resource data](#client-access-resource-data)**: The requesting client (AI agent) uses the short-lived, scoped token to access the protected resource app on the user's behalf.
+1. **Returned resource data**: The resource app returns requested data that's scoped to the access token.

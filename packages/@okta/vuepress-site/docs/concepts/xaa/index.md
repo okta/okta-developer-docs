@@ -61,10 +61,12 @@ RS -> WebApp: Returns resource data
 1. **Token exchange for ID-JAG**: The client exchanges its user ID assertion at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token. The user ID assertion can be an ID or refresh token.
 1. **ID-JAG token issued**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
 1. **JWT Authorization Grant**: The client presents the ID-JAG token to the resource authorization server.
-1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
+1. **Validates ID-JAG and resolves user identity**: The resource authorization server validates the ID-JAG and resolves the user identity.
+1. **Resource access token issued**: After the ID-JAG is validated, the authorization server issues a short-lived, scoped access token.
 1. **Client accesses resource data**: The requesting client uses the short-lived, scoped token to access the protected resource app on the user's behalf.
+1. **Returned resource data**: The resource app returns requested data that's scoped to the access token.
 
-See [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) for the AI agent-to-app token exchange implementation in Okta.
+See [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/) for the AI agent-to-app token exchange implementation in Okta.
 
 ## Use cases
 
@@ -125,7 +127,7 @@ Okta implements XAA with the following requesting and resource app configuration
 Okta supports requesting apps that use the following protocols for SSO:
 
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
-* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to obtain an ID-JAG through a refresh token exchange using your SAML assertion. See [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications)
+* **SAML 2.0**: Supported for existing enterprise federations, allowing orgs to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to obtain an ID-JAG through a refresh token exchange using your SAML assertion. See [XAA flow specifics for SAML 2.0 requesting app](/docs/guides/xaa-request-token-ex/saml2/main/#xaa-flow-specifics-for-requesting-app).
 
 If you're an independent software vendor (ISV) looking to add the XAA requesting-app role to your current SSO app integration in the OIN, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
