@@ -9,6 +9,46 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## September
+
+### Monthly release 2026.09.0
+<!-- Published on: 2026-09-02T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Additional telephony inline hook payload fields are self-service EA in Preview](#additional-telephony-inline-hook-payload-fields-are-self-service-ea-in-preview) | August 26, 2026 |
+| [Cross App Access submission though the OIN Wizard is GA in Production](#cross-app-access-submission-though-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
+| [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
+| [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
+| [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
+
+#### Additional telephony inline hook payload fields are self-service EA in Preview
+
+The telephony inline hook request payload now includes two new fields:
+
+- [`data.context.app.clientId`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/context/app/clientid): The `clientId` field identifies the app that the user signs in to. It's included only for client-initiated Identity Engine sign-ins to an OIDC or OAuth 2.0 app.
+- [`data.messageProfile.isResend`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/messageprofile/isresend): The `isResend` field indicates whether the one-time passcode (OTP) is a resend within the same authentication session. It's present in every request when the feature is enabled.
+
+See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable the Additional Telephony Inline Hook Payload Fields feature.
+
+<!-- FF: TELEPHONY_INLINE_HOOK_ADDITIONAL_PAYLOAD_FIELDS, OKTA-1180957 preview date: Aug 26, 2026 -->
+
+#### Cross App Access submission though the OIN Wizard is GA in Production
+
+ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog.
+
+#### New IP Service available for enhanced dynamic network zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `REMOTE_DESKTOP` service.
+
+#### New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports a new `MALWARE_PROXIES` IP service category. This category is powered by Okta's CyberDefense, covering proxy services associated with malware and botnet activity (including 911 S5, NSOCKS, iProxy, BHProxies, and others). <!-- OKTA-1195474 FF: NETWORK_ZONE_MALWARE_PROXY_DETECTION GA Preview August 5, 2026 -->
+
+#### PowerShell scripts for Active Directory is GA in Preview
+
+Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script) and [Invoke a remote script on the AD agent](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript).
+
 ## August
 
 ### Weekly release 2026.08.4
