@@ -26,7 +26,7 @@ title: Okta Classic Engine API release notes 2026
 
 The telephony inline hook request payload now includes two new fields:
 
-- [`data.context.app.clientId`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/context/app/clientid): The `clientId` field identifies the app that the user signs in to. It's included only for client-initiated Identity Engine sign-ins to an OIDC or OAuth 2.0 app.
+- [`data.context.app.clientId`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/context/app/clientid): The `clientId` field identifies the app that the user signs in to. It's included only for client-initiated Identity Engine sign-in flows to an OIDC or OAuth 2.0 app.
 - [`data.messageProfile.isResend`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/messageprofile/isresend): The `isResend` field indicates whether the one-time passcode (OTP) is a resend within the same authentication session. It's present in every request when the feature is enabled.
 
 See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable the Additional Telephony Inline Hook Payload Fields feature.
