@@ -2097,7 +2097,11 @@ h1 {
 
   background-image: url("/img/icons/scim_dark.svg");
 }
+.icon.scrossapp::before {
+  content: "";
 
+  background-image: url("/img/icons/crossapp.svg");
+}
 .icon.wfconnector::before {
   content: "";
 

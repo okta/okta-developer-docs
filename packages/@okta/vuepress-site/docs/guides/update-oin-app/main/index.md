@@ -12,7 +12,7 @@ Learn how to update an existing integration with SSO, Universal Logout, provisio
 
 #### What you need
 
-* A published OIDC, SAML 2.0, SCIM, API Integration Action, API service, or Identity Verification (IDV) integration in the OIN.
+* A published OIDC, SAML 2.0, SCIM, API Integration Action, API service, Identity Verification (IDV), or Cross App Access (XAA) integration in the OIN.
 * The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
@@ -20,7 +20,7 @@ Learn how to update an existing integration with SSO, Universal Logout, provisio
 
 ## Overview
 
-If you've a published Single Sign-On (SSO), lifecycle management, provisioning, Entitlement Management, API service, or IDV integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
+If you've a published Single Sign-On (SSO), lifecycle management, provisioning, Entitlement Management, API service, IDV, or Cross App Access (XAA) integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols or tools:
 
@@ -37,6 +37,8 @@ The OIN Wizard currently supports updates for integrations that use the followin
 * [API service integration](/docs/guides/oin-api-service-overview/)
 
 * Identity Proofing (Identity Verification integration)
+
+* [Cross App Access](/docs/guides/cross-app-access-xaa/)
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 

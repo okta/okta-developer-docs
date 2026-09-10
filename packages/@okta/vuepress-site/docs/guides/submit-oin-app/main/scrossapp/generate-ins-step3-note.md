@@ -1,0 +1,1 @@
+> **Note:** For Cross App Access integration testing, you need to test your integration on xaa.dev. If you're submitting the OIDC client app role, you can submit your integration directly, without testing.

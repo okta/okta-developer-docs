@@ -89,6 +89,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   wfactions: 'API Integration Actions',
   apiservice: 'API service',
   uapiservice: 'API service',
+  scrossapp: 'Cross App Access',
   aotp: 'OTP (primary factor)',
   coobov: 'Okta Verify Push (primary factor)',
   eoobsv: 'Phone (primary factor)',
