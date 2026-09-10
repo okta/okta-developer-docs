@@ -26,7 +26,7 @@ title: Okta Identity Engine API release notes 2026
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
 | [Refresh token lifetimes in Native to Web SSO flows is GA in Production](#refresh-token-lifetimes-in-native-to-web-sso-flows-is-ga-in-production) | September 10, 2026 |
 | [Prompt users to enroll a passkey is GA in Preview](#prompt-users-to-enroll-a-passkey-is-ga-in-preview) | August 5, 2026 |
-| [WebAuthn authenticator enrollments include `transports` values is GA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-preview) | August 5, 2026 |
+| [WebAuthn authenticator enrollments include transports values is GA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-preview) | August 5, 2026 |
 | [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
 | [Developer documentation updates in 2026.09.0](#developer-documentation-updates-in-2026-09-0) | September 2, 2026 |
@@ -80,7 +80,7 @@ When a native app requests the `interclient_access` and `offline_access` scopes 
 
 You can now configure a passkey enrollment promotion nudge that prompts users to enroll a passkey authenticator when they sign in. The nudge is non-blocking. It only applies when the passkey authenticator is optional, and users who skip it can still sign in with another authenticator. You can control how often the prompt reappears and how many times a user can skip it before Okta stops showing it. See [Passkey enrollment promotion](/docs/concepts/policies/#passkey-enrollment-promotion/). <!-- OKTA-1230760, ENROLLMENT_POLICY_PROMOTION, preview date: aug 5, 2026 -->
 
-#### WebAuthn authenticator enrollments include `transports` values is GA in Preview
+#### WebAuthn authenticator enrollments include transports values is GA in Preview
 
 The WebAuthn enrollment profile now includes a `transports` field that’s returned in responses used by Okta's embedded Identity Engine SDKs. The `transports` field reports how an enrolled authenticator communicates with a client device, such as `usb`, `nfc`, or `ble`. <!-- OKTA-1196205, WEBAUTHN_AUTHENTICATION_TRANSPORTS, preview date: aug 5, 2026 -->
 
