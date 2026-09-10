@@ -66,7 +66,7 @@ You can now use the Okta Integration Network property `registrationType` to regi
 
 #### Cross App Access submission though the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/).
+ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/crossapp/main/).
 
 #### New IP Service available for enhanced dynamic network zones
 
@@ -94,7 +94,7 @@ Admins can now execute custom PowerShell scripts in on-premises Active Directory
 
 #### Developer documentation updates in 2026.09.0
 
-* The new [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/oci-replace-ce-auth-flows/main/) journey helps orgs that have already upgraded to Identity Engine retire lingering Classic Engine authentication patterns, such as the Classic Authentication API, Factors API, Sessions API, or an older self-hosted Sign-In Widget. This journey covers choosing a supported deployment model (redirect, self-hosted widget, embedded SDK, or direct authentication APIs), configuring authentication policies, and validating the modernized flow. <!-- OKTA-1215415 -->
+* The new [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/main/) journey helps orgs that have already upgraded to Identity Engine retire lingering Classic Engine authentication patterns, such as the Classic Authentication API, Factors API, Sessions API, or an older self-hosted Sign-In Widget. This journey covers choosing a supported deployment model (redirect, self-hosted widget, embedded SDK, or direct authentication APIs), configuring authentication policies, and validating the modernized flow. <!-- OKTA-1215415 -->
 
 * The [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/javascript/main/) guide now includes JavaScript instructions. This addition explains how to install the Okta Auth JS SDK as a preparatory step before upgrading a JavaScript app's authentication flows to Identity Engine. It highlights that a single package (`@okta/okta-auth-js`) supports both Classic Engine and Identity Engine, and flags the need to register the app's origin as a trusted origin for browser-based apps that call the Okta org directly. <!-- OKTA-1220257 -->
 
