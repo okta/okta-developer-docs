@@ -155,4 +155,4 @@ The exception is embedded AI agents in pure silo mode. These are AI agents that 
 * [Configure your AI agent to use Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/)
 * [Virtual MCP Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections)
 * [Virtual MCP Server Registrations API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration)
-* [Virtual MCP Settings API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpsettings)
+* [Virtual MCP Servers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource)
