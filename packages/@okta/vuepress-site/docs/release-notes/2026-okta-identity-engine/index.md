@@ -90,7 +90,7 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 
 #### PowerShell scripts for Active Directory is GA in Preview
 
-Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory|https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script] and [Invoke a remote script on the AD agent|https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript].
+Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script) and [Invoke a remote script on the AD agent](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript).
 
 #### Developer documentation updates in 2026.09.0
 
