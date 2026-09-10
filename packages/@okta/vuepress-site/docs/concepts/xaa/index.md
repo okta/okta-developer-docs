@@ -127,7 +127,7 @@ Okta implements XAA with the following requesting and resource app configuration
 Okta supports requesting apps that use the following protocols for SSO:
 
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
-* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to obtain an ID-JAG through a refresh token exchange using your SAML assertion. See [XAA flow specifics for SAML 2.0 requesting app](/docs/guides/xaa-request-token-ex/saml2/main/#xaa-flow-specifics-for-requesting-app).
+* **SAML 2.0**: Supported for existing enterprise federations, allowing orgs to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to obtain an ID-JAG through a refresh token exchange using your SAML assertion. See [XAA flow specifics for SAML 2.0 requesting app](/docs/guides/xaa-request-token-ex/saml2/main/#xaa-flow-specifics-for-requesting-app).
 
 If you're an independent software vendor (ISV) looking to add the XAA requesting-app role to your current SSO app integration in the OIN, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
