@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 | [Additional telephony inline hook payload fields are self-service EA in Preview](#additional-telephony-inline-hook-payload-fields-are-self-service-ea-in-preview) | August 26, 2026 |
 | [API support for Dynamic Client Registration is Beta](#api-support-for-dynamic-client-registration-is-beta) | September 10, 2026 |
 | [Okta Integration Network MCP server registration is Beta](#okta-integration-network-mcp-server-registration-is-beta) | September 10, 2026 |
-| [Cross App Access submission though the OIN Wizard is GA in Production](#cross-app-access-submission-though-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
+| [Cross App Access submission through the OIN Wizard is GA in Production](#cross-app-access-submission-through-the-oin-wizard-is-ga-in-production) | September 10, 2026 |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
 | [Refresh token lifetimes in Native to Web SSO flows is GA in Production](#refresh-token-lifetimes-in-native-to-web-sso-flows-is-ga-in-production) | September 10, 2026 |
 | [Prompt users to enroll a passkey is GA in Preview](#prompt-users-to-enroll-a-passkey-is-ga-in-preview) | August 5, 2026 |
@@ -43,7 +43,7 @@ The NFC authenticator uses the `proximity` authenticator type and the `nfc_pin` 
 
 The telephony inline hook request payload now includes two new fields:
 
-- [`data.context.app.clientId`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/context/app/clientid): The `clientId` field identifies the app that the user signs in to. It's included only for client-initiated Identity Engine sign-ins to an OIDC or OAuth 2.0 app.
+- [`data.context.app.clientId`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/context/app/clientid): The `clientId` field identifies the app that the user signs in to. It's included only for client-initiated Identity Engine sign-in flows to an OIDC or OAuth 2.0 app.
 - [`data.messageProfile.isResend`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createtelephonyinlinehook#webhooks/createtelephonyinlinehook/t=request&path=data/messageprofile/isresend): The `isResend` field indicates whether the one-time passcode (OTP) is a resend within the same authentication session. It's present in every request when the feature is enabled.
 
 See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable the Additional Telephony Inline Hook Payload Fields feature.
@@ -64,9 +64,9 @@ This feature is following a slow rollout with preview deployment throughout mid-
 You can now use the Okta Integration Network property `registrationType` to register an MCP server from an Okta Integration Network catalog entry. See [Register an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/registermcpserver#other/registermcpserver/t=request&path=&oneof=0/registrationtype). This feature is following a slow rollout with preview deployment throughout mid-September, followed by production.
 <!-- SECURE_AI_MCP_OIN_CATALOG preview release 2026.09.0-->
 
-#### Cross App Access submission though the OIN Wizard is GA in Production
+#### Cross App Access submission through the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog.
+ISV and partners can now configure, test, and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern, and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog.
 
 #### New IP Service available for enhanced dynamic network zones
 

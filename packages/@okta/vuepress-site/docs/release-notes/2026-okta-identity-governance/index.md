@@ -19,7 +19,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Bulk Collection Assignment Origins API is EA in Preview](#bulk-collection-assignment-origins-api-is-ea-in-preview) | September 10, 2026 |
-| [Cancel request APIs is Beta](#cancel-request-apis-is-beta) | September 10, 2026 |
+| [Cancel request APIs are Beta](#cancel-request-apis-are-beta) | September 10, 2026 |
 | [Configure access to the resource catalog is GA in Preview](#configure-access-to-the-resource-catalog-is-ga-in-preview) | September 10, 2026 |
 | [Increased Access Request limits](#increased-access-request-limits) | September 10, 2026 |
 | [API support for Access Certification campaign decisions is GA in Production](#api-support-for-access-certification-campaign-decisions-is-ga-in-production) | June 24, 2026 |
@@ -30,7 +30,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 The new Bulk Collection Assignment Origins API enables you to check whether assignments are managed by a resource collection. Use the `POST /governance/api/v2/collections/assignments/origins` method to retrieve the collection origins for a batch of assignments that are anchored on a single principal (with many resources) or a single resource (with many principals). See [Retrieve the collection origins for a batch of assignments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2/retrievecollectionassignmentoriginsv2).
 
-#### Cancel request APIs is Beta
+#### Cancel request APIs are Beta
 
 <ApiLifecycle access="beta" />
 
