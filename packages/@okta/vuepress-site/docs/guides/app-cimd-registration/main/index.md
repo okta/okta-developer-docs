@@ -11,7 +11,7 @@ Learn how to register a custom OpenID Connect (OIDC) app integration with a Clie
 #### Learning outcomes
 
 - Understand what a CIMD is and how it changes app registration.
-- Register a new custom OIDC app integration with a CIMD URL, or convert an existing one.
+- Register a new custom OIDC app integration with a CIMD URL or convert an existing one.
 - Configure access for a CIMD app integration.
 - Understand what happens at runtime when a CIMD client requests a token.
 
@@ -30,7 +30,7 @@ A CIMD is a JSON document that an app owner hosts at an HTTPS URL. It describes 
 
 When you register an app integration with a CIMD URL, Okta creates the OAuth 2.0 client and registers the CIMD URL as its exact-match client identifier. You don't enter any other client configuration. When the client requests a token, Okta fetches the document and uses it to configure the client's redirect URIs, grant types, and signing keys for that request.
 
-For example, your company uses Okta to protect the APIs behind its platform, and a partner builds an app that calls those APIs. Before that app can request a token, it needs an OAuth 2.0 client in your Okta org.
+For example, your company uses Okta to protect your APIs behind your platform, and a partner builds an app that calls those APIs. Before that app can request a token, it needs an OAuth 2.0 client in your Okta org.
 
 - Without CIMD, you create that client manually. The partner sends you its redirect URIs, grant types, token endpoint authentication method, and signing keys. You then enter them in Okta, and you send the client ID and secret that Okta generates back to the partner.
 - With CIMD, you add the partner's CIMD URL and stop there. Okta reads all of those values from the document that the partner hosts. There's no client secret to send, and the partner rotates its own signing keys without any Okta API call.
@@ -46,7 +46,7 @@ The app owner is responsible for hosting and maintaining the CIMD. Okta validate
 | Property | Requirement |
 | --- | --- |
 | `client_id` | Must exactly match the URL that Okta requests. This is the same URL that you set as `cimdUrl` when you register the app integration. |
-| `jwks_uri` | A URL to the hosted JSON Web Key Set (JWKS), or an inline `jwks` object. Okta uses this to verify the app's signature. |
+| `jwks_uri` | A URL to the hosted JSON Web Key Set (JWKS) or an inline `jwks` object. Okta uses this to verify the app's signature. |
 | `redirect_uris` | Must be a non-empty array, even for an app that doesn't use a redirect-based flow. |
 
 The app owner can include other properties from the [OAuth Dynamic Client Registration Metadata](https://www.iana.org/assignments/oauth-parameters/oauth-parameters.xhtml#client-metadata) registry. Okta reads the client configuration from the document, so anything the document declares becomes part of the client definition.
