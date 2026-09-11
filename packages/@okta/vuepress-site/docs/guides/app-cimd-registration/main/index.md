@@ -65,7 +65,7 @@ See the following resources for the full CIMD specification, beyond the properti
 You complete the first three steps in your Okta org. The app owner completes the last two in their own code.
 
 1. [Add a CIMD client to an app integration](#add-a-cimd-client-to-an-app-integration), either by [registering a new app integration](#register-a-new-app-integration) or by [converting an existing one](#convert-an-existing-app-integration). For either method, the CIMD URL becomes the client identifier for that app integration's OAuth 2.0 client.
-1. [Assign users to the app integration](#assign-users-to-the-app-integration) so that they can authorize the app.
+1. [Assign users to the app integration](#assign-users-to-the-app-integration) so that they can sign in to the app.
 1. [Scope an authorization server policy to the CIMD client](#scope-an-authorization-server-policy-to-a-cimd-client) so that your authorization server issues tokens to it.
 1. The app [requests a token](#request-a-token-with-the-cimd-client-id) and sends the CIMD URL as its `client_id`. Okta matches the URL against the client that you registered, retrieves the document, and uses it to process the request.
 1. Okta returns an access token. The app sends that access token when it calls your APIs.
