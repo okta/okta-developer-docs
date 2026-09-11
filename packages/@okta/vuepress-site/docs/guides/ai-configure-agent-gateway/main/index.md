@@ -197,8 +197,6 @@ Before you create a connection to a remote MCP server, retrieve your org's virtu
 }
 ```
 
-> **Note**: The full gateway URL combines the `resourcePath` with the `resourceUrl` value: `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`.
-
 ## Create a connection to a remote MCP server
 
 A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed. Okta currently supports only `STS_ACCESS_TOKEN` connections to `MCP_SERVER` resources. See [Create a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/createvirtualmcpconnection).
