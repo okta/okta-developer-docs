@@ -5,12 +5,13 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 1. Set the following request body parameters:
 
     * Enter a value for `name`.
-
     * Set `ID_PROOFING` as the protocol type.
-
-    * Use the API key from the [previous section](#configure-the-api-key-and-redirect-uri-of-the-app) as the `apiKey` value.
-
-    * Use the Inquiry Template ID from the [previous section](#configure-an-idv-template) as the `inquiryTemplateId` value, which begins with `itmpl_`.
+    * Set `type` to `integrator-7184229_personaidv_1`.
+    * Use the client ID and client secret from your [previous section](#configure-the-client-id-client-secret-and-redirect-uri-of-the-app) as the `client_id` and `client_secret` values.
+    * Set the `scopes` array to include the `profile`, `identity_assurance`, and `openid` scopes.
+      * `profile`: This scope allows the IDV vendor to request access to basic user profile information from Okta.
+      * `identity_assurance`: This scope requests access to the `verified_claims` object so that the IDV vendor can send and receive information about the level of assurance of the IDV flow.
+      * `openid`: This scope is required to make the request an OpenID Connect (OIDC) request.
 
 1. Send the `POST /api/v1/idps` request.
 
@@ -20,13 +21,19 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 ```json
 {
-    "type": "IDV_PERSONA",
+    "type": "integrator-7184229_personaidv_1",
     "name": "Persona IDV",
     "protocol": {
         "type": "ID_PROOFING",
+        "scopes": [
+            "profile",
+            "identity_assurance",
+            "openid"
+        ],
         "credentials": {
-            "bearer": {
-                "apiKey": "{PersonaAPIkey}"
+            "client": {
+                "client_id": "{PersonaClientId}",
+                "client_secret": "{PersonaClientSecret}"
             }
         }
     },
@@ -35,6 +42,10 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "action": "DISABLED",
             "profileMaster": false,
             "groups": null
+        },
+        "accountLink": {
+            "filter": null,
+            "action": "AUTO"
         },
         "subject": {
             "userNameTemplate": {
@@ -45,9 +56,6 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "matchAttribute": null
         },
         "maxClockSkew": 0
-    },
-    "properties": {
-        "inquiryTemplateId": "{PersonaInquiryTemplateId}"
     }
 }
 ```
@@ -56,23 +64,40 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 ```json
 {
-    "id": {"IDVId"},
+    "id": "{IDVId}",
     "name": "Persona IDV",
     "status": "ACTIVE",
     "created": "2024-11-15T15:22:17.000Z",
     "lastUpdated": "2024-11-15T15:22:17.000Z",
     "protocol": {
         "type": "ID_PROOFING",
+        "scopes": [
+            "profile",
+            "identity_assurance",
+            "openid"
+        ],
         "endpoints": {
+            "par": {
+                "url": "{PersonaParUrl}",
+                "binding": "HTTP-POST"
+            },
             "authorization": {
-                "url": "https://withpersona.com/verify",
+                "url": "{PersonaAuthorizationUrl}",
+                "binding": "HTTP-REDIRECT"
+            },
+            "token": {
+                "url": "{PersonaTokenUrl}",
+                "binding": "HTTP-POST"
+            },
+            "jwks": {
+                "url": "{PersonaJwksUrl}",
                 "binding": "HTTP-REDIRECT"
             }
         },
         "credentials": {
-            "bearer": {
-                "apiKey": 
-                    "{PersonaAPIkey}"
+            "client": {
+                "client_id": "{PersonaClientId}",
+                "client_secret": "{PersonaClientSecret}"
             }
         }
     },
@@ -81,6 +106,10 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "action": "DISABLED",
             "profileMaster": false,
             "groups": null
+        },
+        "accountLink": {
+            "filter": null,
+            "action": "AUTO"
         },
         "subject": {
             "userNameTemplate": {
@@ -93,9 +122,13 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
         "maxClockSkew": 0
     },
     "properties": {
-        "inquiryTemplateId": "{PersonaInquiryTemplateId}"
+        "idvMetadata": {
+            "vendorDisplayName": "Persona",
+            "termsOfUse": "{PersonaTermsOfUseUrl}",
+            "privacyPolicy": "{PersonaPrivacyPolicyUrl}"
+        }
     },
-    "type": "IDV_PERSONA",
+    "type": "integrator-7184229_personaidv_1",
     "_links": {
         "users": {
             "href": "https://{yourOktadomain}/api/v1/idps/0oal68on4q8cch2y55d7/users",
