@@ -4,8 +4,6 @@ excerpt: How to use the Policies API to manage user identification policies
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /></br><ApiLifecycle access="ea" />
-
 This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to manage user identification policies in your org. Use a [System Log query](/docs/reference/system-log-query/) to monitor policy evaluation events.
 
 > **Notes:**
