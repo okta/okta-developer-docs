@@ -18,7 +18,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bulk Collection Assignment Origins API is EA in Preview](#bulk-collection-assignment-origins-api-is-ea-in-preview) | September 10, 2026 |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is EA in Preview](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-ea-in-preview)| September 10, 2026 |
 | [Cancel request APIs are Beta](#cancel-request-apis-are-beta) | September 10, 2026 |
 | [Configure access to the resource catalog is GA in Preview](#configure-access-to-the-resource-catalog-is-ga-in-preview) | September 10, 2026 |
 | [Increased Access Request limits](#increased-access-request-limits) | September 10, 2026 |
