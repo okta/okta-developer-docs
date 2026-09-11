@@ -12,6 +12,8 @@ This issue persists regardless of whether you enable the Flexible Okta Verify au
 
 <ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
 
+> **Note:** You can't enable this feature in an org that uses [authenticator groups](/docs/concepts/policies/#authenticator-groups).
+
 When you enable Flexible Okta Verify authenticator configuration, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys, one for each Okta Verify method.
 
 | Authenticator key      | Method                            |

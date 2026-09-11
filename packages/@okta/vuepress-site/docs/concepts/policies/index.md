@@ -265,6 +265,38 @@ For details about configuring enrollment promotion in the Admin Console, see [Au
 
 To see the promotion object in the API reference, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=1/settings/authenticators/enroll/promotion).
 
+##### Authenticator groups
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+> **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To enable it, contact [Okta Support](https://support.okta.com). You can't enable it in an org that uses the [Flexible Okta Verify authenticator configuration](/docs/guides/authenticators-okta-verify/main/#configure-okta-verify-as-standalone-authenticators) feature.
+
+An authenticator group is a named set of authenticators that an authenticator enrollment policy references to define an enrollment requirement. Instead of marking each authenticator required or optional, you can require users to enroll a minimum number of authenticators from the group. Users choose which ones to enroll. If some users only have access to certain authenticators, they can still meet the enrollment requirement by enrolling in the authenticators that are available to them.
+
+An authenticator enrollment policy uses either authenticator groups or individual authenticators. You can't use both. To use authenticator groups, set the authenticator enrollment policy's `settings.type` property to `AUTHENTICATOR_GROUPS` and configure the authenticators in `settings.authenticatorGroups`.
+
+You manage authenticator groups through the Authenticator Groups API, and each group holds only its list of authenticators. The enrollment requirement is an entry in the policy's `settings.authenticatorGroups` property that names a group and sets a `criteria` entry with a `type` of `authenticatorCount` and a `settings.count` value. The count is how many of the group's authenticators that a user must enroll.
+
+For example, you create a group named "Recovery Methods" that contains the email, phone, and Okta Verify authenticators, and an authenticator enrollment policy that references the group with a `settings.count` of `2`. After the user enrolls two of the authenticators, the third becomes optional for enrollment and the user can finish enrolling.
+
+If you set `settings.count` to `0`, none of the group's authenticators are required and all of them are optional for enrollment. Omitting `criteria` or setting it to an empty array has the same effect.
+
+The number of required authenticators (the `count` value) remains the same even when you add more authenticators to the group. In the previous example, adding a fourth authenticator to "Recovery Methods" means that users enroll two of four authenticators rather than two of three. Update `settings.count` on the policy if you want the requirement to change with the group.
+
+Keep the following constraints in mind:
+
+* An authenticator must be enabled for your org before you can add it to a group.
+* An authenticator can belong to only one of the groups that a policy references.
+* `settings.count` can't be greater than the number of authenticators in the group.
+* Only one authenticator enrollment policy can reference a group.
+* You can't delete a group while an authenticator enrollment policy references it. Remove the reference from the policy first.
+* You can't disable an authenticator for your org while it belongs to any group. Remove it from each group first.
+* Changes to a group's authenticators apply immediately to the policy that references the group.
+
+For details about configuring authenticator groups in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+
+To see the authenticator group object in the API reference documentation, see the [Authenticator Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorGroup/).
+
 #### User profile policies
 
 <ApiLifecycle access="ie" />
