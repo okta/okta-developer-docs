@@ -10,6 +10,8 @@ Configure your AI agent to call tools through an Agent Gateway. Agent Gateway ex
 
 ---
 
+<ApiLifecycle access="beta" />
+
 #### Learning outcomes
 
 - Locate your Agent Gateway URL and OAuth 2.0 client credentials.
@@ -20,7 +22,7 @@ Configure your AI agent to call tools through an Agent Gateway. Agent Gateway ex
 
 - An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. Contact your Okta account team to enable the Secure AI Virtual MCP Servers feature.
 - An activated Agent Gateway. See [Configure an Agent Gateway using the APIs](/docs/guides/ai-configure-agent-gateway/).
-- Your Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`
+- Your Agent Gateway URL: `https://{yourOktaSubdomain}.gateway.okta.com/mcp/{gatewayName}`
 - The OAuth `client_id` that's assigned to the AI agent in the Universal Directory.
 
 ---
@@ -41,7 +43,7 @@ Before you start, get the following from your Okta admin:
 
 | What | Details |
 | ---- | ------- |
-| Agent Gateway URL | Format: `https://{subdomain}.gateway.okta.com/mcp/{path}` |
+| Agent Gateway URL | Format: `https://{yourOktaSubdomain}.gateway.okta.com/mcp/{gatewayName}` |
 | Client ID | The OAuth client ID registered for your AI agent in Okta. It's not needed if your AI agent platform supports Client ID Metadata Document (CIMD). Your AI agent vendor publishes one automatically. |
 | Client secret | Only required by some platforms. Not needed for public clients using PKCE only. |
 | Auth and token URLs | The Okta custom authorization server endpoints that protect the Agent Gateway. Some platforms require these explicitly, and others discover them automatically. |
@@ -105,7 +107,7 @@ Claude Code supports MCP server configuration through a project-level `.mcp.json
    {
      "mcpServers": {
        "{gatewayName}": {
-         "url": "https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}",
+         "url": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/{gatewayName}",
          "auth": {
            "type": "oauth",
            "clientId": "{clientId}"
@@ -133,7 +135,7 @@ Claude Enterprise and Claude.ai support MCP server configuration through the ten
 1. Sign in to your Claude.ai tenant as an admin.
 1. Go to **Settings** > **Custom Connectors**.
 1. Click **Add connector**.
-1. Enter the Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
+1. Enter the Agent Gateway URL: `https://{yourOktaSubdomain}.gateway.okta.com/mcp/{gatewayName}`.
 1. Select **OAuth 2.0** and enter the `client_id`. Add a client secret if your org requires confidential clients.
 1. Save the connector. It becomes available to all users in the tenant.
 
@@ -152,7 +154,7 @@ Kiro connects to MCP servers using a static bearer token that's injected through
    {
      "mcpServers": {
        "{gatewayName}": {
-         "url": "https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}",
+         "url": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/{gatewayName}",
          "headers": {
            "Authorization": "Bearer {token}"
          }
@@ -176,8 +178,8 @@ The following platforms use the same OAuth 2.0/2.1 patterns described earlier, t
 | Codex (OpenAI) | `managed_config.toml` | OAuth 2.0 with PKCE, public client (no secret) | Recommended enforcement: deploy the config through MDM with a requirements allowlist restricting approved servers. |
 | Microsoft Copilot Studio | Agent **Actions** > **Add an action** > **Call an external service (MCP)** | OAuth 2.0, `client_id` + client secret | Recommended enforcement: Power Platform Advanced Connector Policies. |
 | Agentforce (Salesforce) | Salesforce **External Client Apps** | OAuth 2.0 with PKCE, through a pre-registered external client app | Create the external client app first, then register its consumer key as the `client_id` in Okta. Recommended enforcement: manage access through **External Client Apps**. |
-| ServiceNow AI Agent Studio | **AI Agent Studio** > **MCP Servers** | OAuth 2.1, `client_id` + client secret (or static bearer token) | — |
-| Glean | Glean admin console > **Actions** > **MCP action pack** | OAuth 2.0, `client_id` (add a client secret for confidential clients) | — |
+| ServiceNow AI Agent Studio | **AI Agent Studio** > **MCP Servers** | OAuth 2.1, `client_id` + client secret (or static bearer token) | - |
+| Glean | Glean admin console > **Actions** > **MCP action pack** | OAuth 2.0, `client_id` (add a client secret for confidential clients) | - |
 | n8n | **MCP Client Tool** node, using an OAuth2 API credential | OAuth 2.0, `client_id` + client secret | Requires manually entering your org's authorization and token URLs (`https://{yourOktaDomain}/oauth2/{authServerId}/v1/authorize` and `.../token`), rather than just the Agent Gateway URL. |
 
 ## Next steps

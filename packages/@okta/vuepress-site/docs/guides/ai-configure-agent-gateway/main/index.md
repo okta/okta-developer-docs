@@ -6,6 +6,8 @@ meta:
 layout: Guides
 ---
 
+<ApiLifecycle access="beta" />
+
 Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple remote MCP servers and enforces identity and policy on every tool call. In the Okta API, an Agent Gateway is represented as a virtual MCP server (vMCP). This guide walks you through the API steps to configure an Agent Gateway. After you finish, an MCP client, such as Claude Code or Agentforce, can connect to the gateway and invoke tools.
 
 > **Note:** This guide covers the steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that's already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/).
@@ -14,15 +16,16 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 #### Learning outcomes
 
-* Retrieve a virtual MCP server.
 * Register an Agent Gateway.
+* Create a delegation link.
+* Retrieve a virtual MCP server.
 * Connect the Agent Gateway to a remote MCP server and expose specific tools.
 * Activate the gateway so AI agents can invoke tools.
 * Delete an Agent Gateway.
 
 #### What you need
 
-* An Okta org with an Okta for AI Agents subscription. Contact Okta Support to enable access to the virtual MCP servers research feature.
+* An Okta org with an Okta for AI Agents subscription. Contact [Okta Support](https://support.okta.com) to enable access to the virtual MCP servers research feature.
 * At least one remote MCP server registered in Okta
 * A user for testing
 * The super admin role
@@ -156,7 +159,7 @@ The `resourceOrn` is the `orn` value from the create the agent gateway response 
 
 ## Retrieve the virtual MCP server
 
-Before you create a connection to a remote MCP server, retrieve your org's virtual MCP server. The response includes the `resourcePath` and `resourceUrl` that you use to construct the gateway URL. See [Retrieve the Virtual MCP Server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource/other/getvirtualmcpserver).
+Before you create a connection to a remote MCP server, retrieve your org's virtual MCP server. The response includes the `resourceUrl` that you use as your Agent Gateway URL. See [Retrieve the Virtual MCP Server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource/other/getvirtualmcpserver).
 
 ### Request
 
@@ -379,6 +382,17 @@ The following examples show the possible responses. Possible `status` values are
   "started": "2025-09-12T10:00:01.000Z"
 }
 ```
+**Scheduled:**
+
+```json
+{
+  "id": "op-4e5f6g7h",
+  "type": "virtual-mcp:Register",
+  "status": "SCHEDULED",
+  "created": "2025-09-12T10:00:00.000Z",
+  "started": "2025-09-12T10:00:01.000Z"
+}
+```
 
 **Completed:**
 
@@ -419,8 +433,6 @@ The following examples show the possible responses. Possible `status` values are
   }
 }
 ```
-
-<!-- add a scheduled response-->
 
 ## What happens at runtime
 
