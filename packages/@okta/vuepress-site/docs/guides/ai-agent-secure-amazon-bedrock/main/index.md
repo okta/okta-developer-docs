@@ -25,6 +25,8 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An existing Amazon Bedrock AgentCore agent that you can edit and deploy
 * The Amazon Bedrock AgentCore agent registered in your org. See [Configure AWS Identity and Access Management for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-aws.htm).
+
+  > **Note:** The AWS access key you generate for that import connects Okta to your AWS account, so it can list and display your agents — it's unrelated to the OAuth credential your agent uses for the token exchange. You register that credential separately. See [Configure the imported agent](#configure-the-imported-agent). You enable imports once per AWS app integration, not per agent, and can set a recurring import schedule — if your agent already appears in **Directory** > **AI Agents**, a scheduled import may have already run.
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -67,16 +69,17 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For background on the custom authorization server and scope, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
 * An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
-* The Bedrock AgentCore agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
-
-  > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, because it's shown only once.
-
+* The Bedrock AgentCore agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered, linked to the OIDC web app above, and activated. See [Configure the imported agent](#configure-the-imported-agent).
 * An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
+
+### Configure the imported agent
+
+<AiAgentImportedAgentSetup/>
 
 ### Collect your configuration values
 
