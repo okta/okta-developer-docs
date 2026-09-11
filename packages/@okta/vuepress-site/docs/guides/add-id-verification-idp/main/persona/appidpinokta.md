@@ -6,7 +6,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
     * Enter a value for `name`.
     * Set `ID_PROOFING` as the protocol type.
-    * Set `type` to the value provided for the Persona IDV integration. <!-- TODO: confirm exact value -->
+    * Set `type` to `integrator-7184229_personaidv_1`.
     * Use the client ID and client secret from your [previous section](#configure-the-client-id-client-secret-and-redirect-uri-of-the-app) as the `client_id` and `client_secret` values.
     * Set the `scopes` array to include the `profile`, `identity_assurance`, and `openid` scopes.
       * `profile`: This scope allows the IDV vendor to request access to basic user profile information from Okta.
@@ -21,7 +21,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 ```json
 {
-    "type": "{PersonaOinType}",
+    "type": "integrator-7184229_personaidv_1",
     "name": "Persona IDV",
     "protocol": {
         "type": "ID_PROOFING",
@@ -128,7 +128,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "privacyPolicy": "{PersonaPrivacyPolicyUrl}"
         }
     },
-    "type": "{PersonaOinType}",
+    "type": "integrator-7184229_personaidv_1",
     "_links": {
         "users": {
             "href": "https://{yourOktadomain}/api/v1/idps/0oal68on4q8cch2y55d7/users",
