@@ -15,6 +15,6 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
    > **Note:**  Apps that are migrated from the OIN Manager and that have more than eight variables can retain those variables, but you can't add new ones. However, you can update or delete the existing variables.
 
-1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
+1. If you need to delete a variable, click the delete icon (<span style="height: 12px;display:inline-block;transform:translateY(-12px);">![trash can; delete icon](/img/icons/odyssey/delete.svg)</span>) next to it.
 
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
