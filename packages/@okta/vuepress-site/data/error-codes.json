@@ -1,6 +1,6 @@
 {
-  "release" : "2026.08.1",
-  "build" : "2026.08.1-begin-263-g31c0d19b3e16",
+  "release" : "2026.09.1",
+  "build" : "2026.09.1-begin-247-g6975ceb19a8d",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -2008,6 +2008,30 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000269",
     "errorSummary" : "The script config for the instanceId {0} is not available.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand cannot delete classic exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000279",
+    "errorSummary" : "A Classic Engine brand cannot be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Domain cannot delete exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000280",
+    "errorSummary" : "Domain cannot be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Classic brand domain mapping failure exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000281",
+    "errorSummary" : "Failed to associate this domain with the given classicBrandId.",
     "errorDescription" : null
   } ]
 }

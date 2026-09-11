@@ -11,6 +11,71 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## September
+
+### Monthly release 2026.09.0
+<!-- Published on: 2026-09-10T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is EA in Preview](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-ea-in-preview)| September 10, 2026 |
+| [Cancel request APIs are Beta](#cancel-request-apis-are-beta) | September 10, 2026 |
+| [Configure access to the resource catalog is GA in Preview](#configure-access-to-the-resource-catalog-is-ga-in-preview) | September 10, 2026 |
+| [Increased Access Request limits](#increased-access-request-limits) | September 10, 2026 |
+| [API support for Access Certification campaign decisions is GA in Production](#api-support-for-access-certification-campaign-decisions-is-ga-in-production) | June 24, 2026 |
+| [Certify AI agent resource connections is GA in Production](#certify-ai-agent-resource-connections-is-ga-in-production) | September 10, 2026 |
+| [Bug fixed in 2026.09.0](#bug-fixed-in-2026-09-0)| September 10, 2026 |
+
+#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is EA in Preview
+
+The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
+
+To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+<!-- OKTA-1273155, OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Beta Preview date: July 29, 2025, EA Preview date: September 9, 2025 -->
+
+#### Cancel request APIs are Beta
+
+<ApiLifecycle access="beta" />
+
+Okta Identity Governance (OIG) has added three new cancel-request API endpoints to give orgs improved control over the lifecycles of active and pending access requests. These endpoints allow admins and end users to programmatically cancel unnecessary requests. They enable the integration of access request lifecycle management into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
+
+These new cancel request endpoints support canceling both requests built with Request Types (V1 APIs) and those built with Request Conditions (V2 APIs). See
+* **Management APIs** > **Access Request - V2** > **Requests** > [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2)
+* **Management APIs** > **Access Request - V1** > **Requests** > [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v1-reference/requests/updaterequest)
+* **End user APIs** > **My requests** > [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2)
+<!-- OKTA-1263857 IN_FLIGHT_REQUEST_API Preview: Sept 9, 2026 -->
+
+#### Configure access to the resource catalog is GA in Preview
+
+Previously, the ability to view resource catalog entry points, such as the **Request Access** button in the End-User Dashboard, was available to all users in an org by default. Now, admins can configure this visibility to allow all members of an org to view the entry points, no users to view them, or restrict entry point visibility to a specific set of Okta groups. For the Unified requester experience, this configuration also controls the **Resource Catalog** links and search options from the Okta Access Request app, Slack, and Microsoft Teams. See [Configure resource catalog entry point visibility](https://help.okta.com/okta_help.htm?type=oie&id=ar-configure-catalog-visibility).
+
+See `resourceCatalogVisibility` in [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) to configure this setting through the API.
+
+#### Increased Access Request limits
+
+The following Access Request limits have been increased:
+* Users per task or question: 25 (previously 10)
+* Entitlement bundles in an access level condition: 1,000 (previously 100)
+* Groups in an access level condition: 1,000 (previously 500)
+* Request type configuration lists per org: 250 (previously 100)
+* Request types per org: 750 (previously 500)
+
+<!-- OKTA-1205008, OKTA-1249788, OKTA-1256597, OKTA-1256604, Preview: Sept 9, 2026 -->
+
+#### API support for Access Certification campaign decisions is GA in Production
+
+The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) APIs allow developers to programmatically manage review actions for end users. Using the [GET my reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/listcampaignreviews) and [POST my review actions](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitmycampaignreviewactions) methods, users can retrieve reviews and submit decisions (APPROVE, REVOKE, REASSIGN). This adds the flexibility to power custom portals, integrate decision-making into proprietary UIs, or implement unique reassignment logic.
+<!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2026 -->
+
+#### Certify AI agent resource connections is GA in Production
+
+You can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns) API.
+
+#### Bug fixed in 2026.09.0
+
+Admins could set campaign inactivity periods to more than 90 days, which wasn’t aligned with the System Log retention period. (OKTA-1254593)
+
 ## August
 
 ### Weekly release 2026.08.4

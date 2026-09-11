@@ -1,6 +1,6 @@
 {
-  "release" : "2026.08.1",
-  "build" : "2026.08.1-begin-263-g31c0d19b3e16",
+  "release" : "2026.09.1",
+  "build" : "2026.09.1-begin-247-g6975ceb19a8d",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -842,6 +842,20 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The client_assertion JWT needs to be signed using a signing key."
   }, {
+    "title" : "Mtls client certificate not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "mtls_client_certificate_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client does not have a self-signed certificate configured, but self_signed_tls_client_auth requires one."
+  }, {
+    "title" : "Mtls client certificate invalid",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "mtls_client_certificate_invalid",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client certificate presented for mutual TLS authentication is invalid."
+  }, {
     "title" : "Token encryption no encryption key",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -1659,7 +1673,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_nonce",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The 'nonce' parameter is required for authorize requests with either the 'id_token' or 'token' response types.."
+    "errorDescription" : "The 'nonce' parameter is required for authorize requests with either the 'id_token' or 'token' response types."
   }, {
     "title" : "Invalid prompt",
     "statusCode" : 400,
@@ -2913,6 +2927,13 @@
     "internalErrorCode" : "access_token_not_dpop_bound",
     "errorCode" : "invalid_token",
     "errorDescription" : "The presented access_token is not DPoP bound."
+  }, {
+    "title" : "Invalid access token cert binding",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "invalid_access_token_cert_binding",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The access_token is not bound to the presented client certificate."
   }, {
     "title" : "Invalid user code",
     "statusCode" : 400,
