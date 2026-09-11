@@ -2,51 +2,18 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 ### Configure an IDV template
 
-1. Create a <StackSnippet snippet="idp" inline /> app.
+Create your <StackSnippet snippet="idp" inline /> app and IDV flows. See [Okta integration overview](https://help.withpersona.com/articles/4w8cDQLPuaPAadq4LzhO40/) to learn about the different IDV templates available and how to configure them.
 
-1. In your <StackSnippet snippet="idp" inline /> app, go to **Inquiries** > **Templates**.
+### Configure the client ID, client secret, and redirect URI of the <StackSnippet snippet="idp" inline /> app
 
-1. Click **Create template**.
+> **Note:** An API key is no longer required for the <StackSnippet snippet="idp" inline /> integration. Instead, generate a client ID and client secret in your <StackSnippet snippet="idp" inline /> app and use them to authenticate the request to Okta. See [How to set up Persona authentications for Okta Workforce Authentication](https://help.withpersona.com/articles/x7vPGY4te68wp1T0Ce5eFi/#how-to-set-up-persona-authentications-for-okta-workforce-authentication).
 
-1. In the list of inquiry templates, select the **Government ID and Selfie** inquiry template. To test this template, you must have a camera that you can use to take a selfie.
+Set your org URL as the redirect URI in your <StackSnippet snippet="idp" inline /> app, and append `/idp/identity-verification/callback`. The redirect URI is the location where <StackSnippet snippet="idp" inline /> sends the verification response.
 
-   > **Note:** If you want to use an inquiry template that doesn’t require a camera, use the **Government ID (Front side only)** inquiry template.
+* For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/idp/identity-verification/callback`. If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/idp/identity-verification/callback`.
+* Include all base domains (Okta domain and custom domain) that your users interact with in the allowed redirect URI list.
 
-1. Click **Configure**.
-
-1. Scroll down to **Image capture methods** > **Capture Methods**. Turn on **File upload**. Ensure that it’s turned on for at least one of the following:
-
-   * Desktop web
-   * Mobile web
-   * Mobile native
-
-   This allows you to upload the [provided image](#test-image) when you test the integration.
-
-1. Click **Save**. After you’ve saved, click **Publish**.
-
-1. Go to **Inquiries** > **Templates**, find your **Government ID and Selfie** inquiry template.
-
-1. Copy the Inquiry ID and paste it into a text editor so that you can use it in the next section.
-
-### Configure the API key and redirect URI of the <StackSnippet snippet="idp" inline /> app
-
-> **Note:** In your <StackSnippet snippet="idp" inline /> app, ensure that you're in a sandbox environment before you create an API key.
-
-1. In your <StackSnippet snippet="idp" inline /> app, go to **API** > **API Keys**.
-
-1. Click **Create API key**. Enter a descriptive name for the API key.
-
-1. Copy the API key and paste it into a text editor so that you can use it in the next section.
-
-1. Go to **Inquiries** > **Domain Manager**.
-
-1. In **Allowed Domains**, add a redirect URI. The redirect URI is your org’s URL. `{yourOktadomain}.okta.com`
-
-   * The redirect URI is the location where <StackSnippet snippet="idp" inline /> sends the verification response (the inquiry ID of the completed inquiry). The URI sent in the verification request from the client needs to match the redirect URI set at the IDV vendor. Ensure that the URI is located in a secure domain that you own.
-   * For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com.` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com.`
-   * Include all base domains (Okta domain and custom domain) that your users interact with in the allowed redirect URI list.
-
-1. Click **Add** after you finish.
+> **Note:** If you're migrating from the existing Persona IDV integration, see [Migrating to the new Persona IDV integration](https://help.withpersona.com/articles/58NE2qRFCBoh1ogfpB7Q1J/#migrating-to-the-new-persona-idv-integration).
 
 ### Other IDV vendor configuration
 
