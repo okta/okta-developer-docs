@@ -605,6 +605,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Import Anthropic Claude AI agents",
+            guideName: "ai-agent-import-claude",
+          },
         ],
       },
       {
