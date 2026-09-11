@@ -32,8 +32,7 @@ The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/gover
 
 To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
-<!-- OKTA-1273155, OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Beta Preview date: July 29, 2025, EA Preview date: September 9, 2025 -- >
-
+<!-- OKTA-1273155, OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Beta Preview date: July 29, 2025, EA Preview date: September 9, 2025 -->
 
 #### Cancel request APIs are Beta
 
