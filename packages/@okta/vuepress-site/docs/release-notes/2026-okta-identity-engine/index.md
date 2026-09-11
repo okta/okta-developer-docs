@@ -28,6 +28,7 @@ title: Okta Identity Engine API release notes 2026
 | [WebAuthn authenticator enrollments include transports values is GA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-preview) | August 5, 2026 |
 | [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
+| [Search, filter, and export apps for Applications page is EA](#search-filter-and-export-apps-for-applications-page-is-ea) | September 10, 2026 |
 | [Developer documentation updates in 2026.09.0](#developer-documentation-updates-in-2026-09-0) | September 2, 2026 |
 
 #### NFC authenticator is self-service EA in Preview
@@ -86,6 +87,10 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 #### PowerShell scripts for Active Directory is GA in Preview
 
 Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script) and [Invoke a remote script on the AD agent](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript).
+
+#### Search, filter, and export apps for Applications page is EA
+
+The **Applications** page now provides options to filter apps by type and status, search apps by name or client ID, and view apps by last modified date. You can also export apps to CSV to turn your filtered list into an audit-ready report. During Early Access, labelling uses IGA Governance Labels and is only available for OIG customers. Use the [List all applications that match search filters](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/listapplicationsbysearch) API to search and filter apps programmatically.
 
 #### Developer documentation updates in 2026.09.0
 
