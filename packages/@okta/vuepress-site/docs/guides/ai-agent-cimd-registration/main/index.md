@@ -4,8 +4,6 @@ excerpt: Learn how to register an AI agent's OAuth client using a Client ID Meta
 layout: Guides
 ---
 
-<ApiLifecycle access="research" />
-
 Learn how to register an AI agent's OAuth client with a Client ID Metadata Document (CIMD) URL. Use a CIMD URL instead of a static `client_id` or a bring-your-own-key (BYOK) public key.
 
 ---
@@ -14,6 +12,7 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
 
 - Understand what a CIMD is and why it replaces BYOK registration for AI agents.
 - Register an AI agent with a CIMD-based OAuth client using the API.
+- Configure an existing AI agent as a CIMD client.
 - Use the CIMD client ID in an OAuth token request.
 
 #### What you need
@@ -30,7 +29,7 @@ A CIMD lets an OAuth client identify itself with a URL instead of a static, pre-
 
 For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the AI agent operator (either your org's admin or the AI agent's vendor) registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the AI agent operator rotates keys on their own infrastructure. Okta picks up the change automatically the next time the AI agent requests a token. The AI agent operator doesn't need to make an Okta API call.
 
-> **Note:** You set `oauthClient.type` when you create the AI agent, and you can't change it afterward. If you want an existing AI agent to use CIMD instead of BYOK, you need to delete the AI agent record in Okta and recreate it.
+> **Note:** After you set `oauthClient.type` to `CIMD` on an AI agent, you can't change it to a different type. However, you can configure an existing AI agent that doesn't yet use CIMD (for example, one that uses BYOK) as a CIMD client. See [Configure an existing AI agent as a CIMD client](#configure-an-existing-ai-agent-as-a-cimd-client).
 
 ## CIMD requirements
 
@@ -96,6 +95,27 @@ Once the operation's `status` is `COMPLETED`, use its `resource.id` to retrieve 
 
 CIMD client ID matching is exact-match only. Okta doesn't support pattern or regex matching for CIMD clients.
 
+## Configure an existing AI agent as a CIMD client
+
+You can configure an AI agent that you've already registered with Okta, but that doesn't yet use CIMD, to use a CIMD OAuth client. Send a PATCH request to the AI agent with the same `oauthClient` object that you'd use at registration:
+
+```bash
+curl -v -X PATCH \
+-H "Accept: application/json" \
+-H "Content-Type: application/merge-patch+json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "oauthClient": {
+    "type": "CIMD",
+    "clientIdMatchPattern": "https://example.com/.well-known/cimd/claude-code.json"
+  }
+}' "https://${yourOktaDomain}/workload-principals/api/v1/ai-agents/${agentId}"
+```
+
+As with registration, Okta processes this request asynchronously. The response is `202 Accepted` with a `Location` header that points to an operation you can poll for completion.
+
+You can't change a CIMD client's `oauthClient.type` after you set it.
+
 ## Use the CIMD client ID in a token request
 
 Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. A CIMD client authenticates with `private_key_jwt`: the AI agent signs a `client_assertion` JWT with its private key, and Okta verifies the signature using the `jwks` or `jwks_uri` from your hosted CIMD.
@@ -120,15 +140,6 @@ curl -v -X POST \
 Sign `client_assertion` with the private key that matches the public key in your CIMD's JWKS. Set both `iss` and `sub` in the JWT to the CIMD URL.
 
 For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI agents without any manual client configuration. An admin registers the AI agent vendor's CIMD URL on the agent, such as the URL that Anthropic hosts for Claude Code. Then the AI agent connects to the gateway automatically. You don't need to manually configure a client ID or client secret.
-
-<div class="full wireframe-border">
-
-  ![Sequence diagram showing an AI agent registering with a CIMD URL and then using that URL as the client ID in a token request](/img/auth/ai-agent-cimd-registration/cimd_registration_and_token_request.svg)
-
-</div>
-
-<!-- DRAFT: Diagram not yet created. File an InfoDev UX Design Request (clone OKTA-1125851) against the
-     diagram backlog once this draft is reviewed. See doc plan Section 4. -->
 
 ## Troubleshoot errors
 
