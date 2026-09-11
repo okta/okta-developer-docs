@@ -5,9 +5,9 @@ meta:
     content: Learn how Okta Agent Gateway enforces identity and policy on AI agent tool calls to enterprise MCP servers.
 ---
 
-# Okta Agent Gateway
+<ApiLifecycle access="beta" />
 
-<ApiLifecycle access="research" />
+# Okta Agent Gateway
 
 Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple remote MCP servers behind a single Okta-secured endpoint, enforces identity and policy on every tool call, and produces a unified audit trail. Agent Gateway extends the Okta identity fabric to AI agents that the enterprise doesn't build or control.
 
@@ -157,4 +157,4 @@ The exception is embedded AI agents in pure silo mode. These are AI agents that 
 * [Configure your AI agent to use Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/)
 * [Virtual MCP Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections)
 * [Virtual MCP Server Registrations API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration)
-* [Virtual MCP Settings API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpsettings)
+* [Virtual MCP Servers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource)

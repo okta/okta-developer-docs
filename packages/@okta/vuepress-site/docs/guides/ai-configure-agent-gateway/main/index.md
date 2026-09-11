@@ -6,25 +6,26 @@ meta:
 layout: Guides
 ---
 
-<ApiLifecycle access="research" />
+<ApiLifecycle access="beta" />
 
 Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple remote MCP servers and enforces identity and policy on every tool call. In the Okta API, an Agent Gateway is represented as a virtual MCP server (vMCP). This guide walks you through the API steps to configure an Agent Gateway. After you finish, an MCP client, such as Claude Code or Agentforce, can connect to the gateway and invoke tools.
 
-> **Note:** This guide covers the steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that is already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/).
+> **Note:** This guide covers the steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that's already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/).
 
 ---
 
 #### Learning outcomes
 
-* Retrieve org-level virtual MCP settings.
 * Register an Agent Gateway.
+* Create a delegation link.
+* Retrieve a virtual MCP server.
 * Connect the Agent Gateway to a remote MCP server and expose specific tools.
 * Activate the gateway so AI agents can invoke tools.
 * Delete an Agent Gateway.
 
 #### What you need
 
-* An Okta org with an Okta for AI Agents subscription. Contact Okta Support to enable access to the virtual MCP servers research feature.
+* An Okta org with an Okta for AI Agents subscription. Contact [Okta Support](https://support.okta.com) to enable access to the virtual MCP servers research feature.
 * At least one remote MCP server registered in Okta
 * A user for testing
 * The super admin role
@@ -35,53 +36,11 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers and select which tools to expose, as well as selecting the AI Agents that can call the Agent Gateway. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
 
-## Create a custom authorization server
-
-The custom authorization server protects the Agent Gateway endpoint. The gateway validates all inbound agent tokens against this custom authorization server.
-
-Create a custom authorization server and configure an access policy rule that grants your MCP client app permission to request tokens. See [Create an authorization server](/docs/guides/customize-authz-server/main/).
-
-> **Note:** When you create the Agent Gateway in the next step, Okta automatically links it to this custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
-
-## Retrieve Agent Gateway settings
-
-Before you create an Agent Gateway, retrieve your org's virtual MCP settings. The response includes the `basePath` you use to construct the gateway URL, and the org-level limits that apply to virtual MCPs. See [Retrieve the Virtual MCP Settings](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpsettings/other/getvirtualmcpsettings).
-
-### Request
-
-```http
-  GET /workload-principals/api/v1/virtual-mcp-settings
-  Authorization: Bearer {token}
-```
-
-### Response
-
-```json
-{
-  "supportedConnectionTypes": [
-    "STS_ACCESS_TOKEN"
-  ],
-  "limits": {
-    "maxVirtualMCPs": 100,
-    "maxCapabilitiesPerVirtualMCP": 1000,
-    "maxResourceServersPerVirtualMCP": 100
-  },
-  "features": [],
-  "basePath": "https://subdomain.gateway.okta.com"
-}
-```
-
-| Field | Description |
-| --- | --- |
-| `basePath` | The domain you use to construct the gateway URL: `{basePath}/mcp/{resourcePath}`. |
-| `limits.maxVirtualMCPs` | Maximum number of Agent Gateways you can create for this org. |
-| `limits.maxCapabilitiesPerVirtualMCP` | Maximum number of tools you can add to a single Agent Gateway. |
-| `limits.maxResourceServersPerVirtualMCP` | Maximum number of remote MCP server connections you can add to a single Agent Gateway. |
-| `supportedConnectionTypes` | Connection types that Okta supports for resource connections. Currently, this is always `STS_ACCESS_TOKEN`. |
-
 ## Create the Agent Gateway
 
 Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. See [Create a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/createvirtualmcp). The Agent Gateway is created in `INACTIVE` status and isn't reachable by AI agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
+
+> **Note:** When you create the Agent Gateway, Okta automatically creates a new custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
 
 ### Request
 
@@ -99,7 +58,7 @@ Content-Type: application/json
 }
 ```
 
-The `resourcePath` value must be unique within your org and can't change after creation. The full gateway URL combines the `basePath` from [Retrieve Agent Gateway settings](/docs/guides/ai-configure-agent-gateway/main/#retrieve-agent-gateway-settings) with this path: `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`.
+> **Note**: The `resourcePath` value must be unique within your org and can't change after creation.
 
 ### Response
 
@@ -143,6 +102,8 @@ When the operation completes, retrieve the Agent Gateway ([Retrieve a virtual MC
 }
 ```
 
+> **Note**: Make note of the `orn` in the response. You need this for additional requests.
+
 ## Create a delegation link
 
 The delegation link declares that the MCP client app is authorized to delegate to this Agent Gateway on behalf of users. The gateway rejects token exchanges without a valid delegation link in place. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
@@ -157,7 +118,7 @@ Content-Type: application/json
 {
   "from": {
     "type": "OKTA_AUTHORIZATION_SERVER",
-    "clientOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ",
+    "clientOrn": "orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}",
     "tokenType": "ACCESS_TOKEN"
   },
   "to": {
@@ -166,12 +127,12 @@ Content-Type: application/json
 }
 ```
 
-The `from.clientOrn` value in this example references the MCP client app's OAuth 2.0 ORN. If you're delegating to an AI agent that you registered through the Agent Registration API instead of a plain OAuth app, reference the agent's ORN instead (`orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}`).
+The `resourceOrn` is the `orn` value from the create the agent gateway response in the [last section](#create-the-agent-gateway). The `from.clientOrn` value in this example references the AI agent's ORN. If you're delegating to an MCP client app, reference the MCP client app's OAuth 2.0 ORN instead (`orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ`).
 
 ### Response
 
 ```http
-201 Created
+  201 Created
 ```
 
 ```json
@@ -179,7 +140,7 @@ The `from.clientOrn` value in this example references the MCP client app's OAuth
   "id": "dlk1a2b3c4d5e6f7g8h9",
   "from": {
     "type": "OKTA_AUTHORIZATION_SERVER",
-    "clientOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ",
+    "clientOrn": "orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}",
     "tokenType": "ACCESS_TOKEN"
   },
   "to": {
@@ -195,6 +156,46 @@ The `from.clientOrn` value in this example references the MCP client app's OAuth
 ```
 
 > **Note:** The `to.authorizationServerOrn` value in the response is read-only. Okta infers it automatically from the Agent Gateway's linked custom authorization server, so you don't need to supply it in the request.
+
+## Retrieve the virtual MCP server
+
+Before you create a connection to a remote MCP server, retrieve your org's virtual MCP server. The response includes the `resourceUrl` that you use as your Agent Gateway URL. See [Retrieve the Virtual MCP Server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource/other/getvirtualmcpserver).
+
+### Request
+
+```http
+  GET /resource-servers/api/v1/virtual-mcp-servers/{virtualMcpServerId}
+  Authorization: Bearer {token}
+```
+
+### Response
+
+```json
+{
+  "id": "wlp1aB2cD3eF4gH5iJ6k",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+  "resourcePath": "production",
+  "resourceUrl": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/production",
+  "status": "ACTIVE",
+  "profile": {
+    "displayName": "Production MCP Servers",
+    "description": "Groups all production MCP servers for the engineering team"
+  },
+  "created": "2025-06-01T10:00:00Z",
+  "lastUpdated": "2025-06-15T14:30:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k"
+    },
+    "authorization-servers": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/authorization-servers"
+    },
+    "tools": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/tools"
+    }
+  }
+}
+```
 
 ## Create a connection to a remote MCP server
 
@@ -222,7 +223,7 @@ The `resource.orn` value references the `ClientAuthSettings` record for the remo
 #### Response
 
 ```http
-201 Created
+  201 Created
 ```
 
 ```json
@@ -230,7 +231,7 @@ The `resource.orn` value references the `ClientAuthSettings` record for the remo
   "connectionType": "STS_ACCESS_TOKEN",
   "id": "mcn9i0j1k2l3m4n5o6p7",
   "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:connections:mcn9i0j1k2l3m4n5o6p7",
-  "status": "INACTIVE",
+  "status": "ACTIVE",
   "resourceIndicator": "https://mcp.example.com",
   "resource": {
     "resourceType": "MCP_SERVER",
@@ -259,21 +260,6 @@ The `resource.orn` value references the `ClientAuthSettings` record for the remo
 Repeat this step for each remote MCP server that you want to connect to this gateway.
 
 To change a connection later, send a `PATCH` request to the same connection URL. Okta supports updating only the `resourceIndicator` field.
-
-### Activate the connection
-
-The connection must be active for tool calls to succeed at runtime. See [Activate a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/activatevirtualmcpconnection).
-
-#### Request
-
-```http
-  POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/connections/mcn9i0j1k2l3m4n5o6p7/lifecycle/activate
-  Authorization: Bearer {token}
-```
-
-#### Response
-
-Returns `200 OK` with the updated connection object, which includes `"status": "ACTIVE"`. <!--add code response-->
 
 ## Add tools
 
@@ -394,6 +380,17 @@ The following examples show the possible responses. Possible `status` values are
   "started": "2025-09-12T10:00:01.000Z"
 }
 ```
+**Scheduled:**
+
+```json
+{
+  "id": "op-4e5f6g7h",
+  "type": "virtual-mcp:Register",
+  "status": "SCHEDULED",
+  "created": "2025-09-12T10:00:00.000Z",
+  "started": "2025-09-12T10:00:01.000Z"
+}
+```
 
 **Completed:**
 
@@ -434,8 +431,6 @@ The following examples show the possible responses. Possible `status` values are
   }
 }
 ```
-
-<!-- add a scheduled response-->
 
 ## What happens at runtime
 
