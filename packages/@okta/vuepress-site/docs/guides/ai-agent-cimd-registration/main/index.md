@@ -4,8 +4,6 @@ excerpt: Learn how to register an AI agent's OAuth client using a Client ID Meta
 layout: Guides
 ---
 
-<ApiLifecycle access="research" />
-
 Learn how to register an AI agent's OAuth client with a Client ID Metadata Document (CIMD) URL. Use a CIMD URL instead of a static `client_id` or a bring-your-own-key (BYOK) public key.
 
 ---
@@ -142,15 +140,6 @@ curl -v -X POST \
 Sign `client_assertion` with the private key that matches the public key in your CIMD's JWKS. Set both `iss` and `sub` in the JWT to the CIMD URL.
 
 For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI agents without any manual client configuration. An admin registers the AI agent vendor's CIMD URL on the agent, such as the URL that Anthropic hosts for Claude Code. Then the AI agent connects to the gateway automatically. You don't need to manually configure a client ID or client secret.
-
-<div class="full wireframe-border">
-
-  ![Sequence diagram showing an AI agent registering with a CIMD URL and then using that URL as the client ID in a token request](/img/auth/ai-agent-cimd-registration/cimd_registration_and_token_request.svg)
-
-</div>
-
-<!-- DRAFT: Diagram not yet created. File an InfoDev UX Design Request (clone OKTA-1125851) against the
-     diagram backlog once this draft is reviewed. See doc plan Section 4. -->
 
 ## Troubleshoot errors
 
