@@ -29,7 +29,7 @@ A CIMD lets an OAuth client identify itself with a URL instead of a static, pre-
 
 For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the AI agent operator (either your org's admin or the AI agent's vendor) registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the AI agent operator rotates keys on their own infrastructure. Okta picks up the change automatically the next time the AI agent requests a token. The AI agent operator doesn't need to make an Okta API call.
 
-> **Note:** Once you set `oauthClient.type` to `CIMD` on an AI agent, you can't change it to a different type. However, you can configure an existing AI agent that doesn't yet use CIMD (for example, one that uses BYOK) as a CIMD client. See [Configure an existing AI agent as a CIMD client](#configure-an-existing-ai-agent-as-a-cimd-client).
+> **Note:** After you set `oauthClient.type` to `CIMD` on an AI agent, you can't change it to a different type. However, you can configure an existing AI agent that doesn't yet use CIMD (for example, one that uses BYOK) as a CIMD client. See [Configure an existing AI agent as a CIMD client](#configure-an-existing-ai-agent-as-a-cimd-client).
 
 ## CIMD requirements
 
@@ -114,7 +114,7 @@ curl -v -X PATCH \
 
 As with registration, Okta processes this request asynchronously. The response is `202 Accepted` with a `Location` header that points to an operation you can poll for completion.
 
-You can't change a CIMD client's `oauthClient.type` to a different type after you set it.
+You can't change a CIMD client's `oauthClient.type` after you set it.
 
 ## Use the CIMD client ID in a token request
 
