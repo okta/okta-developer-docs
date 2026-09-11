@@ -26,9 +26,14 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Certify AI agent resource connections is GA in Production](#certify-ai-agent-resource-connections-is-ga-in-production) | September 10, 2026 |
 | [Bug fixed in 2026.09.0](#bug-fixed-in-2026-09-0)| September 10, 2026 |
 
-#### Bulk Collection Assignment Origins API is EA in Preview
+#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is EA in Preview
 
-The new Bulk Collection Assignment Origins API enables you to check whether assignments are managed by a resource collection. Use the `POST /governance/api/v2/collections/assignments/origins` method to retrieve the collection origins for a batch of assignments that are anchored on a single principal (with many resources) or a single resource (with many principals). See [Retrieve the collection origins for a batch of assignments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2/retrievecollectionassignmentoriginsv2).
+The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
+
+To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+<!-- OKTA-1273155, OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Beta Preview date: July 29, 2025, EA Preview date: September 9, 2025 -- >
+
 
 #### Cancel request APIs are Beta
 
