@@ -26,23 +26,23 @@ Review the following sections, which detail Identity Engine SDK concepts. This g
 
 #### Sample code
 
-<StackSelector snippet="sample" />
+<StackSelector snippet="sample" noSelector />
 
 ---
 
 ## Why upgrade your app to the Identity Engine SDK
 
-<StackSelector snippet="upgrade" />
+<StackSelector snippet="upgrade" noSelector />
 
 ## Classic Engine Authentication APIs and SDK vs Identity Engine SDK
 
-<StackSelector snippet="auth-vs-oie" />
+<StackSelector snippet="auth-vs-oie" noSelector />
 
 ## Map a basic sign-in code to the Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform authentication using Identity Engine's new features and workflows.
 
-<StackSelector snippet="auth" />
+<StackSelector snippet="auth" noSelector />
 
 ### Map Classic Engine Authentication APIs to the Identity Engine SDK
 
@@ -169,13 +169,13 @@ curl --location --request POST 'https://{yourOktaDomain}/api/v1/sessions' \
 
 If your app implements these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine. A successful response returns with access and ID tokens.
 
-<StackSelector snippet="oie-auth-flow-link1" />
+<StackSelector snippet="oie-auth-flow-link1" noSelector />
 
 ## Map MFA code to the Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform multifactor authentication using Identity Engine's new features and workflows.
 
-<StackSelector snippet="mfaauth" />
+<StackSelector snippet="mfaauth" noSelector />
 
 ### Map Classic Engine Authn APIs to the Identity Engine SDK
 
@@ -423,13 +423,13 @@ curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/factors/em
 
 If your app uses these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods use the authentication flow with recursive calls to Identity Engine. A successful response includes access and ID tokens.
 
-<StackSelector snippet="oie-auth-flow-link2" />
+<StackSelector snippet="oie-auth-flow-link2" noSelector />
 
 ## Map password recovery code to the Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform a password reset by using Identity Engine's new features and workflows.
 
-<StackSelector snippet="pswrvy" />
+<StackSelector snippet="pswrvy" noSelector />
 
 ### Map password recovery APIs to Identity Engine
 
@@ -664,11 +664,11 @@ If your code implements these API calls and handles the responses shown, you nee
 
 These methods encapsulate the password recovery flow using recursive calls to Identity Engine. A success response returns with access and ID tokens.
 
-<StackSelector snippet="oie-auth-flow-link3" />
+<StackSelector snippet="oie-auth-flow-link3" noSelector />
 
 ## Map basic sign-out code to the Identity Engine SDK
 
-<StackSelector snippet="signout" />
+<StackSelector snippet="signout" noSelector />
 
 ## Related topics
 
