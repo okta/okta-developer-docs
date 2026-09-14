@@ -124,6 +124,9 @@ CIMD clients support the following grant types:
 
 - `urn:ietf:params:oauth:grant-type:token-exchange`
 - `urn:ietf:params:oauth:grant-type:jwt-bearer`
+- `urn:ietf:params:oauth:grant-type:device_code`
+- `authorization_code`
+- `refresh_token`
 
 CIMD clients don't support the `client_credentials` grant type.
 
