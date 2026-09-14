@@ -234,7 +234,7 @@ Properties sent in the request body:
 
 To check the returned access token payload, you can copy the value and paste it into any JWT decoder (for example: https://jwt.io/). Then, verify that the scope claim (`scp`) and the audience claim (`aud`) are correct. The audience should match the custom authorization server audience.
 
-The actor claim (`act`) identifies the service app that requested the token exchange, while the `sub` claim remains the user on whose behalf the request is made.
+The actor claim (`act`) identifies the service app that requested the token exchange. The top-level `sub` claim identifies the original user. If the subject token already includes an `act` claim from an earlier exchange, that claim is nested under `act.act`, preserving a record of each service app that previously requested a token exchange for this token. This delegation chain has a maximum length of five actors.
 
 ```json
 {
@@ -339,7 +339,7 @@ Properties sent in the request body:
 
 **Access token decoded**
 
-The decoded access token shows the audience of the authorization server, the requested scopes, and the original user as the value of the `sub` parameter. The actor claim (`act`) identifies the service app that requested the token exchange.
+The decoded access token shows the audience of the authorization server, the requested scopes, and the original user as the value of the `sub` parameter. The actor claim (`act`) identifies the service app that requested the token exchange. If the subject token already includes an `act` claim from an earlier exchange, that claim is nested under `act.act`, preserving a record of each service app that previously requested a token exchange for this token. This delegation chain has a maximum length of five actors.
 
 ```json
 {
