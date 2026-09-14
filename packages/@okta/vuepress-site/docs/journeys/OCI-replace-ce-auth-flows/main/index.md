@@ -75,7 +75,7 @@ The third-generation (Gen3) widget is Okta-hosted and not supported for self-hos
 
 This path uses the Okta Identity Engine SDK or Auth.js. Your app implements authentication directly in your own UI. Use it when you need full control over the flow and experience. Your team owns the security, maintenance, and SDK updates.
 
-- [Replace your Classic Engine SDK or Authn API calls](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) with the appropriate IDX SDK for your language.
+- [Replace your Classic Engine SDK or Authn API calls](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/javascript/main/) with the appropriate IDX SDK for your language.
 - [Get started with Auth.js](/docs/guides/sign-in-to-spa-authjs/angular/main/) (the JavaScript SDK) for embedded authentication.
 - [Review the complete embedded upgrade checklist](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/), including troubleshooting for common migration issues.
 - [Find the language-specific SDK](/code/alternate-sign-in-sdks/) for your platform.
