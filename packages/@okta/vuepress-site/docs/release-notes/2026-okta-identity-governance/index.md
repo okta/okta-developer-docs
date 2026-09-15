@@ -13,6 +13,23 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## September
 
+### Weekly release 2026.09.1
+<!-- Published on: 2026-09-12T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Stage certification campaigns before launch is EA](#stage-certification-campaigns-before-launch-is-ea) | September 16, 2026 |
+| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026091)|  September 16, 2026 |
+
+#### Stage certification campaigns before launch is EA
+
+Staging a campaign lets you preview target users, resources, and reviewer assignments in advance to ensure accurate scope, fix configuration errors, and guarantee that requests reach the correct reviewers from day one.
+<!-- OKTA-1268371 IGA_ACCESS_CERT_CAMPAIGN_STAGING, Preview: Sept 16, 2026 -->
+
+#### Bugs fixed in 2026.09.1
+
+* Admins could set campaign inactivity periods to more than 90 days, which wasn’t aligned with the System Log retention period. (OKTA-1254593)
+
 ### Monthly release 2026.09.0
 <!-- Published on: 2026-09-10T12:00:00Z -->
 
