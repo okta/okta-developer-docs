@@ -50,10 +50,10 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
 ### Register AI agent > User access and authentication
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
-1. Click **Register AI agent** > **Register manually**.
+1. Click **Register AI agent**.
 1. Under **Profile**, add a name and description for your AI Agent.
 1. Click **Next**.
-1. Under **User access and authentication** > **Allow users to access this agent**, select one of:
+1. Under **User access and authentication** > **App assigned to users to access this AI Agent**, select one of:
 
    * **Create a new OIDC app linked to this AI agent:** To create a custom OIDC app integration instance for users to sign in to access the AI agent. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
    * **Select an existing app:** To select an existing app integration instance in your org for users to sign in to access the AI agent. Use this option if your agentic app uses SAML for SSO. See [Select an existing app](#select-an-existing-app).
@@ -62,23 +62,35 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
 
    The app you select in the **User access** tab acts as the requesting app role for the XAA flow. It allows your users to sign in to the agentic app through Okta. After the user is signed in, the agentic app can access resource apps on behalf of the signed in user.
 
-1. Click **Next**.
-1. Select your AI Agent from the list of **Directory** > **AI Agents**, and click **Client registration**.
+1. Click **Next**. Your AI agent appears in the **AI agents** list with the `STAGED` status.
+1. Select your AI Agent from the list, and click **Client registration**.
 1. On the **Client registration** tab, select a client registration method:
-   * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
-   * **Client secret**: Recommended for server-side AI agents. Click **Generate secret** and save the value for your AI agent app's OAuth 2.0 flow.
-   * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
-      1. Define where your keys are managed:
-      [[style="list-style-type:lower-alpha"]]
-         * **Okta**: Generate a pubic/private key in Okta for your AI agent.
-            1. Click **Add public key**.
-            1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
-            1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
-            1. Click **Done**.
-         * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT.
-
-      1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
-      1. Click **Activate**, then **Enable**.
+   * **External client ID**: For agentic clients whose identity definition is discovered through a hosted document.
+      1. Click **Configure** next to **Client ID metadata document (CIMD)**.
+      1. Specify the **CIMD URL** for your agentic client.
+      1. Click **Activate CIMD client registration**.
+         * Click **Switch** to use CIMD for authentication. All resources referencing this agentic app must also use this method.
+         * Click **Cancel** to cancel this operation and use the previous authentication method.
+   * **Okta-generated client ID**: For agentic clients that use Okta generated credentials for authentication.
+      * **Client secret**: Recommended for server-side AI agents.
+          1. Click **Configure**. The **Client secret** page appears.
+          1. Click **Generate secret** and save the secret and **Client ID** values for your agentic app's OAuth 2.0 flow.
+          1. Click **Activate** > **Enable**.
+      * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
+          1. Click **Configure**. The **Public/private key** page appears.
+          1. Define where your keys are managed:
+             * **Okta**: Generate a pubic/private key in Okta for your AI agent.
+                1. Click **Add public key**.
+                [[style="list-style-type:lower-alpha"]]
+                1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
+                1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
+                1. Click **Done**.
+             * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT
+          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
+          1. Click **Activate**, then **Enable**.
+      * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
+         1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
+         1. Click **Activate**, then **Enable**.
 
 ### Supported requesting apps
 
@@ -98,7 +110,7 @@ The linked OIDC app instance is initially deactivated. When you activate your AI
 
 | &nbsp;  | Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
 | ---     | :-------------: | :---: | :---: | :---: |
-| Link to an existing app |  ✔ Only when registering the AI agent<br>✗ Modifying an existing AI agent  |  ✔  |  ✗  |  ✔  |
+| Link to an existing app |  ✔ Only when registering the AI agent<br>✗ Modifying an existing AI agent  |  ✔  |  ✔   |  ✔  |
 
 This option links the AI agent to an existing app instance in your org. Users can sign in to the linked app to access the AI agent.
 
