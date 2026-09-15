@@ -118,17 +118,6 @@ You can link to an existing SAML app instance. This existing SAML app instance c
 
 During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can't link an existing OIN OIDC app instance during registration or modification.
 
-### Assign users to the requesting app
-
-Assign users to access the AI agent by assigning them to the linked requesting app.
-
-1. Select your AI Agent from the list of **Directory** > **AI Agents**.
-1. Click the **User access** tab.
-1. Under **User access** > **Users and groups assigned to this agent**, click **Application > Assignments**. The **Assignments** tab appears for your linked SSO app.
-1. In the **Assignments** tab, select the users or groups who can access the AI agent.
-    See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups) in the product documentation.
-
-    > **Note:** Your linked SSO app is initially inactive, so if you're navigating from the **Applications** page, it may be listed in the **Inactive** tab.
 
 ### Activate the AI agent
 
@@ -149,6 +138,18 @@ To deactivate the AI agent:
 > **Notes:**
 > * Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
 > * The requesting app that's linked to the AI agent is also deactivated.
+
+### Assign users to the requesting app
+
+Assign users to access the AI agent by assigning them to the linked requesting app.
+
+1. Select your AI Agent from the list of **Directory** > **AI Agents**.
+1. Click the **User access** tab.
+1. Under **User access** > **Users and groups assigned to this agent**, click **Application > Assignments**. The **Assignments** tab appears for your linked SSO app.
+1. In the **Assignments** tab, select the users or groups who can access the AI agent.
+    See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups) in the product documentation.
+
+    > **Note:** Your linked SSO app is initially inactive, so if you're navigating from the **Applications** page, it may be listed in the **Inactive** tab.
 
 ## Configure the resource app
 
@@ -175,8 +176,8 @@ Configure XAA for an existing custom SSO app integration instance in Okta:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your SSO resource app.
-1. In the **Resource Server** tab of your app page, click **Edit** next to **Cross App Access (XAA)** to enable and configure XAA.
-
+1. In the **Machine Assignments** tab of your app page, select the **Callers** tile. The **Callers** page appears for you to specify the access method for callers to your resource app.
+1. Click **Edit** next to **Cross App Access (XAA)** to enable and configure XAA.
     1. Select **Enable** to grant access to the app through XAA.
     [[style="list-style-type:lower-alpha"]]
     1. Specify the following fields:
@@ -194,12 +195,9 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 1. Select the **Resource connections** tab.
 1. Click **Add resource connection**.
 1. From the  **Application** > **Application instance** dropdown, select the XAA-enabled resource app that you configured from [Configure the resource app](#configure-the-resource-app).
-
-    1. Select **Enable** to grant access to the app through XAA.
-    [[style="list-style-type:lower-alpha"]]
     1. Specify the following fields:
-        * **Resource indicator**: Specify the URLs of the protected resources.
-        * **AI agent's client ID registered in this app**: The external client ID of the AI agent registered in the resource app.
+        * **{AI_agent_name} client ID registered in {resource_app_name}**: The external client ID of the AI agent registered in the external resource app configuration.
+        * **Resource identifier**: Specify the resource identifier specific to the resource app.
         * **Scopes**: Specify the scopes the AI agent is allowed to request from the resource app.
 
 1. Click **Add**.
