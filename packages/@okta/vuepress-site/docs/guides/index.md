@@ -189,6 +189,9 @@ guides:
  - oie-upgrade-test-widget-custom
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
+ # App-level upgrade
+ - oie-upgrade-app-pipeline
+ - oie-upgrade-app-branding
  - oie-choose-signin-deploy
  - oie-manage-id-first-signin
  - authenticators-overview
