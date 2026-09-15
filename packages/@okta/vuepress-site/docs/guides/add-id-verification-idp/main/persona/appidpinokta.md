@@ -12,6 +12,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
       * `profile`: This scope allows the IDV vendor to request access to basic user profile information from Okta.
       * `identity_assurance`: This scope requests access to the `verified_claims` object so that the IDV vendor can send and receive information about the level of assurance of the IDV flow.
       * `openid`: This scope is required to make the request an OpenID Connect (OIDC) request.
+    * Use the Inquiry Template ID from the [previous section](#configure-an-idv-template) as the `inquiryTemplateId` value, which begins with `itmpl_`.
 
 1. Send the `POST /api/v1/idps` request.
 
@@ -56,6 +57,9 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "matchAttribute": null
         },
         "maxClockSkew": 0
+    },
+    "properties": {
+        "inquiryTemplateId": "{PersonaInquiryTemplateId}"
     }
 }
 ```
@@ -94,6 +98,9 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
                 "binding": "HTTP-REDIRECT"
             }
         },
+        "issuer": {
+            "url": "{PersonaIssuerUrl}"
+        },
         "credentials": {
             "client": {
                 "client_id": "{PersonaClientId}",
@@ -107,10 +114,6 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "profileMaster": false,
             "groups": null
         },
-        "accountLink": {
-            "filter": null,
-            "action": "AUTO"
-        },
         "subject": {
             "userNameTemplate": {
                 "template": "source.userName"
@@ -122,10 +125,12 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
         "maxClockSkew": 0
     },
     "properties": {
+        "inquiryTemplateId": "{PersonaInquiryTemplateId}",
         "idvMetadata": {
             "vendorDisplayName": "Persona",
             "termsOfUse": "{PersonaTermsOfUseUrl}",
-            "privacyPolicy": "{PersonaPrivacyPolicyUrl}"
+            "privacyPolicy": "{PersonaPrivacyPolicyUrl}",
+            "configUrl": "{PersonaConfigUrl}"
         }
     },
     "type": "integrator-7184229_personaidv_1",

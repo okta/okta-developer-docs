@@ -2,11 +2,13 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 ### Configure an IDV template
 
-Create your <StackSnippet snippet="idp" inline /> app and IDV flows. See [Okta integration overview](https://help.withpersona.com/articles/4w8cDQLPuaPAadq4LzhO40/) to learn about the different IDV templates available and how to configure them.
+Create your <StackSnippet snippet="idp" inline /> app and IDV flows. See [How to set up Persona authentications for Okta Workforce Authentication](https://help.withpersona.com/articles/x7vPGY4te68wp1T0Ce5eFi/#how-to-set-up-persona-authentications-for-okta-workforce-authentication) to learn how to configure them.
+
+Copy the Inquiry Template ID for the IDV flow that you want to use, and paste it into a text editor so that you can use it in a later section.
 
 ### Configure the client ID, client secret, and redirect URI of the <StackSnippet snippet="idp" inline /> app
 
-> **Note:** An API key is no longer required for the <StackSnippet snippet="idp" inline /> integration. Instead, generate a client ID and client secret in your <StackSnippet snippet="idp" inline /> app and use them to authenticate the request to Okta. See [How to set up Persona authentications for Okta Workforce Authentication](https://help.withpersona.com/articles/x7vPGY4te68wp1T0Ce5eFi/#how-to-set-up-persona-authentications-for-okta-workforce-authentication).
+> **Note:** An API key is no longer required for the <StackSnippet snippet="idp" inline /> integration. Instead, generate a client ID and client secret in your <StackSnippet snippet="idp" inline /> app and use them to authenticate the request to Okta.
 
 Set your org URL as the redirect URI in your <StackSnippet snippet="idp" inline /> app, and append `/idp/identity-verification/callback`. The redirect URI is the location where <StackSnippet snippet="idp" inline /> sends the verification response.
 
