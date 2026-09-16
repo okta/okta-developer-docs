@@ -11,6 +11,23 @@ title: Okta Classic Engine API release notes 2026
 
 ## September
 
+### Weekly release 2026.09.1
+<!-- Published on: 2026-09-16T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026-09-1)| September 16, 2026|
+
+#### Bugs fixed in 2026.09.1
+
+* For orgs that make rapid, back-to-back API calls (automated workflows, for example), updating a user's profile (`POST /users/{userId}`) sometimes returned a success response without saving the changes. This occurred when the request was quickly followed by a request to expire the user's password with a temporary password (`POST /users/{userId}/lifecycle/expire_password_with_temp_password`). (OKTA-1259883)
+
+* The app logo wasn't rendered properly for apps created with the Okta Integration Wizard (OIW) when retrieved through the `GET /apps` or `GET /apps/{appId}` API requests. (OKTA-1241189)
+
+#### New IP service categories for enhanced dynamic zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
+
 ### Monthly release 2026.09.0
 <!-- Published on: 2026-09-10T12:00:00Z -->
 

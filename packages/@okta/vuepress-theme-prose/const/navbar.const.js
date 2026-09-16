@@ -602,6 +602,8 @@ export const guides = [
           {
             title: "Configure an Agent Gateway",
             guideName: "ai-configure-agent-gateway",
+            title: "Register AI agents with CIMD",
+            guideName: "ai-agent-cimd-registration",
           },
           {
             title: "Secure third-party AI agents",
@@ -675,6 +677,10 @@ export const guides = [
           {
             title: "Key management",
             guideName: "key-management",
+          },
+          {
+            title: "Register apps with CIMD",
+            guideName: "app-cimd-registration",
           },
           {
             title: "Set up On-Behalf-Of Token Exchange",

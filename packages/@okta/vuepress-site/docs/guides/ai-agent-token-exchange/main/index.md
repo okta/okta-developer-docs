@@ -54,6 +54,8 @@ The following diagram describes the **<StackSnippet snippet="resource-type" inli
 
 During the initial authentication request in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent must obtain an ID token directly. For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access.
 
+> **Note**: Okta also accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. See [Use the CIMD client ID in a token request](/docs/guides/ai-agent-cimd-registration/main/#use-the-cimd-client-id-in-a-token-request) for more detailed information.
+
 <StackSnippet snippet="token-exchange-flow" />
 
 ## Flow specifics
@@ -63,6 +65,8 @@ During the initial authentication request in a [user access configuration](https
 ### Initial authentication
 
 To initiate token exchange, the AI agent (user access configuration) or client (machine access configuration) must first authenticate with the appropriate Okta authorization server and obtain a subject token (either an ID token or an access token). This token must satisfy the access requirements for the AI agent.
+
+> **Note**: Okta also accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. See [Use the CIMD client ID in a token request](/docs/guides/ai-agent-cimd-registration/main/#use-the-cimd-client-id-in-a-token-request) for more detailed information.
 
 #### ID token
 
