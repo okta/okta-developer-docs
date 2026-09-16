@@ -28,7 +28,7 @@ title: Okta Identity Engine API release notes 2026
 
 #### CIMD for AI Agents is BETA
 
-You can now register AI agents with a CIMD so they can identity themselves with a URL instead of a static client ID. See [Register an AI agent](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent), [Update an AI agent](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/updateaiagent), and [Retrieve an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/getaiagent). <!-- AI_AGENT_CIMD_REGISTRATION OKTA-1270231 BETA 2026.09.1 - - >
+You can now register AI agents with a CIMD so they can identify themselves with a URL instead of a static client ID. See [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent), [Update an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/updateaiagent), and [Retrieve an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/getaiagent). <!-- AI_AGENT_CIMD_REGISTRATION OKTA-1270231 BETA 2026.09.1 -->
 
 #### Agent Gateway is BETA is GA in Preview
 
@@ -40,7 +40,8 @@ When you register an MCP server, you can now test your credentials and discover 
 
 #### Token exchange requests now support scopes
 
-Requests with scopes that an AI agent makes to exchange an ID-JAG for an access token are now allowed if the scopes match what is in the ID-JAG. (OKTA-1237979)
+Requests with scopes that an AI agent makes to exchange an ID-JAG for an access token are now allowed if the scopes match what is in the ID-JAG.
+<!--OKTA-1237979 -->
 
 #### CIMD for OIDC apps is GA in Preview
 
