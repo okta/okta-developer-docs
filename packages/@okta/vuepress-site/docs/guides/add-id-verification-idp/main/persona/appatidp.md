@@ -4,8 +4,6 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 Create your <StackSnippet snippet="idp" inline /> app and IDV flows. See [How to set up Persona authentications for Okta Workforce Authentication](https://help.withpersona.com/articles/x7vPGY4te68wp1T0Ce5eFi/#how-to-set-up-persona-authentications-for-okta-workforce-authentication) to learn how to configure them.
 
-Copy the Inquiry Template ID for the IDV flow that you want to use, and paste it into a text editor so that you can use it in a later section.
-
 ### Configure the client ID, client secret, and redirect URI of the <StackSnippet snippet="idp" inline /> app
 
 > **Note:** An API key is no longer required for the <StackSnippet snippet="idp" inline /> integration. Instead, generate a client ID and client secret in your <StackSnippet snippet="idp" inline /> app and use them to authenticate the request to Okta.
