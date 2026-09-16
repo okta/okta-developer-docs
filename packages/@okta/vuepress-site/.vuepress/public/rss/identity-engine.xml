@@ -4,8 +4,17 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.09.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-09-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-09-1</guid>
+      <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#cimd-for-ai-agents-is-beta">CIMD for AI Agents is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#agent-gateway-apis-are-beta">Agent Gateway APIs are Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#mcp-server-discovery-apis-are-beta">MCP server discovery APIs are Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#token-exchange-requests-now-support-scopes">Token exchange requests now support scopes</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#cimd-for-oidc-apps-is-ga-in-preview">CIMD for OIDC apps is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#user-identification-policy-is-ga-in-preview">User identification policy is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-09-1">Bugs fixed in 2026.09.1</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-09-0</link>
