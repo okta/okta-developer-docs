@@ -43,6 +43,10 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
             "profileMaster": false,
             "groups": null
         },
+        "accountLink": {
+            "filter": null,
+            "action": "AUTO"
+        },
         "subject": {
             "userNameTemplate": {
                 "template": "source.userName"
