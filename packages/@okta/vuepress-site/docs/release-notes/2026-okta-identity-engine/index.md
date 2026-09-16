@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2026
 | [Token exchange requests now support scopes](#token-exchange-requests-now-support-scopes) | September 16, 2026 |
 | [CIMD for OIDC apps is GA in Preview](#cimd-for-oidc-apps-is-ga-in-preview) | September 16, 2026 |
 | [User identification policy is GA in Preview](#user-identification-policy-is-ga-in-preview) | August 5, 2026 |
-| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026091)| September 16, 2026|
+| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026-09-1)| September 16, 2026|
 
 #### CIMD for AI Agents is BETA
 
@@ -45,7 +45,7 @@ Requests with scopes that an AI agent makes to exchange an ID-JAG for an access 
 
 #### CIMD for OIDC apps is GA in Preview
 
-You can now register a custom OIDC app integration with a Client ID Metadata Document (CIMD) by setting `cimdClient` and `cimdUrl` on the app's OAuth 2.0 client, instead of manually configuring redirect URIs, grant types, and a client secret. When the app requests a token, Okta reads its configuration from the hosted document. <!-- OKTA-1230419, preview date: Sep 16, 2026 -->
+You can now register a custom OIDC app integration with a Client ID Metadata Document (CIMD) by setting `cimdClient` and `cimdUrl` on the app's OAuth 2.0 client, instead of manually configuring redirect URIs, grant types, and a client secret. When the app requests a token, Okta reads its configuration from the hosted document. See [Register apps with a Client ID Metadata Document (CIMD)](/docs/guides/app-cimd-registration/main/). <!-- OKTA-1230419, preview date: Sep 16, 2026 -->
 
 #### User identification policy is GA in Preview
 

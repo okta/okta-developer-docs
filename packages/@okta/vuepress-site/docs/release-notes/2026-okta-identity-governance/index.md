@@ -19,7 +19,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Stage certification campaigns before launch is EA](#stage-certification-campaigns-before-launch-is-ea) | September 16, 2026 |
-| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026091)|  September 16, 2026 |
+| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026-09-1)|  September 16, 2026 |
 
 #### Stage certification campaigns before launch is EA
 
