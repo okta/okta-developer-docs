@@ -275,16 +275,16 @@ An authenticator group is a named set of authenticators that an authenticator en
 
 > **Note:** In the Admin Console, an authenticator enrollment set is an authenticator group with a required-count, grace period, or promotion setting that's applied to it by an authenticator enrollment policy. On its own, an authenticator group has no enrollment behavior. It becomes part of an enrollment requirement only when an authenticator enrollment policy references it and applies enrollment settings. See [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 
-The general workflow is:
+This is the general workflow for using authenticator groups:
 
-1. Create one or more authenticator groups.
-1. Reference the groups you want to use in an authenticator enrollment policy.
+1. Create one or more authenticator groups. See the [Authenticator Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorGroup/).
+1. Reference the groups you want to use in an authenticator enrollment policy. Create a new policy or update an existing one to reference the authenticator group. See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).
 
 An authenticator enrollment policy uses either authenticator groups or individual authenticators. You can't use both. To use authenticator groups, set the authenticator enrollment policy's `settings.type` property to `AUTHENTICATOR_GROUPS` and configure the authenticators in `settings.authenticatorGroups`.
 
 You manage authenticator groups through the Authenticator Groups API, and each group holds only its list of authenticators. The enrollment requirement is an entry in the policy's `settings.authenticatorGroups` property that names a group and sets a `criteria` entry with a `type` of `authenticatorCount` and a `settings.count` value. The count is how many of the group's authenticators that a user must enroll.
 
-For example, you create a group named "Recovery Methods" that contains the email, phone, and Okta Verify authenticators, and an authenticator enrollment policy that references the group with a `settings.count` of `2`. After the user enrolls two of the authenticators, the third becomes optional for enrollment and the user can finish enrolling.
+For example, you create a group named "Recovery Methods" that contains the email, phone, and Okta Verify authenticators, and an authenticator enrollment policy that references the group with a `settings.count` of `2`. After the user enrolls any two of the authenticators, the third becomes optional for enrollment and the user can finish enrolling.
 
 If you set `settings.count` to `0`, none of the group's authenticators are required and all of them are optional for enrollment. Omitting `criteria` or setting it to an empty array has the same effect.
 
