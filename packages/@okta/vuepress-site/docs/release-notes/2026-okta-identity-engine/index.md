@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [CIMD for AI Agents is Beta](#cimd-for-ai-agents-is-beta) | September 16, 2026|
-| [Agent Gateway API are Beta](#agent-gateway-apis-are-beta) | September 16, 2026|
+| [Agent Gateway APIs are Beta](#agent-gateway-apis-are-beta) | September 16, 2026|
 | [MCP server discovery APIs are Beta](#mcp-server-discovery-apis-are-beta) | September 16, 2026|
 | [Token exchange requests now support scopes](#token-exchange-requests-now-support-scopes) | September 16, 2026 |
 | [CIMD for OIDC apps is GA in Preview](#cimd-for-oidc-apps-is-ga-in-preview) | September 16, 2026 |
