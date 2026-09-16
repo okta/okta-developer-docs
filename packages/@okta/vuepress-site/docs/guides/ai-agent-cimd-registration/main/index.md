@@ -3,6 +3,7 @@ title: Register AI agents with a Client ID Metadata Document (CIMD)
 excerpt: Learn how to register an AI agent's OAuth client using a Client ID Metadata Document (CIMD) URL instead of a static client ID or key.
 layout: Guides
 ---
+<ApiLifecycle access="research" />
 
 Learn how to register an AI agent's OAuth client with a Client ID Metadata Document (CIMD) URL. Use a CIMD URL instead of a static `client_id` or a bring-your-own-key (BYOK) public key.
 

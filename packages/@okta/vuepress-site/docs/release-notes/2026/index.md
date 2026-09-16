@@ -24,10 +24,6 @@ title: Okta Classic Engine API release notes 2026
 
 * The app logo wasn't rendered properly for apps created with the Okta Integration Wizard (OIW) when retrieved through the `GET /apps` or `GET /apps/{appId}` API requests. (OKTA-1241189)
 
-#### New IP service categories for enhanced dynamic zones
-
-The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
-
 ### Monthly release 2026.09.0
 <!-- Published on: 2026-09-10T12:00:00Z -->
 

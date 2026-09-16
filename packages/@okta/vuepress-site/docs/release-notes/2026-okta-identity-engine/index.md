@@ -18,15 +18,15 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [CIMD for AI Agents is BETA](#cimd-for-ai-agents-is-beta) | September 16, 2026|
+| [CIMD for AI Agents is beta](#cimd-for-ai-agents-is-beta) | September 16, 2026|
 | [Agent Gateway is BETA is GA in Preview](#agent-gateway-is-beta-is-ga-in-preview) | September 16, 2026|
-| [MCP server discovery APIs are BETA](#mcp-server-discovery-apis-are-beta) | September 16, 2026|
+| [MCP server discovery APIs are beta](#mcp-server-discovery-apis-are-beta) | September 16, 2026|
 | [Token exchange requests now support scopes](#token-exchange-requests-now-support-scopes) | September 16, 2026 |
 | [CIMD for OIDC apps is GA in Preview](#cimd-for-oidc-apps-is-ga-in-preview) | September 16, 2026 |
 | [User identification policy is GA in Preview](#user-identification-policy-is-ga-in-preview) | August 5, 2026 |
 | [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026-09-1)| September 16, 2026|
 
-#### CIMD for AI Agents is BETA
+#### CIMD for AI Agents is beta
 
 You can now register AI agents with a CIMD so they can identify themselves with a URL instead of a static client ID. See [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent), [Update an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/updateaiagent), and [Retrieve an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/getaiagent). <!-- AI_AGENT_CIMD_REGISTRATION OKTA-1270231 BETA 2026.09.1 -->
 
@@ -34,7 +34,7 @@ You can now register AI agents with a CIMD so they can identify themselves with 
 
 Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple remote MCP servers behind a single Okta-secured endpoint, enforces identity and policy on every tool call, and produces a unified audit trail. Use the [Virtual MCP Servers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource ) as a read access tool for virtual MCP servers registered as resource servers. <!-- SECURE_AI_VIRTUAL_MCP_SERVERS https://oktainc.atlassian.net/browse/OKTA-1254085 BETA 2026.09.1 -->
 
-#### MCP server discovery APIs are BETA
+#### MCP server discovery APIs are beta
 
 When you register an MCP server, you can now test your credentials and discover its available tools. New APIs start discovery on a third-party MCP server and let you list or retrieve the resulting toolsets, metadata, and tools. This verifies your connections and shows you the server's capabilities. See [MCP server discovery APIs](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/startmcpserverdiscovery). <!-- SECURE_AI_AGENTS_MCP_TOOL_DISCOVERY OKTA-1269954 BETA release 2026.09.1 -->
 
