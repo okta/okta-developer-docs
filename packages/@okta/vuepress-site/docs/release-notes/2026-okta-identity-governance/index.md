@@ -23,7 +23,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 #### Stage certification campaigns before launch is EA
 
-Staging a campaign lets you preview target users, resources, and reviewer assignments in advance to ensure accurate scope, fix configuration errors, and guarantee that requests reach the correct reviewers from day one.
+Staging a campaign lets you preview target users, resources, and reviewer assignments in advance to ensure accurate scope, fix configuration errors, and guarantee that requests reach the correct reviewers from day one. See [Generate a staged campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/generatecampaignstaging).
 <!-- OKTA-1268371 IGA_ACCESS_CERT_CAMPAIGN_STAGING, Preview: Sept 16, 2026 -->
 
 #### Bugs fixed in 2026.09.1
