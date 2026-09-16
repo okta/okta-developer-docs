@@ -68,10 +68,11 @@ Policies allow you to change the registration logic directly in the Admin Consol
 * Authenticator enrollment policy
 * Okta account management policy
 
-There are two other policies that don't have the same direct impact on the SSR flow but still influence the overall registration experience:
+There are a few other policies that don't have the same direct impact on the SSR flow but still influence the overall registration experience:
 
 * [Password policy](/docs/concepts/policies/#password-policies): This policy determines the complexity requirements for passwords. If you require users to create a password during registration, then the password policy settings determine the requirements for that password. You can also control how users recover their passwords with the password policy, which can impact users immediately after they register if they forget their password.
 * [App sign-in policy](/docs/concepts/policies/#app-sign-in-policies): This policy controls the conditions that determine how and when users can sign in to your app. You can use this to block sign-ins from certain locations or devices, which can impact users immediately after they register.
+* [Identity Threat Protection self-service registration policy](/docs/concepts/policies/#identity-threat-protection-policies): This policy evaluates end-user sign-up attempts to help prevent fraudulent and unauthorized account creation. Use it to block disposable email domains and restrict registration attempts from specific network zones. <ApiLifecycle access="ea" />
 
 #### User profile policy
 
