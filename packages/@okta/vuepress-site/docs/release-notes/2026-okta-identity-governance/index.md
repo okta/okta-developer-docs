@@ -39,7 +39,7 @@ Staging a campaign lets you preview target users, resources, and reviewer assign
 | [Configure access to the resource catalog is GA in Preview](#configure-access-to-the-resource-catalog-is-ga-in-preview) | September 10, 2026 |
 | [Increased Access Request limits](#increased-access-request-limits) | September 10, 2026 |
 | [API support for Access Certification campaign decisions is GA in Production](#api-support-for-access-certification-campaign-decisions-is-ga-in-production) | June 24, 2026 |
-| [Certify AI agent resource connections is GA in Production](#certify-ai-agent-resource-connections-is-ga-in-production) | September 10, 2026 |
+| [Certify AI agent resource connections is GA in Production](#certify-ai-agent-resource-connections-is-ga-in-production) | July 1, 2026 |
 | [Bug fixed in 2026.09.0](#bug-fixed-in-2026-09-0)| September 10, 2026 |
 
 #### Cancel request APIs are Beta
