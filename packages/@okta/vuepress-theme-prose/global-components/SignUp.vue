@@ -1,8 +1,10 @@
 <template>
-  <section
-    v-if="!isRegionLoading"
-    class="signup"
-  >
+  <div>
+    <SignUpLegacy v-if="!useNewSignup" />
+    <section
+      v-else-if="!isRegionLoading"
+      class="signup"
+    >
     <div class="signup__wrapper">
       <div
         v-if="isRegionLocked"
@@ -62,10 +64,12 @@
         />
       </div>
     </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
+import { USE_NEW_SIGNUP } from "../util/signupKillSwitch";
 import VueRecaptcha from "vue-recaptcha";
 import { SignUpValidation } from "../util/signupValidation.service";
 import { Api } from "../util/api.service";
@@ -91,6 +95,7 @@ const THEME_MODE_KEY = 'is_dark_mode';
 export default {
   components: {
     VueRecaptcha,
+    SignUpLegacy: () => import("./SignUpLegacy"),
     SignUpHeroSection: () => import("../components/signup/SignUpHeroSection"),
     SignUpRegistrationForm: () => import("../components/signup/SignUpRegistrationForm"),
     SignUpBottomCard: () => import("../components/signup/SignUpBottomCard")
@@ -122,6 +127,9 @@ export default {
     };
   },
   computed: {
+    useNewSignup() {
+      return USE_NEW_SIGNUP;
+    },
     states: {
       get() {
         return this.state;
@@ -146,7 +154,7 @@ export default {
       return countriesList;
     },
     validationService() {
-      return new SignUpValidation(this.form);
+      return new SignUpValidation(this.form, this.$site.themeConfig.uris.baseUri);
     },
     apiService() {
       return new Api(this.$site.themeConfig.uris.baseUri);

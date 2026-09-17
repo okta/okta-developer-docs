@@ -446,8 +446,8 @@ export default {
       ],
       builderTypeOptions: [
         {
-          label: "Independent Software Vendor (ISV)",
-          value: "Independent Software Vendor",
+          label: "Independent Software Vendors (ISV)",
+          value: "Independent Software Vendors",
           tooltip: "Build and publish integrations for your product on the Okta Integration Network (OIN), or enhance existing integrations with additional capabilities.",
         },
         {
