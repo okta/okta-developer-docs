@@ -2,45 +2,101 @@
 title: Manage app branding during the Identity Engine upgrade
 meta:
   - name: description
-    content: Understand how brand and custom domain APIs behave for apps that remain on the Classic Engine pipeline during an app-level Identity Engine upgrade.
+    content: Keep your customized Classic Engine sign-in page working during an app-level Identity Engine upgrade, and manage the classic brand that Okta pairs with your custom domain.
 ---
-
-<!-- PLACEHOLDER -- not ready to publish. Working notes: see "OIE-Classic interop notes" Google Doc, "Doc writing notes" tab. -->
 
 <ApiLifecycle access="ea" />
 
-> **Note:** This guide covers only the public API changes that support per-app branding during an app-level upgrade. For the admin console side (branding UX, previewing customizations), see the product documentation.
+Learn how Okta keeps your customized Classic Engine sign-in page working during an app-level upgrade, and how to find and manage the classic brand paired with your custom domain.
 
-## About classic brands
+> **Note:** This guide covers the public API changes that support per-app branding during an app-level upgrade. For the Admin Console experience, including branding UX and previewing customizations, see the product documentation.
 
-When an org upgrades to Identity Engine, each existing Classic Engine brand becomes a **classic brand**: a system-managed brand that continues to serve apps still running on the Classic Engine pipeline. Okta also creates a cloned Identity Engine brand for the same custom domain. Classic brands have a system-managed lifecycle. You can't create or delete one through the API. Okta removes classic brands automatically when the app-level upgrade is complete for that domain.
+---
 
-## List brands, including classic brands
+#### Learning outcomes
 
-`GET /api/v1/brands` and `GET /api/v1/brands/{brandId}` return an `isClassic` property on each brand:
+- Understand what a classic brand is and why Okta creates one.
+- Find the classic brand paired with your custom domain.
+- Customize a classic brand, including keeping your existing Sign-In Widget version.
+- Change which classic brand a domain uses.
+- Recognize the known limitations of branding APIs for classic brands.
 
-```json
-{
-  "id": "bndul3lAFBFSfcI2HKWC",
-  "name": "My Classic Brand",
-  "isDefault": false,
-  "isClassic": true
-}
-```
+#### What you need
 
-`isClassic` is `true` when the brand is a classic brand, and `false` for a standard (Identity Engine) brand. The property is read-only:
+- An Okta org enabled for an app-level upgrade
+- An access token with the `okta.brands.read`, `okta.brands.manage`, `okta.domains.read`, and `okta.domains.manage` scopes
+- At least one app running on the Classic Engine pipeline
 
-* `POST /api/v1/brands` and `PUT /api/v1/brands/{brandId}` return `400` if the request includes `isClassic`.
-* `DELETE /api/v1/brands/{brandId}` returns `409` for a classic brand.
+---
 
-## Find the classic brand paired with a domain
+## Overview
 
-`GET /api/v1/brands/{brandId}/domains`, `GET /api/v1/domains`, and `GET /api/v1/domains/{domainId}` return both brand associations for a custom domain:
+Okta ties a [brand](/docs/concepts/brands/) to a custom domain: one brand for each domain. Normally, serving two different sign-in experiences means provisioning a second custom domain and certificate.
+
+When your org upgrades to Identity Engine, your apps can stay on the Classic Engine pipeline and move over one at a time. That means a single domain has to serve both experiences: your existing sign-in page for apps that are still on Classic Engine, and a page that Identity Engine can render for apps that you've moved. So Okta keeps your existing brand as a classic brand, creates an Identity Engine copy of it, and pairs both with the same custom domain. Okta then serves whichever brand matches the app that the user is signing in to.
+
+You get two things from this. You don't need to rebuild your customized sign-in page before you upgrade, and you don't need a second domain to hold the Identity Engine version. Your Classic Engine customizations, including a Sign-In Widget version that Identity Engine wouldn't normally allow, keep running untouched until you move each app.
+
+This guide explains how Okta pairs the two brands, then walks through finding your classic brand, customizing it, and changing which brand a domain uses.
+
+## Quick reference
+
+Use the following table to see what an app-level upgrade changes for branding and what you need to do about it.
+
+| Area | What changes | Action required | Learn more |
+| --- | --- | --- | --- |
+| Brands | Before the upgrade, each custom domain had one brand. Afterward, your existing brand becomes a classic brand and Okta adds an Identity Engine copy, so the domain has two. | None. Okta creates the pairing during the upgrade. | [Classic brands](#classic-brands) |
+| Domains | A custom domain now carries two brand references: `brandId` for the Identity Engine brand, and `classicBrandId` for the classic brand. | Read `classicBrandId` to find the brand that serves your Classic Engine pipeline apps. | [Brand and domain pairing](#brand-and-domain-pairing) |
+| Brand lifecycle | Okta owns the lifecycle of a classic brand. You can read one and change its customizations, but you can't create or delete one. | None, unless you need to repair a pairing. | [Change which classic brand a domain uses](#change-which-classic-brand-a-domain-uses) |
+| Customizations | The restrictions that Identity Engine applies to a brand don't apply to a classic brand, including the Sign-In Widget version floor. | Keep customizing the classic brand while your apps remain on the Classic Engine pipeline. | [Customize a classic brand](#customize-a-classic-brand) |
+
+## Key concepts for app branding during an upgrade
+
+See the following sections to understand how Okta represents your Classic Engine branding after the upgrade.
+
+### Classic brands
+
+A classic brand holds the Classic Engine customizations that your org had before the upgrade. It serves apps that are still on the [Classic Engine pipeline](/docs/guides/oie-upgrade-app-pipeline/). The Identity Engine copy that Okta creates alongside it, sometimes called the cloned brand, serves apps that you've moved to the Identity Engine pipeline.
+
+Okta creates and removes classic brands as part of the upgrade, so the API doesn't let you manage that lifecycle yourself:
+
+* `POST /api/v1/brands` and `PUT /api/v1/brands/{brandId}` reject a request that includes `isClassic`, and return a `400` error. Only Okta can designate a brand as classic.
+* `DELETE /api/v1/brands/{brandId}` fails with a `409` error for a classic brand. Deleting one would leave your Classic Engine pipeline apps without the sign-in page that they depend on.
+
+You can still read a classic brand and change its customizations. Only its existence and its designation are system-managed.
+
+### Brand and domain pairing
+
+A custom domain normally references one brand through `brandId`. During an app-level upgrade, Okta adds a second reference, `classicBrandId`, so that one domain can resolve to either brand:
 
 | Property | Description |
 | --- | --- |
-| `brandId` | The standard (Identity Engine) brand associated with the domain. |
-| `classicBrandId` | The classic brand associated with the same domain, if one exists. |
+| `brandId` | The standard Identity Engine brand associated with the domain. Okta serves this brand to apps on the Identity Engine pipeline. |
+| `classicBrandId` | The classic brand associated with the same domain. Okta serves this brand to apps on the Classic Engine pipeline. |
+
+Okta sets both references during the upgrade. At sign-in, it checks the app's pipeline and resolves the domain to the matching brand, so you don't map brands to apps yourself.
+
+> **Note:** If you query `GET /api/v1/brands/{brandId}/domains` with a classic brand's ID, that ID appears in the response as `classicBrandId`, not `brandId`. `brandId` always identifies the standard brand for the domain.
+
+### Sign-In Widget versions for a classic brand
+
+Identity Engine requires [Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) version 5.11 or later, and an Identity Engine org normally can't set an earlier version on `GET /api/v1/brands/{brandId}/pages/sign-in/widget-versions` or on the sign-in page `PUT` endpoints.
+
+That requirement doesn't apply to a classic brand. You can keep the pre-5.11 or earlier-generation version that your Classic Engine customizations were built against, which is what lets those customizations keep working after your org upgrades. Standard brands keep the 5.11 or later requirement.
+
+## Find your classic brand
+
+Two properties tell you what you need. `classicBrandId` on a domain identifies the classic brand that serves that domain, and `isClassic` on a brand confirms what a brand is.
+
+To find the classic brand for a domain, read the domain:
+
+```bash
+curl -X GET "https://${yourOktaDomain}/api/v1/domains/${domainId}" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer ${accessToken}"
+```
+
+The response carries both brand references:
 
 ```json
 {
@@ -51,20 +107,32 @@ When an org upgrades to Identity Engine, each existing Classic Engine brand beco
 }
 ```
 
-> **Note:** If you query `GET /api/v1/brands/{brandId}/domains` using a classic brand's ID, that ID appears in the response's `classicBrandId` property, not `brandId`. `brandId` always identifies the standard brand for the domain.
+`GET /api/v1/domains` returns the same references for every custom domain in your org.
 
-### Update the classic brand association on a domain
+To confirm which of your brands are classic brands, list them and check `isClassic`:
 
-`classicBrandId` is a writable property on `POST /api/v1/domains` and `PUT /api/v1/domains/{domainId}`, with these rules:
+```bash
+curl -X GET "https://${yourOktaDomain}/api/v1/brands" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer ${accessToken}"
+```
 
-* `brandId` must reference a standard brand. A classic brand ID in `brandId` returns `400`.
-* `classicBrandId` must reference a classic brand. A standard brand ID in `classicBrandId` returns `400`.
-* `classicBrandId` can only be set on a domain that already has a classic brand association (assigned automatically during the org upgrade). You can't add a classic brand association to a newly created domain, or to a domain that never had one.
-* Once set, `classicBrandId` can be changed to a different classic brand, but can't be removed.
+```json
+[
+  {
+    "id": "bndul3lAFBFSfcI2HKWC",
+    "name": "My Classic Brand",
+    "isDefault": false,
+    "isClassic": true
+  }
+]
+```
 
-## Customize the sign-in and error pages for a classic brand
+`isClassic` is `true` for a classic brand and `false` for a standard Identity Engine brand. `GET /api/v1/brands/{brandId}` returns the same property for a single brand.
 
-The existing theme and sign-in/error page endpoints work for classic brands without a new request or response shape:
+## Customize a classic brand
+
+Use the existing theme and page endpoints to keep maintaining your Classic Engine sign-in experience while apps remain on that pipeline. They work for a classic brand with no change to the request or response shape:
 
 * `GET`/`PUT /api/v1/brands/{brandId}/themes/{themeId}`
 * `GET`/`PUT /api/v1/brands/{brandId}/pages/sign-in/preview`
@@ -72,23 +140,34 @@ The existing theme and sign-in/error page endpoints work for classic brands with
 * `GET`/`PUT /api/v1/brands/{brandId}/pages/error/preview`
 * `GET`/`PUT /api/v1/brands/{brandId}/pages/error/customized`
 
-## Sign-In Widget version requirements for a classic brand
+One [widget customization](/docs/guides/oie-upgrade-sign-in-widget-styling/) property returns for a classic brand. `classicFooterHelpTitle`, in `SignInPageWidgetCustomizations`, is available for reading and writing, where an Identity Engine org otherwise no longer exposes it.
 
-Identity Engine orgs normally can't set a Sign-In Widget version earlier than 5.11 on `GET /api/v1/brands/{brandId}/pages/sign-in/widget-versions` or the sign-in page `PUT` endpoints. For a classic brand, that check doesn't apply, so you can set a pre-5.11 or earlier-generation widget version to match the app's Classic Engine pipeline. Standard brands keep the 5.11+ requirement.
+## Change which classic brand a domain uses
 
-## classicFooterHelpTitle for a classic brand
+Okta pairs your domain with the right classic brand during the upgrade, so most orgs never need to change it. Change it when a pairing is wrong, for example if a domain resolves to a classic brand that holds the wrong customizations.
 
-`classicFooterHelpTitle` (in `SignInPageWidgetCustomizations`) is available again, for reading and writing, for a classic brand. Identity Engine orgs otherwise no longer expose this field.
+`classicBrandId` is writable on `POST /api/v1/domains` and `PUT /api/v1/domains/{domainId}`, with these rules:
+
+* `brandId` must reference a standard brand. A classic brand ID in `brandId` is rejected with a `400` error.
+* `classicBrandId` must reference a classic brand. A standard brand ID in `classicBrandId` is rejected with a `400` error.
+* You can only set `classicBrandId` on a domain that already has a classic brand association, which Okta assigns during the org upgrade. You can't add one to a newly created domain, or to a domain that never had one.
+* You can reassign `classicBrandId` to a different classic brand, but you can't remove the pairing. A Classic Engine pipeline app on that domain needs a classic brand to render its sign-in page.
 
 ## Known limitations
 
-* If an email is sent without app context, Okta falls back to the pipeline of the default app in the cloned Identity Engine brand tied to the custom domain.
-* Admins can preview sign-in page customizations for the cloned Identity Engine brand at any time. For a classic brand, that same preview link can break, because it attempts to render the customization on the Identity Engine pipeline, which the app's Sign-In Widget version doesn't support.
-* If the cloned Identity Engine brand for a custom domain hasn't been validated yet (for example, right after the org upgrade), Okta falls back to the default Okta domain brand for apps running on the Identity Engine pipeline, so the sign-in page doesn't break. This fallback stops once an admin publishes a sign-in page customization for that domain's Identity Engine brand.
+The following limitations apply while your domain serves both a classic brand and an Identity Engine brand.
+
+* When Okta sends an email that has no app context, it falls back to the pipeline of the default app in the Identity Engine brand tied to your custom domain, and brands the email accordingly.
+* The sign-in page preview link can break for a classic brand. Previewing customizations works as usual for the Identity Engine brand. For a classic brand, the preview attempts to render the page on the Identity Engine pipeline, which the brand's Sign-In Widget version doesn't support.
+* If an admin hasn't validated the Identity Engine brand for a custom domain yet, for example right after the org upgrade, Okta serves the default Okta domain brand to apps on the Identity Engine pipeline so that the sign-in page doesn't break. This fallback stops after an admin publishes a sign-in page customization for that domain's Identity Engine brand.
 
 ## See also
 
 * [Switch an app to the Identity Engine pipeline](/docs/guides/oie-upgrade-app-pipeline/)
+* [Prepare to upgrade to Okta Identity Engine](/docs/journeys/OCI-prepare-upgrade-oie/)
+* [Replace Classic Engine auth flows with Identity Engine](/docs/journeys/OCI-replace-ce-auth-flows/)
 * [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/)
 * [Customize domain and email address](/docs/guides/custom-url-domain/)
 * [Customize email notifications](/docs/guides/custom-email/)
+* [Brands API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/)
+* [Custom Domains API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/)
