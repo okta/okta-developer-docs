@@ -1098,6 +1098,19 @@ export const guides = [
                 guideName: "oie-upgrade-sessions-api",
               },
             ],
+          },
+          {
+            title: "App-level upgrade",
+            subLinks: [
+              {
+                title: "Switch an app to the Identity Engine pipeline",
+                guideName: "oie-upgrade-app-pipeline",
+              },
+              {
+                title: "Manage app branding during the Identity Engine upgrade",
+                guideName: "oie-upgrade-app-branding",
+              },
+            ],
           }
         ]
       },
