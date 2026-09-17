@@ -5,65 +5,65 @@
       v-else-if="!isRegionLoading"
       class="signup"
     >
-    <div class="signup__wrapper">
-      <div
-        v-if="isRegionLocked"
-        class="signup__locked"
-      >
-        <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
-      </div>
-      <div
-        v-else
-        class="signup__main"
-      >
-        <h1 class="signup__mobile-title">
-          Start building your integration
-        </h1>
-        <div class="signup__hero-col">
-          <SignUpHeroSection :theme="theme" />
+      <div class="signup__wrapper">
+        <div
+          v-if="isRegionLocked"
+          class="signup__locked"
+        >
+          <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
         </div>
-        <div class="signup__form-col">
-          <SignUpRegistrationForm
-            :form="form"
-            :validation-service="validationService"
-            :is-pending="isPending"
-            :error="error"
-            :captcha-site-key="captchaSiteKey"
-            :theme="theme"
-            :get-countries="getCountries"
-            :states="states"
-            :display-agree="displayAgree"
-            @submit-form="handleSubmitForm"
-            @country-change="onCountryChange"
-            @captcha-verified="onCaptchaVerified"
-            @captcha-expired="onCaptchaExpired"
+        <div
+          v-else
+          class="signup__main"
+        >
+          <h1 class="signup__mobile-title">
+            Start building your integration
+          </h1>
+          <div class="signup__hero-col">
+            <SignUpHeroSection :theme="theme" />
+          </div>
+          <div class="signup__form-col">
+            <SignUpRegistrationForm
+              :form="form"
+              :validation-service="validationService"
+              :is-pending="isPending"
+              :error="error"
+              :captcha-site-key="captchaSiteKey"
+              :theme="theme"
+              :get-countries="getCountries"
+              :states="states"
+              :display-agree="displayAgree"
+              @submit-form="handleSubmitForm"
+              @country-change="onCountryChange"
+              @captcha-verified="onCaptchaVerified"
+              @captcha-expired="onCaptchaExpired"
+            />
+          </div>
+        </div>
+        <div class="signup__form-bottom-cards-divider" />
+        <div class="signup__bottom-cards">
+          <SignUpBottomCard
+            variant="okta"
+            logo-src="/img/signup/okta-logo-bottom-card.svg"
+            logo-alt="Okta"
+            screenshot-src="/img/signup/bottom-card-1.png"
+            title="Internal teams and partners"
+            description="Get a Workforce or Customer Identity Cloud free trial to manage secure, frictionless access for your teams"
+            cta-text="Start a 30-day free trial"
+            cta-link="https://okta.com/free-trial/workforce-identity"
+          />
+          <SignUpBottomCard
+            variant="auth0"
+            logo-src="/img/signup/auth0-logo-bottom-card.png"
+            logo-alt="Auth0"
+            screenshot-src="/img/signup/bottom-card-2.png"
+            title="Customers and apps"
+            description="Secure and scale intuitive user experiences for AI agents, users, and customer-facing apps, ensuring security from end to end."
+            cta-text="Try Auth0 Platform"
+            cta-link="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
           />
         </div>
       </div>
-      <div class="signup__form-bottom-cards-divider" />
-      <div class="signup__bottom-cards">
-        <SignUpBottomCard
-          variant="okta"
-          logo-src="/img/signup/okta-logo-bottom-card.svg"
-          logo-alt="Okta"
-          screenshot-src="/img/signup/bottom-card-1.png"
-          title="Internal teams and partners"
-          description="Get a Workforce or Customer Identity Cloud free trial to manage secure, frictionless access for your teams"
-          cta-text="Start a 30-day free trial"
-          cta-link="https://okta.com/free-trial/workforce-identity"
-        />
-        <SignUpBottomCard
-          variant="auth0"
-          logo-src="/img/signup/auth0-logo-bottom-card.png"
-          logo-alt="Auth0"
-          screenshot-src="/img/signup/bottom-card-2.png"
-          title="Customers and apps"
-          description="Secure and scale intuitive user experiences for AI agents, users, and customer-facing apps, ensuring security from end to end."
-          cta-text="Try Auth0 Platform"
-          cta-link="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
-        />
-      </div>
-    </div>
     </section>
   </div>
 </template>
