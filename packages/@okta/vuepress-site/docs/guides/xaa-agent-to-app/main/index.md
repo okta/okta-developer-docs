@@ -116,8 +116,7 @@ This option links the AI agent to an existing app instance in your org. Users ca
 
 You can link to an existing SAML app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Classic experience > Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
 
-During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can't link an existing OIN OIDC app instance during registration or modification.
-
+During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can link an existing OIN OIDC app instance during registration or modification.
 
 ### Activate the AI agent
 
@@ -206,7 +205,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 ## Migration from Okta for AI Agent delegation link
 
-If your org is subscribed to Okta for AI Agents, the **Delegations** tab has been renamed **User access** and **Machine access** on the AI agent page. The **User access** tab contains configuration on the users that can access the AI agent, and the **Machine access** tab contains configuration on the AI agent's non-human access.
+If your org is subscribed to Okta for AI Agents and you configured a delegated app for your AI agent prior to release 2026.08.2, the **Delegations** tab has been renamed **User access** and **Machine access** on the AI agent page. The **User access** tab contains configuration on the users that can access the AI agent, and the **Machine access** tab contains configuration on the AI agent's non-human access.
 
 In Okta for AI Agent orgs, when you delegate an AI agent to an SSO app, it can only act on a user's behalf if the user is signed in to the app. Previously, you can create multiple delegation links for an AI agent under the **Delegations** tab. However, with the new **User access** configuration, you can only allow users to sign in to one SSO app for an AI agent. You can still have multiple non-user delegation links, which now appear in the **Machine access** tab.
 
