@@ -20,6 +20,10 @@ export const concepts = [
         path: "/docs/concepts/xaa/",
       },
       {
+        title: "Okta Agent Gateway",
+        path: "/docs/concepts/agent-gateway/",
+      },
+      {
         title: "Brands",
         path: "/docs/concepts/brands/",
       },
@@ -592,6 +596,16 @@ export const guides = [
             guideName: "ai-agent-third-party-token-exchange",
           },
           {
+            title: "Configure an AI agent for Agent Gateway",
+            guideName: "ai-configure-agent-for-gateway",
+          },
+          {
+            title: "Configure an Agent Gateway",
+            guideName: "ai-configure-agent-gateway",
+            title: "Register AI agents with CIMD",
+            guideName: "ai-agent-cimd-registration",
+          },
+          {
             title: "Secure third-party AI agents",
             path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
@@ -663,6 +677,10 @@ export const guides = [
           {
             title: "Key management",
             guideName: "key-management",
+          },
+          {
+            title: "Register apps with CIMD",
+            guideName: "app-cimd-registration",
           },
           {
             title: "Set up On-Behalf-Of Token Exchange",

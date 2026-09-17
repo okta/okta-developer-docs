@@ -13,6 +13,23 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## September
 
+### Weekly release 2026.09.1
+<!-- Published on: 2026-09-16T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Stage certification campaigns before launch is EA](#stage-certification-campaigns-before-launch-is-ea) | September 16, 2026 |
+| [Bug fixed in 2026.09.1](#bug-fixed-in-2026-09-1)|  September 16, 2026 |
+
+#### Stage certification campaigns before launch is EA
+
+Staging a campaign lets you preview target users, resources, and reviewer assignments in advance to ensure accurate scope, fix configuration errors, and guarantee that requests reach the correct reviewers from day one. See [Generate a staged campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/generatecampaignstaging).
+<!-- OKTA-1268371 IGA_ACCESS_CERT_CAMPAIGN_STAGING, Preview: Sept 16, 2026 -->
+
+#### Bug fixed in 2026.09.1
+
+Admins could set campaign inactivity periods to more than 90 days, which wasn’t aligned with the System Log retention period. (OKTA-1254593)
+
 ### Monthly release 2026.09.0
 <!-- Published on: 2026-09-10T12:00:00Z -->
 
@@ -22,7 +39,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Configure access to the resource catalog is GA in Preview](#configure-access-to-the-resource-catalog-is-ga-in-preview) | September 10, 2026 |
 | [Increased Access Request limits](#increased-access-request-limits) | September 10, 2026 |
 | [API support for Access Certification campaign decisions is GA in Production](#api-support-for-access-certification-campaign-decisions-is-ga-in-production) | June 24, 2026 |
-| [Certify AI agent resource connections is GA in Production](#certify-ai-agent-resource-connections-is-ga-in-production) | September 10, 2026 |
+| [Certify AI agent resource connections is GA in Production](#certify-ai-agent-resource-connections-is-ga-in-production) | July 1, 2026 |
 | [Bug fixed in 2026.09.0](#bug-fixed-in-2026-09-0)| September 10, 2026 |
 
 #### Cancel request APIs are Beta

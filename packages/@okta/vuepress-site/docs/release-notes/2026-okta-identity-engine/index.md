@@ -13,6 +13,56 @@ title: Okta Identity Engine API release notes 2026
 
 ## September
 
+### Weekly release 2026.09.1
+<!-- Published on: 2026-09-16T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [CIMD for AI Agents is Beta](#cimd-for-ai-agents-is-beta) | September 16, 2026|
+| [Agent Gateway APIs are Beta](#agent-gateway-apis-are-beta) | September 16, 2026|
+| [MCP server discovery APIs are Beta](#mcp-server-discovery-apis-are-beta) | September 16, 2026|
+| [Token exchange requests now support scopes](#token-exchange-requests-now-support-scopes) | September 16, 2026 |
+| [CIMD for OIDC apps is GA in Preview](#cimd-for-oidc-apps-is-ga-in-preview) | September 16, 2026 |
+| [User identification policy is GA in Preview](#user-identification-policy-is-ga-in-preview) | August 5, 2026 |
+| [Bugs fixed in 2026.09.1](#bugs-fixed-in-2026-09-1)| September 16, 2026|
+
+#### CIMD for AI Agents is Beta
+
+You can now register AI agents with a CIMD so they can identify themselves with a URL instead of a static client ID. See [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent), [Update an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/updateaiagent), and [Retrieve an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/getaiagent). See [Register AI agents with a Client ID Metadata Document (CIMD)](/docs/guides/ai-agent-cimd-registration/main/).<!-- AI_AGENT_CIMD_REGISTRATION OKTA-1270231 BETA 2026.09.1 -->
+
+#### Agent Gateway APIs are Beta
+
+Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple remote MCP servers behind a single Okta-secured endpoint, enforces identity and policy on every tool call, and produces a unified audit trail. Use the [Virtual MCP Servers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/virtualmcpserverresource ) as a read access tool for virtual MCP servers registered as resource servers. <!-- SECURE_AI_VIRTUAL_MCP_SERVERS https://oktainc.atlassian.net/browse/OKTA-1254085 BETA 2026.09.1 -->
+
+#### MCP server discovery APIs are Beta
+
+When you register an MCP server, you can now test your credentials and discover its available tools. New APIs start discovery on a third-party MCP server and let you list or retrieve the resulting toolsets, metadata, and tools. This verifies your connections and shows you the server's capabilities. See [MCP server discovery APIs](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/startmcpserverdiscovery). <!-- SECURE_AI_AGENTS_MCP_TOOL_DISCOVERY OKTA-1269954 BETA release 2026.09.1 -->
+
+#### Token exchange requests now support scopes
+
+Requests with scopes that an AI agent makes to exchange an ID-JAG for an access token are now allowed if the scopes match what is in the ID-JAG.
+<!--OKTA-1237979 -->
+
+#### CIMD for OIDC apps is GA in Preview
+
+You can now register a custom OIDC app integration with a Client ID Metadata Document (CIMD) by setting `cimdClient` and `cimdUrl` on the app's OAuth 2.0 client, instead of manually configuring redirect URIs, grant types, and a client secret. When the app requests a token, Okta reads its configuration from the hosted document. See [Register apps with a Client ID Metadata Document (CIMD)](/docs/guides/app-cimd-registration/main/). <!-- OKTA-1230419, preview date: Sep 16, 2026 -->
+
+#### User identification policy is GA in Preview
+
+The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to control whether the **Sign in with Okta FastPass** button appears on an app's sign-in page. This replaces a single org-wide setting with per-app control.
+
+Okta automatically creates and maintains a user identification policy for each app sign-in policy. You manage only the policy's rule. Use the `userIdentification.settings.securityMethods.fastpass.showSignInButton` rule action (`ALWAYS` or `NEVER`) to control the button.
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+#### Bugs fixed in 2026.09.1
+
+* For orgs that make rapid, back-to-back API calls (automated workflows, for example), updating a user's profile (`POST /users/{userId}`) sometimes returned a success response without saving the changes. This occurred when the request was quickly followed by a request to expire the user's password with a temporary password (`POST /users/{userId}/lifecycle/expire_password_with_temp_password`). (OKTA-1259883)
+
+* The app logo wasn't rendered properly for apps created with the Okta Integration Wizard (OIW) when retrieved through the `GET /apps` or `GET /apps/{appId}` API requests. (OKTA-1241189)
+
+* You could create up to five custom SMTP servers using the API (`POST /email-servers`), even though only one was supported. (OKTA-1220744)
+
 ### Monthly release 2026.09.0
 <!-- Published on: 2026-09-10T12:00:00Z -->
 
