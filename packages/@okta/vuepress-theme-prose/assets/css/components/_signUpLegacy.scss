@@ -1,14 +1,14 @@
+/* stylelint-disable order/order, max-nesting-depth */
 .signup--legacy {
-    padding: 88px 0 86px;
-  
-    background: var(--c-lightgray-450);
-    @include media(">tablet") {
-      padding: 106px 0 102px;
-    }
-    @include media(">signup") {
-      padding: 128px 0 133px;
-    }
+  padding: 88px 0 86px;
 
+  background: var(--c-lightgray-450);
+  @include media(">tablet") {
+    padding: 106px 0 102px;
+  }
+  @include media(">signup") {
+    padding: 128px 0 133px;
+  }
 
   .signup__wrapper {
     margin: 0 auto;
@@ -1341,5 +1341,5 @@
       transition: color 0.1s ease-out;
     }
   }
-
 }
+/* stylelint-enable order/order, max-nesting-depth */
