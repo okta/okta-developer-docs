@@ -79,6 +79,7 @@ See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-manageme
 | [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
 | [Search, filter, and export apps for Applications page is EA](#search-filter-and-export-apps-for-applications-page-is-ea) | September 10, 2026 |
+| [Cross App Access submission through the OIN Wizard is GA in Production](#cross-app-access-submission-through-the-oin-wizard-is-ga-in-production) | |
 | [Developer documentation updates in 2026.09.0](#developer-documentation-updates-in-2026-09-0) | September 2, 2026 |
 
 #### NFC authenticator is self-service EA in Preview
@@ -141,6 +142,10 @@ Admins can now execute custom PowerShell scripts in on-premises Active Directory
 #### Search, filter, and export apps for Applications page is EA
 
 The **Applications** page now provides options to filter apps by type and status, search apps by name or client ID, and view apps by last modified date. You can also export apps to CSV to turn your filtered list into an audit-ready report. During Early Access, labelling uses IGA Governance Labels and is only available for OIG customers. Use the [List all applications that match search filters](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/listapplicationsbysearch) API to search and filter apps programmatically.
+
+#### Cross App Access submission through the OIN Wizard is GA in Production
+
+ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
 
 #### Developer documentation updates in 2026.09.0
 
