@@ -75,16 +75,17 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For background on the custom authorization server and scope, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
 * An OIDC web app integration that signs users in and issues the `id_token` your app exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`. Okta strips system scopes (`openid`, `profile`, `email`) during the ID-JAG exchange and can cause an `invalid_scope` error, so you must request a custom scope instead.
-* Your agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
-
-  > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, because it's shown only once.
-
+* Your agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered, linked to the OIDC web app above, and activated. See [Configure the imported agent](#configure-the-imported-agent).
 * An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
+
+### Configure the imported agent
+
+<AiAgentImportedAgentSetup/>
 
 ### Collect your configuration values
 
@@ -189,6 +190,8 @@ Importing the agent lets it appear in **Directory** > **AI Agents** for visibili
 
 1. Generate an access key for the IAM user and store it in a secrets manager.
 1. In the Admin Console, configure the AI agent import with the access key, the AWS regions where your agents run, and **AWS Bedrock Classic Agents** as the platform. Test the connection and save.
+
+> **Note:** You enable imports once per AWS app integration, not per agent, and can set a recurring import schedule. If your agent already appears in **Directory** > **AI Agents**, a scheduled import may have already run — you don't need to repeat these steps for it.
 
 ## Configure your app
 
