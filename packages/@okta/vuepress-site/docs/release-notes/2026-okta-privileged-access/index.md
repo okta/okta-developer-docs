@@ -11,6 +11,19 @@ title: Okta Privileged Access API release notes 2026
 
 Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta Identity Engine.
 
+## September
+
+### Weekly release 2026.09.1
+<!-- Published on: 2026-09-17T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Plain-text secrets is GA](#plain-text-secrets-is-ga) | September 17, 2026 |
+
+#### Plain-text secrets is GA
+
+You can now create, update, and reveal Okta Privileged Access (OPA) secrets using plain text instead of client-side envelope encryption. Use the new `plain_text` parameter on create and update requests, and `use_plain_text` on reveal requests. See the [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/) API.
+
 ## August
 
 ### Weekly release 2026.08.4
@@ -67,7 +80,7 @@ You can now configure Non-Human Identity workload connections to verify JWTs usi
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |
 | [Credential version history is GA](#credential-version-history-is-ga) | August 5, 2026 | August 12, 2026 |
-| [Okta Privileged Access automated app provisioning is GA](#okta-privileged-access-automated-app-provisioning-is-ga) | August 5, 2026 |  |
+| [Okta Privileged Access automated app provisioning is GA](#okta-privileged-access-automated-app-provisioning-is-ga) | August 5, 2026 | September 14, 2026 |
 
 #### Credential version history is GA
 
