@@ -1,479 +1,75 @@
 <template>
-  <section
-    class="signup"
-    vue-if="!isRegionLoading"
-  >
-    <div class="signup__wrapper">
-      <div v-if="isRegionLocked">
-        <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
-      </div>
-      <div>
-        <h1 class="signup__title">
-          Choose what works best.
-          <span>Sign up is free.</span>
-        </h1>
+  <div>
+    <SignUpLegacy v-if="!useNewSignup" />
+    <section
+      v-else-if="!isRegionLoading"
+      class="signup"
+    >
+      <div class="signup__wrapper">
         <div
-          class="signup__items"
-          :class="[formHidden ? 'active' : '']"
+          v-if="isRegionLocked"
+          class="signup__locked"
         >
-          <div class="signup__item">
-            <div class="signup__item__title">
-              Auth0 <br> Platform
-            </div>
-            <div class="signup__description">
-              <div class="signup__rate">
-                <div class="signup__rate__title">
-                  Free
-                </div>
-                <div class="signup__rate__text">
-                  For the first tier
-                </div>
-              </div>
-              <div class="signup__content">
-                <div class="signup__content__tip signup__content__tip-green">
-                  BEST FOR DEVELOPERS
-                </div>
-                <div class="signup__content__title">
-                  Secure my customers <br> or SaaS applications
-                </div>
-                <div class="signup__content__text">
-                  Build intuitive, secure user experiences <br> in customer-facing applications.
-                </div>
-              </div>
-              <div class="signup__link signup__link-dark">
-                <a
-                  href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
-                  target="_blank"
-                >
-                  <span>Try Auth0 Platform <i>→</i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="signup__container">
-            <div class="signup__item__title">
-              Okta <br> Platform
-            </div>
-            <div class="signup__description">
-              <div class="signup__rate">
-                <div class="signup__rate__title">
-                  Free Trial
-                </div>
-                <div class="signup__rate__text">
-                  Get access for 30 days
-                </div>
-              </div>
-              <div class="signup__content">
-                <div class="signup__content__tip signup__content__tip-blue">
-                  BEST FOR IT ADMINS
-                </div>
-                <div class="signup__content__title">
-                  Secure my employees, <br> contractors, &amp; partners
-                </div>
-                <div class="signup__content__text">
-                  Manage secure, frictionless access <br> to the tools and data your teams <br> need, on demand.
-                </div>
-              </div>
-              <div class="signup__link">
-                <a
-                  href="https://okta.com/free-trial/workforce-identity"
-                  target="_blank"
-                >
-                  <span>Try Okta Platform <i>→</i></span>
-                </a>
-              </div>
-            </div>
-            <div class="signup__item__title signup__item__title-hidden">
-              Okta Integrator Free Plan
-            </div>
-            <div class="signup__item__title signup__item__title-tablet">
-              Access the Okta <br> Integrator Free Plan
-            </div>
-            <div class="signup__description signup__description-bordered">
-              <div class="signup__rate">
-                <div class="signup__rate__title">
-                  Free
-                </div>
-                <div class="signup__rate__text">
-                  Build, test, <br> and manage integrations
-                </div>
-              </div>
-              <div class="signup__content">
-                <div class="signup__content__tip signup__content__tip-green">
-                  BEST FOR DEVELOPERS
-                </div>
-                <div class="signup__content__title">
-                  Access the Okta <br> Integrator Free Plan
-                </div>
-                <div class="signup__content__text">
-                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners.<br>
-                </div>
-              </div>
-              <div
-                v-if="!formHidden"
-                class="signup__link signup__trigger"
-              >
-                <button
-                  type="button"
-                  @click="hideForm()"
-                >
-                  <span class="signup__trigger__text">Sign up for Integrator Free Plan <i>→</i></span>
-                  <span class="signup__trigger__text-hidden">Sign up free</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Okta Integrator SignUp Form -->
-          <div
-            class="signup__popup"
-            :class="formHidden ? 'active' : ''"
-          >
-            <div class="signup__popup__container">
-              <div class="signup__popup__title">
-                <h2 class="signup__popup__title-pc">
-                  Let's get you started with Okta Integrator Free Plan
-                </h2>
-                <h2 class="signup__popup__title-tablet">
-                  Access the Okta <br> Integrator Free Plan
-                </h2>
-                <h2 class="signup__popup__title-mobile">
-                  Okta Integrator Free Plan
-                </h2>
-                <span>Already signed up? <a href="/login">Log in here.</a></span>
-              </div>
-              <div
-                class="signup__popup__close"
-                @click="hideForm()"
-              />
-              <form
-                id="signupForm"
-                class="signup__form"
-                @submit="submitForm"
-              >
-                <div class="signup__form__header">
-                  <label
-                    class="signup__form__field"
-                    for="firstName"
-                  >
-                    <div class="signup__form__label">First Name<div class="signup__form__label-required">*</div></div>
-                    <input
-                      id="firstName"
-                      v-model="form.firstName.value"
-                      class="signup__form__input"
-                      required
-                      type="text"
-                      maxlength="128"
-                      placeholder="First Name"
-                      :class="{ error: !form.firstName.isValid }"
-                      @blur="validationService.checkFormInput('firstName')"
-                      @focusout="setHeight()"
-                    >
-                    <ul
-                      v-if="form.firstName.errorList.length"
-                      class="error-color error-msg"
-                    >
-                      <li
-                        v-for="(error, index) in form.firstName.errorList"
-                        :key="index"
-                        class="error-color"
-                      >
-                        {{ error }}
-                      </li>
-                    </ul>
-                  </label>
-                  <label
-                    class="signup__form__field"
-                    for="lastName"
-                  >
-                    <div class="signup__form__label">Last Name<div class="signup__form__label-required">*</div></div>
-                    <input
-                      id="lastName"
-                      v-model="form.lastName.value"
-                      class="signup__form__input"
-                      required
-                      type="text"
-                      maxlength="128"
-                      placeholder="Last Name"
-                      :class="{ error: !form.lastName.isValid }"
-                      @blur="validationService.checkFormInput('lastName')"
-                      @focusout="setHeight()"
-                    >
-                    <ul
-                      v-if="form.lastName.errorList.length"
-                      class="error-color error-msg"
-                    >
-                      <li
-                        v-for="(error, index) in form.lastName.errorList"
-                        :key="index"
-                        class="error-color"
-                      >
-                        {{ error }}
-                      </li>
-                    </ul>
-                  </label>
-                  <label
-                    class="signup__form__field"
-                    for="email"
-                  >
-                    <div class="signup__form__label">Work Email<div class="signup__form__label-required">*</div></div>
-                    <input
-                      id="email"
-                      v-model="form.email.value"
-                      class="signup__form__input"
-                      required
-                      type="text"
-                      maxlength="128"
-                      placeholder="Work Email"
-                      :class="{ error: !form.email.isValid }"
-                      @blur="validationService.checkEmailInput('email')"
-                      @focusout="setHeight()"
-                    >
-                    <ul
-                      v-if="form.email.errorList.length"
-                      class="error-color error-msg"
-                    >
-                      <li
-                        v-for="(error, index) in form.email.errorList"
-                        :key="index"
-                        class="error-color"
-                      >
-                        {{ error }}
-                      </li>
-                    </ul>
-                  </label>
-                  <label
-                    class="signup__form__field"
-                    for="country"
-                  >
-                    <div class="signup__form__label">Country/Region<div class="signup__form__label-required">*</div></div>
-                    <select
-                      id="country"
-                      v-model="form.country.value"
-                      class="signup__form__input"
-                      required
-                      :class="{ error: !form.country.isValid }"
-                      @change="
-                        validationService.checkFormInput('country');
-                        validationService.resetFormField('state', {
-                          reset: true,
-                          value: '',
-                        });
-                        showConsentSection(form.country.value);
-                        states = form.country.value;
-                        setHeight();
-                      "
-                    >
-                      <option
-                        value=""
-                        disabled
-                        selected
-                      >Select...</option>
-                      <option
-                        v-for="country in getCountries"
-                        :key="country.value"
-                        required
-                        :value="country.value"
-                      >{{ country.name }}</option>
-                    </select>
-                    <span
-                      v-if="form.country.errorList.length"
-                      class="error-color error-msg"
-                    >{{ validationService.errorDictionary.emptyField }}</span>
-                    <div class="signup__form__chevron">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      ><path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M8.00007 9.9394L12.4697 5.46973L13.5304 6.53039L8.5304 11.5304C8.2375 11.8233 7.76263 11.8233 7.46973 11.5304L2.46974 6.53039L3.5304 5.46973L8.00007 9.9394Z"
-                        fill="#191919"
-                      /></svg>
-                    </div>
-                  </label>
-                  <label
-                    v-if="states.list.length"
-                    class="signup__form__field"
-                    for="state"
-                  >
-                    <div class="signup__form__label">{{ states.label }}<div class="signup__form__label-required">*</div></div>
-                    <select
-                      id="state"
-                      v-model="form.state.value"
-                      class="signup__form__input"
-                      required
-                      name=""
-                      :class="{ error: !form.state.isValid }"
-                      @change="validationService.checkFormInput('state'), setHeight()"
-                      @focusout="setHeight()"
-                    >
-                      <option
-                        value=""
-                        disabled
-                        selected
-                      >Select...</option>
-                      <option
-                        v-for="state in states.list"
-                        :key="state.name"
-                        :value="state.value"
-                      >{{ state.name }}</option>
-                    </select>
-                    <span
-                      v-if="form.state.errorList.length"
-                      class="error-color error-msg"
-                    >{{ validationService.errorDictionary.emptyField }}</span>
-                    <div class="signup__form__chevron">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M8.00007 9.9394L12.4697 5.46973L13.5304 6.53039L8.5304 11.5304C8.2375 11.8233 7.76263 11.8233 7.46973 11.5304L2.46974 6.53039L3.5304 5.46973L8.00007 9.9394Z"
-                          fill="#191919"
-                        />
-                      </svg>
-                    </div>
-                  </label>
-                </div>
-                <div class="signup__form__body">
-                  <label
-                    class="signup__form__recaptcha"
-                    for="recaptcha"
-                  >
-                    <vue-recaptcha
-                      v-if="formHidden"
-                      ref="recaptcha"
-                      :load-recaptcha-script="true"
-                      :sitekey="captchaSiteKey"
-                      :theme="getTheme()"
-                      @verify="onCaptchaVerified"
-                      @expired="onCaptchaExpired"
-                    />
-                    <span
-                      v-if="form.captcha.errorList.length"
-                      class="error-color error-msg"
-                    >{{ validationService.errorDictionary.emptyField }}</span>
-                  </label>
-                  <div
-                    v-if="error !== null"
-                    class="error-color"
-                  >
-                    {{ error }}
-                  </div>
-                  <div
-                    class="consent--section"
-                  >
-                    <div class="consent--section-text">
-                      <p>
-                        By clicking “Sign up,” I agree to be bound by the 
-                        <SmartLink :item="{ link: '/terms/', target: '_blank' }">
-                          Integrator Free Plan Agreement
-                        </SmartLink>
-                        and Okta’s
-                        <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">
-                          Privacy Policy
-                        </SmartLink>
-                        . If I am acting on behalf of an employer or another entity, I represent and warrant that I have the legal authority to bind that entity and its users to these terms. 
-                        I acknowledge that my access to the Integrator Free Plan automatically expires after 90 consecutive days of inactivity.
-                      </p>
-                      <p>
-                        I agree that Okta may contact me with marketing communications.
-                        See Privacy Policy for details on how to unsubscribe.
-                      </p>
-                    </div>
-                    <div
-                      v-show="displayAgree"
-                      class="consent--section-agree"
-                    >
-                      <label for="agree-checkbox">
-                        <input
-                          id="agree-checkbox"
-                          v-model="form.consentAgree.value"
-                          type="checkbox"
-                          name=""
-                        >
-                        I agree (Optional)
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="signup__form__footer">
-                  <label
-                    id="submitbutton"
-                    class="signup__form__button signup__form__button-dark"
-                    for="signup"
-                  >
-                    <a
-                      v-if="isPending"
-                      class="btn pending"
-                    >
-                      <img src="/img/ajax-loader-white.gif">
-                    </a>
-                    <input
-                      v-else
-                      id="signup"
-                      type="submit"
-                      class="btn"
-                      value="Sign up"
-                    >
-                  </label>
-                  <div class="signup__form__splitter">
-                    <!-- or-->
-                  </div>
-                  <span>Already signed up? <a href="/login">Log in here.</a></span>
-                  <!--<button
-                    id="continue-github"
-                    class="signup__form__button"
-                    @click="openTermsConditionsDialog(uris.github)"
-                  >
-                  <i class="fa fa-github" /> Continue with GitHub
-                  </button>-->
-                  <!--<button
-                    id="continue-google"
-                    class="signup__form__button"
-                    @click="openTermsConditionsDialog(uris.google)"
-                  >
-                    <span class="google-logo" /> Continue with Google
-                  </button>-->
-                  <TermsAndConditionsDialog
-                    v-if="isShowTermsConditionsDialog"
-                    :social-url="socialUrl"
-                    @close="closeTermsConditionsDialog()"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- End Okta Integrator SignUp Form -->
+          <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
         </div>
-        <div class="signup__footer">
-          <p>
-            <span>Not sure what to choose?</span> <span>Learn more about</span>
-            <a
-              target="_blank"
-              href="https://www.okta.com/workforce-identity/"
-            > Okta Platform</a> <span class="hidden">and</span>
-            <a
-              target="_blank"
-              href="https://www.okta.com/customer-identity/"
-            > Auth0 Platform
-            </a>
-          </p>
+        <div
+          v-else
+          class="signup__main"
+        >
+          <h1 class="signup__mobile-title">
+            Start building your integration
+          </h1>
+          <div class="signup__hero-col">
+            <SignUpHeroSection :theme="theme" />
+          </div>
+          <div class="signup__form-col">
+            <SignUpRegistrationForm
+              :form="form"
+              :validation-service="validationService"
+              :is-pending="isPending"
+              :error="error"
+              :captcha-site-key="captchaSiteKey"
+              :theme="theme"
+              :get-countries="getCountries"
+              :states="states"
+              :display-agree="displayAgree"
+              @submit-form="handleSubmitForm"
+              @country-change="onCountryChange"
+              @captcha-verified="onCaptchaVerified"
+              @captcha-expired="onCaptchaExpired"
+            />
+          </div>
+        </div>
+        <div class="signup__form-bottom-cards-divider" />
+        <div class="signup__bottom-cards">
+          <SignUpBottomCard
+            variant="okta"
+            logo-src="/img/signup/okta-logo-bottom-card.svg"
+            logo-alt="Okta"
+            screenshot-src="/img/signup/bottom-card-1.png"
+            title="Internal teams and partners"
+            description="Get a Workforce or Customer Identity Cloud free trial to manage secure, frictionless access for your teams"
+            cta-text="Start a 30-day free trial"
+            cta-link="https://okta.com/free-trial/workforce-identity"
+          />
+          <SignUpBottomCard
+            variant="auth0"
+            logo-src="/img/signup/auth0-logo-bottom-card.png"
+            logo-alt="Auth0"
+            screenshot-src="/img/signup/bottom-card-2.png"
+            title="Customers and apps"
+            description="Secure and scale intuitive user experiences for AI agents, users, and customer-facing apps, ensuring security from end to end."
+            cta-text="Try Auth0 Platform"
+            cta-link="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
+          />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
+import { USE_NEW_SIGNUP } from "../util/signupKillSwitch";
 import VueRecaptcha from "vue-recaptcha";
 import { SignUpValidation } from "../util/signupValidation.service";
 import { Api } from "../util/api.service";
@@ -486,7 +82,7 @@ import {
 import getAnalyticsValues from "../util/attribution/attribution";
 import storage from "../util/localStorage";
 import { getIdpUri } from "../util/uris";
-import { GeoLocation, isRegionLocked } from "../util/geoLocation";
+import { GeoLocation, isRegionLocked, getStoredCountryCode } from "../util/geoLocation";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -499,16 +95,13 @@ const THEME_MODE_KEY = 'is_dark_mode';
 export default {
   components: {
     VueRecaptcha,
-    CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink"),
-    TermsAndConditionsDialog: () =>
-      import("../components/TermsAndConditionsDialog")
+    SignUpLegacy: () => import("./SignUpLegacy"),
+    SignUpHeroSection: () => import("../components/signup/SignUpHeroSection"),
+    SignUpRegistrationForm: () => import("../components/signup/SignUpRegistrationForm"),
+    SignUpBottomCard: () => import("../components/signup/SignUpBottomCard")
   },
   data() {
     return {
-      formHidden: false,
-      isShowTermsConditionsDialog: false,
-      socialUrl: "",
       state: { label: "", list: [] },
       displayAgree: false,
       form: {
@@ -534,6 +127,9 @@ export default {
     };
   },
   computed: {
+    useNewSignup() {
+      return USE_NEW_SIGNUP;
+    },
     states: {
       get() {
         return this.state;
@@ -551,7 +147,6 @@ export default {
           this.state.list = [];
           this.state.label = "";
           this.form.state.hidden = true;
-          this.setHeight(true);
         }
       }
     },
@@ -564,14 +159,6 @@ export default {
     apiService() {
       return new Api(this.$site.themeConfig.uris.baseUri);
     },
-    uris() {
-      const { uris } = this.$site.themeConfig;
-
-      return {
-        github: getIdpUri(uris, "github"),
-        google: getIdpUri(uris, "google")
-      };
-    }
   },
   beforeMount() {
     const { captcha } = this.$site.themeConfig;
@@ -585,56 +172,79 @@ export default {
     this.theme = this.getTheme();
 
     this.isRegionLocked = isRegionLocked();
-    new GeoLocation(() => {
+    const geoCallback = () => {
       this.isRegionLocked = isRegionLocked();
       this.isRegionLoading = false;
+      this.prefillCountry();
+    };
+
+    new GeoLocation(geoCallback);
+
+    // GeoLocation doesn't call onCompletion when cached data exists and isn't
+    // expired, so fall back after a short delay to ensure the page renders.
+    setTimeout(() => {
+      if (this.isRegionLoading) {
+        geoCallback();
+      }
+    }, 500);
+  },
+  mounted() {
+    // Used for observing theme changes to update feature card icons accordingly
+    this._themeObserver = new MutationObserver(() => {
+      this.theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+    });
+    this._themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
     });
   },
+  beforeDestroy() {
+    if (this._themeObserver) {
+      this._themeObserver.disconnect();
+    }
+  },
   methods: {
-    setHeight(isNotUSAAndCanada) {
-      let height;
-      if (window.innerWidth > 1314) {
-        if (!isNotUSAAndCanada) {
-          setTimeout(function() {
-            height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
-            document.querySelector('.signup__items.active').style.height = height;
-          }, 10);
-        } else {
-          document.querySelector('.signup__items.active').style.height = 'auto';
-        }
-      }
-      window.onresize = function() {
-        if (window.innerWidth < 1314) {
-          document.querySelector('.signup__items.active').style.height = 'auto';
-        } else {
-          document.querySelector('.signup__items.active').style.height = height;
-        }
-      }
-    },
-    hideForm() {
-      if (document.querySelector('.signup__items.active') && !this.formHidden) {
-        this.setHeight(true);
-      }
-      this.formHidden = !this.formHidden;
-      if (!this.formHidden) {
-        this.setHeight(true);
-      } else {
-        this.setHeight();
-      }
-    },
     getTheme: function() {
-      return JSON.parse(storage.getItem(THEME_MODE_KEY)) === true ? "dark" : "light";
+      const stored = storage.getItem(THEME_MODE_KEY);
+      try {
+        return JSON.parse(stored) === true ? "dark" : "light";
+      } catch {
+        return "light";
+      }
     },
-    async submitForm(e) {
-      e.preventDefault();
-      this.validationService.checkFormInput("firstName");
-      this.validationService.checkFormInput("lastName");
+    prefillCountry() {
+      const isoCode = getStoredCountryCode();
+      if (!isoCode) return;
+
+      try {
+        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+        const countryName = regionNames.of(isoCode);
+        const match = countriesList.find(c => c.value === countryName);
+        if (match) {
+          this.form.country.value = match.value;
+          this.states = match.value;
+          this.showConsentSection(match.value);
+        }
+      } catch (_) {
+        // Intl.DisplayNames not supported in this environment, skip prefill
+      }
+    },
+    onCountryChange(country) {
+      this.validationService.checkFormInput("country");
+      this.validationService.resetFormField("state", {
+        reset: true,
+        value: "",
+      });
+      this.showConsentSection(country);
+      this.states = country;
+    },
+    async handleSubmitForm(e, extraData) {
       this.validationService.checkFormInput("country");
       await this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
       this.validationService.checkFormInput("captcha");
 
-      if (this.validationService.isValidForm()) {
+      if (this.validationService.isValidForm() && extraData.isExtraValid) {
         // make api call
         const { baseUri, campaignId, orgPlan } = this.$site.themeConfig.uris;
         const registrationPath = `/free-trial/api/free-trial/`;
@@ -642,8 +252,8 @@ export default {
         const analyticsValues = getAnalyticsValues();
         const body = {
             email: this.form.email.value,
-            firstName: this.form.firstName.value,
-            lastName: this.form.lastName.value,
+            firstName: extraData.firstName,
+            lastName: extraData.lastName,
             country: this.form.country.value,
             state: this.form.state.value,
             consent: this.form.consentAgree.value,
@@ -651,6 +261,8 @@ export default {
             campaignId: campaignId,
             phone: '000000',
             orgPlan: orgPlan,
+            department: extraData.department,
+            builderType: extraData.builderType,
             utms: analyticsValues,
         };
 
@@ -677,7 +289,6 @@ export default {
             this.isPending = false;
           });
       }
-      this.setHeight();
     },
 
     handleApiError(err) {
@@ -691,7 +302,7 @@ export default {
               break;
             }
             if (data.message) {
-              this.error = message;
+              this.error = data.message;
               break;
             }
             this.error = GENERIC_ERROR_MSG;
@@ -730,20 +341,12 @@ export default {
       });
     },
     onCaptchaExpired() {
-      this.$refs.recaptcha.reset();
       this.validationService.resetFormField("captcha", {
         reset: true,
         value: ""
       });
       this.validationService.checkFormInput("captcha");
     },
-    closeTermsConditionsDialog() {
-      this.isShowTermsConditionsDialog = false;
-    },
-    openTermsConditionsDialog(url) {
-      this.socialUrl = url;
-      this.isShowTermsConditionsDialog = true;
-    }
   },
 };
 </script>

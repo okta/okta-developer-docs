@@ -3,51 +3,111 @@ export class SignUpPage {
     cy.visit('signup/');
   }
 
-  visitOieSignUpPage() {
-    cy.visit('/signup/oie-preview.html');
+  getSignupSection() {
+    return cy.get('section.signup');
   }
 
-  getEmailInput() {
-    return cy.get('input[id="email"]');
+  getMobileTitle() {
+    return cy.get('.signup__mobile-title');
   }
 
-  getFirsNameInput() {
-    return cy.get('input[id="firstName"]');
+  getFormWrapper() {
+    return cy.get('.signup-form-wrapper');
+  }
+
+  getFormHeading() {
+    return cy.get('.signup-form-wrapper__heading');
+  }
+
+  getFirstNameInput() {
+    return cy.get('input#firstName');
   }
 
   getLastNameInput() {
-    return cy.get('input[id="lastName"]');
+    return cy.get('input#lastName');
+  }
+
+  getEmailInput() {
+    return cy.get('input#email');
+  }
+
+  getDepartmentSelect() {
+    return cy.get('select#department');
   }
 
   getCountrySelect() {
-    return cy.get('select[id="country"]');
+    return cy.get('select#country');
   }
 
-  getSignUpSubmitInput() {
-    return cy.get('input[type="submit"][id="signup"]');
+  getStateSelect() {
+    return cy.get('select#state');
   }
 
-  getGithubButtonInput() {
-    return cy.get('button[id="continue-github"]');
+  getDescriptorOptions() {
+    return cy.get('.signup-descriptor');
   }
 
-  getGoogleButtonInput() {
-    return cy.get('button[id="continue-google"]');
+  getDescriptorByLabel(label) {
+    return cy.get('.signup-descriptor').contains(label);
   }
 
-  getGoogleCaptcha() {
-    return cy.get('iframe[title="reCAPTCHA"]');
+  getSelectedDescriptor() {
+    return cy.get('.signup-descriptor--selected');
+  }
+
+  getDescriptorTooltip() {
+    return cy.get('.signup-descriptor__tooltip');
   }
 
   getAgreeCheckbox() {
-    return cy.get('input[type="checkbox"][id="agree-checkbox"]');
+    return cy.get('input#agree-checkbox-');
   }
 
-  getStateProviceSelect() {
-    return cy.get('select[id="state"]');
+  getConsentText() {
+    return cy.get('.signup-form__consent-text');
   }
 
-  getSignInLink() {
-    return cy.get('.goto-signin a[href="/login/"]');
+  getRecaptcha() {
+    return cy.get('.signup-form__recaptcha');
+  }
+
+  getSignUpSubmitInput() {
+    return cy.get('input[type="submit"]#signup');
+  }
+
+  getSubmitButton() {
+    return cy.get('.signup-form__submit-btn');
+  }
+
+  getLoginLink() {
+    return cy.get('.signup-form__login-link a');
+  }
+
+  getFieldErrors() {
+    return cy.get('.signup-form__error');
+  }
+
+  getErrorBanner() {
+    return cy.get('.signup-form__error-banner');
+  }
+
+  getHeroTitle() {
+    return cy.get('.signup-hero__title');
+  }
+
+  getFeatureCards() {
+    return cy.get('.signup-feature-card');
+  }
+
+  getPartnerLogos() {
+    return cy.get('.signup-logos__item');
+  }
+
+  getBottomCards() {
+    return cy.get('.signup-bottom-card');
+  }
+
+  getBottomCardCta(variant) {
+    return cy.get(`.signup-bottom-card--${variant} .signup-bottom-card__cta`);
   }
 }
