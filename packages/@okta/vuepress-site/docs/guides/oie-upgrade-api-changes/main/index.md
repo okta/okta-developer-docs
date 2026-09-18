@@ -32,7 +32,7 @@ The following table summarizes the API changes in Identity Engine.
 | `audience` parameter in the Authentication API (`/api/v1/authn`) | Not supported | Apps that pass `audience` fail. |
 | Authentication API device token | Behavior changed | Adopt a new SDK or the redirect model. |
 | `cookieToken` in the Sessions API (`POST /api/v1/sessions`) | Not supported | You can't request `cookieToken` as an additional field. |
-| Sessions API (`/api/v1/sessions/me`) | Response changed | The response no longer returns Identity Provider information. |
+| Sessions API (`/api/v1/sessions/me`) | Deprecated | Don't use these endpoints. Identify users with OpenID Connect tokens instead. |
 | Factors API: reset email factor | Behavior changed | Email auto-enrolls, so the reset behavior differs. |
 | Factors API: reset question factor | Behavior changed | Recovery questions appear in factor responses. |
 | Factors API: SMS lifecycle operations | Not supported | You can't activate or deactivate SMS through the Factors API. |
@@ -67,9 +67,11 @@ See [Device Token in the Auth API](https://support.okta.com/help/s/article/Devic
 
 The request `POST /api/v1/sessions?additionalFields=cookieToken` isn't supported in Identity Engine. Apps that manage sessions entirely within the `/api/v1/sessions` APIs can continue to work. However, you can't request the `cookieToken` extra field.
 
-### `/api/v1/sessions/me` response changes
+### `/api/v1/sessions/me` deprecation
 
-After the upgrade, the `/api/v1/sessions/me` response no longer returns Identity Provider (IdP) information.
+The `/api/v1/sessions/me` endpoints are deprecated. They still return a response when a session exists, but don't use them to validate or manage a user's session. To identify a user on your server, use the ID token or the access token from an OpenID Connect sign-in flow.
+
+After the upgrade, the `/api/v1/sessions/me` response also no longer returns Identity Provider (IdP) information.
 
 **Backward compatibility:** Existing apps continue to work without immediate changes. Embedded Sign-In Widgets and apps that use older SDKs or direct APIs still operate after the upgrade.
 
@@ -137,7 +139,7 @@ Before you upgrade, audit your integrations against the following checklist:
 * Audit your code for the `audience` parameter in `/api/v1/authn` calls.
 * Audit for device token passing to the Authentication API.
 * Check whether you request `cookieToken` from the Sessions API.
-* Check whether you parse IdP information from `/api/v1/sessions/me` responses.
+* Check whether you call the deprecated `/api/v1/sessions/me` endpoints, and plan to identify users with OpenID Connect tokens instead.
 * Review your Factors API usage for email reset, question reset, and SMS lifecycle operations.
 * Review custom password recovery flows that are built on `/api/v1/authn`.
 * Plan an SDK migration for any features that require Identity Engine capabilities.
