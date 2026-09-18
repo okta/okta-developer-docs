@@ -92,6 +92,8 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
          1. Click **Activate**, then **Enable**.
 
+> **Note:** After you register an AI Agent, it appears in the bound app's **Machine Assignments** tab. This indicates that the AI agent can access the bound app as a resource.
+
 ### Supported requesting apps
 
 From the previous **User access and authentication** step in the AI agent configuration, only specific types of app integration instances are supported for the options ([Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent) or [Select an existing app](#select-an-existing-app)) provided.
@@ -114,9 +116,9 @@ The linked OIDC app instance is initially deactivated. When you activate your AI
 
 This option links the AI agent to an existing app instance in your org. Users can sign in to the linked app to access the AI agent.
 
-You can link to an existing SAML app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Classic experience > Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
+You can link to an existing SAML SSO app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Classic experience > Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
 
-During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can link an existing OIN OIDC app instance during registration or modification.
+You can link to an existing OIDC SSO app instance. During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can link an existing OIN OIDC app instance during registration or modification.
 
 ### Activate the AI agent
 
