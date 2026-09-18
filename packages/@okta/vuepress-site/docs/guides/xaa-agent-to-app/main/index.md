@@ -50,10 +50,10 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
 ### Register AI agent > User access and authentication
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
-1. Click **Register AI agent** > **Register manually**.
+1. Click **Register AI agent**.
 1. Under **Profile**, add a name and description for your AI Agent.
 1. Click **Next**.
-1. Under **User access and authentication** > **Allow users to access this agent**, select one of:
+1. Under **User access and authentication** > **App assigned to users to access this AI Agent**, select one of:
 
    * **Create a new OIDC app linked to this AI agent:** To create a custom OIDC app integration instance for users to sign in to access the AI agent. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
    * **Select an existing app:** To select an existing app integration instance in your org for users to sign in to access the AI agent. Use this option if your agentic app uses SAML for SSO. See [Select an existing app](#select-an-existing-app).
@@ -62,23 +62,35 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
 
    The app you select in the **User access** tab acts as the requesting app role for the XAA flow. It allows your users to sign in to the agentic app through Okta. After the user is signed in, the agentic app can access resource apps on behalf of the signed in user.
 
-1. Click **Next**.
-1. Select your AI Agent from the list of **Directory** > **AI Agents**, and click **Client registration**.
+1. Click **Next**. Your AI agent appears in the **AI agents** list with the `STAGED` status.
+1. Select your AI Agent from the list, and click **Client registration**.
 1. On the **Client registration** tab, select a client registration method:
-   * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
-   * **Client secret**: Recommended for server-side AI agents. Click **Generate secret** and save the value for your AI agent app's OAuth 2.0 flow.
-   * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
-      1. Define where your keys are managed:
-      [[style="list-style-type:lower-alpha"]]
-         * **Okta**: Generate a pubic/private key in Okta for your AI agent.
-            1. Click **Add public key**.
-            1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
-            1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
-            1. Click **Done**.
-         * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT.
-
-      1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
-      1. Click **Activate**, then **Enable**.
+   * **External client ID**: For agentic clients whose identity definition is discovered through a hosted document.
+      1. Click **Configure** next to **Client ID metadata document (CIMD)**.
+      1. Specify the **CIMD URL** for your agentic client.
+      1. Click **Activate CIMD client registration**.
+         * Click **Switch** to use CIMD for authentication. All resources referencing this agentic app must also use this method.
+         * Click **Cancel** to cancel this operation and use the previous authentication method.
+   * **Okta-generated client ID**: For agentic clients that use Okta generated credentials for authentication.
+      * **Client secret**: Recommended for server-side AI agents.
+          1. Click **Configure**. The **Client secret** page appears.
+          1. Click **Generate secret** and save the secret and **Client ID** values for your agentic app's OAuth 2.0 flow.
+          1. Click **Activate** > **Enable**.
+      * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
+          1. Click **Configure**. The **Public/private key** page appears.
+          1. Define where your keys are managed:
+             * **Okta**: Generate a pubic/private key in Okta for your AI agent.
+                1. Click **Add public key**.
+                [[style="list-style-type:lower-alpha"]]
+                1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
+                1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
+                1. Click **Done**.
+             * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT
+          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
+          1. Click **Activate**, then **Enable**.
+      * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
+         1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
+         1. Click **Activate**, then **Enable**.
 
 ### Supported requesting apps
 
@@ -98,25 +110,13 @@ The linked OIDC app instance is initially deactivated. When you activate your AI
 
 | &nbsp;  | Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
 | ---     | :-------------: | :---: | :---: | :---: |
-| Link to an existing app |  ✔ Only when registering the AI agent<br>✗ Modifying an existing AI agent  |  ✔  |  ✗  |  ✔  |
+| Link to an existing app |  ✔ Only when registering the AI agent<br>✗ Modifying an existing AI agent  |  ✔  |  ✔   |  ✔  |
 
 This option links the AI agent to an existing app instance in your org. Users can sign in to the linked app to access the AI agent.
 
 You can link to an existing SAML app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Classic experience > Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
 
-During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can't link an existing OIN OIDC app instance during registration or modification.
-
-### Assign users to the requesting app
-
-Assign users to access the AI agent by assigning them to the linked requesting app.
-
-1. Select your AI Agent from the list of **Directory** > **AI Agents**.
-1. Click the **User access** tab.
-1. Under **User access** > **Users and groups assigned to this agent**, click **Application > Assignments**. The **Assignments** tab appears for your linked SSO app.
-1. In the **Assignments** tab, select the users or groups who can access the AI agent.
-    See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups) in the product documentation.
-
-    > **Note:** Your linked SSO app is initially inactive, so if you're navigating from the **Applications** page, it may be listed in the **Inactive** tab.
+During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can link an existing OIN OIDC app instance during registration or modification.
 
 ### Activate the AI agent
 
@@ -137,6 +137,18 @@ To deactivate the AI agent:
 > **Notes:**
 > * Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
 > * The rquesting app linked to the AI agent is also deactivated.
+
+### Assign users to the requesting app
+
+Assign users to access the AI agent by assigning them to the linked requesting app.
+
+1. Select your AI Agent from the list of **Directory** > **AI Agents**.
+1. Click the **User access** tab.
+1. Under **User access** > **Users and groups assigned to this agent**, click **Application > Assignments**. The **Assignments** tab appears for your linked SSO app.
+1. In the **Assignments** tab, select the users or groups who can access the AI agent.
+    See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups) in the product documentation.
+
+    > **Note:** Your linked SSO app is initially inactive, so if you're navigating from the **Applications** page, it may be listed in the **Inactive** tab.
 
 ## Configure the resource app
 
@@ -163,7 +175,8 @@ Configure XAA for an existing custom SSO app integration instance in Okta:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your SSO resource app.
-1. In the **Resource Server** tab of your app page, click **Edit** next to **Cross App Access (XAA)** to enable and configure XAA.
+1. In the **Machine Assignments** tab of your app page, select the **Callers** tile. The **Callers** page appears for you to specify the access method for callers to your resource app.
+1. Click **Edit** next to **Cross App Access (XAA)** to enable and configure XAA.
     1. Select **Enable** to grant access to the app through XAA.
     [[style="list-style-type:lower-alpha"]]
     1. Specify the following fields:
@@ -181,10 +194,9 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 1. Select the **Resource connections** tab.
 1. Click **Add resource connection**.
 1. From the  **Application** > **Application instance** dropdown, select the XAA-enabled resource app that you configured from [Configure the resource app](#configure-the-resource-app).
-    Select **Enable** to grant access to the app through XAA.
     1. Specify the following fields:
-        * **Resource indicator**: Specify the URLs of the protected resources.
-        * **AI agent's client ID registered in this app**: The external client ID of the AI agent registered in the resource app.
+        * **AI agent's client ID registered in resource app**: The external client ID of the AI agent registered in the external resource app configuration.
+        * **Resource identifier**: Specify the resource identifier specific to the resource app.
         * **Scopes**: Specify the scopes the AI agent is allowed to request from the resource app.
 
 1. Click **Add**.
@@ -193,7 +205,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 ## Migration from Okta for AI Agent delegation link
 
-If your org is subscribed to Okta for AI Agents, the **Delegations** tab has been renamed **User access** and **Machine access** on the AI agent page. The **User access** tab contains configuration on the users that can access the AI agent, and the **Machine access** tab contains configuration on the AI agent's non-human access.
+If your org is subscribed to Okta for AI Agents and you configured a delegated app for your AI agent prior to release 2026.08.2, the **Delegations** tab has been renamed **User access** and **Machine access** on the AI agent page. The **User access** tab contains configuration on the users that can access the AI agent, and the **Machine access** tab contains configuration on the AI agent's non-human access.
 
 In Okta for AI Agent orgs, when you delegate an AI agent to an SSO app, it can only act on a user's behalf if the user is signed in to the app. Previously, you can create multiple delegation links for an AI agent under the **Delegations** tab. However, with the new **User access** configuration, you can only allow users to sign in to one SSO app for an AI agent. You can still have multiple non-user delegation links, which now appear in the **Machine access** tab.
 
