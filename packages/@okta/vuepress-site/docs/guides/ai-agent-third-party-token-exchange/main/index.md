@@ -9,7 +9,7 @@ The Okta for AI Agents feature secures third-party AI agents with delegated user
 
 In this guide, learn how to configure token exchange for third-party AI agents, and review the token exchange with a test app.
 
-> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. See your Okta account team to enable the feature.
+> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
 ---
 
@@ -99,11 +99,11 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Click **Next**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Client registration**. Make a note of the **Client ID** available to the left of **Okta-generated client ID**.
-   > **Note:** The `OIDC_CLIENT_ID` variable and the `AGENT_CLIENT_ID` variable is set to this client ID value in the sample app. See [Create your environment file](#create-your-environment-file).
+   > **Note:** The `OIDC_CLIENT_ID` variable and the `AGENT_CLIENT_ID` variable are set to this client ID value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. Under **Client registration** > **Okta-generated client ID** > **Public/private key**, click **Configure**. Click **Generate secret**. Copy and save the secret.
 1. Click **Okta** under **Step 1: Define where keys are managed**, and then click **Add public key** and then **Generate new key**. Copy your public and private key and then click **Done**.
 1. Copy the **Key ID**.
-   > **Note:** The `OIDC_PRIVATE_KEY_JWK` variable and the `AGENT_PRIVATE_KEY_JWK` variable is set to the private key value in the sample app. See [Create your environment file](#create-your-environment-file).
+   > **Note:** The `OIDC_PRIVATE_KEY_JWK` variable and the `AGENT_PRIVATE_KEY_JWK` variable are set to the private key value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. From **Step 2: Activate for your AI agent**, click **Activate**. Then click **Enable**. The Agent AI Client registration page now shows an `ACTIVE` badge next to Public/private key.
 1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
 
@@ -112,7 +112,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 After you create the AI Agent, configure the associated OIDC app that's bound to the agent.
 
 1. Select your AI Agent from the list of AI Agents, and click **User access**. Click **Application** > **General**. The OIDC app appears.
-1. On the **General** tab, click **Edit** on the **General Settings** tile. Update the **Sign-in redirect URIs** field. In this example, use `http://locahost:5000/callback`. Click **Save**.
+1. On the **General** tab, click **Edit** on the **General Settings** tile. Update the **Sign-in redirect URIs** field. In this example, use `http://localhost:5000/callback`. Click **Save**.
 1. On the **Assignments** tab, click **Assign** to assign people or groups to this app. These users sign in to begin the token exchange flow.
 1. Ensure that the OIDC app is in an **Active** state. Click the dropdown next to the app name to activate the app.
 
@@ -138,7 +138,7 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 
 To test this flow, use the following `curl` calls with your configured data.
 
-Use the [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow) to demonstrate the full token exchange flow and display the ID token, ID_JAG token, and access token.
+Use the [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow) to demonstrate the full token exchange flow and display the ID token, ID-JAG token, and access token.
 
 #### Exchange the ID token for ID-JAG
 
@@ -194,9 +194,9 @@ Pragma: no-cache
 
 #### Exchange the ID-JAG for an access token
 
-Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server token URL.
+Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server's token URL.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{id_jag}` token. See the following parameter table.
 
 ##### Request
 
@@ -275,7 +275,7 @@ Install the required dependencies:
 uv add python-dotenv flask requests "pyjwt[crypto]"
 ```
 
-This adds the packages needed by the demo script.
+This adds the packages needed by the demo scripts.
 
 ## Create an app to obtain a test ID token
 
@@ -478,7 +478,7 @@ To see the full flow, create and run the following demo script.
 
 ## Create an app to test the token exchange flow
 
-Use the following Python Flask app to test the token exchange flow. It obtains an ID token and then calls the two-step authentication process as documented in [Complete the token exchange flow](#complete-the-token-exchange-flow).
+Use the following Python Flask app to test the token exchange flow. It obtains an ID token and then performs the two-step authentication process as documented in [Complete the token exchange flow](#complete-the-token-exchange-flow).
 
 ### Create your environment file
 
@@ -740,11 +740,11 @@ Then open `http://localhost:5000/` in your browser to start the sign-in flow. Af
 
 ## Troubleshooting
 
-The following errors come from the Okta token exchange module:
+The following errors come from the Okta token exchange scripts:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS and the managed connection |
+| `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS |
 | `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Credentials** |
 | `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
 | `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Credentials** into `AGENT_KEY_ID` (or `OIDC_KEY_ID` for the sign-in step) |
