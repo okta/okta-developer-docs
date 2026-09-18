@@ -38,14 +38,14 @@ The machine identity that authenticates token exchange requests is the third-par
 
 ### Supported platforms
 
-The following third-party AI Agent platforms are supported:
+Okta supports the following third-party AI Agent platforms:
 
 | Provider | Platform | Guide |
 | --- | --- | --- |
 | Amazon Web Services | AWS Bedrock Classic Agents | [AWS Bedrock Classic Agents guide](/docs/guides/ai-agent-secure-aws-bedrock/) |
 | Amazon Web Services | AWS Bedrock AgentCore | [AWS Bedrock AgentCore guide](/docs/guides/ai-agent-secure-amazon-bedrock/) |
 
-## Setting up the third-party token flow
+## Set up the third-party token flow
 
 To configure token exchange for third-party AI agents, you must complete the following configurations:
 
@@ -64,7 +64,7 @@ After these configurations, you can create a test app to demonstrate this flow. 
 
 Your custom authorization server requires a custom scope for the third-party AI Agent token exchange. You can use the default custom authorization server or create your own. See [Create an authorization server](/docs/guides/customize-authz-server/main/#about-the-custom-authorization-server).
 
->**Note**: System scopes (`openid`, `profile`, `email`) are stripped during the ID-JAG exchange and cause an `invalid_scope` error. Use a custom scope.
+>**Note**: The ID-JAG exchange strips system scopes (`openid`, `profile`, `email`) and causes an `invalid_scope` error. Use a custom scope.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of your authorization server, and then select **Scopes**.
@@ -129,7 +129,7 @@ After you create the AI Agent, configure your custom authorization server's acce
 
 ## Complete the token exchange flow
 
-Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is required. The flow comprises the following two steps:
+Your app makes two API calls directly to Okta's token endpoints. The flow comprises the following two steps:
 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
@@ -144,7 +144,7 @@ Use the [Create an app to test the token exchange flow](#create-an-app-to-test-t
 
 Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{user id_token}`, and the `audience` URL. See the following parameter table.
+Ensure that you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{user id_token}`, and the `audience` URL. See the following parameter table.
 
 To generate an ID token, see [Create an app to obtain a test ID token](#create-an-app-to-obtain-a-test-id-token).
 
@@ -196,7 +196,7 @@ Pragma: no-cache
 
 Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server's token URL.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{id_jag}` token. See the following parameter table.
+Ensure that you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{id_jag}` token. See the following parameter table.
 
 ##### Request
 
@@ -243,7 +243,7 @@ brew install uv
 
 For more installation options (Windows, macOS without curl, and so on), see the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
 
-After installation, verify it works:
+After installation, verify that it works:
 
 ```bash
 uv --version
@@ -322,7 +322,7 @@ OIDC_KEY_ID          = os.environ["OIDC_KEY_ID"]
 OIDC_PRIVATE_KEY_JWK = json.loads(os.environ["OIDC_PRIVATE_KEY_JWK"])
 REDIRECT_URI         = "http://localhost:5000/callback"
 
-# PyJWT can't sign with a raw JWK dict; convert it to a key object once.
+# PyJWT can't sign with a raw JWK dict. Convert it to a key object once.
 OIDC_SIGNING_KEY = jwt.PyJWK.from_dict(OIDC_PRIVATE_KEY_JWK).key
 
 app = Flask(__name__)
@@ -524,13 +524,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# --- OIDC (user login) ---
+# --- OIDC (user sign-in) ---
 OKTA_DOMAIN          = os.environ["OKTA_DOMAIN"]
 OIDC_CLIENT_ID       = os.environ["OIDC_CLIENT_ID"]
 OIDC_KEY_ID          = os.environ["OIDC_KEY_ID"]
 OIDC_PRIVATE_KEY_JWK = json.loads(os.environ["OIDC_PRIVATE_KEY_JWK"])
 REDIRECT_URI         = "http://localhost:5000/callback"
-# PyJWT can't sign with a raw JWK dict; convert it to a key object once.
+# PyJWT can't sign with a raw JWK dict. Convert it to a key object once.
 OIDC_SIGNING_KEY = jwt.PyJWK.from_dict(OIDC_PRIVATE_KEY_JWK).key
 
 # --- Token exchange (agent on behalf of user) ---
@@ -746,10 +746,10 @@ The following errors come from the Okta token exchange scripts:
 | --- | --- | --- |
 | `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS |
 | `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Credentials** |
-| `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
+| `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm that the `aud` claim equals the linked OIDC app's client ID |
 | `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Credentials** into `AGENT_KEY_ID` (or `OIDC_KEY_ID` for the sign-in step) |
 | `access_denied: no_matching_policy` | The custom authorization server access policy is missing the JWT bearer grant | In the custom authorization server access policy rule, enable the JWT bearer grant |
-| `Only service apps can use client_credentials` | Wrong client type at the org authorization server | Only an Okta client can perform step 1; OIDC apps can't |
+| `Only service apps can use client_credentials` | Wrong client type at the org authorization server | Only an Okta client can perform step 1. OIDC apps can't |
 | `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for step 1, not the OIDC app |
 
 ## Next steps
