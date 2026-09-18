@@ -134,7 +134,7 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
 
-> **Note:** These two calls implement the **Authorization server** resource type described generically in [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/). The request and response shapes are the same; if you change scopes, grant types, or parameters here, check that guide too so the two stay in sync.
+> **Note:** These two calls implement the **Authorization server** resource type described generically in [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/). The request and response shapes are the same. If you change scopes, grant types, or parameters here, check that guide too so the two stay in sync.
 
 To test this flow, use the following `curl` calls with your configured data.
 
