@@ -7,7 +7,7 @@ layout: Guides
 
 The Okta for AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta to access the agentic app, the app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
 
-In this guide, learn how to configure token exchange for third-party AI agents.
+In this guide, learn how to configure token exchange for third-party AI agents, and review the token exchange with a test app.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. See your Okta account team to enable the feature.
 
@@ -34,7 +34,7 @@ For a diagram and step-by-step description of this flow, see [Token Exchange flo
 
 >**Note:** No gateway or proxy is involved. The calling app owns the full token exchange. The AI agent receives a ready-to-use access token.
 
-The machine identity that authenticates token exchange requests is the third-party AI Agent imported in the Admin Console. The AI Agent authenticates both steps of the exchange using its client secret.
+The machine identity that authenticates token exchange requests is the third-party AI Agent imported in the Admin Console. The AI Agent authenticates both steps of the exchange.
 
 ### Supported platforms
 
@@ -89,22 +89,23 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
 1. Under **Profile**, add a name and description for your AI Agent, for example, "third-party AI Agent."
-1. Optional. Under **Identifier (Recommended if available)**, select the agent builder platfrom if available.
+1. Optional. Under **Identifier (Recommended if available)**, select the agent builder platform if available.
+1. Optional. Under **External ID**, add the external ID from your platform.
 1. Click **Next**.
-1. Under **User access and authentication**, check **Allow users to access this agent**, then select **Create a new OIDC app liked to this AI Agent** to create an OIDC SSO app instance to bind to the AI agent.
+1. Under **User access and authentication**, ensure **Allow users to access this agent** is enabled, then select **Create a new OIDC app linked to this AI Agent** to create an OIDC SSO app instance to bind to the AI agent.
 
    > **Note:** You can use **Select an existing app** to choose an existing custom SSO app. This option is used for users to access the AI agent through an SSO SAML app.
 
 1. Click **Next**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
-1. Select your AI Agent from the list of AI Agents, and click **Client registration**. Make a note of the **Client ID** available in **Step 2: Provide client ID to AI agent builder or developer**.
-   > **Note:** The `OIDC_CLIENT_ID` variable is set to the client ID value in the sample app. See [Create your environment file](#create-your-environment-file).
-1. Under **Client registration** > **Client secret**, click **Configure**. Click **Generate secret**. Copy and save the secret.
-   > **Note:** The `OIDC_CLIENT_SECRET` variable is set to the client secret value in the sample app. See [Create your environment file](#create-your-environment-file).
-1. From **Step 3: Activate for your AI agent**, click **Activate**. Then click **Enable**.
+1. Select your AI Agent from the list of AI Agents, and click **Client registration**. Make a note of the **Client ID** available to the left of **Okta-generated client ID**.
+   > **Note:** The `OIDC_CLIENT_ID` variable and the `AGENT_CLIENT_ID` variable is set to this client ID value in the sample app. See [Create your environment file](#create-your-environment-file).
+1. Under **Client registration** > **Okta-generated client ID** > **Public/private key**, click **Configure**. Click **Generate secret**. Copy and save the secret.
+1. Click **Okta** under **Step 1: Define where keys are managed**, and then click **Add public key** and then **Generate new key**. Copy your public and private key and then click **Done**.
+1. Copy the **Key ID**.
+   > **Note:** The `OIDC_PRIVATE_KEY_JWK` variable and the `AGENT_PRIVATE_KEY_JWK` variable is set to the private key value in the sample app. See [Create your environment file](#create-your-environment-file).
+1. From **Step 2: Activate for your AI agent**, click **Activate**. Then click **Enable**. The Agent AI Client registration page now shows an `ACTIVE` badge next to Public/private key.
 1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
-
-> **Note:** Make a note of the AI Agent ID and client credentials.
 
 ### Configure the OIDC integration app
 
@@ -113,7 +114,7 @@ After you create the AI Agent, configure the associated OIDC app that's bound to
 1. Select your AI Agent from the list of AI Agents, and click **User access**. Click **Application** > **General**. The OIDC app appears.
 1. On the **General** tab, click **Edit** on the **General Settings** tile. Update the **Sign-in redirect URIs** field. In this example, use `http://locahost:5000/callback`. Click **Save**.
 1. On the **Assignments** tab, click **Assign** to assign people or groups to this app. These users sign in to begin the token exchange flow.
-1. Ensure that the OIDC is in an **Active** state. Click the dropdown next to the app name to activate the app.
+1. Ensure that the OIDC app is in an **Active** state. Click the dropdown next to the app name to activate the app.
 
 ### Configure the access policy
 
@@ -141,9 +142,9 @@ Use the [Create an app to test the token exchange flow](#create-an-app-to-test-t
 
 #### Exchange the ID token for ID-JAG
 
-Call the org authorization server's `/token` endpoint. The agent authenticates with its `client_secret`.
+Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{agent_client_id}`, `{agent_client_secret}`, `{user id_token}`, and the `audience` URL. See the following parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{user id_token}`, and the `audience` URL. See the following parameter table.
 
 To generate an ID token, see [Create an app to obtain a test ID token](#create-an-app-to-obtain-a-test-id-token).
 
@@ -153,8 +154,8 @@ To generate an ID token, see [Create an app to obtain a test ID token](#create-a
 curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
-  --data-urlencode "client_id={agent_client_id}" \
-  --data-urlencode "client_secret={agent_client_secret}" \
+  --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
+  --data-urlencode "client_assertion={signed JWT}" \
   --data-urlencode "subject_token={user id_token}" \
   --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:id_token" \
   --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
@@ -165,8 +166,8 @@ curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
 | Parameter | Description and value |
 | --- | --- |
 | grant_type | Standard OAuth 2.0 token exchange grant. The value must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| client_id | The AI Agent's OAuth client ID, generated during AI Agent registration. |
-| client_secret | The AI Agent's client secret, generated during AI Agent registration. |
+| client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| client_assertion | A signed JWT used for client authentication. Sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 | subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token`. |
 | subject_token | A valid ID token associated with a signed-in user. |
 | requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
@@ -193,9 +194,9 @@ Pragma: no-cache
 
 #### Exchange the ID-JAG for an access token
 
-Call the custom authorization server's token endpoint. The agent authenticates with its `client_secret`.
+Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server token URL.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{agent_client_id}`, `{agent_client_secret}`, and the `{ID_JAG}` token. See the following parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following parameter table.
 
 ##### Request
 
@@ -203,8 +204,8 @@ Ensure you update the following values in this call: `{yourOktaDomain}`, `{custo
 curl -X POST https://{your-okta-domain}/oauth2/{custom-as-id}/v1/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
-  --data-urlencode "client_id={agent_client_id}" \
-  --data-urlencode "client_secret={agent_client_secret}" \
+  --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
+  --data-urlencode "client_assertion={signed-jwt}" \
   --data-urlencode "assertion={id_jag}"
 ```
 
@@ -212,8 +213,8 @@ curl -X POST https://{your-okta-domain}/oauth2/{custom-as-id}/v1/token \
 | --- | --- |
 | grant_type | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | assertion | The ID-JAG received in the previous step's token exchange [response](#response). |
-| client_id | The AI Agent's OAuth client ID, generated during AI Agent registration. |
-| client_secret | The AI Agent's client secret, generated during AI Agent registration. |
+| client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| client_assertion | A signed JWT used for client authentication. Sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
 ##### Response
 
@@ -274,7 +275,7 @@ Install the required dependencies:
 uv add python-dotenv flask requests "pyjwt[crypto]"
 ```
 
-This adds the packages needed by the demo scripts.
+This adds the packages needed by the demo script.
 
 ## Create an app to obtain a test ID token
 
@@ -282,43 +283,67 @@ This demo script obtains an ID token for testing. See [Exchange the ID token for
 
 ### Create your environment file
 
-Create a `.env` file. The demo script references the values in this file. Include the following details from your AI agent. Use your AI agent ID as the `OIDC_CLIENT_ID` and your AI agent client secret as the `OIDC_CLIENT_SECRET`. Add:
+Create a `.env` file. The demo script references the values in this file. Include the following details from your AI agent. Use your AI agent ID as the `OIDC_CLIENT_ID`, and the key ID and private key generated during AI Agent registration as `OIDC_KEY_ID` and `OIDC_PRIVATE_KEY_JWK`. Add:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
 OIDC_CLIENT_ID={client_id}
-OIDC_CLIENT_SECRET={client_secret}
+OIDC_KEY_ID={yourKeyID}
+OIDC_PRIVATE_KEY_JWK={yourPrivateKey}
 ```
 
 For example:
 
 ```bash
-# OIDC config for oidc.id-token.py
+# OIDC config for id-token-demo.py
 # OKTA_DOMAIN must include https:// and have NO trailing slash
 OKTA_DOMAIN=https://example.okta.com
 OIDC_CLIENT_ID=wlpo1x....Vv6aZ1d7
-OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
+OIDC_KEY_ID=98cfd0b41b99b68....fb8868188d2f5
+OIDC_PRIVATE_KEY_JWK={"alg":"RS256","d":"QtPaeAww4ykVlxafEqZ7A..."}
 ```
 
 ### Create the token demo file
 
-Create a `scripts` folder at the root level of your project, and create a Python file, for example, `oidc.id-token.py`. Copy the following Python code into the file and save.
+Create a `scripts` folder at the root level of your project, and create a Python file, for example, `id-token-demo.py`. Copy the following Python code into the file and save.
 
 ```python
-# oidc.id-token.py
-import os, secrets
+# id-token-demo.py
+import os, json, time, uuid, secrets
+import jwt
 from flask import Flask, redirect, request, session
 import requests
 from dotenv import load_dotenv
 load_dotenv()
 
-OKTA_DOMAIN        = os.environ["OKTA_DOMAIN"]
-OIDC_CLIENT_ID     = os.environ["OIDC_CLIENT_ID"]
-OIDC_CLIENT_SECRET = os.environ["OIDC_CLIENT_SECRET"]
-REDIRECT_URI       = "http://localhost:5000/callback"
+OKTA_DOMAIN          = os.environ["OKTA_DOMAIN"]
+OIDC_CLIENT_ID       = os.environ["OIDC_CLIENT_ID"]
+OIDC_KEY_ID          = os.environ["OIDC_KEY_ID"]
+OIDC_PRIVATE_KEY_JWK = json.loads(os.environ["OIDC_PRIVATE_KEY_JWK"])
+REDIRECT_URI         = "http://localhost:5000/callback"
+
+# PyJWT can't sign with a raw JWK dict; convert it to a key object once.
+OIDC_SIGNING_KEY = jwt.PyJWK.from_dict(OIDC_PRIVATE_KEY_JWK).key
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
+
+
+def build_client_assertion(audience: str) -> str:
+    now = int(time.time())
+    return jwt.encode(
+        {
+            "iss": OIDC_CLIENT_ID,
+            "sub": OIDC_CLIENT_ID,
+            "aud": audience,
+            "iat": now,
+            "exp": now + 300,
+            "jti": str(uuid.uuid4()),
+        },
+        OIDC_SIGNING_KEY,
+        algorithm="RS256",
+        headers={"kid": OIDC_KEY_ID},
+    )
 
 @app.route("/")
 def index():
@@ -350,12 +375,14 @@ def callback():
     if not code:
         return "<pre>error: no authorization code returned</pre>", 400
 
-    resp = requests.post(f"{OKTA_DOMAIN}/oauth2/v1/token", data={
-        "grant_type":    "authorization_code",
-        "code":          code,
-        "redirect_uri":  REDIRECT_URI,
-        "client_id":     OIDC_CLIENT_ID,
-        "client_secret": OIDC_CLIENT_SECRET,
+    token_url = f"{OKTA_DOMAIN}/oauth2/v1/token"
+    resp = requests.post(token_url, data={
+        "grant_type":            "authorization_code",
+        "code":                  code,
+        "redirect_uri":          REDIRECT_URI,
+        "client_id":             OIDC_CLIENT_ID,
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion":      build_client_assertion(token_url),
     })
     if not resp.ok:
         return f"<pre>token endpoint error ({resp.status_code}):\n{resp.text}</pre>", 400
@@ -442,7 +469,7 @@ if __name__ == "__main__":
 Run the demo file:
 
 ```bash
-uv run scripts/oidc.id-token.py
+uv run scripts/id-token-demo.py
 ```
 
 Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the ID token appears on the rendered page. You can use this ID token to test the token exchange flow API calls in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag).
@@ -455,13 +482,17 @@ Use the following Python Flask app to test the token exchange flow. It obtains a
 
 ### Create your environment file
 
-Create an `.env` file (or modify the `.env` from the previous section). The demo script references the values in this file. The AI Agent is registered as the same client as the OIDC login app, so it reuses the same client ID and secret. Include the following details from the remainder of your token exchange setup:
+Create an `.env` file (or modify the `.env` from the previous section). The demo script references the values in this file. Include the following details from the remainder of your token exchange setup:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
 OIDC_CLIENT_ID={client_id}
-OIDC_CLIENT_SECRET={client_secret}
+OIDC_KEY_ID={yourKeyID}
+OIDC_PRIVATE_KEY_JWK={yourPrivateKey}
 CUSTOM_AS={yourCustomAS}
+AGENT_CLIENT_ID={yourAgentID}
+AGENT_KEY_ID={yourAgentKID}
+AGENT_PRIVATE_KEY_JWK={yourAgentPrivateKey}
 ```
 
 For example:
@@ -471,11 +502,12 @@ For example:
 # OKTA_DOMAIN must include https:// and have NO trailing slash
 OKTA_DOMAIN=https://example.okta.com
 OIDC_CLIENT_ID=0oazte....Vv6aZ1d7
-OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
-
-# --- Token exchange (agent on behalf of user), used by token-exchange-demo.py ---
-# Custom authorization server ID (for example,  "default" or an "ausXXXX..." id)
+OIDC_KEY_ID=98cfd0b41b99b68....fb8868188d2f5
+OIDC_PRIVATE_KEY_JWK={"alg":"RS256","d":"QtPaeAww4ykVlxafEqZ7A..."}
 CUSTOM_AS=default
+AGENT_CLIENT_ID=wlpzx5jq6....zGJY1d7
+AGENT_KEY_ID=98cfd0b41b99b68....fb8868188d2f5
+AGENT_PRIVATE_KEY_JWK={"alg":"RS256","d":"QtPaeAww4ykVlxafEqZ7A..."}
 ```
 
 ### Create the demo file
@@ -484,7 +516,8 @@ Create a `scripts` folder at the root level of your project, and create a Python
 
 ```python
 # token-exchange-demo.py
-import os, secrets
+import os, json, time, uuid, secrets
+import jwt
 import requests
 from flask import Flask, redirect, request, session
 from dotenv import load_dotenv
@@ -492,32 +525,52 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # --- OIDC (user login) ---
-OKTA_DOMAIN        = os.environ["OKTA_DOMAIN"]
-OIDC_CLIENT_ID     = os.environ["OIDC_CLIENT_ID"]
-OIDC_CLIENT_SECRET = os.environ["OIDC_CLIENT_SECRET"]
-REDIRECT_URI       = "http://localhost:5000/callback"
+OKTA_DOMAIN          = os.environ["OKTA_DOMAIN"]
+OIDC_CLIENT_ID       = os.environ["OIDC_CLIENT_ID"]
+OIDC_KEY_ID          = os.environ["OIDC_KEY_ID"]
+OIDC_PRIVATE_KEY_JWK = json.loads(os.environ["OIDC_PRIVATE_KEY_JWK"])
+REDIRECT_URI         = "http://localhost:5000/callback"
+# PyJWT can't sign with a raw JWK dict; convert it to a key object once.
+OIDC_SIGNING_KEY = jwt.PyJWK.from_dict(OIDC_PRIVATE_KEY_JWK).key
 
 # --- Token exchange (agent on behalf of user) ---
-CUSTOM_AS = os.environ["CUSTOM_AS"]
-SCOPE     = os.environ.get("SCOPE", "xaa:read")
+CUSTOM_AS             = os.environ["CUSTOM_AS"]
+SCOPE                 = os.environ.get("SCOPE", "xaa:read")
+AGENT_CLIENT_ID       = os.environ["AGENT_CLIENT_ID"]
+AGENT_KEY_ID          = os.environ["AGENT_KEY_ID"]
+AGENT_PRIVATE_KEY_JWK = json.loads(os.environ["AGENT_PRIVATE_KEY_JWK"])
+AGENT_SIGNING_KEY = jwt.PyJWK.from_dict(AGENT_PRIVATE_KEY_JWK).key
 
-# The AI Agent is registered as the same client as the OIDC login app.
-AGENT_CLIENT_ID     = OIDC_CLIENT_ID
-AGENT_CLIENT_SECRET = OIDC_CLIENT_SECRET
+
+def build_client_assertion(client_id: str, key_id: str, signing_key, audience: str) -> str:
+    now = int(time.time())
+    return jwt.encode(
+        {
+            "iss": client_id,
+            "sub": client_id,
+            "aud": audience,
+            "iat": now,
+            "exp": now + 300,
+            "jti": str(uuid.uuid4()),
+        },
+        signing_key,
+        algorithm="RS256",
+        headers={"kid": key_id},
+    )
 
 
 def get_id_jag(id_token: str) -> str:
     org_token_url     = f"{OKTA_DOMAIN}/oauth2/v1/token"
     custom_as_issuer  = f"{OKTA_DOMAIN}/oauth2/{CUSTOM_AS}"   # audience = AS issuer, not its token endpoint
     resp = requests.post(org_token_url, data={
-        "grant_type":           "urn:ietf:params:oauth:grant-type:token-exchange",
-        "client_id":            AGENT_CLIENT_ID,
-        "client_secret":        AGENT_CLIENT_SECRET,
-        "subject_token":        id_token,
-        "subject_token_type":   "urn:ietf:params:oauth:token-type:id_token",
-        "requested_token_type": "urn:ietf:params:oauth:token-type:id-jag",
-        "scope":                SCOPE,
-        "audience":             custom_as_issuer,
+        "grant_type":            "urn:ietf:params:oauth:grant-type:token-exchange",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion":      build_client_assertion(AGENT_CLIENT_ID, AGENT_KEY_ID, AGENT_SIGNING_KEY, org_token_url),
+        "subject_token":         id_token,
+        "subject_token_type":    "urn:ietf:params:oauth:token-type:id_token",
+        "requested_token_type":  "urn:ietf:params:oauth:token-type:id-jag",
+        "scope":                 SCOPE,
+        "audience":              custom_as_issuer,
     })
     if not resp.ok:
         raise RuntimeError(f"id-jag exchange failed ({resp.status_code}) at {org_token_url}:\n{resp.text}")
@@ -527,10 +580,10 @@ def get_id_jag(id_token: str) -> str:
 def get_access_token(id_jag: str) -> str:
     custom_as_token_url = f"{OKTA_DOMAIN}/oauth2/{CUSTOM_AS}/v1/token"
     resp = requests.post(custom_as_token_url, data={
-        "grant_type":     "urn:ietf:params:oauth:grant-type:jwt-bearer",
-        "client_id":      AGENT_CLIENT_ID,
-        "client_secret":  AGENT_CLIENT_SECRET,
-        "assertion":      id_jag,
+        "grant_type":            "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion":      build_client_assertion(AGENT_CLIENT_ID, AGENT_KEY_ID, AGENT_SIGNING_KEY, custom_as_token_url),
+        "assertion":             id_jag,
     })
     if not resp.ok:
         raise RuntimeError(f"access-token exchange failed ({resp.status_code}) at {custom_as_token_url}:\n{resp.text}")
@@ -572,12 +625,14 @@ def callback():
     if not code:
         return "<pre>error: no authorization code returned</pre>", 400
 
-    resp = requests.post(f"{OKTA_DOMAIN}/oauth2/v1/token", data={
-        "grant_type":    "authorization_code",
-        "code":          code,
-        "redirect_uri":  REDIRECT_URI,
-        "client_id":     OIDC_CLIENT_ID,
-        "client_secret": OIDC_CLIENT_SECRET,
+    token_url = f"{OKTA_DOMAIN}/oauth2/v1/token"
+    resp = requests.post(token_url, data={
+        "grant_type":            "authorization_code",
+        "code":                  code,
+        "redirect_uri":          REDIRECT_URI,
+        "client_id":             OIDC_CLIENT_ID,
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion":      build_client_assertion(OIDC_CLIENT_ID, OIDC_KEY_ID, OIDC_SIGNING_KEY, token_url),
     })
     resp.raise_for_status()
     id_token = resp.json()["id_token"]
@@ -681,7 +736,7 @@ uv run scripts/token-exchange-demo.py
 
 Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the full flow completes and the following tokens appear on the rendered page: ID token, ID-JAG token, and access token. See [Complete the token exchange flow](#complete-the-token-exchange-flow).
 
-> **Note:** This demo script plays both roles shown in the [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) diagram. It signs the user in as the web app that issues the ID token, and then acts as the AI Agent, using the agent's client secret to perform both steps of the token exchange. In a production integration, these are typically separate components.
+> **Note:** This demo script plays both roles shown in the [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) diagram. It signs the user in as the web app that issues the ID token, and then acts as the AI Agent, using the agent's private key to perform both steps of the token exchange. In a production integration, these are typically separate components.
 
 ## Troubleshooting
 
@@ -690,11 +745,12 @@ The following errors come from the Okta token exchange module:
 | Error | Root cause | Fix |
 | --- | --- | --- |
 | `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS and the managed connection |
-| `invalid_client: Client authentication failed` | The `client_secret` is missing or doesn't match the AI Agent's registered secret | Confirm `AGENT_CLIENT_SECRET`/`OIDC_CLIENT_SECRET` matches the secret generated in **Client registration** |
+| `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Credentials** |
 | `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
+| `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Credentials** into `AGENT_KEY_ID` (or `OIDC_KEY_ID` for the sign-in step) |
 | `access_denied: no_matching_policy` | The custom authorization server access policy is missing the JWT bearer grant | In the custom authorization server access policy rule, enable the JWT bearer grant |
-| `Only service apps can use client_credentials` | Wrong grant type sent to the org authorization server | Use `grant_type=urn:ietf:params:oauth:grant-type:token-exchange` for step 1, not `client_credentials` |
-| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Confirm the request uses the token-exchange grant type and endpoint described in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag), not a Web SSO code exchange |
+| `Only service apps can use client_credentials` | Wrong client type at the org authorization server | Only an Okta client can perform step 1; OIDC apps can't |
+| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for step 1, not the OIDC app |
 
 ## Next steps
 
