@@ -6163,3 +6163,23 @@ redirects:
     to: /docs/concepts/oauth-claims/#claims-versus-scopes
   - from: /docs/guides/build-sso-integration/openidconnect/main/
     to: /docs/concepts/oauth-claims/#claims-versus-scopes
+
+  # Row 8 (#6) - missing trailing-slash variant, was a hard 404
+  - from: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
+
+  # Row 9 (#7) - no SCIM redirect existed at all
+  - from: /docs/guides/build-sso-integration/scim/main
+    to: /docs/guides/create-an-app-integration/scim/main/
+  - from: /docs/guides/build-sso-integration/scim/main/
+    to: /docs/guides/create-an-app-integration/scim/main/
+
+  # Row 10 (#8) - restore index redirects this PR dropped, add /main/ variant
+  - from: /docs/guides/build-sso-integration/index.html
+    to: /docs/guides/create-an-app-integration/
+  - from: /docs/guides/build-sso-integration
+    to: /docs/guides/create-an-app-integration/
+  - from: /docs/guides/build-sso-integration/main
+    to: /docs/guides/create-an-app-integration/
+  - from: /docs/guides/build-sso-integration/main/
+    to: /docs/guides/create-an-app-integration/
