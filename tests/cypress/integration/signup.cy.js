@@ -88,7 +88,7 @@ describe('Sign up page', () => {
 
     it('should contain expected descriptor labels', () => {
       const labels = [
-        'Independent Software Vendor (ISV)',
+        'Independent Software Vendors (ISV)',
         'Solution builders (GSI, SI, MSP, Solution Provider)',
         'Other developers exploring APIs and SDKs',
         'Existing customer',
@@ -99,15 +99,15 @@ describe('Sign up page', () => {
     });
 
     it('should mark a descriptor as selected when clicked', () => {
-      signUpPage.getDescriptorByLabel('Independent Software Vendor (ISV)').click();
+      signUpPage.getDescriptorByLabel('Independent Software Vendors (ISV)').click();
 
       signUpPage.getSelectedDescriptor().should('have.length', 1);
-      signUpPage.getSelectedDescriptor().should('contain.text', 'Independent Software Vendor (ISV)');
+      signUpPage.getSelectedDescriptor().should('contain.text', 'Independent Software Vendors (ISV)');
     });
 
     it('should deselect previous descriptor when another is clicked', () => {
-      signUpPage.getDescriptorByLabel('Independent Software Vendor (ISV)').click();
-      signUpPage.getSelectedDescriptor().should('contain.text', 'Independent Software Vendor (ISV)');
+      signUpPage.getDescriptorByLabel('Independent Software Vendors (ISV)').click();
+      signUpPage.getSelectedDescriptor().should('contain.text', 'Independent Software Vendors (ISV)');
 
       signUpPage.getDescriptorByLabel('Existing customer').click();
       signUpPage.getSelectedDescriptor().should('have.length', 1);
