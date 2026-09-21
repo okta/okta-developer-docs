@@ -189,7 +189,8 @@ export default {
     }, 500);
   },
   mounted() {
-    // Used for observing theme changes to update feature card icons accordingly
+    this.theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+
     this._themeObserver = new MutationObserver(() => {
       this.theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
     });
@@ -207,7 +208,10 @@ export default {
     getTheme: function() {
       const stored = storage.getItem(THEME_MODE_KEY);
       try {
-        return JSON.parse(stored) === true ? "dark" : "light";
+        const isDark = stored
+          ? JSON.parse(stored) === true
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return isDark ? "dark" : "light";
       } catch {
         return "light";
       }
