@@ -73,7 +73,6 @@ See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-manageme
 | [API support for Dynamic Client Registration is Beta](#api-support-for-dynamic-client-registration-is-beta) | September 10, 2026 |
 | [Okta Integration Network MCP server registration is Beta](#okta-integration-network-mcp-server-registration-is-beta) | September 10, 2026 |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
-| [Refresh token lifetimes in Native to Web SSO flows is GA in Production](#refresh-token-lifetimes-in-native-to-web-sso-flows-is-ga-in-production) | September 10, 2026 |
 | [Prompt users to enroll a passkey is GA in Preview](#prompt-users-to-enroll-a-passkey-is-ga-in-preview) | August 5, 2026 |
 | [WebAuthn authenticator enrollments include transports values is GA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-preview) | August 5, 2026 |
 | [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
@@ -118,10 +117,6 @@ You can now use the Okta Integration Network property `registrationType` to regi
 #### New IP Service available for enhanced dynamic network zones
 
 The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `REMOTE_DESKTOP` service.
-
-#### Refresh token lifetimes in Native to Web SSO flows is GA in Production
-
-When a native app requests the `interclient_access` and `offline_access` scopes from the `/authorize` endpoint, the refresh token that Okta issues now follows the token lifetime configured in the authorization server's access policy instead of expiring with the org's global session. This allows you to configure a long-lived refresh token alongside a short global session policy, so that the native app can keep refreshing the access token and exchanging tokens for an `interclient_token` after the browser session ends. The app sign-in policy for the target web app still applies. See [Refresh token lifetime](/docs/guides/native-to-web-sso/main/#refresh-token-lifetime). <!-- OKTA-1232523 -->
 
 #### Prompt users to enroll a passkey is GA in Preview
 
