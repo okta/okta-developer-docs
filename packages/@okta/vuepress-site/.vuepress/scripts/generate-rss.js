@@ -3,6 +3,8 @@ const path = require('path');
 const MarkdownIt = require('markdown-it');
 const mdParser = new MarkdownIt({ html: true });
 
+const UTM_PARAMS = 'utm_source=rss&utm_medium=feed';
+
 function stripMarkdownComments(text) {
   return text.replace(/<!--[\s\S]*?-->/g, '');
 }
@@ -14,7 +16,7 @@ function convertSubheadingLinksToHtml(text, siteUrl) {
       .toLowerCase()
       .replace(/[^\w\s-]/g, '')
       .replace(/\s+/g, '-');
-    return `<a href="${siteUrl}#${htmlAnchor}">${linkText}</a>`;
+    return `<a href="${siteUrl}?${UTM_PARAMS}#${htmlAnchor}">${linkText}</a>`;
   });
 }
 
@@ -110,7 +112,8 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
     const anchor = createAnchor(title);
     const itemLink = `${siteUrl}#${anchor}`;
-    return { title, pubDate, description: tablesOnly, itemLink, idx };
+    const trackedLink = `${siteUrl}?${UTM_PARAMS}#${anchor}`;
+    return { title, pubDate, description: tablesOnly, itemLink, trackedLink, idx };
   });
 
   // Find oldest published date
@@ -138,7 +141,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   const rssItems = releases.map(rel => `
     <item>
       <title>${rel.title}</title>
-      <link>${rel.itemLink}</link>
+      <link>${rel.trackedLink}</link>
       <guid>${rel.itemLink}</guid>
       <pubDate>${rel.pubDate.toUTCString()}</pubDate>
       <description><![CDATA[${rel.description}]]></description>
