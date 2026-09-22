@@ -82,7 +82,7 @@ The AI Agent is the machine identity that your calling app uses to sign token ex
 
 The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
 
-In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. That import generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms).
+In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. Importing the agent doesn't fully configure it for the token exchange. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup, and the platform-specific guides listed under [Supported platforms](#supported-platforms) for platform-specific import steps.
 
 This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
 

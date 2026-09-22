@@ -234,6 +234,14 @@ The following errors are specific to the Amazon Bedrock integration:
 | `ModuleNotFoundError: awscrt` at startup | Missing the CRT extension required by the SSO credential provider | Run `pip install botocore[crt]` |
 | `Agent Instruction cannot be null` | The Bedrock agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
 
+The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+
+* `invalid_scope: openid not allowed`
+* `invalid_client: JWKSet not configured`
+* `invalid_client: kid is invalid`
+* `access_denied: no_matching_policy`
+* `Only service apps can use client_credentials`
+
 ## Next steps
 
 Your agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
