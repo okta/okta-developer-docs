@@ -45,26 +45,84 @@ To configure the AI agent-to-app flow with XAA, perform the following process st
 
 ## Configure the AI agent (requesting app)
 
-To configure an AI agent as the requesting app for XAA in Okta, follow [Register AI agent > User access and authentication](#register-ai-agent--user-access-and-authentication), then [Assign users to the requesting app](#assign-users-to-the-requesting-app). You can [activate your AI agent](#activate-the-ai-agent) after it's configured.
+To configure an AI agent as the requesting app for XAA, you need configure an app instance (the requesting agentic app) and bind it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta:
 
-### Register AI agent > User access and authentication
+1. [Register an AI agent from an existing app](#register-an-ai-agent-from-an-existing-app)
+1. [Register an AI agent from Directory](#register-an-ai-agent-from-directory)
+
+### Supported requesting apps
+
+Okta supports requesting app instances created from the Okta Integration Network (OIN) or from a custom OIDC or SAML integration.
+
+| Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
+| :-------------: | :---: | :---: | :---: |
+|  ✔ Create a new OIDC app linked to this AI agent<br> ✔ Select an existing app<br> |  ✔ Select an existing app |  ✔ Select an existing app  |  ✔ Select an existing app |
+
+#### Select an existing app
+
+This option links the AI agent to an existing app instance in your org. Users can sign in to the linked app to access the AI agent.
+
+- You can link to an existing SAML SSO app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
+
+- You can link to an existing OIDC SSO app instance. This existing OIDC app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Custom OIDC App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc). However, Okta recommends that you create the custom OIDC app instance from the **Register AI agent** wizard. See [Register an AI agent from Directory](#register-an-ai-agent-from-directory) and select **Create a new OIDC app linked to this AI agent** in [Configure user access](#configure-user-access).
+
+#### Create a new OIDC app linked to this AI agent
+
+This option creates a [custom OIDC app integration instance](https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations) in your org that's linked to the AI agent. This linked app instance functions as the requesting app (client). You can't create a custom SAML app instance or a new app instance from the Okta Integration Network (OIN) catalog.
+
+The linked OIDC app instance is initially deactivated. When you activate your AI agent, the linked app instance is also activated. You can access the app details from the **Applications** page.
+
+### Register an AI agent from an existing app
+
+You can configure an AI agent and link it to an existing app instance in Okta. Your existing app must support either OIDC or SAML for SSO:
+
+- For an OIN app, see [Add an existing app integration](#https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app). For example, you can select **Claude** as a requesting app from the OIN.
+- For a custom SAML app, see [Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
+- For a custom OIDC app, Okta recommends that you register the AI agent and then create the custom OIDC app instance from the wizard. See [Register an AI agent from Directory](#register-an-ai-agent-from-directory) and select **Create a new OIDC app linked to this AI agent** in [Configure user access](#configure-user-access).
+   > **Note:** You can also create a custom OIDC app before you register the AI agent. See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc) to create a custom OIDC app. However, you can only bind an existing OIDC app to an AI agent during registration.
+
+After you've created your SSO requesting app, register an AI agent to bind to the app:
+
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+1. Select your SSO requesting app.
+1. In the **Machine Assignments** tab of your app page, select the **Resources** tile.
+1. Click **Register AI agent**.
+1. Under **Profile**, add a name and description for your AI Agent.
+1. Click **Next**.
+
+See [Configure user access](#configure-user-access) for the next step in the **Register AI agent** wizard.
+
+### Register an AI agent from Directory
+
+To register your AI agent first from the Directory path, use the **Register AI agent > User access and authentication** wizard:
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent**.
 1. Under **Profile**, add a name and description for your AI Agent.
 1. Click **Next**.
-1. Under **User access and authentication** > **App assigned to users to access this AI Agent**, select one of:
+
+See [Configure user access](#configure-user-access) for the next step in the wizard.
+
+### Configure user access
+
+1. Under **User access and authentication** > **App assigned to users to access this AI Agent** of the AI agent page, select one of:
 
    * **Create a new OIDC app linked to this AI agent:** To create a custom OIDC app integration instance for users to sign in to access the AI agent. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
    * **Select an existing app:** To select an existing app integration instance in your org for users to sign in to access the AI agent. Use this option if your agentic app uses SAML for SSO. See [Select an existing app](#select-an-existing-app).
 
-        > **Note:** You can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main) only when you register the AI agent. After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance.
+        > **Note:** If you [register an AI agent from an existing app](#register-an-ai-agent-from-an-existing-app), the existing app is prepopulated in this section.
 
    The app you select in the **User access** tab acts as the requesting app role for the XAA flow. It allows your users to sign in to the agentic app through Okta. After the user is signed in, the agentic app can access resource apps on behalf of the signed in user.
 
 1. Click **Next**. Your AI agent appears in the **AI agents** list with the `STAGED` status.
-1. Select your AI Agent from the list, and click **Client registration**.
-1. On the **Client registration** tab, select a client registration method:
+
+> **Note:** You can't modify the app that's bound to the AI agent after registration. If you need to update the app assignment, delete the existing AI agent and register a new AI agent and bind the new app.
+
+See [Add client registration details](#add-client-registration-details) for the next process.
+
+### Add client registration details
+
+1. On the **Client registration** tab in the AI agent page, select a client registration method:
    * **External client ID**: For agentic clients whose identity definition is discovered through a hosted document.
       1. Click **Configure** next to **Client ID metadata document (CIMD)**.
       1. Specify the **CIMD URL** for your agentic client.
@@ -92,33 +150,7 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
          1. Click **Activate**, then **Enable**.
 
-> **Note:** After you register an AI Agent, it appears in the bound app's **Machine Assignments** tab. This indicates that the AI agent can access the bound app as a resource.
-
-### Supported requesting apps
-
-From the previous **User access and authentication** step in the AI agent configuration, only specific types of app integration instances are supported for the options ([Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent) or [Select an existing app](#select-an-existing-app)) provided.
-
-#### Create a new OIDC app linked to this AI agent
-
-| &nbsp;  | Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
-| --- | :---: | :---: | :---: | :---: |
-| Creates a new app instance, linked to the AI agent |  ✔  |  ✗  |  ✗  |  ✗  |
-
-This option creates a [custom OIDC app integration instance](https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations) in your org that's linked to the AI agent. This linked app instance functions as the requesting app (client). You can't create a custom SAML app instance or a new app instance from the Okta Integration Network (OIN) catalog.
-
-The linked OIDC app instance is initially deactivated. When you activate your AI agent, the linked app instance is also activated. You can access the app details from the **Applications** page.
-
-#### Select an existing app
-
-| &nbsp;  | Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
-| ---     | :-------------: | :---: | :---: | :---: |
-| Link to an existing app |  ✔ Only when registering the AI agent<br>✗ Modifying an existing AI agent  |  ✔  |  ✔   |  ✔  |
-
-This option links the AI agent to an existing app instance in your org. Users can sign in to the linked app to access the AI agent.
-
-You can link to an existing SAML SSO app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Classic experience > Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
-
-You can link to an existing OIDC SSO app instance. During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can link an existing OIN OIDC app instance during registration or modification.
+> **Note:** After you register an AI Agent, it appears in the bound app's **Machine Assignments** tab > **Resources** tile. This indicates that the AI agent can access the bound app as a resource.
 
 ### Activate the AI agent
 
@@ -204,6 +236,15 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 1. Click **Add**.
 
 > **Note:** Use of XAA as part of SSO is limited to 250 ID-JAG tokens per user, per resource app, per month. For the purposes of this limit, a "User" must be a licensed "User of Single Sign-On in an Active Status," and the total number of users using XAA can't exceed the org's total purchased SSO users. One ID-JAG token is consumed each time an AI agent uses XAA to access a resource app. If you require ID-JAG token volumes above the limit, contact your Okta account team to subscribe to Okta for AI Agents for a platform-wide agentic identity security solution.
+
+## Migration from Resource Server to Machine Assignments
+
+If you configured XAA in Okta prior to release 2026.09.2, the **Resource Server** tab has been renamed **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
+
+- In the **Machine Assignments** > **Resources** tile, non-human identities that can request access to the app are assigned. For XAA requesting apps, this is where the bound AI agent appears as a resource.
+
+- In the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
+
 
 ## Migration from Okta for AI Agent delegation link
 
