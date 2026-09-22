@@ -46,7 +46,7 @@ To configure the AI agent-to-app flow with XAA, perform the following process st
 
 ## Configure the AI agent (requesting app)
 
-To configure an AI agent as the requesting app for XAA, you need to configure an app instance (the requesting agentic app) and bind it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta. You can select either path, depending on your configuration.
+To configure an AI agent as the requesting app for XAA, you need to create an app instance (the requesting agentic app) and bind it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta. You can select either path, depending on your configuration.
 
 1. [Register an AI agent from an existing app](#register-an-ai-agent-from-an-existing-app).
 1. [Register an AI agent from Directory](#register-an-ai-agent-from-directory).
