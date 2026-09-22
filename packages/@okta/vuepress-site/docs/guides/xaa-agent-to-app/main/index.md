@@ -123,31 +123,32 @@ See [Add client registration details](#add-client-registration-details) for the 
 
 ### Add client registration details
 
-1. On the **Client registration** tab in the AI agent page, select a client registration method:
-   * **External client ID**: For agentic clients whose identity definition is discovered through a hosted document.
-      1. Click **Configure** next to **Client ID metadata document (CIMD)**.
-      1. Specify the **CIMD URL** for your agentic client.
-      1. Click **Activate CIMD client registration**.
-         * Click **Switch** to use CIMD for authentication. All resources referencing this agentic app must also use this method.
-         * Click **Cancel** to cancel this operation and use the previous authentication method.
-   * **Okta-generated client ID**: For agentic clients that use Okta generated credentials for authentication.
-      * **Client secret**: Recommended for server-side AI agents.
-          1. Click **Configure**. The **Client secret** page appears.
+You can stage multiple client registration methods, but you can only activate one method at a time.
+
+1. On the **Client registration** tab in the AI agent page, click **Configure** next to the a client registration method that you want to use:
+   - **External client ID**: For agentic clients whose identity definition is discovered through a hosted document.
+      - **Client ID metadata document (CIMD)**:
+        1. Specify the **CIMD URL** for your agentic client.
+        1. Click **Activate CIMD client registration**.
+          - Click **Switch** to use CIMD for authentication. All resources referencing this agentic app must also use this method.
+          - Click **Cancel** to cancel this operation and use the previous authentication method.
+   - **Okta-generated client ID**: For agentic clients that use Okta generated credentials for authentication.
+      - **Client secret**: Recommended for server-side AI agents.
           1. Click **Generate secret** and save the secret and **Client ID** values for your agentic app's OAuth 2.0 flow.
           1. Click **Activate** > **Enable**.
-      * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
-          1. Click **Configure**. The **Public/private key** page appears.
+          > **Note:** A maximum of two client secrets can be active at a time for rotation.
+      - **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
           1. Define where your keys are managed:
-             * **Okta**: Generate a pubic/private key in Okta for your AI agent.
+             - **Okta**: Generate a pubic/private key in Okta for your AI agent.
                 1. Click **Add public key**.
                 [[style="list-style-type:lower-alpha"]]
                 1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
                 1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
                 1. Click **Done**.
-             * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT.
+             - **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT.
           1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
           1. Click **Activate**, then **Enable**.
-      * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
+      - **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
          1. Click **Activate**, then **Enable**.
 
@@ -215,8 +216,9 @@ Configure XAA for an existing custom SSO app integration instance in Okta:
     1. Select **Enable** to grant access to the app through XAA.
     [[style="list-style-type:lower-alpha"]]
     1. Specify the following fields:
-        * **Issuer URL**: The base URL of the app's authorization server. Okta uses this URL for token verification requests.
-        * **Audience/tenant ID**: A unique identifier or audience claim for the authorization server that protects the resource.
+        - **Issuer URL**: The base URL of the app's authorization server. Okta uses this URL for token verification requests.
+        - **Audience/tenant ID**: A unique identifier or audience claim for the authorization server that protects the resource.
+        - **Scopes** The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add another scope.
         > **Note:** Ensure that the app you're registering as the resource server supports XAA.
     1. Click **Save**.
 
@@ -230,9 +232,12 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 1. Click **Add resource connection**.
 1. From the  **Application** > **Application instance** dropdown, select the XAA-enabled resource app that you configured from [Configure the resource app](#configure-the-resource-app).
     1. Specify the following fields:
-        * **{AI_agent_name} client ID registered in {resource_app_name}**: The external client ID of the AI agent registered in the external resource app configuration.
-        * **Resource identifier**: Specify the resource identifier specific to the resource app.
-        * **Scopes**: Specify the scopes the AI agent is allowed to request from the resource app.
+        - **{AI_agent_name} client ID registered in {resource_app_name}**: The external client ID of the AI agent registered in the external resource app configuration.
+        - **Resource identifier**: Specify the resource identifier specific to the resource app.
+        - **Scopes**: Specify the scopes the AI agent is allowed to request from the resource app.
+            - **Allow any scope**: Permits the AI agent to request any scoped defined in the resource server.
+            - **Allow specific scopes**: Restricts the AI agent to a defined allowlist of scopes.
+            - **Disallow specific scopes**: Explicity blocks selected scopes, while allowing all other resource-defined scopes.
 
 1. Click **Add**.
 
