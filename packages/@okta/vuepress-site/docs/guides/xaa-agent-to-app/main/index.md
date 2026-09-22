@@ -22,6 +22,7 @@ Follow this guide to secure access between an AI agent and resource apps with Cr
 
 - An Okta org that has the SSO feature, such as the [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 - An Okta user account in your org with the super admin role
+- An agentic requesting app and a resource app with XAA capabilities
 
 ---
 
@@ -64,11 +65,11 @@ This option links the AI agent to an existing app instance in your org. Users ca
 
 - You can link to an existing SAML SSO app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
 
-- You can link to an existing OIDC SSO app instance. This existing OIDC app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Custom OIDC App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc). However, Okta recommends that you create the custom OIDC app instance from the **Register AI agent** wizard. See [Register an AI agent from Directory](#register-an-ai-agent-from-directory) and select **Create a new OIDC app linked to this AI agent** in [Configure user access](#configure-user-access).
+- You can link to an existing OIDC SSO app instance. This existing OIDC app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or from the [Custom OIDC App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc). However, Okta recommends that you create the custom OIDC app instance from the **Register AI agent** wizard. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
 
 #### Create a new OIDC app linked to this AI agent
 
-This option creates a [custom OIDC app integration instance](https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations) in your org that's linked to the AI agent. This linked app instance functions as the requesting app (client). You can't create a custom SAML app instance or a new app instance from the Okta Integration Network (OIN) catalog.
+This option creates a [custom OIDC app integration instance](https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations) in your org that's linked to the AI agent. This linked app instance functions as the requesting app (client) and shares client credentials with the AI agent.
 
 The linked OIDC app instance is initially deactivated. When you activate your AI agent, the linked app instance is also activated. You can access the app details from the **Applications** page.
 
@@ -79,7 +80,7 @@ You can configure an AI agent and link it to an existing app instance in Okta. Y
 - For an OIN app, see [Add an existing app integration](#https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app). For example, you can select **Claude** as a requesting app from the OIN.
 - For a custom SAML app, see [Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
 - For a custom OIDC app, Okta recommends that you register the AI agent and then create the custom OIDC app instance from the wizard. See [Register an AI agent from Directory](#register-an-ai-agent-from-directory) and select **Create a new OIDC app linked to this AI agent** in [Configure user access](#configure-user-access).
-   > **Note:** You can also create a custom OIDC app before you register the AI agent. See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc) to create a custom OIDC app. However, you can only bind an existing OIDC app to an AI agent during registration.
+   > **Note:** You can also create a custom OIDC app before you register the AI agent if creating an OIDC app with the Register AI agent wizard isn't possible for your configuration. See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc) to create a custom OIDC app.
 
 After you've created your SSO requesting app, register an AI agent to bind to the app:
 
