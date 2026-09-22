@@ -15,9 +15,7 @@ Understand how to implement the XAA token exchange sequences necessary for a req
 #### What you need
 
 * An agentic app that federates enterprise users through SAML 2.0 or OIDC, and assumes the requesting app role in the XAA flow
-* An Okta org used for Single Sign-On (SSO), such as an [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-  Register your requesting app with SSO and XAA capabilities in your Okta org.
-  <StackSnippet snippet="see-need"/>
+* An Okta org used for Single Sign-On (SSO), such as an [Okta Integrator Free Plan org](https://developer.okta.com/signup). Register your requesting app with SSO and XAA capabilities in your Okta org. <StackSnippet snippet="see-need" inline />
 
 ---
 

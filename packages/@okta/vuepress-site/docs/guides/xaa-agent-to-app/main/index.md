@@ -136,7 +136,7 @@ To deactivate the AI agent:
 
 > **Notes:**
 > * Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
-> * The rquesting app linked to the AI agent is also deactivated.
+> * The requesting app linked to the AI agent is also deactivated.
 
 ## Configure the resource app
 
@@ -164,6 +164,7 @@ Configure XAA for an existing custom SSO app integration instance in Okta:
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your SSO resource app.
 1. In the **Resource Server** tab of your app page, click **Edit** next to **Cross App Access (XAA)** to enable and configure XAA.
+
     1. Select **Enable** to grant access to the app through XAA.
     [[style="list-style-type:lower-alpha"]]
     1. Specify the following fields:
@@ -181,7 +182,9 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 1. Select the **Resource connections** tab.
 1. Click **Add resource connection**.
 1. From the  **Application** > **Application instance** dropdown, select the XAA-enabled resource app that you configured from [Configure the resource app](#configure-the-resource-app).
-    Select **Enable** to grant access to the app through XAA.
+
+    1. Select **Enable** to grant access to the app through XAA.
+    [[style="list-style-type:lower-alpha"]]
     1. Specify the following fields:
         * **Resource indicator**: Specify the URLs of the protected resources.
         * **AI agent's client ID registered in this app**: The external client ID of the AI agent registered in the resource app.
