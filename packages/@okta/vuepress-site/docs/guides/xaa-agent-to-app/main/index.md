@@ -29,7 +29,7 @@ Follow this guide to secure access between an AI agent and resource apps with Cr
 
 You can configure the AI agent-to-app flow with Cross App Access (XAA) in an Okta org with Single Sign-On (SSO). See [Cross App Access (XAA)](/docs/concepts/xaa) for an overview of XAA.
 
-In the AI agent-to-app XAA flow, the AI agent assumes the requesting app role and the resource app can be any SSO app integration in Okta that has the XAA feature enabled. You must build your AI agent app and resource app to have XAA features before registering and configuring them in the Admin Console.
+In the AI agent-to-app XAA flow, the AI agent assumes the requesting app role and the resource app can be any SSO app integration in Okta that has the XAA feature enabled. Build your AI agent app and resource app to have XAA features before registering and configuring them in the Admin Console.
 
 See [XAA flow specifics for an OIDC or SAML requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/#xaa-flow-specifics-for-requesting-app) for the AI agent-to-app token exchange flow.
 
@@ -45,10 +45,10 @@ To configure the AI agent-to-app flow with XAA, perform the following process st
 
 ## Configure the AI agent (requesting app)
 
-To configure an AI agent as the requesting app for XAA, you need configure an app instance (the requesting agentic app) and bind it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta:
+To configure an AI agent as the requesting app for XAA, you need to configure an app instance (the requesting agentic app) and bind it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta. You can select either path, depending on your configuration.
 
-1. [Register an AI agent from an existing app](#register-an-ai-agent-from-an-existing-app)
-1. [Register an AI agent from Directory](#register-an-ai-agent-from-directory)
+1. [Register an AI agent from an existing app](#register-an-ai-agent-from-an-existing-app).
+1. [Register an AI agent from Directory](#register-an-ai-agent-from-directory).
 
 ### Supported requesting apps
 
@@ -116,7 +116,7 @@ See [Configure user access](#configure-user-access) for the next step in the wiz
 
 1. Click **Next**. Your AI agent appears in the **AI agents** list with the `STAGED` status.
 
-> **Note:** You can't modify the app that's bound to the AI agent after registration. If you need to update the app assignment, delete the existing AI agent and register a new AI agent and bind the new app.
+> **Note:** This action permanently binds the AI agent to the app. If you need to make a change, delete the AI agent and recreate it.
 
 See [Add client registration details](#add-client-registration-details) for the next process.
 
@@ -143,7 +143,7 @@ See [Add client registration details](#add-client-registration-details) for the 
                 1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
                 1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
                 1. Click **Done**.
-             * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT
+             * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT.
           1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
           1. Click **Activate**, then **Enable**.
       * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
@@ -239,12 +239,11 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 ## Migration from Resource Server to Machine Assignments
 
-If you configured XAA in Okta prior to release 2026.09.2, the **Resource Server** tab has been renamed **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
+If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
 
 - In the **Machine Assignments** > **Resources** tile, non-human identities that can request access to the app are assigned. For XAA requesting apps, this is where the bound AI agent appears as a resource.
 
 - In the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
-
 
 ## Migration from Okta for AI Agent delegation link
 
