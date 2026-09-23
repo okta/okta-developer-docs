@@ -7,6 +7,8 @@ layout: Guides
 ---
 Learn how to submit an integration with SSO, Universal Logout, provisioning, Entitlement Management, API service, Cross App Access, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
 
+<StackSnippet snippet="top-note"/>
+
 ---
 
 > **Note:** The content below is for **<StackSnippet snippet="protocol-name" inline/>**. If you want to view content for a different capability, select a different option from the **Instructions for** dropdown list.
