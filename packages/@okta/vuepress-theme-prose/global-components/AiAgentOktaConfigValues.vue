@@ -29,7 +29,7 @@
         <tr>
           <td><code>AGENT_CLIENT_ID</code></td>
           <td>Client ID of the imported AI agent, for example <code>wlp9k6...</code></td>
-          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Credentials</strong></td>
+          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Client registration</strong></td>
         </tr>
         <tr>
           <td><code>AGENT_KEY_ID</code></td>
