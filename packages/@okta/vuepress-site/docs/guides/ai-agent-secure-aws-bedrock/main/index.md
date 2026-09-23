@@ -135,7 +135,7 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
    * For **Select model**, choose a foundation model, for example, Claude 3 Haiku.
    * Add your **Instructions for the Agent**. This field can't be empty. Describe what the agent does.
 1. Choose **Save**.
-1. (Optional) Add an action group so the agent can call Okta-protected APIs through a Lambda function:
+1. (Optional) Add an action group so the AI agent can call Okta-protected APIs through a Lambda function:
    1. Choose the **Action groups** tab, then choose **Add**.
    1. Enter a name for the action group. For **Action group type**, select **Define with API schemas**. For **Action group invocation**, choose **Select an existing Lambda function**, then select your Lambda function.
    1. Provide an OpenAPI schema that describes the Lambda's endpoint, review your configuration, and choose **Create**.
@@ -155,8 +155,8 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
 
       > **Note:** Ensure that your Lambda function has outbound internet access (through a NAT Gateway or secure route) to reach your Okta organization's API endpoints.
 
-   1. In the IAM console, open the agent's service role (linked from **Agent overview** > **Permissions**) and add an inline policy granting `lambda:InvokeFunction` on your Lambda's ARN, so the agent is authorized to invoke it.
-1. Choose **Save**, then choose **Prepare** to prepare the agent.
+   1. In the IAM console, open the AI agent's service role (linked from **Agent overview** > **Permissions**) and add an inline policy granting `lambda:InvokeFunction` on your Lambda's ARN, so the agent is authorized to invoke it.
+1. Choose **Save**, then choose **Prepare** to prepare the AI agent.
 1. Choose **Save and exit**.
 1. Note the **Agent ID** and create an **Alias**. Note the **Alias ID**.
 
@@ -164,10 +164,10 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
 
 ### Import your Bedrock Classic Agent into Okta
 
-Importing the agent lets it appear in **Directory** > **AI Agents** for visibility and governance, such as access certifications. This is separate from the AI Agent identity that you registered in [Before you begin](#before-you-begin), which is the credential your app uses to perform the token exchange.
+Importing the AI agent lets it appear in **Directory** > **AI Agents** for visibility and governance, such as access certifications. This is separate from the AI Agent identity that you registered in [Before you begin](#before-you-begin), which is the credential your app uses to perform the token exchange.
 
 1. In AWS, create an IAM user dedicated to the import, for example `okta-ai-agent-import`.
-1. Attach an inline policy that grants only read access to list and describe agents:
+1. Attach an inline policy that grants only read access to list and describe AI agents:
 
    ```json
    {
@@ -188,7 +188,7 @@ Importing the agent lets it appear in **Directory** > **AI Agents** for visibili
    ```
 
 1. Generate an access key for the IAM user and store it in a secrets manager.
-1. In the Admin Console, configure the AI agent import with the access key, the AWS regions where your agents run, and **AWS Bedrock Classic Agents** as the platform. Test the connection and save.
+1. In the Admin Console, configure the AI agent import with the access key, the AWS regions where your AI agents run, and **AWS Bedrock Classic Agents** as the platform. Test the connection and save.
 
 ## Configure your app
 
@@ -225,7 +225,7 @@ pip install -r requirements.txt
 
 ## Invoke the Bedrock Classic Agent with the access token
 
-After the token exchange, invoke the agent and pass the `access_token` and the user's claims as session attributes. A Lambda action group on the agent reads those attributes and forwards the token as `Authorization: Bearer <access_token>` to an Okta-protected resource.
+After the token exchange, invoke the AI agent and pass the `access_token` and the user's claims as session attributes. A Lambda action group on the AI agent reads those attributes and forwards the token as `Authorization: Bearer <access_token>` to an Okta-protected resource.
 
 ```python
 import os
@@ -264,7 +264,7 @@ def invoke_bedrock_agent(prompt: str, user_claims: dict, access_token: str) -> s
     return "".join(chunks)
 ```
 
-> **Note:** The IAM identity running this code needs the `bedrock:InvokeAgent` permission on the target agent. This is a separate, narrower permission than the read-only import policy in [Import your Bedrock Classic Agent into Okta](#import-your-bedrock-classic-agent-into-okta).
+> **Note:** The IAM identity running this code needs the `bedrock:InvokeAgent` permission on the target AI agent. This is a separate, narrower permission than the read-only import policy in [Import your Bedrock Classic Agent into Okta](#import-your-bedrock-classic-agent-into-okta).
 
 ## Wire it into an entry point
 
@@ -343,12 +343,12 @@ A successful response appears as follows and confirms the full round trip:
 # List your Bedrock Classic Agents
 aws bedrock list-agents --region us-east-1
 
-# Find an Agent's Alias IDs
+# Find an AI Agent's Alias IDs
 aws bedrock list-agent-aliases \
   --agent-id <BEDROCK_AGENT_ID> \
   --region us-east-1
 
-# Invoke the agent directly, bypassing main.py
+# Invoke the AI agent directly, bypassing main.py
 aws bedrock-agent-runtime invoke-agent \
   --agent-id <BEDROCK_AGENT_ID> \
   --agent-alias-id <BEDROCK_AGENT_ALIAS_ID> \
@@ -372,8 +372,8 @@ The following errors are specific to the Amazon Bedrock integration:
 | `NoRegionError: You must specify a region` | The boto3 SSO credential refresher needs `AWS_DEFAULT_REGION` | Set both `AWS_REGION` and `AWS_DEFAULT_REGION` in the environment |
 | `ModuleNotFoundError: awscrt` at startup | Missing the CRT extension required by the SSO credential provider | Run `pip install botocore[crt]` |
 | `ThrottlingException` on `InvokeAgent` | Bedrock model invocation quota exceeded (often `0` on new accounts) | Check **Service Quotas**. A quota of `0` means that the model is disabled for the account |
-| `Agent Instruction cannot be null` | The Bedrock Classic Agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
-| `ResourceNotFoundException` on `InvokeAgent` | Wrong agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
+| `Agent Instruction cannot be null` | The Bedrock Classic Agent has no instructions | In the AWS console, edit the AI agent to add an instruction, then choose **Prepare** |
+| `ResourceNotFoundException` on `InvokeAgent` | Wrong AI agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
 
 The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
