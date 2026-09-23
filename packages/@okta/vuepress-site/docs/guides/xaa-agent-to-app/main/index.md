@@ -117,7 +117,7 @@ See [Configure user access](#configure-user-access) for the next step in the wiz
 
 1. Click **Next**. Your AI agent appears in the **AI agents** list with the `STAGED` status.
 
-> **Note:** This action permanently binds the AI agent to the app. If you need to make a change, delete the AI agent and recreate it.
+> **Note:** For OIDC apps, this action permanently binds the AI agent to the app. If you need to make a change to the OIDC app binding, delete the AI agent and recreate it.
 
 See [Add client registration details](#add-client-registration-details) for the next process.
 
@@ -172,7 +172,7 @@ To deactivate the AI agent:
 
 > **Notes:**
 > * Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
-> * The requesting app that's linked to the AI agent is also deactivated.
+> * If the requesting app that's linked to the AI agent is an OIDC app, it's also deactivated.
 
 ### Assign users to the requesting app
 
@@ -191,23 +191,19 @@ Assign users to access the AI agent by assigning them to the linked requesting a
 The resource app contains the protected resources that your AI agent can access on behalf of the user.
 Create the app integration instance that represents your resource app in Okta before configuring the resource connection.
 
-If you created your resource app instance from the OIN catalog, it already has XAA configured, so you don't have to enable XAA. You can go directly to [configure the XAA connection](#configure-the-xaa-connection).
-
-If you created a custom app integration instance for your resource with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main), you need to configure XAA. See [Enable XAA on a custom app integration](#enable-xaa-on-a-custom-app-integration).
-
 ### Supported resource apps
 
 | &nbsp;  | Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
 | --- | :---: | :---: | :---: | :---: |
-| Resource app |  ✔  |  ✔  |  ✔ Only if XAA is enabled |  ✔ Only if XAA is enabled |
+| Resource app |  ✔  |  ✔  |  ✔ Only with XAA functionality |  ✔ Only with XAA functionality |
 
-For each resource app you want to connect to the AI agent, create a custom or OIN app integration instance in Okta with OIDC or SAML SSO configured. If you use an OIN app as the resource app, it must already have XAA enabled. To enable XAA on a custom app, follow [Enable XAA on a custom app integration](#enable-xaa-on-a-custom-app-integration).
+For each resource app you want to connect to the AI agent, create a custom or OIN app integration instance in Okta with OIDC or SAML SSO configured. If you use an OIN app as the resource app, it must already have XAA capabilities and have the **Cross App Access** functionality indicator. To configure XAA on a resource app, follow [Configure XAA on an app integration](#configure-xaa-on-an-app-integration).
 
 > **Note:** To create a custom SSO app integration instance, see [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=create-openid-connect-app-integrations) or [Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml) in the product documentation. To create an OIN app integration instance, see [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app).
 
-### Enable XAA on a custom app integration
+### Configure XAA on an app integration
 
-Configure XAA for an existing custom SSO app integration instance in Okta:
+Configure XAA for an existing SSO app integration instance in Okta:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your SSO resource app.
@@ -218,8 +214,7 @@ Configure XAA for an existing custom SSO app integration instance in Okta:
     1. Specify the following fields:
         - **Issuer URL**: The base URL of the app's authorization server. Okta uses this URL for token verification requests.
         - **Audience/tenant ID**: A unique identifier or audience claim for the authorization server that protects the resource.
-        - **Scopes** The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add another scope.
-        > **Note:** Ensure that the app you're registering as the resource server supports XAA.
+        - **Scopes** The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add more scopes.
     1. Click **Save**.
 
 ## Configure the XAA connection
