@@ -39,7 +39,7 @@
         <tr>
           <td><code>AGENT_PRIVATE_KEY_JWK</code></td>
           <td>The AI agent's private JWK (single-line JSON)</td>
-          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Credentials</strong> &gt; <strong>Public/private key</strong>. Output of <strong>Generate new key</strong>. Store the value in a secrets manager</td>
+          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Client registration</strong> &gt; <strong>Public/private key</strong>. Output of <strong>Generate new key</strong>. Store the value in a secrets manager</td>
         </tr>
       </tbody>
     </table>
