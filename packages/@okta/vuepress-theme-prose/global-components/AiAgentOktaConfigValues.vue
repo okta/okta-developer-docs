@@ -34,7 +34,7 @@
         <tr>
           <td><code>AGENT_KEY_ID</code></td>
           <td><code>kid</code> of the public JWK registered on the third-party AI agent</td>
-          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Credentials</strong> &gt; <strong>Public/private key</strong></td>
+          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Client registration</strong> &gt; <strong>Public/private key</strong></td>
         </tr>
         <tr>
           <td><code>AGENT_PRIVATE_KEY_JWK</code></td>
