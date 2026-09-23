@@ -238,7 +238,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 > **Note:** Use of XAA as part of SSO is limited to 250 ID-JAG tokens per user, per resource app, per month. For the purposes of this limit, a "User" must be a licensed "User of Single Sign-On in an Active Status," and the total number of users using XAA can't exceed the org's total purchased SSO users. One ID-JAG token is consumed each time an AI agent uses XAA to access a resource app. If you require ID-JAG token volumes above the limit, contact your Okta account team to subscribe to Okta for AI Agents for a platform-wide agentic identity security solution.
 
-## Resource Server tab renamed Machine Assignments
+## Resource Server to Machine Assignments
 
 If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
 
