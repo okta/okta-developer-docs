@@ -75,7 +75,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
 * An OIDC web app integration that signs users in and issues the `id_token` your app exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
@@ -375,7 +375,7 @@ The following errors are specific to the Amazon Bedrock integration:
 | `Agent Instruction cannot be null` | The Bedrock Classic Agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
 | `ResourceNotFoundException` on `InvokeAgent` | Wrong agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
 
-The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
 * `invalid_scope: openid not allowed`
 * `invalid_client: JWKSet not configured`
@@ -390,7 +390,7 @@ Your Bedrock Classic Agent can now authenticate as a user and call Okta-protecte
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Amazon Bedrock Agents documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)
 * [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
 * [Implementing least privilege access for Amazon Bedrock](https://aws.amazon.com/blogs/security/implementing-least-privilege-access-for-amazon-bedrock/)

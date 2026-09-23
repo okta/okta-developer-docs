@@ -1,11 +1,11 @@
 ---
-title: Secure third-party AI agents
-excerpt: Understand what's required to secure any third-party or imported AI agent with Okta, and how the pieces fit together.
+title: Secure Imported AI agents
+excerpt: Understand what's required to secure imported AI agents with Okta, and how the pieces fit together.
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-Okta secures third-party and imported AI agents with delegated user identity. When a user signs in with Okta, the agent exchanges that user's identity for a short-lived, scoped access token, and then uses it to call protected resources on the user's behalf.
+Okta secures imported AI agents with delegated user identity. When a user signs in with Okta, the agent exchanges that user's identity for a short-lived, scoped access token, and then uses it to call protected resources on the user's behalf.
 
 This page is a platform-agnostic overview of that integration. It explains the two parts every integration needs, and points you to the concrete implementation steps for your platform.
 
@@ -47,9 +47,9 @@ For the underlying concepts and the token exchange API details, see [Set up AI a
 
 ## What every integration needs
 
-Regardless of platform, securing a third-party or imported AI agent requires the same two pieces of work:
+Regardless of platform, securing an imported AI agent requires the following configurations:
 
-1. **Okta configuration.** Set up an OIDC web app, a custom authorization server and scope, an AI Agent identity, and an access policy rule that permits the exchange. This work is identical for every platform. See [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+1. **Okta configuration.** Set up an OIDC web app, a custom authorization server and scope, an AI Agent identity, and an access policy rule that permits the exchange. This work is identical for every platform. See [Set up Imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 1. **Agent code.** Add the two-step token exchange to your agent (the same reusable logic on every platform), then attach the resulting access token to the agent's downstream calls (specific to your platform's SDK).
 
 > **Note:** Importing an AI agent from its platform doesn't complete the Okta configuration. You still need to complete the configuration steps for an imported AI Agent. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup.
@@ -70,6 +70,6 @@ After your agent can authenticate as a user and call protected resources, define
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up Imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Secure an Amazon Bedrock AgentCore agent](/docs/guides/ai-agent-secure-amazon-bedrock/)
 * [Secure AWS Bedrock Classic Agents with Okta](/docs/guides/ai-agent-secure-aws-bedrock/)
