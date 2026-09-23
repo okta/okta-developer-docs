@@ -136,7 +136,7 @@ To deactivate the AI agent:
 
 > **Notes:**
 > * Deactivating your AI agent can take a few seconds. Wait until you see the "AI agent deactivated successfully" message before you continue with other configurations.
-> * The requesting app linked to the AI agent is also deactivated.
+> * The requesting app that's linked to the AI agent is also deactivated.
 
 ## Configure the resource app
 
