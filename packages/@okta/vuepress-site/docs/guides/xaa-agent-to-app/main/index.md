@@ -152,7 +152,7 @@ You can stage multiple client registration methods, but you can only activate on
          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
          1. Click **Activate**, then **Enable**.
 
-> **Note:** After you register an AI Agent, it appears in the bound app's **Machine Assignments** tab > **Resources** tile. This indicates that the AI agent can access the bound app as a resource.
+> **Note:** After you register an AI Agent, it appears in the bound app's **Machine Assignments** tab > **Resources** tile. This indicates that the requesting app is ready to begin accessing resources.
 
 ### Activate the AI agent
 
@@ -184,7 +184,7 @@ Assign users to access the AI agent by assigning them to the linked requesting a
 1. In the **Assignments** tab, select the users or groups who can access the AI agent.
     See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups) in the product documentation.
 
-    > **Note:** Your linked SSO app is initially inactive, so if you're navigating from the **Applications** page, it may be listed in the **Inactive** tab.
+    > **Note:** Your linked SSO app may initially be inactive, so if you're navigating from the **Applications** page, it may be listed in the **Inactive** tab.
 
 ## Configure the resource app
 
@@ -242,7 +242,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
 
-- In the **Machine Assignments** > **Resources** tile, non-human identities that can request access to the app are assigned. For XAA requesting apps, this is where the bound AI agent appears as a resource.
+- In the **Machine Assignments** > **Resources** tile, the resources that the app can request access to are assigned. For XAA requesting apps, this is where the bound AI agent appears.
 
 - In the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
 
