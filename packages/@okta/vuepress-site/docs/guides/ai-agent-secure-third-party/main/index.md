@@ -21,7 +21,7 @@ Securing any agent breaks into two parts:
 
 * **Okta authentication (platform-agnostic).** The agent performs a two-step token exchange: it turns the user's `id_token` into an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server, then turns the ID-JAG into a scoped `access_token` at a custom authorization server. This logic is identical for every AI agent, so you implement it once as a reusable module.
 
-* **Platform integration (platform-specific).** The agent calls the token exchange and then attaches the resulting access token to the calls it makes, for example, as a session attribute, or as a request header. Exactly how depends on the platform.
+* **Platform integration (platform-specific).** The AI agent calls the token exchange and then attaches the resulting access token to the calls it makes, for example, as a session attribute, or as a request header. Exactly how depends on the platform.
 
 <!-- TODO: Replace this text-based diagram with an image.
 
