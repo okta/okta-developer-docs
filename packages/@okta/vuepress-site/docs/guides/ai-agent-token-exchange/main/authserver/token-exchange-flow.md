@@ -8,7 +8,7 @@
 
 ### Machine access
 
-> **Note**: If your custom authorization server protects multiple resources, such as multiple MCP servers, then only the [user access](#user-access) authentication flow is supported.
+> **Note**: If your custom authorization server protects multiple resources, such as multiple MCP servers, then only the [user access](#user-access) authentication flow is supported. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.
 
   ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/machine-access-authentication-step-ID-JAG-1192893v2.svg)
 

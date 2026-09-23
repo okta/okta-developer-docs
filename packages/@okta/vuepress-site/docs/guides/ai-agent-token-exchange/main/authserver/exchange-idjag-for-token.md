@@ -17,7 +17,7 @@ After receiving the ID-JAG, the agent sends a `POST` request to the resource aut
 | --- | --- |
 | `grant_type` | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `assertion` | The ID-JAG that's received in the **Exchange subject token for resource token** response. |
-| `resource` | Optional. The resource URL of the specific resource that you want the access token scoped to. Include this parameter if your custom authorization server protects multiple resources, such as multiple MCP servers, and the ID-JAG contains a `resource` claim. |
+| `resource` | Optional. The resource URL of the specific resource that you want the access token scoped to. Include this parameter if your custom authorization server protects multiple resources, such as multiple MCP servers, and the ID-JAG contains a `resource` claim. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.|
 
 #### Response
 

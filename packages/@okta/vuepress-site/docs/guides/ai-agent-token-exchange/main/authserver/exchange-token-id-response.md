@@ -46,3 +46,5 @@ If you included the `resource` parameter in the request because your custom auth
    "resource": "https://mcpserver1.example.com"
 }
 ```
+
+> **Note**: See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.

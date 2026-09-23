@@ -28,7 +28,7 @@ If your custom authorization server protects multiple resources, such as multipl
 | `subject_token_type` | The type of subject token. The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
 | `requested_token_type` | The type of token being requested. The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | `audience` | The issuer URL of the resource app's authorization server |
-| `resource` | Optional. The resource URL of the specific resource that you want to access. Include this parameter if your custom authorization server protects multiple resources, such as multiple MCP servers. |
+| `resource` | Optional. The resource URL of the specific resource that you want to access. Include this parameter if your custom authorization server protects multiple resources, such as multiple MCP servers. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.|
 | `scope`    | A list of scopes at the resource app that's being requested. This defines the permissions for the final access token. |
 | `client_assertion_type` | The type of assertion. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | A signed JWT that's used for client authentication. You must sign the JWT using the key that you created when you registered the AI agent. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
