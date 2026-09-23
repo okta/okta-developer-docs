@@ -1,7 +1,7 @@
 <template>
   <div v-pre>
     <p>
-      To exercise the flow, you need an ID token from the OIDC app linked to the agent. Complete an OIDC sign-in against that app to obtain one. For an example Authorization Code sign-in helper that authenticates with <code>private_key_jwt</code>, see <a href="/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token">Create an app to obtain a test ID token</a>.
+      To exercise the flow, you need an ID token from the OIDC app that's linked to the AI agent. Complete an OIDC sign-in against that app to obtain one. For an example Authorization Code sign-in helper that authenticates with <code>private_key_jwt</code>, see <a href="/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token">Create an app to obtain a test ID token</a>.
     </p>
 
     <blockquote>
