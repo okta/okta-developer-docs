@@ -28,7 +28,7 @@
         </tr>
         <tr>
           <td><code>AGENT_CLIENT_ID</code></td>
-          <td>Client ID of the imported third-party AI Agent, for example <code>wlp9k6...</code></td>
+          <td>Client ID of the imported AI agent, for example <code>wlp9k6...</code></td>
           <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Credentials</strong></td>
         </tr>
         <tr>
