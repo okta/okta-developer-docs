@@ -80,7 +80,7 @@ See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
 The AI Agent is the machine identity that your calling app uses to sign token exchange requests. Import your third-party AI Agent following steps in [AI Agent Imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-imports).
 
-The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
+The AI agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI agent identity authenticates both steps of the exchange.
 
 In a real integration, you import the AI agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. Importing the AI agent doesn't fully configure it for the token exchange. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup, and the platform-specific guides listed under [Supported platforms](#supported-platforms) for platform-specific import steps.
 
