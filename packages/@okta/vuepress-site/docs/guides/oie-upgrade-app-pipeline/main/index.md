@@ -2,14 +2,12 @@
 title: Switch an app to the Identity Engine pipeline
 meta:
   - name: description
-    content: Move an individual app to the Identity Engine authentication pipeline during an app-level upgrade, roll back a single app, and migrate many apps with a script.
+    content: Move an individual app to the Identity Engine authentication pipeline during an app-level upgrade, roll back a single app, and migrate apps in bulk with a script.
 ---
-
-<ApiLifecycle access="ea" />
 
 Learn how to move an individual app to the Identity Engine authentication pipeline during an app-level upgrade, roll a single app back if it doesn't work, and migrate apps in bulk with a script.
 
-> **Note:** This guide covers the API for moving apps between pipelines. For eligibility, enablement, and the Admin Console experience, see [INTEROP_PRODUCT_LINK](https://help.okta.com/okta_help.htm?type=oie&id=) and [Eligibility tasks](https://help.okta.com/okta_help.htm?type=oie&id=oie-upgrade-eligibility).
+> **Note:** The tasks in this guide only apply to an app in an org that's eligible for Classic Engine interoperation mode. See [Classic Engine interoperation mode](https://help.okta.com/okta_help.htm?type=oie&id=) to confirm that your org qualifies before you continue.
 
 ---
 
@@ -17,14 +15,13 @@ Learn how to move an individual app to the Identity Engine authentication pipeli
 
 - Understand what an authentication pipeline controls for an app.
 - Update integrations for the session changes that come with the upgrade.
-- Check an app for Classic Engine dependencies before you move it.
 - Move an app to the Identity Engine pipeline.
 - Roll an app back to the Classic Engine pipeline.
 - Migrate apps in bulk with a script.
 
 #### What you need
 
-- An org enabled for an app-level upgrade
+- An org that's upgraded to Identity Engine and is eligible for Classic Engine interoperation mode
 - An access token with the `okta.apps.read` and `okta.apps.manage` scopes
 - The `id` of each app that you want to upgrade
 
@@ -32,7 +29,7 @@ Learn how to move an individual app to the Identity Engine authentication pipeli
 
 ## Overview
 
-Your org upgrades to Identity Engine as a whole. But FEATURE_NAME provides the ability for you to upgrade your apps individually. Okta keeps your existing apps and their branding on the Classic Engine pipeline, and you move them to the Identity Engine pipeline one app at a time, on your own schedule.
+Your org upgrades to Identity Engine as a whole. But Classic Engine interoperation mode provides the ability for you to upgrade your apps individually. Okta keeps your existing apps and their branding on the Classic Engine pipeline, and you move them to the Identity Engine pipeline one app at a time, on your own schedule.
 
 This means that you don't need to fix every customized app before you upgrade. Move your lowest-risk apps first, confirm that each one works, and roll a single app back to the Classic Engine pipeline if it doesn't. Apps that you create after the upgrade use the Identity Engine pipeline as the default. Okta first-party apps, such as the Admin Console, also use the Identity Engine pipeline.
 
@@ -48,7 +45,7 @@ Use the following table to see what an app-level upgrade changes and what you ne
 | --- | --- | --- | --- |
 | Authentication pipeline | Before the upgrade, every app used your org's Classic Engine. Afterward, each app has its own pipeline. Your existing apps stay on the Classic Engine pipeline, and apps that you create use Identity Engine. | Set `authenticationPipeline` to `ORG_DEFAULT` on each app that you want to move. | [Authentication pipeline setting](#authentication-pipeline-setting) |
 | Sessions | On Classic Engine, Okta identifies a user's session with the `sid` cookie. After the upgrade, Okta uses the `idx` cookie and converts each existing Classic Engine session, which destroys the session that the `sid` identifies. | Replace any code that reads a session by its `sid` value. | [Session handling changes](#session-handling-changes) |
-| Authentication policies | An app on the Classic Engine pipeline keeps evaluating its Classic Engine sign-on policy. When you upgrade an app's pipeline, Okta creates a copy of it as an Identity Engine authentication policy and maps the app to it. The app ends up with a policy for each pipeline. | Review the policy that Okta creates and confirm that it aligns with your original policy. | [Authentication policies on both pipelines](#authentication-policies-on-both-pipelines) |
+| Authentication policies | An app on the Classic Engine pipeline keeps evaluating its Classic Engine sign-on policy. When you upgrade an app's pipeline, Okta creates a copy of it as an Identity Engine authentication policy and maps the app to it. The app ends up with a policy for each pipeline, but only evaluates the one that matches its current pipeline. | Review the policy that Okta creates and confirm that it aligns with your original policy. | [Authentication policies on both pipelines](#authentication-policies-on-both-pipelines) |
 | Self-service registration | Doesn't work for an app on the Classic Engine pipeline. Account recovery still works. | Move the app to the Identity Engine pipeline if it needs self-service registration. | [Known limitations](#known-limitations) |
 
 ## Key concepts for an app-level pipeline upgrade
@@ -59,7 +56,7 @@ See the following sections to understand the concepts that affect your apps duri
 
 An authentication pipeline consists of the authentication behaviors that an app's sign-in flow uses. The pipeline consists of the policies that Okta evaluates, which authenticators are available, which sign-in experiences your apps support, and how registration and account recovery work. Classic Engine and Identity Engine each have their own pipeline. On most orgs every app uses the same one. During an app-level upgrade, you set the pipeline for each app individually.
 
-The `authenticationPipeline` property on an app object (`/api/v1/apps`) controls which pipeline an app uses. It accepts two values: `ORG_DEFAULT` and `CLASSIC`.
+The `authenticationPipeline` property on an app object (`/api/v1/apps`) controls which pipeline an app uses. It accepts two values: `ORG_DEFAULT` and `CLASSIC`. Okta only exposes this property after your org has upgraded to Identity Engine. On an org that's still on Classic Engine, no app has a pipeline setting yet, so you can't move individual apps to the Identity Engine pipeline ahead of your org-wide upgrade.
 
 | Value | Description |
 | --- | --- |
@@ -70,12 +67,14 @@ There's no `IDENTITY_ENGINE` value. An app-level upgrade happens on an org that 
 
 There are two restrictions that apply when you switch an app's pipeline:
 
-* `CLASSIC` is only accepted when you update an existing app that previously used the Classic Engine pipeline. You can't create new apps and set their pipelines to `CLASSIC`.
+* When you create an app, Okta sets it to use the Identity Engine pipeline by default. You can't set `CLASSIC` when you create an app. But you can switch an existing app to `CLASSIC` afterward with a `PUT` request, whether or not that app ever ran on the Classic Engine pipeline before.
 * Some apps always use the Identity Engine pipeline. For those apps, if you try to set `CLASSIC` as the pipeline, the request fails with a `400` error. This applies to Okta first-party apps, such as the Admin Console and the Okta Browser Plugin, and to apps that already evaluate a Classic Engine sign-on policy on an Identity Engine org, such as multifactor-only and RADIUS apps.
 
 ### Authentication policies on both pipelines
 
-An app on the Classic Engine pipeline evaluates its Classic Engine sign-on policy. When you move the app to the Identity Engine pipeline, Okta creates an Identity Engine authentication policy from that sign-on policy and maps the app to it. The Classic Engine policy stays in place, so the app has a policy for each pipeline, and its `authenticationPipeline` value decides which policy Okta evaluates.
+An app on the Classic Engine pipeline evaluates its Classic Engine sign-on policy. When you move the app to the Identity Engine pipeline, Okta creates an Identity Engine authentication policy from that sign-on policy and maps the app to it. The Classic Engine policy stays in place, so the app has a policy for each pipeline, but it only evaluates one of them at a time.
+
+The policy that matches its current `authenticationPipeline` value is the one that's evaluated.
 
 The two policies are close equivalents. Okta carries over the parts that map directly, such as the rule action, the factor requirements, and the password and multifactor reauthentication intervals. The engines don't model policies identically, so treat the new policy as a starting point and review it carefully. See [Authentication policies](/docs/concepts/policies/#authentication-policies) for how Identity Engine models them, and [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/) to review or change one.
 
