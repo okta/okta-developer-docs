@@ -12,7 +12,7 @@ To support cross-domain authorization, a trust relationship is established betwe
 
 Traditional external resource authorization methods (such as API authorization) create security and operational challenges in enterprise environments:
 
-* **Limitations of static API keys and standard OAuth**: Static API keys lack end user context, grant overly broad permissions. Direct app-to-app OAuth flows operate outside central identity governance.
+* **Limitations of static API keys and standard OAuth**: Static API keys lack end-user context, and grant overly broad permissions. Direct app-to-app OAuth flows operate outside central identity governance.
 * **Benefits for enterprise customers**: XAA provides centralized governance, unified policy enforcement, and audit logging for every XAA request.
 * **Benefits for end users**: Users sign in once through their primary IdP and seamlessly access connected tools without repeated authentication prompts.
 * **Benefits for ISV developers**: Independent software vendors (ISVs) can meet enterprise security requirements faster, reducing friction in sales cycles. They can build their XAA-enabled integration once and reuse it for their customers.

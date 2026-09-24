@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide explains how to secure an Amazon Bedrock AgentCore agent by adding a secure Python wrapper that handles Okta identity verification. It assumes that you have a functional AgentCore agent and can modify its code. By wrapping your agent with this runtime logic, you enable it to perform Okta's two-step token exchange internally and safely call downstream resources on the signed-in user's behalf.
+This guide explains how to secure an Amazon Bedrock AgentCore agent by adding a secure Python wrapper that handles Okta identity verification. It assumes that you have a functional AgentCore agent and can modify its code. By wrapping your AI agent with this runtime logic, you enable it to perform Okta's two-step token exchange internally and safely call downstream resources on the signed-in user's behalf.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Amazon Bedrock-specific code and configuration that consumes it.
 
@@ -15,8 +15,8 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 #### Learning outcomes
 
-* Understand what a third-party AI agent must do to authenticate as a signed-in user with Okta.
-* Add a token exchange module to your agent.
+* Understand what an imported AI agent must do to authenticate as a signed-in user with Okta.
+* Add a token exchange module to your AI agent.
 * Wire the token exchange into an Amazon Bedrock AgentCore agent and call a downstream Bedrock agent with the resulting access token.
 * Verify and test the end-to-end flow with a real Okta ID token.
 
@@ -31,17 +31,17 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 ## Overview
 
-An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
+An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the AI agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
 
 The integration has two parts:
 
-* Okta authentication. The agent performs a two-step token exchange:
+* Okta authentication. The AI agent performs a two-step token exchange:
   1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
-  This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
+  This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
-* Platform integration (Amazon Bedrock-specific). Your agent calls the token exchange and then attaches the access token to its downstream calls. For AgentCore, this means passing the token to a Bedrock agent as a session attribute. See [Integrate the token exchange into your AgentCore agent](#integrate-the-token-exchange-into-your-agentcore-agent).
+* Platform integration (Amazon Bedrock-specific). Your AI agent calls the token exchange and then attaches the access token to its downstream calls. For AgentCore, this means passing the token to a Bedrock AI agent as a session attribute. See [Integrate the token exchange into your AgentCore agent](#integrate-the-token-exchange-into-your-agentcore-agent).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
@@ -67,9 +67,9 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
+* An OIDC web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
 * The Bedrock AgentCore agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
@@ -94,7 +94,7 @@ Your Amazon Bedrock AgentCore agent code reads these values as environment varia
 
 > **Note:** Set both `AWS_REGION` and `AWS_DEFAULT_REGION`. The `botocore[crt]` credential refresher requires `AWS_DEFAULT_REGION`. Omitting this value causes a `NoRegionError`.
 
-## Add Okta authentication to your agent
+## Add Okta authentication to your AI agent
 
 The following example `token_exchange.py` module that you create here has no dependency on Amazon Bedrock or AWS.
 
@@ -114,7 +114,7 @@ boto3
 botocore[crt]
 ```
 
-> **Note:** Your agent requires `botocore[crt]` when your AWS credentials use the SSO login credential provider. Without it, the runtime fails at startup with `ModuleNotFoundError: awscrt`.
+> **Note:** Your AI agent requires `botocore[crt]` when your AWS credentials use the SSO login credential provider. Without it, the runtime fails at startup with `ModuleNotFoundError: awscrt`.
 
 Install the complete set of dependencies:
 
@@ -159,7 +159,7 @@ Two AWS runtime requirements apply:
 
 ### Wire it into the AgentCore entry point
 
-In your agent's entry point, call the two token exchange functions in order, and then invoke the downstream Bedrock agent with the access token. The following `agent.py` imports the reusable module and adds only the AgentCore-specific wiring:
+In your AI agent's entry point, call the two token exchange functions in order, and then invoke the downstream Bedrock agent with the access token. The following `agent.py` imports the reusable module and adds only the AgentCore-specific wiring:
 
 ```python
 import uuid
@@ -228,18 +228,26 @@ The following errors are specific to the Amazon Bedrock integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `ResourceNotFoundException` on `InvokeAgent` | Wrong agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
+| `ResourceNotFoundException` on `InvokeAgent` | Wrong AI agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
 | `ThrottlingException` on `InvokeAgent` | Bedrock model invocation quota exceeded (often `0` on new accounts) | Check **Service Quotas**. A quota of `0` means that the model is disabled for the account |
-| `NoRegionError: You must specify a region` | The boto3 SSO credential refresher needs `AWS_DEFAULT_REGION` | Set both `AWS_REGION` and `AWS_DEFAULT_REGION` in the agent runtime environment |
+| `NoRegionError: You must specify a region` | The boto3 SSO credential refresher needs `AWS_DEFAULT_REGION` | Set both `AWS_REGION` and `AWS_DEFAULT_REGION` in the AI agent runtime environment |
 | `ModuleNotFoundError: awscrt` at startup | Missing the CRT extension required by the SSO credential provider | Run `pip install botocore[crt]` |
 | `Agent Instruction cannot be null` | The Bedrock agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
 
+The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+
+* `invalid_scope: openid not allowed`
+* `invalid_client: JWKSet not configured`
+* `invalid_client: kid is invalid`
+* `access_denied: no_matching_policy`
+* `Only service apps can use client_credentials`
+
 ## Next steps
 
-Your agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
+Your AI agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
 
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Amazon Bedrock AgentCore documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)

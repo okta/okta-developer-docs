@@ -592,7 +592,7 @@ export const guides = [
             guideName: "ai-agent-token-exchange",
           },
           {
-            title: "Set up third-party AI agent token exchange",
+            title: "Set up imported AI agent token exchange",
             guideName: "ai-agent-third-party-token-exchange",
           },
           {
@@ -606,7 +606,7 @@ export const guides = [
             guideName: "ai-agent-cimd-registration",
           },
           {
-            title: "Secure third-party AI agents",
+            title: "Secure imported AI agents",
             path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
               {
