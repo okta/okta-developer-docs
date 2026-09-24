@@ -41,7 +41,7 @@ The integration has two parts:
 
   This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
-* Platform integration (Amazon Bedrock-specific). Your AI agent calls the token exchange and then attaches the access token to its downstream calls. For AgentCore, this means passing the token to a Bedrock agent as a session attribute. See [Integrate the token exchange into your AgentCore agent](#integrate-the-token-exchange-into-your-agentcore-agent).
+* Platform integration (Amazon Bedrock-specific). Your AI agent calls the token exchange and then attaches the access token to its downstream calls. For AgentCore, this means passing the token to a Bedrock AI agent as a session attribute. See [Integrate the token exchange into your AgentCore agent](#integrate-the-token-exchange-into-your-agentcore-agent).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
