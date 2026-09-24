@@ -5,5 +5,5 @@ Explore other direct authentication flows, such as:
 * [Okta Verify Push as a primary factor](/docs/guides/configure-direct-auth-grants/coobov/main/)
 * [Okta Verify Push with MFA](/docs/guides/configure-direct-auth-grants/dmfaoobov/main/)
 * [Phone authenticator using SMS or Voice as a primary factor](/docs/guides/configure-direct-auth-grants/eoobsv/main/)
-* [Email authenticator as a primary factor](/docs/guides/configure-direct-auth-grants/goobem/main/)
-* [Email authenticator with MFA](/docs/guides/configure-direct-auth-grants/hmfaoobem/main/)
+* [Email authenticator as a primary factor](/docs/guides/configure-direct-auth-grants/oobem/main/)
+* [Email authenticator with MFA](/docs/guides/configure-direct-auth-grants/mfaoobem/main/)
