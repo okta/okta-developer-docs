@@ -88,7 +88,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
-1. Under **Profile**, add a name and description for your AI Agent, for example, "AI Agent Token Exchange."
+1. In **Profile**, add a name and description for your AI agent, for example, "AI agent token exchange."
 1. Optional. Under **Identifier (Recommended if available)**, select the agent builder platform if available.
 1. Optional. Under **External ID**, add the external ID from your platform.
 1. Click **Next**.
