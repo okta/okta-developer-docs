@@ -1,14 +1,5 @@
 ### Direct Authentication MFA OOB Email flow
 
-<div class="three-quarter">
-
-![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for the Email MFA OOB flow"](/img/authorization/oauth-mfaoob-email-grant-flow.png)
-
-</div>
-
-<!-- TODO: source diagram not yet created. Mirror the existing Phone MFA OOB diagram
-     (oauth-mfaoob-phone-grant-flow.png) with "SMS or Voice" swapped for "Email". -->
-
 At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username and password in the app interface, and the user enters their credentials.

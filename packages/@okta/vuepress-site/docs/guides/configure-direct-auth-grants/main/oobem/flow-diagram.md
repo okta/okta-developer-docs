@@ -1,15 +1,5 @@
 ### Direct authentication OOB flow with Email
 
-<div class="three-quarter">
-
-![Sequence diagram that displays the communication between the resource owner, client app, and authorization server for the Email OOB flow"](/img/authorization/oauth-oob-email-grant-flow.png)
-
-</div>
-
-<!-- TODO: source diagram not yet created. Mirror the existing Phone OOB diagram
-     (oauth-oob-phone-grant-flow.png) with "SMS or Voice" swapped for "Email" and
-     the OTP source described as an email instead of an SMS/Voice call. -->
-
 At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username in the app interface.
