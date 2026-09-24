@@ -1,5 +1,5 @@
 ---
-title: Secure Imported AI agents
+title: Secure imported AI agents
 excerpt: Understand what's required to secure imported AI agents with Okta, and how the pieces fit together.
 layout: Guides
 ---
