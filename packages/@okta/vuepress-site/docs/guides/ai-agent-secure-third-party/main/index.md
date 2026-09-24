@@ -49,7 +49,7 @@ For the underlying concepts and the token exchange API details, see [Set up AI a
 
 Regardless of platform, securing an imported AI agent requires the following configurations:
 
-1. **Okta configuration.** Set up an OIDC web app, a custom authorization server and scope, an AI Agent identity, and an access policy rule that permits the exchange. This work is identical for every platform. See [Set up Imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+1. **Okta configuration.** Set up an OIDC web app, a custom authorization server and scope, an AI agent identity, and an access policy rule that permits the exchange. This work is identical for every platform. See [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 1. **Agent code.** Add the two-step token exchange to your agent (the same reusable logic on every platform), then attach the resulting access token to the agent's downstream calls (specific to your platform's SDK).
 
 > **Note:** Importing an AI agent from its platform doesn't complete the Okta configuration. You still need to complete the configuration steps for an imported AI Agent. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup.
