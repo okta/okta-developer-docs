@@ -756,4 +756,4 @@ The following errors come from the Okta token exchange scripts:
 
 If you're integrating a supported AI agent platform, apply this flow using the platform-specific guide in [Supported platforms](#supported-platforms).
 
-Authenticating imported AI agents with delegated user identity is one part of the Okta for AI Agents framework. To define which resources and scopes an agent can reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
+Authenticating imported AI agents with delegated user identity is one part of the Okta for AI Agents framework. To define which resources and scopes an AI agent can reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
