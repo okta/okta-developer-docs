@@ -25,7 +25,7 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 * An Azure subscription with Azure OpenAI access in your region
 * The AI Agent registered in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-microsoft).
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
-* Azure Permissions: Resource Group Contributor access (for `az acr create` and `az containerapp create`) and Container Registry Repository Writer permissions
+* Azure permissions: Resource Group Contributor access (for `az acr create` and `az containerapp create`) and Container Registry Repository Writer permissions
 * Docker or access to the Azure Container Registry for building images
 * [Python](https://www.python.org/) 3.10 or later
 
