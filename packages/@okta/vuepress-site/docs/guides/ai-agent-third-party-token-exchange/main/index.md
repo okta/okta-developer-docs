@@ -1,11 +1,11 @@
 ---
-title: Set up Imported AI Agent token exchange
+title: Set up imported AI agent token exchange
 excerpt: Learn how to configure token exchange for imported AI agents to securely access protected resources.
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-The Okta for AI Agents feature secures AI agents with delegated user identity. When a user authenticates with Okta to access the agentic app, the app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
+Okta for AI Agents secures AI agents with delegated user identity. When a user authenticates with Okta to access the agentic app, the app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
 
 In this guide, learn how to configure token exchange for imported AI agents, and review the token exchange with a test app.
 
@@ -17,7 +17,7 @@ In this guide, learn how to configure token exchange for imported AI agents, and
 
 - Understand Okta's two-step Cross App Access (XAA) token exchange flow for AI agents.
 - Understand how to set up the token exchange flow.
-- Test the imported AI Agent token exchange flow.
+- Test the imported AI agent token exchange flow.
 
 #### What you need
 
@@ -34,23 +34,23 @@ For a diagram and step-by-step description of this flow, see [Token Exchange flo
 
 >**Note:** No gateway or proxy is involved. The calling app owns the full token exchange. The AI agent receives a ready-to-use access token.
 
-The machine identity that authenticates token exchange requests is the AI Agent imported in the Admin Console. The AI Agent authenticates both steps of the exchange.
+The machine identity that authenticates token exchange requests is the AI agent imported in the Admin Console. The AI agent authenticates both steps of the exchange.
 
 ### Supported platforms
 
-Okta supports the following AI Agent platforms:
+Okta supports the following AI agent platforms:
 
 | Provider | Platform | Guide |
 | --- | --- | --- |
 | Amazon Web Services | AWS Bedrock Classic Agents | [AWS Bedrock Classic Agents guide](/docs/guides/ai-agent-secure-aws-bedrock/) |
 | Amazon Web Services | AWS Bedrock AgentCore | [AWS Bedrock AgentCore guide](/docs/guides/ai-agent-secure-amazon-bedrock/) |
 
-## Set up the imported AI Agent token flow
+## Set up the imported AI agent token flow
 
 To configure token exchange for imported AI agents, you must complete the following configurations:
 
 - Add a custom scope for your custom authorization server.
-- Import an AI Agent with RSA key-pair authentication, or register your AI agent manually.
+- Import an AI agent with RSA key-pair authentication, or register your AI agent manually.
 
    - You can automatically create an OIDC web app integration for user sign-on.
    - You can select a previously created app integration for user sign-on.
@@ -62,7 +62,7 @@ After these configurations, you can create a test app to demonstrate this flow. 
 
 ### Add a custom scope for your custom authorization server
 
-Your custom authorization server requires a custom scope for the AI Agent token exchange. You can use the default custom authorization server or create your own. See [Create an authorization server](/docs/guides/customize-authz-server/main/#about-the-custom-authorization-server).
+Your custom authorization server requires a custom scope for the AI agent token exchange. You can use the default custom authorization server or create your own. See [Create an authorization server](/docs/guides/customize-authz-server/main/#about-the-custom-authorization-server).
 
 >**Note**: The ID-JAG exchange strips system scopes (`openid`, `profile`, `email`) and causes an `invalid_scope` error. Use a custom scope.
 
@@ -71,18 +71,18 @@ Your custom authorization server requires a custom scope for the AI Agent token 
 1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, for example, `xaa:read`.
 1. Optional. Enter a **Display phrase**, for example, "Cross App Access (XAA read-only scope)."
-1. Optional. Enter a **Description**, for example, "This scope allows AI Agent token exchange."
+1. Optional. Enter a **Description**, for example, "This scope allows AI agent token exchange."
 1. Click **Save**.
 
 See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
 ### Import your AI Agent
 
-The AI Agent is the machine identity that your calling app uses to sign token exchange requests. Import your AI Agent following steps in [AI Agent Imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-imports).
+The AI agent is the machine identity that your calling app uses to sign token exchange requests. Import your AI agent following steps in [AI agent Imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-imports).
 
 The AI agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI agent identity authenticates both steps of the exchange.
 
-In a real integration, you import the AI agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. Importing the AI agent doesn't fully configure it for the token exchange. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup, and the platform-specific guides listed under [Supported platforms](#supported-platforms) for platform-specific import steps.
+In a real integration, you import the AI agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry AI agent. Importing the AI agent doesn't fully configure it for the token exchange. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup, and the platform-specific guides listed under [Supported platforms](#supported-platforms) for platform-specific import steps.
 
 This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
 
@@ -90,7 +90,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Click **Register AI agent** > **Register manually**.
 1. In **Profile**, add a name and description for your AI agent, for example, "AI agent token exchange."
 1. Optional. In **Identifier (Recommended if available)**, select the AI agent builder platform, if available.
-1. Optional. Under **External ID**, add the external ID from your platform.
+1. Optional. In **External ID**, add the external ID from your platform.
 1. Click **Next**.
 1. Under **User access and authentication**, ensure **Allow users to access this agent** is enabled, then select **Create a new OIDC app linked to this AI Agent** to create an OIDC SSO app instance to bind to the AI agent.
 
