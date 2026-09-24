@@ -343,7 +343,7 @@ A successful response appears as follows and confirms the full round trip:
 # List your Bedrock Classic Agents
 aws bedrock list-agents --region us-east-1
 
-# Find an AI Agent's Alias IDs
+# Find an AI agent's alias ID
 aws bedrock list-agent-aliases \
   --agent-id <BEDROCK_AGENT_ID> \
   --region us-east-1
