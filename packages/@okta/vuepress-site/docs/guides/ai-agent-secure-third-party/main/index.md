@@ -70,6 +70,6 @@ After your agent can authenticate as a user and call protected resources, define
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up Imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Secure an Amazon Bedrock AgentCore agent](/docs/guides/ai-agent-secure-amazon-bedrock/)
 * [Secure AWS Bedrock Classic Agents with Okta](/docs/guides/ai-agent-secure-aws-bedrock/)
