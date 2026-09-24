@@ -33,7 +33,7 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 
 ## Overview
 
-An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
+An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the AI agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
 
 The integration has two parts:
 
