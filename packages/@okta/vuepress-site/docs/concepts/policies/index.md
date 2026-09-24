@@ -269,7 +269,7 @@ To see the promotion object in the API reference, see the [Policies API](https:/
 
 <ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
 
-> **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To use it, enable the **Authenticator enrollment sets** self-service feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features). You can't enable it in an org that uses the [Flexible Okta Verify authenticator configuration](/docs/guides/authenticators-okta-verify/main/#configure-okta-verify-as-standalone-authenticators) feature.
+> **Note:** This functionality is available as an Early Access (EA) feature for Identity Engine orgs. To use it, enable the **Authenticator enrollment sets** self-service feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
 
 An authenticator group is a named set of authenticators that an authenticator enrollment policy references to define an enrollment requirement. Instead of marking each authenticator required or optional, you can require users to enroll a minimum number of authenticators from the group. Users choose which ones to enroll. If some users only have access to certain authenticators, they can still meet the enrollment requirement by enrolling in the authenticators that are available to them.
 
@@ -293,6 +293,7 @@ The number of required authenticators (the `count` value) remains the same even 
 Keep the following constraints in mind:
 
 * An authenticator must be enabled for your org before you can add it to a group.
+* You can't add a standalone Okta Verify authenticator (`okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`) to a group. Add the `okta_verify` authenticator instead.
 * An authenticator can belong to only one of the groups that a policy references.
 * `settings.count` can't be greater than the number of authenticators in the group.
 * Only one authenticator enrollment policy can reference a group.
@@ -300,7 +301,7 @@ Keep the following constraints in mind:
 * You can't disable an authenticator for your org while it belongs to any group. Remove it from each group first.
 * Changes to a group's authenticators apply immediately to the policy that references the group.
 
-To see the authenticator group object in the API reference documentation, see the [Authenticator Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorGroup/).
+See the [Authenticator Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorGroup/).
 
 #### User profile policies
 
