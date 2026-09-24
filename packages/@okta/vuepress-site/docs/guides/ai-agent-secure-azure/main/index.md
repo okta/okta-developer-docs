@@ -13,7 +13,7 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 
 #### Learning outcomes
 
-* Understand what a third-party AI agent must do to authenticate as a signed-in user with Okta.
+* Understand what an imported AI agent must do to authenticate as a signed-in user with Okta.
 * Deploy an Azure OpenAI resource and configure a model deployment.
 * Build a FastAPI wrapper that performs the Okta token exchange and calls Azure OpenAI with the resulting identity.
 * Deploy the app to Azure Container Apps.
@@ -23,8 +23,9 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An Azure subscription with Azure OpenAI access in your region
-* The AI Agent registered in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-microsoft.htm).
+* The AI Agent registered in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-microsoft).
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
+* Azure Permissions: Resource Group Contributor access (for `az acr create` and `az containerapp create`) and Container Registry Repository Writer permissions
 * Docker or access to the Azure Container Registry for building images
 * [Python](https://www.python.org/) 3.10 or later
 
@@ -36,11 +37,11 @@ An AI agent has no inherent knowledge of an Okta user. To let it act for a speci
 
 The integration has two parts:
 
-* Okta authentication. The agent performs a two-step token exchange:
+* Okta authentication. The AI agent performs a two-step token exchange:
   1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
-  This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
+  This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
 * Platform integration (Azure-specific). Your FastAPI app calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Call Azure OpenAI with user identity](#call-azure-openai-with-user-identity).
 
@@ -68,7 +69,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
 * An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
@@ -93,7 +94,7 @@ Your FastAPI app reads these values as environment variables. The token exchange
 | `AZURE_OPENAI_ENDPOINT` | Azure OpenAI resource endpoint URL | **Azure Portal** > your Azure OpenAI resource > **Keys and Endpoint** |
 | `AZURE_OPENAI_DEPLOYMENT` | Model deployment name (not the model name) | **Azure OpenAI Studio** > **Deployments** |
 
-## Add Okta authentication to your agent
+## Add Okta authentication to your AI agent
 
 The following example `token_exchange.py` module that you create here has no dependency on Azure or Azure OpenAI.
 
@@ -359,11 +360,13 @@ The following errors are specific to the Azure integration:
 | Container app not pulling image | The container app has no registry credentials configured | Run `az containerapp registry set` before updating the image |
 | App returns the default Azure page | Target port defaults to 80. The FastAPI app runs on 8000 | Run `az containerapp ingress update --target-port 8000` |
 
-The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
+* `invalid_scope: openid not allowed`
 * `invalid_client: JWKSet not configured`
 * `invalid_client: kid is invalid`
 * `access_denied: no_matching_policy`
+* `Only service apps can use client_credentials`
 
 ## Next steps
 
@@ -372,6 +375,6 @@ Your agent can now authenticate as a user and call Okta-protected resources on t
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Azure OpenAI Service documentation](https://learn.microsoft.com/azure/ai-services/openai/)
 * [Azure Container Apps documentation](https://learn.microsoft.com/azure/container-apps/)
