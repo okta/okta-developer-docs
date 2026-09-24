@@ -5,11 +5,9 @@ meta:
     content: Keep your customized Classic Engine sign-in page working during an app-level Identity Engine upgrade, and manage the classic brand that Okta pairs with your custom domain.
 ---
 
-<ApiLifecycle access="ea" />
-
 Learn how Okta keeps your customized Classic Engine sign-in page working during an app-level upgrade, and how to find and manage the classic brand that's paired with your custom domain.
 
-> **Note:** This guide covers the public API changes that support per-app branding during an app-level upgrade. For the Admin Console experience, including branding user experience and previewing customizations, see [INTEROP_PRODUCT_LINK](https://help.okta.com/okta_help.htm?type=oie&id=).
+> **Note:** The tasks in this guide only apply to an app in an org that's eligible for Classic Engine interoperation mode. See [Classic Engine interoperation mode](https://help.okta.com/okta_help.htm?type=oie&id=) to confirm that your org qualifies before you continue.
 
 ---
 
@@ -23,7 +21,7 @@ Learn how Okta keeps your customized Classic Engine sign-in page working during 
 
 #### What you need
 
-- An org enabled for an app-level upgrade
+- An org that's upgraded to Identity Engine and is eligible for Classic Engine interoperation mode
 - An access token with the `okta.brands.read`, `okta.brands.manage`, `okta.domains.read`, and `okta.domains.manage` scopes
 - At least one app running on the Classic Engine pipeline
 
