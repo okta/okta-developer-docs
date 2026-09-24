@@ -178,6 +178,27 @@ Install the complete set of dependencies:
 pip install -r requirements.txt
 ```
 
+### Create a Dockerfile
+
+Create a `Dockerfile` at the root of your project:
+
+```dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "main.py"]
+```
+
+> **Note:** Don't copy your `.env` file into the image. Add a `.dockerignore` file containing `.env`, so secrets never end up baked into the container. Azure Container Apps sets these as real environment variables at deploy time (see [Deploy with environment variables](#deploy-with-environment-variables)).
+
 ### Create your environment file
 
 Create a `.env` file with both the Okta values and the Azure OpenAI values you collected in [Collect your configuration values](#collect-your-configuration-values).
