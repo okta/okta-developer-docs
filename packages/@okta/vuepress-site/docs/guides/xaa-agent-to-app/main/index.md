@@ -82,11 +82,11 @@ You can configure an AI agent and link it to an existing app instance in Okta. Y
 - For a custom OIDC app, Okta recommends that you register the AI agent and then create the custom OIDC app instance from the wizard. See [Register an AI agent from Directory](#register-an-ai-agent-from-directory) and select **Create a new OIDC app linked to this AI agent** in [Configure user access](#configure-user-access).
    > **Note:** You can also create a custom OIDC app before you register the AI agent if creating an OIDC app with the Register AI agent wizard isn't possible for your configuration. See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc) to create a custom OIDC app.
 
-After you've created your SSO requesting app, register an AI agent and link it to the app:
+After you create your SSO requesting app, register an AI agent and link it to the app:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your SSO requesting app.
-1. In the **Machine Assignments** tab of your app page, select the **Resources** tile.
+1. On the **Machine Assignments** tab of your app page, select the **Resources** tile.
 1. Click **Register AI agent**.
 1. Under **Profile**, add a name and description for your AI agent.
 1. Click **Next**.
