@@ -137,6 +137,7 @@ guides:
  - telephony-inline-hook
  - terraform-configure-device-signin-standards
  - terraform-create-custom-auth-server
+ - terraform-decide-what-to-manage
  - terraform-manage-multiple-domains
  - terraform-design-access-security
  - terraform-design-rate-limits
@@ -287,6 +288,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
 6. Automate management of your Okta org using Terraform:
 
     * Essentials
+      * [Decide what to manage with Terraform](/docs/guides/terraform-decide-what-to-manage/)
       * [Terraform overview](/docs/guides/terraform-overview/)
       * [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/)
       * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
