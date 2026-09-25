@@ -88,15 +88,15 @@ The differences between how sessions are handled matter during an app-level upgr
 
 #### Replace code that reads a session by ID
 
-This section applies if you have integrations that validate a user's session on the server.
+This section applies if you have integrations that validate a user's session on your server.
 
 You might have an integration that reads the session cookie that the browser sends, and then passes its value to `GET /api/v1/sessions/{sessionId}` to confirm the session and retrieve its details. On Classic Engine, that cookie is `sid`, and its value works as the session ID.
 
-This pattern breaks after a session converts to Identity Engine. Okta converts a user's Classic Engine session the first time that they do something that engages your org after the upgrade, such as opening the Okta End-User Dashboard, starting an authorization request, or following a SAML app link. Conversion happens once per session, and only if the user doesn't already have an Identity Engine session. Afterward, the `sid` cookie can still be in the browser, but the session that it identifies is gone, so passing that value to `GET /api/v1/sessions/{sessionId}` returns an error.
+This pattern breaks after a session converts to Identity Engine. Okta converts a user's Classic Engine session the first time that they do something that engages your org after the upgrade, such as opening the Okta End-User Dashboard, starting an authorization request, or following a SAML app link. Conversion happens once per session, and only if the user doesn't already have an Identity Engine session. After conversion, the `sid` cookie can still be in the browser, but the session that it identifies is gone, so passing that value to `GET /api/v1/sessions/{sessionId}` returns an error.
 
-Don't look for another way to turn a cookie into a session ID. Identity Engine doesn't use server-side session introspection to establish who a user is. Rely on the session that your app establishes from the protocol it already uses. For an OIDC app, use the ID token or the access token. For a SAML app or an app that uses WS-Federation, use the assertion. Validate that token or assertion on your server.
+After you upgrade an app's pipeline, don't look for another way to turn a cookie into a session ID. There's no supported way to do that conversion anymore. Rely on the session that your app establishes from the protocol that it already uses. For an OIDC app, use the ID token or the access token. For a SAML app or an app that uses WS-Federation, use the assertion. Validate that token or assertion on your server.
 
-Audit your server-side code for anywhere that passes a cookie value as a session ID, decide what each of those call sites needs to know about the user, and plan the change before you move the app.
+Audit your server-side code for anywhere that passes a cookie value as a session ID. For each call site that you find, determine what user information it needs, and replace it with the equivalent claim from the ID token, access token, or SAML assertion before you upgrade the app.
 
 If your org rolls back to Classic Engine after sessions have converted, your users have to sign in again, because Okta destroyed their original Classic Engine sessions. See the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
 
