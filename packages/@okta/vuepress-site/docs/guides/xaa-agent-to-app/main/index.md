@@ -46,7 +46,7 @@ To configure the AI agent-to-app flow with XAA, perform the following process st
 
 ## Configure the AI agent (requesting app)
 
-To configure an AI agent as the requesting app for XAA, you need to create an app instance (the requesting agentic app) and bind it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta. You can select either path, depending on your configuration.
+To configure an AI agent as the requesting app for XAA, you need to create an app instance (the requesting agentic app) and link it to an AI agent in your Okta org. There are two paths to configure your AI agent (requesting app) in Okta. You can select either path, depending on your configuration.
 
 1. [Register an AI agent from an existing app](#register-an-ai-agent-from-an-existing-app).
 1. [Register an AI agent from Directory](#register-an-ai-agent-from-directory).
@@ -82,7 +82,7 @@ You can configure an AI agent and link it to an existing app instance in Okta. Y
 - For a custom OIDC app, Okta recommends that you register the AI agent and then create the custom OIDC app instance from the wizard. See [Register an AI agent from Directory](#register-an-ai-agent-from-directory) and select **Create a new OIDC app linked to this AI agent** in [Configure user access](#configure-user-access).
    > **Note:** You can also create a custom OIDC app before you register the AI agent if creating an OIDC app with the Register AI agent wizard isn't possible for your configuration. See [Create OpenID Connect app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-oidc) to create a custom OIDC app.
 
-After you've created your SSO requesting app, register an AI agent to bind to the app:
+After you've created your SSO requesting app, register an AI agent and link it to the app:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your SSO requesting app.
@@ -117,7 +117,7 @@ See [Configure user access](#configure-user-access) for the next step in the wiz
 
 1. Click **Next**. Your AI agent appears in the **AI agents** list with the `STAGED` status.
 
-> **Note:** For OIDC apps, this action permanently binds the AI agent to the app. If you need to make a change to the OIDC app binding, delete the AI agent and recreate it.
+> **Note:** For OIDC apps, this action permanently links the AI agent to the app. If you need to make a change to the linked OIDC app, delete the AI agent and recreate it.
 
 See [Add client registration details](#add-client-registration-details) for the next process.
 
@@ -152,7 +152,7 @@ You can stage multiple client registration methods, but you can only activate on
          1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
          1. Click **Activate**, then **Enable**.
 
-> **Note:** After you register an AI Agent, it appears in the bound app's **Machine Assignments** tab > **Resources** tile. This indicates that the requesting app is ready to begin accessing resources.
+> **Note:** After you register an AI Agent, it appears in the linked app's **Machine Assignments** tab > **Resources** tile. This indicates that the requesting app is ready to begin accessing resources.
 
 ### Activate the AI agent
 
@@ -214,8 +214,8 @@ Configure XAA for an existing SSO app integration instance in Okta:
     1. Specify the following fields:
         - **Issuer URL**: The base URL of the app's authorization server. Okta uses this URL for token verification requests.
         - **Audience/tenant ID**: A unique identifier or audience claim for the authorization server that protects the resource.
-        - **Scopes** The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add more scopes.
-        > **Note:** You need to specify these fields for custom SSO app instances. For app instances created from the OIN, these fields are set by the vendor.
+        - **Scopes** The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add more scopes. A maximum of 100 scopes are allowed.
+        > **Note:** You need to specify these fields for custom SSO app instances. For app instances created from the OIN, these fields are set by the vendor. An OIN app without defined scopes indicates that scope support is unavailable for that app.
     1. Click **Save**.
 
 ## Configure the XAA connection
@@ -231,7 +231,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
         - **{AI_agent_name} client ID registered in {resource_app_name}**: The external client ID of the AI agent registered in the external resource app configuration.
         - **Resource identifier**: Specify the resource identifier specific to the resource app.
         - **Scopes**: Specify the scopes the AI agent is allowed to request from the resource app.
-            - **Allow any scope**: Permits the AI agent to request any scoped defined in the resource server.
+            - **Allow any scope**: Allows the AI agent to request scopes supported by the resource app vendor.
             - **Allow specific scopes**: Restricts the AI agent to a defined allowlist of scopes.
             - **Disallow specific scopes**: Explicitly blocks selected scopes, while allowing all other resource-defined scopes.
 
@@ -243,7 +243,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
 
-- In the **Machine Assignments** > **Resources** tile, the resources that the app can request access to are assigned. For XAA requesting apps, this is where the bound AI agent appears.
+- In the **Machine Assignments** > **Resources** tile, the resources that the app can request access to are assigned. For XAA requesting apps, this is where the linked AI agent appears.
 
 - In the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
 
