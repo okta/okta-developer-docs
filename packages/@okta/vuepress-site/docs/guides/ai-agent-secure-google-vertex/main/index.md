@@ -15,8 +15,8 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 #### Learning outcomes
 
-* Understand what a third-party AI agent must do to authenticate as a signed-in user with Okta.
-* Add a token exchange module to your agent.
+* Understand what an imported AI agent must do to authenticate as a signed-in user with Okta.
+* Add a token exchange module to your AI agent.
 * Create a session with a Vertex AI Reasoning Engine, send a prompt, and poll for the agent's response.
 * Verify and test the end-to-end flow with a real Okta ID token.
 
@@ -33,15 +33,15 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 ## Overview
 
-An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
+An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the AI agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
 
 The integration has two parts:
 
-* Okta authentication. The agent performs a two-step token exchange:
+* Okta authentication. The AI agent performs a two-step token exchange:
   1. Exchange the user's `id_token` for an identity assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
-  This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
+  This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
 * Platform integration (Google Vertex AI-specific). Unlike a single synchronous call, the Vertex AI Reasoning Engine API is session- and event-based. Your wrapper creates a session, appends the user's prompt to it as an event, and polls the session's events until the agent responds. See [Integrate the token exchange into your Vertex AI agent](#integrate-the-token-exchange-into-your-vertex-ai-agent).
 
@@ -70,7 +70,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
 * An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
@@ -123,7 +123,7 @@ Your Google Vertex AI agent code reads these values as environment variables. Th
 
 > **Note:** These values identify the Reasoning Engine that you're calling. They're separate from the client ID and client secret that you created in [Import your agent from Google Vertex AI](#import-your-agent-from-google-vertex-ai), which Okta uses only to discover and import agents, not at runtime.
 
-## Add Okta authentication to your agent
+## Add Okta authentication to your AI agent
 
 The following example `token_exchange.py` module that you create here has no dependency on Google Cloud or Vertex AI.
 
@@ -285,12 +285,13 @@ Hello! How can I help you today?
 
 <!-- TODO: The source material for this guide didn't include a confirmed table of Google Vertex AI-specific errors, root causes, and fixes (unlike the AWS Bedrock and Salesforce Agentforce guides' "Gotchas" sections). Add one here once available. Likely candidates based on the import flow: a redirect URI mismatch between the Google OAuth client and Okta's callback, missing `aiplatform.editor`/Editor role during import, and a required consent (`interaction_required`) not yet completed by an admin. -->
 
-The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
 * `invalid_scope: openid not allowed`
 * `invalid_client: JWKSet not configured`
 * `invalid_client: kid is invalid`
 * `access_denied: no_matching_policy`
+* `Only service apps can use client_credentials`
 
 ## Next steps
 
@@ -299,5 +300,5 @@ Your agent can now authenticate as a user and call Okta-protected resources on t
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 <!-- TODO: Add a link to the Google Vertex AI Agent Engine / Reasoning Engine platform documentation. -->
