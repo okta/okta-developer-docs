@@ -114,6 +114,7 @@ When you create an Okta expression, you can reference attributes within the `ses
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
 | `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that's resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
 | `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session |   |
+| `session.idp`     | `session` - reference to a user's session<br> `idp` - the ID of the identity provider (IdP) that established the user's current session | `session.idp.contains('$idpId')` - true if the session was established by the specified IdP<br>`session.idp.contains('$idpId1') \|\| session.idp.contains('$idpId2')` - true if the session was established by either of the specified IdPs |
 
 ### Security context
 
