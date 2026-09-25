@@ -215,7 +215,7 @@ Configure XAA for an existing SSO app integration instance in Okta:
         - **Issuer URL**: The base URL of the app's authorization server. Okta uses this URL for token verification requests.
         - **Audience/tenant ID**: A unique identifier or audience claim for the authorization server that protects the resource.
         - **Scopes**: The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add more scopes. A maximum of 100 scopes are allowed.
-        > **Note:** You need to specify these fields for custom SSO app instances. For app instances created from the OIN, these fields are set by the vendor. An OIN app without defined scopes indicates that scope support is unavailable for that app.
+        > **Note:** Specify these fields for custom SSO app instances. For app instances created from the OIN, these fields are set by the vendor. An OIN app without defined scopes indicates that the app doesn't support scopes.
     1. Click **Save**.
 
 ## Configure the XAA connection
@@ -231,7 +231,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
         - **{AI_agent_name} client ID registered in {resource_app_name}**: The external client ID of the AI agent registered in the external resource app configuration.
         - **Resource identifier**: Specify the resource identifier specific to the resource app.
         - **Scopes**: Specify the scopes that the AI agent is allowed to request from the resource app.
-            - **Allow any scope**: Allows the AI agent to request scopes supported by the resource app vendor.
+            - **Allow any scope**: Allows the AI agent to request scopes supported by the resource app vendor. This includes any future scopes that the app may support.
             - **Allow specific scopes**: Restricts the AI agent to a defined allowlist of scopes.
             - **Disallow specific scopes**: Explicitly blocks selected scopes, while allowing all other resource-defined scopes.
 
@@ -241,9 +241,9 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 ## Resource Server to Machine Assignments
 
-If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed to **Machine Assignments** in both the requesting and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
+If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed to **Machine Assignments** in both the requesting (client) and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
 
-- In the **Machine Assignments** > **Resources** tile, the resources that the app can request access to are assigned. For XAA requesting apps, this is where the linked AI agent appears.
+- On the **Machine Assignments** > **Resources** tile, XAA requesting (client) apps request connections to resources they can access. The resource access is established through an AI agent that's linked on this tab. All resources are then managed through the linked AI agent.
 
 - On the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app is configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
 
