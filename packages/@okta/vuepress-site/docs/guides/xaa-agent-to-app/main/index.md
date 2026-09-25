@@ -245,7 +245,7 @@ If you configured XAA in Okta before release 2026.09.2, the **Resource Server** 
 
 - In the **Machine Assignments** > **Resources** tile, the resources that the app can request access to are assigned. For XAA requesting apps, this is where the linked AI agent appears.
 
-- On the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
+- On the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app is configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
 
 ## Migration from Okta for AI Agent delegation link
 
@@ -265,10 +265,10 @@ Review the following scenarios to determine if you have to reconfigure your AI a
 * If you have a single OIDC app for your AI agent's user-access delegation link, you have two options depending on what configuration you want to preserve.
     * If you want to keep your AI agent configuration and can reconfigure a new OIDC app integration for linking:
         1. Delete your linked app (see [Delete your previous user access apps](#delete-previous-user-access-apps)).
-        1. Relink a user access app by selecting the **Create a new OIDC app linked to this agent** option (see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent)).
+        1. Relink a user access app by selecting the **Create a new OIDC app linked to this agent** option (see [Reconfigure direct user authentication to your AI agent](#reconfigure-direct-user-authentication-to-your-ai-agent)).
     * If you want to keep your OIDC app configuration and can reconfigure the AI agent, [delete and re-register your AI agent](#delete-and-re-register-your-ai-agent) and link to the existing OIDC app.
 * If you previously had multiple apps as user-access delegation links, delete the existing user-access apps and recreate only one user-access app for linking. See [Delete your previous user access apps](#delete-previous-user-access-apps), then see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
-* If you want to modify your previous delegation configuration, see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+* If you want to modify your previous delegation configuration, see [Reconfigure direct user authentication to your AI agent](#reconfigure-direct-user-authentiation-to-your-ai-agent).
 
 ### Delete previous user access apps
 
@@ -284,10 +284,10 @@ Review the following scenarios to determine if you have to reconfigure your AI a
 1. Go to **Directory** > **AI Agents**.
 1. Select an AI agent.
 1. Select the **User access** tab, click **Edit**.
-1. Under **User access** > **App used for access configuration**, select one of:
+1. Under **User access and authentication** > **App assigned to users to access this AI Agent**, select one of:
 
    * **Create a new OIDC app linked to this AI agent:** To create a custom OIDC app integration instance for users to sign in to access the AI agent. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
-   * **Select an existing SAML app:** To select an existing SAML app integration instance in your org for users to sign in to access the AI agent. See [Select an existing app](#select-an-existing-app).
+   * **Select an existing app:** To select an existing SAML app integration instance in your org for users to sign in to access the AI agent. See [Select an existing app](#select-an-existing-app).
 
         > **Note:** Currently, you can only select an existing SAML app instance. You can't select an existing OIDC app instance when you edit an existing AI agent.
 
