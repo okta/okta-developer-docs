@@ -30,7 +30,7 @@ The following section discusses different use cases and what the changes are aft
 
 3. **Are you using the My Session Management endpoints (`api/v1/sessions/me`)?** These endpoints are deprecated. They still return a response when a session exists, but don't use them in new integrations, and plan to move off them. To identify a user on your server, use the ID token or the access token from an OpenID Connect sign-in flow. For a SAML app or an app that uses WS-Federation, use the assertion instead.
 
-    The `{sessionId}`-based operations, such as retrieving, revoking, and refreshing a session by its `id`, aren't deprecated and remain supported.
+    The `{sessionId}`-based operations, such as retrieving, revoking, and refreshing a session by its `id`, aren't deprecated and remain supported. Creating a session with `POST /api/v1/sessions` is deprecated too, so there's no supported way left to obtain a new `id`.
 
 4. **Are you making this request (POST `/api/v1/sessions?additionalFields=cookieToken`) using the Sessions API?** This operation works only on the session ID (`sid`) session and not on the Identity Engine `idx` session.
 

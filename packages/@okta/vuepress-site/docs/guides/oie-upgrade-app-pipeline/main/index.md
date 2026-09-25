@@ -54,9 +54,9 @@ See the following sections to understand the concepts that affect your apps duri
 
 ### Authentication pipeline setting
 
-An authentication pipeline consists of the authentication behaviors that an app's sign-in flow uses. The pipeline consists of the policies that Okta evaluates, which authenticators are available, which sign-in experiences your apps support, and how registration and account recovery work. Classic Engine and Identity Engine each have their own pipeline. On most orgs every app uses the same one. During an app-level upgrade, you set the pipeline for each app individually.
+An authentication pipeline determines how an app's sign-in flow works. The pipeline consists of the policies that Okta evaluates, which authenticators are available, which sign-in experiences your apps support, and how registration and account recovery work. Classic Engine and Identity Engine each have their own pipeline. During an app-level upgrade, you set the pipeline for each app individually.
 
-The `authenticationPipeline` property on an app object (`/api/v1/apps`) controls which pipeline an app uses. It accepts two values: `ORG_DEFAULT` and `CLASSIC`. Okta only exposes this property after your org has upgraded to Identity Engine. On an org that's still on Classic Engine, no app has a pipeline setting yet, so you can't move individual apps to the Identity Engine pipeline ahead of your org-wide upgrade.
+The `authenticationPipeline` property on an app controls which pipeline that an app uses. It accepts two values: `ORG_DEFAULT` and `CLASSIC`. Okta only exposes the `authenticationPipeline` property after your org has upgraded to Identity Engine. On an org that's still on Classic Engine, no app has a pipeline setting yet, so you can't move individual apps to the Identity Engine pipeline ahead of your org-wide upgrade.
 
 | Value | Description |
 | --- | --- |
@@ -88,15 +88,19 @@ The differences between how sessions are handled matter during an app-level upgr
 
 #### Replace code that reads a session by ID
 
-This section applies if you have integrations that validate a user's session on your server.
+This section applies if you have integrations that validate, revoke, or refresh a user's session on your server by using a session ID.
 
-You might have an integration that reads the session cookie that the browser sends, and then passes its value to `GET /api/v1/sessions/{sessionId}` to confirm the session and retrieve its details. On Classic Engine, that cookie is `sid`, and its value works as the session ID.
+There's no supported way to obtain a session ID after you upgrade to Identity Engine. On Classic Engine, the `sid` cookie's value works as a session ID with `GET /api/v1/sessions/{sessionId}`. However, that pattern stops working after a session converts to Identity Engine. The cookie can still be in the browser, but the session it identifies is gone.
 
-This pattern breaks after a session converts to Identity Engine. Okta converts a user's Classic Engine session the first time that they do something that engages your org after the upgrade, such as opening the Okta End-User Dashboard, starting an authorization request, or following a SAML app link. Conversion happens once per session, and only if the user doesn't already have an Identity Engine session. After conversion, the `sid` cookie can still be in the browser, but the session that it identifies is gone, so passing that value to `GET /api/v1/sessions/{sessionId}` returns an error.
+Replace any of your code that uses a session ID with one of the following solutions, depending on what your integration needs:
 
-After you upgrade an app's pipeline, don't look for another way to turn a cookie into a session ID. There's no supported way to do that conversion anymore. Rely on the session that your app establishes from the protocol that it already uses. For an OIDC app, use the ID token or the access token. For a SAML app or an app that uses WS-Federation, use the assertion. Validate that token or assertion on your server.
+| What your integration needs | What to use |
+| --- | --- |
+| Your integration needs to identify the current user. | Use the ID token or access token from an OIDC sign-in flow, or the assertion for a SAML or WS-Federation app. Validate the [ID token](/docs/guides/validate-id-tokens/) or [access token](/docs/guides/validate-access-tokens/) on your server. |
+| Your integration needs to revoke a user's session. | Use [Revoke all user sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions) with the user ID instead of session ID. |
+| Your integration needs to keep a user signed in longer. | Use the [OAuth 2.0 refresh token grant](/docs/guides/refresh-tokens/) instead of refreshing the session. |
 
-Audit your server-side code for anywhere that passes a cookie value as a session ID. For each call site that you find, determine what user information it needs, and replace it with the equivalent claim from the ID token, access token, or SAML assertion before you upgrade the app.
+Audit your server-side code for anywhere that passes a cookie value as a session ID, or that calls `POST /api/v1/sessions` to create one. For each call site that you find, determine what it actually needs, and replace it with the matching option from the previous table before you upgrade the app.
 
 If your org rolls back to Classic Engine after sessions have converted, your users have to sign in again, because Okta destroyed their original Classic Engine sessions. See the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
 
