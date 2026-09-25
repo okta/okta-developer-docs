@@ -214,7 +214,7 @@ Configure XAA for an existing SSO app integration instance in Okta:
     1. Specify the following fields:
         - **Issuer URL**: The base URL of the app's authorization server. Okta uses this URL for token verification requests.
         - **Audience/tenant ID**: A unique identifier or audience claim for the authorization server that protects the resource.
-        - **Scopes** The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add more scopes. A maximum of 100 scopes are allowed.
+        - **Scopes**: The scopes that the resource app allows the callers to access. Specify one scope in the text field. Click **+ Add** to add more scopes. A maximum of 100 scopes are allowed.
         > **Note:** You need to specify these fields for custom SSO app instances. For app instances created from the OIN, these fields are set by the vendor. An OIN app without defined scopes indicates that scope support is unavailable for that app.
     1. Click **Save**.
 
