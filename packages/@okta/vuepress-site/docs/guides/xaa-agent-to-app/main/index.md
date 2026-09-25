@@ -245,7 +245,7 @@ If you configured XAA in Okta before release 2026.09.2, the **Resource Server** 
 
 - In the **Machine Assignments** > **Resources** tile, the resources that the app can request access to are assigned. For XAA requesting apps, this is where the linked AI agent appears.
 
-- In the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
+- On the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app are configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
 
 ## Migration from Okta for AI Agent delegation link
 
