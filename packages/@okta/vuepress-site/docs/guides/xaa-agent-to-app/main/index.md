@@ -243,9 +243,11 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 If you configured XAA in Okta before release 2026.09.2, the **Resource Server** tab has been renamed to **Machine Assignments** in both the requesting (client) and resource apps. The **Machine Assignments** tab contains machine or non-human identities that are assigned to the app:
 
-- On the **Machine Assignments** > **Resources** tile, XAA requesting (client) apps request connections to resources they can access. The resource access is established through an AI agent that's linked on this tab. All resources are then managed through the linked AI agent.
+- On the **Machine Assignments** > **Resources** tile, XAA requesting (client) apps request connections to resources they can access. The resource access is established through an AI agent that's linked on this page. All resources are then managed through the linked AI agent.
 
 - On the **Machine Assignments** > **Callers** tile, the machine access method of callers to the app is configured. For XAA resource apps, this is where you configure the authorization server that provides access to your resource app callers.
+
+If your org is subscribed to Okta for AI Agents, the **Machine Assignments** tab is also available in both the requesting (client) and resource apps. The **Machine Assignments** > **Callers** tile also contains the Brokered Consent access method for your resource app callers in Okta for AI Agents.
 
 ## Migration from Okta for AI Agent delegation link
 
