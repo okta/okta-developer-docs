@@ -87,7 +87,7 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 ### Salesforce import prerequisites
 
-Ensure your Salesforce tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
+Ensure that your Salesforce tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
 
 ### Import your agent from Salesforce
 
@@ -156,7 +156,7 @@ Your FastAPI app reads these values as environment variables. The token exchange
 | Environment variable | Description | Where to find it |
 | --- | --- | --- |
 | `SF_MY_DOMAIN` | Your Salesforce My Domain hostname, for example `example.my.salesforce.com` | **Salesforce Setup** > **My Domain** |
-| `SF_CLIENT_ID` | The External Client App's Consumer Key | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
+| `SF_CLIENT_ID` | The external Client App's Consumer Key | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
 | `SF_CLIENT_SECRET` | The External Client App's Consumer Secret | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
 | `SF_AGENT_ID` | The Agentforce agent to invoke (starts with `0Xx`) | **Salesforce Setup** > **Agents** |
 
@@ -434,7 +434,7 @@ The following errors are specific to the Salesforce Agentforce integration:
 | Error | Root cause | Fix |
 | --- | --- | --- |
 | `invalid_grant: no client credentials user enabled` | The Connected App has no **Run As** users configured for the client credentials flow | Go to the Connected App's **Manage** > **Edit Policies** > **Client Credentials Flow**, and assign a **Run As** user |
-| `invalid_grant: ip restricted` | The **Run As** user's profile has login IP ranges that block the caller's IP | Add the caller's IP to the profile's login IP ranges, remove the login IP ranges, or use a **Run As** user on a profile without IP restrictions |
+| `invalid_grant: ip restricted` | The **Run As** user's profile has login IP ranges that block the caller's IP | Add the caller's IP to the profile's log in IP ranges, remove the login IP ranges, or use a **Run As** user on a profile without IP restrictions |
 | `invalid_request: too many scopes requested` | The Connected App has **Issue JWT-based access tokens** enabled along with too many OAuth scopes | Reduce the Connected App's OAuth scopes to only `api`, `chatbot_api`, and `sfap_api` |
 | Agent API returns `URL No Longer Exists` (HTML 404 page) | The request used the Salesforce instance URL (`*.my.salesforce.com`) as the Agent API base | Use `https://api.salesforce.com/einstein/ai-agent/v1/...` as the base URL instead |
 | `BadRequestException: Empty force-config endpoint` | The session request body is missing `instanceConfig.endpoint` | Include `{"instanceConfig": {"endpoint": "https://your-instance.my.salesforce.com"}}` in the session `POST` body |
