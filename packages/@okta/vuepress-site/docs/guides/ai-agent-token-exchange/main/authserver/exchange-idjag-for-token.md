@@ -17,7 +17,7 @@ After receiving the ID-JAG, the agent sends a `POST` request to the resource aut
 | --- | --- |
 | `grant_type` | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `assertion` | The ID-JAG that's received in the **Exchange subject token for resource token** response. |
-| `resource` | Optional. The resource URL of the specific resource that you want the access token scoped to. Include this parameter if your custom authorization server protects multiple resources, such as multiple MCP servers, and the ID-JAG contains a `resource` claim. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.|
+
 
 #### Response
 
@@ -46,7 +46,9 @@ If your custom authorization server protects only one resource, the access token
 }
 ```
 
-If you included the `resource` parameter because your custom authorization server protects multiple resources, the `aud` claim matches that resource URL instead:
+If you have a custom authorization server protecting multiple resources, such as multiple MCP servers, then you used the `resource` parameter in the [original token exchange request](/docs/guides/ai-agent-token-exchange/authserver/main/#exchange-subject-token-for-resource-token) for an ID-JAG.
+
+The `aud` claim in this response matches that resource URL instead of the resource URL configured on the custom authorization server:
 
 ```JSON
 {
@@ -56,6 +58,10 @@ If you included the `resource` parameter because your custom authorization serve
   "iat": 1780596935,
   "exp": 1780600535,
   "scope": "chat.read chat.history",
-  "sub_profile": "service"
+  "sub_profile": "service",
+  "act": {
+     "sub": "{aiAgentPrincipalId}",
+     "sub_profile": "ai_agent"
+   }
 }
 ```

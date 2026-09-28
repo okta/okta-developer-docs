@@ -43,8 +43,14 @@ If you included the `resource` parameter in the request because your custom auth
    "exp": "1780597234 // 12:20:34 PM",
    "jti": "IDAAG.tAO20ExqeUlh6VcpyQxTJ42fn3vDp9E3xR5Iq3Y79pY",
    "sub_profile": "service",
-   "resource": "https://mcpserver1.example.com"
+   "resource": "https://mcpserver1.example.com",
+   "act": {
+     "sub": "{aiAgentPrincipalId}",
+     "sub_profile": "ai_agent"
+   }
 }
 ```
+
+The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain. For example, an agent-to-agent flow nests an additional `act` claim for each agent in the delegation chain.
 
 > **Note**: See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.
