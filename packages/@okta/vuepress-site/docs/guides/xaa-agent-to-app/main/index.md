@@ -234,6 +234,7 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
             - **Allow any scope**: Allows the AI agent to request scopes supported by the resource app vendor. This includes any future scopes that the app may support.
             - **Allow specific scopes**: Restricts the AI agent to a defined allowlist of scopes.
             - **Disallow specific scopes**: Explicitly blocks selected scopes, while allowing all other resource-defined scopes.
+            > **Note:** An error occurs if you select or define scopes for **Allow any scopes** or **Disallow specific scopes** that aren’t defined in the resource app. See [Configure XAA on an app integration](#configure-xaa-on-an-app-integration) to configure scopes for a custom resource app. For OIN resource apps, the vendor defines the scopes in the OIN integration metadata.
 
 1. Click **Add**.
 
