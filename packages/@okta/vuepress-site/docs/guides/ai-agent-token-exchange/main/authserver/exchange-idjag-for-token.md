@@ -32,7 +32,7 @@ The response contains the access token that the AI agent uses to access the reso
 }
 ```
 
-If your custom authorization server protects only one resource, the access token's `aud` claim is the resource URL that's configured on the custom authorization server:
+If the ID-JAG doesn't contain a `resource` claim, then the access token's `aud` claim is the default audience configured on the custom authorization server.
 
 ```JSON
 {
@@ -46,9 +46,7 @@ If your custom authorization server protects only one resource, the access token
 }
 ```
 
-If you have a custom authorization server protecting multiple resources, such as multiple MCP servers, then you used the `resource` parameter in the [original token exchange request](/docs/guides/ai-agent-token-exchange/authserver/main/#exchange-subject-token-for-resource-token) for an ID-JAG.
-
-The `aud` claim in this response matches that resource URL instead of the resource URL configured on the custom authorization server:
+If the ID-JAG does contain the `resource` claim, then the access token's `aud` claim matches that resource URL instead of the resource URL configured on the custom authorization server:
 
 ```JSON
 {
