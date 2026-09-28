@@ -15,8 +15,8 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 #### Learning outcomes
 
-* Understand what a third-party AI agent must do to authenticate as a signed-in user with Okta.
-* Add a token exchange module to your agent.
+* Understand what an imported AI agent must do to authenticate as a signed-in user with Okta.
+* Add a token exchange module to your AI agent.
 * Authenticate to Salesforce with the OAuth 2.0 client credentials grant and call the Agentforce Agent API.
 * Pass a signed-in user's verified Okta identity to an Agentforce agent session.
 * Verify and test the end-to-end flow with a real Okta ID token.
@@ -35,17 +35,17 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 ## Overview
 
-An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
+An AI agent has no inherent knowledge of an Okta user. To let it act for a specific user without sharing long-lived credentials, the AI agent exchanges the user's identity for a short-lived, narrowly scoped access token, and then uses that token to call protected resources.
 
 The integration has two parts:
 
-* Okta authentication. The agent performs a two-step token exchange:
+* Okta authentication. The AI agent performs a two-step token exchange:
   1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
-  This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
+  This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
-* Platform integration (Salesforce Agentforce-specific). Unlike the other third-party platforms, Agentforce doesn't accept an Okta access token directly. Your wrapper authenticates to Salesforce separately with the OAuth 2.0 client credentials grant, then uses the resulting Salesforce token to start an Agentforce session and pass the user's verified Okta identity (name and email) as context in the message it sends to the agent. See [Integrate the token exchange into your Agentforce agent](#integrate-the-token-exchange-into-your-agentforce-agent).
+* Platform integration (Salesforce Agentforce-specific). Unlike the other platforms, Agentforce doesn't accept an Okta access token directly. Your wrapper authenticates to Salesforce separately with the OAuth 2.0 client credentials grant, then uses the resulting Salesforce token to start an Agentforce session and pass the user's verified Okta identity (name and email) as context in the message it sends to the agent. See [Integrate the token exchange into your Agentforce agent](#integrate-the-token-exchange-into-your-agentforce-agent).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
@@ -74,7 +74,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
 * An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
@@ -87,7 +87,7 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 ### Salesforce import prerequisites
 
-Ensure your Salesforce.com tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
+Ensure your Salesforce tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
 
 ### Import your agent from Salesforce
 
@@ -160,7 +160,7 @@ Your FastAPI app reads these values as environment variables. The token exchange
 | `SF_CLIENT_SECRET` | The External Client App's Consumer Secret | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
 | `SF_AGENT_ID` | The Agentforce agent to invoke (starts with `0Xx`) | **Salesforce Setup** > **Agents** |
 
-## Add Okta authentication to your agent
+## Add Okta authentication to your AI agent
 
 The following example `token_exchange.py` module that you create here has no dependency on Salesforce or Agentforce.
 
@@ -231,7 +231,7 @@ def get_salesforce_token() -> str:
     return resp.json()["access_token"]
 ```
 
-> **Note:** The returned token has the `sfap_api`, `chatbot_api`, and `api` scopes. If you enabled more OAuth scopes than that on the Connected App, this call can fail. See [Troubleshoot your integration](#troubleshoot-your-integration).
+> **Note:** The returned token has the `sfap_api`, `chatbot_api`, and `api` scopes. If you enabled more OAuth scopes than these three on the Connected App, this call can fail. See [Troubleshoot your integration](#troubleshoot-your-integration).
 
 ### Call the Agentforce Agent API
 
@@ -408,7 +408,7 @@ az containerapp ingress update \
 
 ## Run an end-to-end invocation
 
-Call the `/invoke` endpoint on your deployed container app, passing the test ID token to verify the end-to-end integration.:
+Call the `/invoke` endpoint on your deployed container app, passing the test ID token to verify the end-to-end integration:
 
 ```bash
 curl -s -X POST "https://<your-container-app-url>/invoke" \
@@ -441,12 +441,13 @@ The following errors are specific to the Salesforce Agentforce integration:
 | Agent API returns `404` for the agent | The agent is `InternalCopilot` type (an Employee Agent) | Use an `ExternalCopilot` type agent (an Agentforce Service Agent). Employee Agents aren't supported |
 | Agent responds "Sorry, I can't assist with that" | The agent's topics don't cover the question asked | Configure the agent's topics in **Salesforce Setup** > **Agents**, or ask it something within its configured scope |
 
-The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
 * `invalid_scope: openid not allowed`
 * `invalid_client: JWKSet not configured`
 * `invalid_client: kid is invalid`
 * `access_denied: no_matching_policy`
+* `Only service apps can use client_credentials`
 
 ## Next steps
 
@@ -455,5 +456,5 @@ Your agent can now authenticate as a user and call Okta-protected resources on t
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Salesforce Agentforce Agent API documentation](https://developer.salesforce.com/docs/einstein/genai/guide/agent-api.html)
