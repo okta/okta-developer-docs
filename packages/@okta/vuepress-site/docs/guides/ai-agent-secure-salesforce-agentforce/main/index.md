@@ -105,7 +105,7 @@ Unlike a manually registered AI Agent identity, Okta can discover and import age
 
 Configure a separate, service-level integration in Salesforce so that your wrapper can authenticate to the Agentforce Agent API. This is independent of the Okta AI Agent identity that you imported in the previous section.
 
-### Create an external Client app
+### Create an external client app
 
 1. In Salesforce Setup, go to **App Manager**, and then click **External Client Apps**.
 1. Enable OAuth settings.
@@ -421,7 +421,7 @@ A successful response appears as follows and confirms the full round trip:
 ```json
 {
   "ok": true,
-  "answer": "Hi there! Could you let me know what you need help with? I'll do my best to assist!",
+  "answer": "Hi there! Can you let me know what you need help with? I'll do my best to assist!",
   "user": "jessie.smith@example.com",
   "access_token_prefix": "eyJraWQiOiI1ZXpPR0dSZzFf..."
 }
@@ -434,7 +434,7 @@ The following errors are specific to the Salesforce Agentforce integration:
 | Error | Root cause | Fix |
 | --- | --- | --- |
 | `invalid_grant: no client credentials user enabled` | The Connected App has no **Run As** users configured for the client credentials flow | Go to the Connected App's **Manage** > **Edit Policies** > **Client Credentials Flow**, and assign a **Run As** user |
-| `invalid_grant: ip restricted` | The **Run As** user's profile has login IP ranges that block the caller's IP | Add the caller's IP to the profile's log in IP ranges, remove the login IP ranges, or use a **Run As** user on a profile without IP restrictions |
+| `invalid_grant: ip restricted` | The **Run As** user's profile has login IP ranges that block the caller's IP | Add the caller's IP to the profile's login IP ranges, remove the login IP ranges, or use a **Run As** user on a profile without IP restrictions |
 | `invalid_request: too many scopes requested` | The Connected App has **Issue JWT-based access tokens** enabled along with too many OAuth scopes | Reduce the Connected App's OAuth scopes to only `api`, `chatbot_api`, and `sfap_api` |
 | Agent API returns `URL No Longer Exists` (HTML 404 page) | The request used the Salesforce instance URL (`*.my.salesforce.com`) as the Agent API base | Use `https://api.salesforce.com/einstein/ai-agent/v1/...` as the base URL instead |
 | `BadRequestException: Empty force-config endpoint` | The session request body is missing `instanceConfig.endpoint` | Include `{"instanceConfig": {"endpoint": "https://your-instance.my.salesforce.com"}}` in the session `POST` body |
