@@ -85,16 +85,20 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 * An access policy rule on the custom authorization server that enables the JWT Bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
 
+### Salesforce import prerequisites
+
+Ensure your Salesforce.com tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
+
 ### Import your agent from Salesforce
 
 Unlike a manually registered AI Agent identity, Okta can discover and import agents directly from a connected Salesforce org.
 
-1. In the Admin Console, go to **Directory** > **AI Agents**, and then click **Import Agent**.
-1. Connect your Salesforce instance. Okta discovers the Agentforce agents available in that org.
+1. In the Admin Console, go to **Directory** > **AI agents** > **Register AI agent**, and then click **Import from AI agent providers**.
+1. Search for and add your Salesforce instance from the app catalog. If a Salesforce instance is already connected, you can select it directly. Okta discovers the Agentforce agents available in that org.
 1. Select the Agentforce agent to import. Okta automatically creates an AI Agent identity with a client ID that has a `wlp` prefix.
 1. Note the client ID. You need it for `AGENT_CLIENT_ID`.
 1. Under **Client Authentication**, select **Public Key / Private Key**. Generate an RSA key pair, and register the public JWK. Note the `kid`. You need it for `AGENT_KEY_ID`.
-1. Under **Connected Resources**, link the OIDC web app you created in [Before you begin](#before-you-begin) and the custom authorization server with the `xaa:read` scope.
+1. Under **Resource connections**, link the OIDC web app you created in [Before you begin](#before-you-begin) and the custom authorization server with the `xaa:read` scope.
 1. Activate the agent.
 
 ## Set up your Salesforce org
@@ -103,7 +107,7 @@ Configure a separate, service-level integration in Salesforce so that your wrapp
 
 ### Create an external Client app
 
-1. In Salesforce Setup, go to **App Manager**, and then click **New Connected App** (or go to **External Client Apps** and click **New**).
+1. In Salesforce Setup, go to **App Manager**, and then click **External Client Apps**.
 1. Enable OAuth settings.
 1. Note the **Consumer Key** and **Consumer Secret**. You need them for `SF_CLIENT_ID` and `SF_CLIENT_SECRET`.
 
@@ -372,7 +376,7 @@ az containerapp update \
   --image <registry-name>.azurecr.io/okta-agent-agentforce:latest \
   --set-env-vars \
     OKTA_DOMAIN="https://example.okta.com" \
-    OKTA_CUSTOM_AS_ID="default" \
+    OKTA_CUSTOM="default" \
     OKTA_SCOPE="xaa:read" \
     AGENT_CLIENT_ID="<wlp...>" \
     AGENT_KEY_ID="<kid>" \
