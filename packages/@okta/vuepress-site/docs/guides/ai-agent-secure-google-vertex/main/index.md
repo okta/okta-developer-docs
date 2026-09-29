@@ -9,6 +9,8 @@ This guide shows you how to build a Python wrapper that authenticates users with
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Google Vertex AI-specific code and the configuration that consumes it.
 
+<!-- TODO: Google has introduced a newer agent registry mechanism for Vertex AI agents. Per engineering (2026-09-29), this integration still uses the reasoningEngines API today; the rollout timeline for adopting the registry here is unconfirmed. Revisit this guide if the registry becomes the primary integration path. -->
+
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
 ---
@@ -198,6 +200,8 @@ def send_prompt(access_token: str, session_id: str, prompt: str) -> None:
     resp.raise_for_status()
 ```
 
+<!-- TODO: Confirm this event body against a live API call. Google's current Python SDK sample for appending an event also includes `invocation_id` and `timestamp` fields alongside `author`; this REST payload only sends `author` and `rawEvent`. Unclear whether those extra fields are REST-required or SDK-only conveniences. -->
+
 ### Poll for the response
 
 The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one the agent authors.
@@ -222,7 +226,7 @@ def get_agent_response(access_token: str, session_id: str, timeout_seconds: int 
     raise TimeoutError("Timed out waiting for a response from the Reasoning Engine.")
 ```
 
-> **Note:** Confirm the exact shape of an agent-authored event (whether the response text is always under `rawEvent.text`) against a real response from your Reasoning Engine.
+> **Note:** Confirm the exact shape of an agent-authored event (whether the response text is always under `rawEvent.text`) against a real response from your Reasoning Engine. Also confirm the `sessionEvents` wrapper key on the list-events response; current Google documentation describes this operation through the Python SDK's `events.list()` method and doesn't surface a wrapper field name to check against.
 
 ## Wire it into the entry point
 
