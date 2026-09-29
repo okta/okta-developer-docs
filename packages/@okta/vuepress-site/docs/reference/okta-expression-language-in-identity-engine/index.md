@@ -69,7 +69,8 @@ When you create an Okta expression for an [IGA Access Certification campaign](ht
 
 | Syntax                          | Definitions                                                                                       | Examples                                            |
 | --------                        | ----------                                                                                        | ------------                                        |
-| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the attribute variable name | `importedAppUser.dept`<br>`importedAppUser.status` |
+| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - any other attribute that exists on the connected app's user profile | `importedAppUser.dept`<br>`importedAppUser.title` |
+| `importedAppUser.userEntitlements.group.$attribute` | References a group entitlement held by the imported user. Use with a `.?[$predicate]` selection.<br>`$attribute` - a field on the group entitlement, such as `displayName` or `externalId` | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins']` |
 
 Only the following operators and functions are supported with `importedAppUser`:
 
@@ -77,7 +78,7 @@ Only the following operators and functions are supported with `importedAppUser`:
 * `$string_object.startsWith` and `$string_object.contains`
 * `$object.isEmpty() == true` or `$object.isEmpty() == false` to test whether an attribute has a value
 * `&&`, `||`, and `!` to combine conditions
-* A `.?[$predicate]` selection on a collection attribute (such as a group entitlement), combined with `.isEmpty()`
+* A `.?[$predicate]` selection on a collection attribute, such as `userEntitlements.group`, combined with `.isEmpty()`
 
 Relational operators (`<`, `>`, `<=`, `>=`), `$string_object.endsWith`, and comparisons against numeric or Boolean literals aren't supported.
 
