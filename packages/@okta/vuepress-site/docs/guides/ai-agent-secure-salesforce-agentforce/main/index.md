@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Salesforce Agentforce agent through the Agent API. Your app owns the full flow: it verifies who the user is, exchanges that identity for a scoped access token, obtains a separate Salesforce access token for the Agentforce Agent API, and passes the user's verified identity to the agent as context. Finally, you deploy this containerized wrapper to Azure Container Apps.
+This guide shows you how to build a FastAPI wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Salesforce Agentforce AI agent through the Agent API. Your app owns the full flow: it verifies who the user is, exchanges their identity for a scoped access token, obtains a separate Salesforce access token for the Agentforce Agent API, and passes the user's verified identity to the AI agent as context. Finally, you deploy this containerized wrapper to Azure Container Apps.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Salesforce Agentforce-specific code and configuration that consumes it.
 
