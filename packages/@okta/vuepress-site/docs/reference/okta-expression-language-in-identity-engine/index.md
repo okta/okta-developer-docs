@@ -61,9 +61,35 @@ When you create an Okta expression, you can reference any property that exists i
 
 ### Imported app user
 
-Lorus ipsum.   
+When you create an Okta expression for an [IGA Access Certification campaign](https://help.okta.com/okta_help.htm?id=ext-el-eg), you can reference attributes on a user imported from a connected app.
 
-[Imported app user](#imported-app-user)
+> **Note:** `importedAppUser` expressions are only supported in IGA Access Certification campaigns. Okta translates these expressions into a SCIM filter that queries the connected app directly, so only a limited set of operators and functions are supported.
+
+| Syntax                          | Definitions                                                                                       | Examples                                            |
+| --------                        | ----------                                                                                        | ------------                                        |
+| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the attribute variable name | `importedAppUser.dept`<br>`importedAppUser.status` |
+
+Because `importedAppUser` expressions translate to a SCIM filter, only the following operators and functions are supported:
+
+* `==` and `!=` to compare an attribute to a string value
+* `$string_object.startsWith` and `$string_object.contains`
+* `$object.isEmpty() == true` or `$object.isEmpty() == false` to test whether an attribute has a value
+* `&&`, `||`, and `!` to combine conditions
+* A `.?[$predicate]` selection on a collection attribute (such as a group entitlement), combined with `.isEmpty()`
+
+Relational operators (`<`, `>`, `<=`, `>=`), `$string_object.endsWith`, and comparisons against numeric or Boolean literals aren't supported.
+
+> **Note:** `importedAppUser.status` values are matched case-insensitively. Use `==` (not `!=`) to filter on `status`, and combine it with other conditions using `&&` only. Combining `status` with `||` or `!`, or comparing it with `!=`, isn't supported.
+
+**Examples**
+
+| Expression | Description |
+| ---------- | ----------- |
+| `importedAppUser.dept == 'ENG'` | The imported user's `dept` attribute is `ENG`. |
+| `importedAppUser.dept.startsWith('EN')` | The imported user's `dept` attribute starts with `EN`. |
+| `importedAppUser.aliases.isEmpty() == false` | The imported user has at least one value in the `aliases` attribute. |
+| `importedAppUser.dept == 'ENG' && importedAppUser.status == 'ACTIVE'` | The imported user's `dept` attribute is `ENG` and the user's status is active. |
+| `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins'].isEmpty() == false` | The imported user has a group entitlement with a `displayName` of `Server Admins`. |
 
 ### Okta device profile
 
