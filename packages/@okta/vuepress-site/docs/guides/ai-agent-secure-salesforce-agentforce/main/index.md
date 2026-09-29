@@ -45,7 +45,7 @@ The integration has two parts:
 
   This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
-* Platform integration (Salesforce Agentforce-specific). Unlike the other platforms, Agentforce doesn't accept an Okta access token directly. Your wrapper authenticates to Salesforce separately with the OAuth 2.0 client credentials grant, then uses the resulting Salesforce token to start an Agentforce session and pass the user's verified Okta identity (name and email) as context in the message it sends to the agent. See [Integrate the token exchange into your Agentforce agent](#integrate-the-token-exchange-into-your-agentforce-agent).
+* Platform integration (Salesforce Agentforce-specific). Unlike the other platforms, Agentforce doesn't accept an Okta access token directly. Your wrapper authenticates to Salesforce separately with the OAuth 2.0 client credentials grant. Then it uses the resulting Salesforce token to start an Agentforce session and pass the user's verified Okta identity (name and email) as context in the message it sends to the AI agent. See [Integrate the token exchange into your Agentforce agent](#integrate-the-token-exchange-into-your-agentforce-agent).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
