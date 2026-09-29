@@ -13,6 +13,68 @@ title: Okta Identity Engine API release notes 2026
 
 ## September
 
+### Weekly release 2026.09.2
+<!-- Published on: 2026-09-30T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Unique MCP server names](#unique-mcp-server-names) | September 30, 2026|
+| [Automatic phishing resistance for FastPass in authentication chains](#automatic-phishing-resistance-for-fastpass-in-authentication-chains) | September 30, 2026|
+| [Secure multiple MCP servers with Okta custom authorization servers is GA in Preview](#secure-multiple-mcp-servers-with-okta-custom-authorization-servers-is-ga-in-preview) | September 30, 2026|
+| [Extensible AI Agent Profile Schema and Custom Attributes is BETA is GA in Preview](#extensible-ai-agent-profile-schema-and-custom-attributes-is-beta-is-ga-in-preview) | September 30, 2026|
+| [Editable resource URL for MCP servers](#editable-resource-url-for-mcp-servers) | September 30, 2026|
+| [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 17, 2026|
+| [Bugs fixed in 2026.09.2](#bugs-fixed-in-2026-09-2) | September 30, 2026 |
+
+#### Unique MCP server names
+
+The MCP Server Registrations API (`POST /resource-servers/api/v1/mcp-servers`) now enforces `displayName` uniqueness within an org. <!-- OKTA-1279178 -->
+
+#### Automatic phishing resistance for FastPass in authentication chains
+
+The `phishingResistant` property for the Okta FastPass authenticator is now set as `REQUIRED` by default in app sign-in policy rules that use authentication method chains. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicyrule). <!--OKTA-1112028-->
+
+#### Secure multiple MCP servers with Okta custom authorization servers is GA in Preview
+
+You can now secure multiple MCP servers with a single Okta custom authorization server. This feature comes with built-in support for Cross App Access (XAA), so that chain of custody from your end user through every agent hop is preserved when accessing MCP servers secured by an Okta custom authorization server. See the [AI Agent Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections), [Potential Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpotentialconnections/other/listpotentialconnectionsbytype), and the [methods for managing authorization servers for MCP servers](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/addmcpserverauthorizationserver). <!-- SECURE_AI_MCP_SERVERS_CUSTOM_AS APIs BETA 2026.09.2 OKTA-1283629 -->
+
+#### Extensible AI Agent Profile Schema and Custom Attributes is BETA is GA in Preview
+
+You can now extend Okta AI Agent profiles with custom schema attributes and map attributes from AI agent providers to Okta. <!--OKTA-1255399-->
+
+Key API enhancements:
+
+* **Profile schema**: Use GET and `POST /workload-principals/api/v1/ai-agents/schema/default` to retrieve and add custom attributes. Supported types are `STRING`, `INTEGER`, and `BOOLEAN`, with optional `enum` constraints. See the [AI Agent Schema API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentschema/other/getaiagentschema).
+
+* **Provider attributes and mappings**: Use `GET /ai-agents/provider-attributes/{providerName}` to discover a provider's source attributes. Use GET and `PUT /workload-principals/api/v1/ai-agent-providers/{providerId}/profile-mappings` to view and update profile mappings. See the [AI Agent Providers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/getaiagentproviderprofilemapping).
+
+* **Agent registration and updates**: The profile object now accepts custom attribute key-value pairs on `POST /workload-principals/api/v1/ai-agents`, `PUT /workload-principals/api/v1/ai-agents/{agentId}`, and `PATCH /workload-principals/api/v1/ai-agents/{id}`. See the [AI Agent Registrations API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent#other/registeraiagent/t=request&path=profile).
+
+* **Providers and statistics**: Add `?expand=profileMapping` to `GET /ai-agents/providers` to embed mapping metadata. `AIAgentProviderStats` now includes `mappedAttributeCount`. See [List all AI agent providers](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/listaiagentproviders#other/listaiagentproviders/t=request&in=query&path=expand) and [List all stats for AI agent provider.](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/listaiagentproviderstats).
+
+#### Editable resource URL for MCP servers
+
+You can now update an MCP server's `resourceUrl` by sending a [PATCH request](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/updatemcpserver). This isn't supported for MCP servers registered from an Okta Integration Network (OIN) catalog integration, where the URL comes from the catalog entry. Updating the resource URL triggers another metadata discovery for the MCP server, which overwrites its existing detected metadata.
+
+MCP server read responses also now include `resourceServerGlobalId`, a read-only field returned only for MCP servers registered from an OIN catalog integration. <!-- OKTA-1242273 FF: SECURE_AI_MCP_SERVERS_CUSTOM_AS -->
+
+#### Cross App Access support for AI agents and apps for all customers is GA in Production
+
+Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols. See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
+
+For agentic requesting apps that use OIDC for SSO, Okta enables binding an AI agent with an OIDC SSO app so that they share the same credentials. If you want to remove this configuration in Okta, delete the AI agent and the corresponding OIDC app.
+
+From this AI agent-app binding capability, admins can now configure direct user authentication for the AI agent. If you have an Okta for AI Agent org and have previously used the **Delegation** tab to configure AI agent access through delegation links, you need to reconfigure them with the **User access** tab. See the [Migration from Okta for AI Agent delegation link](/docs/guides/xaa-agent-to-app/main/#migration-from-okta-for-ai-agent-delegation-link) guidance.
+<!-- OKTA-1212187 SECURE_AI_XAA Preview: Aug 17, 2026 -->
+
+#### Bugs fixed in 2026.09.2
+
+* You could create a SAML delegation link and bind an OIDC app to one AI agent at the same time. (OKTA-1267499)
+
+* You could create multiple SAML delegation links for a single AI agent. (OKTA-1267493)
+
+* Apps that were used for SAML delegation to AI Agents were allowed to change their sign-in mode from SAML. (OKTA-1254499)
+
 ### Weekly release 2026.09.1
 <!-- Published on: 2026-09-16T12:00:00Z -->
 
