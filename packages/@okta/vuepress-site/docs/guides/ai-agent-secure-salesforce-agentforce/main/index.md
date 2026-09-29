@@ -89,6 +89,8 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 Ensure that your Salesforce tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
 
+Ensure that the Agent Platform Builder permission set is configured, and your integration user has API Enabled turned on (either in another permission set or their user profile).
+
 ### Import your agent from Salesforce
 
 Unlike a manually registered AI Agent identity, Okta can discover and import agents directly from a connected Salesforce org.
