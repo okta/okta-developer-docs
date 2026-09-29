@@ -1,5 +1,11 @@
 ### Direct Authentication MFA OOB Email flow
 
+<div class="three-quarter">
+
+![Sequence diagram that displays the communication between the clent native app, Okta AS, and mailbox"](/img/authorization/email-mfa.png)
+
+</div>
+
 At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username and password in the app interface, and the user enters their credentials.

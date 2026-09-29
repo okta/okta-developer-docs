@@ -1,5 +1,10 @@
 ### Direct authentication OOB flow with Email
 
+<div class="three-quarter">
+
+![Sequence diagram that displays the communication between the resource owner, client native app, and authorization server and mailbox flow"](/img/authorization/email-primary.png)
+
+</div>
 At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username in the app interface.
