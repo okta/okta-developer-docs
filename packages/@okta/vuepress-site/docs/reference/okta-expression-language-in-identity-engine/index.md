@@ -65,15 +65,17 @@ When you create an Okta expression, you can reference any property that exists i
 
 ### Imported app user
 
-When you create an Okta expression for an [IGA Access Certification campaign](https://help.okta.com/okta_help.htm?id=ext-el-eg), you can reference attributes on a user imported from a connected app.
+<ApiLifecycle access="ea" />
 
-> **Note:** `importedAppUser` expressions are only supported in IGA Access Certification campaigns. Okta translates these expressions into a SCIM filter that queries the connected app directly, so only a limited set of operators and functions are supported.
+When you create an Okta expression for an [IGA Access Certification campaign](https://help.okta.com/okta_help.htm?id=ext-el-eg), you can reference attributes within the `importedAppUser` context for a user imported from a connected app.
+
+> **Note:** `importedAppUser` expressions are only supported in IGA Access Certification campaigns. This feature is in early access. Contact [Okta Support](https://support.okta.com) to enable this feature.
 
 | Syntax                          | Definitions                                                                                       | Examples                                            |
 | --------                        | ----------                                                                                        | ------------                                        |
 | `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the attribute variable name | `importedAppUser.dept`<br>`importedAppUser.status` |
 
-Because `importedAppUser` expressions translate to a SCIM filter, only the following operators and functions are supported:
+Only the following operators and functions are supported with `importedAppUser`:
 
 * `==` and `!=` to compare an attribute to a string value
 * `$string_object.startsWith` and `$string_object.contains`
@@ -85,7 +87,7 @@ Relational operators (`<`, `>`, `<=`, `>=`), `$string_object.endsWith`, and comp
 
 > **Note:** `importedAppUser.status` values are matched case-insensitively. Use `==` (not `!=`) to filter on `status`, and combine it with other conditions using `&&` only. Combining `status` with `||` or `!`, or comparing it with `!=`, isn't supported.
 
-**Examples**
+#### Imported app user examples
 
 | Expression | Description |
 | ---------- | ----------- |
