@@ -74,16 +74,16 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
+* An OIDC web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`. Okta strips system scopes (`openid`, `profile`, `email`) during the ID-JAG exchange and can cause an `invalid_scope` error, so you must request a custom scope instead.
-* Your Agentforce agent imported into Okta as an AI Agent identity. This AI Agent identity uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent. See [Import your agent from Salesforce](#import-your-agent-from-salesforce).
+* Your Agentforce AI agent imported and registered in Okta. This AI agent identity uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC app, set the custom authorization server, include your custom scope, and activate the AI agent. See [Import your agent from Salesforce](#import-your-agent-from-salesforce).
 
-  > **Note:** Okta doesn't retain the agent's private key. Generate the private key and store it in a secrets manager, because it's shown only once.
+  > **Note:** Okta doesn't retain the AI agent's private key. Generate the private key and store it in a secrets manager, because it's shown only once.
 
-* An access policy rule on the custom authorization server that enables the JWT Bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
+* An access policy rule on the custom authorization server that enables the JWT Bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
 
 ### Salesforce import prerequisites
 
@@ -91,21 +91,21 @@ Ensure that your Salesforce tenant is configured for AI agent imports. See [Conf
 
 Ensure that the Agent Platform Builder permission set is configured, and your integration user has API Enabled turned on (either in another permission set or their user profile).
 
-### Import your agent from Salesforce
+### Import your AI agent from Salesforce
 
-Unlike a manually registered AI Agent identity, Okta can discover and import agents directly from a connected Salesforce org.
+Unlike manually registered AI agents, Okta can discover and import AI agents directly from a connected Salesforce org.
 
 1. In the Admin Console, go to **Directory** > **AI agents** > **Register AI agent**, and then click **Import from AI agent providers**.
-1. Search for and add your Salesforce instance from the app catalog. If a Salesforce instance is already connected, you can select it directly. Okta discovers the Agentforce agents available in that org.
-1. Select the Agentforce agent to import. Okta automatically creates an AI Agent identity with a client ID that has a `wlp` prefix.
+1. Select the Salesforce app integration.
+1. Select the Agentforce AI agent to import. Okta automatically creates an AI agent identity with a client ID that has a `wlp` prefix.
 1. Note the client ID. You need it for `AGENT_CLIENT_ID`.
-1. Under **Client Authentication**, select **Public Key / Private Key**. Generate an RSA key pair, and register the public JWK. Note the `kid`. You need it for `AGENT_KEY_ID`.
-1. Under **Resource connections**, link the OIDC web app you created in [Before you begin](#before-you-begin) and the custom authorization server with the `xaa:read` scope.
-1. Activate the agent.
+1. In **Client Authentication**, select **Public Key / Private Key**. Generate an RSA key pair, and register the public JWK. Note the `kid`. You need it for `AGENT_KEY_ID`.
+1. In **Resource connections**, link the OIDC web app you created in [Before you begin](#before-you-begin) and the custom authorization server with the `xaa:read` scope.
+1. Activate the AI agent.
 
 ## Set up your Salesforce org
 
-Configure a separate, service-level integration in Salesforce so that your wrapper can authenticate to the Agentforce Agent API. This is independent of the Okta AI Agent identity that you imported in the previous section.
+Configure a separate, service-level integration in Salesforce so that your wrapper can authenticate to the Agentforce Agent API. This is independent of the Okta AI agent that you imported in the previous section.
 
 ### Create an external client app
 
@@ -132,15 +132,15 @@ Configure a separate, service-level integration in Salesforce so that your wrapp
 1. Enable **Client Credentials Flow**.
 1. Set **Run As** to a user with at least API access. The client credentials grant runs every Agent API call as this user, so that its permissions and login IP restrictions apply to every request. See [Troubleshoot your integration](#troubleshoot-your-integration).
 
-### Confirm your Agentforce agent
+### Confirm your Agentforce AI agent
 
-1. In Salesforce Setup, go to **Agents**, and then create or select an agent.
-1. Confirm the agent's type is `ExternalCopilot` (an **Agentforce Service Agent**).
+1. In Salesforce Setup, go to **Agents**, and then create or select an AI agent.
+1. Confirm the AI agent's type is `ExternalCopilot` (an **Agentforce Service Agent**).
 
-   > **Important:** The Agent API only works with `ExternalCopilot` type agents. It doesn't support `InternalCopilot` type agents (Employee Agents) or agents of type **Agentforce (Default)**.
+   > **Important:** The Agent API only works with `ExternalCopilot` type agents. It doesn't support `InternalCopilot` type AI agents (Employee Agents) or AI agents of type **Agentforce (Default)**.
 
-1. Publish the agent so that it has an active bot version.
-1. Note the agent ID. It starts with `0Xx`. You need it for `SF_AGENT_ID`.
+1. Publish the AI agent so that it has an active bot version.
+1. Note the AI agent ID. It starts with `0Xx`. You need it for `SF_AGENT_ID`.
 
 ### Turn on Einstein
 
@@ -158,9 +158,9 @@ Your FastAPI app reads these values as environment variables. The token exchange
 | Environment variable | Description | Where to find it |
 | --- | --- | --- |
 | `SF_MY_DOMAIN` | Your Salesforce My Domain hostname, for example `example.my.salesforce.com` | **Salesforce Setup** > **My Domain** |
-| `SF_CLIENT_ID` | The external Client App's Consumer Key | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
+| `SF_CLIENT_ID` | The external client app's consumer key | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
 | `SF_CLIENT_SECRET` | The External Client App's Consumer Secret | **Salesforce Setup** > **App Manager** > your connected app > **Manage Consumer Details** |
-| `SF_AGENT_ID` | The Agentforce agent to invoke (starts with `0Xx`) | **Salesforce Setup** > **Agents** |
+| `SF_AGENT_ID` | The Agentforce AI agent to invoke (starts with `0Xx`) | **Salesforce Setup** > **Agents** |
 
 ## Add Okta authentication to your AI agent
 
@@ -168,7 +168,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 <AiAgentTokenExchangeModule/>
 
-## Integrate the token exchange into your Agentforce agent
+## Integrate the token exchange into your Agentforce AI agent
 
 This section is specific to Salesforce Agentforce. Here you authenticate to Salesforce, call the Agentforce Agent API, and wire the result into your FastAPI app alongside the token exchange from the previous section.
 
@@ -233,7 +233,7 @@ def get_salesforce_token() -> str:
     return resp.json()["access_token"]
 ```
 
-> **Note:** The returned token has the `sfap_api`, `chatbot_api`, and `api` scopes. If you enabled more OAuth scopes than these three on the Connected App, this call can fail. See [Troubleshoot your integration](#troubleshoot-your-integration).
+> **Note:** The returned token has the `sfap_api`, `chatbot_api`, and `api` scopes. If you enabled more OAuth scopes than these three on the connected app, this call can fail. See [Troubleshoot your integration](#troubleshoot-your-integration).
 
 ### Call the Agentforce Agent API
 
@@ -294,7 +294,7 @@ def ask_agentforce(prompt: str, user_claims: dict) -> str:
         )
 ```
 
-> **Note:** If the agent has nothing configured for the topic of your prompt, it responds with something like "Sorry, I can't assist with that." Configure the agent's topics in **Salesforce Setup** > **Agents**, or ask it something within its configured scope.
+> **Note:** If the AI agent has nothing configured for the topic of your prompt, it responds with something like "Sorry, I can't assist with that." Configure the agent's topics in **Salesforce Setup** > **Agents**, or ask it something within its configured scope.
 
 ## Wire it into the FastAPI entry point
 
@@ -435,15 +435,15 @@ The following errors are specific to the Salesforce Agentforce integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `invalid_grant: no client credentials user enabled` | The Connected App has no **Run As** users configured for the client credentials flow | Go to the Connected App's **Manage** > **Edit Policies** > **Client Credentials Flow**, and assign a **Run As** user |
+| `invalid_grant: no client credentials user enabled` | The connected app has no **Run As** users configured for the client credentials flow | Go to the connected app's **Manage** > **Edit Policies** > **Client Credentials Flow**, and assign a **Run As** user |
 | `invalid_grant: ip restricted` | The **Run As** user's profile has login IP ranges that block the caller's IP | Add the caller's IP to the profile's login IP ranges, remove the login IP ranges, or use a **Run As** user on a profile without IP restrictions |
-| `invalid_request: too many scopes requested` | The Connected App has **Issue JWT-based access tokens** enabled along with too many OAuth scopes | Reduce the Connected App's OAuth scopes to only `api`, `chatbot_api`, and `sfap_api` |
+| `invalid_request: too many scopes requested` | The connected app has **Issue JWT-based access tokens** enabled along with too many OAuth scopes | Reduce the connected app's OAuth scopes to only `api`, `chatbot_api`, and `sfap_api` |
 | Agent API returns `URL No Longer Exists` (HTML 404 page) | The request used the Salesforce instance URL (`*.my.salesforce.com`) as the Agent API base | Use `https://api.salesforce.com/einstein/ai-agent/v1/...` as the base URL instead |
 | `BadRequestException: Empty force-config endpoint` | The session request body is missing `instanceConfig.endpoint` | Include `{"instanceConfig": {"endpoint": "https://your-instance.my.salesforce.com"}}` in the session `POST` body |
-| Agent API returns `404` for the agent | The agent is `InternalCopilot` type (an Employee Agent) | Use an `ExternalCopilot` type agent (an Agentforce Service Agent). Employee Agents aren't supported |
-| Agent responds "Sorry, I can't assist with that" | The agent's topics don't cover the question asked | Configure the agent's topics in **Salesforce Setup** > **Agents**, or ask it something within its configured scope |
+| Agent API returns `404` for the AI agent | The AI agent is `InternalCopilot` type (an employee AI agent) | Use an `ExternalCopilot` type AI agent (an Agentforce service AI gent). Employee AI agents aren't supported |
+| AI agent responds "Sorry, I can't assist with that" | The AI agent's topics don't cover the question asked | Configure the AI agent's topics in **Salesforce Setup** > **Agents**, or ask it something within its configured scope |
 
-The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+The following errors come from the Okta token exchange and are covered in [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
 * `invalid_scope: openid not allowed`
 * `invalid_client: JWKSet not configured`
@@ -453,7 +453,7 @@ The following errors come from the Okta token exchange and are covered in [Set u
 
 ## Next steps
 
-Your agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
+Your AI agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the AI agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
 
 ## See also
 
