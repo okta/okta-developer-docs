@@ -61,7 +61,13 @@ When you create an Okta expression, you can reference any property that exists i
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `user.$property`                  | `user` - references the Okta user<br>`property` - top-level property variable name<br>Values: `id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
-| `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
+| `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>
+
+### Imported app user
+
+Lorus ipsum.   
+
+[Imported app user](#imported-app-user)
 
 ### Okta device profile
 
