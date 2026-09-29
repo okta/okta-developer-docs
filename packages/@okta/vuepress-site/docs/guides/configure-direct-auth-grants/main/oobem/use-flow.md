@@ -41,7 +41,7 @@ In an HTTP 200 response, Okta returns the following parameters:
 Parameters included:
 
 - `oob_code`: An identifier of a single out-of-band factor transaction. This code is valid for 5 minutes (`expires_in`) and can be used only once.
-- `expires_in`: The time, in seconds, until the `oob_code` expires. Some orgs configure a different expiry; treat this value as authoritative rather than assuming 300 seconds.
+- `expires_in`: The time, in seconds, until the `oob_code` expires.
 - `channel`: The type of out-of-band channel used. Returns `email` for this flow.
 - `binding_method`: The method used to bind the out-of-band channel with the primary channel. Email uses `prompt` — there's no polling option for Email OTP in this release.
 
@@ -63,7 +63,7 @@ Note the parameters that are passed:
 - `scope`: Must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `urn:okta:params:oauth:grant-type:oob`, which indicates that you're using the direct authentication OOB grant type.
 - `oob_code`: The transaction identifier returned by `/primary-authenticate`.
-- `binding_code`: The verification code that the user reads from the email and enters in your app. Send the code exactly as entered — don't trim whitespace, retype, or reformat it.
+- `binding_code`: The end user verification code used to bind the authorization operation on the secondary channel with the primary channel.
 
 ### Okta token response
 
@@ -78,39 +78,3 @@ Okta responds with the requested tokens.
     "id_token": "eyJraWQiOiJFVkRZ[.....]GKwhgZa3TdIfCXA"
 }
 ```
-
-### Handle errors
-
-An incorrect verification code returns:
-
-```json
-HTTP/1.1 400 Bad Request
-{
-    "error": "invalid_grant",
-    "error_description": "The 'otp' provided is either empty or incorrect. Use the correct OTP and try again."
-}
-```
-
-An expired or already-used `oob_code` returns:
-
-```json
-HTTP/1.1 403 Forbidden
-{
-    "error": "access_denied",
-    "error_description": "'{oob_code}' has expired. Use a new 'oob_code' and try again."
-}
-```
-
-> **Note:** To protect user privacy, Okta doesn't distinguish between an unknown email address and a known one — the initiation and token responses have the same shape either way. Don't build app logic around a "user not found" error for this flow; it doesn't exist by design.
-
-This flow is also subject to rate limiting. If a client sends too many requests, Okta returns an HTTP 429 response:
-
-```json
-HTTP/1.1 429 Too Many Requests
-{
-    "error": "invalid_grant",
-    "error_description": "API call exceeded rate limit due to too many requests."
-}
-```
-
-See [Rate limits at Okta](/docs/reference/rate-limits/) for more information.
