@@ -18,7 +18,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 * Understand what an imported AI agent must do to authenticate as a signed-in user with Okta.
 * Add a token exchange module to your AI agent.
 * Authenticate to Salesforce with the OAuth 2.0 client credentials grant and call the Agentforce Agent API.
-* Pass a signed-in user's verified Okta identity to an Agentforce agent session.
+* Pass a signed-in user's verified Okta identity to an Agentforce AI agent session.
 * Verify and test the end-to-end flow with a real Okta ID token.
 
 #### What you need
