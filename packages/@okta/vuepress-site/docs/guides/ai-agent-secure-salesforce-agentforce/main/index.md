@@ -28,7 +28,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 * An Azure subscription with access to Azure Container Apps
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
 * Docker or access to the Azure Container Registry for building images
-* Your agent imported into Okta as an AI Agent identity
+* Your AI agent imported and registered in Okta
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
