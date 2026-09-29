@@ -76,10 +76,10 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
+* A web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`. Okta strips system scopes (`openid`, `profile`, `email`) during the ID-JAG exchange and can cause an `invalid_scope` error, so you must request a custom scope instead.
-* Your Agentforce AI agent imported and registered in Okta. This AI agent identity uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC app, set the custom authorization server, include your custom scope, and activate the AI agent. See [Import your agent from Salesforce](#import-your-agent-from-salesforce).
+* Your Agentforce AI agent imported and registered in Okta. This AI agent identity uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the app, set the custom authorization server, include your custom scope, and activate the AI agent. See [Import your agent from Salesforce](#import-your-agent-from-salesforce).
 
   > **Note:** Okta doesn't retain the AI agent's private key. Generate the private key and store it in a secrets manager, because it's shown only once.
 
@@ -87,20 +87,21 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 ### Salesforce import prerequisites
 
-Ensure that your Salesforce tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
+* Ensure that your Salesforce tenant is configured for AI agent imports. See [Configure Salesforce.com for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-ai-agent-configure-salesforce).
 
-Ensure that the Agent Platform Builder permission set is configured, and your integration user has API Enabled turned on (either in another permission set or their user profile).
+* Ensure that the Agent Platform Builder permission set is configured, and your integration user has API Enabled turned on (either in another permission set or their user profile).
+
+* You've integrated the Salesforce AI Agent provider app in your Okta org.
 
 ### Import your AI agent from Salesforce
 
 Unlike manually registered AI agents, Okta can discover and import AI agents directly from a connected Salesforce org.
 
-1. In the Admin Console, go to **Directory** > **AI agents** > **Register AI agent**, and then click **Import from AI agent providers**.
-1. Select the Salesforce app integration.
-1. Select the Agentforce AI agent to import. Okta automatically creates an AI agent identity with a client ID that has a `wlp` prefix.
+1. In the Admin Console, go to **Directory** > **AI agent Providers**. Select the Salesforce app integration, and then click **Import**.
+1. After you run the import, you click **View agents**. You're directed to the AI agents page where you can register the imported AI agents.
 1. Note the client ID. You need it for `AGENT_CLIENT_ID`.
 1. In **Client Authentication**, select **Public Key / Private Key**. Generate an RSA key pair, and register the public JWK. Note the `kid`. You need it for `AGENT_KEY_ID`.
-1. In **Resource connections**, link the OIDC web app you created in [Before you begin](#before-you-begin) and the custom authorization server with the `xaa:read` scope.
+1. In **Resource connections**, link the web app you created in [Before you begin](#before-you-begin) and the custom authorization server with the `xaa:read` scope.
 1. Activate the AI agent.
 
 ## Set up your Salesforce org
