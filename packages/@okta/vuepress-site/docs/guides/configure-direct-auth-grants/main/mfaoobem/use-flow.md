@@ -100,7 +100,7 @@ Note the parameters that are passed:
 - `grant_type`: `http://auth0.com/oauth/grant-type/mfa-oob`, which indicates that you're using the MFA OOB grant type.
 - `mfa_token`: The same token returned with `mfa_required` and used on the `/challenge` request.
 - `oob_code`: The transaction identifier returned by `/challenge`.
-- `binding_code`: The verification code that the user reads from the email and enters in your app. Send the code exactly as entered — don't trim whitespace, retype, or reformat it.
+- `binding_code`: The end user verification code used to bind the authorization operation on the secondary channel with the primary channel.
 
 ### Okta second token response
 
