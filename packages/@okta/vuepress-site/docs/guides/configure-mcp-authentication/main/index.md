@@ -67,7 +67,7 @@ After you create the app, follow these steps to grant the required API scopes:
 
    <div class="three-quarter">
 
-   ![Okta Open Source MCP Server data flow diagram](/img/concepts/mcp-server-native-app-grant-api-scopes.png)
+   ![Okta Open Source MCP Server data flow diagram](/img/concepts/mcp-server-native-app-grant-api-scopes.svg)
 
    </div>
 
