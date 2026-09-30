@@ -1,10 +1,10 @@
 In this step, after the agent receives the access or ID token, the agent sends a `POST` request to the Okta org authorization server's `/token` endpoint. This request is to exchange the token for an ID-JAG resource token.
 
-This request supports multiple client authentication methods. The example below changes, depending on how the agent was configured to authenticate it's identity to Okta. See [Add client registration details](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) on the Add AI agents manually page in the help docs.
+This request supports multiple client authentication methods. The example below changes, depending on how the agent was configured to authenticate its identity to Okta. See [Add client registration details](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) on the Add AI agents manually page in the help docs.
 
 > **Note**: This request example uses the access token subject token type and public/private key for client authentication. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#client-authentication-methods) for more details on each type of authentication method.
 
-If your custom authorization server protects multiple resources, such as multiple MCP servers, include the `resource` parameter in this request. The `resource` value must match the resource URL that's configured for the MCP server resource that you want the ID-JAG scoped to. For example: `"resource"="https://mcpserver1.example.com"`.
+If your custom authorization server protects multiple resources, such as multiple MCP servers, include the `resource` parameter in this request. The `resource` value must match the resource URL that's configured for the MCP server resource that you want the ID-JAG scoped to. For example: `resource=https://mcpserver1.example.com`.
 
 ```bash
   curl --location --request POST \
@@ -15,7 +15,7 @@ If your custom authorization server protects multiple resources, such as multipl
     --data-urlencode "subject_token=eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0bl...." \
     --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
-    --data-urlencode "audience=https://{yourOktaDomain}/oauth2/default" \
+    --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
     --data-urlencode "scope=chat.read+chat.history" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
