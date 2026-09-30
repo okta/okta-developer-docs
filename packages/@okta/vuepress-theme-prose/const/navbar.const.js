@@ -600,6 +600,10 @@ export const guides = [
             guideName: "ai-configure-agent-for-gateway",
           },
           {
+            title: "Set up MCP server token exchange",
+            guideName: "ai-mcp-server-token-exchange",
+          },
+          {
             title: "Configure an Agent Gateway",
             guideName: "ai-configure-agent-gateway",
             title: "Register AI agents with CIMD",
