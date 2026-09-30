@@ -119,7 +119,7 @@ Click **Edit** to change the following sections.
 
 * **Create Users**: Assigns a new account in your downstream app for each user managed by Okta. Okta doesn't create an account if it detects that the username specified in Okta exists in your app. The user's Okta username is assigned by default.
 
-    In addition to the user profile, Okta sends a random password in its request to create a user.
+    When you enable **Create Users**, you can configure the **Set password when creating new users** option to control whether Okta sends a password with the user creation request. When enabled, a password is sent; when disabled, no password is sent.
 
 * **Update User Attributes**: Syncs any updates made to the profiles of users assigned to the integration and sends those changes to your downstream app. Profile changes made in your app are overwritten with their respective Okta profile values.
 
