@@ -12,7 +12,8 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 #### Learning outcomes
 
 - Enable an MCP server as an OAuth client.
-- Configure the credentials and the resource connection that the MCP server needs.
+- Enable an MCP server as an OAuth client with an active public key in its credentials.
+- Create a resource connection on the MCP server that defines the downstream resource it's allowed to access.
 - Understand the token exchange flow that the MCP server uses to get a downstream token.
 
 #### What you need
@@ -21,27 +22,29 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 - An Okta admin account with the super admin role
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
-- The MCP server [enabled as an OAuth client](#enable-the-oauth-client), with an [active public key](#add-a-public-key) in its credentials.
-- A [resource connection](#create-a-resource-connection) on the MCP server that defines the downstream resource it's allowed to access.
 - An AI agent or client that's authorized to delegate to the MCP server. It passes an access token to the MCP server.
 
 ---
 
 ## Overview
 
-An MCP server usually handles inbound requests from AI agents. Sometimes the MCP server must also call a downstream resource, such as another MCP server, to complete a request. In that case, the MCP server acts as an OAuth client.
+An MCP server typically handles inbound requests from AI agents. Sometimes the MCP server must also call a downstream resource, such as another MCP server, to complete a request. In that case, the MCP server acts as an OAuth client.
 
-The MCP server never passes on the access token that it received. Passing it on creates a confused deputy risk. Instead, the MCP server exchanges the token for a separate token. The authorization server that protects the downstream resource issues that token.
+The MCP server never passes on the access token that it received. That token was issued for the MCP server, not for the downstream resource. Passing it on would let the downstream resource treat the MCP server's token as its own. It would also let a caller use the MCP server to reach resources that the caller can't access. This is known as a confused deputy problem.
+
+Instead, the MCP server exchanges the token for a separate token. The authorization server that protects the downstream resource issues that token.
 
 This guide covers a downstream MCP server that's protected by an Okta custom authorization server. Okta supports this through [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access), which uses the Identity Assertion JWT (ID-JAG).
 
-> **Note**: An MCP server can also hold other connection types, such as `STS_ACCESS_TOKEN` for a third-party resource. This guide doesn't cover them.
+> **Note**: An MCP server can also hold other connection types, such as `STS_ACCESS_TOKEN` for a third-party resource.
 
 ## Set up the MCP server as an OAuth client
 
 Before an MCP server can exchange tokens, you must enable it as an OAuth client, add a public key, and create a resource connection. Use the [MCP Servers API](/docs/api/openapi/secures-ai/secures-ai-workload-principals/) to complete these steps.
 
 > **Note**: These APIs are a Beta release. Contact Okta Support to enable them for your org.
+
+The requests in this section use an OAuth 2.0 bearer token. The token needs the `okta.resourceServers.mcpServers.manage` scope to make changes and the `okta.resourceServers.mcpServers.read` scope to read. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/) to get a token with these scopes.
 
 ### Enable the OAuth client
 
@@ -53,7 +56,7 @@ Send a `POST` request to create the OAuth client. This request has no body.
   curl --location --request POST \
     --url 'https://{yourOktaDomain}/workload-principals/api/v1/mcp-servers/{mcpServerId}/oauth-client' \
     --header "Accept: application/json" \
-    --header "Authorization: SSWS {apiToken}"
+    --header "Authorization: Bearer {accessToken}"
 ```
 
 The response is `201 Created`. An MCP server has only one OAuth client, so the request returns `409` if one already exists.
@@ -66,7 +69,7 @@ Retrieve the MCP server and read the `oauthClient` property. The `clientId` is t
   curl --location --request GET \
     --url 'https://{yourOktaDomain}/api/v1/mcp-servers/{mcpServerId}' \
     --header "Accept: application/json" \
-    --header "Authorization: SSWS {apiToken}"
+    --header "Authorization: Bearer {accessToken}"
 ```
 
 <!-- TODO: Confirm the GET path for the MCP server resource. The spec links to getMCPServer under resource-servers/mcp-servers, and this path is a placeholder. -->
@@ -100,7 +103,7 @@ The MCP server signs its client assertion with a private key. Add the matching p
     --url 'https://{yourOktaDomain}/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks' \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "Authorization: SSWS {apiToken}" \
+    --header "Authorization: Bearer {accessToken}" \
     --data '{
       "kty": "RSA",
       "use": "sig",
@@ -119,7 +122,7 @@ After you add the key, activate it. Replace `{keyId}` with the `kid` of the key.
   curl --location --request POST \
     --url 'https://{yourOktaDomain}/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/activate' \
     --header "Accept: application/json" \
-    --header "Authorization: SSWS {apiToken}"
+    --header "Authorization: Bearer {accessToken}"
 ```
 
 To rotate a key, add the new key and activate it. Then deactivate the old key. Okta accepts assertions signed by any active key, so both keys work during the changeover.
@@ -133,7 +136,7 @@ A resource connection defines the downstream resource that the MCP server can re
     --url 'https://{yourOktaDomain}/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections' \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "Authorization: SSWS {apiToken}" \
+    --header "Authorization: Bearer {accessToken}" \
     --data '{
       "connectionType": "IDENTITY_ASSERTION_MCP_SERVER",
       "resource": {
