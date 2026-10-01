@@ -1,11 +1,11 @@
 ---
-title: Secure Azure AI Foundry agents with Okta
-excerpt: Learn how to secure Azure AI Foundry agents with Okta
+title: Secure Azure AI Foundry AI agents with Okta
+excerpt: Learn how to secure Azure AI Foundry AI agents with Okta
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you'll learn how to deploy this containerized agent wrapper to Azure Container Apps.
+This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the AI agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you'll learn how to deploy this containerized AI agent wrapper to Azure Container Apps.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -23,7 +23,7 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An Azure subscription with Azure OpenAI access in your region
-* The AI Agent registered in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-microsoft).
+* The AI agent registered in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agents-microsoft).
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
 * Azure permissions: Resource Group Contributor access (for `az acr create` and `az containerapp create`) and Container Registry Repository Writer permissions
 * Docker or access to the Azure Container Registry for building images
@@ -69,16 +69,16 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 ## Before you begin
 
-The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
+The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
+* An OIDC web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
-* Your agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
+* Your AI agent imported into Okta as an AI agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the AI agent.
 
-  > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, like Azure Key Vault, because it's shown only once.
+  > **Note:** Okta doesn't retain the AI agent's private key. Store it in a secrets manager when it's generated, like Azure Key Vault, because it's shown only once.
 
-* An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
+* An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
 
 ### Collect your configuration values
 
