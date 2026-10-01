@@ -11,8 +11,7 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          Join us at <a href="https://luma.com/v2tmx6bf?utm_medium=website&utm_source=oktadevbanner">Okta Developer Connect San Francisco</a> on April 30 at Okta HQ to 
-          explore how Okta secures AI agents with modern identity.
+          Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates that week of the year that the deployment occurs. More information is available in this <a href="https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026?language=en_US">knowledge base article</a>.
         </p>
       </HeaderBanner>
       <Header />
@@ -153,8 +152,8 @@ export default {
   },
   computed: {
     showBanner() {
-      const bannerStartTime = new Date('2026-04-20T13:00:00Z'); // Start on April 20, 2026 9:00 AM EDT
-      const bannerEndTime = new Date('2026-05-01T11:00:00Z'); // End on May 1, 2026 7:00 AM EDT
+      const bannerStartTime = new Date('2026-09-29T13:00:00Z'); // Start on September 29, 2026 9:00 AM EDT
+      const bannerEndTime = new Date('2026-11-12T11:00:00Z'); // End on November 12, 2026 11:59 PM EDT
 
       const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
       const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
