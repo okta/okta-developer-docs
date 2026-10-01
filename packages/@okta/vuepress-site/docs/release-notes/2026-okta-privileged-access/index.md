@@ -13,6 +13,23 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## September
 
+### Weekly release 2026.09.2
+<!-- Published on: 2026-09-30T12:00:00Z -->
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Database privileged access management is GA](#database-privileged-access-management-is-ga) | May 29, 2026 | September 28, 2026 |
+| [New properties for Assignments API is EA](#new-properties-for-assignments-api-is-ea) | September 28, 2026 | |
+
+#### Database privileged access management is GA
+
+Okta Privileged Access for databases helps minimize security risks by automatically discovering database user accounts, rotating and vaulting credentials, and enforcing policy-based multifactor authentication or manual approvals for access. The newly introduced APIs let you discover accounts, manage connections to PostgreSQL and MySQL databases, and configure secure gateway orchestrator connectivity.
+See the [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts), [Database Connections](https://developer.okta.com/docs/api/openapi/opa/opa/database-connections), and [Infrastructure Orchestrators](https://developer.okta.com/docs/api/openapi/opa/opa/infrastructure-orchestrators) APIs.
+<!-- OKTA-1101128, FF: pam_databases, preview date: May 29, 2026, prod date: Sep 28, 2026 -->
+
+#### New properties for Assignments API is EA
+
+The Assignments API now returns `created_by` and `updated_by` properties on assignment list and detail responses, so you can see who created and last updated each assignment. See [Assignments](https://developer.okta.com/docs/api/openapi/opa/opa/assignments) API.
+
 ### Weekly release 2026.09.1
 <!-- Published on: 2026-09-17T12:00:00Z -->
 

@@ -94,7 +94,7 @@ The request includes the `resource` parameter. The parameter value is the resour
 
 #### Response
 
-The token returned in the response contains the `aud` claim. The claim value is the resource URL (`https://agent1.example.com`) for the AI agent. This is the agent that will perform token exchange.
+The token returned in the response contains the `aud` claim. The claim value is the resource URL (`https://agent1.example.com`) for the AI agent. This is the agent that performs token exchange.
 
 ```JSON
 {
