@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 | [Unique MCP server names](#unique-mcp-server-names) | September 30, 2026|
 | [Automatic phishing resistance for FastPass in authentication chains](#automatic-phishing-resistance-for-fastpass-in-authentication-chains) | September 30, 2026|
 | [Secure multiple MCP servers with Okta custom authorization servers is GA in Preview](#secure-multiple-mcp-servers-with-okta-custom-authorization-servers-is-ga-in-preview) | September 30, 2026|
-| [Extensible AI Agent Profile Schema and Custom Attributes is BETA is GA in Preview](#extensible-ai-agent-profile-schema-and-custom-attributes-is-beta-is-ga-in-preview) | September 30, 2026|
+| [Extensible AI Agent Profile Schema and Custom Attributes is BETA](#extensible-ai-agent-profile-schema-and-custom-attributes-is-beta) | September 30, 2026|
 | [Editable resource URL for MCP servers](#editable-resource-url-for-mcp-servers) | September 30, 2026|
 | [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 17, 2026|
 | [Bugs fixed in 2026.09.2](#bugs-fixed-in-2026-09-2) | September 30, 2026 |
@@ -48,7 +48,7 @@ The `phishingResistant` property for the Okta FastPass authenticator is now set 
 
 You can now secure multiple MCP servers with a single Okta custom authorization server. This feature comes with built-in support for Cross App Access (XAA), so that chain of custody from your end user through every agent hop is preserved when accessing MCP servers secured by an Okta custom authorization server. See the [AI Agent Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections), [Potential Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpotentialconnections/other/listpotentialconnectionsbytype), and the [methods for managing authorization servers for MCP servers](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/addmcpserverauthorizationserver). <!-- SECURE_AI_MCP_SERVERS_CUSTOM_AS APIs BETA 2026.09.2 OKTA-1283629 -->
 
-#### Extensible AI Agent Profile Schema and Custom Attributes is BETA is GA in Preview
+#### Extensible AI Agent Profile Schema and Custom Attributes is BETA
 
 You can now extend Okta AI Agent profiles with custom schema attributes and map attributes from AI agent providers to Okta. <!--OKTA-1255399-->
 
