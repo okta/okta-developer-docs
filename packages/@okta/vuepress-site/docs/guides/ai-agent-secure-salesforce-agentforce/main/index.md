@@ -352,6 +352,8 @@ if __name__ == "__main__":
 
 ## Deploy to Azure Container Apps
 
+Package your FastAPI app into a container image, grant Azure Container Apps access to pull it, and deploy it with the environment variables you collected in [Collect your configuration values](#collect-your-configuration-values).
+
 ### Build the image in ACR
 
 ```bash
