@@ -136,7 +136,7 @@ Configure a separate, service-level integration in Salesforce so that your wrapp
 ### Confirm your Agentforce AI agent
 
 1. In Salesforce Setup, go to **Agents**, and then create or select an AI agent.
-1. Confirm the AI agent's type is `ExternalCopilot` (an **Agentforce Service Agent**).
+1. Confirm that the AI agent's type is `ExternalCopilot` (an **Agentforce Service Agent**).
 
    > **Important:** The Agent API only works with `ExternalCopilot` type agents. It doesn't support `InternalCopilot` type AI agents (Employee Agents) or AI agents of type **Agentforce (Default)**.
 
