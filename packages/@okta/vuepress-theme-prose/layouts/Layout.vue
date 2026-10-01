@@ -153,7 +153,7 @@ export default {
   computed: {
     showBanner() {
       const bannerStartTime = new Date('2026-09-29T13:00:00Z'); // Start on September 29, 2026 9:00 AM EDT
-      const bannerEndTime = new Date('2026-11-12T11:00:00Z'); // End on November 12, 2026 7:00 AM EDT
+      const bannerEndTime = new Date('2026-11-12T11:00:00Z'); // End on November 12, 2026 11:59 PM EDT
 
       const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
       const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
