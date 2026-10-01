@@ -25,6 +25,7 @@ title: Okta Identity Engine API release notes 2026
 | [Extensible AI Agent Profile Schema and Custom Attributes is Beta](#extensible-ai-agent-profile-schema-and-custom-attributes-is-beta) | September 30, 2026|
 | [Editable resource URL for MCP servers](#editable-resource-url-for-mcp-servers) | September 30, 2026|
 | [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 17, 2026|
+| [Certificate Authorities API is EA](#certificate-authorities-api-is-ea) | September 30, 2026|
 | [Bugs fixed in 2026.09.2](#bugs-fixed-in-2026-09-2) | September 30, 2026 |
 
 #### Agent SSO support for third-party OIDC apps is GA in Preview
@@ -77,6 +78,10 @@ For agentic requesting apps that use OIDC for SSO, Okta enables binding an AI ag
 
 From this AI agent-app binding capability, admins can now configure direct user authentication for the AI agent. If you have an Okta for AI Agent org and have previously used the **Delegation** tab to configure AI agent access through delegation links, you need to reconfigure them with the **User access** tab. See the [Migration from Okta for AI Agent delegation link](/docs/guides/xaa-agent-to-app/main/#migration-from-okta-for-ai-agent-delegation-link) guidance.
 <!-- OKTA-1212187 SECURE_AI_XAA Preview: Aug 17, 2026 -->
+
+#### Certificate Authorities API is EA
+
+You can now use the Certificate Authorities API to view the certificate authorities (CAs) that Okta hosts for your org, download their certificates, and complete a CA renewal. Okta generates a replacement CA certificate before your current one expires. Use this API to activate the replacement and migrate your SCEP configurations to it, either by rolling over an existing configuration or creating a parallel one while you update your MDM software. Existing SCEP enrollment URLs continue to work. For details, see the [Certificate Authorities](https://developer.okta.com/docs/api) API. <!-- OKTA-1278746, FF: ENG_OKTA_CA_PARALLEL_SCEP, Preview date: Sept 30, 2026 -->
 
 #### Bugs fixed in 2026.09.2
 
