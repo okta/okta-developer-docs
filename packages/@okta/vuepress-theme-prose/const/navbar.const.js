@@ -602,6 +602,8 @@ export const guides = [
           {
             title: "Configure an Agent Gateway",
             guideName: "ai-configure-agent-gateway",
+          },
+          {
             title: "Register AI agents with CIMD",
             guideName: "ai-agent-cimd-registration",
           },
