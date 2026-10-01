@@ -5,9 +5,9 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the AI agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you'll learn how to deploy this containerized AI agent wrapper to Azure Container Apps.
+This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the AI agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you learn how to deploy this containerized AI agent wrapper to Azure Container Apps.
 
-> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
+> **Note:** To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
 ---
 
@@ -71,10 +71,10 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
+* An app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
-* Your AI agent imported into Okta as an AI agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the AI agent.
+* Your imported AI agent that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the web app, set the custom authorization server, include your custom scope, and activate the AI agent.
 
   > **Note:** Okta doesn't retain the AI agent's private key. Store it in a secrets manager when it's generated, like Azure Key Vault, because it's shown only once.
 
@@ -96,7 +96,7 @@ Your FastAPI app reads these values as environment variables. The token exchange
 
 ## Add Okta authentication to your AI agent
 
-The following example `token_exchange.py` module that you create here has no dependency on Azure or Azure OpenAI.
+The following example `token_exchange.py` module has no dependency on Azure or Azure OpenAI.
 
 <AiAgentTokenExchangeModule/>
 
@@ -116,7 +116,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 > **Important:** The deployment name that you set here, not the model name, is what you pass to the API. If you get a `DeploymentNotFound` error, verify the exact name in **Azure OpenAI Studio** > **Deployments**.
 
-### Create an Azure Container Registry
+### Create an Azure Container Registry (ACR)
 
 ```bash
 az acr create \
@@ -125,7 +125,7 @@ az acr create \
   --sku Standard
 ```
 
-> **Important:** Use the standard SKU. The basic SKU can cause `416` or `503` errors during image pushes. Use `az acr build` (cloud build) rather than a local Docker push. Local pushes are more likely to fail.
+> **Important:** Use the standard SKU. The basic SKU can cause `416` or `503` errors during image pushes. Use `az acr build` (cloud build) rather than a local `docker push`. Local pushes are more likely to fail.
 
 ### Create a Container Apps environment and container app
 
@@ -197,7 +197,7 @@ EXPOSE 8000
 CMD ["python", "main.py"]
 ```
 
-> **Note:** Don't copy your `.env` file into the image. Add a `.dockerignore` file containing `.env`, so secrets never end up baked into the container. Azure Container Apps sets these as real environment variables at deploy time (see [Deploy with environment variables](#deploy-with-environment-variables)).
+> **Note:** Don't copy your `.env` file into the image. Add a `.dockerignore` file containing `.env`, so that secrets never end up baked into the container. Azure Container Apps sets these as real environment variables at deploy time (see [Deploy with environment variables](#deploy-with-environment-variables)).
 
 ### Create your environment file
 
@@ -381,7 +381,7 @@ The following errors are specific to the Azure integration:
 | Container app not pulling image | The container app has no registry credentials configured | Run `az containerapp registry set` before updating the image |
 | App returns the default Azure page | Target port defaults to 80. The FastAPI app runs on 8000 | Run `az containerapp ingress update --target-port 8000` |
 
-The following errors come from the Okta token exchange and are covered in [Set up imported AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
+The following errors come from the Okta token exchange and are covered in [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
 * `invalid_scope: openid not allowed`
 * `invalid_client: JWKSet not configured`
@@ -391,11 +391,11 @@ The following errors come from the Okta token exchange and are covered in [Set u
 
 ## Next steps
 
-Your agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
+Your agent can now authenticate as a user and call Okta-protected resources on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI agents documentation on governing access to AI agents.
 
 ## See also
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
-* [Set up imported AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
+* [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Azure OpenAI Service documentation](https://learn.microsoft.com/azure/ai-services/openai/)
 * [Azure Container Apps documentation](https://learn.microsoft.com/azure/container-apps/)
