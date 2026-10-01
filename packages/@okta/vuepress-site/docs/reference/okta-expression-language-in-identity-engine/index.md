@@ -76,11 +76,12 @@ Only the following operators and functions are supported with `importedAppUser`:
 
 * `==` and `!=` to compare an attribute to a string value
 * `$string_object.startsWith` and `$string_object.contains`
+* `{'value1', 'value2'}.contains($attribute)` to match an attribute against a set of values. Okta expands this into a chain of `==` comparisons joined by `OR`, and supports up to 10 values.
 * `$object.isEmpty() == true` or `$object.isEmpty() == false` to test whether an attribute has a value
 * `&&`, `||`, and `!` to combine conditions
-* A `.?[$predicate]` selection on a collection attribute, such as `userEntitlements.group`, combined with `.isEmpty()`
+* A `.?[$predicate]` selection on a collection attribute, such as `userEntitlements.group`, combined with `.isEmpty()`. Selection predicates also support `$string_object.endsWith`.
 
-Relational operators (`<`, `>`, `<=`, `>=`), `$string_object.endsWith`, and comparisons against numeric or Boolean literals aren't supported.
+Relational operators (`<`, `>`, `<=`, `>=`) and comparisons against numeric or Boolean literals aren't supported. `$string_object.endsWith` is only supported inside a `.?[$predicate]` selection; it isn't supported on top-level `importedAppUser` attributes, such as `importedAppUser.dept.endsWith(...)`.
 
 > **Note:** `importedAppUser.status` values are matched case-insensitively. Use `==` (not `!=`) to filter on `status`, and combine it with other conditions using `&&` only. Combining `status` with `||` or `!`, or comparing it with `!=`, isn't supported.
 
@@ -92,7 +93,9 @@ Relational operators (`<`, `>`, `<=`, `>=`), `$string_object.endsWith`, and comp
 | `importedAppUser.dept.startsWith('EN')` | The imported user's `dept` attribute starts with `EN`. |
 | `importedAppUser.aliases.isEmpty() == false` | The imported user has at least one value in the `aliases` attribute. |
 | `importedAppUser.dept == 'ENG' && importedAppUser.status == 'ACTIVE'` | The imported user's `dept` attribute is `ENG` and the user's status is active. |
+| `{'ENG', 'SALES'}.contains(importedAppUser.dept)` | The imported user's `dept` attribute is `ENG` or `SALES`. |
 | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins'].isEmpty() == false` | The imported user has a group entitlement with a `displayName` of `Server Admins`. |
+| `importedAppUser.userEntitlements.group.?[displayName.endsWith('Admins')].isEmpty() == false` | The imported user has a group entitlement whose `displayName` ends with `Admins`. |
 
 ### Okta device profile
 
