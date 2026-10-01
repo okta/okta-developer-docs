@@ -1,4 +1,4 @@
-The following sections outline the requests required to implement the out-of-band (OOB) flow (with Email) using direct calls to the Okta OpenID Connect & OAuth 2.0 API.
+The following sections outline the requests required to implement the out-of-band (OOB) flow (with Email) using direct calls to the Okta OpenID Connect and OAuth 2.0 API.
 
 ### Request for out-of-band authentication
 
