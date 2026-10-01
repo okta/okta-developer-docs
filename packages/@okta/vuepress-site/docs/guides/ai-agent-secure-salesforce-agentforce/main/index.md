@@ -76,7 +76,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* A web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
+* A web app integration that signs users in and issues the `id_token` that your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`. Okta strips system scopes (`openid`, `profile`, `email`) during the ID-JAG exchange and can cause an `invalid_scope` error, so you must request a custom scope instead.
 * Your Agentforce AI agent imported and registered in Okta. This AI agent identity uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the app, set the custom authorization server, include your custom scope, and activate the AI agent. See [Import your agent from Salesforce](#import-your-agent-from-salesforce).
