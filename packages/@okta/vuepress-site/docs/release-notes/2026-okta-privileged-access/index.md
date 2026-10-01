@@ -23,7 +23,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 #### Database privileged access management is GA
 
 Okta Privileged Access for databases helps minimize security risks by automatically discovering database user accounts, rotating and vaulting credentials, and enforcing policy-based multifactor authentication or manual approvals for access.The newly introduced APIs lets you discover accounts, manage connections to PostgreSQL and MySQL databases, and configure secure gateway orchestrator connectivity.
-See [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts), [Database Connections](https://developer.okta.com/docs/api/openapi/opa/opa/database-connections), and [Infrastructure Orchestrators](https://developer.okta.com/docs/api/openapi/opa/opa/infrastructure-orchestrators) APIs.
+See the [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts), [Database Connections](https://developer.okta.com/docs/api/openapi/opa/opa/database-connections), and [Infrastructure Orchestrators](https://developer.okta.com/docs/api/openapi/opa/opa/infrastructure-orchestrators) APIs.
 <!-- OKTA-1101128, FF: pam_databases, preview date: May 29, 2026, prod date: Sep 28, 2026 -->
 
 #### New properties for Assignments API is EA
