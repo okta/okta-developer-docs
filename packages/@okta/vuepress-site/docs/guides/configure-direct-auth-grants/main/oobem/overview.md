@@ -2,4 +2,4 @@ Use the direct authentication OOB flow when you want to use an out-of-band facto
 
 The steps in this guide focus on using the OOB flow with the Email authenticator. Okta emails a one-time verification code to the user, and the user enters that code in your app to complete authentication.
 
-> **Note:** The verification code sent by email defaults to six numeric digits. If your org has configured [Email OTP settings](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators-email), codes can be 6–10 characters and can include uppercase letters. Treat the code as an opaque, case-sensitive string — don't hard-code a 6-digit numeric input mask, and don't force a numeric-only keyboard in your app.
+> **Note:** The verification code sent by email defaults to six numeric digits. If your org has configured [Email OTP settings](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators-email), codes can be 6–10 characters and can include uppercase letters. Treat the code as an opaque, case-sensitive string. Don't hard-code a 6-digit numeric input mask, and don't force a numeric-only keyboard in your app.

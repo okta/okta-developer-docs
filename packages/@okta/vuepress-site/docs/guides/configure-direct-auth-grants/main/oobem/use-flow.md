@@ -40,10 +40,10 @@ In an HTTP 200 response, Okta returns the following parameters:
 
 Parameters included:
 
-- `oob_code`: An identifier of a single out-of-band factor transaction. This code is valid for 5 minutes (`expires_in`) and can be used only once.
+- `oob_code`: An identifier of a single out-of-band factor transaction. This code is valid for five minutes (`expires_in`) and can be used only once.
 - `expires_in`: The time, in seconds, until the `oob_code` expires.
 - `channel`: The type of out-of-band channel used. Returns `email` for this flow.
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Email uses `prompt` — there's no polling option for Email OTP in this release.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Email uses `prompt`.
 
 ### Request for tokens
 
