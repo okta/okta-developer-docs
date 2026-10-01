@@ -18,14 +18,23 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Agent SSO support for third-party OIDC apps is GA in Preview](#agent-sso-support-for-third-party-oidc-apps-is-ga-in-preview) | September 30, 2026 |
 | [Unique MCP server names](#unique-mcp-server-names) | September 30, 2026|
 | [Automatic phishing resistance for FastPass in authentication chains](#automatic-phishing-resistance-for-fastpass-in-authentication-chains) | September 30, 2026|
 | [Secure multiple MCP servers with Okta custom authorization servers is GA in Preview](#secure-multiple-mcp-servers-with-okta-custom-authorization-servers-is-ga-in-preview) | September 30, 2026|
 | [Extensible AI Agent Profile Schema and Custom Attributes is BETA is GA in Preview](#extensible-ai-agent-profile-schema-and-custom-attributes-is-beta-is-ga-in-preview) | September 30, 2026|
 | [Editable resource URL for MCP servers](#editable-resource-url-for-mcp-servers) | September 30, 2026|
 | [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 17, 2026|
-| [Agent SSO support for third-party OIDC apps is GA in Preview](#agent-sso-support-for-third-party-oidc-apps-is-ga-in-preview) | September 30, 2026 |
 | [Bugs fixed in 2026.09.2](#bugs-fixed-in-2026-09-2) | September 30, 2026 |
+
+#### Agent SSO support for third-party OIDC apps is GA in Preview
+
+Okta now supports Cross App Access (XAA) to secure and manage interactions between OIDC requesting agentic apps and OIDC or SAML SSO resource apps. With XAA, admins can grant permission for custom or OIN third-party AI agents to perform actions on behalf of enterprise users without requiring runtime user consent, providing centralized visibility and control over agentic actions regardless of the SSO protocol. See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
+
+In this Agent SSO release, the **Resource Server** tab in requesting and resource apps has been renamed to **Machine Assignments**, where admins can manage non-human identity connections through the **Resources** tile (to link AI agents to target resources) and the **Callers** tile (to configure access methods for resource app callers). See [Resource Server to Machine Assignments](/docs/guides/xaa-agent-to-app/main/#resource-server-to-machine-assignments).
+
+If your org is subscribed to Okta for AI Agents, the **Resource Server** tab is also renamed to **Machine Assignments**. In addition, the **Machine Assignments** > **Callers** tile contains the Brokered Consent access method for your resource app callers.
+<!-- OKTA-1281732 SECURE_AI_XAA_PHASE_3, Preview: Sept 30, 2026 -->
 
 #### Unique MCP server names
 
@@ -117,15 +126,6 @@ The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to c
 Okta automatically creates and maintains a user identification policy for each app sign-in policy. You manage only the policy's rule. Use the `userIdentification.settings.securityMethods.fastpass.showSignInButton` rule action (`ALWAYS` or `NEVER`) to control the button.
 
 See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
-
-#### Agent SSO support for third-party OIDC apps is GA in Preview
-
-Okta now supports Cross App Access (XAA) to secure and manage interactions between OIDC requesting agentic apps and OIDC or SAML SSO resource apps. With XAA, admins can grant permission for custom or OIN third-party AI agents to perform actions on behalf of enterprise users without requiring runtime user consent, providing centralized visibility and control over agentic actions regardless of the SSO protocol. See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
-
-In this Agent SSO release, the **Resource Server** tab in requesting and resource apps has been renamed to **Machine Assignments**, where admins can manage non-human identity connections through the **Resources** tile (to link AI agents to target resources) and the **Callers** tile (to configure access methods for resource app callers). See [Resource Server to Machine Assignments](/docs/guides/xaa-agent-to-app/main/#resource-server-to-machine-assignments).
-
-If your org is subscribed to Okta for AI Agents, the **Resource Server** tab is also renamed to **Machine Assignments**. In addition, the **Machine Assignments** > **Callers** tile contains the Brokered Consent access method for your resource app callers.
-<!-- OKTA-1281732 SECURE_AI_XAA_PHASE_3, Preview: Sept 30, 2026 -->
 
 #### Bugs fixed in 2026.09.1
 
