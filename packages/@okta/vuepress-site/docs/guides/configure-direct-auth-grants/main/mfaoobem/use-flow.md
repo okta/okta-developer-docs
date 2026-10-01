@@ -14,7 +14,7 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `password`, indicating that you're using the Resource Owner Password grant type
 - `username`: The email username of a registered Okta user
@@ -52,7 +52,7 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `mfa_token`: The unique token returned with `mfa_required`, linking this request to the original authentication flow.
 - `channel_hint`: The out-of-band channel that the client wants to use. Use `email` for the Email authenticator.
 - `challenge_types_supported`: `http://auth0.com/oauth/grant-type/mfa-oob`, which communicates to the authorization server the factors that the client app supports.
@@ -76,10 +76,10 @@ In an HTTP 200 response, Okta returns the following parameters:
 Note the parameters included:
 
 - `challenge_type`: Echoes the MFA grant being challenged. Must be one of the `challenge_types_supported` values from the request.
-- `oob_code`: An identifier of this out-of-band factor transaction. Valid for 5 minutes (`expires_in`) and single-use.
+- `oob_code`: An identifier of this out-of-band factor transaction. Valid for five minutes (`expires_in`) and single-use.
 - `expires_in`: The time, in seconds, until the `oob_code` expires.
 - `channel`: The type of out-of-band channel used. Returns `email` for this flow.
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Email uses `prompt` — there's no polling option in this release.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Email uses `prompt`.
 
 ### Second request for tokens
 
@@ -95,7 +95,7 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`.
 - `grant_type`: `http://auth0.com/oauth/grant-type/mfa-oob`, which indicates that you're using the MFA OOB grant type.
 - `mfa_token`: The same token returned with `mfa_required` and used on the `/challenge` request.
