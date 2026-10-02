@@ -150,4 +150,3 @@ Before you upgrade, audit your integrations against the following checklist:
 * [Session changes after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/): How sessions work in Identity Engine
 * [Upgrade your app SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/): Migrate to the Identity Engine SDKs
 * [Device Token in Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US): Device token changes and migration paths
-* [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-APIs?language=en_US): Session API response changes
