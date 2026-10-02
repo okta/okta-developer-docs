@@ -7,7 +7,8 @@
 </div>
 At a high level, this flow has the following steps:
 
-1. These steps assume that your client app has prompted the user for their username.
+These steps assume that your client app has prompted the user for their username, and the user has entered it successfully.
+
 1. The user enters their username.
 1. Your app sends the following parameters to the Okta authorization server `/primary-authenticate` endpoint:
     * `login_hint`
