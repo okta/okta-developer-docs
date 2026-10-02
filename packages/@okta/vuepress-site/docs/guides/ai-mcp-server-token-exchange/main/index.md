@@ -12,7 +12,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 #### Learning outcomes
 
 - Enable an MCP server as an OAuth client.
-- Enable an MCP server as an OAuth client with an active public key in its credentials.
+- Add an active public key to the MCP server's credentials.
 - Create a resource connection on the MCP server that defines the downstream resource it's allowed to access.
 - Understand the token exchange flow that the MCP server uses to get a downstream token.
 
@@ -20,6 +20,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 
 - An Okta org that's subscribed to Okta for AI Agents
 - An Okta admin account with the super admin role
+- The MCP server as an OAuth client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it.
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that's authorized to delegate to the MCP server. It passes an access token to the MCP server.
@@ -30,7 +31,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 
 An MCP server typically handles inbound requests from AI agents. Sometimes the MCP server must also call a downstream resource, such as another MCP server, to complete a request. In that case, the MCP server acts as an OAuth client.
 
-The MCP server never passes on the access token that it received. That token was issued for the MCP server, not for the downstream resource. Passing it on would let the downstream resource treat the MCP server's token as its own. It would also let a caller use the MCP server to reach resources that the caller can't access. This is known as a confused deputy problem.
+The MCP server never passes on the access token that it receives. That token was issued for the MCP server, not for the downstream resource. Passing it on would let the downstream resource treat the MCP server's token as its own. It would also let a caller use the MCP server to reach resources that the caller can't access. This is known as a confused deputy problem.
 
 Instead, the MCP server exchanges the token for a separate token. The authorization server that protects the downstream resource issues that token.
 
@@ -169,23 +170,28 @@ To delete the OAuth client later, delete its connections and keys first. Otherwi
 
 ### Flow steps
 
-<!-- TODO: Add flow diagram for the inbound request (agent calls MCP server). Request from design team. -->
-
-1. An AI agent or client obtains an access token that targets the MCP server's resource URL. The token satisfies a delegation link authorizing the caller to delegate to the MCP server.
-
-   The AI agent then calls the MCP server and passes this access token (T1). The token's `aud` claim is the MCP server's resource URL.
-
-   > **Note**: The MCP server doesn't forward T1 to the downstream resource. It always requests a separate token that's issued for the downstream resource.
-
 <div class="full wireframe-border">
 
-  <!-- TODO: Add token exchange flow diagram for MCP server as client. Request from design team. -->
+  <!-- TODO: Add a single sequence diagram covering the inbound request and the token exchange (steps 1-4). Request from design team. -->
 
 </div>
 
-2. The MCP server sends the `subject_token` (T1) to the org authorization server and requests an exchange for an ID-JAG token. The MCP server authenticates as an OAuth client using the key that you added to its credentials. The server performs validation based on the [Resource Connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) configuration and returns the requested ID-JAG (T2).
-3. Because the requested credential was an ID-JAG, the MCP server sends the ID-JAG (T2) to the custom authorization server that protects the downstream resource. The server performs validation and returns an access token (T3).
-4. The MCP server uses the access token (T3) to request access to the downstream resource.
+1. An AI agent or client obtains an access token that targets the MCP server's resource URL. The token satisfies a delegation link authorizing the caller to delegate to the MCP server.
+
+1. The Okta org authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value.
+
+1. The AI agent then calls the MCP server and passes this access token (T1).
+
+   > **Note**: The MCP server doesn't forward T1 to the downstream resource. It always requests a separate token that's issued for the downstream resource.
+
+1. The MCP server sends the `subject_token` (T1) to the `/token` endpoint at org authorization server and requests an exchange for an ID-JAG token. The MCP server authenticates as an OAuth client using the key [that you added to its credentials](#add-a-public-key).
+* subject_token: T1
+* requested_token_type = id-jag
+* client_assertion = eyJhbGciOiJSUzI1NiIsInR5...[jwt]
+1. The server performs validation based on the [Resource Connections](#create-a-resource-connection) configuration and returns the requested ID-JAG (T2).
+1. Because the requested credential was an ID-JAG, the MCP server sends the ID-JAG (T2) to the custom authorization server that protects the downstream resource.
+1. The server performs validation and returns an access token (T3).
+1. The MCP server uses the access token (T3) to request access to the downstream resource.
 
 ## Flow specifics
 
