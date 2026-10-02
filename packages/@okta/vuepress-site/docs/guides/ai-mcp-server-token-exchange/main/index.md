@@ -20,7 +20,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 
 - An Okta org that's subscribed to Okta for AI Agents
 - An Okta admin account with the super admin role
-- The MCP server as an OAuth client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it.
+- The MCP server as an OAuth client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it. To use the `IDENTITY_ASSERTION_MCP_SERVER` connection type in this guide, also ask Support to enable downstream MCP server connections.
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that's authorized to delegate to the MCP server. It passes an access token to the MCP server.
@@ -37,7 +37,7 @@ Instead, the MCP server exchanges the token for a separate token. The authorizat
 
 This guide covers a downstream MCP server that's protected by an Okta custom authorization server. Okta supports this through [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access), which uses the Identity Assertion JWT (ID-JAG).
 
-> **Note**: An MCP server can also hold other connection types, such as `STS_ACCESS_TOKEN` for a third-party resource.
+> **Note**: An MCP server can also hold other connection types, such as `IDENTITY_ASSERTION_CUSTOM_AS` for any resource that a custom authorization server protects, or `STS_ACCESS_TOKEN` for a third-party resource.
 
 ## Set up the MCP server as an OAuth client
 
@@ -66,12 +66,10 @@ Retrieve the MCP server and read the `oauthClient` property. The `clientId` is t
 
 ```bash
   curl --location --request GET \
-    --url 'https://{yourOktaDomain}/api/v1/mcp-servers/{mcpServerId}' \
+    --url 'https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/{mcpServerId}' \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {accessToken}"
 ```
-
-<!-- TODO: Confirm the GET path for the MCP server resource. The spec links to getMCPServer under resource-servers/mcp-servers, and this path is a placeholder. -->
 
 The `oauthClient` property in the response contains the following values:
 
@@ -113,9 +111,11 @@ The MCP server signs its client assertion with a private key. Add the matching p
     }'
 ```
 
-<!-- TODO: Confirm the required JWK request fields and the response shape, including the key status returned on create. -->
+The request body depends on the key type. An RSA key requires `kty`, `n`, and `e`. An EC key requires `kty`, `x`, `y`, and `crv`. The `use` value is always `sig`. The `alg` and `kid` properties are optional.
 
-After you add the key, activate it. Replace `{keyId}` with the `kid` of the key.
+The response is `201 Created` and includes the key's `id`, which identifies the key in later requests. New keys are `ACTIVE` by default. To add a key without activating it, set `status` to `INACTIVE` in the request.
+
+If you added the key with the `INACTIVE` status, activate it. Replace `{keyId}` with the `id` of the key from the add response, not the `kid`.
 
 ```bash
   curl --location --request POST \
@@ -124,7 +124,7 @@ After you add the key, activate it. Replace `{keyId}` with the `kid` of the key.
     --header "Authorization: Bearer {accessToken}"
 ```
 
-To rotate a key, add the new key and activate it. Then deactivate the old key. Okta accepts assertions signed by any active key, so both keys work during the changeover.
+To rotate a key, add the new key and make sure that it's active. Then deactivate the old key. Okta accepts assertions signed by any active key, so both keys work during the changeover.
 
 ### Create a resource connection
 
@@ -214,7 +214,7 @@ The MCP server authenticates with `private_key_jwt`. It signs the client asserti
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
     --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
     --data-urlencode "resource=https://downstream-mcp.example.com" \
-    --data-urlencode "scope=tickets.read+tickets.write" \
+    --data-urlencode "scope=tools:read+tools:execute" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
 ```
@@ -257,7 +257,7 @@ The ID-JAG contains the following claims:
 
 ```JSON
 {
-   "scope": "tickets.read tickets.write",
+   "scope": "tools:read tools:execute",
    "iss": "https://{yourOktaDomain}",
    "sub": "{subjectFromSubjectToken}",
    "aud": "https://{yourOktaDomain}/oauth2/{authServerId}",
@@ -322,7 +322,7 @@ The response contains a new access token (T3) that's issued for the downstream r
   "token_type": "Bearer",
   "expires_in": 3600,
   "access_token": "eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0blJobUY4Q0xTaUdBenlwemJVIiwiYWxnIjoi...",
-  "scope": "tickets.read tickets.write"
+  "scope": "tools:read tools:execute"
 }
 ```
 
@@ -337,7 +337,7 @@ The access token contains the following claims:
   "aud": "https://downstream-mcp.example.com",
   "iat": 1780596935,
   "exp": 1780600535,
-  "scope": "tickets.read tickets.write",
+  "scope": "tools:read tools:execute",
   "sub_profile": "service",
   "act": {
     "sub": "{mcpServerClientId}",
