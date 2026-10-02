@@ -6,6 +6,7 @@ guides:
  - ai-agent-secure-amazon-bedrock
  - ai-agent-secure-aws-bedrock
  - ai-agent-cimd-registration
+ - ai-agent-secure-google-vertex
  - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
