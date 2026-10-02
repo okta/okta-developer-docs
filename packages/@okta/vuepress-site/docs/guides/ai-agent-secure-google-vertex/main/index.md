@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's token exchange, and then calls a Google Vertex AI agent. In Vertex AI, an AI agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow: It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with the Reasoning Engine. It then sends the user's prompt and polls for the AI agent's response.
+This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's token exchange, and then calls a Google Vertex AI agent. In the Vertex AI, an AI agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow: It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with the Reasoning Engine. It then sends the user's prompt and polls for the AI agent's response.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Google Vertex AI-specific code and the configuration that consumes it.
 
@@ -74,7 +74,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
+* An OIDC web app integration that signs users in and issues the `id_token` that your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
 * The Google Vertex AI agent imported into Okta as an AI agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the AI agent. See [Import your AI agent from Google Vertex AI](#import-your-ai-agent-from-google-vertex-ai).
@@ -204,7 +204,7 @@ def send_prompt(access_token: str, session_id: str, prompt: str) -> None:
 
 ### Poll for the response
 
-The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one the AI agent authors.
+The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one that the AI agent authors.
 
 ```python
 import time
