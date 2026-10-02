@@ -105,7 +105,7 @@ The following example `token_exchange.py` module has no dependency on Azure or A
 ### Create an Azure OpenAI resource
 
 1. In the Azure Portal, search for **Azure OpenAI** and create a resource.
-1. Select a region that supports the model you want to use. Check Azure OpenAI model availability for your region before you continue.
+1. Select a region that supports the model that you want to use. Check Azure OpenAI model availability for your region before you continue.
 1. After the resource deploys, note the endpoint URL and one of the API keys. You need both for `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_KEY`.
 
 ### Deploy a model
@@ -199,11 +199,11 @@ EXPOSE 8000
 CMD ["python", "main.py"]
 ```
 
-> **Note:** Don't copy your `.env` file into the image. Add a `.dockerignore` file containing `.env`, so that secrets never end up baked into the container. Azure Container Apps sets these as real environment variables at deploy time (see [Deploy with environment variables](#deploy-with-environment-variables)).
+> **Note:** Don't copy your `.env` file into the image. Add a `.dockerignore` file that contains `.env`, so that secrets never end up baked into the container. Azure Container Apps sets these as real environment variables at deploy time (see [Deploy with environment variables](#deploy-with-environment-variables)).
 
 ### Create your environment file
 
-Create a `.env` file with both the Okta values and the Azure OpenAI values you collected in [Collect your configuration values](#collect-your-configuration-values).
+Create a `.env` file with both the Okta values and the Azure OpenAI values that you collected in [Collect your configuration values](#collect-your-configuration-values).
 
 ## Call Azure OpenAI with user identity
 
@@ -380,10 +380,10 @@ The following errors are specific to the Azure integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `DeploymentNotFound` | Wrong or missing Azure OpenAI deployment name | Check the exact deployment name in **Azure OpenAI Studio** > **Deployments**. Names are case-sensitive |
-| ACR push `416` / `503` errors | Basic SKU ACR with stale upload sessions | Upgrade ACR to standard SKU. Use `az acr build` instead of a local `docker push` |
-| Container app not pulling image | The container app has no registry credentials configured | Run `az containerapp registry set` before updating the image |
-| App returns the default Azure page | Target port defaults to 80. The FastAPI app runs on 8000 | Run `az containerapp ingress update --target-port 8000` |
+| `DeploymentNotFound` | Wrong or missing Azure OpenAI deployment name | Check the exact deployment name in **Azure OpenAI Studio** > **Deployments**. Names are case-sensitive. |
+| ACR push `416` / `503` errors | Basic SKU ACR with stale upload sessions | Upgrade ACR to standard SKU. Use `az acr build` instead of a local `docker push`. |
+| Container app not pulling image | The container app has no registry credentials configured. | Run `az containerapp registry set` before updating the image. |
+| App returns the default Azure page | Target port defaults to 80. The FastAPI app runs on 8000. | Run `az containerapp ingress update --target-port 8000`. |
 
 The following errors come from the Okta token exchange and are covered in [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
