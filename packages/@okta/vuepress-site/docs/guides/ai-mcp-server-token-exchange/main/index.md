@@ -172,28 +172,50 @@ To delete the OAuth client later, delete its connections and keys first. Otherwi
 
 <div class="full wireframe-border">
 
-  <!-- TODO: Add a single sequence diagram covering the inbound request and the token exchange (steps 1-4). Request from design team. -->
+  <!-- TODO: Add a single sequence diagram covering the inbound request and the token exchange (steps 1-8). Request from design team. -->
 
 </div>
 
-1. An AI agent or client obtains an access token that targets the MCP server's resource URL. The token satisfies a delegation link authorizing the caller to delegate to the MCP server.
+1. An AI agent or client sends a Client Credentials request to a custom authorization server. The `resource` parameter is the MCP server's resource URL. A delegation link must authorize the caller to delegate to the MCP server.
 
-1. The Okta org authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value.
+1. The custom authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value.
 
-1. The AI agent then calls the MCP server and passes this access token (T1).
+1. The AI agent then calls the MCP server and passes the access token (T1).
 
    > **Note**: The MCP server doesn't forward T1 to the downstream resource. It always requests a separate token that's issued for the downstream resource.
 
-1. The MCP server sends the `subject_token` (T1) to the `/token` endpoint at org authorization server and requests an exchange for an ID-JAG token. The MCP server authenticates as an OAuth client using the key [that you added to its credentials](#add-a-public-key).
-* subject_token: T1
-* requested_token_type = id-jag
-* client_assertion = eyJhbGciOiJSUzI1NiIsInR5...[jwt]
+1. The MCP server sends the `subject_token` (T1) to the `/token` endpoint at org authorization server and requests an exchange for an ID-JAG token (`urn:ietf:params:oauth:token-type:id-jag`). The MCP server authenticates as an OAuth client using the `private_key_jwt`.
 1. The server performs validation based on the [Resource Connections](#create-a-resource-connection) configuration and returns the requested ID-JAG (T2).
 1. Because the requested credential was an ID-JAG, the MCP server sends the ID-JAG (T2) to the custom authorization server that protects the downstream resource.
 1. The server performs validation and returns an access token (T3).
 1. The MCP server uses the access token (T3) to request access to the downstream resource.
 
 ## Flow specifics
+
+The flow has two parts. First, the AI agent or client gets a subject token for the MCP server. Then the MCP server exchanges that token for a downstream token.
+
+### Initial authentication
+
+To start the flow, the AI agent or client must first authenticate with an Okta authorization server and obtain a subject token (T1). T1 is an access token that targets the MCP server's resource URL.
+
+Okta issues T1 only if a delegation link exists. A delegation link is a record in Okta that authorizes a specific client to delegate to a specific resource. Here, the client is the AI agent or client, and the resource is the MCP server. Okta also checks the link again during token exchange. Without it, Okta rejects the exchange. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) for details.
+
+The AI agent or client sends a request to the authorization server's `/token` endpoint. Use the Client Credentials grant type. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
+
+The request includes the `resource` parameter. Its value is the resource URL that's configured on the MCP server. For example, `resource=https://mcp-server.example.com`.
+
+#### Response
+
+The token in the response has an `aud` claim. The claim value is the MCP server's resource URL. The AI agent or client passes this token (T1) to the MCP server.
+
+```JSON
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0blJobUY4Q0xTaUdBenlwemJVIiwiYWxnIjoi...",
+  "scope": "tools:read"
+}
+```
 
 ### Exchange subject token for resource token
 
