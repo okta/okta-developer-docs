@@ -96,6 +96,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   dmfaoobov: 'Okta Verify Push (MFA)',
   fmfaoobsv: 'Phone (MFA)',
   bmfaotp: 'OTP (MFA)',
+  oobem: 'Email (primary factor)',
+  mfaoobem: 'Email (MFA)',
   oidc: 'OIDC',
   saml: 'SAML',
   oktaresourceserver: 'Okta resource server',
