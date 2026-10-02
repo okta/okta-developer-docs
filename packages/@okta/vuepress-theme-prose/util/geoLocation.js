@@ -83,7 +83,13 @@ const isRegionLocked = () => {
   return BLOCKED_REGION_LIST.includes(countryCode);
 }
 
+const getStoredCountryCode = () => {
+  const storageItem = JSON.parse(storage.getItem(STORAGE_KEY));
+  return storageItem?.countryCode ?? null;
+}
+
 export {
   GeoLocation,
-  isRegionLocked
+  isRegionLocked,
+  getStoredCountryCode
 }
