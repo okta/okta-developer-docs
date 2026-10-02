@@ -98,7 +98,7 @@ You need an existing Google Workspace app integration in your org (**Application
 1. Under **Authorized redirect URIs**, click **Add URI**, and enter `{yourOktaDomain}/oauth2/v1/sts/callback`.
 1. Click **Create**. Note the **Client ID** and **Client Secret** that are shown in the confirmation dialog. Okta uses these credentials to discover and import your Reasoning Engines, so store them in a secrets manager.
 1. Go to the **Audience** tab.
-   * If the consent screen's **User type** is **External**, scroll to **Test users**, click **+ Add users**, and add the email addresses of the accounts that complete the import consent flow.
+   * If the consent page's **User type** is **External**, scroll to **Test users**, click **+ Add users**, and add the email addresses of the accounts that complete the import consent flow.
    * If the **User type** is **Internal**, no additional provisioning is required.
 1. In the Admin Console, go to your org's Google Workspace app integration, and open its **AI Agent Import** tab.
 1. Enter the client ID, client secret, your Google Cloud project ID, and the location (region) where your Reasoning Engines run, for example, `us-west1`. Click **Test API Credentials** to validate them.
@@ -226,7 +226,7 @@ def get_agent_response(access_token: str, session_id: str, timeout_seconds: int 
     raise TimeoutError("Timed out waiting for a response from the Reasoning Engine.")
 ```
 
-> **Note:** Confirm the exact shape of an AI agent-authored event (whether the response text is always under `rawEvent.text`) against a real response from your Reasoning Engine. Also confirm the `sessionEvents` wrapper key on the list-events response; current Google documentation describes this operation through the Python SDK's `events.list()` method and doesn't surface a wrapper field name to check against.
+> **Note:** Confirm the exact shape of an AI agent-authored event (whether the response text is always under `rawEvent.text`) against a real response from your Reasoning Engine. Also confirm the `sessionEvents` wrapper key on the list-events response. Current Google documentation describes this operation through the Python SDK's `events.list()` method and doesn't surface a wrapper field name to check against.
 
 ## Wire it into the entry point
 
