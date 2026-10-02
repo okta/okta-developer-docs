@@ -8,7 +8,7 @@
 
 At a high level, this flow has the following steps:
 
-1. Your client app prompts the user for their username and password in the app interface, and the user enters their credentials.
+These steps assume that your client app has prompted the user for their username and password, and the user has entered their credentials.
 1. Your app sends the credentials and the Resource Owner Password grant type (`grant_type=password`) in a request to the Okta authorization server `/token` endpoint.
 
     Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
