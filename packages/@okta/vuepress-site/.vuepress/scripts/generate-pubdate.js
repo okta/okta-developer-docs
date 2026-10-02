@@ -26,6 +26,13 @@
 const fs = require('fs');
 const path = require('path');
 
+const quiet = process.argv.includes('--quiet');
+const log = (...args) => {
+  if (!quiet) {
+    console.log(...args);
+  }
+};
+
 // List of release notes files to process
 const releaseNotesFiles = [
   '../../docs/release-notes/2026/index.md',
@@ -55,7 +62,7 @@ releaseNotesFiles.forEach((filePath) => {
 
   // Skip if file doesn't exist
   if (!fs.existsSync(fullPath)) {
-    console.log(`⊘ File not found: ${displayPath}`);
+    log(`⊘ File not found: ${displayPath}`);
     return;
   }
 
@@ -88,12 +95,12 @@ releaseNotesFiles.forEach((filePath) => {
   // Write the file back if modified
   if (modified) {
     fs.writeFileSync(fullPath, lines.join('\n'), 'utf8');
-    console.log(`✓ Updated ${displayPath}`);
+    log(`✓ Updated ${displayPath}`);
     totalUpdated++;
   } else {
-    console.log(`ℹ No changes needed for ${displayPath}`);
+    log(`ℹ No changes needed for ${displayPath}`);
   }
 });
 
-console.log(`\n✓ Processed ${releaseNotesFiles.length} files. Updated: ${totalUpdated}`);
+log(`\n✓ Processed ${releaseNotesFiles.length} files. Updated: ${totalUpdated}`);
 

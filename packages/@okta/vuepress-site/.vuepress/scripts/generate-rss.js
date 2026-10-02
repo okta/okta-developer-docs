@@ -62,6 +62,20 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
     .join('<br>');
 }
 
+function getExistingGuids(rssOutputPath) {
+  if (!fs.existsSync(rssOutputPath)) {
+    return null;
+  }
+  const existingXml = fs.readFileSync(rssOutputPath, 'utf8');
+  const guids = new Set();
+  const guidPattern = /<guid>([^<]+)<\/guid>/g;
+  let match;
+  while ((match = guidPattern.exec(existingXml)) !== null) {
+    guids.add(match[1]);
+  }
+  return guids;
+}
+
 function extractPublishedDate(section) {
   const match = section.match(/<!--\s*Published on:\s*([0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z)\s*-->/);
   if (match && match[1]) {
@@ -90,7 +104,7 @@ function createAnchor(title) {
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
   if (!fs.existsSync(mdPath)) {
     console.error(`Markdown file not found: ${mdPath}`);
-    return;
+    return false;
   }
   const mdContent = fs.readFileSync(mdPath, 'utf8');
   const sections = mdContent.includes('### ') ? mdContent.split('\n### ') : mdContent.split('\n## ');
@@ -161,79 +175,97 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
 </rss>
 `;
 
+  const existingGuids = getExistingGuids(rssOutputPath);
+  const newReleases = existingGuids
+    ? releases.filter(rel => !existingGuids.has(rel.itemLink))
+    : releases;
+
   fs.mkdirSync(path.dirname(rssOutputPath), { recursive: true });
   fs.writeFileSync(rssOutputPath, rss, 'utf8');
-  console.log('RSS feed generated at', rssOutputPath);
+
+  const feedName = path.basename(rssOutputPath);
+  if (newReleases.length > 0) {
+    const titles = newReleases.map(rel => rel.title).join(', ');
+    console.log(`✓ New release notes found for ${feedName}: ${titles}`);
+    return true;
+  }
+  console.log(`ℹ No changes needed for ${feedName}`);
+  return false;
 }
 
-// Classic Engine Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026/index.md'),
-  'Okta Classic Engine API release notes',
-  'Recent release notes for Okta Classic Engine API',
-  'https://developer.okta.com/docs/release-notes/2026/',
-  path.join(__dirname, '../public/rss/classic.xml')
-);
+const feedsUpdated = [
+  // Classic Engine Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026/index.md'),
+    'Okta Classic Engine API release notes',
+    'Recent release notes for Okta Classic Engine API',
+    'https://developer.okta.com/docs/release-notes/2026/',
+    path.join(__dirname, '../public/rss/classic.xml')
+  ),
 
-// Identity Engine Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-identity-engine/index.md'),
-  'Okta Identity Engine API release notes',
-  'Recent release notes for Okta Identity Engine API',
-  'https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/',
-  path.join(__dirname, '../public/rss/identity-engine.xml')
-);
+  // Identity Engine Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-identity-engine/index.md'),
+    'Okta Identity Engine API release notes',
+    'Recent release notes for Okta Identity Engine API',
+    'https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/',
+    path.join(__dirname, '../public/rss/identity-engine.xml')
+  ),
 
-// Identity Governance Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-identity-governance/index.md'),
-  'Okta Identity Governance API release notes',
-  'Recent release notes for Okta Identity Governance API',
-  'https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/',
-  path.join(__dirname, '../public/rss/identity-governance.xml')
-);
+  // Identity Governance Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-identity-governance/index.md'),
+    'Okta Identity Governance API release notes',
+    'Recent release notes for Okta Identity Governance API',
+    'https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/',
+    path.join(__dirname, '../public/rss/identity-governance.xml')
+  ),
 
-// Privileged Access Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-privileged-access/index.md'),
-  'Okta Privileged Access API Release Notes',
-  'Recent release notes for Okta Privileged Access API',
-  'https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/',
-  path.join(__dirname, '../public/rss/privileged-access.xml')
-);
+  // Privileged Access Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-privileged-access/index.md'),
+    'Okta Privileged Access API Release Notes',
+    'Recent release notes for Okta Privileged Access API',
+    'https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/',
+    path.join(__dirname, '../public/rss/privileged-access.xml')
+  ),
 
-// Okta Access Gateway Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-access-gateway/index.md'),
-  'Okta Access Gateway API release notes',
-  'Recent release notes for Okta Access Gateway',
-  'https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/',
-  path.join(__dirname, '../public/rss/access-gateway.xml')
-);
+  // Okta Access Gateway Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-access-gateway/index.md'),
+    'Okta Access Gateway API release notes',
+    'Recent release notes for Okta Access Gateway',
+    'https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/',
+    path.join(__dirname, '../public/rss/access-gateway.xml')
+  ),
 
-// Okta Aerial Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-aerial/index.md'),
-  'Okta Aerial API release notes',
-  'Recent release notes for Okta Aerial',
-  'https://developer.okta.com/docs/release-notes/2026-okta-aerial/',
-  path.join(__dirname, '../public/rss/aerial.xml')
-);
+  // Okta Aerial Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-aerial/index.md'),
+    'Okta Aerial API release notes',
+    'Recent release notes for Okta Aerial',
+    'https://developer.okta.com/docs/release-notes/2026-okta-aerial/',
+    path.join(__dirname, '../public/rss/aerial.xml')
+  ),
 
-// Okta Open Source MCP Server Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-mcp-server/index.md'),
-  'Okta Open Source MCP Server API release notes',
-  'Recent release notes for Okta Open Source MCP Server',
-  'https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/',
-  path.join(__dirname, '../public/rss/mcp.xml')
-);
+  // Okta Open Source MCP Server Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-mcp-server/index.md'),
+    'Okta Open Source MCP Server API release notes',
+    'Recent release notes for Okta Open Source MCP Server',
+    'https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/',
+    path.join(__dirname, '../public/rss/mcp.xml')
+  ),
 
-// Okta Developer Tools Release Notes
-generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2026-okta-dev-tools/index.md'),
-  'Okta Developer Tools release notes',
-  'Recent release notes for Okta Developer Tools',
-  'https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/',
-  path.join(__dirname, '../public/rss/dev-tools.xml')
-);
+  // Okta Developer Tools Release Notes
+  generateRssFromMarkdown(
+    path.join(__dirname, '../../docs/release-notes/2026-okta-dev-tools/index.md'),
+    'Okta Developer Tools release notes',
+    'Recent release notes for Okta Developer Tools',
+    'https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/',
+    path.join(__dirname, '../public/rss/dev-tools.xml')
+  ),
+];
+
+const totalUpdated = feedsUpdated.filter(Boolean).length;
+console.log(`\n✓ Processed ${feedsUpdated.length} feeds. Updated: ${totalUpdated}`);
