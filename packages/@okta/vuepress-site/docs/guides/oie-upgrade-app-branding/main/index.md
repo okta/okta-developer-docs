@@ -72,13 +72,13 @@ A custom domain normally references one brand through a `brandId`. During an app
 
 Okta sets both references during the upgrade. At sign-in, it checks the app's pipeline and resolves the domain to the matching brand, so you don't map brands to apps yourself.
 
-> **Note:** If you query `GET /api/v1/brands/{brandId}/domains` with a classic brand's ID, that ID appears in the response as `classicBrandId`, not `brandId`. `brandId` always identifies the standard brand for the domain.
+> **Note:** If you query `GET /api/v1/brands/{brandId}/domains` with a classic brand's ID, that ID appears in the response as `classicBrandId`, not `brandId`. `brandId` always identifies the Identity Engine brand for the domain.
 
 ### Sign-In Widget versions for a classic brand
 
 Identity Engine requires [Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) version 5.11 or later, and an Identity Engine org normally can't set an earlier version on the sign-in page by using `PUT` endpoints.
 
-That requirement doesn't apply to a classic brand. A classic brand keeps the Sign-In Widget version that your Classic Engine customizations depend on, even if that version is earlier than 5.11. Your customizations keep working after your org upgrades because that version doesn't change. Standard brands keep the 5.11 or later requirement.
+That requirement doesn't apply to a classic brand. A classic brand keeps the Sign-In Widget version that your Classic Engine customizations depend on, even if that version is earlier than 5.11. Your customizations keep working after your org upgrades because that version doesn't change. Identity Engine brands keep the 5.11 or later requirement.
 
 ## Find your classic brand
 
@@ -146,8 +146,8 @@ Change which classic brand that your domain uses if its assigned [classic brand]
 
 `classicBrandId` is writable on `POST /api/v1/domains` and `PUT /api/v1/domains/{domainId}`, with these rules:
 
-* `brandId` must reference a standard brand. A classic brand ID in `brandId` is rejected with a `400` error.
-* `classicBrandId` must reference a classic brand. A standard brand ID in `classicBrandId` is rejected with a `400` error.
+* `brandId` must reference an Identity Engine brand. A classic brand ID in `brandId` is rejected with a `400` error.
+* `classicBrandId` must reference a classic brand. An Identity Engine brand ID in `classicBrandId` is rejected with a `400` error.
 * You can only set `classicBrandId` on a domain that already has a classic brand association, which Okta assigns during the org upgrade. You can't add one to a newly created domain, or to a domain that never had one.
 * You can reassign `classicBrandId` to a different classic brand, but you can't remove the pairing. A Classic Engine pipeline app on that domain needs a classic brand to render its sign-in page.
 
