@@ -2,7 +2,7 @@
 
 <div class="three-quarter">
 
-![Sequence diagram that displays the communication between the clent native app, Okta AS, and mailbox"](/img/authorization/email-mfa.png)
+![Sequence diagram that displays the communication between the client native app, Okta AS, and mailbox"](/img/authorization/email-mfa.png)
 
 </div>
 
@@ -24,7 +24,7 @@ These steps assume that your client app has prompted the user for their username
    * `oob_code`
    * `channel` with a value of `email`
    * `binding_method=prompt`
-1. The app prompts the user to enter the code, and user enters it into the app.
+1. The app prompts the user to enter the code, and the user enters it into the app.
 1. Your app sends the code as the `binding_code`, along with the `oob_code` and `mfa_token`, in a `/token` request. Okta verifies the code and re-evaluates the sign-on policy.
 1. Okta returns the requested tokens.
 
