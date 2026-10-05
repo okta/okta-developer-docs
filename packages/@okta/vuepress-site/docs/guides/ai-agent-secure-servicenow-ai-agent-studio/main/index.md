@@ -25,7 +25,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * A ServiceNow instance with AI Agent Studio enabled and a published agent that you can call
-* An existing ServiceNow Universal Directory app integration in your Okta org. The ServiceNow AI agent import configuration lives on this app's **AI Agent Import** tab.
+* An existing ServiceNow Universal Directory app integration in your Okta org. See [Import your AI agent from ServiceNow](#import-your-ai-agent-from-servicenow).
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -73,7 +73,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` that your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
+* A web app integration that signs users in and issues the `id_token` that your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
 * The ServiceNow AI agent imported into Okta as an AI agent identity. See [Import your AI agent from ServiceNow](#import-your-ai-agent-from-servicenow).
@@ -86,14 +86,20 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 Okta can discover and import AI agents directly from a connected ServiceNow instance.
 
-<!-- TODO: Confirm the exact Admin Console navigation and field labels for ServiceNow AI agent import against a live org. The source material confirms a ServiceNow UD AI agent provider is available for discovery/import, but doesn't walk through the Okta-side import screens step by step the way the Salesforce and Google Vertex source material did. -->
+1. In the Admin Console, go to **Directory** > **AI Agent Providers**, and then select your ServiceNow Universal Directory app integration. If you have multiple ServiceNow app integrations, only configure AI agent imports for one of them.
+1. Go to the **AI Agent Import** tab, and select **Enable AI agent imports**.
+1. Enter the `SN_CLIENT_ID` and `SN_CLIENT_SECRET` values from [Create the Application Registry](#create-the-application-registry), and any other required ServiceNow connection details. Click **Test API Credentials** to validate them, and then click **Save configuration**.
 
-1. In the Admin Console, go to **Directory** > **AI Agent Providers**. Select the ServiceNow Universal Directory app integration, and then click **Import**.
-1. After the import completes, click **View agents**. You're directed to the AI agents page, where you can register the imported AI agents.
-1. Note the client ID. You need it for `AGENT_CLIENT_ID`.
-1. In **Client Authentication**, select **Public Key / Private Key**. Generate an RSA key pair, and register the public JWK. Note the `kid`. You need it for `AGENT_KEY_ID`.
-1. In **Resource connections**, link the OIDC web app you created in [Before you begin](#before-you-begin) and the custom authorization server with your custom scope.
-1. Activate the AI agent.
+   > **Note:** Okta only imports AI agents that the service user has permission to manage in ServiceNow.
+
+1. Choose your import schedule, matching criteria, and preview settings, then save the configuration again. Okta runs the import immediately, and on the schedule you chose afterward.
+
+<!-- TODO: Confirm the exact Admin Console screen name and navigation for viewing imported or pending-preview AI agents after this step, and for triggering an on-demand import outside the configured schedule. Source material confirms imports run on a schedule or when an admin triggers one manually, but doesn't document the specific button or page for a manual, on-demand run. -->
+
+1. Go to the AI agents page to register the imported AI agent.
+1. On the **Client registration** tab, click **Add public key**, then **Generate new key**. Copy and store the private key, since it's shown only once. Note the **Client ID**. You need it for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`.
+1. On the **Machine access** tab, click **Configure**. Select your custom authorization server, enter the audience/resource URL, and save. Click **Add caller**, select the AI agent, and allow your custom scope.
+1. From **Actions**, select **Activate**, and then confirm.
 
 ## Set up your ServiceNow instance
 
