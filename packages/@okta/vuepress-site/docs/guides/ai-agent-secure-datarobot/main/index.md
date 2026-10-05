@@ -70,7 +70,7 @@ For the conceptual background on AI agent token exchange, see [Set up AI agent t
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
 
-* An OIDC web app integration that signs users in and issues the `id_token` that your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
+* An web app integration that signs users in and issues the `id_token` that your AI agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim that matches the app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`. Okta strips system scopes (`openid`, `profile`, `email`) during the ID-JAG exchange and returns an `invalid_scope` error, so you must request a custom scope instead.
 * The DataRobot AI agent imported into Okta as an AI agent identity. This AI agent identity uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the AI agent. See [Import your AI agent from DataRobot](#import-your-ai-agent-from-datarobot).
@@ -91,7 +91,7 @@ Okta can discover and import AI agents directly from a connected DataRobot insta
 
 <!-- TODO: Confirm the current steps and permissions required to add the DataRobot app integration to an org, since source material describes this as a private OIN app that DataRobot plans to make public. If DataRobot is already public in the OIN app catalog by the time this guide publishes, standard self-service steps (Admin Console > Applications > Browse App Catalog > search DataRobot > Add Integration) should apply without any additional provisioning step. -->
 
-1. In the Admin Console, go to **Applications** > **Applications**, and then add the DataRobot app integration from the catalog if you haven't already.
+1. In the Admin Console, go to **Applications** > **Applications and Resources**, and then add the DataRobot app integration from the catalog if you haven't already.
 1. On the app integration's **General** tab, click **Edit** in the **App Settings** section. Enter your DataRobot instance URL in the **DataRobot URL** field, and then click **Save**.
 1. Go to **Directory** > **AI Agent Providers**, and then select your DataRobot app integration.
 1. Go to the **AI Agent Import** tab, and select **Enable AI agent imports**.
