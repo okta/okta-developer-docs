@@ -171,7 +171,10 @@ In the **Testing information for Okta review** section, specify the following **
 
 `*` Required properties
 
-> **Note:** For Cross App Access integration testing, you need to test your integration on xaa.dev. If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
+Enter your sign-in flow details for the protocol you selected:
+
+* SAML 2.0: See [SAML tests](/docs/guides/submit-oin-app/saml2/main/#saml-tests) in the SAML 2.0 guide.
+* OpenID Connect: See [OIDC tests](/docs/guides/submit-oin-app/openidconnect/main/#oidc-tests) in the OIDC guide.
 
 ## Test your integration
 
@@ -182,6 +185,8 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 2. Test your integration.
 
 3. [Submit your integration](#submit-your-integration) after all required tests are successful.
+
+> **Note:** For Cross App Access integration testing, you need to test your integration on xaa.dev. If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
 
 #### Navigate directly to test your integration
 
@@ -202,8 +207,8 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 
 Generating and testing the SSO instance doesn't change for Cross App Access. You can use your existing SSO instance for Cross App Access submission. Follow the guide for your protocol:
 
-* [Generate an instance for SAML](/docs/guides/submit-oin-app/saml2/main/#generate-an-instance-for-saml)
-* [Generate an instance for OIDC](/docs/guides/submit-oin-app/openidconnect/main/#generate-an-instance-for-oidc)
+* [Generate an instance for SAML](/docs/guides/submit-oin-app/saml2/main/#generate-instances-for-testing)
+* [Generate an instance for OIDC](/docs/guides/submit-oin-app/openidconnect/main/#generate-instances-for-testing)
 
 After you finish, click **View testing information**.
 
