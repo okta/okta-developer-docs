@@ -2,10 +2,10 @@
 title: Switch an app to the Identity Engine pipeline
 meta:
   - name: description
-    content: Move an individual app to the Identity Engine authentication pipeline during an app-level upgrade, roll back a single app, and migrate apps in bulk with a script.
+    content: Move an individual app to the Identity Engine authentication pipeline during an app-level upgrade and roll back a single app.
 ---
 
-Learn how to move an individual app to the Identity Engine authentication pipeline during an app-level upgrade, roll a single app back if it doesn't work, and migrate apps in bulk with a script.
+Learn how to move an individual app to the Identity Engine authentication pipeline during an app-level upgrade and roll a single app back if it doesn't work.
 
 > **Note:** The tasks in this guide only apply to an app in an org that's eligible for app branding migration. See [App branding migration](https://help.okta.com/okta_help.htm?type=oie&id=oie-classic-interop) to confirm that your org qualifies before you continue.
 
@@ -17,7 +17,6 @@ Learn how to move an individual app to the Identity Engine authentication pipeli
 - Update integrations for the session changes that come with the upgrade.
 - Move an app to the Identity Engine pipeline.
 - Roll an app back to the Classic Engine pipeline.
-- Migrate apps in bulk with a script.
 
 #### What you need
 
@@ -162,74 +161,6 @@ A rollback restores the app's Classic Engine sign-on policy as it was immediatel
 > **Note:** If the app never had a Classic Engine sign-on policy, Okta creates one with a single Allow rule. That rule permits all access. Configure it to match your security requirements before you rely on it.
 
 Rolling back a single app is separate from rolling your whole org back to Classic Engine. An org-level rollback is a request that you make to Okta rather than an API call, and it discards every per-app pipeline choice. See [Plan your rollback strategy](/docs/journeys/OCI-prepare-upgrade-oie/#plan-your-rollback-strategy).
-
-## Migrate apps in bulk
-
-Okta doesn't provide an endpoint that moves several apps at once. To migrate in batches, list the apps that are still on the Classic Engine pipeline, and then update them one at a time.
-
-Use the following request to filter apps by pipeline to build the list:
-
-```bash
-GET /api/v1/apps?filter=authenticationPipeline+eq+%22CLASSIC%22
-```
-
-Then, use the following script to loop over the results, reading and updating each app.
-
-The script has four parts:
-
-* The filter query, `filter=authenticationPipeline+eq+%22CLASSIC%22`, returns only the apps that are still on the Classic Engine pipeline, and `jq -r '.[].id'` extracts their IDs into `appIds`. That's the list that the loop iterates over, so that a rerun skips the apps that you already moved.
-* The read step assigns the current app object to `app`, and `jq '.authenticationPipeline = "ORG_DEFAULT"'` changes that one property while leaving every other property intact. This matters because `PUT` replaces the whole object.
-* The update step sends the modified object back with `-X PUT` and captures only the HTTP status code with `-w '%{http_code}'`, so that one failed app doesn't stop the loop.
-* The log line, `echo "${appId} ${status}"`, records an app ID and a status code for each app, which gives you the list of failures to investigate and rerun.
-
-Before you run the script against your whole org, test it against a single app:
-
-* Change the filter query to match one app that you know is on the Classic Engine pipeline, so the script only touches that app: `filter=id+eq+%22{appId}%22`.
-* Run the script and check the status code it prints for that app. A `200` means that the request succeeded, not that the app's users can sign in.
-* Call `GET /api/v1/apps/{appId}` and confirm that `authenticationPipeline` is now `ORG_DEFAULT`.
-* Sign in to the app to confirm that it still works.
-* [Roll the app back](#roll-back-a-pipeline-switch) if any of these checks fail.
-
-Widen the filter to migrate the rest of your apps only after this single app passes all four checks.
-
-```bash
-#!/usr/bin/env bash
-# Moves every Classic Engine pipeline app to the Identity Engine pipeline.
-
-auth="Authorization: Bearer ${accessToken}"
-base="https://${yourOktaDomain}/api/v1"
-
-appIds=$(curl -s \
-  -H "${auth}" \
-  -H "Accept: application/json" \
-  "${base}/apps?filter=authenticationPipeline+eq+%22CLASSIC%22&limit=200" \
-  | jq -r '.[].id')
-
-while read -r appId; do
-  app=$(curl -s \
-    -H "${auth}" \
-    -H "Accept: application/json" \
-    "${base}/apps/${appId}" \
-    | jq '.authenticationPipeline = "ORG_DEFAULT"')
-
-  status=$(curl -s -o /dev/null -w '%{http_code}' \
-    -X PUT "${base}/apps/${appId}" \
-    -H "${auth}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d "${app}")
-
-  echo "${appId} ${status}"
-done <<< "${appIds}"
-```
-
-Keep the following things in mind when you migrate your apps at a larger scale:
-
-* Migrate in batches, and verify between them. Because each switch either fully succeeds or fully fails, a script that stops partway leaves the remaining apps untouched. Rerun it after you fix the cause. To plan the batches, see [Identify integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/) and [Plan upgrade rollout](/docs/guides/oie-upgrade-rollout-plan/).
-* Page through the results if you have more apps than one request returns. The sample fetches a single page. Follow the `Link` header with `rel="next"` in the response to retrieve the rest.
-* Expect some apps to fail with a `400` error. These are the apps that always use the Identity Engine pipeline, such as Okta first-party apps, so they don't need migrating. Skip them rather than treating them as failures.
-* Share one authentication policy across apps that need identical rules. Moving apps one at a time can otherwise create a separate Identity Engine policy for every app, which is harder to review and maintain.
-* Test each app's sign-in flow after you move it. A successful API response confirms that the pipeline changed, not that the app's users can sign in.
 
 ## Known limitations
 
