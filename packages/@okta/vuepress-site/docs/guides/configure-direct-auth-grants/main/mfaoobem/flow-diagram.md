@@ -18,12 +18,12 @@ These steps assume that your client app has prompted the user for their username
     * `mfa_token`
     * `challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob`
     * `channel_hint` with a value of `email`
-1. Okta emails a one-time verification code to the user.
 1. Okta responds with the following parameters:
    * `challenge_type`
    * `oob_code`
    * `channel` with a value of `email`
    * `binding_method=prompt`
+1. Okta emails a one-time verification code to the user.
 1. The app prompts the user to enter the code, and the user enters it into the app.
 1. Your app sends the code as the `binding_code`, along with the `oob_code` and `mfa_token`, in a `/token` request. Okta verifies the code and re-evaluates the sign-on policy.
 1. Okta returns the requested tokens.
