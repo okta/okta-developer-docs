@@ -300,6 +300,7 @@ Keep the following constraints in mind:
 * You can't delete a group while an authenticator enrollment policy references it. Remove the reference from the policy first.
 * You can't disable an authenticator for your org while it belongs to any group. Remove it from each group first.
 * Changes to a group's authenticators apply immediately to the policy that references the group.
+* An authenticator that's optional within a group can still be required for other reasons. If your org's self-service password reset (SSPR) policy requires the password authenticator, users must enroll it even if the group marks it as optional. Similarly, if an app sign-in policy requires a specific authenticator to satisfy its verification method, users are prompted to enroll that authenticator during sign-in, regardless of the authenticator group's settings.
 
 See the [Authenticator Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorGroup/).
 
