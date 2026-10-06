@@ -26,7 +26,7 @@ This guide explains how to validate incoming Identity Assertion JWT Authorizatio
 
 If your authorization server protects your resource app (such as an API server) for the Cross App Access (XAA) flow, it must validate the incoming ID-JAG token and resolve the user's access identity before issuing a scoped access token to the requesting app (client).
 
-See [Cross App Access (XAA)](/doc/concept/xaa) for an explanation of XAA and [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/) for a detailed description of the XAA token exchange flow.
+See [Cross App Access (XAA)](/docs/concept/xaa) for an explanation of XAA and [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/) for a detailed description of the XAA token exchange flow.
 
 This guide focuses on implementing the **6. Validate ID-JAG and resolves user identity** step of the XAA token exchange flow, and is based on [**Access Token Request** in the Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-access-token-request) specification.
 
@@ -197,5 +197,5 @@ Cache-Control: no-store
 ## Next steps
 
 * **Test your implementation:** Verify your end-to-end token validation flow using the testing harness at [xaa.dev](https://xaa.dev/).
-* **Expose XAA metata authorization server**: See [Expose XAA metata for your resource app and authorization server](/guides/xaa-resource-metadata/main/) so that requesting clients and the IdP can discover your protected resource.
+* **Expose XAA metata authorization server**: See [Expose XAA metata for your resource app and authorization server](/docs/guides/xaa-resource-metadata/main/) so that requesting clients and the IdP can discover your protected resource.
 * **Submit to OIN:** Publish your resource app integration to the [Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/) catalog.
