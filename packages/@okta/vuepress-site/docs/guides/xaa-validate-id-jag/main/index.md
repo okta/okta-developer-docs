@@ -3,7 +3,6 @@ title: Validate ID-JAG tokens for resource authorization servers
 excerpt: Describes how to validate ID-JAG tokens in external authorization servers
 layout: Guides
 ---
-<ApiLifecycle access="ie" />
 
 This guide explains how to validate incoming Identity Assertion JWT Authorization Grant (ID-JAG) tokens in your resource authorization server as part of the Cross App Access (XAA) flow.
 
@@ -29,7 +28,7 @@ If your authorization server protects your resource app (such as an API server) 
 
 See [Cross App Access (XAA)](/doc/concept/xaa) for an explanation of XAA and [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/) for a detailed description of the XAA token exchange flow.
 
-This guide focuses on implementing the **Validate ID-JAG and resolve user identity** step of the XAA token exchange flow, and is based on [**Access Token Request** in the Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-access-token-request) specification.
+This guide focuses on implementing the **6. Validate ID-JAG and resolves user identity** step of the XAA token exchange flow, and is based on [**Access Token Request** in the Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-access-token-request) specification.
 
 <div class="full">
 
@@ -37,16 +36,15 @@ This guide focuses on implementing the **Validate ID-JAG and resolve user identi
 
 </div>
 
-See the following steps to validate the ID-JAG token:
+See the following steps to validate the ID-JAG token and resolve the user identity:
 
-1. Accept the jwt-bearer token request
-2. Validate the decoded JWT header and signature
-3. Validate token claims.
+1. [Accept the jwt-bearer token request](#accept-the-jwt-bearer-token-request).
+1. [Validate the decoded JWT header and signature](#validate-the-decoded-header-and-signature).
+1. [Validate ID-JAG token claims](#validate-the-decoded-claims-in-the-payload).
 
-   During the token claim validation, you need to resolve the user identity of the request.
+   During the token claim validation, you need to [resolve the user identity for OIDC](#resolve-user-identity-for-oidc-integrations) or [SAML](#resolve-user-identity-for-saml-integrations) integrations in the request.
 
-4. Resolve user identity (OIDC and SAML integrations)
-5. Issue an access token and record audit logs
+1. [Issue an access token and record audit logs](#issue-an-access-token-and-record-audit-logs).
 
 ## Accept the jwt-bearer token request
 
@@ -54,11 +52,11 @@ Configure your authorization server token endpoint (`/oauth/v1/token`) to accept
 
 #### Request parameters
 
-| Parameter | Presence | Description |
-| :---- | :---- | :---- |
-| grant_type | **REQUIRED** | Must be set to urn:ietf:params:oauth:grant-type:jwt-bearer. |
-| assertion | **REQUIRED** | The string value of the ID-JAG token issued by the enterprise IdP. |
-| scope | **OPTIONAL** | Space-delimited list of requested scopes ([RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)). |
+| Parameter | Description |
+| :---- | :---- |
+| grant_type | Must be set to `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| assertion | The string value of the ID-JAG token issued by the enterprise IdP. |
+| scope | Space-delimited list of requested scopes ([RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)). |
 
 For example:
 
@@ -74,23 +72,19 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 After your authorization server accepts the `/token` request, decode the ID-JAG token to validate it in the next step.
 
-## Decode and validate the ID-JAG token
+## Validate the decoded header and signature
 
-The ID-JAG token received from Okta is a signed JWT using asymmetric encryption (RS256). Okta publishes the public signing keys in a JSON Web Key Set (JWKS) as part of the OAuth 2.0 and OpenID Connect discovery documents.
+The ID-JAG token received from Okta is a signed JWT. Okta publishes the public signing keys in a JSON Web Key Set (JWKS) as part of the OAuth 2.0 and OpenID Connect discovery documents. The signing keys are rotated regularly. See [keys](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/oauthkeys).
 
-See [keys](https\://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/oauthkeys).The signing keys are rotated regularly.
+See [Retrieve the JSON Web Keys](/docs/guides/validate-access-tokens/go/main/#retrieve-the-json-web-keys) and [Decode and validate the access token](/docs/guides/validate-access-tokens/go/main/#decode-and-validate-the-access-token) for examples of how to use a JWT verifier in different coding languages.
 
-See [Retrieve the JSON Web Keys](/docs/guides/validate-access-tokens/go/main/\#retrieve-the-json-web-keys) and [Decode and validate the access token](/docs/guides/validate-access-tokens/go/main/#decode-and-validate-the-access-token) for examples of how to use a JWT verifier in different coding languages.
-
-### Validate the decoded header and signature
-
-1. Validate the decoded header:
+Validate the decoded header and use the matching key ID (kid) from the fetched Okta JWKS to verify the digital signature:
 
 | Claim | Description/Validation Rule |
 | :---- | :---- |
 | Algorithm (`alg`) | The cryptographic algorithm used to secure the JWT (such as RS256 or ES256). Okta signs JWT using [asymmetric encryption (RS256)](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/). |
 | Type (`typ`) | The required media type of the token. Verify that the type header claim contains `oauth-id-jag+jwt`. Reject the request if the type header is missing or incorrect. |
-| Key ID (`kid`) | The public key identifier used by the IdP (Okta) to sign the token. Retrieve the public signing keys from your Okta domain at https\://{yourOktaDomain}/oauth2/v1/keys.<br>**Note:** ID-JAGs are always issued directly by the Okta org authorization server. Ensure that your token verification path does not contain /default/ or any Okta custom authorization server path. |
+| Key ID (`kid`) | The public key identifier used by the IdP (Okta) to sign the token. Retrieve the public signing keys from your Okta domain at [`https://{yourOktaDomain}/oauth2/v1/keys`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/oauthkeys). <br> **Note:** ID-JAGs are always issued directly by the Okta org authorization server. Ensure that your token verification path doesn't contain /default/ or any Okta custom authorization server path. |
 
 For example:
 
@@ -102,74 +96,74 @@ For example:
 }
 ```
 
-2. Use the matching key ID (kid) from the fetched Okta JWKS to verify the digital signature.
-
 ### Validate the decoded claims in the payload
 
 | Claim | Description/Validation Rule |
 | :---- | :---- |
-| Issuer (`iss`) | Verify that the iss claim is present and identifies the enterprise Identity Provider (IdP) that authenticated the user and issued the ID-JAG token. |
-| Audience (`aud`) | Verify that the audience matches your authorization server’s issuer identifier (the issuer URL). This is the intended audience for the ID-JAG token. |
-| Expiration (`exp`) | Ensure the current time is before the token expiration timestamp. |
+| Issuer (`iss`) | Verify that the `iss` claim is present and identifies the enterprise Identity Provider (IdP) that authenticated the user and issued the ID-JAG token. |
+| Audience (`aud`) | Verify that the audience matches your authorization server's issuer identifier (the issuer URL). This is the intended audience for the ID-JAG token. |
+| Expiration (`exp`) | Ensure that the current time is before the token expiration timestamp. |
 | JWT ID (`jti`) | A unique identifier for the specific JWT instance. Use this value to prevent replay attacks. |
-| Issued at (`iat`) | A Unix timestamp indicating when the ID-JAG token was originally issued by the IdP. |
-| Client ID (`client_id`) | Verify that the client\_id claim in the ID-JAG matches the authenticated client making the request. This client ID is registered in your authorization server as part of the XAA client metadata or by an admin. This is the client that’s authorized to use the token. |
-| Subject (`sub`)  | Verify that the sub claim is populated with the end-user identifier on whose behalf the API request is being made.<br>This claim is the primary key for OIDC SSO user resolution. See [Resolve user identity for OIDC integrations.](#resolve-user-identity-for-oidc-integrations) |
-| Resource (`resource`) | A string URI or an array of URIs specifying the targeted resource server(s). If this claim is present, evaluate the target URI. The granted resources in the access token can be a subset of the resources requested in the ID-JAG based on your authorization server’s local policy. |
-| Subject user identity claims (`sub_id`) | The `sub_id` claim contains sub-claims in Subject Identifier Format for resolving user identity by SAML Assertion Subject <NameID>. This claim is used for SAML SSO user resolution. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
+| Issued at (`iat`) | A Unix timestamp indicating when the IdP issues the ID-JAG token. |
+| Client ID (`client_id`) | Verify that the `client_id` claim in the ID-JAG matches the authenticated client making the request. This client ID is registered in your authorization server as part of the XAA client metadata or by an admin. |
+| Tenant (`tenant`) | In multitenant deployments, an additional `tenant` claim is provided to identify the tenant or domain alias of the enterprise under which the user and client interaction is operating. |
+| Subject (`sub`) | Verify that the `sub` claim is populated with the end user identifier on whose behalf the API request is being made. <br> This claim is the primary key for OIDC SSO user resolution. See [Resolve user identity for OIDC integrations](#resolve-user-identity-for-oidc-integrations). |
+| Resource (`resource`) | A string URI or an array of URIs specifying the targeted resource servers. If this claim is present, evaluate the target URI. The granted resources in the access token can be a subset of the resources requested in the ID-JAG based on your authorization server's local policy. |
+| Subject user identity claims (`sub_id`) | The `sub_id` claim contains sub-claims in Subject Identifier format for resolving user identity by SAML Assertion Subject `<NameID>`. This claim is used for SAML SSO user resolution. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
 | Subject identifier format (`sub_id.format`) | For SAML SSO user resolution, verify that the subject identifier format is set to `saml_nameid`. |
-| Subject identifier name (`sub_id.nameid`) | For SAML SSO user resolution, verify that the SAML name identifier string matches an end-user. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
+| Subject identifier name (`sub_id.nameid`) | For SAML SSO user resolution, verify that the SAML name identifier string matches an end user. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
 | Subject identifier name format (`sub_id.nameid_format`) | For SAML SSO user resolution, this is the SAML `nameid` format used. For example, `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`. |
 | Subject identifier issuer (`sub_id.issuer`) | For SAML SSO user resolution, this is the issuer ID for the SAML service provider. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
 | Subject identifier provider name (`sub_id.sp_name_qualifier`) | For SAML SSO user resolution, this is the service provider name qualifier string. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
-| Email (`email`) | The primary email address of the end-user subject (sub). |
-| Scopes (`scopes`) | A space-delimited string of OAuth 2.0 scope values authorized for the token exchange. Verify the scopes with the accessible scopes configured in the authorization server for the resource app. The granted scopes may be a subset of those authorized by the IdP in the ID-JAG assertion. If the requested scope is invalid or exceeds permissions, reject the request with HTTP 403 Forbidden. |
+| Email (`email`) | The primary email address of the end user subject (`sub`). |
+| Scopes (`scopes`) | A space-delimited string of OAuth 2.0 scope values authorized for the token exchange. Verify the scopes with the accessible scopes configured in the authorization server for the resource app. The granted scopes may be a subset of those authorized by the IdP in the ID-JAG assertion. If the requested scope is invalid or exceeds permissions, reject the request with HTTP `403 Forbidden`. |
 | Actor (`act`) | When the act claim is present, it defines the actor or delegate operating on behalf of the subject (`sub`). Inspect the optional act claim to identify intermediary entities, such as an AI agent. |
-| Actor subject (`act.sub`) | If act is present, the act.sub claim represents the requesting app or AI agent. This is often the same as `client_id`, which contains the requesting app or AI agent ID. |
-| Actor subject profile (`act.sub_profile`) | If act is present, the `act.sub_profile claim` describes the actor profile, which can be  `ai_agent`, `service`, or `user`. |
+| Actor subject (`act.sub`) | If `act` is present, the `act.sub` claim represents the requesting app or AI agent. This is often the same as `client_id`, which contains the requesting app or AI agent ID. |
+| Actor subject profile (`act.sub_profile`) | If act is present, the `act.sub_profile` claim describes the actor profile, which can be  `ai_agent`, `service`, or `user`. |
 
-### Resolve user identity for OIDC integrations {#resolve-user-identity-for-oidc-integrations}
+### Resolve user identity for OIDC integrations
 
-For OIDC-based resource apps, identity resolution is straightforward. The sub claim contains the unique end-user identity directly. No additional identifier transformation or SAML lookup is required. Validate that the `sub` claim in the ID-JAG matches an end user in the resource app and has access to the requested scopes according to local policy.
+For OIDC-based resource apps, identity resolution is straightforward. The `sub` claim contains the unique end user identity for the scoped issuer (`iss`).
 
-### Resolve user identity for SAML integrations {#resolve-user-identity-for-saml-integrations}
+If there is a multitenant deployment, the `tenant` claim is provided. You can use the `sub`, `tenant`, and `iss` claims together to resolve the user's identity.
 
-For resolving user identity in SAML integrations, you need the information in the `sub_id` claim (see [Subject Identifier Format](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-subject-identifier-format)) to
-For SAML-based resource apps, follow these security constraints to resolve the user's identity:
+Validate that the `sub` claim in the ID-JAG matches an end user in the resource app and has access to the requested scopes according to local policy.
 
-1. You must bind the issuer (iss) to a registered SAML connection **before** verifying the JWKS signature.
+### Resolve user identity for SAML integrations
+
+For resolving user identity in SAML integrations, you need the information in the `sub_id` claim (see [Subject Identifier Format](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-subject-identifier-format)).
+For SAML-based resource apps, follow these steps to resolve the user's identity:
+
+1. You must bind the issuer (`iss`) to a registered SAML connection before verifying the JWKS signature. See
     **Note:** Reversing this order creates a critical token-forgery vulnerability in which an attacker can supply an arbitrary victim's SAML issuer in `sub_id`.
-2. **NameID resolution:** Resolve user identity using the combination of sub_id.issuer, sub_id.nameid, and sub_id.sp_name_qualifier together. Do not resolve user identity on sub_id.nameid alone.
+2. Resolve the user identity using the combination of `sub_id.issuer`, `sub_id.nameid`, and `sub_id.sp_name_qualifier` together. Don't resolve user identity on `sub_id.nameid` alone.
 
 ## Issue an access token and record audit logs
 
-Once claims are validated, complete the exchange:
+Once claims are validated and user identity is resolved, complete the exchange:
 
-1. Log audit parameters: Record the properties of the request and validation for compliance and troubleshooting, such as:
+1. Log audit properties of the request and validation for compliance and troubleshooting, such as:
    * User identity (`sub`)
    * Requesting app identity (`act.sub`)
    * Granted OAuth 2.0 scopes
    * Request timestamp
-2. **Issue a short-lived access token:**
-   If all validation checks succeed, return an HTTP `200 OK` response containing a standard JSON token payload with the access token:
+2. Issue a short-lived access token if all validation checks succeed. Return an HTTP `200 OK` response containing a standard JSON token payload with the access token. For example:
 
-Example of a successful response:
+    ```bash
+    HTTP/1.1 200 OK
+    Content-Type: application/json;charset=UTF-8
+    Cache-Control: no-store
+    Pragma: no-cache
 
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Cache-Control: no-store
-Pragma: no-cache
+    {
+      "access_token": "eyJhbGciOiJSUzI1NiI...",
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "scope": "reports.read:analytics"
+    }
+    ```
 
-{
-  "access_token": "eyJhbGciOiJSUzI1NiI...",
-  "token_type": "Bearer",
-  "expires_in": 3600,
-  "scope": "reports.read:analytics"
-}
-```
-
-**Note:** Do not issue refresh tokens in response to an ID-JAG token exchange. Requesting apps must submit a new ID-JAG when their access token expires.
+**Note:** Don't issue refresh tokens in response to an ID-JAG token exchange. Requesting apps must submit a new ID-JAG token when their access token expires.
 
 ## Error handling and troubleshooting
 
@@ -177,10 +171,10 @@ Return standard HTTP status codes and OAuth error responses when validation fail
 
 | Error scenario | HTTP status | Error response body | Resolution |
 | :---- | :---- | :---- | :---- |
-| Missing or invalid `grant_type` | 400 Bad Request | unsupported_grant_type | The grant type must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| Invalid signature, expired token, or missing header | 401 Unauthorized | `{"error": "invalid_grant", "error_description": "ID-JAG token validation failed."}` | Ensure that the token hasn’t expired and the signing key matches the JWKS. |
-| Signature invalid or `typ` mismatch | 400 Bad Request | `invalid_grant` | The ID-JAG signature is invalid or typ is not `oauth-id-jag+jwt`. |
-| Mismatched `aud` or `client_id` | 400 Bad Request | `invalid_grant` | The audience or client ID does not match the server configuration or request context. |
+| Missing or invalid `grant_type` | 400 Bad Request | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| Invalid signature, expired token, or missing header | 401 Unauthorized | `{"error": "invalid_grant", "error_description": "ID-JAG token validation failed."}` | Ensure that the token hasn't expired and the signing key matches the JWKS. |
+| Signature invalid or `typ` mismatch | 400 Bad Request | `invalid_grant` | The ID-JAG signature is invalid or `typ` isn't `oauth-id-jag+jwt`. |
+| Mismatched `aud` or `client_id` | 400 Bad Request | `invalid_grant` | The audience or client ID doesn't match the server configuration or request context. |
 | Assertion expired (`exp`) | 400 Bad Request | `invalid_grant` | The ID-JAG assertion has expired. |
 | Requested scope exceeds ID-JAG | 400 Bad Request | `invalid_scope` | Requested scopes exceed those granted in the assertion or local policy. |
 | Mismatched `aud` claim | 401 Unauthorized | `{"error": "invalid_grant", "error_description": "Audience mismatch."}` | Check for trailing slashes or host mismatches between the configuration and the token. |
@@ -203,4 +197,5 @@ Cache-Control: no-store
 ## Next steps
 
 * **Test your implementation:** Verify your end-to-end token validation flow using the testing harness at [xaa.dev](https://xaa.dev/).
-* **Submit to OIN:** Publish your integration to the [Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/) catalog.
+* **Expose XAA metata authorization server**: See [Expose XAA metata for your resource app and authorization server](/guides/xaa-resource-metadata/main/) so that requesting clients and the IdP can discover your protected resource.
+* **Submit to OIN:** Publish your resource app integration to the [Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/) catalog.
