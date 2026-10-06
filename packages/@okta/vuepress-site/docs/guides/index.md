@@ -232,6 +232,7 @@ guides:
  - xaa-resource-metadata
  - xaa-agent-to-app
  - xaa-request-token-ex
+ - xaa-validate-id-jag
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
