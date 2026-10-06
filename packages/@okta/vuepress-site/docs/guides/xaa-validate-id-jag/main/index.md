@@ -239,4 +239,4 @@ Cache-Control: no-store
 * **Test your implementation:** Verify your end-to-end token validation flow using the testing harness at [xaa.dev](https://xaa.dev/).
 * **Expose XAA metata authorization server**: See [Expose XAA metata for your resource app and authorization server](/docs/guides/xaa-resource-metadata/main/) so that requesting clients and the IdP can discover your protected resource.
 * **Submit to OIN:** Publish your resource app integration to the [Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/) catalog.
-* **Configure XAA flow**: See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
+* **Configure AI agent to resources with XAA**: See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
