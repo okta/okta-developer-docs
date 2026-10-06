@@ -3,6 +3,7 @@ title: Set up MCP server token exchange
 excerpt: Learn how to configure an MCP server as an OAuth client so that it can get its own token to access a downstream resource.
 layout: Guides
 ---
+
 <ApiLifecycle access="beta" />
 
 Learn how to configure an MCP server to act as an OAuth client. The MCP server exchanges the token that it receives from an AI agent for a separate token that's issued for a downstream resource.
@@ -24,6 +25,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that's authorized to delegate to the MCP server. It passes an access token to the MCP server.
+- [User access or machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) configured for the AI agent, defining the users, apps, and other AI agents that can authorize it to act on their behalf. See the **Configure user access** or **Configure machine access** sections of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
 
 ---
 
@@ -175,10 +177,55 @@ To delete the OAuth client later, delete its connections and keys first. Otherwi
   <!-- TODO: Add a single sequence diagram covering the inbound request and the token exchange (steps 1-8). Request from design team. -->
 
 </div>
+<!--
+See http://www.plantuml.com/plantuml/uml/
+@startuml
+title MCP server token exchange
 
-1. An AI agent or client sends a Client Credentials request to a custom authorization server. The `resource` parameter is the MCP server's resource URL. A delegation link must authorize the caller to delegate to the MCP server.
+participant "AI agent or client" as Agent
+participant "Okta org\nauthorization server" as Org
+participant "Custom\nauthorization server" as CustomUp
+participant "MCP server" as MCP
+participant "Downstream custom\nauthorization server" as CustomDown
+participant "Downstream\nresource" as Down
 
-1. The custom authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value.
+== Initial authentication (steps 1-2) ==
+alt User access
+  Agent -> Org : 1a. POST /oauth2/v1/token\ngrant_type = token-exchange\nsubject_token = user's token (ID token or session token)\nrequested_token_type = id-jag\nresource = MCP server resource URL
+  note right of Org : The agent authenticates through XAA,\nnot with private_key_jwt
+  Org --> Agent : ID-JAG
+  Agent -> CustomUp : 1b. POST /oauth2/{authServerId}/v1/token\ngrant_type = jwt-bearer\nassertion = ID-JAG\nresource = MCP server resource URL
+else Machine access
+  Agent -> CustomUp : 1. POST /oauth2/{authServerId}/v1/token\ngrant_type = client_credentials\nresource = MCP server resource URL
+end
+note right of CustomUp : Checks that a delegation link\nauthorizes delegation to the MCP server
+CustomUp --> Agent : 2. Access token T1\n(aud = MCP server resource URL,\nsubject = user or machine)
+
+== Call the MCP server (step 3) ==
+Agent -> MCP : 3. Call MCP server with T1 (Bearer)
+note right of MCP : T1 is never forwarded downstream
+
+== Exchange for an ID-JAG (steps 4-5) ==
+MCP -> Org : 4. POST /oauth2/v1/token\ngrant_type = token-exchange\nsubject_token = T1\nrequested_token_type = id-jag\nresource = downstream resource URL\naudience = downstream custom AS issuer (optional)\nclient_id = MCP server client ID\nclient_assertion (private_key_jwt)
+Org -> Org : Validate against the MCP server's\nresource connection and delegation link
+Org --> MCP : 5. ID-JAG T2\n(original subject preserved,\nMCP server added to act chain)
+
+== Exchange for a downstream access token (steps 6-7) ==
+MCP -> CustomDown : 6. POST /oauth2/{authServerId}/v1/token\ngrant_type = jwt-bearer\nassertion = T2\nresource = downstream resource URL\nclient_id = MCP server client ID\nclient_assertion (private_key_jwt)
+CustomDown --> MCP : 7. Access token T3\n(aud = downstream resource URL)
+
+== Call the downstream resource (step 8) ==
+MCP -> Down : 8. Request with T3 (Bearer)
+@enduml
+-->
+<!-- Confirmed by Gil, 2026-10-06: in the user-access exchange at the org authorization server, the agent's subject_token is the user's session token or an ID token from the user's authentication (XAA). The MCP server's subject_token is the T1 access token. -->
+<!-- Only the MCP server's token exchange at the org authorization server uses private_key_jwt (confirmed by Gil, 2026-10-06). -->
+
+1. An AI agent or client requests an access token for the MCP server from the MCP server's custom authorization server. The `resource` parameter is the MCP server's resource URL. A delegation link must authorize the caller to delegate to the MCP server.
+
+   > **Note**: With user access, the agent first exchanges the user's token for an ID-JAG at the org authorization server. It then sends the ID-JAG to the custom authorization server. With machine access, the agent sends a Client Credentials request instead. See [Initial authentication](#initial-authentication).
+
+1. The custom authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value. T1 keeps the original subject, which is either a user or a machine.
 
 1. The AI agent then calls the MCP server and passes the access token (T1).
 
@@ -190,6 +237,8 @@ To delete the OAuth client later, delete its connections and keys first. Otherwi
 1. The server performs validation and returns an access token (T3).
 1. The MCP server uses the access token (T3) to request access to the downstream resource.
 
+The original subject stays the same across all tokens, whether it's a user or a machine. Each exchange appends the next actor to the `act` claim.
+
 ## Flow specifics
 
 The flow has two parts. First, the AI agent or client gets a subject token for the MCP server. Then the MCP server exchanges that token for a downstream token.
@@ -200,7 +249,22 @@ To start the flow, the AI agent or client must first authenticate with an Okta a
 
 Okta issues T1 only if a delegation link exists. A delegation link is a record in Okta that authorizes a specific client to delegate to a specific resource. Here, the client is the AI agent or client, and the resource is the MCP server. Okta also checks the link again during token exchange. Without it, Okta rejects the exchange. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) for details.
 
-The AI agent or client sends a request to the authorization server's `/token` endpoint. Use the Client Credentials grant type. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
+The subject of T1 can be a user or a machine. The path depends on whether the AI agent is configured for user access or machine access.
+
+#### User access
+
+Use this path when a user is in the loop. It's the more common scenario.
+
+1. The AI agent authenticates the user and exchanges the user's token for an ID-JAG at the org authorization server's `/token` endpoint. See the **User access** steps in [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow).
+1. The AI agent sends the ID-JAG to the `/token` endpoint of the MCP server's custom authorization server. Use the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`).
+
+Both requests include the `resource` parameter. Its value is the resource URL that's configured on the MCP server. For example, `resource=https://mcp-server.example.com`.
+
+#### Machine access
+
+Use this path when no user is in the loop, such as a service app. See the **Machine access** steps in [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow).
+
+The AI agent or client sends a request to the custom authorization server's `/token` endpoint. Use the Client Credentials grant type. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
 
 The request includes the `resource` parameter. Its value is the resource URL that's configured on the MCP server. For example, `resource=https://mcp-server.example.com`.
 
@@ -237,6 +301,7 @@ The MCP server authenticates with `private_key_jwt`. It signs the client asserti
     --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
     --data-urlencode "resource=https://downstream-mcp.example.com" \
     --data-urlencode "scope=tools:read+tools:execute" \
+    --data-urlencode "client_id={mcpServerClientId}" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
 ```
@@ -250,10 +315,9 @@ The MCP server authenticates with `private_key_jwt`. It signs the client asserti
 | `audience` | The issuer URL of the custom authorization server that protects the downstream resource |
 | `resource` | The resource URL of the downstream resource. This must match the resource in the MCP server's resource connection. |
 | `scope` | A list of scopes at the downstream resource that's being requested. This defines the permissions for the final access token. |
+| `client_id` | The MCP server's OAuth client ID. This is the `clientId` value in the `oauthClient` property of the MCP server. See [Get the client ID](#get-the-client-id). |
 | `client_assertion_type` | The type of assertion for client authentication. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | A signed JWT used for client authentication. Sign the JWT using an active key from the MCP server's credentials. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
-
-<!-- TODO: Confirm whether client_id is required in the request body alongside client_assertion, and that the value is the MCP server's OAuth client ID (wlp...). -->
 
 #### Response
 
@@ -309,9 +373,7 @@ The ID-JAG contains the following claims:
 | `act.act.sub` | The AI agent that called the MCP server |
 | `act.act.act.sub` | The original client that initiated the flow |
 
-The delegation chain has a maximum depth. If the chain exceeds it, Okta rejects the exchange.
-
-<!-- TODO: Confirm the default maximum depth (design doc says 5) and the error returned. -->
+The delegation chain has a maximum depth of 5 actors. If the `act` chain exceeds this limit, Okta rejects the exchange and returns the `invalid_subject_token_act_claim_depth` OAuth error.
 
 ### Exchange ID-JAG for access token
 
@@ -324,6 +386,8 @@ After receiving the ID-JAG, the MCP server sends a `POST` request to the custom 
     --header "Accept: application/json" \
     --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
     --data-urlencode "assertion=eyJraWQiOiJuc3MwV3UyblE4...[jwt-id-jag]" \
+    --data-urlencode "resource=https://downstream-mcp.example.com" \
+    --data-urlencode "client_id={mcpServerClientId}" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]"
 ```
@@ -332,6 +396,8 @@ After receiving the ID-JAG, the MCP server sends a `POST` request to the custom 
 | --- | --- |
 | `grant_type` | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `assertion` | The ID-JAG that's received in the **Exchange subject token for resource token** response. |
+| `resource` | The resource URL of the downstream resource. Use the same value as in the ID-JAG exchange. |
+| `client_id` | The MCP server's OAuth client ID. Use the same value as in the ID-JAG exchange. |
 | `client_assertion_type` | The type of assertion. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | A signed JWT that's used for client authentication. Sign the JWT using an active key from the MCP server's credentials. |
 
