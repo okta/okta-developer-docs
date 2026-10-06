@@ -36,7 +36,7 @@ This guide focuses on implementing the **6. Validate ID-JAG and resolves user id
 
 </div>
 
-See the following steps to validate the ID-JAG token and resolve the user identity:
+Validate the ID-JAG token and resolve the user identity with the following process:
 
 1. [Accept the jwt-bearer token request](#accept-the-jwt-bearer-token-request).
 1. [Validate the decoded JWT header and signature](#validate-the-decoded-header-and-signature).
@@ -50,7 +50,7 @@ See the following steps to validate the ID-JAG token and resolve the user identi
 
 Configure your authorization server token endpoint (`/oauth/v1/token`) to accept incoming HTTP POST requests with a Content-Type header set to `application/x-www-form-urlencoded` and the following request parameters:
 
-#### Request parameters
+### Request parameters
 
 | Parameter | Description |
 | :---- | :---- |
@@ -70,6 +70,8 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope={idJagScopes}
 ```
 
+> **Note:** Requesting clients can discover XAA support through your authorization server metadata (`/.well-known/oauth-authorization-server`). See [Expose XAA metadata for your resource app](/docs/guides/xaa-resource-metadata/main/) to implement the well-known discovery metadata resource for your authorization server.
+
 After your authorization server accepts the `/token` request, decode the ID-JAG token to validate it in the next step.
 
 ## Validate the decoded header and signature
@@ -84,7 +86,7 @@ Validate the decoded header and use the matching key ID (kid) from the fetched O
 | :---- | :---- |
 | Algorithm (`alg`) | The cryptographic algorithm used to secure the JWT (such as RS256 or ES256). Okta signs JWT using [asymmetric encryption (RS256)](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/). |
 | Type (`typ`) | The required media type of the token. Verify that the type header claim contains `oauth-id-jag+jwt`. Reject the request if the type header is missing or incorrect. |
-| Key ID (`kid`) | The public key identifier used by the IdP (Okta) to sign the token. Retrieve the public signing keys from your Okta domain at [`https://{yourOktaDomain}/oauth2/v1/keys`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/oauthkeys). <br> **Note:** ID-JAGs are always issued directly by the Okta org authorization server. Ensure that your token verification path doesn't contain /default/ or any Okta custom authorization server path. |
+| Key ID (`kid`) | The public key identifier used by the IdP (Okta) to sign the token. Retrieve the public signing keys from your Okta domain at [`https://{yourOktaDomain}/oauth2/v1/keys`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/orgas/oauthkeys). <br> **Note:** The Okta org authorization server issues the ID-JAGs. Ensure that your token verification path doesn't contain `/default/` or any Okta custom authorization server path. |
 
 For example:
 
@@ -96,7 +98,7 @@ For example:
 }
 ```
 
-### Validate the decoded claims in the payload
+## Validate the decoded claims in the payload
 
 | Claim | Description/Validation Rule |
 | :---- | :---- |
@@ -125,18 +127,57 @@ For example:
 
 For OIDC-based resource apps, identity resolution is straightforward. The `sub` claim contains the unique end user identity for the scoped issuer (`iss`).
 
-If there is a multitenant deployment, the `tenant` claim is provided. You can use the `sub`, `tenant`, and `iss` claims together to resolve the user's identity.
-
-Validate that the `sub` claim in the ID-JAG matches an end user in the resource app and has access to the requested scopes according to local policy.
+If there is a multitenant deployment, the `tenant` claim is provided. You can use `sub` + `tenant` + `iss` claims together to resolve the user's identity. Otherwise, use `sub` + `iss` in the ID-JAG to match an end user in the resource app that has access to the requested scopes according to the local policy.
 
 ### Resolve user identity for SAML integrations
 
 For resolving user identity in SAML integrations, you need the information in the `sub_id` claim (see [Subject Identifier Format](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-subject-identifier-format)).
 For SAML-based resource apps, follow these steps to resolve the user's identity:
 
-1. You must bind the issuer (`iss`) to a registered SAML connection before verifying the JWKS signature. See
+1. You must bind the issuer (`iss`) to a registered SAML connection before verifying the JWKS signature.
+
     **Note:** Reversing this order creates a critical token-forgery vulnerability in which an attacker can supply an arbitrary victim's SAML issuer in `sub_id`.
-2. Resolve the user identity using the combination of `sub_id.issuer`, `sub_id.nameid`, and `sub_id.sp_name_qualifier` together. Don't resolve user identity on `sub_id.nameid` alone.
+1. Resolve the user identity using the combination of `sub_id.issuer`, `sub_id.nameid`, and `sub_id.sp_name_qualifier` together. Don't resolve user identity on `sub_id.nameid` alone.
+
+The following pseudocode example binds the issuer with the SAML connection, validates claims, and resolves the user:
+
+```js
+connections = {
+  "https://atko.okta.com": {
+    jwks:            "https://atko.okta.com/oauth2/v1/keys",
+    samlIssuer:      "http://www.okta.com/exk1fcia8zMValiD0h8",
+    spNameQualifier: "https://chat.example/saml/metadata",
+  },
+}
+
+redeem(idJag, authenticatedClient):
+    // Bind iss to a connection before trusting the signature.
+    iss  = unverified_issuer(idJag)
+    conn = connections[iss]
+    if conn is none: reject "invalid_grant"
+
+    // Verify signature against the specific issuers JWKS.
+    payload = verify_jwt(idJag, jwks = conn.jwks)
+    if payload is invalid: reject "invalid_grant"
+
+    // Perform header and payload claim checks.
+    require payload.typ       == "oauth-id-jag+jwt"
+    require payload.aud       == "resource_authorization_server_url"
+    require payload.client_id == authenticatedClient.id
+
+    user  = resolveSamlSubject(payload.sub_id, conn)
+    scope = applyScopePolicy(user, payload.scope)
+    return issueAccessToken(user, scope)
+
+resolveSamlSubject(subId, conn):
+    require subId and subId.format == "saml-nameid"
+    require subId.issuer == conn.samlIssuer
+    require subId.sp_name_qualifier == conn.spNameQualifier
+
+    user = lookup_user_by_saml_nameid(subId.issuer, subId.nameid, subId.sp_name_qualifier)
+    if user is none: reject "invalid_grant"
+    return user
+```
 
 ## Issue an access token and record audit logs
 
@@ -176,7 +217,6 @@ Return standard HTTP status codes and OAuth error responses when validation fail
 | Signature invalid or `typ` mismatch | 400 Bad Request | `invalid_grant` | The ID-JAG signature is invalid or `typ` isn't `oauth-id-jag+jwt`. |
 | Mismatched `aud` or `client_id` | 400 Bad Request | `invalid_grant` | The audience or client ID doesn't match the server configuration or request context. |
 | Assertion expired (`exp`) | 400 Bad Request | `invalid_grant` | The ID-JAG assertion has expired. |
-| Requested scope exceeds ID-JAG | 400 Bad Request | `invalid_scope` | Requested scopes exceed those granted in the assertion or local policy. |
 | Mismatched `aud` claim | 401 Unauthorized | `{"error": "invalid_grant", "error_description": "Audience mismatch."}` | Check for trailing slashes or host mismatches between the configuration and the token. |
 | Missing `sub` or `act.sub` | 401 Unauthorized | `{"error": "invalid_grant", "error_description": "Missing required identity claims."}` | Verify that the requesting app generated a valid ID-JAG containing both user and actor claims. |
 | Insufficient scope | 403 Forbidden | `{"error": "invalid_scope", "error_description": "The requested scope is insufficient."}` | Verify scope configuration in your authorization server settings. |
@@ -199,3 +239,4 @@ Cache-Control: no-store
 * **Test your implementation:** Verify your end-to-end token validation flow using the testing harness at [xaa.dev](https://xaa.dev/).
 * **Expose XAA metata authorization server**: See [Expose XAA metata for your resource app and authorization server](/docs/guides/xaa-resource-metadata/main/) so that requesting clients and the IdP can discover your protected resource.
 * **Submit to OIN:** Publish your resource app integration to the [Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/) catalog.
+* **Configure XAA flow**: See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
