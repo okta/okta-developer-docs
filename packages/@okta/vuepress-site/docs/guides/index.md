@@ -9,6 +9,7 @@ guides:
  - ai-agent-secure-google-vertex
  - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-third-party
+ - ai-agent-secure-workday
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
