@@ -2,7 +2,7 @@
 title: Validate ID-JAG tokens for resource authorization servers
 meta:
   - name: description
-    content: Validate ID-JAG tokens in external authorization servers
+    content: Describes how to accept and validate ID-JAG tokens in external authorization servers
 layout: Guides
 sections:
  - main
