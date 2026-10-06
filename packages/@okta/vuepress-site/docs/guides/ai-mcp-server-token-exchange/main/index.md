@@ -25,7 +25,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that's authorized to delegate to the MCP server. It passes an access token to the MCP server.
-- [User access or machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) configured for the AI agent, defining the users, apps, and other AI agents that can authorize it to act on their behalf. See the **Configure user access** or **Configure machine access** sections of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
+- User access or machine access configured for the AI agent, defining the users, apps, and other AI agents that can authorize it to act on their behalf. See the [**User access**](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/#user-access) or [**Machine access**](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/#machine-access) sections of the [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) guide.
 
 ---
 
