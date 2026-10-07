@@ -73,7 +73,7 @@ When you create an Okta expression for an [IGA Access Certification campaign](ht
 
 | Syntax                          | Definitions                                                                                       | Examples                                            |
 | --------                        | ----------                                                                                        | ------------                                        |
-| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of a raw attribute returned by the connected app's connector. Raw attribute names can differ from the attribute names in the app user profile. For example, the Office 365 connector returns `jobTitle` and `userPrincipalName`, while the app user profile uses `title` and `userName`. | `importedAppUser.dept`<br>`importedAppUser.title` |
+| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of a raw attribute returned by the connected app's connector. Raw attribute names can differ from the attribute names in the app user profile. | `importedAppUser.dept`<br>`importedAppUser.title` |
 | `importedAppUser.userEntitlements.group.$attribute` | References a group entitlement held by the imported user. Use with a `.?[$predicate]` selection.<br>`$attribute` - a field on the group entitlement, such as `displayName` or `externalId` | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins']` |
 
 Only the following operators and functions are supported with `importedAppUser`:
