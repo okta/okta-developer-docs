@@ -119,7 +119,7 @@ Configure the connection to your app by setting up the authentication scheme and
     If you configured optional authentication parameters, you can map them to the tenant authentication variables configured in the OIN Wizard. See [Authentication mapping](#authentication-mapping).
 
     > **Note**: Ensure that your authentication configuration matches what you entered in the OIN Wizard.<br>
-    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Review all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
+    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-wfactions-app/main/#authentication-settings). Review all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
 
 1. Click **Save**.
 
@@ -130,7 +130,7 @@ After you've configured your authentication settings, you can map the authentica
 1. Select the corresponding OIN Wizard integration variable for each **Connection parameter** from the **Authentication** > **Authentication mapping** section.
 
     * The **Connection parameters** are the ones that you defined in your [authentication configuration](#authentication-configuration).
-    * The variables under **OIN app integration variables** are the ones that you defined in the OIN Wizard's [Tenant settings](/docs/guides/submit-oin-app/wfactions/main/#tenant-settings) section.
+    * The variables under **OIN app integration variables** are the ones that you defined in the OIN Wizard's [Tenant settings](/docs/guides/submit-wfactions-app/main/#tenant-settings) section.
 
     > **Note**: The OIN Wizard doesn't support uppercase or camel case variable names.
 
@@ -186,7 +186,7 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
     * The **body** section contains the action contract request schema. See the [Provisioning action contracts](/docs/guides/oin-api-actions-contracts/#provisioning-action-contracts) schema reference for input and output property definitions.
     * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 
-    Build a flow for each of the mandatory actions listed in [Provisioning API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#provisioning-api-integration-actions). If your API supports them, you can also add the optional action flows.
+    Build a flow for each of the mandatory actions listed in [Provisioning API integration actions](/docs/guides/submit-wfactions-app/main/#provisioning-api-integration-actions). If your API supports them, you can also add the optional action flows.
 
 1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
 1. Click **Save** to save your flow.

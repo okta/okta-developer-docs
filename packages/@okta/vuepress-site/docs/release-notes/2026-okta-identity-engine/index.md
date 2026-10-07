@@ -1006,11 +1006,11 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
 
-#### OIN submissions for API Integration Actions
+#### OIN submissions for API integration actions
 
-Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API Integration Actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API Integration Actions to the OIN catalog using the OIN Wizard.
+Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API integration actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API integration actions to the OIN catalog using the OIN Wizard.
 
-See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/wfactions/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
+See [API integration actions](/docs/guides/oin-api-actions/) and [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
 <!-- OKTA-1007250, OKTA-1145738, ACTIONS_3P_SUBMISSION, Production: May 12, 2026 -->
 
 #### Developer documentation updates in 2026.05.0

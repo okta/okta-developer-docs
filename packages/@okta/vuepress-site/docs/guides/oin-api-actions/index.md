@@ -19,7 +19,7 @@ As an ISV, start building your integration in the OIN Wizard by defining your in
 
 ### Process overview
 
-1. Start your submission in the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/wfactions/main/).
+1. Start your submission in the OIN Wizard. See [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/).
 2. Build your API integration actions in the Integration Builder by following the [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. Define the authentication and action flows to your API server.
 3. Return to the OIN Wizard to complete the integration configuration and testing. The actions you define in the Integration Builder become available in the OIN Wizard for real-time testing.
 4. Submit for validation through the OIN Wizard once you're satisfied with your integration's functionality.
@@ -74,6 +74,6 @@ OINW -[#blue]> ISV: OIN team notifies you that \n your integration is published 
 
 ## Next steps
 
-Ready to get started? Sign up for a free [Okta Integrator Free Plan org](/signup) and see [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/wfactions/main/) with the API Integration Actions capability.
+Ready to get started? Sign up for a free [Okta Integrator Free Plan org](/signup) and see [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/).
 
 Post your questions on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.
