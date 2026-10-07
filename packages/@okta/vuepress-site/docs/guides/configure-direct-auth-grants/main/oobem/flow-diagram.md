@@ -2,7 +2,7 @@
 
 <div class="three-quarter">
 
-![Sequence diagram that displays the communication between the resource owner, client native app, and authorization server and mailbox flow"](/img/authorization/email-primary.png)
+![Sequence diagram that displays the communication between the resource owner, client native app, and authorization server and mailbox flow"](/img/authorization/email-primary.svg)
 
 </div>
 At a high level, this flow has the following steps:
