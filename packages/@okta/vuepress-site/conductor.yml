@@ -6183,3 +6183,75 @@ redirects:
     to: /docs/guides/create-an-app-integration/
   - from: /docs/guides/build-sso-integration/main/
     to: /docs/guides/create-an-app-integration/
+  - from: /docs/guides/submit-oin-app/scrossapp/
+    to: /docs/guides/submit-xaa-app/
+  - from: /docs/guides/submit-oin-app/scrossapp/main/
+    to: /docs/guides/submit-xaa-app/main/
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#what-you-need
+    to: /docs/guides/submit-xaa-app/main/#what-you-need
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#overview
+    to: /docs/guides/submit-xaa-app/main/#overview
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#start-a-submission
+    to: /docs/guides/submit-xaa-app/main/#start-a-submission
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#integration-details
+    to: /docs/guides/submit-xaa-app/main/#integration-details
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#configure-your-integration
+    to: /docs/guides/submit-xaa-app/main/#configure-your-integration
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#cross-app-access-xaa-roles
+    to: /docs/guides/submit-xaa-app/main/#cross-app-access-xaa-roles
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#xaa-client-app-properties
+    to: /docs/guides/submit-xaa-app/main/#xaa-client-app-properties
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#xaa-resource-app-properties
+    to: /docs/guides/submit-xaa-app/main/#xaa-resource-app-properties
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#dynamic-properties-with-okta-expression-language
+    to: /docs/guides/submit-xaa-app/main/#dynamic-properties-with-okta-expression-language
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#enter-test-information
+    to: /docs/guides/submit-xaa-app/main/#enter-test-information
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#test-information-for-okta-review
+    to: /docs/guides/submit-xaa-app/main/#test-information-for-okta-review
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#test-your-integration
+    to: /docs/guides/submit-xaa-app/main/#test-your-integration
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#navigate-directly-to-test-your-integration
+    to: /docs/guides/submit-xaa-app/main/#navigate-directly-to-test-your-integration
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#generate-instances-for-testing
+    to: /docs/guides/submit-xaa-app/main/#generate-instances-for-testing
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#generate-an-instance-for-cross-app-access
+    to: /docs/guides/submit-xaa-app/main/#generate-instances-for-testing
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#application-instances-for-testing
+    to: /docs/guides/submit-xaa-app/main/#application-instances-for-testing
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#deactivate-an-app-instance-in-your-org
+    to: /docs/guides/submit-xaa-app/main/#deactivate-an-app-instance-in-your-org
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#test-your-cross-app-access-xaa-integration-with-xaadev
+    to: /docs/guides/submit-xaa-app/main/#test-your-cross-app-access-xaa-integration-with-xaadev
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#testing-a-saml-client-app
+    to: /docs/guides/submit-xaa-app/main/#testing-a-saml-client-app
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-1-update-the-saml-client-app-submission-in-oin-wizard
+    to: /docs/guides/submit-xaa-app/main/#step-1-update-the-saml-client-app-submission-in-oin-wizard
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-2-create-a-custom-saml-resource-app
+    to: /docs/guides/submit-xaa-app/main/#step-2-create-a-custom-saml-resource-app
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-3-set-up-the-ai-agent-and-resource-connection
+    to: /docs/guides/submit-xaa-app/main/#step-3-set-up-the-ai-agent-and-resource-connection
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-4-configure-the-xaadev-test-environment
+    to: /docs/guides/submit-xaa-app/main/#step-4-configure-the-xaadev-test-environment
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-5-complete-testing-and-submit
+    to: /docs/guides/submit-xaa-app/main/#step-5-complete-testing-and-submit
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#testing-a-saml-resource-app
+    to: /docs/guides/submit-xaa-app/main/#testing-a-saml-resource-app
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-1-update-the-saml-resource-app-submission-in-oin-wizard
+    to: /docs/guides/submit-xaa-app/main/#step-1-update-the-saml-resource-app-submission-in-oin-wizard
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-2-create-a-custom-saml-client-app
+    to: /docs/guides/submit-xaa-app/main/#step-2-create-a-custom-saml-client-app
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#testing-an-oidc-resource-app
+    to: /docs/guides/submit-xaa-app/main/#testing-an-oidc-resource-app
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-1-update-the-oidc-resource-app-submission-in-oin-wizard
+    to: /docs/guides/submit-xaa-app/main/#step-1-update-the-oidc-resource-app-submission-in-oin-wizard
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#step-2-create-a-custom-oidc-client-app
+    to: /docs/guides/submit-xaa-app/main/#step-2-create-a-custom-oidc-client-app
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#xaa-testing-requirements
+    to: /docs/guides/submit-xaa-app/main/#xaa-testing-requirements
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#submit-your-integration
+    to: /docs/guides/submit-xaa-app/main/#submit-your-integration
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#submission-support
+    to: /docs/guides/submit-xaa-app/main/#submission-support
+  - from: /docs/guides/submit-oin-app/scrossapp/main/#see-also
+    to: /docs/guides/submit-xaa-app/main/#see-also

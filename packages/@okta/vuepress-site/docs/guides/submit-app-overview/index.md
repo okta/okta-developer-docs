@@ -152,7 +152,7 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * Identity Proofing (for Identity Verification integrations)
 
-* [Cross App Access (XAA)](/docs/guides/submit-oin-app/scrossapp/main/)
+* [Cross App Access (XAA)](/docs/guides/submit-xaa-app/main/)
 
     >**Note:** Cross App Access (XAA) requires and works alongside SSO. If you have an existing SSO integration, you don't need to create a new submission. Go to **Applications and Resources** > **Your OIN Integrations**, then click **Add more integrations** on your existing app. In **SSO (Single Sign-On)**, select **SAML 2.0** or **OpenID Connect** as your protocol. Select **Cross App Access** from the **Add integration capabilities** section, and reuse your existing SSO instance for testing.
 
@@ -194,6 +194,6 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/xidv/main/" headerImage="/img/icons/customer_identity.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
 
-<Card href="/docs/guides/submit-oin-app/scrossapp/main/" headerImage="/img/customLanding/features-5.svg" cardTitle="Cross App Access" :showFooter=false>Submit a Cross App Access integration</Card>
+<Card href="/docs/guides/submit-xaa-app/main/" headerImage="/img/customLanding/features-5.svg" cardTitle="Cross App Access" :showFooter=false>Submit a Cross App Access integration</Card>
 
 </Cards>

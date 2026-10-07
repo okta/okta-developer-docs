@@ -12,7 +12,7 @@ This guide covers submissions that use the following protocols and integrations:
 
 * [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
-* [Cross App Access (XAA)](/docs/guides/submit-oin-app/scrossapp/main/)
+* [Cross App Access (XAA)](/docs/guides/submit-xaa-app/main/)
 
 See [Choose your SSO protocol](/docs/concepts/sso-overview/#choose-your-sso-protocol) for help choosing the right protocol for your app integration.
 
