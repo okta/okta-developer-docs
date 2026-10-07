@@ -23,7 +23,7 @@ Learn how to submit a Cross App Access (XAA) integration to the Okta Integration
 
 * Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
 
-* An xaa.dev test account
+* An [xaa.dev](https://xaa.dev/) test account
 
 ---
 
@@ -36,7 +36,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing:
   * Test your SSO integration with the OIN Submission Tester.
-  * Test your Cross App Access (XAA) integration with xaa.dev.
+  * Test your Cross App Access (XAA) integration with [xaa.dev](https://xaa.dev/).
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
 * Edit published integrations and resubmit them to the OIN.
@@ -186,7 +186,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 3. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
-> **Note:** For Cross App Access integration testing, you need to test your integration on xaa.dev. If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
+> **Note:** For Cross App Access integration testing, you need to test your integration on [xaa.dev](https://xaa.dev/). If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
 
 #### Navigate directly to test your integration
 
