@@ -2,7 +2,7 @@
 
 <div class="three-quarter">
 
-![Sequence diagram that displays the communication between the client native app, Okta AS, and mailbox"](/img/authorization/email-mfa.png)
+![Sequence diagram that displays the communication between the client native app, Okta AS, and mailbox"](/img/authorization/email-mfa.svg)
 
 </div>
 
