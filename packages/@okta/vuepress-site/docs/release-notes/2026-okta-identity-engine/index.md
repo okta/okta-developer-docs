@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2026
 | [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | October 7, 2026 |
 | [Prompt users to enroll a passkey is GA in Production](#prompt-users-to-enroll-a-passkey-is-ga-in-production) | October 7, 2026 |
 | [Password provisioning is now configurable during user creation](#password-provisioning-is-now-configurable-during-user-creation) | October 7, 2026 |
-| [User identification policy is GA in Production](#user-identification-policy-is-ga-in-production) | October 7, 2026 |
+| [User identification policy is GA in Production](#user-identification-policy-is-ga-in-production) | August 5, 2026 |
 | [WebAuthn authenticator enrollments include transports values is GA in Production](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
