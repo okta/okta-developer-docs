@@ -92,7 +92,7 @@ A self-service registration policy rule can evaluate the requester's network zon
 
 Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/mapresourcetopolicy) API with the new `PROFILE_ENROLLMENT` resource type to link a self-service registration policy to a profile enrollment policy. <!-- OKTA-1182716, OKTA-1204105, FF SELF_SERVICE_REGISTRATION_POLICY -->
 
-#### Email channel for Direct Authentication is self-service EA in Preview is EA
+#### Email channel for Direct Authentication is self-service EA in Preview
 
 Direct Authentication now supports email as a channel for out-of-band authentication, alongside Okta Verify push, SMS, and voice. Apps can sign users in with a one-time code sent by email, either as a [primary factor|https://developer.okta.com/docs/guides/configure-direct-auth-grants/oobem/main/] or as an [MFA step-up|https://developer.okta.com/docs/guides/configure-direct-auth-grants/mfaoobem/main/].
 
