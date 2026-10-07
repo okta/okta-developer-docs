@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Version 2026.41.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#version-2026-41-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#version-2026-41-0</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-exclude-rules-query-parameter-for-the-security-policies-api-is-ga">New exclude_rules query parameter for the Security Policies API is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-41-0">Developer documentation updates in 2026.41.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-09-2</link>
