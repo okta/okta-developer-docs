@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 | [Passkey (FIDO2 WebAuthn) authenticator enabled by default](#passkey-fido2-webauthn-authenticator-enabled-by-default) | October 7, 2026 |
 | [Okta Expression Language now supports a session IdP property](#okta-expression-language-now-supports-a-session-idp-property) | October 7, 2026 |
 | [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | October 7, 2026 |
-| [Prompt users to enroll a passkey is GA in Production](#prompt-users-to-enroll-a-passkey-is-ga-in-production) | October 7, 2026 |
+| [Prompt users to enroll a passkey is GA in Production](#prompt-users-to-enroll-a-passkey-is-ga-in-production) | August 5, 2026 |
 | [Password provisioning is now configurable during user creation](#password-provisioning-is-now-configurable-during-user-creation) | October 7, 2026 |
 | [User identification policy is GA in Production](#user-identification-policy-is-ga-in-production) | August 5, 2026 |
 | [WebAuthn authenticator enrollments include transports values is GA in Production](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-production) | August 5, 2026 |
