@@ -18,7 +18,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Configure access to the resource catalog is GA in Production](#configure-access-to-the-resource-catalog-is-ga-in-production) | October 7, 2026 |
+| [Configure access to the resource catalog is GA in Production](#configure-access-to-the-resource-catalog-is-ga-in-production) | September 10, 2026 |
 | [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
 | [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0)| October 7, 2026 |
@@ -38,6 +38,16 @@ The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/gover
 To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 <!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Preview date: July 29, 2025 -->
 
+#### New System Log events for staging Access Certification campaigns is EA
+
+The System Log now logs the following events for staging Access Certification campaigns:
+
+* `certification.campaign.stage.start`: This event is logged when the staging process starts for a campaign.
+* `certification.campaign.stage.end`: This event is logged when the campaign staging process ends. The `outcome.result` field reports `SUCCESS` if the campaign snapshot is created successfully, or `FAILURE` if there were errors during the staging process.
+
+See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
+<!-- OKTA-1282649 Preview Oct. 7, 2026 -->
+
 #### Developer documentation updates in 2026.41.0
 Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026).
 
@@ -45,7 +55,7 @@ Beginning in October, Okta release version notations are changing from year.mont
 
 * The `certification.campaign.launch` System Log was triggered in error when the staging process started for an Access Certification campaign. (OKTA-1268484)
 
-* weCampaigns within seven days of a scheduled launch aren’t visible in orgs that disabled the **Stage certification campaigns before launch** Early Access (EA) feature. (OKTA-1245618)
+* Campaigns within seven days of a scheduled launch aren’t visible in orgs that disabled the **Stage certification campaigns before launch** Early Access (EA) feature. (OKTA-1245618)
 
 ## September
 

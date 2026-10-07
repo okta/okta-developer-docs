@@ -28,7 +28,7 @@ title: Okta Identity Engine API release notes 2026
 | [WebAuthn authenticator enrollments include transports values is GA in Production](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
-| [Self-service registration policy for ITP is EA](#self-service-registration-policy-for-itp-is-ea) | October 7, 2026 |
+| [Self-service registration policy for ITP is self-service EA](#self-service-registration-policy-for-itp-is-self-service-ea) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
 | [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0) | October 7, 2026 |
@@ -84,7 +84,7 @@ The System Log now logs the following events for staging Access Certification ca
 See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
 <!-- OKTA-1282649  Preview Oct. 7, 2026 -->
 
-#### Self-service registration policy for ITP is EA
+#### Self-service registration policy for ITP is self-service EA
 
 The [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy) API now supports the `SELF_SERVICE_REGISTRATION` policy type for ITP. Use it to control self-service registration attempts based on network zone and email domain checks.
 
