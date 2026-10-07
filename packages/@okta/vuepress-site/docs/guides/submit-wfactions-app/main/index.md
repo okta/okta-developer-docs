@@ -93,7 +93,7 @@ Start your integration submission for OIN publication:
 
 Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant setting values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
-2. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
+1. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
@@ -109,38 +109,39 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
 
+#### Authentication settings
+
+1. Specify authentication settings to your app resources for Universal Logout, provisioning, or entitlements.
+
+    | Property | Description |
+    |----------| ----------- |
+    | **Authentication mode** | Select the authentication mode for your integration actions. <br> <ul><li> **Basic**: Use the Basic authentication scheme. Basic authentication contains the default `auth_user_name` and `auth_user_password` settings available for tenant integration. See [Build Basic authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-basic) in the Workflows product documentation. </li><li> **Custom**: Use a custom authentication scheme. See [Build custom authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-custom) in the Workflows product documentation. </li><li> **OAuth 2**: Uses OAuth 2.0 Authorization Code grant flow. See [Build OAuth 2.0 authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-oauth) in the Workflows product documentation. </li> </ul> |
+
+    | Custom | Settings required for API Integration Action custom authentication |
+    | ------- | ----------- |
+    | **Authentication variables** | Specify the variables used for **Custom** authentication in your integration actions. The variables are shown as connection parameters in the Integration Builder. |
+    | **Label** | Specify the label of the authentication variable. This is the display name for the parameter that is shown in the dialog when an admin sets up your integration. |
+    | **Name** | Specify the authentication variable name (the parameter name). |
+
+    | OAuth 2 | Settings required for API Integration Action OAuth 2.0 authentication |
+    | ------- | ----------- |
+    | **Authorize endpoint** | Specify the HTTPS authorize endpoint. For example: `https://myexample.com/oauth2/auth`<br> You can specify a dynamic endpoint URL. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
+    | **Token endpoint** | Specify the HTTPS token endpoint. For example: `https://myexample.com/oauth2/token`<br>You can specify a dynamic endpoint URL. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
+    | **Client ID** | Specify a client ID field to map to the Integration Builder. You can specify any string field. This field is automatically mapped to the **Client ID** field (`auth.client_id`) in the **Authentication mapping** section of your project in the Integration Builder. |
+    | **Client secret** | Specify the client secret field to map to the Integration Builder. You can specify any string field. This field is automatically mapped to the **Client Secret** field (`auth.client_secret`) in the **Authentication mapping** section of your project in the Integration Builder. |
+    | **Scopes** | (Optional) Specify scopes for the resources to access. |
+
 #### Support contact
 
 1. Specify a support contact from your org:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |
-    | **Support email** `*` | Specify an email that the Okta team can use to contact your org for emergencies and escalations. This field is private and not visible to customers. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
+    | **Support email** `*` | Specify an email that the Okta team can use to contact your org for emergencies and escalations. This field is private and not visible to customers. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines). |
+    | **Support phone number** `*` | Specify a public phone number that customers can call for support. |
+    | **Support link** `*` | Specify a link to an FAQ or a troubleshooting guide. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines). |
 
-#### Authentication settings
-
-5. Specify authentication settings to your app resources for Universal Logout, provisioning, or entitlements.
-
-| Property | Description |
-|----------| ----------- |
-| **Authentication mode** | Select the authentication mode for your integration actions. <br> <ul><li> **Basic**: Use the Basic authentication scheme. Basic authentication contains the default `auth_user_name` and `auth_user_password` settings available for tenant integration. See [Build Basic authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-basic) in the Workflows product documentation. </li><li> **Custom**: Use a custom authentication scheme. See [Build custom authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-custom) in the Workflows product documentation. </li><li> **OAuth 2**: Uses OAuth 2.0 Authorization Code grant flow. See [Build OAuth 2.0 authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-oauth) in the Workflows product documentation. </li> </ul> |
-
-| Custom | Settings required for API Integration Action custom authentication |
-| ------- | ----------- |
-| **Authentication variables** | Specify the variables used for **Custom** authentication in your integration actions. The variables are shown as connection parameters in the Integration Builder. |
-| **Label** | Specify the label of the authentication variable. This is the display name for the parameter that is shown in the dialog when an admin sets up your integration. |
-| **Name** | Specify the authentication variable name (the parameter name). |
-
-| OAuth 2 | Settings required for API Integration Action OAuth 2.0 authentication |
-| ------- | ----------- |
-| **Authorize endpoint** | Specify the HTTPS authorize endpoint. For example: `https://myexample.com/oauth2/auth`<br> You can specify a dynamic endpoint URL. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
-| **Token endpoint** | Specify the HTTPS token endpoint. For example: `https://myexample.com/oauth2/token`<br>You can specify a dynamic endpoint URL. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
-| **Client ID** | Specify a client ID field to map to the Integration Builder. You can specify any string field. This field is automatically mapped to the **Client ID** field (`auth.client_id`) in the **Authentication mapping** section of your project in the Integration Builder. |
-| **Client secret** | Specify the client secret field to map to the Integration Builder. You can specify any string field. This field is automatically mapped to the **Client Secret** field (`auth.client_secret`) in the **Authentication mapping** section of your project in the Integration Builder. |
-| **Scopes** | (Optional) Specify scopes for the resources to access. |
-
-
-6. Click **Save and start building**.
+1. Click **Save and start building**.
 
   The OIN Wizard redirects you to the Integration Builder to define API actions for your integration. See [Build integrations with API integration actions](/docs/guides/build-api-actions/main/).
 
@@ -149,6 +150,22 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 ### Configure your integration
 
 Configure your integration settings. Settings appear based on your capability selection.
+
+If you selected the SSO capability, the SSO settings appear. See [OIDC properties](/docs/guides/submit-oin-app/openidconnect/main/#oidc-properties) or [SAML properties](/docs/guides/submit-oin-app/saml2/main/#saml-properties).
+
+#### Universal Logout API integration actions
+
+> **Notes:**
+> * This section appears only if you select **Universal Logout** with API integration actions.
+> * Universal Logout is only supported with SSO integrations.
+
+1. Specify the following properties for Universal Logout:
+
+    | <div style="width:150px">Property</div> | Description  |
+    | ----------------- | ------------ |
+    | **Proprietary** `*` | Specify the flow for Universal Logout in your app. |
+
+    `*` Required properties
 
 #### Provisioning API integration actions
 
@@ -192,32 +209,16 @@ Configure your integration settings. Settings appear based on your capability se
 > * This section appears if you select **Entitlement Management** with API integration actions.
 > * Entitlement Management is only supported with provisioning integrations. [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) is required to use entitlements in Okta. See [Entitlement Management](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt).
 
-Specify the following properties for Entitlement Management submissions:
+1. Specify the following properties for Entitlement Management submissions:
 
-| <div style="width:150px">Property</div> | Description |
-| ----------------- | ------------ |
-| **List entitlement schema** | Specify the flow to list the entitlement schema in your app. |
-| **List entitlement schema property values** | Specify the flow to list entitlement-schema property values. |
-
-#### Universal Logout API integration actions
-
-> **Notes:**
-> * This section appears only if you select **Universal Logout** with API integration actions.
-> * Universal Logout is only supported with SSO integrations.
-> * If you want instructions for SSO integrations, select **OpenID Connect** or **SAML 2.0** from the **Instructions for** dropdown list on the right.
-> * For integrations that include API actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** path in the Admin Console.
-
-1. Specify the following properties for Universal Logout:
-
-    | <div style="width:150px">Property</div> | Description  |
+    | <div style="width:150px">Property</div> | Description |
     | ----------------- | ------------ |
-    | **Proprietary** `*` | Specify the flow for Universal Logout in your app. |
+    | **List entitlement schema** | Specify the flow to list the entitlement schema in your app. |
+    | **List entitlement schema property values** | Specify the flow to list entitlement-schema property values. |
 
-    `*` Required properties
+After you've configured your integration capabilities, continue to test your integration:
 
-<br>
-
-2. Click **Get started with testing** to save your edits and move to the **Test your integration** section, where you need to [enter test information](#enter-test-information) for your integration.
+1. Click **Get started with testing** to save your edits and move to the **Test your integration** section, where you need to [enter test information](#enter-test-information) for your integration.
 
 #### Dynamic properties with Okta Expression Language
 
@@ -249,7 +250,6 @@ A dedicated test admin account in your app is required for Okta integration test
 * Privileges to administer test users in your test app
 
 * Credentials to access your app
-<br><br>
 
 After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a test account and provide the required information.
 
@@ -278,7 +278,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
 
-2. Test your integration.
+1. Test your integration.
 
      * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
 
@@ -286,7 +286,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
   * In addition to testing your provisioning flows in the Integration Builder, Okta also provides a test plan for you to functionally test your provisioning flow through the Admin Console and End-User Dashboard. See [Test API integration action provisioning](#test-api-integration-action-provisioning).
 
-3. [Submit your integration](#submit-your-integration) after all required tests are successful.
+1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
@@ -320,7 +320,7 @@ Okta recommends that you generate an instance for testing each capability suppor
 * If your SSO integration supports provisioning, create one instance specifically for provisioning testing. You also need to create a separate instance for each supported SSO protocol testing.
 * For a Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
 
-There are certain conditions where you can test two capabilities on one instance. You can create one instance for SSO and provisioining testing if your integration meets all of these conditions:
+There are certain conditions where you can test two capabilities on one instance. You can create one instance for SSO and provisioning testing if your integration meets all of these conditions:
 
 * It supports provisioning and one SSO protocol
 * It doesn't support JIT provisioning
@@ -587,7 +587,7 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 If your integration supports Universal Logout, you need to test the logout flow manually with your generated test app instance.
 
 1. Ensure that you have an active end user session on your app.
-1. As an Okta admin, go to **Directory** > **People** in the Admin Console
+1. As an Okta admin, go to **Directory** > **People** in the Admin Console.
 1. Select the user who has the current session on your app.
 1. Click **More Actions** > **Clear User Sessions**.
 1. Select **Also include logout enabled apps and Okta API tokens**, and then click **Clear and revoke**.
@@ -597,7 +597,7 @@ If your integration supports Universal Logout, you need to test the logout flow 
 
 ### Validate API integration action flows
 
-You must validate all active flows from your Integration Builder project before you can submit your integration.
+Validate all active flows from your Integration Builder project before you can submit your integration.
 
 1. Click **Validate flows** to validate all your API integration action flows.
 1. Resolve any errors from the validation.
