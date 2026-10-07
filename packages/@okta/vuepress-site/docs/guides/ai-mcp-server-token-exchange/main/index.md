@@ -25,7 +25,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that's authorized to delegate to the MCP server. It passes an access token to the MCP server.
-- User access or machine access configured for the AI agent, defining the users, apps, and other AI agents that can authorize it to act on their behalf. See the [**User access**](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/#user-access) or [**Machine access**](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/#machine-access) sections of the [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) guide.
+- ??User access or machine access configured for the AI agent, defining the users, apps, and other AI agents that can authorize it to act on their behalf. See the [**User access**](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/#user-access) or [**Machine access**](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/#machine-access) sections of the [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) guide.??
 
 ---
 
@@ -62,7 +62,7 @@ Send a `POST` request to create the OAuth client. This request has no body.
 
 This single request creates and activates the OAuth client. You don't need a separate activation call.
 
-The response is `201 Created` with an empty body. An MCP server has only one OAuth client, so the request returns `409` if one already exists.
+The response is `201 Created` with an empty body. An MCP server has only one OAuth client, so the request returns `409` if one exists.
 
 ### Get the client ID
 
@@ -164,7 +164,7 @@ A resource connection defines the downstream resource that the MCP server can re
 | `scopeCondition` | Controls how Okta applies the `scopes` list. `INCLUDE_ONLY` limits the connection to the listed scopes. |
 | `scopes` | The scopes that the MCP server can request at the downstream resource |
 
-> **Note**: You can't change the `connectionType` or the downstream resource after you create the connection. To point a connection at a different resource, delete it and create a new one.
+> **Note**: You can't change the `connectionType` or the downstream resource after you create the connection. To point a connection at a different resource, delete it, and create another one.
 
 The MCP server needs one connection for each downstream resource. Each token exchange returns a token for one resource.
 
@@ -172,7 +172,7 @@ To delete the OAuth client later, remove its resources in this order:
 
 1. Delete its connections. For each connection, send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections/{connectionId}`.
 1. Deactivate its keys. Send a `POST` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/deactivate`.
-1. Delete its keys. You must deactivate a key before you can delete it. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}`.
+1. Delete its keys. Deactivate a key before you delete it. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}`.
 1. Delete the OAuth client. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/oauth-client`. The response is `204 No Content`.
 
 The request to delete the OAuth client returns `409` if any connections or keys remain.
@@ -186,6 +186,7 @@ The request to delete the OAuth client returns `409` if any connections or keys 
   <!-- TODO: Add a single sequence diagram covering the inbound request and the token exchange (steps 1-8). Request from design team. -->
 
 </div>
+
 <!--
 See http://www.plantuml.com/plantuml/uml/
 @startuml
@@ -227,12 +228,13 @@ CustomDown --> MCP : 7. Access token T3\n(aud = downstream resource URL)
 MCP -> Down : 8. Request with T3 (Bearer)
 @enduml
 -->
+
 <!-- Confirmed by Gil, 2026-10-06: in the user-access exchange at the org authorization server, the agent's subject_token is the user's session token or an ID token from the user's authentication (XAA). The MCP server's subject_token is the T1 access token. -->
 <!-- Only the MCP server's token exchange at the org authorization server uses private_key_jwt (confirmed by Gil, 2026-10-06). -->
 
 1. An AI agent or client requests an access token for the MCP server from the MCP server's custom authorization server. The `resource` parameter is the MCP server's resource URL. A delegation link must authorize the caller to delegate to the MCP server.
 
-   > **Note**: With user access, the agent first exchanges the user's token for an ID-JAG at the org authorization server. It then sends the ID-JAG to the custom authorization server. With machine access, the agent sends a Client Credentials request instead. See [Initial authentication](#initial-authentication).
+   > **Note**: With user access, the agent first exchanges the user's token for an ID-JAG at the org authorization server. It then sends the ID-JAG to the custom authorization server. With machine access, the agent sends a client credentials request instead. See [Initial authentication](#initial-authentication).
 
 1. The custom authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value. T1 keeps the original subject, which is either a user or a machine.
 
@@ -264,14 +266,14 @@ The subject of T1 can be a user or a machine. The path depends on whether the AI
 
 Use this path when a user is in the loop. It's the more common scenario.
 
-1. The AI agent authenticates the user and exchanges the user's token for an ID-JAG at the org authorization server's `/token` endpoint. See the **User access** steps in [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow).
+1. The AI agent authenticates the user and exchanges the user's token for an ID-JAG at the org authorization server's `/token` endpoint. See the **User access** steps in the [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow).
 1. The AI agent sends the ID-JAG to the `/token` endpoint of the MCP server's custom authorization server. Use the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`).
 
 Both requests include the `resource` parameter. Its value is the resource URL that's configured on the MCP server. For example, `resource=https://mcp-server.example.com`.
 
 #### Machine access
 
-Use this path when no user is in the loop, such as a service app. See the **Machine access** steps in [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow).
+Use this path when no user is in the loop, such as a service app. See the **Machine access** steps in the [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow).
 
 The AI agent or client sends a request to the custom authorization server's `/token` endpoint. Use the Client Credentials grant type. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
 
