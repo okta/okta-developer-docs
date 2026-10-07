@@ -109,7 +109,11 @@ CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026>
 
 #### Developer documentation updates in 2026.41.0
 
-Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026).
+* Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026). <!-- OKTA-1292244-->
+
+* The new [Secure a Salesforce Agentforce agent](/docs/guides/ai-agent-secure-salesforce-agentforce/main/) is now available. Learn how to add Okta authentication to an existing Salesforce Agentforce AI agent. <!-- OKTA-1230262 -->
+
+* The new [Secure a Google Vertex AI agent](/docs/guides/ai-agent-secure-google-vertex/main/) is now available. Learn how to add Okta authentication to an existing Google Vertex AI agent. <!-- OKTA-1230270 -->
 
 #### Bugs fixed in 2026.41.0
 
