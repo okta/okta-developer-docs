@@ -20,7 +20,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | ------ | ------------------------ |
 | [Configure access to the resource catalog is GA in Production](#configure-access-to-the-resource-catalog-is-ga-in-production) | September 10, 2026 |
 | [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | October 7, 2026 |
-| [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
+| [Developer documentation update in 2026.41.0](#developer-documentation-update-in-2026-41-0) | October 7, 2026 |
 | [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0)| October 7, 2026 |
 
 #### Configure access to the resource catalog is GA in Production
@@ -48,7 +48,7 @@ The System Log now logs the following events for staging Access Certification ca
 See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
 <!-- OKTA-1282649 Preview Oct. 7, 2026 -->
 
-#### Developer documentation updates in 2026.41.0
+#### Developer documentation update in 2026.41.0
 Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026).
 
 #### Bugs fixed in 2026.41.0
