@@ -30,6 +30,7 @@ title: Okta Identity Engine API release notes 2026
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
 | [Self-service registration policy for ITP is self-service EA](#self-service-registration-policy-for-itp-is-self-service-ea) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
+| [Single Certificate Issuer is GA in Preview](#single-certificate-issuer-is-ga-in-preview) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
 | [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0) | October 7, 2026 |
 
@@ -95,6 +96,16 @@ Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi
 #### Email channel for Direct Authentication is self-service EA in Preview
 
 Direct Authentication now supports email as a channel for out-of-band authentication, alongside Okta Verify push, SMS, and voice. Apps can sign users in with a one-time code sent by email, either as a [primary factor|https://developer.okta.com/docs/guides/configure-direct-auth-grants/oobem/main/] or as an [MFA step-up|https://developer.okta.com/docs/guides/configure-direct-auth-grants/mfaoobem/main/].
+
+#### Authenticator Groups API is self-service EA in Preview
+
+You can now create and manage authenticator groups and reference them in authenticator enrollment policies. Use authenticator groups to define groups of authenticators for end-user enrollment, instead of simply marking each one required, optional, or disabled. You can require users to enroll a minimum number of authenticators from an authenticator group. This flexibility supports acceptable backup authenticators, gives end users more secure choices, and simplifies enrollment policy management. See [Authenticator groups](/docs/concepts/policies/#authenticator-groups). <--OKTA-1262813, FF: 
+ENROLLMENT_POLICY_AUTHENTICATOR_GROUPS, EA Preview: Oct 7, 2026 -->
+
+#### Single Certificate Issuer is GA in Preview
+
+With Single Certificate Issuer, you can configure one certificate authority and trust it for device registration, Okta Device Access, and management attestation, instead of setting up and maintaining a separate certificate authority or SCEP configuration for each purpose. This reduces the number of certificate authorities admins need to create, renew, and track, simplifying device management setup for organizations that use certificate-based device trust. See the [Certificate Authority to Scope Mappings](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/certificateauthoritytoscopemapping) API. <-- OKTA-1197469, FF: 
+CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026>
 
 #### Developer documentation updates in 2026.41.0
 
