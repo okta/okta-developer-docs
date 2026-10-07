@@ -31,7 +31,7 @@ title: Okta Identity Engine API release notes 2026
 | [Self-service registration policy for ITP is EA](#self-service-registration-policy-for-itp-is-ea) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
-| [Bugs fixed in 2026.41.0]()| October 7, 2026 |
+| [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0) | October 7, 2026 |
 
 #### NFC authenticator available with Adaptive MFA
 
