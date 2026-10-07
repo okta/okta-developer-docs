@@ -107,6 +107,7 @@ guides:
  - submit-app-prereq
  - submit-oin-app
  - submit-xaa-app
+ - submit-wfactions-app
  - update-oin-app
  - deployment-checklist
  - deploy-your-app
