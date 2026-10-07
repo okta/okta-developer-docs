@@ -8,6 +8,7 @@ guides:
  - ai-agent-cimd-registration
  - ai-agent-secure-google-vertex
  - ai-agent-secure-salesforce-agentforce
+ - ai-agent-secure-servicenow-ai-agent-studio
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
