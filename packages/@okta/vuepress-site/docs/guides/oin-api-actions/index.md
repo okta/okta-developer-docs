@@ -1,11 +1,11 @@
 ---
-title: API Integration Actions
+title: API integration actions
 meta:
   - name: description
-    content: Provides instruction on how to create and integration with API Integration Actions in the Workflows Integration Builder.
+    content: Provides instruction on how to create and integration with API integration actions in the Workflows Integration Builder.
 ---
 
-API Integration Actions enable you to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout, using third-party APIs. API Integration Actions are available through the low-code Workflows Integration Builder. These integrations are called by Okta for API actions, such as retrieving and updating entitlements or triggering a risk-based logout.
+API integration actions enable you to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout, using third-party APIs. API integration actions are available through the low-code Workflows Integration Builder. These integrations are called by Okta for API actions, such as retrieving and updating entitlements or triggering a risk-based logout.
 
 ## Integration Builder
 
@@ -20,13 +20,13 @@ As an ISV, start building your integration in the OIN Wizard by defining your in
 ### Process overview
 
 1. Start your submission in the OIN Wizard. See [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/).
-2. Build your API integration actions in the Integration Builder by following the [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. Define the authentication and action flows to your API server.
+2. Build your API integration actions in the Integration Builder by following the [Build an integration with API integration actions](/docs/guides/build-api-actions/main/) guide. Define the authentication and action flows to your API server.
 3. Return to the OIN Wizard to complete the integration configuration and testing. The actions you define in the Integration Builder become available in the OIN Wizard for real-time testing.
 4. Submit for validation through the OIN Wizard once you're satisfied with your integration's functionality.
 
 <div>
 
-![ISV API Integration Actions submission process flow](/img/oin/3pSubmission.svg)
+![ISV API integration actions submission process flow](/img/oin/3pSubmission.svg)
 
 <!-- Generated using http://www.plantuml.com/plantuml/uml/
 

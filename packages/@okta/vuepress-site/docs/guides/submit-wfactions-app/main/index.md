@@ -6,9 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an integration that's implemented with API integration actions to the Okta Integration Network (OIN). Currently, you can implement the provisioning and Universal Logout capabilities with API Integration Actions.
-
-> **Note:** Integrations that have provisioning and Universal Logout capabilities also require the SSO capability. If you have an existing SSO integration, you don't need to create a new submission. Go to **Applications and Resources** > **Your OIN Integrations**, then select your integration. Select **Provisioning** or **Universal Logout** with **API integration actions** under the **Add integration capabilities** section.
+Learn how to submit an integration that's implemented with API integration actions to the Okta Integration Network (OIN). Currently, you can implement the provisioning and Universal Logout capabilities with API integration actions.
 
 ---
 
@@ -18,11 +16,9 @@ Learn how to submit an integration that's implemented with API integration actio
 
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles
 
-* The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
+* An integration that's based on the [Build integrations with API integration actions](/docs/guides/build-api-actions/main/) guide
 
-* Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
-
-* An integration that's based on the [Build integrations with API Integration Actions](/docs/guides/build-api-actions/main/) guide
+* The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/), including the Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
 
 ---
 
@@ -40,24 +36,22 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
   * Validate your API integration actions.
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
-* Edit published integrations and resubmit them to the OIN.
+* Edit published integrations and resubmit them to the OIN. See [Update an integration](/docs/guides/update-oin-app/wfactions/main/).
 
 The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
-> **Note:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a backend server handles the authentication. See the [Enterprise-Ready workshop](https://developer.okta.com/blog/2023/07/28/oidc_workshop) for more information on authenticating SaaS apps with OIDC.
-
 ### Supported capabilities
 
-This guide covers submissions that use API Integration Actions for the following capabilities:
+This guide covers submissions that use API integration actions for the following capabilities:
 
 * Universal Logout (with SSO)
 * Provisioning
 * Entitlement Management (with provisioning)
 
 > **Notes:**
-> * Universal Logout is supported with SAML 2.0 or OIDC SSO capability.
+> * Universal Logout is supported with SAML 2.0 or OIDC SSO capability. If you have an existing SSO integration, you don't need to create a new submission. You can add the Universal Logout capability with API integration actions.
 > * Entitlement Management is supported for provisioning integrations that manage entitlements. [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) is required to use entitlements in Okta. See [Entitlement Management](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt).
-> * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
+> * There are protocol-specific limitations on integrations in the OIN. See [API integration action limitations](/docs/guides/submit-app-prereq/main/#api-integration-actions-limitations).
 
 ## Start a submission
 
@@ -76,14 +70,9 @@ Start your integration submission for OIN publication:
    > **Note:** If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 
 1. Click **Build new OIN integration**. The OIN Wizard appears.
-1. Select the capability and protocol that your integration supports from the **Add integration capabilities** section.
-
-    > **Note:** You can't select new or disabled capabilities for existing submissions.
+1. Select the capability (**Universal Logout** or **Provisioning** ) and **API integration actions** as the builder tool from the **Add integration capabilities** section.
 
 1. Click **Add integration details**.
-
-> **Note:** The instructions on this page are for the **API Integration Actions** low-code Workflows Integration Builder.
-> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 ### Integration details
 
@@ -153,20 +142,17 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 6. Click **Save and start building**.
 
-  The OIN Wizard redirects you to the Integration Builder to define API actions for your integration. See [Build integrations with API Integration Actions](/docs/guides/build-api-actions/main/).
+  The OIN Wizard redirects you to the Integration Builder to define API actions for your integration. See [Build integrations with API integration actions](/docs/guides/build-api-actions/main/).
 
  > **Note**: You can click **Skip to configure your integration** to bypass building your API integration actions. Continue to [Configure your integration](#configure-your-integration) if you have already defined all your API integration actions.
 
 ### Configure your integration
 
 Configure your integration settings. Settings appear based on your capability selection.
-#### Provisioning API Integration Actions
 
-> **Notes:**
-> * This section appears only if you select provisioning with API Integration Actions.
-> * The instructions on this page are for **API Integration Actions**. If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+#### Provisioning API integration actions
 
-1. Specify the flows that you built in API Integration Actions to support the following operation:
+1. Specify the flows that you built in API integration actions to support the following operation:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |
@@ -200,10 +186,10 @@ Configure your integration settings. Settings appear based on your capability se
 
     `*` Required properties
 
-#### Entitlement API Integration Actions
+#### Entitlement API integration actions
 
 > **Notes:**
-> * This section appears if you select **Entitlement Management** with API Integration Actions.
+> * This section appears if you select **Entitlement Management** with API integration actions.
 > * Entitlement Management is only supported with provisioning integrations. [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) is required to use entitlements in Okta. See [Entitlement Management](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt).
 
 Specify the following properties for Entitlement Management submissions:
@@ -213,10 +199,10 @@ Specify the following properties for Entitlement Management submissions:
 | **List entitlement schema** | Specify the flow to list the entitlement schema in your app. |
 | **List entitlement schema property values** | Specify the flow to list entitlement-schema property values. |
 
-#### Universal Logout API Integration Actions
+#### Universal Logout API integration actions
 
 > **Notes:**
-> * This section appears only if you select **Universal Logout** with API Integration Actions.
+> * This section appears only if you select **Universal Logout** with API integration actions.
 > * Universal Logout is only supported with SSO integrations.
 > * If you want instructions for SSO integrations, select **OpenID Connect** or **SAML 2.0** from the **Instructions for** dropdown list on the right.
 > * For integrations that include API actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** path in the Admin Console.
@@ -280,7 +266,7 @@ In the **Testing information for Okta review** section, specify the following **
 
 `*` Required properties
 
-> **Notes:** For integrations that use API Integration Actions:
+> **Notes:** For integrations that use API integration actions:
 > * Provide credentials for the OIN team to conduct [QA testing](/docs/guides/submit-app-overview/#understand-the-submission-review-process). You can include instructions on obtaining credentials from your app.
 > * Before you test your integration, ensure that your flows are active in the Integration Builder.
 
@@ -416,7 +402,7 @@ If you modify a published OIN integration, you must generate an instance that's 
 
 #### Add to Tester
 
-> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for provisioning integrations with SCIM or API Integration Actions.
+> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for provisioning integrations with SCIM or API integration actions.
 
 * Click **Add to Tester** next to the app in the **Application instances for testing** list. This includes it for testing with the OIN Submission Tester. The **Add to Tester** option appears only for active and eligible apps.
 
@@ -690,6 +676,6 @@ If you need help during your submission, Okta provides the following support str
 
 ## See also
 
-* [API Integration Actions](/docs/guides/oin-api-actions/) overview
-* [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/)
+* [API integration actions](/docs/guides/oin-api-actions/) overview
+* [Build an integration with API integration actions](/docs/guides/build-api-actions/main/)
 * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)

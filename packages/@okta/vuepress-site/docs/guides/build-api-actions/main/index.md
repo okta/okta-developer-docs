@@ -1,10 +1,10 @@
 ---
-title: Build an integration with API Integration Actions
-excerpt: Learn how to build an integration with API Integration Actions in the Workflows Integration Builder.
+title: Build an integration with API integration actions
+excerpt: Learn how to build an integration with API integration actions in the Workflows Integration Builder.
 layout: Guides
 ---
 
-Build and validate integrations with API Integration Actions from the Okta Integration Network (OIN) Wizard and Integration Builder.
+Build and validate integrations with API integration actions from the Okta Integration Network (OIN) Wizard and Integration Builder.
 
 ---
 
@@ -19,17 +19,17 @@ Build and validate integrations with API Integration Actions from the Okta Integ
 
 ## Overview
 
-You can build integrations with API Integration Actions, which Okta calls to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout. API actions to your app are built through the low-code Workflows Integration Builder, which is available in Okta Integrator Free Plan orgs.
+You can build integrations with API integration actions, which Okta calls to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout. API actions to your app are built through the low-code Workflows Integration Builder, which is available in Okta Integrator Free Plan orgs.
 
 To begin building API actions in the Integration Builder, you must first start your integration submission within the OIN Wizard. This process ensures a seamless build-and-submit experience, as the Integration Builder is designed to integrate directly with the OIN Wizard.
 
-The following capabilities are supported for API Integration Actions:
+The following capabilities are supported for API integration actions:
 
 * Provisioning
 * Entitlement Management
 * Universal Logout (your integration must also support SSO)
 
-> **Note**: For the end-to-end API integration actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
+> **Note**: For the end-to-end API integration actions build and submit process, see the [API integration actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
 ## Integration Builder project
 
@@ -142,7 +142,7 @@ After you've configured your authentication settings, you can map the authentica
 
 1. Select **New Component** > **Add Action** in your Integration Builder project.
 
-    The **Add new action** dialog appears with the supported API Integration Actions available:
+    The **Add new action** dialog appears with the supported API integration actions available:
 
     * Provisioning action contracts
     * Universal Logout
