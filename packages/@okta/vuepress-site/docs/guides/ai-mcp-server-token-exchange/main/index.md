@@ -60,7 +60,9 @@ Send a `POST` request to create the OAuth client. This request has no body.
     --header "Authorization: Bearer {accessToken}"
 ```
 
-The response is `201 Created`. An MCP server has only one OAuth client, so the request returns `409` if one already exists.
+This single request creates and activates the OAuth client. You don't need a separate activation call.
+
+The response is `201 Created` with an empty body. An MCP server has only one OAuth client, so the request returns `409` if one already exists.
 
 ### Get the client ID
 
@@ -166,7 +168,14 @@ A resource connection defines the downstream resource that the MCP server can re
 
 The MCP server needs one connection for each downstream resource. Each token exchange returns a token for one resource.
 
-To delete the OAuth client later, delete its connections and keys first. Otherwise the request returns `409`.
+To delete the OAuth client later, remove its resources in this order:
+
+1. Delete its connections. For each connection, send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections/{connectionId}`.
+1. Deactivate its keys. Send a `POST` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/deactivate`.
+1. Delete its keys. You must deactivate a key before you can delete it. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}`.
+1. Delete the OAuth client. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/oauth-client`. The response is `204 No Content`.
+
+The request to delete the OAuth client returns `409` if any connections or keys remain.
 
 ## Token exchange flow
 
@@ -289,6 +298,8 @@ The MCP server authenticates with `private_key_jwt`. It signs the client asserti
 
 > **Note**: See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#client-authentication-methods) for more details on each type of authentication method.
 
+In the following request, the `scope` value lists scopes that are defined on the downstream custom authorization server. They aren't the MCP server's own scopes.
+
 ```bash
   curl --location --request POST \
     --url 'https://{yourOktaDomain}/oauth2/v1/token' \
@@ -314,7 +325,7 @@ The MCP server authenticates with `private_key_jwt`. It signs the client asserti
 | `requested_token_type` | The type of token being requested. The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | `audience` | The issuer URL of the custom authorization server that protects the downstream resource |
 | `resource` | The resource URL of the downstream resource. This must match the resource in the MCP server's resource connection. |
-| `scope` | A list of scopes at the downstream resource that's being requested. This defines the permissions for the final access token. |
+| `scope` | A list of scopes that the MCP server requests at the downstream custom authorization server. These aren't the MCP server's own scopes. They define the permissions for the final access token. |
 | `client_id` | The MCP server's OAuth client ID. This is the `clientId` value in the `oauthClient` property of the MCP server. See [Get the client ID](#get-the-client-id). |
 | `client_assertion_type` | The type of assertion for client authentication. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | A signed JWT used for client authentication. Sign the JWT using an active key from the MCP server's credentials. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
