@@ -11,6 +11,42 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## October
+
+### Version 2026.41.0
+<!-- Published on: 2026-10-07T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Configure access to the resource catalog is GA in Production](#configure-access-to-the-resource-catalog-is-ga-in-production) | October 7, 2026 |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | October 7, 2026 |
+| [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
+| [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0)| October 7, 2026 |
+
+#### Configure access to the resource catalog is GA in Production
+
+Previously, the ability to view resource catalog entry points, such as the **Request Access** button in the End-User Dashboard, was available to all users in an org by default. Now, admins can configure this visibility to allow all members of an org to view the entry points, no users to view them, or restrict entry point visibility to a specific set of Okta groups. For the Unified requester experience, this configuration also controls the **Resource Catalog** links and search options from the Okta Access Request app, Slack, and Microsoft Teams. See [Configure resource catalog entry point visibility](https://help.okta.com/okta_help.htm?type=oie&id=ar-configure-catalog-visibility).
+
+See `resourceCatalogVisibility` in [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) to configure this setting through the API.
+
+#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta
+
+<ApiLifecycle access="beta" />
+
+The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
+
+To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+<!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Preview date: July 29, 2025 -->
+
+#### Developer documentation updates in 2026.41.0
+Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026).
+
+#### Bugs fixed in 2026.41.0
+
+* The `certification.campaign.launch` System Log was triggered in error when the staging process started for an Access Certification campaign. (OKTA-1268484)
+
+* weCampaigns within seven days of a scheduled launch aren’t visible in orgs that disabled the **Stage certification campaigns before launch** Early Access (EA) feature. (OKTA-1245618)
+
 ## September
 
 ### Weekly release 2026.09.1

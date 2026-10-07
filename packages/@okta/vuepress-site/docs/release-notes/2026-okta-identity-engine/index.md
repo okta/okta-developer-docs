@@ -11,6 +11,101 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## October
+
+### Version 2026.41.0
+<!-- Published on: 2026-10-07T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [NFC authenticator available with Adaptive MFA](#nfc-authenticator-available-with-adaptive-mfa) | October 7, 2026 |
+| [Passkey (FIDO2 WebAuthn) authenticator enabled by default](#passkey-fido2-webauthn-authenticator-enabled-by-default) | October 7, 2026 |
+| [Okta Expression Language now supports a session IdP property](#okta-expression-language-now-supports-a-session-idp-property) | October 7, 2026 |
+| [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | October 7, 2026 |
+| [Prompt users to enroll a passkey is GA in Production](#prompt-users-to-enroll-a-passkey-is-ga-in-production) | October 7, 2026 |
+| [Password provisioning is now configurable during user creation](#password-provisioning-is-now-configurable-during-user-creation) | October 7, 2026 |
+| [User identification policy is GA in Production](#user-identification-policy-is-ga-in-production) | October 7, 2026 |
+| [WebAuthn authenticator enrollments include transports values is GA in Production](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-production) | August 5, 2026 |
+| [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
+| [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
+| [Self-service registration policy for ITP is EA](#self-service-registration-policy-for-itp-is-ea) | October 7, 2026 |
+| [Email channel for Direct Authentication is self-service EA in Preview is EA](#email-channel-for-direct-authentication-is-self-service-ea-in-preview-is-ea) | October 7, 2026 |
+| [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
+| [Bugs fixed in 2026.41.0]()| October 7, 2026 |
+
+#### NFC authenticator available with Adaptive MFA
+
+The NFC authenticator is now available to orgs with Adaptive MFA. Frontline workers can tap their NFC badge on a reader and enter a PIN to sign in to Okta-protected apps on shared Windows workstations. See [Configure the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-nfc-authenticator).
+
+#### Passkey (FIDO2 WebAuthn) authenticator enabled by default
+
+The Passkey (FIDO2 WebAuthn) authenticator is now available by default in all newly created orgs to ensure protection by a phishing-resistant authenticator from the start. As a possession and biometric or knowledge-based factor, Passkey (FIDO2 WebAuthn) meets the requirements for phishing resistance and user presence. See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-passkeys).
+
+#### Okta Expression Language now supports a session IdP property
+
+Okta Expression Language now supports `session.idp` in app sign-in policies that use expressions. `session.idp` is a property that returns the ID of the identity provider (IdP) that established a user's current session. This allows you to write app sign-in policy conditions based on which IdP a user authenticated through. See [Session properties](/docs/reference/okta-expression-language-in-identity-engine/#session-properties). <!-- OKTA-1277317 -->
+
+#### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview
+
+OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+<!-- OKTA-1265993 ON_BEHALF_TOKEN_EXCHANGE_ACT_CLAIM preview date: oct 7, 2026 -->
+
+#### Prompt users to enroll a passkey is GA in Production
+
+You can now configure a passkey enrollment promotion nudge that prompts users to enroll a passkey authenticator when they sign in. The nudge is non-blocking. It only applies when the passkey authenticator is optional, and users who skip it can still sign in with another authenticator. You can control how often the prompt reappears and how many times a user can skip it before Okta stops showing it. See [Passkey enrollment promotion](/docs/concepts/policies/#passkey-enrollment-promotion/). <!-- OKTA-1230760, ENROLLMENT_POLICY_PROMOTION, preview date: aug 5, 2026 -->
+
+#### Password provisioning is now configurable during user creation
+
+Enable or disable whether Okta sends a password during user creation in SCIM 2.0 test app templates (OAuth Bearer Token, Basic Auth, and Header Auth). To configure this, navigate to **Provisioning** > **To App** > **Create Users** and toggle the **Set password when creating a new user** setting. See [To App](/docs/guides/scim-provisioning-integration-connect/main/#to-app).
+
+#### User identification policy is GA in Production
+
+The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to control whether the **Sign in with Okta FastPass** button appears on an app's sign-in page. This replaces a single org-wide setting with per-app control.
+
+Okta automatically creates and maintains a user identification policy for each app sign-in policy. You manage only the policy's rule. Use the `userIdentification.settings.securityMethods.fastpass.showSignInButton` rule action (`ALWAYS` or `NEVER`) to control the button.
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+#### WebAuthn authenticator enrollments include transports values is GA in Production
+
+The WebAuthn enrollment profile now includes a `transports` field that’s returned in responses used by Okta's embedded Identity Engine SDKs. The `transports` field reports how an enrolled authenticator communicates with a client device, such as `usb`, `nfc`, or `ble`. <!-- OKTA-1196205, WEBAUTHN_AUTHENTICATION_TRANSPORTS, preview date: aug 5, 2026 -->
+
+#### PowerShell scripts for Active Directory is GA in Production
+
+Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory|https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script] and [Invoke a remote script on the AD agent|https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript].
+
+#### New System Log events for staging Access Certification campaigns is EA
+
+The System Log now logs the following events for staging Access Certification campaigns:
+
+* `certification.campaign.stage.start`: This event is logged when the staging process starts for a campaign.
+* `certification.campaign.stage.end`: This event is logged when the campaign staging process ends. The `outcome.result` field reports `SUCCESS` if the campaign snapshot is created successfully, or `FAILURE` if there were errors during the staging process.
+
+See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
+<!-- OKTA-1282649  Preview Oct. 7, 2026 -->
+
+#### Self-service registration policy for ITP is EA
+
+The [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy) API now supports the `SELF_SERVICE_REGISTRATION` policy type for ITP. Use it to control self-service registration attempts based on network zone and email domain checks.
+
+A self-service registration policy rule can evaluate the requester's network zone and check whether the registration email domain is on Okta's list of known suspicious or disposable domains. When a rule matches, its action allows or denies the registration attempt.
+
+Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/mapresourcetopolicy) API with the new `PROFILE_ENROLLMENT` resource type to link a self-service registration policy to a profile enrollment policy. <!-- OKTA-1182716, OKTA-1204105, FF SELF_SERVICE_REGISTRATION_POLICY -->
+
+#### Email channel for Direct Authentication is self-service EA in Preview is EA
+
+Direct Authentication now supports email as a channel for out-of-band authentication, alongside Okta Verify push, SMS, and voice. Apps can sign users in with a one-time code sent by email, either as a [primary factor|https://developer.okta.com/docs/guides/configure-direct-auth-grants/oobem/main/] or as an [MFA step-up|https://developer.okta.com/docs/guides/configure-direct-auth-grants/mfaoobem/main/].
+
+#### Developer documentation updates in 2026.41.0
+
+Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026).
+
+#### Bugs fixed in 2026.41.0
+
+* The `certification.campaign.launch` System Log was triggered in error when the staging process started for an Access Certification campaign. (OKTA-1268484)
+
+* AI agents using a SAML app for user access weren't able to access their STS resource connections. (OKTA-1266073)
+
 ## September
 
 ### Weekly release 2026.09.2

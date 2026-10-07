@@ -11,6 +11,20 @@ title: Okta Privileged Access API release notes 2026
 
 Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta Identity Engine.
 
+## October
+
+### Version 2026.41.0
+<!-- Published on: 2026-10-07T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New exclude_rules query parameter for the Security Policies API is GA](#new-exclude-rules-query-parameter-for-the-security-policies-api-is-ga) | October 7, 2026 |
+
+#### New exclude_rules query parameter for the Security Policies API is GA
+
+You can now reduce the response size of the [List all security policies](https://developer.okta.com/docs/api/openapi/opa/opa/security-policy/listsecuritypolicies) endpoint by using the `new exclude_rules` query parameter. When set to `true`, the response returns an empty rules array for each security policy instead of the full array. If omitted or set to `false`, the full rules array is returned as before.
+See the [Security Policy](https://developer.okta.com/docs/api/openapi/opa/opa/security-policy) API.
+
 ## September
 
 ### Weekly release 2026.09.2
