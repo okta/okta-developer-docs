@@ -5,9 +5,9 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to add Okta authentication to an AI agent registered in Workday's Agent System of Record (ASOR). Workday ASOR is Workday's registry of AI agents built on or connected to the Workday platform. Once Okta imports an AI agent from ASOR, you add a token exchange module so the AI agent can perform Okta's two-step token exchange and act on behalf of the signed-in user.
+This guide shows you how to add Okta authentication to an AI agent registered in Workday's Agent System of Record (ASOR). Workday ASOR is Workday's registry of AI agents built on or connected to the Workday platform. After Okta imports an AI agent from ASOR, you add a token exchange module so the AI agent can perform Okta's two-step token exchange and act on behalf of the signed-in user.
 
-The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. The platform-specific integration code for Workday ASOR agents isn't yet available. See [Integrate the token exchange into your Workday AI agent](#integrate-the-token-exchange-into-your-workday-ai-agent).
+The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. <span style="color: #c0392b;">The platform-specific integration code for Workday ASOR agents isn't yet available.</span> See [Integrate the token exchange into your Workday AI agent](#integrate-the-token-exchange-into-your-workday-ai-agent).
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -24,7 +24,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * A Workday tenant with Agent System of Record enabled and at least one registered AI agent that you can import
-* Security Administrator access in Workday, to register an API client
+* Security Administrator access in Workday to register an API client
 * The Workday AI agent imported into Okta as an AI agent identity. See [Import your AI agent from Workday](#import-your-ai-agent-from-workday).
 * [Python](https://www.python.org/) 3.10 or later
 
@@ -44,9 +44,7 @@ The integration has two parts:
 
 * Platform integration (Workday-specific). Every platform integration calls the token exchange and then attaches the resulting access token to the agent's downstream calls, but the specific integration point for Workday ASOR agents, such as which part of the agent's runtime performs this exchange, isn't yet documented. See [Integrate the token exchange into your Workday AI agent](#integrate-the-token-exchange-into-your-workday-ai-agent).
 
-*****
-
-**TODO:** Replace this text-based diagram with an image once the platform integration point is confirmed.
+<span style="color: #c0392b;">**TODO:** Replace this text-based diagram with an image once the platform integration point is confirmed.</span>
 
 ```text
 User
@@ -64,8 +62,6 @@ Platform integration (Workday ASOR agent: integration point TBD)
 Downstream resource (Okta-protected API or MCP server)
   Authorization: Bearer <access_token>
 ```
-
-*****
 
 > **Note:** Importing an AI agent from Workday ASOR is a separate mechanism from the token exchange. Okta pulls the agent's inventory from Workday on a schedule or on demand, and registers each agent as an AI agent identity. This doesn't configure the agent for the token exchange. You still complete the configuration steps in [Before you begin](#before-you-begin) regardless of whether the AI agent was imported or registered manually.
 
@@ -117,7 +113,7 @@ Okta can discover and import AI agents directly from a connected Workday tenant.
 
    > **Note:** If this is the first time you're connecting this Workday tenant, Okta might return an interaction URI. Open that URI, sign in to Workday in the same browser, and complete the consent screen before validation can succeed.
 
-   ***** **TODO:** Confirm whether Okta surfaces an interaction URI for Workday the same way it does for Google Vertex, or whether Workday's OAuth consent happens entirely within the AI Agent Import tab's Test API Credentials step. Source material describes an interactive consent step as part of the underlying OAuth Authorization Code flow, but doesn't confirm how it surfaces in this specific tab. Also unconfirmed: whether the admin must sign in to Workday in the same browser before this step, which source material notes as a Workday-specific quirk (Workday's authorize endpoint doesn't redirect unauthenticated users to a login page). *****
+   <span style="color: #c0392b;">**TODO:** Confirm whether Okta surfaces an interaction URI for Workday the same way it does for Google Vertex, or whether Workday's OAuth consent happens entirely within the AI Agent Import tab's Test API Credentials step. Source material describes an interactive consent step as part of the underlying OAuth Authorization Code flow, but doesn't confirm how it surfaces in this specific tab. Also unconfirmed: whether the admin must sign in to Workday in the same browser before this step, which source material notes as a Workday-specific quirk (Workday's authorize endpoint doesn't redirect unauthenticated users to a login page).</span>
 
 1. Choose your import schedule, matching criteria, and preview settings, then save the configuration again. Okta runs the import immediately, and on the schedule you chose afterward.
 1. Go to the AI agents page to register the imported AI agent.
@@ -129,11 +125,7 @@ Okta can discover and import AI agents directly from a connected Workday tenant.
 
 <AiAgentOktaConfigValues/>
 
-*****
-
-**TODO:** Add a Workday-specific configuration values table once the platform integration point is confirmed. The values above are everything the shared token exchange module needs. Workday ASOR doesn't yet have a documented agent runtime or SDK, so there are no confirmed platform-specific environment variables to list.
-
-*****
+<span style="color: #c0392b;">**TODO:** Add a Workday-specific configuration values table once the platform integration point is confirmed. The values above are everything the shared token exchange module needs. Workday ASOR doesn't yet have a documented agent runtime or SDK, so there are no confirmed platform-specific environment variables to list.</span>
 
 ## Add Okta authentication to your AI agent
 
@@ -143,11 +135,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 ## Integrate the token exchange into your Workday AI agent
 
-*****
-
-**TODO:** This section is incomplete. Workday ASOR's agent runtime and the specific point where an agent would call the token exchange module aren't yet documented. Source material confirms the import mechanism (above) and the generic two-step token exchange (shared across all platforms), but doesn't confirm how a Workday ASOR agent is built, hosted, or extended to add this exchange, nor how the resulting access token would be attached to the agent's downstream calls. Revisit this section once that integration point is confirmed, following the pattern used in the Amazon Bedrock AgentCore, Salesforce Agentforce, or DataRobot guides as a model.
-
-*****
+<span style="color: #c0392b;">**TODO:** This section is incomplete. Workday ASOR's agent runtime and the specific point where an agent would call the token exchange module aren't yet documented. Source material confirms the import mechanism (above) and the generic two-step token exchange (shared across all platforms), but doesn't confirm how a Workday ASOR agent is built, hosted, or extended to add this exchange, nor how the resulting access token would be attached to the agent's downstream calls. Revisit this section once that integration point is confirmed, following the pattern used in the Amazon Bedrock AgentCore, Salesforce Agentforce, or DataRobot guides as a model.</span>
 
 ## Verify the configuration
 
@@ -159,11 +147,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 ## Run an end-to-end invocation
 
-*****
-
-**TODO:** This section is incomplete, since it depends on the platform integration point in the previous section. Once that's confirmed, add a worked example that calls the integrated AI agent with a test ID token and shows a successful response, following the pattern used in the other platform guides.
-
-*****
+<span style="color: #c0392b;">**TODO:** This section is incomplete, since it depends on the platform integration point in the previous section. Once that's confirmed, add a worked example that calls the integrated AI agent with a test ID token and shows a successful response, following the pattern used in the other platform guides.</span>
 
 ## Troubleshoot your integration
 
