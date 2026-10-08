@@ -19,7 +19,6 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Configure access to the resource catalog is GA in Production](#configure-access-to-the-resource-catalog-is-ga-in-production) | September 10, 2026 |
-| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | October 7, 2026 |
 | [Developer documentation update in 2026.41.0](#developer-documentation-update-in-2026-41-0) | October 7, 2026 |
 | [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0)| October 7, 2026 |
 
@@ -29,12 +28,6 @@ Previously, the ability to view resource catalog entry points, such as the **Req
 
 See `resourceCatalogVisibility` in [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) to configure this setting through the API.
 
-#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta
-
-<ApiLifecycle access="beta" />
-
-The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
-<!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Preview date: July 29, 2025 -->
 
 #### New System Log events for staging Access Certification campaigns is EA
 
