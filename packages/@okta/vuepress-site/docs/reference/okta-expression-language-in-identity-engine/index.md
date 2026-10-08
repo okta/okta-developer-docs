@@ -61,45 +61,7 @@ When you create an Okta expression, you can reference any property that exists i
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `user.$property`                  | `user` - references the Okta user<br>`property` - top-level property variable name<br>Values: `id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
-| `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>
-
-### Imported app user
-
-<ApiLifecycle access="ea" />
-
-When you create an Okta expression for an [IGA Access Certification campaign](https://help.okta.com/okta_help.htm?id=ext-el-eg), you can reference attributes within the `importedAppUser` context for a user imported from a connected app.
-
-> **Note:** `importedAppUser` expressions are only supported in IGA Access Certification campaigns. This feature is in early access. Contact [Okta Support](https://support.okta.com) to enable this feature.
-
-| Syntax                          | Definitions                                                                                       | Examples                                            |
-| --------                        | ----------                                                                                        | ------------                                        |
-| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of a raw attribute returned by the connected app's connector. Raw attribute names can differ from the attribute names in the app user profile. | `importedAppUser.dept`<br>`importedAppUser.title` |
-| `importedAppUser.userEntitlements.group.$attribute` | References a group entitlement held by the imported user. Use with a `.?[$predicate]` selection.<br>`$attribute` - a field on the group entitlement, such as `displayName` or `externalId` | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins']` |
-
-Only the following operators and functions are supported with `importedAppUser`:
-
-* `==` and `!=` to compare an attribute to a string value
-* `$string_object.startsWith` and `$string_object.contains`
-* `{'value1', 'value2'}.contains($attribute)` to match an attribute against a set of values. Okta expands this into a chain of `==` comparisons joined by `OR`, and supports up to 10 values.
-* `$object.isEmpty() == true` or `$object.isEmpty() == false` to test whether an attribute has a value
-* `&&`, `||`, and `!` to combine conditions
-* A `.?[$predicate]` selection on a collection attribute, such as `userEntitlements.group`, combined with `.isEmpty()`. Selection predicates also support `$string_object.endsWith`.
-
-Relational operators (`<`, `>`, `<=`, `>=`) and comparisons against numeric or Boolean literals aren't supported. `$string_object.endsWith` is only supported inside a `.?[$predicate]` selection; it isn't supported on top-level `importedAppUser` attributes, such as `importedAppUser.dept.endsWith(...)`.
-
-> **Note:** `importedAppUser.status` values are matched case-insensitively. Use `==` (not `!=`) to filter on `status`, and combine it with other conditions using `&&` only. Combining `status` with `||` or `!`, or comparing it with `!=`, isn't supported.
-
-#### Imported app user examples
-
-| Expression | Description |
-| ---------- | ----------- |
-| `importedAppUser.dept == 'ENG'` | The imported user's `dept` attribute is `ENG`. |
-| `importedAppUser.dept.startsWith('EN')` | The imported user's `dept` attribute starts with `EN`. |
-| `importedAppUser.aliases.isEmpty() == false` | The imported user has at least one value in the `aliases` attribute. |
-| `importedAppUser.dept == 'ENG' && importedAppUser.status == 'ACTIVE'` | The imported user's `dept` attribute is `ENG` and the user's status is active. |
-| `{'ENG', 'SALES'}.contains(importedAppUser.dept)` | The imported user's `dept` attribute is `ENG` or `SALES`. |
-| `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins'].isEmpty() == false` | The imported user has a group entitlement with a `displayName` of `Server Admins`. |
-| `importedAppUser.userEntitlements.group.?[displayName.endsWith('Admins')].isEmpty() == false` | The imported user has a group entitlement whose `displayName` ends with `Admins`. |
+| `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
 
 ### Okta device profile
 
