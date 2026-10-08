@@ -8,16 +8,16 @@
   
     <item>
       <title>Version 2026.41.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#version-2026-41-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#version-2026-41-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#version-2026-41-0</guid>
       <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#actor-claim-support-for-oauth-20-on-behalf-of-token-exchange-is-ga-in-preview">Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#password-provisioning-is-now-configurable-during-user-creation">Password provisioning is now configurable during user creation</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#powershell-scripts-for-active-directory-is-ga-in-production">PowerShell scripts for Active Directory is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-system-log-events-for-staging-access-certification-campaigns-is-ea">New System Log events for staging Access Certification campaigns is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#app-branding-migration">App branding migration</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-41-0">Developer documentation updates in 2026.41.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview">Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#password-provisioning-is-now-configurable-during-user-creation">Password provisioning is now configurable during user creation</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#powershell-scripts-for-active-directory-is-ga-in-production">PowerShell scripts for Active Directory is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-system-log-events-for-staging-access-certification-campaigns-is-ea">New System Log events for staging Access Certification campaigns is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#app-branding-migration">App branding migration</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-41-0">Developer documentation updates in 2026.41.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.09.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-09-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-09-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-09-1</guid>
       <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-09-1">Bugs fixed in 2026.09.1</a>]]></description>
@@ -26,7 +26,7 @@
 
     <item>
       <title>Monthly release 2026.09.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-09-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-09-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-09-0</guid>
       <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#additional-telephony-inline-hook-payload-fields-are-self-service-ea-in-preview">Additional telephony inline hook payload fields are self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#cross-app-access-submission-through-the-oin-wizard-is-ga-in-production">Cross App Access submission through the OIN Wizard is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-ip-service-available-for-enhanced-dynamic-network-zones">New IP Service available for enhanced dynamic network zones</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production">New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#powershell-scripts-for-active-directory-is-ga-in-preview">PowerShell scripts for Active Directory is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#search-filter-and-export-apps-for-applications-page-is-ea">Search, filter, and export apps for Applications page is EA</a>]]></description>
@@ -35,7 +35,7 @@
 
     <item>
       <title>Weekly release 2026.08.4</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-4</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-08-4</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-08-4</guid>
       <pubDate>Wed, 02 Sep 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-08-4">Bug fixed in 2026.08.4</a>]]></description>
@@ -44,7 +44,7 @@
 
     <item>
       <title>Weekly release 2026.08.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-08-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-08-2</guid>
       <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-08-2">Bug fixed in 2026.08.2</a>]]></description>
@@ -53,7 +53,7 @@
 
     <item>
       <title>Weekly release 2026.08.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-08-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-08-1</guid>
       <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-ip-service-categories-for-enhanced-dynamic-zones">New IP service categories for enhanced dynamic zones</a>]]></description>
@@ -62,7 +62,7 @@
 
     <item>
       <title>Monthly release 2026.08.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-08-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-08-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-08-0</guid>
       <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production">New Proxy service for enhanced dynamic zones is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production">New System Log events for Office 365 app-based provisioning is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production">Replace a Group Rule API can now update assigned groups is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#anything-as-a-source-device-import-is-ea">Anything-as-a-Source device import is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-research-release-lifecycle">New Research Release lifecycle</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-user-behavior-permissions">New user behavior permissions</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-08-0">Developer documentation updates in 2026.08.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-08-0">Bug fixed in 2026.08.0</a>]]></description>
@@ -71,7 +71,7 @@
 
     <item>
       <title>Weekly release 2026.07.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-07-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-07-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-07-3</guid>
       <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-07-3">Bugs fixed in 2026.07.3</a>]]></description>
@@ -80,7 +80,7 @@
 
     <item>
       <title>Weekly release 2026.07.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-07-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-07-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-07-1</guid>
       <pubDate>Wed, 08 Jul 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-07-1">Bug fixed in 2026.07.1</a>]]></description>
@@ -89,7 +89,7 @@
 
     <item>
       <title>Monthly release 2026.07.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-07-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-07-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-07-0</guid>
       <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-ip-service-available-for-enhanced-dynamic-network-zones">New IP Service available for enhanced dynamic network zones</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#improved-group-member-search-functionality-is-ga-in-production">Improved group member search functionality is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#group-push-support-in-api-integration-actions-apps">Group push support in API Integration Actions apps</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#delete-group-push-mappings-in-error-state">Delete group push mappings in ERROR state</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-preview">Replace a Group Rule API can now update assigned groups is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-07-0">Developer documentation updates in 2026.07.0</a>]]></description>
@@ -98,7 +98,7 @@
 
     <item>
       <title>Monthly release 2026.06.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-06-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-06-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-06-0</guid>
       <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-enhancements-to-the-groups-api-endpoints-is-ga-in-production">New enhancements to the Groups API endpoints is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#service-accounts-is-ga-in-production">Service accounts is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview">New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#sha-256-digest-algorithm-support-is-ga-in-production">SHA-256 digest algorithm support is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#seamless-isv-experience-for-scim-is-ga-in-production">Seamless ISV experience for SCIM is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-system-log-event-for-database-privileged-access-management-is-ea">New System Log event for database privileged access management is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-06-0">Bugs fixed in 2026.06.0</a>]]></description>
@@ -107,7 +107,7 @@
 
     <item>
       <title>Weekly release 2026.05.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-05-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-05-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-05-1</guid>
       <pubDate>Wed, 13 May 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-05-1">Bugs fixed in 2026.05.1</a>]]></description>
@@ -116,7 +116,7 @@
 
     <item>
       <title>Monthly release 2026.05.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-05-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-05-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-05-0</guid>
       <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#service-accounts-is-ga-in-preview">Service accounts is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#sha-256-digest-algorithm-support-is-ga-in-preview">SHA-256 digest algorithm support is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-05-0">Developer documentation update in 2026.05.0</a>]]></description>
@@ -125,7 +125,7 @@
 
     <item>
       <title>Weekly release 2026.04.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-04-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-04-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-04-3</guid>
       <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-04-3">Bugs fixed in 2026.04.3</a>]]></description>
@@ -134,7 +134,7 @@
 
     <item>
       <title>Weekly release 2026.04.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-04-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-04-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-04-1</guid>
       <pubDate>Wed, 08 Apr 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-04-1">Bug fixed in 2026.04.1</a>]]></description>
@@ -143,7 +143,7 @@
 
     <item>
       <title>Monthly release 2026.04.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-04-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-04-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-04-0</guid>
       <pubDate>Thu, 02 Apr 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#slack-integration-for-identity-governance">Slack integration for Identity Governance</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-production">Custom admin permissions for inline and event hooks is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#increase-to-the-maximum-access-duration-limit">Increase to the maximum access duration limit </a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-04-0">Developer documentation update in 2026.04.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-04-0">Bug fixed in 2026.04.0</a>]]></description>
@@ -152,7 +152,7 @@
 
     <item>
       <title>Weekly release 2026.03.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-03-3</guid>
       <pubDate>Wed, 25 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-03-3">Bugs fixed in 2026.03.3</a>]]></description>
@@ -161,7 +161,7 @@
 
     <item>
       <title>Weekly release 2026.03.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-03-2</guid>
       <pubDate>Wed, 18 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-03-2">Bugs fixed in 2026.03.2</a>]]></description>
@@ -170,7 +170,7 @@
 
     <item>
       <title>Weekly release 2026.03.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-03-1</guid>
       <pubDate>Wed, 11 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-03-1">Bug fixed in 2026.03.1</a>]]></description>
@@ -179,7 +179,7 @@
 
     <item>
       <title>Monthly release 2026.03.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-03-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-03-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-03-0</guid>
       <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#self-service-for-enhanced-disaster-recovery-is-self-service-ea-in-preview">Self-Service for Enhanced Disaster Recovery is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#submit-api-service-integrations">Submit API service integrations</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#admin-console-home-page">Admin Console Home page</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview">New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview">Enable custom admin permissions for inline and event hooks is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-03-0">Developer documentation updates in 2026.03.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-03-0">Bug fixed in 2026.03.0</a>]]></description>
@@ -188,7 +188,7 @@
 
     <item>
       <title>Weekly release 2026.02.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-02-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-02-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-02-2</guid>
       <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-02-2">Bug fixed in 2026.02.2</a>]]></description>
@@ -197,7 +197,7 @@
 
     <item>
       <title>Monthly release 2026.02.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-02-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-02-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-02-0</guid>
       <pubDate>Thu, 05 Feb 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#lightweight-directory-access-protocol-bidirectional-group-management">Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-02-0">Bugs fixed in 2026.02.0</a>]]></description>
@@ -206,7 +206,7 @@
 
     <item>
       <title>Weekly release 2026.01.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-01-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-01-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-2</guid>
       <pubDate>Thu, 29 Jan 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-01-2">Bug fixed in 2026.01.2</a>]]></description>
@@ -215,7 +215,7 @@
 
     <item>
       <title>Weekly release 2026.01.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#weekly-release-2026-01-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-01-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-1</guid>
       <pubDate>Wed, 14 Jan 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-01-1">Bugs fixed in 2026.01.1</a>]]></description>
@@ -224,7 +224,7 @@
 
     <item>
       <title>Monthly release 2026.01.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#monthly-release-2026-01-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-01-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-01-0</guid>
       <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#encryption-of-id-tokens-and-access-tokens-is-ga-in-production">Encryption of ID tokens and access tokens is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#unified-claims-generation-for-custom-apps-is-ga-in-production">Unified claims generation for custom apps is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#additional-anything-as-a-source-api-endpoints-is-ga-in-production">Additional Anything-as-a-Source API endpoints is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-production">Anything-as-a-Source for groups and group memberships API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-01-0">Developer documentation updates in 2026.01.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-01-0">Bugs fixed in 2026.01.0</a>]]></description>
