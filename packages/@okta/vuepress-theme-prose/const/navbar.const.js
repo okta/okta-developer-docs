@@ -899,6 +899,10 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
+                title: "Submit a Cross App Access integration",
+                guideName: "submit-xaa-app",
+              },
+              {
                 title: "Submit an API service integration",
                 guideName: "submit-apiservice-app",
               },
