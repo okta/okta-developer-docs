@@ -130,6 +130,8 @@ If you added the key with the `INACTIVE` status, activate it. Replace `{keyId}` 
 
 To rotate a key, add the new key and make sure that it's active. Then deactivate the old key. Okta accepts assertions signed by any active key, so both keys work during the changeover.
 
+> **Note:** Okta doesn't allow you to deactivate the last active key. The request returns a `409 Conflict` error with the `DEACTIVATE_NOT_ALLOWED` error. Activate the new key before you deactivate the old one.
+
 ### Create a resource connection
 
 A resource connection defines the downstream resource that the MCP server can reach. Create a connection of type `IDENTITY_ASSERTION_MCP_SERVER` for a downstream MCP server that an Okta custom authorization server protects.
@@ -164,11 +166,66 @@ A resource connection defines the downstream resource that the MCP server can re
 | `scopeCondition` | Controls how Okta applies the `scopes` list. `INCLUDE_ONLY` limits the connection to the listed scopes. |
 | `scopes` | The scopes that the MCP server can request at the downstream resource |
 
+The response is `201 Created` and includes the new connection:
+
+```JSON
+{
+  "id": "mcn8nUa7p0g4zrZbs2f4",
+  "orn": "orn:okta:idp:00o1gjjp4jsdR3Sww4x7:connections:mcn8nUa7p0g4zrZbs2f4",
+  "connectionType": "IDENTITY_ASSERTION_MCP_SERVER",
+  "status": "ACTIVE",
+  "resource": {
+    "name": "{downstreamMcpServerName}",
+    "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:{downstreamMcpServerId}",
+    "_links": {
+      "self": {
+        "href": "/resource-servers/api/v1/mcp-servers/{downstreamMcpServerId}"
+      }
+    }
+  },
+  "resourceIndicator": "https://{downstreamMcpServerUrl}/mcp",
+  "authorizationServer": {
+    "name": "{authServerName}",
+    "issuerUrl": "https://{yourOktaDomain}/oauth2/{authServerId}",
+    "orn": "orn:okta:idp:00o1gjjp4jsdR3Sww4x7:authorization_servers:{authServerId}",
+    "_links": {
+      "self": {
+        "href": "/api/v1/authorizationServers/{authServerId}"
+      }
+    }
+  },
+  "scopeCondition": "INCLUDE_ONLY",
+  "scopes": [
+    "tools:read",
+    "tools:execute"
+  ],
+  "_links": {
+    "self": {
+      "href": "/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections/mcn8nUa7p0g4zrZbs2f4"
+    }
+  }
+}
+```
+
+| Property | Description and value |
+| --- | --- |
+| `id` | The ID of the connection. Use it to identify the connection in later requests, such as a `DELETE` request. |
+| `orn` | The ORN of the connection |
+| `status` | The status of the connection. New connections are `ACTIVE`. |
+| `resource.name` | The name of the downstream MCP server |
+| `resourceIndicator` | The URL of the downstream MCP server. Okta sets this value from the downstream MCP server's resource URL. |
+| `authorizationServer.name` | The name of the custom authorization server |
+| `authorizationServer.issuerUrl` | The issuer URL of the custom authorization server |
+
+The response also returns the values that you sent in the request.
+
 > **Note**: You can't change the `connectionType` or the downstream resource after you create the connection. To point a connection at a different resource, delete it, and create another one.
 
 The MCP server needs one connection for each downstream resource. Each token exchange returns a token for one resource.
 
-To delete the OAuth client later, remove its resources in this order:
+### Delete the OAuth client
+
+To delete the OAuth client, remove its resources in this order:
 
 1. Delete its connections. For each connection, send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections/{connectionId}`.
 1. Deactivate its keys. Send a `POST` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/deactivate`.
@@ -179,7 +236,11 @@ The request to delete the OAuth client returns `409` if any connections or keys 
 
 ## Token exchange flow
 
+After you set up the MCP server as an OAuth client, it can exchange the token that it receives for a downstream resource token.
+
 ### Flow steps
+
+The following steps show how an AI agent calls an MCP server and how the MCP server gets a downstream token.
 
 <div class="full wireframe-border">
 
