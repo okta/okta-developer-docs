@@ -212,9 +212,8 @@ Return standard HTTP status codes and OAuth error responses when validation fail
 | Error scenario | HTTP status | Error response body | Resolution |
 | :---- | :---- | :---- | :---- |
 | Missing or invalid `grant_type` | 400 Bad Request | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| Invalid signature, expired token, or missing header | 401 Unauthorized | `invalid_grant` | Ensure that the token hasn't expired and the signing key matches the JWKS. |
 | Signature invalid or `typ` mismatch | 400 Bad Request | `invalid_grant` | The ID-JAG signature is invalid or `typ` isn't `oauth-id-jag+jwt`. |
-| Mismatched `aud` or `client_id` | 400 Bad Request | `invalid_grant` | The audience or client ID doesn't match the server configuration or request context. |
+| Unknown `client_id` | 400 Bad Request | `invalid_client` | The client ID doesn't match the server configuration or request context. |
 | Requested scope exceeds ID-JAG | 400 Bad Request | `invalid_scope` | Requested scopes exceed those granted in the assertion or local policy. |
 | Assertion expired (`exp`) | 400 Bad Request | `invalid_grant` | The ID-JAG assertion has expired. |
 | Mismatched `aud` claim | 401 Unauthorized | `invalid_grant` | Check for trailing slashes or host mismatches between the configuration and the token. |
