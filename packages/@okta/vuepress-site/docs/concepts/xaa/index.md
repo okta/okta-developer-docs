@@ -30,6 +30,10 @@ Roles and responsibilities in the XAA flow:
 * **IdP**: The identity provider that has an SSO relationship to the requesting and resource apps. It issues the ID-JAG based on this relationship connection. With Okta as the IdP, the Okta admin manages this connection in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that connection.
 * **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG tokens and issues scoped access tokens in accordance with local access control policies.
 
+### External IdP in the IdP role
+
+The IdP role isn't limited to Okta. A customer-configured external OpenID Connect (OIDC) identity provider, or another Okta org acting as an Okta Integration IdP, can also fill the IdP role and issue the ID-JAG. In this case, Okta acts only as the resource authorization server: it trusts the ID-JAG from the external IdP, resolves the signing key from that IdP's JWKS endpoint, and resolves the user through an existing linked identity. This support applies only to a custom authorization server. The Okta org authorization server doesn't accept an ID-JAG issued by an external IdP.
+
 ### XAA token exchange flow
 
 <div class="three-quarter">

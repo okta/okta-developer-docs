@@ -31,6 +31,10 @@ Okta manages connections to other IdPs for your app and sits between your app an
 
 Adding any of these IdPs allows users to sign in to your app using their credentials from a specific IdP.
 
+## IdP usage
+
+Each IdP has a usage setting that controls what Okta allows the IdP to do. In addition to SSO, factor, and device posture provider usage, you can set an OIDC or Okta Integration IdP's usage to allow Cross App Access (XAA) only, or both SSO and Cross App Access. See [Cross App Access (XAA)](/docs/concepts/xaa/).
+
 ## Benefits of using Okta to manage IdPs
 
 You could connect your app directly to an IdP (for example, using an SDK to add a button for **Sign in with Google**). However, using Okta as the user store for your app and letting Okta manage the IdP connections has some benefits:

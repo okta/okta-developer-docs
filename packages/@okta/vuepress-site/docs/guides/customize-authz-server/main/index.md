@@ -86,6 +86,7 @@ To create a rule for a policy:
         **Assigned the app and a member of one of the following:** The rule applies to users that are assigned to the app and a member of one or more groups that you specify. You can also specify a list of users to whom the rule applies.<br>
         > **Note:** The app must be assigned to this rule's policy.
     * **AND Scopes requested:** Select the scopes (any scopes, or a list that you specify) that the user can request as part of the rule conditions.
+    * **AND Identity Provider is:** Available only when **IF Grant type is** includes **JWT Bearer**. Select **Any Identity Provider** or specify one or more identity providers. Only identity providers with Cross App Access (XAA) enabled appear in the list. Use this condition to restrict a `jwt-bearer` grant so that only an ID-JAG from the identity providers you select is accepted. See [Cross App Access (XAA)](/docs/concepts/xaa/).
     * **THEN Use this inline hook:**  Select an [inline hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
     * **AND Access token lifetime is:** Select the length of time before an access token expires.
     * **AND Refresh token lifetime is:** Leave the default of `Unlimited` unless you need to customize how long you can use a refresh token before it expires.
