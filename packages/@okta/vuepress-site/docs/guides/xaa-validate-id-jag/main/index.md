@@ -134,25 +134,24 @@ If there is a multi-tenant deployment, the `aud_tenant` claim is provided. You c
 For resolving user identity in SAML integrations, you need the information in the `sub_id` claim (see [Subject Identifier Format](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-subject-identifier-format)).
 For SAML-based resource apps, follow these steps to resolve the user's identity:
 
-1. You must bind the issuer (`iss`) claim to a registered SAML connection before verifying the JWKS signature.
+1. Resolve the SAML connection from the issuer (`iss`) claim before verifying the JWKS signature.
 
     **Note:** Reversing this order creates a critical token-forgery vulnerability in which an attacker can supply an arbitrary victim's SAML issuer in `sub_id`.
 
 1. Resolve the user identity using the combination of `sub_id.issuer` and `sub_id.nameid` together. Don't resolve user identity on `sub_id.nameid` alone.
 
-The following pseudocode example binds the issuer with the SAML connection, validates claims, and resolves the user:
+The following pseudocode example creates the SAML connection with the issuer, validates claims, and resolves the user:
 
 ```js
 connections = {
   "https://atko.okta.com": {
     jwks:            "https://atko.okta.com/oauth2/v1/keys",
     samlIssuer:      "http://www.okta.com/exk1fcia8zMValiD0h8",
-    spNameQualifier: "https://chat.example/saml/metadata",
   },
 }
 
 redeem(idJag, authenticatedClient):
-    // Bind iss to a connection before trusting the signature.
+    // Create the connection with iss before trusting the signature.
     iss  = unverified_issuer(idJag)
     conn = connections[iss]
     if conn is none: reject "invalid_grant"
