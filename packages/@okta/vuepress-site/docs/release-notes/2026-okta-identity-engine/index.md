@@ -99,7 +99,7 @@ You can now create and manage authenticator groups and reference them in authent
 
 #### Single Certificate Issuer is GA in Preview
 
-With Single Certificate Issuer, you can configure one certificate authority and trust it for device registration, Okta Device Access, and management attestation, instead of setting up and maintaining a separate certificate authority or SCEP configuration for each purpose. This reduces the number of certificate authorities admins need to create, renew, and track, simplifying device management setup for organizations that use certificate-based device trust. See the [Certificate Authority to Scope Mappings](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/certificateauthoritytoscopemapping) API. <-- OKTA-1197469, FF: 
+With Single Certificate Issuer, you can configure one certificate authority and trust it for device registration, Okta Device Access, and management attestation, instead of setting up and maintaining a separate certificate authority or SCEP configuration for each purpose. This reduces the number of certificate authorities admins need to create, renew, and track, simplifying device management setup for organizations that use certificate-based device trust. See the [Certificate Authority to Scope Mappings](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/certificateauthoritytoscopemapping) API. <-- OKTA-1197469, FF: CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026-->
 CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026-->
 
 #### App branding migration
