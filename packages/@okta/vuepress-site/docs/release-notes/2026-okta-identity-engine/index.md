@@ -81,7 +81,7 @@ The System Log now logs the following events for staging Access Certification ca
 See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
 <!-- OKTA-1282649  Preview Oct. 7, 2026 -->
 
-#### Self-service registration policy for ITP is self-service EA
+#### Self-service registration policy for ITP is self-service EA in Preview
 
 The [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy) API now supports the `SELF_SERVICE_REGISTRATION` policy type for ITP. Use it to control self-service registration attempts based on network zone and email domain checks.
 
