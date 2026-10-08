@@ -31,6 +31,7 @@ title: Okta Identity Engine API release notes 2026
 | [Self-service registration policy for ITP is self-service EA](#self-service-registration-policy-for-itp-is-self-service-ea) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Single Certificate Issuer is GA in Preview](#single-certificate-issuer-is-ga-in-preview) | October 7, 2026 |
+| [App branding migration](#app-branding-migration) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
 | [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0) | October 7, 2026 |
 
@@ -105,7 +106,14 @@ ENROLLMENT_POLICY_AUTHENTICATOR_GROUPS, EA Preview: Oct 7, 2026 -->
 #### Single Certificate Issuer is GA in Preview
 
 With Single Certificate Issuer, you can configure one certificate authority and trust it for device registration, Okta Device Access, and management attestation, instead of setting up and maintaining a separate certificate authority or SCEP configuration for each purpose. This reduces the number of certificate authorities admins need to create, renew, and track, simplifying device management setup for organizations that use certificate-based device trust. See the [Certificate Authority to Scope Mappings](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/certificateauthoritytoscopemapping) API. <-- OKTA-1197469, FF: 
-CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026>
+CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026-->
+
+#### App branding migration
+
+Currently, when you upgrade to Identity Engine, that upgrade happens for your entire org, at a global level. You must prepare all of your customizations and integrations for every app before upgrading your tenant and then reconfigure your upgraded org. If anything goes wrong, the whole upgrade must be rolled back.
+
+The app branding migration feature allows eligible orgs to stage, preview, and deploy Identity Engine on an app-by-app basis while preserving their Classic Engine customizations and brands. Upgrade your most important and high-traffic apps first and with confidence, while leaving less critical apps for a later time. If anything goes wrong, only the affected apps need to be rolled back. See [App-level upgrade](/docs/guides/app-level-upgrade/). <--OKTA-1255018, KS: 
+team.authx.interop.preOieUpgradeEligibility.enabled -->
 
 #### Developer documentation updates in 2026.41.0
 

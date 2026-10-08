@@ -20,8 +20,8 @@ title: Okta Classic Engine API release notes 2026
 | [Password provisioning is now configurable during user creation](#password-provisioning-is-now-configurable-during-user-creation) | October 7, 2026 |
 | [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
+| [App branding migration](#app-branding-migration) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
-| [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0)| October 7, 2026 |
 
 #### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview
 
@@ -45,6 +45,13 @@ The System Log now logs the following events for staging Access Certification ca
 
 See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
 <!-- OKTA-1282649  Preview Oct. 7, 2026 -->
+
+#### App branding migration
+
+Currently, when you upgrade to Identity Engine, that upgrade happens for your entire org, at a global level. You must prepare all of your customizations and integrations for every app before upgrading your tenant and then reconfigure your upgraded org. If anything goes wrong, the whole upgrade must be rolled back.
+
+The app branding migration feature allows eligible orgs to stage, preview, and deploy Identity Engine on an app-by-app basis while preserving their Classic Engine customizations and brands. Upgrade your most important and high-traffic apps first and with confidence, while leaving less critical apps for a later time. If anything goes wrong, only the affected apps need to be rolled back. See [App-level upgrade](/docs/guides/app-level-upgrade/). <--OKTA-1255018, KS: 
+team.authx.interop.preOieUpgradeEligibility.enabled -->
 
 #### Developer documentation updates in 2026.41.0
 
