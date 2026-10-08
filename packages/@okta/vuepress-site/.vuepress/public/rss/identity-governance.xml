@@ -4,194 +4,203 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
   
     <item>
+      <title>Version 2026.41.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#version-2026-41-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#version-2026-41-0</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#configure-access-to-the-resource-catalog-is-ga-in-production">Configure access to the resource catalog is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#new-system-log-events-for-staging-access-certification-campaigns-is-ea">New System Log events for staging Access Certification campaigns is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-ga-in-preview">Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-41-0">Developer documentation update in 2026.41.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-41-0">Bugs fixed in 2026.41.0</a>]]></description>
+    </item>
+  
+
+    <item>
       <title>Weekly release 2026.09.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-09-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-09-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-09-1</guid>
       <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#stage-certification-campaigns-before-launch-is-ea">Stage certification campaigns before launch is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-09-1">Bug fixed in 2026.09.1</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#stage-certification-campaigns-before-launch-is-ea">Stage certification campaigns before launch is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-09-1">Bug fixed in 2026.09.1</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.09.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-09-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-09-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-09-0</guid>
       <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#cancel-request-apis-are-beta">Cancel request APIs are Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#configure-access-to-the-resource-catalog-is-ga-in-preview">Configure access to the resource catalog is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#increased-access-request-limits">Increased Access Request limits</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#api-support-for-access-certification-campaign-decisions-is-ga-in-production">API support for Access Certification campaign decisions is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-ai-agent-resource-connections-is-ga-in-production">Certify AI agent resource connections is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-09-0">Bug fixed in 2026.09.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#cancel-request-apis-are-beta">Cancel request APIs are Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#configure-access-to-the-resource-catalog-is-ga-in-preview">Configure access to the resource catalog is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#increased-access-request-limits">Increased Access Request limits</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#api-support-for-access-certification-campaign-decisions-is-ga-in-production">API support for Access Certification campaign decisions is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-ai-agent-resource-connections-is-ga-in-production">Certify AI agent resource connections is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-09-0">Bug fixed in 2026.09.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.08.4</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-08-4</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-4</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-08-4</guid>
       <pubDate>Wed, 02 Sep 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#configure-access-to-the-resource-catalog-is-ea">Configure access to the resource catalog is EA</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#configure-access-to-the-resource-catalog-is-ea">Configure access to the resource catalog is EA</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.08.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-08-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-08-2</guid>
       <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-08-2">Bug fixed in 2026.08.2</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-08-2">Bug fixed in 2026.08.2</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.08.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-08-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-08-1</guid>
       <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-08-1">Bug fixed in 2026.08.1</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-08-1">Bug fixed in 2026.08.1</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.08.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-08-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-08-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-08-0</guid>
       <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#increased-maximum-for-unique-groups-in-requester-audience">Increased maximum for unique groups in requester audience</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#api-support-for-access-certification-campaign-decisions-is-ga-in-preview">API support for Access Certification campaign decisions is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-ai-agent-resource-connections-is-ga-in-preview">Certify AI agent resource connections is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#governance-analyzer-is-ga-in-production">Governance Analyzer is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-service-accounts-is-ga-in-production">Certify service accounts is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bugs-fixed-in-2026-08-0">Bugs fixed in 2026.08.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#increased-maximum-for-unique-groups-in-requester-audience">Increased maximum for unique groups in requester audience</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#api-support-for-access-certification-campaign-decisions-is-ga-in-preview">API support for Access Certification campaign decisions is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-ai-agent-resource-connections-is-ga-in-preview">Certify AI agent resource connections is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#governance-analyzer-is-ga-in-production">Governance Analyzer is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-service-accounts-is-ga-in-production">Certify service accounts is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-08-0">Bugs fixed in 2026.08.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.07.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-07-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-07-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-07-3</guid>
       <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta">Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#entitlement-id-added-to-entitlement-history">Entitlement ID added to entitlement history</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta">Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#entitlement-id-added-to-entitlement-history">Entitlement ID added to entitlement history</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.07.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-07-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-07-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-07-0</guid>
       <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ga-in-production">Customize Justification Requirements is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#self-review-for-okta-admin-roles-is-ga-in-production">Self-review for Okta admin roles is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-service-accounts-is-ga-in-preview">Certify service accounts is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-ai-agent-resource-connections-is-ea">Certify AI agent resource connections is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-updates-in-2026-07-0">Developer documentation updates in 2026.07.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#customize-justification-requirements-is-ga-in-production">Customize Justification Requirements is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#self-review-for-okta-admin-roles-is-ga-in-production">Self-review for Okta admin roles is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-service-accounts-is-ga-in-preview">Certify service accounts is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-ai-agent-resource-connections-is-ea">Certify AI agent resource connections is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-07-0">Developer documentation updates in 2026.07.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.06.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-06-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-06-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-06-3</guid>
       <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#api-support-for-access-certification-campaign-decisions-is-ea">API support for Access Certification campaign decisions is EA</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#api-support-for-access-certification-campaign-decisions-is-ea">API support for Access Certification campaign decisions is EA</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.06.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-06-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-06-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-06-0</guid>
       <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#governance-analyzer-is-ga-in-preview">Governance Analyzer is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#increased-maximum-for-groups-in-access-scope-settings">Increased maximum for groups in access scope settings</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ga-in-preview">Customize justification requirements is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#self-review-for-okta-admin-roles-is-ga-in-preview">Self-review for Okta admin roles is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis-is-beta-in-production">Automate access request management with Tasks APIs is Beta in Production</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#governance-analyzer-is-ga-in-preview">Governance Analyzer is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#increased-maximum-for-groups-in-access-scope-settings">Increased maximum for groups in access scope settings</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#customize-justification-requirements-is-ga-in-preview">Customize justification requirements is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#self-review-for-okta-admin-roles-is-ga-in-preview">Self-review for Okta admin roles is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#automate-access-request-management-with-tasks-apis-is-beta-in-production">Automate access request management with Tasks APIs is Beta in Production</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.05.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-05-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-2</guid>
       <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis-is-beta-in-preview">Automate access request management with Tasks APIs is Beta in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#new-system-log-event">New System Log event</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#automate-access-request-management-with-tasks-apis-is-beta-in-preview">Automate access request management with Tasks APIs is Beta in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#new-system-log-event">New System Log event</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.05.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-05-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-1</guid>
       <pubDate>Wed, 13 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ea">Customized justification requirements is EA</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#customize-justification-requirements-is-ea">Customized justification requirements is EA</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.05.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-05-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-05-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-05-0</guid>
       <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#governance-analyzer-is-ea">Governance Analyzer is EA</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#governance-analyzer-is-ea">Governance Analyzer is EA</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.04.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-04-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-3</guid>
       <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#entitlement-value-response-updates">Entitlement value response updates</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#entitlement-value-response-updates">Entitlement value response updates</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.04.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-04-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-2</guid>
       <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-04-2">Bug fixed in 2026.04.2</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-04-2">Bug fixed in 2026.04.2</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.04.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-04-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-04-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-04-0</guid>
       <pubDate>Thu, 02 Apr 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#improvements-access-request-experience-for-slack-is-beta">Improvements access request experience for Slack is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#updated-access-certification-campaign-filter">Updated access certification campaign filter</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#slack-integration-for-identity-governance">Slack integration for Identity Governance</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#increase-to-the-maximum-access-duration-limit">Increase to the maximum access duration limit </a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-update-in-2026-04-0">Developer documentation update in 2026.04.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#improvements-access-request-experience-for-slack-is-beta">Improvements access request experience for Slack is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#updated-access-certification-campaign-filter">Updated access certification campaign filter</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#slack-integration-for-identity-governance">Slack integration for Identity Governance</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#increase-to-the-maximum-access-duration-limit">Increase to the maximum access duration limit </a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-04-0">Developer documentation update in 2026.04.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.03.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-03-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-03-3</guid>
       <pubDate>Wed, 25 Mar 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-03-3">Bug fixed in 2026.03.3</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-03-3">Bug fixed in 2026.03.3</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.03.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-03-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-03-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-03-0</guid>
       <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#resource-owners-api-is-ga">Resource Owners API is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#governance-labels-api-is-ga">Governance Labels API is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#restrict-delegates-is-beta">Restrict delegates is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#operations-api-is-beta">Operations API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#slack-integration-for-access-certifications-and-access-requests-is-beta">Slack integration for Access Certifications and Access Requests is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-update-in-2026-03-0">Developer documentation update in 2026.03.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#resource-owners-api-is-ga">Resource Owners API is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#governance-labels-api-is-ga">Governance Labels API is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#restrict-delegates-is-beta">Restrict delegates is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#operations-api-is-beta">Operations API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#slack-integration-for-access-certifications-and-access-requests-is-beta">Slack integration for Access Certifications and Access Requests is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-03-0">Developer documentation update in 2026.03.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.02.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-02-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#weekly-release-2026-02-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-02-2</guid>
       <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#bug-fixed-in-2026-02-2">Bug fixed in 2026.02.2</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-02-2">Bug fixed in 2026.02.2</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.02.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-02-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-02-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-02-0</guid>
       <pubDate>Wed, 04 Feb 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#permalink-id-in-v2-access-request">Permalink ID in V2 access request</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-resource-collections-resource-campaigns-is-ea">Certify resource collections - Resource campaigns is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#additive-entitlements-is-beta">Additive entitlements is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#permalink-id-in-v2-access-request">Permalink ID in V2 access request</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-resource-collections-resource-campaigns-is-ea">Certify resource collections - Resource campaigns is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#additive-entitlements-is-beta">Additive entitlements is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.01.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-01-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#monthly-release-2026-01-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-01-0</guid>
       <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#security-access-reviews-api-is-ga-in-production">Security access reviews API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#permalink-id-in-v1-access-request-is-beta">Permalink ID in V1 access request is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#ad-group-support-in-access-requests-is-ga-in-production">AD group support in Access Requests is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#my-access-certification-reviews-api-is-beta">My Access Certification Reviews API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-update-in-2026-01-0">Developer documentation updates in 2026.01.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#security-access-reviews-api-is-ga-in-production">Security access reviews API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#permalink-id-in-v1-access-request-is-beta">Permalink ID in V1 access request is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#ad-group-support-in-access-requests-is-ga-in-production">AD group support in Access Requests is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#my-access-certification-reviews-api-is-beta">My Access Certification Reviews API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-01-0">Developer documentation updates in 2026.01.0</a>]]></description>
     </item>
   
 </channel>
