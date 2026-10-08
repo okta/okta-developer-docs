@@ -108,15 +108,15 @@ For example:
 | JWT ID (`jti`) | A unique identifier for the specific JWT instance. Use this value to prevent replay attacks. |
 | Issued at (`iat`) | A Unix timestamp indicating when the IdP issues the ID-JAG token. |
 | Client ID (`client_id`) | Verify that the `client_id` claim in the ID-JAG matches the authenticated client making the request. This client ID is registered in your authorization server as part of the XAA client metadata or by an admin. |
-| Tenant (`tenant`) | In multitenant deployments, an additional `tenant` claim is provided to identify the tenant or domain alias of the enterprise under which the user and client interaction is operating. |
+| Tenant (`aud_tenant`) | In multi-tenant deployments, an additional `aud_tenant` claim is provided to identify the tenant or domain alias of the enterprise supported by the resource authorization server. Okta provides this claim if the tenant identifer is known. |
+| Tenant subject (`aud_sub`) | In multi-tenant deployments, when `aud_tenant` is present, the `aud_sub` claim is also provided as the user identifier in the resource authorization server within the context of the specific tenant. |
 | Subject (`sub`) | Verify that the `sub` claim is populated with the end user identifier on whose behalf the API request is being made. <br> This claim is the primary key for OIDC SSO user resolution. See [Resolve user identity for OIDC integrations](#resolve-user-identity-for-oidc-integrations). |
 | Resource (`resource`) | A string URI or an array of URIs specifying the targeted resource servers. If this claim is present, evaluate the target URI. The granted resources in the access token can be a subset of the resources requested in the ID-JAG based on your authorization server's local policy. |
-| Subject user identity claims (`sub_id`) | The `sub_id` claim contains sub-claims in Subject Identifier format for resolving user identity by SAML Assertion Subject `<NameID>`. This claim is used for SAML SSO user resolution. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
+| Subject user identity claims (`sub_id`) | The `sub_id` claim contains sub-claims in the Subject Identifier Format for resolving user identity by SAML NameID subject identifiers. This claim is used for SAML SSO user resolution. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
 | Subject identifier format (`sub_id.format`) | For SAML SSO user resolution, verify that the subject identifier format is set to `saml_nameid`. |
 | Subject identifier name (`sub_id.nameid`) | For SAML SSO user resolution, verify that the SAML name identifier string matches an end user. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
 | Subject identifier name format (`sub_id.nameid_format`) | For SAML SSO user resolution, this is the SAML `nameid` format used. For example, `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`. |
 | Subject identifier issuer (`sub_id.issuer`) | For SAML SSO user resolution, this is the issuer ID for the SAML service provider. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
-| Subject identifier provider name (`sub_id.sp_name_qualifier`) | For SAML SSO user resolution, this is the service provider name qualifier string. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
 | Email (`email`) | The primary email address of the end user subject (`sub`). |
 | Scopes (`scopes`) | A space-delimited string of OAuth 2.0 scope values authorized for the token exchange. Verify the scopes with the accessible scopes configured in the authorization server for the resource app. The granted scopes may be a subset of those authorized by the IdP in the ID-JAG assertion. If the requested scope is invalid or exceeds permissions, reject the request with HTTP `403 Forbidden`. |
 | Actor (`act`) | When the act claim is present, it defines the actor or delegate operating on behalf of the subject (`sub`). Inspect the optional act claim to identify intermediary entities, such as an AI agent. |
@@ -127,17 +127,18 @@ For example:
 
 For OIDC-based resource apps, identity resolution is straightforward. The `sub` claim contains the unique end user identity for the scoped issuer (`iss`).
 
-If there is a multitenant deployment, the `tenant` claim is provided. You can use `sub` + `tenant` + `iss` claims together to resolve the user's identity. Otherwise, use `sub` + `iss` in the ID-JAG to match an end user in the resource app that has access to the requested scopes according to the local policy.
+If there is a multi-tenant deployment, the `aud_tenant` claim is provided. You can use `aud` + `aud_tenant` + `aud_sub` claims together to resolve the user's identity. Otherwise, use `sub` + `iss` claims to match an end user in the resource app that has access to the requested scopes according to the local policy.
 
 ### Resolve user identity for SAML integrations
 
 For resolving user identity in SAML integrations, you need the information in the `sub_id` claim (see [Subject Identifier Format](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-subject-identifier-format)).
 For SAML-based resource apps, follow these steps to resolve the user's identity:
 
-1. You must bind the issuer (`iss`) to a registered SAML connection before verifying the JWKS signature.
+1. You must bind the issuer (`iss`) claim to a registered SAML connection before verifying the JWKS signature.
 
     **Note:** Reversing this order creates a critical token-forgery vulnerability in which an attacker can supply an arbitrary victim's SAML issuer in `sub_id`.
-1. Resolve the user identity using the combination of `sub_id.issuer`, `sub_id.nameid`, and `sub_id.sp_name_qualifier` together. Don't resolve user identity on `sub_id.nameid` alone.
+
+1. Resolve the user identity using the combination of `sub_id.issuer` and `sub_id.nameid` together. Don't resolve user identity on `sub_id.nameid` alone.
 
 The following pseudocode example binds the issuer with the SAML connection, validates claims, and resolves the user:
 
@@ -172,9 +173,8 @@ redeem(idJag, authenticatedClient):
 resolveSamlSubject(subId, conn):
     require subId and subId.format == "saml-nameid"
     require subId.issuer == conn.samlIssuer
-    require subId.sp_name_qualifier == conn.spNameQualifier
 
-    user = lookup_user_by_saml_nameid(subId.issuer, subId.nameid, subId.sp_name_qualifier)
+    user = lookup_user_by_saml_nameid(subId.issuer, subId.nameid)
     if user is none: reject "invalid_grant"
     return user
 ```
