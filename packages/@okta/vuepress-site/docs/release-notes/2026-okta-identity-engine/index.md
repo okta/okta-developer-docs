@@ -95,7 +95,7 @@ Direct Authentication now supports email as a channel for out-of-band authentica
 
 #### Authenticator Groups API is self-service EA in Preview
 
-You can now create and manage authenticator groups and reference them in authenticator enrollment policies. Use authenticator groups to define groups of authenticators for end-user enrollment, instead of simply marking each one required, optional, or disabled. You can require users to enroll a minimum number of authenticators from an authenticator group. This flexibility supports acceptable backup authenticators, gives end users more secure choices, and simplifies enrollment policy management. See [Authenticator groups](/docs/concepts/policies/#authenticator-groups). <--OKTA-1262813, FF: 
+You can now create and manage authenticator groups and reference them in authenticator enrollment policies. Use authenticator groups to define groups of authenticators for end-user enrollment, instead of simply marking each one required, optional, or disabled. You can require users to enroll a minimum number of authenticators from an authenticator group. This flexibility supports acceptable backup authenticators, gives end users more secure choices, and simplifies enrollment policy management. See [Authenticator groups](/docs/concepts/policies/#authenticator-groups). <--OKTA-1262813, FF: ENROLLMENT_POLICY_AUTHENTICATOR_GROUPS, EA Preview: Oct 7, 2026 -->
 ENROLLMENT_POLICY_AUTHENTICATOR_GROUPS, EA Preview: Oct 7, 2026 -->
 
 #### Single Certificate Issuer is GA in Preview
