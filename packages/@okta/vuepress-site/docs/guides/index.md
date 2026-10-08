@@ -108,6 +108,7 @@ guides:
  - submit-oin-app
  - submit-xaa-app
  - submit-wfactions-app
+ - submit-apiservice-app
  - update-oin-app
  - deployment-checklist
  - deploy-your-app
