@@ -121,7 +121,7 @@ For example:
 | Scopes (`scope`) | A space-delimited string of OAuth 2.0 scope values authorized for the token exchange. Verify the scopes with the accessible scopes configured in the authorization server for the resource app. The granted scopes may be a subset of those authorized by the IdP in the ID-JAG assertion. If the requested scope is invalid or exceeds permissions, reject the request with HTTP `403 Forbidden`. |
 | Actor (`act`) | When the act claim is present, it defines the actor or delegate operating on behalf of the subject (`sub`). Inspect the optional act claim to identify intermediary entities, such as an AI agent. |
 | Actor subject (`act.sub`) | If `act` is present, the `act.sub` claim represents the requesting app or AI agent. This is often the same as `client_id`, which contains the requesting app or AI agent ID. |
-| Actor subject profile (`act.sub_profile`) | If act is present, the `act.sub_profile` claim describes the actor profile, which can be  `ai_agent`, `service`, or `user`. |
+| Actor subject profile (`act.sub_profile`) | If act is present, the `act.sub_profile` claim describes the actor profile, for example `ai_agent`, `service`, or `web_app`. |
 
 ### Resolve user identity for OIDC integrations
 
