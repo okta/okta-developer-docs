@@ -27,7 +27,7 @@ title: Okta Identity Engine API release notes 2026
 | [WebAuthn authenticator enrollments include transports values is GA in Production](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
-| [Self-service registration policy for ITP is self-service EA](#self-service-registration-policy-for-itp-is-self-service-ea) | October 7, 2026 |
+| [Self-service registration policy for ITP is self-service EA in Preview](#self-service-registration-policy-for-itp-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Single Certificate Issuer is GA in Preview](#single-certificate-issuer-is-ga-in-preview) | October 7, 2026 |
 | [App branding migration](#app-branding-migration) | October 7, 2026 |
