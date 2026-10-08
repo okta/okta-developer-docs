@@ -19,7 +19,6 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [NFC authenticator available with Adaptive MFA](#nfc-authenticator-available-with-adaptive-mfa) | October 7, 2026 |
-| [Passkey (FIDO2 WebAuthn) authenticator enabled by default](#passkey-fido2-webauthn-authenticator-enabled-by-default) | October 7, 2026 |
 | [Okta Expression Language now supports a session IdP property](#okta-expression-language-now-supports-a-session-idp-property) | October 7, 2026 |
 | [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | October 7, 2026 |
 | [Prompt users to enroll a passkey is GA in Production](#prompt-users-to-enroll-a-passkey-is-ga-in-production) | August 5, 2026 |
@@ -38,10 +37,6 @@ title: Okta Identity Engine API release notes 2026
 #### NFC authenticator available with Adaptive MFA
 
 The NFC authenticator is now available to orgs with Adaptive MFA. Frontline workers can tap their NFC badge on a reader and enter a PIN to sign in to Okta-protected apps on shared Windows workstations. See [Configure the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-nfc-authenticator).
-
-#### Passkey (FIDO2 WebAuthn) authenticator enabled by default
-
-The Passkey (FIDO2 WebAuthn) authenticator is now available by default in all newly created orgs to ensure protection by a phishing-resistant authenticator from the start. As a possession and biometric or knowledge-based factor, Passkey (FIDO2 WebAuthn) meets the requirements for phishing resistance and user presence. See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-passkeys).
 
 #### Okta Expression Language now supports a session IdP property
 
@@ -144,6 +139,7 @@ team.authx.interop.preOieUpgradeEligibility.enabled -->
 | [Editable resource URL for MCP servers](#editable-resource-url-for-mcp-servers) | September 30, 2026|
 | [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 17, 2026|
 | [Certificate Authorities API is EA](#certificate-authorities-api-is-ea) | September 30, 2026|
+| [Passkey (FIDO2 WebAuthn) authenticator enabled by default](#passkey-fido2-webauthn-authenticator-enabled-by-default) | September 30, 2026 |
 | [Bugs fixed in 2026.09.2](#bugs-fixed-in-2026-09-2) | September 30, 2026 |
 
 #### Agent SSO support for third-party OIDC apps is GA in Preview
@@ -200,6 +196,11 @@ From this AI agent-app binding capability, admins can now configure direct user 
 #### Certificate Authorities API is EA
 
 You can now use the Certificate Authorities API to view the certificate authorities (CAs) that Okta hosts for your org, download their certificates, and complete a CA renewal. Okta generates a replacement CA certificate before your current one expires. Use this API to activate the replacement and migrate your SCEP configurations to it, either by rolling over an existing configuration or creating a parallel one while you update your MDM software. Existing SCEP enrollment URLs continue to work. For details, see the [Certificate Authorities](https://developer.okta.com/docs/api) API. <!-- OKTA-1278746, FF: ENG_OKTA_CA_PARALLEL_SCEP, Preview date: Sept 30, 2026 -->
+
+#### Passkey (FIDO2 WebAuthn) authenticator enabled by default
+
+The Passkey (FIDO2 WebAuthn) authenticator is now available by default in all newly created orgs to ensure protection by a phishing-resistant authenticator from the start. As a possession and biometric or knowledge-based factor, Passkey (FIDO2 WebAuthn) meets the requirements for phishing resistance and user presence. See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-passkeys). <!-- OKTA-1280300,
+FFs: PASSKEYS_REBRAND, WEBAUTHN, MULTIPLE_FACTOR_ENROLLMENTS; CCS: team.passwordless.webauthn.activateAuthenticatorForNewOrg, team.passwordless.webauthn.useUserVerificationRequiredConfigDefaultSettings -->
 
 #### Bugs fixed in 2026.09.2
 
