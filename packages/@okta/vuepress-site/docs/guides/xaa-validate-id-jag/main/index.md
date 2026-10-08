@@ -185,7 +185,7 @@ Once claims are validated and user identity is resolved, complete the exchange:
 
 1. Log audit properties of the request and validation for compliance and troubleshooting, such as:
    * User identity (`sub`)
-   * Requesting app identity (`act.sub`)
+   * Requesting app identity (`client_id`)
    * Granted OAuth 2.0 scopes
    * Request timestamp
 2. Issue a short-lived access token if all validation checks succeed. Return an HTTP `200 OK` response containing a standard JSON token payload with the access token. For example:
