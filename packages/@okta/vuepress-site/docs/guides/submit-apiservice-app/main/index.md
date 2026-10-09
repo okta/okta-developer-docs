@@ -6,11 +6,9 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an integration with SSO, Universal Logout, provisioning, Entitlement Management, API service, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
-
-> **Note:** The content below is for **API service**. If you want to view content for a different capability, select a different option from the **Instructions for** dropdown list.
 
 #### What you need
 
@@ -30,7 +28,7 @@ Okta provides you with a seamless experience to integrate and submit your app fo
 The OIN Wizard is a full-service tool in the Admin Console for you to do the following:
 
 * Provide all your integration submission details.
-* Generate an app instance in your org for testing. Test your API service integration manually.
+* Generate an app instance in your org for testing.
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
 * Edit published integrations and resubmit them to the OIN.
@@ -43,7 +41,6 @@ This guide covers submissions for an [API service](/docs/guides/oin-api-service-
 
 > **Notes:**
 > * The API service capability is mutually exclusive of other capabilities in a submission. If you select the API service capability, you can't select any other capability, such as SSO or provisioning. Similarly, if you select another capability, the API service option is unavailable.
-> * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 
 ## Start a submission
 
@@ -57,21 +54,17 @@ Start your integration submission for OIN publication:
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
-2. On the **Home** page, do one of the following:
+1. On the **Home** page, do one of the following:
 
-    * Click **Create app** to create an app that you want to list in the Okta Integration Network. <br><br>
-    **OR**<br>
-    * If there's an existing integration for an app, click **Add more integrations** to add more integrations for your app. The **Manage your app** page appears.
+    * Click **Create app** to create an app that you want to list in the Okta Integration Network.
 
-3. Select your integration capabilities, and then enter a display name and description.
+1. Select **API Service**, and then enter a display name and description.
 
-4. Click **Add Integration Details**. The **Integration details** page appears.
+1. Click **Add Integration Details**. The **Integration details** page appears.
 
-   > **Note:** Alternatively, you can go to **Applications and Resources** > **Your OIN Integrations** to build your integration and select your capabilities.
+   > **Note:** Alternatively, you can go to **Applications and Resources** > **Your OIN Integrations** to build your integration and select **API Service**.
 
    If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
-
-   > **Note:** The instructions on this page are for **API service** integrations. If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list on the right.
 
 ### Integration details
 
@@ -92,7 +85,7 @@ Start your integration submission for OIN publication:
 
 Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant setting values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
-2. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
+1. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
