@@ -105,7 +105,7 @@ The OIN Wizard provides a mechanism to register and install your integration in 
 
 > **Note:** From the OIN Wizard test option, the test install and authorize pages are the same pages that your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications and Resources** > **API Service Integrations** page of your customer's Admin Console.
 
-To register your API service registration, see [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/).
+To register your API service registration, see [Submit an API service integration](/docs/guides/submit-apiservice-app/main/).
 
 ### Authorize a test integration
 
@@ -226,8 +226,7 @@ Click **Generate instance** to generate another test integration instance in you
 
 ### Submit for review
 
-After you test your API service integration and specify all fields and artifacts in the OIN Wizard, you can submit your integration to Okta. See, [Submit your integration section](/docs/guides/submit-oin-app/openidconnect/main/#submit-your-integration).
-
+After you test your API service integration and specify all fields and artifacts in the OIN Wizard, you can submit your integration to Okta. See, [Submit your integration section](/docs/guides/submit-apiservice-app/main/#submit-your-integration).
 
 ## Support
 

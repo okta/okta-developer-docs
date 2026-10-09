@@ -903,6 +903,10 @@ export const guides = [
                 guideName: "submit-xaa-app",
               },
               {
+                title: "Submit an API service integration",
+                guideName: "submit-apiservice-app",
+              },
+              {
                 title: "Submit an integration with API integration actions",
                 guideName: "submit-wfactions-app",
               },
