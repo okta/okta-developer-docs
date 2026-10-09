@@ -329,7 +329,49 @@ Okta issues T1 only if a delegation link exists. A delegation link is a record i
 
 In the link, `from.clientOrn` is the ORN of the AI agent or client. The `to.resourceOrn` value is the ORN of the MCP server's OAuth client, not the ORN of the MCP server resource. Use the `oauthClient.orn` value from the MCP server. See [Get the client ID](#get-the-client-id). For example, `orn:okta:directory:{orgId}:workload-principals:mcp:{mcpServerClientId}`. Okta sets `to.authorizationServerOrn` from the MCP server's custom authorization server, so you don't supply it.
 
-See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) for details.
+The following request creates a delegation link from an AI agent to the MCP server. The `tokenType` value is the type of the token that the client passes:
+
+```bash
+  curl --location --request POST \
+    --url 'https://{yourOktaDomain}/workload-principals/api/v1/delegation-links' \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer {accessToken}" \
+    --data '{
+      "from": {
+        "type": "OKTA_AUTHORIZATION_SERVER",
+        "clientOrn": "orn:okta:directory:{orgId}:workload-principals:ai-agents:{aiAgentId}",
+        "tokenType": "ACCESS_TOKEN"
+      },
+      "to": {
+        "resourceOrn": "orn:okta:directory:{orgId}:workload-principals:mcp:{mcpServerClientId}"
+      }
+    }'
+```
+
+The response is `201 Created`:
+
+```JSON
+{
+  "id": "dlksbnh7BNcZt78rVao5",
+  "from": {
+    "type": "OKTA_AUTHORIZATION_SERVER",
+    "clientOrn": "orn:okta:directory:{orgId}:workload-principals:ai-agents:{aiAgentId}",
+    "tokenType": "ACCESS_TOKEN"
+  },
+  "to": {
+    "resourceOrn": "orn:okta:directory:{orgId}:workload-principals:mcp:{mcpServerClientId}",
+    "authorizationServerOrn": "orn:okta:idp:{orgId}:authorization_servers:{authServerId}"
+  },
+  "_links": {
+    "self": {
+      "href": "/workload-principals/api/v1/delegation-links/dlksbnh7BNcZt78rVao5"
+    }
+  }
+}
+```
+
+If `to.resourceOrn` is the ORN of the MCP server resource, such as `orn:okta:directory:{orgId}:resource-servers:mcp:{mcpServerId}`, Okta returns a `400` error with the `INVALID_FORMAT` reason. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) for details.
 
 The subject of T1 can be a user or a machine. The path depends on whether the AI agent is configured for user access or machine access.
 
@@ -348,7 +390,61 @@ The flow has three steps:
 1. The AI agent exchanges the user's ID token for an ID-JAG at the org authorization server's `/token` endpoint.
 1. The AI agent sends the ID-JAG to the `/token` endpoint of the MCP server's custom authorization server. Okta returns T1.
 
-The agent authenticates in steps 2 and 3 with its configured client authentication method. The following examples use `private_key_jwt`. See the **User access** steps in the [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow) for details on step 2.
+##### Create the agent's resource connection
+
+Create a connection on the AI agent that points to the MCP server and its custom authorization server. This request uses the same body as [Create a resource connection](#create-a-resource-connection). Send it to the AI agent's `connections` endpoint:
+
+```bash
+  curl --location --request POST \
+    --url 'https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/{aiAgentId}/connections' \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer {accessToken}" \
+    --data '{
+      "connectionType": "IDENTITY_ASSERTION_MCP_SERVER",
+      "resource": {
+        "orn": "orn:okta:directory:{orgId}:resource-servers:mcp:{mcpServerId}"
+      },
+      "authorizationServer": {
+        "orn": "orn:okta:idp:{orgId}:authorization_servers:{authServerId}"
+      },
+      "scopeCondition": "INCLUDE_ONLY",
+      "scopes": [
+        "tools:read",
+        "tools:execute"
+      ]
+    }'
+```
+
+The response is `201 Created`. The `resourceIndicator` value is the MCP server's resource URL:
+
+```JSON
+{
+  "id": "mcnsbo49nHm2OJY9uao5",
+  "orn": "orn:okta:idp:{orgId}:connections:mcnsbo49nHm2OJY9uao5",
+  "connectionType": "IDENTITY_ASSERTION_MCP_SERVER",
+  "status": "ACTIVE",
+  "resource": {
+    "name": "{mcpServerName}",
+    "orn": "orn:okta:directory:{orgId}:resource-servers:mcp:{mcpServerId}"
+  },
+  "resourceIndicator": "https://mcp-server.example.com",
+  "authorizationServer": {
+    "name": "{authServerName}",
+    "issuerUrl": "https://{yourOktaDomain}/oauth2/{authServerId}",
+    "orn": "orn:okta:idp:{orgId}:authorization_servers:{authServerId}"
+  },
+  "scopeCondition": "INCLUDE_ONLY",
+  "scopes": [
+    "tools:read",
+    "tools:execute"
+  ]
+}
+```
+
+##### Agent client authentication
+
+The agent authenticates in the next two requests with its configured client authentication method. The following examples use `private_key_jwt`. See the **User access** steps in the [Token exchange flow](/docs/guides/ai-agent-token-exchange/authserver/main/#token-exchange-flow) for details on step 2.
 
 Both requests include the `resource` parameter. Its value is the resource URL that's configured on the MCP server. For example, `resource=https://mcp-server.example.com`.
 
@@ -372,6 +468,22 @@ Both requests include the `resource` parameter. Its value is the resource URL th
 ```
 
 The `audience` value is the issuer URL of the MCP server's custom authorization server. If the agent has no `IDENTITY_ASSERTION_MCP_SERVER` connection for the MCP server, Okta returns the `invalid_target` error.
+
+The response contains the ID-JAG:
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache
+
+{
+  "token_type": "N_A",
+  "expires_in": 300,
+  "access_token": "eyJraWQiOiJCSWE5UThndUVacGhWYThhd1B6TjVraTN6M2VkbnBCZ3pHNTJnOHZZeVAwIiwi...",
+  "issued_token_type": "urn:ietf:params:oauth:token-type:id-jag"
+}
+```
 
 The ID-JAG identifies the user as the subject and the AI agent as the actor:
 
@@ -411,7 +523,23 @@ The ID-JAG identifies the user as the subject and the AI agent as the actor:
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
 ```
 
-The ID-JAG expires after 5 minutes, so send this request promptly. T1 has the MCP server's resource URL as the `aud` claim. It identifies the AI agent in the `act` claim:
+The ID-JAG expires after 5 minutes, so send this request promptly. The response contains T1:
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache
+
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJraWQiOiJ3YS1jLTJyV1AzelNnWGRZLTZFSEhmYmZ2bkg4YVN1UkE3T3dadjcyQlkiLCJhbGci...",
+  "scope": "tools:read tools:execute"
+}
+```
+
+T1 has the MCP server's resource URL as the `aud` claim. It identifies the AI agent in the `act` claim:
 
 ```JSON
 {
