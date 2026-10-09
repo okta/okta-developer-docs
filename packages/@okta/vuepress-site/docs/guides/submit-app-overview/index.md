@@ -39,7 +39,7 @@ Submit your integration to Okta and work with the OIN team as they test and revi
 
 The Okta OIN team reviews and prioritizes all submissions.
 
-### Submission process for SSO, SCIM provisioning, API service, and Identity Verification  integrations
+### Submission process for SSO, SCIM provisioning, API service, and Identity Verification integrations
 
 The following steps outline the process for submitting SSO, SCIM provisioning, Entitlement Management, UL, API service, and Identity Verification (IDV) integrations.
 
@@ -188,7 +188,7 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 
-<Card href="/docs/guides/submit-oin-app/uapiservice/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
+<Card href="/docs/guides/submit-apiservice-app/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
 <Card href="/docs/guides/submit-wfactions-app/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API integration actions" :showFooter=false>Submit an integration with API integration actions</Card>
 
