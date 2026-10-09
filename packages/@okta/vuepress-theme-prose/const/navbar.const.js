@@ -620,6 +620,8 @@ export const guides = [
                 guideName: "ai-agent-secure-amazon-bedrock",
               },
               {
+                title: "Secure Azure AI Foundry AI agents",
+                guideName: "ai-agent-secure-azure",
                 title: "Secure a Google Vertex AI agent",
                 guideName: "ai-agent-secure-google-vertex",
               },
