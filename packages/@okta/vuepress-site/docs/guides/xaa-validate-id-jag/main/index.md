@@ -179,14 +179,14 @@ resolveSamlSubject(subId, conn):
 
 ## Issue an access token and record audit logs
 
-Once claims are validated and user identity is resolved, complete the exchange:
+After claims are validated and user identity is resolved, complete the exchange:
 
 1. Log audit properties of the request and validation for compliance and troubleshooting, such as:
    * User identity (`sub`)
    * Requesting app identity (`client_id`)
    * Granted OAuth 2.0 scopes
    * Request timestamp
-2. Issue a short-lived access token if all validation checks succeed. Return an HTTP `200 OK` response containing a standard JSON token payload with the access token. For example:
+2. Issue a short-lived access token if all validation checks succeed. Return an HTTP `200 OK` response that contains a standard JSON token payload with the access token. For example:
 
     ```bash
     HTTP/1.1 200 OK
@@ -216,7 +216,7 @@ Return standard HTTP status codes and OAuth error responses when validation fail
 | Requested scope exceeds ID-JAG | 400 Bad Request | `invalid_scope` | Requested scopes exceed those granted in the assertion or local policy. |
 | Assertion expired (`exp`) | 400 Bad Request | `invalid_grant` | The ID-JAG assertion has expired. |
 | Mismatched `aud` claim | 400 Bad Request | `invalid_grant` | Check for trailing slashes or host mismatches between the configuration and the token. |
-| Missing `sub` or `act.sub` | 400 Bad Request | `invalid_grant` | Verify that the requesting app generated a valid ID-JAG containing both user and actor claims. |
+| Missing `sub` or `act.sub` | 400 Bad Request | `invalid_grant` | Verify that the requesting app generated a valid ID-JAG that contains both user and actor claims. |
 
 For example:
 
