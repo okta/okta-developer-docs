@@ -43,7 +43,7 @@ The integration has two parts:
 
   This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
-* Platform integration (Azure-specific). Your FastAPI app calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Call Azure OpenAI with user identity](#call-azure-openai-with-user-identity).
+* Platform integration (Azure-specific). Your FastAPI app calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Create the FastAPI entry point](#create-the-fastapi-entry-point).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
@@ -205,17 +205,25 @@ CMD ["python", "main.py"]
 
 Create a `.env` file with both the Okta values and the Azure OpenAI values that you collected in [Collect your configuration values](#collect-your-configuration-values).
 
-## Call Azure OpenAI with user identity
+## Create the FastAPI entry point
 
-After the token exchange, pass the verified user identity to Azure OpenAI in the system message of a chat completion request:
+In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Azure OpenAI with the verified user identity in the system message of a chat completion request. The following example `main.py` imports the reusable token exchange module and adds the Azure OpenAI call and the FastAPI-specific wiring:
 
 ```python
 import os
+
+import jwt
+from fastapi import FastAPI
 from openai import AzureOpenAI
+from pydantic import BaseModel
+
+from token_exchange import get_id_jag, get_access_token
 
 AZURE_OPENAI_KEY = os.environ["AZURE_OPENAI_KEY"]
 AZURE_OPENAI_ENDPOINT = os.environ["AZURE_OPENAI_ENDPOINT"]
 AZURE_OPENAI_DEPLOYMENT = os.environ["AZURE_OPENAI_DEPLOYMENT"]
+
+app = FastAPI()
 
 
 def ask_llm(prompt: str, user_claims: dict, access_token: str) -> str:
@@ -241,23 +249,6 @@ def ask_llm(prompt: str, user_claims: dict, access_token: str) -> str:
         ],
     )
     return response.choices[0].message.content
-```
-
-> **Note:** The `access_token` is available in your app after step 2 of the token exchange. You can pass it to downstream Okta-protected APIs. In this pattern, your app verifies it but doesn't forward it directly to Azure OpenAI.
-
-## Wire it into the FastAPI entry point
-
-In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Azure OpenAI. The following example `main.py` imports the reusable token exchange module and adds only the FastAPI-specific wiring:
-
-```python
-import jwt
-from fastapi import FastAPI
-from pydantic import BaseModel
-
-from token_exchange import get_id_jag, get_access_token
-# ask_llm from the previous step
-
-app = FastAPI()
 
 
 class InvokeRequest(BaseModel):
@@ -292,6 +283,8 @@ if __name__ == "__main__":
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
+
+> **Note:** The `access_token` is available in your app after step 2 of the token exchange. You can pass it to downstream Okta-protected APIs. In this pattern, your app verifies it but doesn't forward it directly to Azure OpenAI.
 
 ## Deploy to Azure Container Apps
 
