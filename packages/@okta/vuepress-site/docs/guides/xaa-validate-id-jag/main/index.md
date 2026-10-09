@@ -108,8 +108,7 @@ For example:
 | JWT ID (`jti`) | A unique identifier for the specific JWT instance. Use this value to prevent replay attacks. |
 | Issued at (`iat`) | A Unix timestamp indicating when the IdP issues the ID-JAG token. |
 | Client ID (`client_id`) | Verify that the `client_id` claim in the ID-JAG matches the authenticated client making the request. This client ID is registered in your authorization server as part of the XAA client metadata or by an admin. |
-| Tenant (`aud_tenant`) | In multi-tenant deployments, an additional `aud_tenant` claim is provided to identify the tenant or domain alias of the enterprise supported by the resource authorization server. Okta provides this claim if the tenant identifer is known. |
-| Tenant subject (`aud_sub`) | In multi-tenant deployments, when `aud_tenant` is present, the `aud_sub` claim is also provided as the user identifier in the resource authorization server within the context of the specific tenant. |
+| Tenant (`aud_tenant`) | In multi-tenant deployments, an additional `aud_tenant` claim is provided to identify the tenant or domain alias of the enterprise supported by the resource authorization server. In the [ID-JAG RFC](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant#name-id-jag-claims), `aud_sub` is typically paired with `aud_tenant`, however, Okta provides only the `sub` claim in multi-tenant deployments. |
 | Subject (`sub`) | Verify that the `sub` claim is populated with the end user identifier on whose behalf the API request is being made. <br> This claim is the primary key for OIDC SSO user resolution. See [Resolve user identity for OIDC integrations](#resolve-user-identity-for-oidc-integrations). |
 | Resource (`resource`) | A string URI or an array of URIs specifying the targeted resource servers. If this claim is present, evaluate the target URI. The granted resources in the access token can be a subset of the resources requested in the ID-JAG based on your authorization server's local policy. |
 | Subject user identity claims (`sub_id`) | The `sub_id` claim contains sub-claims in the Subject Identifier Format for resolving user identity by SAML NameID subject identifiers. This claim is used for SAML SSO user resolution. See [Resolve user identity for SAML integrations](#resolve-user-identity-for-saml-integrations). |
@@ -127,7 +126,7 @@ For example:
 
 For OIDC-based resource apps, identity resolution is straightforward. The `sub` claim contains the unique end user identity for the scoped issuer (`iss`).
 
-If there is a multi-tenant deployment, the `aud_tenant` claim is provided. You can use `aud` + `aud_tenant` + `aud_sub` claims together to resolve the user's identity. Otherwise, use `sub` + `iss` claims to match an end user in the resource app that has access to the requested scopes according to the local policy.
+If there is a multi-tenant deployment, the `aud_tenant` claim is provided. You can use `aud` + `aud_tenant` + `sub` claims together to resolve the user's identity. Otherwise, use `sub` + `iss` claims to match an end user in the resource app that has access to the requested scopes according to the local policy.
 
 ### Resolve user identity for SAML integrations
 
