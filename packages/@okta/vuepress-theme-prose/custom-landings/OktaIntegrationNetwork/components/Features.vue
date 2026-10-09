@@ -119,7 +119,7 @@
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
                         'Use <a href="/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',
-                        'Provide custom onboarding and offboarding flows with <a href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" target="_blank">Workflows Connector Builder</a>'
+                        'Build custom lifecycle flows with <a href="/docs/guides/oin-api-actions/">API integration actions</a>'
                     ]
                 },
                 {
@@ -148,7 +148,7 @@
                     id: 5,
                     title: 'Enable Cross App Access (XAA)',
                     text: "Let your app securely exchange tokens with other apps and AI agents on a user's behalf, without repeated sign-in prompts",
-                    link: '/docs/guides/submit-oin-app/scrossapp/main/',
+                    link: '/docs/guides/submit-xaa-app/main/',
                     linkText: 'Get started with Cross App Access (XAA) integrations',
                     list: [
                         'Delegate secure app-to-app and AI agent-to-app API access using the <a href="/docs/concepts/xaa/">Cross App Access (XAA)</a> ID-JAG token exchange',

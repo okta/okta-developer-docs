@@ -901,6 +901,18 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
+                title: "Submit a Cross App Access integration",
+                guideName: "submit-xaa-app",
+              },
+              {
+                title: "Submit an API service integration",
+                guideName: "submit-apiservice-app",
+              },
+              {
+                title: "Submit an integration with API integration actions",
+                guideName: "submit-wfactions-app",
+              },
+              {
                 title: "OIN Wizard: Update an integration",
                 guideName: "update-oin-app",
               },

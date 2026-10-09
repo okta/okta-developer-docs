@@ -334,7 +334,7 @@ The **Applications** page now provides options to filter apps by type and status
 
 #### Cross App Access submission through the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
+ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-xaa-app/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
 
 #### Developer documentation updates in 2026.09.0
 
@@ -1122,11 +1122,11 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
 
-#### OIN submissions for API Integration Actions
+#### OIN submissions for API integration actions
 
-Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API Integration Actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API Integration Actions to the OIN catalog using the OIN Wizard.
+Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API integration actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API integration actions to the OIN catalog using the OIN Wizard.
 
-See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/wfactions/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
+See [API integration actions](/docs/guides/oin-api-actions/) and [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
 <!-- OKTA-1007250, OKTA-1145738, ACTIONS_3P_SUBMISSION, Production: May 12, 2026 -->
 
 #### Developer documentation updates in 2026.05.0
@@ -1379,7 +1379,7 @@ With Enhanced DR, admins gain active control to initiate a failover and restore 
 #### Submit API service integrations
 
 Independent Software Vendors (ISVs) can now use the OIN Wizard to submit API service integrations to the Okta Integration Network (OIN). Previously, ISVs provided metadata in the OIN Manager. With this update, ISVs can create and configure API service apps directly within the OIN Wizard
-The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 <!-- OKTA-1119846 API_SERVICE_SUBMISSION preview date: March 4, 2026  -->
 
 #### Admin Console Home page
@@ -1410,7 +1410,7 @@ The inline hook and event hook framework now supports read and write permissions
 #### Developer documentation updates in 2026.03.0
 
 * Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
-* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 * The new [Plan your self-service registration](/docs/concepts/self-service-registration/) doc explains the self-service registration (SSR) flow, how it works, its default state, and three different ways to customize and configure it.
 * A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
   * Initiate failover and restoration (failback) using the self-service portal or APIs.
