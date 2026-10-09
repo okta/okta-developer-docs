@@ -4,11 +4,20 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
   
     <item>
+      <title>Version 2026.41.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#version-2026-41-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#version-2026-41-0</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-exclude-rules-query-parameter-for-the-security-policies-api-is-ga">New exclude_rules query parameter for the Security Policies API is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-41-0">Developer documentation update in 2026.41.0</a>]]></description>
+    </item>
+  
+
+    <item>
       <title>Weekly release 2026.09.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-09-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-09-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-09-2</guid>
       <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#database-privileged-access-management-is-ga">Database privileged access management is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-properties-for-assignments-api-is-ea">New properties for Assignments API is EA</a>]]></description>
@@ -17,7 +26,7 @@
 
     <item>
       <title>Weekly release 2026.09.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-09-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-09-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-09-1</guid>
       <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#plain-text-secrets-is-ga">Plain-text secrets is GA</a>]]></description>
@@ -26,7 +35,7 @@
 
     <item>
       <title>Weekly release 2026.08.4</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-4</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-08-4</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-4</guid>
       <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#simplified-privileged-access-management-with-assignments">Simplified privileged access management with Assignments</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#manual-password-configuration-for-resource-credentials">Manual password configuration for resource credentials</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#workload-access-control-for-secrets">Workload access control for secrets</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#bulk-password-rotation-for-active-directory-accounts">Bulk password rotation for Active Directory accounts</a>]]></description>
@@ -35,7 +44,7 @@
 
     <item>
       <title>Weekly release 2026.08.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-08-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-08-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-08-2</guid>
       <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#saas-application-accounts-apis-now-support-workload_end_user-role-is-ga">SaaS Application Accounts APIs now support workload_end_user role is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#api-keys-for-workload-connections-is-ga">API keys for workload connections is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#static-jwks-content-for-workload-connections-is-ga">Static JWKS content for workload connections is GA</a>]]></description>
@@ -44,7 +53,7 @@
 
     <item>
       <title>Monthly release 2026.08.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-08-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-08-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-08-0</guid>
       <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#credential-version-history-is-ga">Credential version history is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#okta-privileged-access-automated-app-provisioning-is-ga">Okta Privileged Access automated app provisioning is GA</a>]]></description>
@@ -53,7 +62,7 @@
 
     <item>
       <title>Weekly release 2026.07.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-07-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-07-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-07-2</guid>
       <pubDate>Wed, 15 Jul 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#move-secrets-is-ga">Move secrets is GA</a>]]></description>
@@ -62,7 +71,7 @@
 
     <item>
       <title>Weekly release 2026.07.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-07-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-07-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-07-1</guid>
       <pubDate>Thu, 09 Jul 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#move-secrets-is-ea">Move secrets is EA</a>]]></description>
@@ -71,7 +80,7 @@
 
     <item>
       <title>Weekly release 2026.06.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-06-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-06-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-3</guid>
       <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-configuration-option-for-password-generation-is-ga">New configuration option for password generation is GA</a>]]></description>
@@ -80,7 +89,7 @@
 
     <item>
       <title>Weekly release 2026.06.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-06-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-06-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-2</guid>
       <pubDate>Wed, 17 Jun 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[------<br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-06-2">Bug fixed in 2026.06.2</a>]]></description>
@@ -89,7 +98,7 @@
 
     <item>
       <title>Monthly release 2026.06.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-06-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-06-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-06-0</guid>
       <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#service-accounts-is-ga-in-production">Service accounts is GA in Production</a>]]></description>
@@ -98,7 +107,7 @@
 
     <item>
       <title>Weekly release 2026.05.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-05-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-05-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-05-3</guid>
       <pubDate>Wed, 27 May 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#on-demand-password-rotation-for-server-accounts-is-ga">On-demand password rotation for server accounts is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#database-privileged-access-management-is-ea">Database privileged access management is EA</a>]]></description>
@@ -107,7 +116,7 @@
 
     <item>
       <title>Weekly release 2026.05.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-05-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-05-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-05-1</guid>
       <pubDate>Thu, 14 May 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#on-demand-password-rotation-for-server-accounts-is-ea">On-demand password rotation for server accounts is EA</a>]]></description>
@@ -116,7 +125,7 @@
 
     <item>
       <title>Monthly release 2026.05.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-05-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-05-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-05-0</guid>
       <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#service-accounts-is-ga">Service accounts is GA</a>]]></description>
@@ -125,7 +134,7 @@
 
     <item>
       <title>Weekly release 2026.04.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-04-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-04-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-04-2</guid>
       <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-04-2">Bug fixed in 2026.04.2</a>]]></description>
@@ -134,7 +143,7 @@
 
     <item>
       <title>Monthly release 2026.04.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-04-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-04-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-04-0</guid>
       <pubDate>Thu, 02 Apr 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#workload-identity-for-automation-is-now-available-in-okta-privileged-access">Workload identity for automation is now available in Okta Privileged Access</a>]]></description>
@@ -143,7 +152,7 @@
 
     <item>
       <title>Weekly release 2026.03.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-03-3</guid>
       <pubDate>Thu, 26 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#enhancements-for-ssh-connectivity-for-active-directory-domains">Enhancements for SSH connectivity for Active Directory domains</a>]]></description>
@@ -152,7 +161,7 @@
 
     <item>
       <title>Weekly release 2026.03.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-03-2</guid>
       <pubDate>Wed, 18 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-password-management-options-for-on-premises-saas-app-accounts-is-ga">New password management options for on-premises SaaS app accounts is GA</a>]]></description>
@@ -161,7 +170,7 @@
 
     <item>
       <title>Weekly release 2026.03.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-03-1</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-03-1</guid>
       <pubDate>Wed, 11 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#enhanced-filtering-for-end-user-resource-apis">Enhanced filtering for end-user resource APIs</a>]]></description>
@@ -170,7 +179,7 @@
 
     <item>
       <title>Monthly release 2026.03.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-03-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-03-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-03-0</guid>
       <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-03-0">Developer documentation update in 2026.03.0</a>]]></description>
@@ -179,7 +188,7 @@
 
     <item>
       <title>Weekly release 2026.02.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-02-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-02-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-02-3</guid>
       <pubDate>Wed, 25 Feb 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-system-log-event-for-password-rotation-changes">New System Log event for password rotation changes</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-password-management-options-for-on-premises-saas-app-accounts-is-ea">New password management options for on-premises SaaS app accounts is EA</a>]]></description>
@@ -188,7 +197,7 @@
 
     <item>
       <title>Weekly release 2026.02.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-02-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-02-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-02-2</guid>
       <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#enhanced-filtering-for-the-sudo-commands-api">Enhanced filtering for Sudo Commands API</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-list-secret-templates-endpoint-is-ga">New List Secret Templates endpoint is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#server-account-reveal-password-configuration-is-ga">Server Account reveal password configuration is GA</a>]]></description>
@@ -197,7 +206,7 @@
 
     <item>
       <title>Monthly release 2026.02.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-02-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-02-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-02-0</guid>
       <pubDate>Wed, 11 Feb 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#enhanced-filtering-for-active-directory-domains-api-is-ea">Enhanced filtering for Active Directory domains API is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#enhanced-filtering-for-active-directory-accounts-api-is-ea">Enhanced filtering for Active Directory accounts API is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#new-list-secret-templates-endpoint-is-ea">New List Secret Templates endpoint is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a>]]></description>
@@ -206,7 +215,7 @@
 
     <item>
       <title>Weekly release 2026.01.2</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#weekly-release-2026-01-2</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-01-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-01-2</guid>
       <pubDate>Thu, 29 Jan 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#service-account-password-rotation">Service account password rotation</a>]]></description>
@@ -215,7 +224,7 @@
 
     <item>
       <title>Monthly release 2026.01.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#monthly-release-2026-01-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-01-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-01-0</guid>
       <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-01-0">Developer documentation update in 2026.01.0</a>]]></description>

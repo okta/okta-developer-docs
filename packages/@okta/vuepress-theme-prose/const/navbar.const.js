@@ -622,6 +622,8 @@ export const guides = [
               {
                 title: "Secure Azure AI Foundry AI agents",
                 guideName: "ai-agent-secure-azure",
+                title: "Secure a Google Vertex AI agent",
+                guideName: "ai-agent-secure-google-vertex",
               },
               {
                 title: "Secure a Salesforce Agentforce AI agent",
@@ -1124,6 +1126,19 @@ export const guides = [
               {
                 title: "Session changes",
                 guideName: "oie-upgrade-sessions-api",
+              },
+            ],
+          },
+          {
+            title: "App-level upgrade",
+            subLinks: [
+              {
+                title: "Switch an app to the Identity Engine pipeline",
+                guideName: "oie-upgrade-app-pipeline",
+              },
+              {
+                title: "Manage app branding during the Identity Engine upgrade",
+                guideName: "oie-upgrade-app-branding",
               },
             ],
           }

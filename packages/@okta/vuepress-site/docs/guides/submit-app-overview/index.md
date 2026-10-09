@@ -11,6 +11,8 @@ OIN integrations speed adoption by simplifying admin configuration steps and red
 
 If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. It's free to submit and list your integration publicly in the [OIN catalog](https://www.okta.com/integrations/).
 
+> **Note:** The OIN Wizard only accepts Software-as-a-Service (SaaS) integrations. On-premises apps aren't eligible for OIN publication.
+
 ## Submission process
 
 Okta introduced a seamless experience to submit Single Sign-On (SSO), provisioning, Entitlement Management, Universal Logout (UL), API service, and Identity Verification (IDV)integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. It also reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.

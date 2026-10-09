@@ -52,7 +52,11 @@ When you create an Okta expression, you can specify entitlements within the `app
 
 When you create an Okta expression, you can reference any property that exists in an Okta user profile in addition to some top-level user properties.
 
-> **Note:** You can't use the `user.status` expression directly with group rules. See [Group Rules operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule). Use the `user.getInternalProperty("status")` to get the user status instead. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
+> **Notes:** 
+>
+> You can't use the `user.status` expression directly with group rules. See [Group Rules operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule). Use the `user.getInternalProperty("status")` to get the user status instead. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
+>
+> Custom token claims support only the following `user` properties: `user.id`, `user.status`, `user.profile.$profile_property`, `user.displayName`, `user.locale`, `user.username`, `user.fullName`, and `user.realmId`. Custom claims don't support other top-level properties, such as `user.created`, `user.lastUpdated`, `user.passwordChanged`, and `user.lastLogin`. You can still use these properties in expressions in other parts of Okta. See [Add a custom claim to a token](/docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -114,6 +118,7 @@ When you create an Okta expression, you can reference attributes within the `ses
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
 | `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that's resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
 | `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session |   |
+| `session.idp`     | `session` - reference to a user's session<br> `idp` - the ID of the identity provider (IdP) that established the user's current session | `session.idp.contains('$idpId')` - true if the session was established by the specified IdP<br>`session.idp.contains('$idpId1') \|\| session.idp.contains('$idpId2')` - true if the session was established by either of the specified IdPs |
 
 ### Security context
 
