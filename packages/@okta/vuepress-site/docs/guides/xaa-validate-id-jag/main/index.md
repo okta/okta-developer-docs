@@ -216,8 +216,8 @@ Return standard HTTP status codes and OAuth error responses when validation fail
 | Unknown `client_id` | 400 Bad Request | `invalid_client` | The client ID doesn't match the server configuration or request context. |
 | Requested scope exceeds ID-JAG | 400 Bad Request | `invalid_scope` | Requested scopes exceed those granted in the assertion or local policy. |
 | Assertion expired (`exp`) | 400 Bad Request | `invalid_grant` | The ID-JAG assertion has expired. |
-| Mismatched `aud` claim | 401 Unauthorized | `invalid_grant` | Check for trailing slashes or host mismatches between the configuration and the token. |
-| Missing `sub` or `act.sub` | 401 Unauthorized | `invalid_grant` | Verify that the requesting app generated a valid ID-JAG containing both user and actor claims. |
+| Mismatched `aud` claim | 400 Bad Request | `invalid_grant` | Check for trailing slashes or host mismatches between the configuration and the token. |
+| Missing `sub` or `act.sub` | 400 Bad Request | `invalid_grant` | Verify that the requesting app generated a valid ID-JAG containing both user and actor claims. |
 
 For example:
 
