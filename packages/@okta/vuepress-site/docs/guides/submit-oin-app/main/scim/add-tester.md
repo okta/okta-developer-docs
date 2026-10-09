@@ -10,4 +10,3 @@
 
     The app name and test results are removed from the corresponding test cases in the OIN Submission Tester. The **Run test** option is also disabled.
 
-    Instructions for submitting an API service integration have been removed from the OIN Manager guide. You can no longer submit API service integrations through the OIN Manager. See [Submit an integration with the OIN Wizard](/docs/guides/submit-apiservice-app/main/) to submit an API service integration through the OIN Wizard.

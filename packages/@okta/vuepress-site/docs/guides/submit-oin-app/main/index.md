@@ -5,7 +5,7 @@ meta:
     content: Learn how to submit your integration to the Okta Integration Network (OIN) team for publication. The submission task is performed in the Okta Admin Console through the OIN Wizard.
 layout: Guides
 ---
-Learn how to submit an integration with SSO, Universal Logout, provisioning, Entitlement Management, API service, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an integration with SSO, Universal Logout, provisioning, Entitlement Management, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
 
 <StackSnippet snippet="top-note"/>
 
