@@ -16,7 +16,7 @@
 
    The OIDC client then passes the access token (`subject_token`) (T1) to the AI agent so that it can perform actions on the client's behalf.
 
-## Token exchange flow
+## The exchange flow
 
 The token exchange flow for an AI agent involves the following steps:
 
