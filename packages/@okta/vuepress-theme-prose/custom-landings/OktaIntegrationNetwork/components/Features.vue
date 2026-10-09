@@ -119,7 +119,7 @@
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
                         'Use <a href="/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',
-                        'Provide custom onboarding and offboarding flows with <a href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" target="_blank">Workflows Connector Builder</a>'
+                        'Build custom lifecycle flows with <a href="/docs/guides/oin-api-actions/">API integration actions</a>'
                     ]
                 },
                 {

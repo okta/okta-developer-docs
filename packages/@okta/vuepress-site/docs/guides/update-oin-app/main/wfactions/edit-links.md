@@ -1,6 +1,6 @@
-* [OIN catalog properties](/docs/guides/submit-oin-app/wfactions/main/#oin-catalog-properties)
-* [Tenant settings](/docs/guides/submit-oin-app/wfactions/main/#tenant-settings)
-   > **Notes:** 
+* [OIN catalog properties](/docs/guides/submit-wfactions-app/main/#oin-catalog-properties)
+* [Tenant settings](/docs/guides/submit-wfactions-app/main/#tenant-settings)
+   > **Notes:**
    > * See [Update integration considerations](#update-integration-considerations) for backwards compatibility with changing updated settings.
    > * You can't edit **Authentication settings** for an existing integration.
 
@@ -9,7 +9,7 @@
 
 1. Proceed to update your integration as required in the following sections of the OIN Wizard:
 
-* [Provisioning API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#provisioning-api-integration-actions)
-* [Entitlement API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#entitlement-api-integration-actions)
-* [Universal Logout API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#universal-logout-api-integration-actions)
-* [Enter test information](/docs/guides/submit-oin-app/wfactions/main/#enter-test-information)
+* [Provisioning API Integration Actions](/docs/guides/submit-wfactions-app/main/#provisioning-api-integration-actions)
+* [Entitlement API Integration Actions](/docs/guides/submit-wfactions-app/main/#entitlement-api-integration-actions)
+* [Universal Logout API Integration Actions](/docs/guides/submit-wfactions-app/main/#universal-logout-api-integration-actions)
+* [Enter test information](/docs/guides/submit-wfactions-app/main/#enter-test-information)

@@ -64,9 +64,9 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### Submission process for API Integration Actions
+### Submission process for API integration actions
 
-The following steps explain how to submit provisioning, Entitlement Management, or UL integrations that use API Integration Actions in the Integration Builder:
+The following steps explain how to submit provisioning, Entitlement Management, or UL integrations that use API integration actions in the Integration Builder:
 
 1. Sign in to the Admin Console of your Integrator Free Plan org.
    - Add integration details in the OIN Wizard.
@@ -82,7 +82,7 @@ The following steps explain how to submit provisioning, Entitlement Management, 
 1. Publish to OIN catalog.
    - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
 
-See [API Integration Actions](/docs/guides/oin-api-actions/).
+See [API integration actions](/docs/guides/oin-api-actions/).
 
 ### Submission process for Workflows integrations
 
@@ -148,7 +148,7 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) (for Okta management service apps, see [Build an API service integration](/docs/guides/build-api-integration/))
 
-* [API Integration Actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
+* [API integration actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
 
 * Identity Proofing (for Identity Verification integrations)
 
@@ -190,7 +190,7 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/uapiservice/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
-<Card href="/docs/guides/submit-oin-app/wfactions/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API Integration Actions" :showFooter=false>Submit an integration with API Integration Actions</Card>
+<Card href="/docs/guides/submit-wfactions-app/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API integration actions" :showFooter=false>Submit an integration with API integration actions</Card>
 
 <Card href="/docs/guides/submit-oin-app/xidv/main/" headerImage="/img/icons/customer_identity.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
 
