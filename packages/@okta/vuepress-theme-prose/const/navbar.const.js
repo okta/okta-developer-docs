@@ -759,6 +759,10 @@ export const guides = [
             title: "Expose XAA metadata for your resource app",
             guideName: "xaa-resource-metadata",
           },
+          {
+            title: "Validate ID-JAG tokens on your authorization server",
+            guideName: "xaa-validate-id-jag",
+          },
         ],
       },
       {
