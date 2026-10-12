@@ -13,12 +13,8 @@
 4. Click **Provisioning** > **Configure API Integration**.
 5. Select **Enable API integration**.
    * For custom or bearer authentication, specify the **API token** for your instance.
-   * For OAuth 2.0 authentication, click **Authenticate with {yourApp}** and provide credentials for your test instance.
-   <!-- OKTA-1293905: Client Credentials grant for SCIM submissions. Gated behind the
-        isClientCredentialsGrantForSubmissionsEnabled kill switch (OKTA-1293764), currently off.
-        Uncomment once that switch is enabled.
-   * For OAuth 2.0 with the **Client Credentials** grant type, specify the **Client ID** and **Client secret** for your test instance directly. There's no interactive consent step since no end user is involved.
-   -->
+   * For OAuth 2.0 with the **Authorization Code** grant type, click **Authenticate with {yourApp}** and provide credentials for your test instance.
+   * For OAuth 2.0 with the **Client Credentials** grant type, specify the **Client ID** and **Client secret** for your test instance directly. There's no redirect or consent step since no end user is involved.
 1. Click **Test API Credentials** to test authentication to your SCIM service. If there's an error, verify that the credentials are correct.
 1. Click **Save**.
 1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
