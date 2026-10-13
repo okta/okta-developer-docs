@@ -31,7 +31,7 @@ Learn how to submit a Cross App Access (XAA) integration to the Okta Integration
 
 Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Integrator Free Plan org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same Integrator Free Plan org to submit your integration using the OIN Wizard.
 
-The OIN Wizard is a full-service tool in the Admin Console for you to do the following:
+he OIN Wizard is a full-service tool in the Admin Console that enables you to perform the following tasks:
 
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing:
@@ -151,7 +151,7 @@ From the OIN Wizard **Test your integration** page, specify the information that
 
 #### Test information for Okta review
 
-A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active during the submission review period for Okta to test and troubleshoot your integration. Ensure that the test admin account has:
+A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active during the submission review period for Okta to test and troubleshoot your integration. Ensure that the test admin account has the following privileges:
 
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
@@ -171,7 +171,7 @@ In the **Testing information for Okta review** section, specify the following **
 
 `*` Required properties
 
-Enter your sign-in flow details for the protocol you selected:
+Enter your sign-in flow details for the protocol that you selected:
 
 * SAML 2.0: See [SAML tests](/docs/guides/submit-oin-app/saml2/main/#tests) in the SAML 2.0 guide.
 * OpenID Connect: See [OIDC tests](/docs/guides/submit-oin-app/openidconnect/main/#tests) in the OIDC guide.
@@ -226,7 +226,7 @@ If you modify a published OIN integration, you must generate an instance that's 
 
 #### Deactivate an app instance in your org
 
-To deactivate an instance from the OIN Wizard:
+Perform the following steps to deactivate an instance from the OIN Wizard:
 
 1. Go to **Test integration** > **Application instances for testing**.
 1. Click **Clear filters** to see all instances in your org.
@@ -329,7 +329,7 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/t
 
 See [Enable your SAML client app for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester) for full request and response examples.
 
-Confirm the following:
+Confirm that the following items are complete:
 
 * The authorization server accepted the ID-JAG as a JWT Bearer grant.
 * The authorization server issued the access token with the `todos.read` scope.
@@ -531,7 +531,7 @@ Follow [Step 5](#step-5-complete-testing-and-submit) in Testing a SAML client ap
 
 After you successfully test your integration, you're ready to submit.
 
-The OIN Wizard checks the following for Cross App Access (XAA) submissions:
+The OIN Wizard checks the following items for Cross App Access (XAA) submissions:
 
 * All required test logs, matching your selected roles and protocols, are uploaded and passed within the past 48 hours.
 
