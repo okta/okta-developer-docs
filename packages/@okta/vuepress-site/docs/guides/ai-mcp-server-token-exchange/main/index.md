@@ -44,10 +44,16 @@ An MCP server can get an ID-JAG for both user and machine subjects. The exchange
 
 ## Token exchange flow
 
-The following diagram describes the token exchange flow for an MCP server acting as a client. In this example, the [initial authentication](/docs/guides/ai-agent-token-exchange/authserver/main/#initial-authentication) is assumed to have already happened, which is one of the following scenarios:
+The following diagram describes the token exchange flow for an MCP server acting as a client.
+
+### Assumptions
+
+In this example, the [initial authentication](/docs/guides/ai-agent-token-exchange/authserver/main/#initial-authentication) is assumed to have already happened, which is one of the following scenarios:
 
 * An AI agent directly obtained an ID token in a user access flow.
 * An initiating client obtained an access token and passed it to the AI agent in a machine access flow.
+
+The diagram also assumes that the exchange of the ID token (user access) or access token (machine access) to obtain the access token from the custom authorization server to pass to the agent, has already happened. This exchange for both user access and machine access includes the `resource` parameter with the MCP server resource URL as the value. See [??Link to Van's doc]() for more details.
 
 <div class="full wireframe-border">
 
@@ -58,7 +64,7 @@ The following diagram describes the token exchange flow for an MCP server acting
 <!--
 See http://www.plantuml.com/plantuml/uml/
 @startuml
-title MCP server token exchange
+title MCP server as a client token exchange
 
 participant "AI agent or client" as Agent
 participant "Okta org\nauthorization server" as Org
@@ -67,33 +73,17 @@ participant "MCP server" as MCP
 participant "Downstream custom\nauthorization server" as CustomDown
 participant "Downstream\nresource" as Down
 
-== Initial authentication (steps 1-2) ==
-alt User access
-  Agent -> Org : 1a. POST /oauth2/v1/token\ngrant_type = token-exchange\nsubject_token = user ID token (minted for the agent)\nrequested_token_type = id-jag\naudience = MCP server's custom AS issuer\nresource = MCP server resource URL\nscope\nclient_assertion (agent's client authentication)
-  note right of Org : Requires a delegation link and an\nIDENTITY_ASSERTION_MCP_SERVER connection\non the agent
-  Org - -> Agent : ID-JAG
-  Agent -> CustomUp : 1b. POST /oauth2/{authServerId}/v1/token\ngrant_type = jwt-bearer\nassertion = ID-JAG\nresource = MCP server resource URL\nscope\nclient_assertion (agent's client authentication)
-else Machine access
-  Agent -> CustomUp : 1. POST /oauth2/{authServerId}/v1/token\ngrant_type = client_credentials\nresource = MCP server resource URL
-end
-note right of CustomUp : Checks that a delegation link\nauthorizes delegation to the MCP server
-CustomUp - -> Agent : 2. Access token T1\n(aud = MCP server resource URL,\nsubject = user or machine,\nact = AI agent for user access)
-
-== Call the MCP server (step 3) ==
-Agent -> MCP : 3. Call MCP server with T1 (Bearer)
+Agent -> MCP : 1. Call MCP server with T1 (Bearer)
 note right of MCP : T1 is never forwarded downstream
 
-== Exchange for an ID-JAG (steps 4-5) ==
-MCP -> Org : 4. POST /oauth2/v1/token\ngrant_type = token-exchange\nsubject_token = T1\nrequested_token_type = id-jag\nresource = downstream resource URL\naudience = downstream custom AS issuer (optional)\nclient_id = MCP server client ID\nclient_assertion (private_key_jwt)
+MCP -> Org : 2. POST /oauth2/v1/token\ngrant_type = token-exchange\nsubject_token = T1\nrequested_token_type = id-jag\nresource = downstream resource URL\naudience = downstream custom AS issuer (optional)\nclient_id = MCP server client ID\nclient_assertion (private_key_jwt)
 Org -> Org : Validate against the MCP server's\ndelegation link and resource connection
-Org - -> MCP : 5. ID-JAG T2\n(original subject preserved,\nMCP server is the client, no act claim)
+Org --> MCP : 3. ID-JAG T2\n(original subject preserved,\nMCP server is the client, no act claim)
 
-== Exchange for a downstream access token (steps 6-7) ==
-MCP -> CustomDown : 6. POST /oauth2/{authServerId}/v1/token\ngrant_type = jwt-bearer\nassertion = T2\nresource = downstream resource URL\nclient_id = MCP server client ID\nclient_assertion (private_key_jwt)
-CustomDown - -> MCP : 7. Access token T3\n(aud = downstream resource URL,\nsubject = user, no act claim)
+MCP -> CustomDown : 4. POST /oauth2/{authServerId}/v1/token\ngrant_type = jwt-bearer\nassertion = T2\nresource = downstream resource URL\nclient_id = MCP server client ID\nclient_assertion (private_key_jwt)
+CustomDown --> MCP : 5. Access token T3\n(aud = downstream resource URL,\nsubject = user, no act claim)
 
-== Call the downstream resource (step 8) ==
-MCP -> Down : 8. Request with T3 (Bearer)
+MCP -> Down : 6. Request with T3 (Bearer)
 @enduml
 -->
 
@@ -103,14 +93,6 @@ MCP -> Down : 8. Request with T3 (Bearer)
 ### Flow steps
 
 The following steps show how an AI agent calls an MCP server and how the MCP server gets a downstream token.
-
-1. An AI agent or client requests an access token for the MCP server from the MCP server's custom authorization server. The `resource` parameter is the MCP server's resource URL. A delegation link must authorize the caller to delegate to the MCP server.
-
-   > **Note**: With user access, the agent first exchanges the user's ID token for an ID-JAG at the org authorization server. It then sends the ID-JAG to the custom authorization server. With machine access, the agent sends a client credentials request instead. See [Initial authentication](#initial-authentication).
-
-1. The custom authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value. T1 keeps the original subject, which is either a user or a machine. With user access, T1 also has an `act` claim that identifies the AI agent.
-
-------
 
 1. The AI agent then calls the MCP server and passes the access token (T1).
 
