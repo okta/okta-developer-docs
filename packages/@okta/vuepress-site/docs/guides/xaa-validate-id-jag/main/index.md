@@ -1,10 +1,10 @@
 ---
-title: Validate ID-JAG tokens for resource authorization servers
+title: Validate ID-JAG tokens on resource authorization servers
 excerpt: Describes how to validate ID-JAG tokens in external authorization servers
 layout: Guides
 ---
 
-This guide explains how to validate incoming Identity Assertion JWT Authorization Grant (ID-JAG) tokens in your resource authorization server as part of the Cross App Access (XAA) flow.
+This guide explains how to validate incoming Identity Assertion JWT Authorization Grant (ID-JAG) tokens on your resource authorization server as part of the Cross App Access (XAA) flow.
 
 ---
 
