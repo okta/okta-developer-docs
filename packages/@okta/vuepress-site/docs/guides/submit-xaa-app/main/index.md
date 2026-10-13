@@ -31,7 +31,7 @@ Learn how to submit a Cross App Access (XAA) integration to the Okta Integration
 
 Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Integrator Free Plan org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same Integrator Free Plan org to submit your integration using the OIN Wizard.
 
-he OIN Wizard is a full-service tool in the Admin Console that enables you to perform the following tasks:
+The OIN Wizard is a full-service tool in the Admin Console that enables you to perform the following tasks:
 
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing:
