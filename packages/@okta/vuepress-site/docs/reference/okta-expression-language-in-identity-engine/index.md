@@ -69,7 +69,7 @@ When you create an Okta expression for an [IGA Access Certification campaign](ht
 
 | Syntax                          | Definitions                                                                                       | Examples                                            |
 | --------                        | ----------                                                                                        | ------------                                        |
-| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of a raw attribute returned by the connected app's connector. Raw attribute names can differ from the attribute names in the app user profile. | `importedAppUser.dept`<br>`importedAppUser.title` |
+| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of an attribute of the imported user. For most apps, this is the property name in the app user profile. For Active Directory and Office 365, it's the raw attribute name that the connector returns, which can differ from the app user profile name. See [Imported app user attributes](#imported-app-user-attributes). | `importedAppUser.dept`<br>`importedAppUser.title` |
 | `importedAppUser.userEntitlements.group.$attribute` | References a group entitlement held by the imported user. Use with a `.?[$predicate]` selection.<br>`$attribute` - a field on the group entitlement, such as `displayName` or `externalId` | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins']` |
 
 Only the following operators and functions are supported with `importedAppUser`:
@@ -84,6 +84,56 @@ Only the following operators and functions are supported with `importedAppUser`:
 Relational operators (`<`, `>`, `<=`, `>=`) and comparisons against numeric or Boolean literals aren't supported. `$string_object.endsWith` is only supported inside a `.?[$predicate]` selection; it isn't supported on top-level `importedAppUser` attributes, such as `importedAppUser.dept.endsWith(...)`.
 
 > **Note:** `importedAppUser.status` values are matched case-insensitively. Use `==` (not `!=`) to filter on `status`, and combine it with other conditions using `&&` only. Combining `status` with `||` or `!`, or comparing it with `!=`, isn't supported.
+
+#### Imported app user attributes
+
+The attribute names that you can use with `importedAppUser` depend on the connector that imports the user.
+
+##### Apps that use the app user profile schema
+
+For apps that connect through a SCIM-based provisioning agent (OPP) or a generic database connector with an on-premises provisioning agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
+
+The standard attributes are `externalId`, `status`, `userName`, `firstName`, `lastName`, `email`, `secondEmail`, and `mobilePhone`. Every other attribute is a custom attribute that uses the property name from the app user profile schema. For example, `importedAppUser.department == 'Engineering'` or `importedAppUser.ext_LAST_NAME == 'NormalUser8'`.
+
+> **Note:** Okta drops any attribute that isn't in the app user profile schema, and omits attributes that have a null value. An expression that references either type of attribute doesn't match the user.
+
+<span style="color: #c0392b;">**TODO (Engineering):** Confirm the full names of OPP and OPS, and whether the guide spells them out or describes the connectors instead.</span>
+
+##### Active Directory
+
+For Active Directory, use the raw account reconciliation names, not the names in the app user profile in the Profile Editor. The most common differences are:
+
+| Field | Account reconciliation name | App user profile name |
+| ----- | --------------------------- | --------------------- |
+| First name | `givenName` | `firstName` |
+| Last name | `surname` | `lastName` |
+| Sign-in name | `userPrincipalName` | `userName` |
+| Email | `mail` | `email` |
+| Distinguished name | `distinguishedName` | `dn` |
+| Manager | `manager` (nested object that contains `distinguishedName`) | `managerDn` |
+| Extension attributes 1-15 | `extensionAttribute1` to `extensionAttribute15` (nested in `onPremisesExtensionAttributes`) | Not present |
+
+> **Note:** Active Directory never populates `firstName`, `lastName`, `userName`, or `email` in account reconciliation data. An expression that uses these names is valid but never matches. Active Directory also doesn't produce entitlements, so `importedAppUser.userEntitlements` isn't available.
+
+<span style="color: #c0392b;">**TODO (Engineering):** How do you reference the nested `manager` and `onPremisesExtensionAttributes` values in an expression? Add an example once confirmed. Also confirm whether the guide needs to list the other Active Directory attributes (such as `accountEnabled`, `status`, and the app-user-only attributes), or link to a full list. Source: Confluence page 1147404766 (owner Ravi Chauhan).</span>
+
+##### Microsoft Office 365
+
+For Office 365, use the raw account reconciliation names, not the names in the app user profile in the Profile Editor. The most common differences are:
+
+| Field | Account reconciliation name | App user profile name |
+| ----- | --------------------------- | --------------------- |
+| Job title | `jobTitle` | `Title` |
+| First name | `givenName` | `GivenName` |
+| Last name | `surname` | `Surname` |
+| Email | `mail` | `Mail` |
+| Sign-in name | `userPrincipalName` | `userName` |
+| Extension attributes 1-15 | `extensionAttribute1` to `extensionAttribute15` (nested in `onPremisesExtensionAttributes`) | `ExtensionAttribute1` to `ExtensionAttribute15` |
+| Roles and licenses | `roles` and `licenses` (nested in `userEntitlements`) | `roles` and `licenses` |
+
+Most other attributes, such as `displayName` and `department`, have the same name in both places except that the account reconciliation name starts with a lowercase letter and the app user profile name starts with an uppercase letter.
+
+<span style="color: #c0392b;">**TODO (Engineering):** The source page lists `firstName`, `lastName`, `userName`, and `email` as having the same name in both places, which conflicts with its rename table (`givenName`, `surname`, `userPrincipalName`, `mail`). Which names are valid in an expression? Also, how do you reference the nested `userEntitlements.roles`, `userEntitlements.licenses`, and `onPremisesExtensionAttributes` values? Confirm whether the guide needs the full list of Office 365 attributes, or a link to one. Source: Confluence page hBRVR (owner Anagh H V).</span>
 
 #### Imported app user examples
 
