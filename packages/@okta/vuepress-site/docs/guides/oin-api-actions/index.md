@@ -2,7 +2,7 @@
 title: API integration actions
 meta:
   - name: description
-    content: Provides instruction on how to create and integration with API integration actions in the Workflows Integration Builder.
+    content: Provides instruction on how to create an integration with API integration actions in the Workflows Integration Builder.
 ---
 
 API integration actions enable you to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout, using third-party APIs. API integration actions are available through the low-code Workflows Integration Builder. These integrations are called by Okta for API actions, such as retrieving and updating entitlements or triggering a risk-based logout.

@@ -596,9 +596,9 @@ In addition to the general OIN limitations, the following are limitations specif
 
 ### API integration actions limitations
 
-* Integrations that use API integration actions for Universal Logout is only supported with the SSO capabililty. You must select a SSO capabililty before you can select API integration actions for Universal Logout.
+* Integrations that use API integration actions for Universal Logout are only supported with the SSO capability. You must select an SSO capability before you can select API integration actions for Universal Logout.
 
-* For integrations with multiple capabilities that include API integration actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** navigation path in the Admin Console. API integration actions capability isn't available through the **Home** landing page.
+* For integrations with multiple capabilities that include API integration actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** navigation path in the Admin Console. The API integration actions capability isn't available through the **Home** landing page.
 
 ## Next step
 
