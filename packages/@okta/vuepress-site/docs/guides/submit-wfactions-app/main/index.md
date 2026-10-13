@@ -76,6 +76,13 @@ Start your integration submission for OIN publication:
 
 ### Integration details
 
+Specify your integration details:
+
+* Configure your [OIN catalog properties](#oin-catalog-properties).
+* Configure your [tenant settings](#tenant-settings).
+* Configure your [authentication contact](#authentication-settings).
+* Configure your [support contact](#support-contact).
+
 #### OIN catalog properties
 
 1. In the **OIN catalog properties** section, specify the following OIN catalog information:
