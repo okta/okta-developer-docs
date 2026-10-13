@@ -1207,7 +1207,7 @@ This action schema contract is for provisioning Entitlement Management.
 | **schemaProperties[].externalNamespace** | External namespace of the schema property | String |
 | **schemaProperties[].description** | Description of the schema property | String |
 | **schemaProperties[].required** | Whether the schema property is required | Boolean |
-| **schemaProperties[].propertyType** | Data type of the schema property (`STRING`, `NUMBER`, `INTEGER`, `BOOLEAN`, `DATE`, `ARRAY`, `URI`, `COUNTRY_CODE`, `TIMEZONE`, `LOCALE`, `LANGUAGE_CODE`, `EMAIL`, `OBJECT`) | String |
+| **schemaProperties[].propertyType** | Data type of the schema property (`STRING`, `ARRAY`) | String |
 | **schemaProperties[].scope** | Scope of the schema property (`SELF`, `SYSTEM`, `NONE`) | String |
 | **schemaProperties[].schemaName** | Name of the schema this property belongs to | String |
 | **schemaProperties[].defaultValue** | Default value for the schema property | any |
