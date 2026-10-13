@@ -26,7 +26,7 @@ Learn how to submit an integration that's implemented with API integration actio
 
 Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Integrator Free Plan org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same Integrator Free Plan org to submit your integration using the OIN Wizard.
 
-The OIN Wizard is a full-service tool in the Admin Console for you to do the following:
+The OIN Wizard is a full-service tool in the Admin Console that enables you to perform the following tasks:
 
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing:
@@ -176,7 +176,7 @@ If you selected the SSO capability, the SSO settings appear. See [OIDC propertie
 
 #### Provisioning API integration actions
 
-1. Specify the flows that you built in API integration actions to support the following operation:
+1. Specify the flows that you built in API integration actions to support the following operations:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |
@@ -193,16 +193,16 @@ If you selected the SSO capability, the SSO settings appear. See [OIDC propertie
     | Update user password | (Optional) Specify the flow for Okta to update a user password in your app. |
     | Activate user | (Optional) Specify the flow for Okta to activate a user in your app. |
     | Deactivate user | (Optional) Specify the flow for Okta to deactivate a user in your app. |
-    | **Group query** `*` | Operations that allow Okta to read and import groups from your app. |
+    | **Group query** `*` | Operations that allow Okta to read and import groups from your app |
     | List groups `*` | Specify the flow to list the groups in your app. |
     | Get group by ID `*` | Specify the flow to retrieve a group by their ID. |
-    | **Group operations** | Operations that allow Okta to read and manage groups in your app. |
+    | **Group operations** | Operations that allow Okta to read and manage groups in your app |
     | Enable group operations | Enable group operations. Specify flows for all group operations if you enable this feature. |
     | List groups by display name | Specify the flow to list groups in your app based on the group display name. |
     | Create group  | Specify the flow to create a group in your app. |
     | Update group  | Specify the flow to update a group in your app. |
     | Remove group  | Specify the flow to remove a group in your app. |
-    | **Group Membership** | Operations that allow Okta to read and manage group memberships in your app. |
+    | **Group Membership** | Operations that allow Okta to read and manage group memberships in your app |
     | Enable group membership | Enable group membership operations. Specify flows for all group membership operations if you enable this feature. |
     | List group members | Specify the flow to list group members in your app. |
     | Add group members | Specify the flow to add members to a group in your app. |
@@ -421,7 +421,7 @@ If you modify a published OIN integration, you must generate an instance that's 
 
 #### Deactivate an app instance in your org
 
-To deactivate an instance from the OIN Wizard:
+Perform the following steps to deactivate an instance from the OIN Wizard:
 
 1. Go to **Test integration** > **Application instances for testing**.
 1. Click **Clear filters** to see all instances in your org.
@@ -490,7 +490,7 @@ After you click **Run test**, the OIN Submission Tester opens a browser window i
 
 ##### Run the IdP flow test
 
-To run the IdP flow test:
+Perform the following steps to run the IdP flow test:
 
 1. Click **Run test** next to the **IdP flow** test case.
 
@@ -535,7 +535,7 @@ For the JIT provisioning test, the OIN Submission Tester creates a temporary Okt
 > * For JIT provisioning testing, you must have either the super admin role or both the app admin and org admin roles assigned to you.
 > * The JIT provisioning test case appears only if you select **Supports Just-In-Time provisioning** in your submission.
 
-To run the JIT provisioning with IdP flow test:
+Perform the following steps to run the JIT provisioning with IdP flow test:
 
 1. Click **Run test** next to the **JIT provisioning (w/ IdP flow)** test case.
 
@@ -635,7 +635,7 @@ The OIN Wizard checks the following for API integration action submissions:
 * All required instances are active.
 * All flows are validated.
 
-The OIN Wizard checks the following for Universal Logout submissions:
+The OIN Wizard checks the following items for Universal Logout submissions:
 
 * All required instances are detected.
 
