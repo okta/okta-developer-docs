@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to add Okta authentication to an existing DataRobot AI agent built with the DataRobot Agentic Starter Application. You add a token exchange module directly to the agent's entrypoint, so the agent performs Okta's two-step token exchange internally and makes the resulting access token available to its MCP tools automatically.
+This guide shows you how to add Okta authentication to an existing DataRobot AI agent. You add a token exchange module directly to the agent's entrypoint, so the agent performs Okta's two-step token exchange internally and makes the resulting access token available to its MCP tools automatically.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the DataRobot-specific code and configuration that consumes it.
 
@@ -23,7 +23,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 #### What you need
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
-* A DataRobot instance with the [DataRobot Agentic Starter Application](https://github.com/datarobot-community/datarobot-agent-application) deployed, that you can edit and redeploy
+* A DataRobot instance with an AI agent codespace that you can edit and redeploy. This guide uses the [DataRobot Agentic Starter Application](https://github.com/datarobot-community/datarobot-agent-application) codespace template as an example, but you can use your own agent codespace.
 * The DataRobot AI agent imported into Okta as an AI agent identity. See [Import your AI agent from DataRobot](#import-your-ai-agent-from-datarobot).
 * [Python](https://www.python.org/) 3.10 or later
 
@@ -101,7 +101,7 @@ Okta can discover and import AI agents directly from a connected DataRobot insta
 
 1. Choose your import schedule, matching criteria, and preview settings, then save the configuration again. Okta runs the import immediately, and on the schedule you chose afterward.
 1. Go to the AI agents page to register the imported AI agent.
-1. On the **Client registration** tab, click **Add public key**, then **Generate new key**. Copy and store the private key, since it's shown only once. Note the **Client ID**. You need it for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`.
+1. On the **Client registration** tab, click **Add public key**, then **Generate new key**. Copy and store the private key, since it's shown only once. Note the **Client ID** and the public key's **Key ID**. You need them for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`, respectively.
 1. On the **Machine access** tab, click **Configure**. Select your custom authorization server, enter the audience/resource URL, and save. Click **Add caller**, select the AI agent, and allow your custom scope.
 1. From **Actions**, select **Activate**, and then confirm.
 
@@ -119,7 +119,9 @@ The following example `token_exchange.py` module that you create here has no dep
 
 ## Integrate the token exchange into your DataRobot AI agent
 
-This section is specific to DataRobot. Here you add the token exchange module to the DataRobot Agentic Starter Application's AI agent, so it runs automatically on every chat request that carries the signed-in user's identity.
+This section is specific to DataRobot. Here you add the token exchange module to your DataRobot AI agent, so it runs automatically on every chat request that carries the signed-in user's identity.
+
+> **Note:** These steps use the DataRobot Agentic Starter Application, a DataRobot codespace template for creating AI agents, as an example. You can use your own agent codespace instead. Adjust the file names and paths in these steps to match your codespace.
 
 ### Add the DataRobot dependencies
 
