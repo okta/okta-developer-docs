@@ -11,6 +11,19 @@ title: Okta Classic Engine API release notes 2026
 
 ## October
 
+### Version 2026.42.1
+<!-- Published on: 2026-10-14T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview](#mutual-tls-client-authentication-for-oauth-2-0-is-self-service-ea-in-preview) | October 14, 2026 |
+
+#### Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview
+
+The `self_signed_tls_client_auth` client authentication method is now available for OAuth 2.0 and OpenID Connect apps. Clients authenticate by presenting a self-signed X.509 certificate during the TLS handshake. Okta then issues access tokens that are bound to that certificate, so an intercepted token can't be replayed without the certificate's private key. The `self_signed_tls_client_auth` value is supported for the `token_endpoint_auth_method` property in the Apps API and the Dynamic Client Registration API. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#tls-client-certificate).
+
+<!-- OAUTH2_MTLS OKTA-1294131 preview date: oct 14, 2026 -->
+
 ### Version 2026.41.0
 <!-- Published on: 2026-10-07T12:00:00Z -->
 
