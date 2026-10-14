@@ -13,6 +13,21 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## October
 
+### Version 2026.42.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Certify unmanaged accounts is EA](#certify-unmanaged-accounts-is-ea) | October 13, 2026 |
+
+#### Certify unmanaged accounts is EA
+
+Certify unmanaged accounts using access certification campaigns to help reduce drifts in access between Okta and the downstream app. See [Certify unmanaged accounts](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-unmanaged-accounts).
+
+After this feature is enabled in your org, you can use imported app user attributes to further refine the campaign scope (managed or unmanaged resources) for resource campaigns. This gives you more visibility and control. See [Okta Expression Language examples](https://help.okta.com/okta_help.htm?type=oie&id=csh-el-eg-users).
+
+See [`principalScopeSettings`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=principalscopesettings) for `principalScopeSettings.userScopeSettings.type: UNMANAGED` in the APIs.
+<!-- OKTA-1287199 IGA_ACCESS_CERT_CERTIFY_UNMANAGED_USERS_AND_SCOPE_BY_APP_USER, Preview: Oct 13, 2026 -->
+
 ### Version 2026.41.0
 <!-- Published on: 2026-10-07T12:00:00Z -->
 

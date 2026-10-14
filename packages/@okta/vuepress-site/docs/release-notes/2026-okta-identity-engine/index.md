@@ -13,6 +13,36 @@ title: Okta Identity Engine API release notes 2026
 
 ## October
 
+### Version 2026.42.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview](#mutual-tls-client-authentication-for-oauth-2-0-is-self-service-ea-in-preview) | October 14, 2026 |
+| [Device Visibility for macOS: Device Bound SSO sessions is EA](#device-visibility-for-macos-device-bound-sso-sessions-is-ea) | October 14, 2026 |
+| [Bug fixed in 2026.42.1](#bug-fixed-in-2026-42-1) | October 14, 2026 |
+
+#### Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview
+
+The `self_signed_tls_client_auth` client authentication method is now available for OAuth 2.0 and OpenID Connect apps. Clients authenticate by presenting a self-signed X.509 certificate during the TLS handshake. Okta then issues access tokens that are bound to that certificate, so an intercepted token can't be replayed without the certificate's private key. The `self_signed_tls_client_auth` value is supported for the `token_endpoint_auth_method` property in the Apps API and the Dynamic Client Registration API. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#tls-client-certificate).
+
+<!-- OAUTH2_MTLS OKTA-1294131 preview date: oct 14, 2026 -->
+
+#### Device Visibility for macOS: Device Bound SSO sessions is EA
+
+The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device) now includes three endpoints that return Device-Bound SSO session and device capability data for the Device Visibility feature:
+
+* `GET /api/v1/devices/{deviceId}/device-sessions` returns the active Device-Bound SSO sessions on a device, with one entry per user. Each entry includes the session `id`, the `userId`, and the factors verified in the session. Each factor has a `type`, `displayName`, `key`, and `lastUsedOn` time.
+* `GET /api/v1/devices/{deviceId}/capabilities` returns the status (`READY` or `NOT_READY`) of the `platformSso`, `deviceBoundSso`, `sensorMode`, and `desktopMfaRecoveryPin` capabilities on a device. When a capability is `NOT_READY`, `reasons` lists the unmet preconditions.
+* `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}/capabilities` returns the `deviceBoundSso` status for an OS account. When it is `NOT_READY`, `reasons` lists what is missing.
+
+These endpoints require the `okta.devices.read` scope. They support the Device Visibility feature for macOS devices. See [View macOS device details](https://help.okta.com/okta_help.htm?type=oie&id=devices-view-details-macos) to use the feature in the Admin Console.
+
+<!-- ENG_DEVICE_VISIBILITY_DBSSO_VISIBILITY OKTA-1244980 preview date: oct 14, 2026 -->
+
+#### Bug fixed in 2026.42.1
+
+A GET request to the List all potential connections endpoint (`/workload-principals/api/v1/potential-connections`) didn't return MCP servers linked to an inactive custom authorization server. (OKTA-1283300)
+
 ### Version 2026.41.0
 <!-- Published on: 2026-10-07T12:00:00Z -->
 
@@ -29,6 +59,7 @@ title: Okta Identity Engine API release notes 2026
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
 | [Self-service registration policy for ITP is self-service EA in Preview](#self-service-registration-policy-for-itp-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
+| [Authenticator Groups API is self-service EA in Preview](#authenticator-groups-api-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Single Certificate Issuer is GA in Preview](#single-certificate-issuer-is-ga-in-preview) | October 7, 2026 |
 | [App branding migration](#app-branding-migration) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
