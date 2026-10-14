@@ -91,13 +91,13 @@ The attribute names that you can use with `importedAppUser` depend on the connec
 
 ##### Apps that use the app user profile schema
 
-For apps that connect through a SCIM-based provisioning agent (OPP) or a generic database connector with an on-premises provisioning agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
+For apps that connect through the On-Premises Provisioning Agent (OPP) or the Okta On-Prem SCIM Agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
 
-The standard attributes are `externalId`, `status`, `userName`, `firstName`, `lastName`, `email`, `secondEmail`, and `mobilePhone`. Every other attribute is a custom attribute that uses the property name from the app user profile schema. For example, `importedAppUser.department == 'Engineering'` or `importedAppUser.ext_LAST_NAME == 'NormalUser8'`.
+* **OPP:** The standard attributes are `externalId`, `status`, `userName`, `firstName`, `lastName`, `email`, `secondEmail`, and `mobilePhone`. Every other attribute is a custom attribute that uses the property name from the app user profile schema. For example, `importedAppUser.department == 'Engineering'`.
+
+* **OPS:** The standard attributes are `userName` and `externalId`. Every other attribute is an `ext_*` attribute that uses the property name from the app user profile schema. For example, for an app that uses the On-prem Connector for Generic Databases, `importedAppUser.ext_LAST_NAME == 'NormalUser8'`.
 
 > **Note:** Okta drops any attribute that isn't in the app user profile schema, and omits attributes that have a null value. An expression that references either type of attribute doesn't match the user.
-
-<span style="color: #c0392b;">**TODO (Engineering):** Confirm the full names of OPP and OPS, and whether the guide spells them out or describes the connectors instead.</span>
 
 ##### Active Directory
 
