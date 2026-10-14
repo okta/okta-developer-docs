@@ -12,6 +12,7 @@ title: Okta Classic Engine API release notes 2026
 ## October
 
 ### Version 2026.42.1
+<!-- Published on: 2026-10-14T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
