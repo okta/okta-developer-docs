@@ -754,6 +754,10 @@ export const guides = [
             guideName: "xaa-agent-to-app",
           },
           {
+            title: "Configure XAA with an external IdP",
+            guideName: "xaa-external-idp",
+          },
+          {
             title: "Implement XAA token exchange for your requesting app",
             guideName: "xaa-request-token-ex",
           },

@@ -48,6 +48,8 @@ After the resource type is configured and the AI agent has the token or credenti
 
 > **Note:** If you're integrating a third-party AI agent platform, such as AWS Bedrock or Azure AI Foundry, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/). This guide provides a complete setup walkthrough and a functional demo that you can test end to end.
 
+> **Note:** This guide describes the token exchange when Okta issues the ID-JAG. If your agent holds an ID-JAG issued directly by an external IdP or by another Okta org, it presents that ID-JAG directly to your custom authorization server and doesn't use the org authorization server exchange described here. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/).
+
 ## Token exchange flow
 
 The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.

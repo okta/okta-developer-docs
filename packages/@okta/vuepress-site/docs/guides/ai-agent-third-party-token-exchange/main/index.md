@@ -36,6 +36,8 @@ For a diagram and step-by-step description of this flow, see [Token Exchange flo
 
 The machine identity that authenticates token exchange requests is the AI agent imported in the Admin Console. The AI agent authenticates both steps of the exchange.
 
+> **Note:** This guide describes the token exchange when Okta issues the ID-JAG. If your agent holds an ID-JAG issued directly by an external IdP or by another Okta org, it presents that ID-JAG directly to your custom authorization server and doesn't use the org authorization server exchange described here. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/).
+
 ### Supported platforms
 
 Okta supports the following AI agent platforms:
