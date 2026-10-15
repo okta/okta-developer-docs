@@ -32,11 +32,11 @@ Okta's token exchange uses two API calls. The user's ID token is exchanged for a
 
 For a diagram and step-by-step description of this flow, see [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) in Set up AI agent token exchange.
 
-> **Note:** This flow describes the token exchange when Okta issues the ID-JAG. If your agent holds an ID-JAG issued directly by an external identity provider or by another Okta org, it presents that ID-JAG directly to your custom authorization server and doesn't use the org authorization server exchange described here. See [Cross App Access (XAA)](/docs/concepts/xaa/).
-
 >**Note:** No gateway or proxy is involved. The calling app owns the full token exchange. The AI agent receives a ready-to-use access token.
 
 The machine identity that authenticates token exchange requests is the AI agent imported in the Admin Console. The AI agent authenticates both steps of the exchange.
+
+> **Note:** This guide describes the token exchange when Okta issues the ID-JAG. If your agent holds an ID-JAG issued directly by an external IdP or by another Okta org, it presents that ID-JAG directly to your custom authorization server and doesn't use the org authorization server exchange described here. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/).
 
 ### Supported platforms
 
