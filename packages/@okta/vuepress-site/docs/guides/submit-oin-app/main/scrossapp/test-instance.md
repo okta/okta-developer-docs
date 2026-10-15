@@ -1,1 +1,0 @@
-You can use your existing SSO instance for Cross App Access submission. 

@@ -66,7 +66,7 @@ If you decode the ID-JAG token, the following claims appear for a SAML requestin
     "nameid_format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
   },
   "aud": "https://as.myresource.com", // The resource audience: {resourceAud}
-  "client_id": "0oaa0esowyOyPreaI0g7",   // The resource server's client ID: {resourceClientId}
+  "client_id": "wlpa0eiuaoCNrpoaE0g7",   // The requesting client ID registered at the resource authorization server: {clientId}
   "email": "example.user@okta.com",    // The user's email
   "iss": "https://{yourOktaDomain}", // The Okta org that issued the ID-JAG
   "iat": 1781223753,

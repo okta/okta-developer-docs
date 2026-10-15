@@ -11,6 +11,148 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## October
+
+### Version 2026.42.1
+<!-- Published on: 2026-10-14T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview](#mutual-tls-client-authentication-for-oauth-2-0-is-self-service-ea-in-preview) | October 14, 2026 |
+| [Device Visibility for macOS: Device Bound SSO sessions is EA](#device-visibility-for-macos-device-bound-sso-sessions-is-ea) | October 14, 2026 |
+| [Bug fixed in 2026.42.1](#bug-fixed-in-2026-42-1) | October 14, 2026 |
+
+#### Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview
+
+The `self_signed_tls_client_auth` client authentication method is now available for OAuth 2.0 and OpenID Connect apps. Clients authenticate by presenting a self-signed X.509 certificate during the TLS handshake. Okta then issues access tokens that are bound to that certificate, so an intercepted token can't be replayed without the certificate's private key. The `self_signed_tls_client_auth` value is supported for the `token_endpoint_auth_method` property in the Apps API and the Dynamic Client Registration API. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#tls-client-certificate).
+
+<!-- OAUTH2_MTLS OKTA-1294131 preview date: oct 14, 2026 -->
+
+#### Device Visibility for macOS: Device Bound SSO sessions is EA
+
+The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device) now includes three endpoints that return Device-Bound SSO session and device capability data for the Device Visibility feature:
+
+* `GET /api/v1/devices/{deviceId}/device-sessions` returns the active Device-Bound SSO sessions on a device, with one entry per user. Each entry includes the session `id`, the `userId`, and the factors verified in the session. Each factor has a `type`, `displayName`, `key`, and `lastUsedOn` time.
+* `GET /api/v1/devices/{deviceId}/capabilities` returns the status (`READY` or `NOT_READY`) of the `platformSso`, `deviceBoundSso`, `sensorMode`, and `desktopMfaRecoveryPin` capabilities on a device. When a capability is `NOT_READY`, `reasons` lists the unmet preconditions.
+* `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}/capabilities` returns the `deviceBoundSso` status for an OS account. When it is `NOT_READY`, `reasons` lists what is missing.
+
+These endpoints require the `okta.devices.read` scope. They support the Device Visibility feature for macOS devices. See [View macOS device details](https://help.okta.com/okta_help.htm?type=oie&id=devices-view-details-macos) to use the feature in the Admin Console.
+
+<!-- ENG_DEVICE_VISIBILITY_DBSSO_VISIBILITY OKTA-1244980 preview date: oct 14, 2026 -->
+
+#### Bug fixed in 2026.42.1
+
+A GET request to the List all potential connections endpoint (`/workload-principals/api/v1/potential-connections`) didn't return MCP servers linked to an inactive custom authorization server. (OKTA-1283300)
+
+### Version 2026.41.0
+<!-- Published on: 2026-10-07T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [NFC authenticator available with Adaptive MFA](#nfc-authenticator-available-with-adaptive-mfa) | October 7, 2026 |
+| [Okta Expression Language now supports a session IdP property](#okta-expression-language-now-supports-a-session-idp-property) | October 7, 2026 |
+| [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | October 7, 2026 |
+| [Prompt users to enroll a passkey is GA in Production](#prompt-users-to-enroll-a-passkey-is-ga-in-production) | August 5, 2026 |
+| [Password provisioning is now configurable during user creation](#password-provisioning-is-now-configurable-during-user-creation) | October 7, 2026 |
+| [User identification policy is GA in Production](#user-identification-policy-is-ga-in-production) | August 5, 2026 |
+| [WebAuthn authenticator enrollments include transports values is GA in Production](#webauthn-authenticator-enrollments-include-transports-values-is-ga-in-production) | August 5, 2026 |
+| [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
+| [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
+| [Self-service registration policy for ITP is self-service EA in Preview](#self-service-registration-policy-for-itp-is-self-service-ea-in-preview) | October 7, 2026 |
+| [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
+| [Authenticator Groups API is self-service EA in Preview](#authenticator-groups-api-is-self-service-ea-in-preview) | October 7, 2026 |
+| [Single Certificate Issuer is GA in Preview](#single-certificate-issuer-is-ga-in-preview) | October 7, 2026 |
+| [App branding migration](#app-branding-migration) | October 7, 2026 |
+| [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
+| [Bugs fixed in 2026.41.0](#bugs-fixed-in-2026-41-0) | October 7, 2026 |
+
+#### NFC authenticator available with Adaptive MFA
+
+The NFC authenticator is now available to orgs with Adaptive MFA. Frontline workers can tap their NFC badge on a reader and enter a PIN to sign in to Okta-protected apps on shared Windows workstations. See [Configure the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-nfc-authenticator).
+
+#### Okta Expression Language now supports a session IdP property
+
+Okta Expression Language now supports `session.idp` in app sign-in policies that use expressions. `session.idp` is a property that returns the ID of the identity provider (IdP) that established a user's current session. This allows you to write app sign-in policy conditions based on which IdP a user authenticated through. See [Session properties](/docs/reference/okta-expression-language-in-identity-engine/#session-properties). <!-- OKTA-1277317 -->
+
+#### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview
+
+OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+<!-- OKTA-1265993 ON_BEHALF_TOKEN_EXCHANGE_ACT_CLAIM preview date: oct 7, 2026 -->
+
+#### Prompt users to enroll a passkey is GA in Production
+
+You can now configure a passkey enrollment promotion nudge that prompts users to enroll a passkey authenticator when they sign in. The nudge is non-blocking. It only applies when the passkey authenticator is optional, and users who skip it can still sign in with another authenticator. You can control how often the prompt reappears and how many times a user can skip it before Okta stops showing it. See [Passkey enrollment promotion](/docs/concepts/policies/#passkey-enrollment-promotion/). <!-- OKTA-1230760, ENROLLMENT_POLICY_PROMOTION, preview date: aug 5, 2026 -->
+
+#### Password provisioning is now configurable during user creation
+
+Enable or disable whether Okta sends a password during user creation in SCIM 2.0 test app templates (OAuth Bearer Token, Basic Auth, and Header Auth). To configure this, navigate to **Provisioning** > **To App** > **Create Users** and toggle the **Set password when creating a new user** setting. See [To App](/docs/guides/scim-provisioning-integration-connect/main/#to-app).
+
+#### User identification policy is GA in Production
+
+The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to control whether the **Sign in with Okta FastPass** button appears on an app's sign-in page. This replaces a single org-wide setting with per-app control.
+
+Okta automatically creates and maintains a user identification policy for each app sign-in policy. You manage only the policy's rule. Use the `userIdentification.settings.securityMethods.fastpass.showSignInButton` rule action (`ALWAYS` or `NEVER`) to control the button.
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+#### WebAuthn authenticator enrollments include transports values is GA in Production
+
+The WebAuthn enrollment profile now includes a `transports` field that’s returned in responses used by Okta's embedded Identity Engine SDKs. The `transports` field reports how an enrolled authenticator communicates with a client device, such as `usb`, `nfc`, or `ble`. <!-- OKTA-1196205, WEBAUTHN_AUTHENTICATION_TRANSPORTS, preview date: aug 5, 2026 -->
+
+#### PowerShell scripts for Active Directory is GA in Production
+
+Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script) and [Invoke a remote script on the AD agent](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript).
+
+#### New System Log events for staging Access Certification campaigns is EA
+
+The System Log now logs the following events for staging Access Certification campaigns:
+
+* `certification.campaign.stage.start`: This event is logged when the staging process starts for a campaign.
+* `certification.campaign.stage.end`: This event is logged when the campaign staging process ends. The `outcome.result` field reports `SUCCESS` if the campaign snapshot is created successfully, or `FAILURE` if there were errors during the staging process.
+
+See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
+<!-- OKTA-1282649  Preview Oct. 7, 2026 -->
+
+#### Self-service registration policy for ITP is self-service EA in Preview
+
+The [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy) API now supports the `SELF_SERVICE_REGISTRATION` policy type for ITP. Use it to control self-service registration attempts based on network zone and email domain checks.
+
+A self-service registration policy rule can evaluate the requester's network zone and check whether the registration email domain is on Okta's list of known suspicious or disposable domains. When a rule matches, its action allows or denies the registration attempt.
+
+Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/mapresourcetopolicy) API with the new `PROFILE_ENROLLMENT` resource type to link a self-service registration policy to a profile enrollment policy. <!-- OKTA-1182716, OKTA-1204105, FF SELF_SERVICE_REGISTRATION_POLICY -->
+
+#### Email channel for Direct Authentication is self-service EA in Preview
+
+Direct Authentication now supports email as a channel for out-of-band authentication, alongside Okta Verify push, SMS, and voice. Apps can sign users in with a one-time code sent by email, either as a [primary factor](https://developer.okta.com/docs/guides/configure-direct-auth-grants/oobem/main/) or as an [MFA step-up](https://developer.okta.com/docs/guides/configure-direct-auth-grants/mfaoobem/main/).
+
+#### Authenticator Groups API is self-service EA in Preview
+
+You can now create and manage authenticator groups and reference them in authenticator enrollment policies. Use authenticator groups to define groups of authenticators for end-user enrollment, instead of simply marking each one required, optional, or disabled. You can require users to enroll a minimum number of authenticators from an authenticator group. This flexibility supports acceptable backup authenticators, gives end users more secure choices, and simplifies enrollment policy management. See [Authenticator groups](/docs/concepts/policies/#authenticator-groups). <!--OKTA-1262813, FF: ENROLLMENT_POLICY_AUTHENTICATOR_GROUPS, EA Preview: Oct 7, 2026 -->
+
+#### Single Certificate Issuer is GA in Preview
+
+With Single Certificate Issuer, you can configure one certificate authority and trust it for device registration, Okta Device Access, and management attestation, instead of setting up and maintaining a separate certificate authority or SCEP configuration for each purpose. This reduces the number of certificate authorities admins need to create, renew, and track, simplifying device management setup for organizations that use certificate-based device trust. See the [Certificate Authority to Scope Mappings](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/certificateauthoritytoscopemapping) API. <!-- OKTA-1197469, FF: CERTIFICATE_CONSOLIDATION, GA Preview: Oct 7, 2026 -->
+
+#### App branding migration
+
+Currently, when you upgrade to Identity Engine, that upgrade happens for your entire org, at a global level. You must prepare all of your customizations and integrations for every app before upgrading your tenant and then reconfigure your upgraded org. If anything goes wrong, the whole upgrade must be rolled back.
+
+The app branding migration feature allows eligible orgs to stage, preview, and deploy Identity Engine on an app-by-app basis while preserving their Classic Engine customizations and brands. Upgrade your most important and high-traffic apps first and with confidence, while leaving less critical apps for a later time. If anything goes wrong, only the affected apps need to be rolled back. See [App-level upgrade](/docs/guides/app-level-upgrade/). <!--OKTA-1255018, KS: team.authx.interop.preOieUpgradeEligibility.enabled -->
+
+#### Developer documentation updates in 2026.41.0
+
+* Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026). <!-- OKTA-1292244-->
+
+* The new [Secure a Salesforce Agentforce agent](/docs/guides/ai-agent-secure-salesforce-agentforce/main/) is now available. Learn how to add Okta authentication to an existing Salesforce Agentforce AI agent. <!-- OKTA-1230262 -->
+
+* The new [Secure a Google Vertex AI agent](/docs/guides/ai-agent-secure-google-vertex/main/) is now available. Learn how to add Okta authentication to an existing Google Vertex AI agent. <!-- OKTA-1230270 -->
+
+#### Bugs fixed in 2026.41.0
+
+* The `certification.campaign.launch` System Log was triggered in error when the staging process started for an Access Certification campaign. (OKTA-1268484)
+
+* AI agents using a SAML app for user access weren't able to access their STS resource connections. (OKTA-1266073)
+
 ## September
 
 ### Weekly release 2026.09.2
@@ -26,6 +168,7 @@ title: Okta Identity Engine API release notes 2026
 | [Editable resource URL for MCP servers](#editable-resource-url-for-mcp-servers) | September 30, 2026|
 | [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 17, 2026|
 | [Certificate Authorities API is EA](#certificate-authorities-api-is-ea) | September 30, 2026|
+| [Passkey (FIDO2 WebAuthn) authenticator enabled by default](#passkey-fido2-webauthn-authenticator-enabled-by-default) | September 30, 2026 |
 | [Bugs fixed in 2026.09.2](#bugs-fixed-in-2026-09-2) | September 30, 2026 |
 
 #### Agent SSO support for third-party OIDC apps is GA in Preview
@@ -82,6 +225,11 @@ From this AI agent-app binding capability, admins can now configure direct user 
 #### Certificate Authorities API is EA
 
 You can now use the Certificate Authorities API to view the certificate authorities (CAs) that Okta hosts for your org, download their certificates, and complete a CA renewal. Okta generates a replacement CA certificate before your current one expires. Use this API to activate the replacement and migrate your SCEP configurations to it, either by rolling over an existing configuration or creating a parallel one while you update your MDM software. Existing SCEP enrollment URLs continue to work. For details, see the [Certificate Authorities](https://developer.okta.com/docs/api) API. <!-- OKTA-1278746, FF: ENG_OKTA_CA_PARALLEL_SCEP, Preview date: Sept 30, 2026 -->
+
+#### Passkey (FIDO2 WebAuthn) authenticator enabled by default
+
+The Passkey (FIDO2 WebAuthn) authenticator is now available by default in all newly created orgs to ensure protection by a phishing-resistant authenticator from the start. As a possession and biometric or knowledge-based factor, Passkey (FIDO2 WebAuthn) meets the requirements for phishing resistance and user presence. See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-passkeys). <!-- OKTA-1280300,
+FFs: PASSKEYS_REBRAND, WEBAUTHN, MULTIPLE_FACTOR_ENROLLMENTS; CCS: team.passwordless.webauthn.activateAuthenticatorForNewOrg, team.passwordless.webauthn.useUserVerificationRequiredConfigDefaultSettings -->
 
 #### Bugs fixed in 2026.09.2
 
@@ -218,7 +366,7 @@ The **Applications** page now provides options to filter apps by type and status
 
 #### Cross App Access submission through the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
+ISV and partners can now configure, test, and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern, and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-xaa-app/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
 
 #### Developer documentation updates in 2026.09.0
 
@@ -1006,11 +1154,11 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
 
-#### OIN submissions for API Integration Actions
+#### OIN submissions for API integration actions
 
-Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API Integration Actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API Integration Actions to the OIN catalog using the OIN Wizard.
+Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API integration actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API integration actions to the OIN catalog using the OIN Wizard.
 
-See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/wfactions/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
+See [API integration actions](/docs/guides/oin-api-actions/) and [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
 <!-- OKTA-1007250, OKTA-1145738, ACTIONS_3P_SUBMISSION, Production: May 12, 2026 -->
 
 #### Developer documentation updates in 2026.05.0
@@ -1263,7 +1411,7 @@ With Enhanced DR, admins gain active control to initiate a failover and restore 
 #### Submit API service integrations
 
 Independent Software Vendors (ISVs) can now use the OIN Wizard to submit API service integrations to the Okta Integration Network (OIN). Previously, ISVs provided metadata in the OIN Manager. With this update, ISVs can create and configure API service apps directly within the OIN Wizard
-The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 <!-- OKTA-1119846 API_SERVICE_SUBMISSION preview date: March 4, 2026  -->
 
 #### Admin Console Home page
@@ -1294,7 +1442,7 @@ The inline hook and event hook framework now supports read and write permissions
 #### Developer documentation updates in 2026.03.0
 
 * Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
-* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 * The new [Plan your self-service registration](/docs/concepts/self-service-registration/) doc explains the self-service registration (SSR) flow, how it works, its default state, and three different ways to customize and configure it.
 * A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
   * Initiate failover and restoration (failback) using the self-service portal or APIs.

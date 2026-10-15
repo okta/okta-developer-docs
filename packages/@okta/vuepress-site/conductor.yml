@@ -6103,8 +6103,18 @@ redirects:
     to: /docs/concepts/universal-directory/
   - from: /docs/concepts/user-profiles/index.html
     to: /docs/concepts/universal-directory/
-  - from: /docs/guides/submit-app/apiservice/main/
-    to: /docs/guides/submit-oin-app/uapiservice/main/
+  - from: /docs/guides/submit-oin-app/wfactions/main/index.html
+    to: /docs/guides/submit-wfactions-app/main/
+  - from: /docs/guides/submit-oin-app/wfactions/main
+    to: /docs/guides/submit-wfactions-app/main/
+  - from: /docs/guides/submit-app/apiservice/main
+    to: /docs/guides/submit-apiserivce-app/main/
+  - from: /docs/guides/submit-app/apiservice/main/index.html
+    to: /docs/guides/submit-apiserivce-app/main/
+  - from: /docs/guides/submit-oin-app/uapiservice/main
+    to: /docs/guides/submit-apiserivce-app/main/
+  - from: /docs/guides/submit-oin-app/uapiservice/main/index.html
+    to: /docs/guides/submit-apiserivce-app/main/
   - from: /docs/guides/migrate-to-okta-password-hooks/index.html
     to: /docs/guides/migrate-to-okta-with-scripts/main/
   - from: /docs/guides/migrate-to-okta-password-hooks
@@ -6183,3 +6193,7 @@ redirects:
     to: /docs/guides/create-an-app-integration/
   - from: /docs/guides/build-sso-integration/main/
     to: /docs/guides/create-an-app-integration/
+  - from: /docs/guides/submit-oin-app/scrossapp/main/index.html
+    to: /docs/guides/submit-xaa-app/main/
+  - from: /docs/guides/submit-oin-app/scrossapp/main
+    to: /docs/guides/submit-xaa-app/main/

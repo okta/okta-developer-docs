@@ -7,6 +7,7 @@ guides:
  - ai-agent-secure-aws-bedrock
  - ai-agent-cimd-registration
  - ai-agent-secure-datarobot
+ - ai-agent-secure-azure
  - ai-agent-secure-google-vertex
  - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-third-party
@@ -107,6 +108,9 @@ guides:
  - submit-app
  - submit-app-prereq
  - submit-oin-app
+ - submit-xaa-app
+ - submit-wfactions-app
+ - submit-apiservice-app
  - update-oin-app
  - deployment-checklist
  - deploy-your-app
@@ -193,6 +197,9 @@ guides:
  - oie-upgrade-test-widget-custom
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
+ # App-level upgrade
+ - oie-upgrade-app-pipeline
+ - oie-upgrade-app-branding
  - oie-choose-signin-deploy
  - oie-manage-id-first-signin
  - authenticators-overview
@@ -233,6 +240,7 @@ guides:
  - xaa-resource-metadata
  - xaa-agent-to-app
  - xaa-request-token-ex
+ - xaa-validate-id-jag
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

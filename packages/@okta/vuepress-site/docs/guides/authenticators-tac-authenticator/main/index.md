@@ -69,7 +69,7 @@ To configure the TAC authenticator in the Admin Console, see [Configure the temp
   "key": "tac",
   "name": "Temporary Access Code",
   "provider": {
-    "type": "tac",
+    "type": "TAC",
     "configuration": {
       "minTtl": 10,
       "maxTtl": 720,

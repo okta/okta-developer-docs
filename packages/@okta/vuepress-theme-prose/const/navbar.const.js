@@ -620,6 +620,10 @@ export const guides = [
                 guideName: "ai-agent-secure-amazon-bedrock",
               },
               {
+                title: "Secure Azure AI Foundry AI agents",
+                guideName: "ai-agent-secure-azure",
+              },
+              {
                 title: "Secure a Google Vertex AI agent",
                 guideName: "ai-agent-secure-google-vertex",
               },
@@ -756,6 +760,10 @@ export const guides = [
           {
             title: "Expose XAA metadata for your resource app",
             guideName: "xaa-resource-metadata",
+          },
+          {
+            title: "Validate ID-JAG tokens on your authorization server",
+            guideName: "xaa-validate-id-jag",
           },
         ],
       },
@@ -897,6 +905,18 @@ export const guides = [
               {
                 title: "OIN Wizard: Submit an integration",
                 guideName: "submit-oin-app",
+              },
+              {
+                title: "Submit a Cross App Access integration",
+                guideName: "submit-xaa-app",
+              },
+              {
+                title: "Submit an API service integration",
+                guideName: "submit-apiservice-app",
+              },
+              {
+                title: "Submit an integration with API integration actions",
+                guideName: "submit-wfactions-app",
               },
               {
                 title: "OIN Wizard: Update an integration",
@@ -1124,6 +1144,19 @@ export const guides = [
               {
                 title: "Session changes",
                 guideName: "oie-upgrade-sessions-api",
+              },
+            ],
+          },
+          {
+            title: "App-level upgrade",
+            subLinks: [
+              {
+                title: "Switch an app to the Identity Engine pipeline",
+                guideName: "oie-upgrade-app-pipeline",
+              },
+              {
+                title: "Manage app branding during the Identity Engine upgrade",
+                guideName: "oie-upgrade-app-branding",
               },
             ],
           }

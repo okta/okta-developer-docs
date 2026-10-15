@@ -1,6 +1,6 @@
 {
-  "release" : "2026.09.1",
-  "build" : "2026.09.1-begin-247-g6975ceb19a8d",
+  "release" : "2026.42.1",
+  "build" : "2026.42.1-begin-283-g291450d3a489",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -562,6 +562,13 @@
     "errorCode" : "consent_required",
     "errorDescription" : "You are not allowed any of the requested scopes."
   }, {
+    "title" : "Device reregistration required",
+    "statusCode" : 410,
+    "statusReasonPhrase" : "Gone",
+    "internalErrorCode" : "device_reregistration_required",
+    "errorCode" : "device_reregistration_required",
+    "errorDescription" : "The device must be registered again."
+  }, {
     "title" : "Expired token",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -729,6 +736,13 @@
     "internalErrorCode" : "client_assertion_invalid_subject",
     "errorCode" : "invalid_client",
     "errorDescription" : "The subject claim for client_assertion is not a valid client_id."
+  }, {
+    "title" : "Client assertion invalid subject spiffe ID",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "client_assertion_invalid_subject_spiffe_id",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The subject claim for client_assertion is not a valid spiffe_id."
   }, {
     "title" : "Client assertion invalid no secret",
     "statusCode" : 401,
@@ -1458,6 +1472,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The 'resource' claim in the id-jag is not valid for this authorization server."
   }, {
+    "title" : "Invalid refresh token cert binding",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_refresh_token_cert_binding",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Invalid certificate binding in refresh token."
+  }, {
     "title" : "Direct auth invalid otp",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2165,6 +2186,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The id-jag request must not include a 'scope' parameter."
   }, {
+    "title" : "ID jag scopes mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_scopes_mismatch",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The scope parameter must exactly match the scopes in the id-jag."
+  }, {
     "title" : "Oauth2 sts user subject required",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2444,6 +2472,188 @@
     "internalErrorCode" : "eam_invalid_amr",
     "errorCode" : "invalid_request",
     "errorDescription" : "The amr requested in the claims parameter is invalid."
+  }, {
+    "title" : "Identity assurance feature not enabled",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_feature_not_enabled",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance grant type not enabled",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_grant_type_not_enabled",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance app type not supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_app_type_not_supported",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance client not active",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_client_not_active",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance unsupported token endpoint auth method",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_unsupported_token_endpoint_auth_method",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance missing jar",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_jar",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance disallowed parameter",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_disallowed_parameter",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance duplicate parameter",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_duplicate_parameter",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance disallowed jar claim",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_disallowed_jar_claim",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance missing idv integration ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_idv_integration_id",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance missing login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_login_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance missing PKCE challenge",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_pkce_challenge",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance unsupported PKCE method",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_unsupported_pkce_method",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance invalid PKCE challenge",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_invalid_pkce_challenge",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance missing state",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_state",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance missing nonce",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_nonce",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance unsupported response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_unsupported_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance unsupported scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_unsupported_scope",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance unsupported acr values",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_unsupported_acr_values",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance unsupported response mode",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_unsupported_response_mode",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance custom auth server not supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_custom_auth_server_not_supported",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance user not found",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_user_not_found",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance user not assigned",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_user_not_assigned",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance idv integration not found",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_idv_integration_not_found",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance idv integration not supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_idv_integration_not_supported",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
+  }, {
+    "title" : "Identity assurance idv integration inactive",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_idv_integration_inactive",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid request"
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
