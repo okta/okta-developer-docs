@@ -49,6 +49,8 @@ The following discovery endpoints return OAuth 2.0 or OIDC metadata related to y
 
 Clients can use this information to programmatically configure their interactions with Okta.
 
+> **Note:** If your org has the [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) TLS client authentication (mTLS) feature enabled, the discovery metadata also includes an `mtls_endpoint_aliases` object with mTLS-specific token, introspection, and revocation endpoint URLs, and a `tls_client_certificate_bound_access_tokens` boolean. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#tls-client-certificate).
+
 See [Retrieve the OpenID Connect metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/getWellKnownOpenIDConfiguration) for an org authorization server.
 
 ## Custom authorization server

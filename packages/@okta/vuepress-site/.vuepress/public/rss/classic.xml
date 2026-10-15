@@ -4,8 +4,17 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 14 Oct 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Version 2026.42.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#version-2026-42-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#version-2026-42-1</guid>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&utm_medium=feed#mutual-tls-client-authentication-for-oauth-2-0-is-self-service-ea-in-preview">Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Version 2026.41.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026/?utm_source=rss&amp;utm_medium=feed#version-2026-41-0</link>
