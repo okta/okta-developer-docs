@@ -32,9 +32,9 @@ Roles and responsibilities in the XAA flow:
 
 ### External IdP in the IdP role
 
-You can use an external IdP in the IdP role. An external OpenID Connect (OIDC) identity provider, or another Okta org acting as an Okta Integration IdP, can also fill the IdP role and issue the ID-JAG.
+An external OpenID Connect (OIDC) identity provider, or another Okta org acting as an Okta Integration IdP, can also fill the IdP role and issue the ID-JAG. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/).
 
-In that scenario, Okta acts only as the resource authorization server. Okta trusts the ID-JAG from the external IdP, resolves the signing key from that IdP's JWKS endpoint, and resolves the user through an existing linked identity. This scenario applies only to a custom authorization server. The Okta org authorization server doesn't accept an ID-JAG issued by an external IdP.
+In that scenario, Okta acts only as the resource authorization server. Okta trusts the ID-JAG from the external IdP. Okta retrieves the signing key from the JWKS endpoint configured for the IdP and uses it to verify the ID-JAG signature. Okta then matches the user in the ID-JAG to an existing Okta user through a linked IdP identity, so the user doesn't sign in to Okta. This scenario applies only to a custom authorization server. The Okta org authorization server doesn't accept an ID-JAG issued by an external IdP.
 
 ### XAA token exchange flow
 
