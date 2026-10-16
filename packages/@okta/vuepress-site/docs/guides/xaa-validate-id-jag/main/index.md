@@ -202,9 +202,9 @@ After claims are validated and user identity is resolved, complete the exchange:
     }
     ```
 
-**Note:** Don't issue refresh tokens in response to an ID-JAG token exchange. Requesting apps must submit a new ID-JAG token when their access token expires.
+> **Note:** Don't issue refresh tokens in response to an ID-JAG token exchange. Requesting apps must submit a new ID-JAG token when their access token expires.
 
-## Error handling and troubleshooting
+## Handle errors and troubleshoot
 
 Return standard HTTP status codes and OAuth error responses when validation fails (see [RFC 6749 Section 5.2](https://datatracker.ietf.org/doc/html/rfc6749#section-5.2)):
 
@@ -235,5 +235,5 @@ Cache-Control: no-store
 
 * **Test your implementation:** Verify your end-to-end token validation flow using the testing harness at [xaa.dev](https://xaa.dev/).
 * **Expose XAA metata authorization server**: See [Expose XAA metata for your resource app and authorization server](/docs/guides/xaa-resource-metadata/main/) so that requesting clients and the IdP can discover your protected resource.
-* **Submit to OIN:** Publish your resource app integration to the [Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/) catalog.
+* **Submit to OIN:** Publish your resource app integration to the [Okta Integration Network (OIN)](/docs/guides/submit-xaa-app/main/) catalog.
 * **Configure AI agent to resources with XAA**: See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app/main/).
