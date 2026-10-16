@@ -52,7 +52,7 @@ Before you write any code, ensure you have:
 
 - **Existing SSO integration:** XAA is added on top of an existing SSO app integration (OIDC or SAML). If you haven't set up SSO yet, configure a [working SSO integration](https://developer.okta.com/blog/2023/07/28/oidc_workshop) first.
 - **Understand your requesting app architecture:** In Okta, your requesting app uses an SSO integration (OIDC or SAML) for user sign-in and an AI agent to sign token exchange requests. Link the agent to your SSO app in the Admin Console.
-- **Check your IdP/CIAM provider:** Verify WorkOS, Auth0, or custom CIAM solutions support RFC 8693 token exchange. For homegrown CIAM, plan the necessary changes to support the [token exchange spec](https://developer.okta.com/docs/guides/xaa-request-token-ex/openidconnect/main/).
+- **Check your IdP/CIAM provider:** Verify WorkOS, Auth0, or custom CIAM solutions support RFC 8693 token exchange. For homegrown CIAM, plan the necessary changes to support the [token exchange flow](/docs/guides/xaa-request-token-ex/openidconnect/main/).
 - **Design your scope handling:** Scopes are defined by the resource app. Decide which scopes your app requests, and make sure the resource connection on your AI agent allows them.
 - **Test environment:** Register an account on [xaa.dev](https://xaa.dev). It acts as the resource app and authorization server for your tests, and its conformance log is the test evidence for OIN submission.
 - **Okta org:** An Okta [Integrator Free Plan](https://developer.okta.com/signup/) org and a user with the super admin role (or the app and org admin roles).
