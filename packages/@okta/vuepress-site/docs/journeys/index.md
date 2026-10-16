@@ -10,6 +10,8 @@ journeys:
  - OCI-migrate-users
  - OCI-prepare-upgrade-oie
  - OCI-replace-ce-auth-flows
+ - XAA-requesting-app
+ - XAA-resource-app
 ---
 
 # Journeys
@@ -23,6 +25,11 @@ Journeys break down your development project into consumable steps:
 
 ## Featured journeys
 
+<Cards>
+  <Card href="/docs/journeys/XAA-requesting-app/main/" cardTitle="Build a requesting app">Enable Cross App Access (XAA) for your client (requesting app). Signed-in users can access data in external apps with no static keys or redundant login prompts.</Card>
+  <Card href="/docs/journeys/XAA-resource-app/main/" cardTitle="Build a resource app">Enable Cross App Access (XAA) for your resource app. Authorize external apps to call your API for authenticated users with no static keys or redundant login prompts.</Card>
+</Cards>
+<br>
 <Cards>
   <Card href="/docs/journeys/OCI-secure-your-first-web-app/main/" cardTitle="Secure your first web app">Seamlessly connect your customer-facing app to Okta and configure a secure sign-in experience, using the built-in app sign-in policies and the Okta hosted sign-in page.</Card>
   <Card href="/docs/journeys/OCI-web-sign-in/main/" cardTitle="Sign users in through your web app">Integrate Okta with your customer portal to manage user authentication (sign-in and sign-out) directly through its web interface.</Card>
@@ -39,3 +46,4 @@ Journeys break down your development project into consumable steps:
   <Card href="/docs/journeys/OCI-prepare-upgrade-oie/main/" cardTitle="Prepare to upgrade to Okta Identity Engine">Plan, update, test, and validate your setup so that you can confidently complete a smooth Production upgrade.</Card>
   <Card href="/docs/journeys/OCI-replace-ce-auth-flows/main/" cardTitle="Replace Classic Engine auth flows with Identity Engine">Replace Classic Engine authentication patterns after the Identity Engine upgrade by choosing a supported deployment model and configuring policies.</Card>
 </Cards>
+
