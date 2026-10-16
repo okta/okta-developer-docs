@@ -79,14 +79,14 @@ If you have your SSO app listed on OIN, follow these steps:
 
 ## Validate
 
-Test your flow end to end on [xaa.dev](https://xaa.dev), which acts as the requesting app. Run the tests until Conformance passed appears, then export the JSON conformance log. For OIN submission, follow the xaa.dev testing steps in the [OIN submission guide](/docs/guides/submit-xaa-app/main/). If a test fails, see [Error handling and troubleshooting] in the [ID-JAG validation guide](https://developer.okta.com/docs/guides/xaa-validate-id-jag/main/).
+Test your flow end to end on [xaa.dev](https://xaa.dev), which acts as the requesting app. Run the tests until conformance passed appears, then export the JSON conformance log. For OIN submission, follow the xaa.dev testing steps in the [OIN submission guide](/docs/guides/submit-xaa-app/main/). If a test fails, see [Handle errors and troubleshoot](/docs/guides/xaa-validate-id-jag/main/#handle-errors-and-troubleshoot) in the ID-JAG validation guide.
 
 ## Go further
 
 Congratulations, your API is now XAA-enabled. Here's how to expand your integration and reach enterprise customers:
 
-* [Publish your Cross App Access (XAA) integration on Okta Integration Network (OIN)](https://developer.okta.com/docs/guides/submit-oin-app/scrossapp/main/): Submit through the OIN Wizard to make your app discoverable by Okta customers.
-* [Build a requesting app](https://docs.google.com/document/d/19_S6RlIkkKNWXlrhuDghlUw2TbOhEgEQlascjyCh1N8/edit?tab=t.0): make your app call another app's APIs on behalf of a signed-in user.  
-* [Add SCIM provisioning](https://developer.okta.com/docs/guides/scim-provisioning-integration-overview/main/): Automate user lifecycle management alongside SSO and XAA so admins can manage your app's users entirely from Okta.  
-* [Implement Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/): End user sessions across connected apps in real time when Okta fires a security event.   
-* [Protect your integration with DPoP](https://developer.okta.com/docs/guides/dpop/nonoktaresourceserver/main/): Bind access tokens to the client's key pair so an intercepted token is useless without it.
+* [Publish your Cross App Access (XAA) integration on Okta Integration Network (OIN)](/docs/guides/submit-xaa-app/main/): Submit through the OIN Wizard to make your app discoverable by Okta customers.
+* [Build a requesting app](/docs/journeys/XAA-requesting-app/main/): make your app call another app's APIs on behalf of a signed-in user.
+* [Add SCIM provisioning](/docs/guides/scim-provisioning-integration-overview/main/): Automate user lifecycle management alongside SSO and XAA so admins can manage your app's users entirely from Okta.
+* [Implement Universal Logout](/docs/guides/oin-universal-logout-overview/): End user sessions across connected apps in real time when Okta fires a security event.
+* [Protect your integration with DPoP](/docs/guides/dpop/nonoktaresourceserver/main/): Bind access tokens to the client's key pair so an intercepted token is useless without it.
