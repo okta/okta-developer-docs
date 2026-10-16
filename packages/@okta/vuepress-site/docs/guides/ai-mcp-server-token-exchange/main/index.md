@@ -24,7 +24,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 - The MCP server as an OAuth client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it. To use the `IDENTITY_ASSERTION_MCP_SERVER` connection type in [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining), also ask Support to enable downstream MCP server connections.
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
-- An AI agent or client that has a delegation link to the MCP server. The link authorizes the client to delegate to the MCP server. In the link, `to.resourceOrn` is the `oauthClient.orn` value of the MCP server, not the ORN of the MCP server resource. See [Link to page Van is updating]() and [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink). The client passes an access token to the MCP server.
+- An AI agent or client that has a delegation link to the MCP server. The link authorizes the client to delegate to the MCP server. In the link, `to.resourceOrn` is the `oauthClient.orn` value of the MCP server, not the ORN of the MCP server resource. See <!-- See [Link to page Van is updating]()-->[Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink). The client passes an access token to the MCP server.
 
 ---
 
@@ -50,10 +50,10 @@ The following diagram describes the token exchange flow for an MCP server acting
 
 In this example, the [initial authentication](/docs/guides/ai-agent-token-exchange/resourceserver/main/#initial-authentication) has already happened, which is one of the following scenarios:
 
-* An AI agent directly obtained an ID token in a user access flow. [Link to page Van is updating]()
-* An initiating client obtained an access token and passed it to the AI agent in a machine access flow. [Link to page Van is updating]()
+* An AI agent directly obtained an ID token in a user access flow. <!-- [Link to page Van is updating]() -->
+* An initiating client obtained an access token and passed it to the AI agent in a machine access flow. <!-- [Link to page Van is updating]() -->
 
-The diagram also assumes that a token exchange (subject token for an access token) has already happened. The subject token is an ID token (user access) or an access token (machine access). The custom authorization server returned the access token (T1) that the agent then passes to the MCP server. This exchange includes the `resource` parameter with the MCP server resource URL as the value. See [??Link to Van's doc]() for more details.
+The diagram also assumes that a token exchange (subject token for an access token) has already happened. The subject token is an ID token (user access) or an access token (machine access). The custom authorization server returned the access token (T1) that the agent then passes to the MCP server. This exchange includes the `resource` parameter with the MCP server resource URL as the value. <!-- See [??Link to Van's doc]() for more details. -->
 
 <div class="full wireframe-border">
 
@@ -79,10 +79,10 @@ note right of MCP : T1 is never forwarded downstream
 
 MCP -> Org : 2. POST /oauth2/v1/token\n`subject_token` = T1\n`resource` = downstream resource URL
 Org -> Org : Validate against the MCP server's\ndelegation link and resource connection
-Org --> MCP : 3. ID-JAG T2\noriginal subject preserved\nMCP server is the client\n`act` claim chain preserved
+Org - -> MCP : 3. ID-JAG T2\noriginal subject preserved\nMCP server is the client\n`act` claim chain preserved
 
 MCP -> CustomDown : 4. POST /oauth2/{authServerId}/v1/token\n`grant_type` = jwt-bearer\n`assertion` = T2\n`resource` = downstream resource URL
-CustomDown --> MCP : 5. Access token T3\n`aud` = downstream resource URL,\n`subject` = user or machine,\n`act` claim chain preserved
+CustomDown - -> MCP : 5. Access token T3\n`aud` = downstream resource URL,\n`subject` = user or machine,\n`act` claim chain preserved
 
 MCP -> Down : 6. Request with T3 (Bearer)
 @enduml
