@@ -52,9 +52,9 @@ After the resource type is configured and the AI agent has the token or credenti
 
 The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.
 
-### Initial authentication
+### Authenticate with Okta
 
-During the initial authentication request in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent must obtain an ID token directly. For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access.
+During the initial authentication request to Okta in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent must obtain an ID token directly. For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access.
 
 > **Note**: Okta also accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. See [Use the CIMD client ID in a token request](/docs/guides/ai-agent-cimd-registration/main/#use-the-cimd-client-id-in-a-token-request) for more detailed information.
 
