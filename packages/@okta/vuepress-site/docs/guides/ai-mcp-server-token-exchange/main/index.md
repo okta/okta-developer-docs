@@ -1,5 +1,5 @@
 ---
-title: Set up MCP server token exchange
+title: MCP server as a client token exchange
 excerpt: Learn how to configure an MCP server as an OAuth client so that it can get its own token to access a downstream resource.
 layout: Guides
 ---
@@ -19,12 +19,15 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 
 #### What you need
 
-- An Okta org that's subscribed to Okta for AI Agents
-- An Okta admin account with the super admin role
-- The MCP server as an OAuth client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it. To use the `IDENTITY_ASSERTION_MCP_SERVER` connection type in [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining), also ask Support to enable downstream MCP server connections.
+- An Okta org that's subscribed to Okta for AI Agents and an Okta admin account with a super admin role
+- The MCP server as a client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it. To use the `IDENTITY_ASSERTION_MCP_SERVER` connection type in [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining), also ask Support to enable downstream MCP server connections.
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
-- An AI agent or client that has a delegation link to the MCP server. The link authorizes the client to delegate to the MCP server. In the link, `to.resourceOrn` is the `oauthClient.orn` value of the MCP server, not the ORN of the MCP server resource. See <!-- See [Link to page Van is updating]()-->[Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink). The client passes an access token to the MCP server.
+- An AI agent or client that has a delegation link to the MCP server.
+  > **Note**: In the link, `to.resourceOrn` is the `oauthClient.orn` value of the MCP server, not the ORN of the MCP server resource. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
+- An access token (T1) that the AI agent or client passes to the MCP server. See [initial authentication](/docs/guides/ai-agent-token-exchange/resourceserver/main/#initial-authentication). <!-- [Link to page Van is updating]() -->
+
+> **Note**: Complete these prerequisites before you start. This guide begins when the AI agent or client presents T1 to the MCP server.
 
 ---
 
@@ -38,22 +41,13 @@ Instead, the MCP server exchanges the token for a separate token. The authorizat
 
 This guide covers a downstream MCP server that's protected by an Okta custom authorization server. Okta supports this through [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access), which uses the Identity Assertion JWT (ID-JAG).
 
-An MCP server supports both user and machine subjects end to end. This includes the exchange of the ID-JAG for a downstream access token. See [Exchange ID-JAG for access token](#exchange-id-jag-for-access-token).
+The MCP server handles both user and machine subjects. This includes the exchange of the ID-JAG for a downstream access token. See [Exchange ID-JAG for access token](#exchange-id-jag-for-access-token).
 
 > **Note**: An MCP server can also hold other connection types. Use `IDENTITY_ASSERTION_MCP_SERVER` for a downstream MCP server. See [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining). Use `STS_ACCESS_TOKEN` for a third-party resource.
 
 ## Token exchange flow
 
-The following diagram describes the token exchange flow for an MCP server acting as a client.
-
-### Assumptions
-
-In this example, the [initial authentication](/docs/guides/ai-agent-token-exchange/resourceserver/main/#initial-authentication) has already happened, which is one of the following scenarios:
-
-* An AI agent directly obtained an ID token in a user access flow. <!-- [Link to page Van is updating]() -->
-* An initiating client obtained an access token and passed it to the AI agent in a machine access flow. <!-- [Link to page Van is updating]() -->
-
-The diagram also assumes that a token exchange (subject token for an access token) has already happened. The subject token is an ID token (user access) or an access token (machine access). The custom authorization server returned the access token (T1) that the agent then passes to the MCP server. This exchange includes the `resource` parameter with the MCP server resource URL as the value. <!-- See [??Link to Van's doc]() for more details. -->
+The following diagram describes the token exchange flow for an MCP server acting as a client. The flow starts when the AI agent or client presents the access token (T1) to the MCP server.
 
 <div class="full wireframe-border">
 
@@ -90,25 +84,19 @@ MCP -> Down : 6. Request with T3 (Bearer)
 
 ### Flow steps
 
-The following steps show how an AI agent calls an MCP server and how the MCP server gets a downstream token.
+The following steps show how an AI agent or client calls an MCP server and how the MCP server gets a downstream token.
 
 1. The AI agent calls the MCP server and passes the access token (T1).
 
    > **Note**: The MCP server doesn't forward T1 to the downstream resource. It always requests a separate token that's issued for the downstream resource.
 
 1. The MCP server sends the `subject_token` (T1) to the `/token` endpoint at the org authorization server and requests an exchange for an ID-JAG token (`urn:ietf:params:oauth:token-type:id-jag`). The MCP server authenticates as an OAuth client using the `private_key_jwt`.
-1. The server performs validation based on the [Resource Connections](#create-a-resource-connection) configuration and returns the requested ID-JAG (T2). T2 keeps the original subject and identifies the MCP server as the client. Its `act` claim lists the MCP server as the actor and nests the actors from T1. See [Exchange subject token for resource token](#exchange-subject-token-for-resource-token) for an example request.
+1. The server performs validation based on the [Resource Connections](#create-a-resource-connection) configuration and returns the requested ID-JAG (T2). T2 keeps the original subject and identifies the MCP server as the client. Its `act` claim lists the MCP server as the actor and nests the actors from T1. See [Delegation chain and the act claim](#delegation-chain-and-the-act-claim) and [Exchange subject token for resource token](#exchange-subject-token-for-resource-token) for an example request.
 1. Because the requested credential was an ID-JAG, the MCP server sends the ID-JAG (T2) to the custom authorization server that protects the downstream resource.
 1. The server performs validation and returns an access token (T3). T3 keeps the original subject and identifies the MCP server as the client. Its `act` claim has the same nested chain as T2.
 1. The MCP server uses the access token (T3) to request access to the downstream resource.
 
-The original subject stays the same across all tokens, whether it's a user or a machine. The `act` claim in T1 carries into T2 and T3, and the MCP server is added as the outermost actor. See [Delegation chain and the act claim](#delegation-chain-and-the-act-claim).
-
-## Initial set up
-
-Complete the following setup in Okta before the MCP server exchanges any tokens downstream. The AI agent or client and the MCP server also need a delegation link. See [What you need](#what-you-need) for details.
-
-## Set up the MCP server as an OAuth client
+## Set up MCP server as a client
 
 Before an MCP server can exchange tokens, you must enable it as an OAuth client, add a public key, and create a resource connection. Use the [MCP Server Client Registration](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverclientregistration/other/createmcpserveroauthclient), [MCP Server Credentials](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpservercredentials/other/addmcpserverjwk), and [MCP Server Connections](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverconnections/other/createmcpserverconnection) APIs to complete these steps.
 
@@ -370,41 +358,7 @@ Pragma: no-cache
 
 The ID-JAG carries the `act` claim from T1 with the MCP server added as the outermost actor. See [Delegation chain and the act claim](#delegation-chain-and-the-act-claim).
 
-With machine access, a client such as a service app calls the MCP server directly. The ID-JAG contains the following claims:
-
-```JSON
-{
-   "jti": "IDAAG.w73fqwY45m30VjjrCnu6EydnAVKteQEXK-QbrdktKsk",
-   "iss": "https://{yourOktaDomain}",
-   "aud": "https://{yourOktaDomain}/oauth2/{authServerId}",
-   "iat": 1780596934,
-   "exp": 1780597234,
-   "sub": "{serviceAppClientId}",
-   "resource": "https://downstream-mcp.example.com",
-   "client_id": "{mcpServerClientId}",
-   "sub_profile": "service",
-   "scope": "tools:read tools:execute",
-   "act": {
-      "sub": "{mcpServerClientId}",
-      "sub_profile": "mcp_server",
-      "act": {
-         "sub": "{serviceAppClientId}",
-         "sub_profile": "service"
-      }
-   }
-}
-```
-
-| Claim | Description |
-| --- | --- |
-| `sub` | The subject of T1. For machine access, this is the client ID of the app that called the MCP server. |
-| `client_id` | The OAuth client ID of the MCP server that performed the exchange |
-| `sub_profile` | The type of the subject. For machine access, this is `service`. |
-| `act` | The actor chain. The MCP server is the outermost actor, and the service app is nested inside it. |
-| `resource` | The resource URL of the downstream resource |
-| `aud` | The issuer URL of the custom authorization server that protects the downstream resource |
-
-With user access, the subject is the user who started the flow. The ID-JAG contains the following claims:
+The ID-JAG contains the following claims:
 
 ```JSON
 {
@@ -432,11 +386,13 @@ With user access, the subject is the user who started the flow. The ID-JAG conta
 
 | Claim | Description |
 | --- | --- |
-| `sub` | The ID of the user, which is the subject of T1 |
-| `email` | The user's email address |
+| `sub` | The subject of T1 |
+| `email` | The email address of the subject. This claim is present only when the subject is a user. |
 | `client_id` | The OAuth client ID of the MCP server that performed the exchange |
-| `sub_profile` | The type of the subject. For user access, this is `user`. |
-| `act` | The actor chain. The MCP server is the outermost actor, and the AI agent is nested inside it. |
+| `sub_profile` | The type of the subject, such as `user` or `service` |
+| `act` | The actor chain. The MCP server is the outermost actor, and the AI agent or client that called the MCP server is nested inside it. |
+| `resource` | The resource URL of the downstream resource |
+| `aud` | The issuer URL of the custom authorization server that protects the downstream resource |
 
 ### Exchange ID-JAG for access token
 
@@ -444,7 +400,7 @@ After receiving the ID-JAG, the MCP server sends a `POST` request to the custom 
 
 The access policy of the downstream custom authorization server must include the MCP server's OAuth client. It must also have a rule that allows the JWT bearer grant for the scopes that you request. Without it, the server rejects the request with the `access_denied` error and the message `Policy evaluation failed for this request`. The MCP server's client doesn't have a display name in the Admin Console, so you can't easily select it in the policy. The simplest approach is to assign the policy to **All clients**. To limit the policy to the MCP server's client, use the [Authorization Server Rules API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/) and specify the client ID.
 
-This exchange works for both user and machine subjects. For machine access, the `sub` claim of the ID-JAG is the client ID of the service app, and the access token's `sub_profile` is `service`.
+This exchange works for both user and machine subjects.
 
 ```bash
   curl --location --request POST \
@@ -516,44 +472,10 @@ The access token contains the following claims. The `act` claim lists the MCP se
 | Claim | Description |
 | --- | --- |
 | `cid` | The OAuth client ID of the MCP server |
-| `uid` | The ID of the user who started the flow |
-| `sub` | The user's sign-in name |
-| `act` | The actor chain. The MCP server is the outermost actor, and the AI agent is nested inside it. |
-| `sub_profile` | The type of the subject. For user access, this is `user`. |
-
-With machine access, the subject is the service app. The access token has no `uid` claim, and the `act` chain ends with the service app:
-
-```JSON
-{
-  "ver": 1,
-  "jti": "AT.yF2KLwFBbJTZAGb9MRH_BpWAuaEsaaQqkJpcMEktwk4",
-  "iss": "https://{yourOktaDomain}/oauth2/{authServerId}",
-  "aud": "https://downstream-mcp.example.com",
-  "iat": 1780596935,
-  "exp": 1780600535,
-  "cid": "{mcpServerClientId}",
-  "scp": [
-    "tools:read",
-    "tools:execute"
-  ],
-  "auth_time": 1780596935,
-  "sub": "{serviceAppClientId}",
-  "act": {
-    "sub": "{mcpServerClientId}",
-    "sub_profile": "mcp_server",
-    "act": {
-      "sub": "{serviceAppClientId}",
-      "sub_profile": "service"
-    }
-  },
-  "sub_profile": "service"
-}
-```
-
-| Claim | Description |
-| --- | --- |
-| `sub` | The client ID of the service app, which is the subject of T1 |
-| `sub_profile` | The type of the subject. For machine access, this is `service`. |
+| `uid` | The ID of the user. This claim is present only when the subject is a user. |
+| `sub` | The subject of T1 |
+| `act` | The actor chain. The MCP server is the outermost actor, and the AI agent or client that called the MCP server is nested inside it. |
+| `sub_profile` | The type of the subject, such as `user` or `service` |
 
 The `aud` claim is the downstream resource URL. It differs from the `aud` claim in T1, which is the MCP server's own resource URL.
 
@@ -567,10 +489,9 @@ The MCP server uses the access token (T3) to request access to the downstream re
 
 The `act` claim records the actors in a delegation chain. Each exchange keeps the `act` claim from the subject token and adds the client that performed the exchange as the outermost actor.
 
-- **Before the MCP server:** With user access, the AI agent's ID-JAG and T1 carry an `act` claim that identifies the AI agent as the actor. With machine access, T1 has no `act` claim because no actor exists upstream.
-- **At the MCP server:** The MCP server's exchange at the org authorization server adds the MCP server as the outermost actor. It nests the existing `act` claim inside it. T2 and T3 carry the same chain. The MCP server is also the client, in the `client_id` claim of T2 and the `cid` claim of T3. The original subject stays the same.
+The MCP server's exchange adds the MCP server as the outermost actor and nests the `act` claim from T1 inside it. T2 and T3 carry the same chain. The MCP server is also the client, in the `client_id` claim of T2 and the `cid` claim of T3.
 
-For example, with user access, the `act` claim in T2 and T3 looks like this:
+For example, the `act` claim in T2 and T3 looks like this:
 
 ```JSON
 "act": {
@@ -583,22 +504,9 @@ For example, with user access, the `act` claim in T2 and T3 looks like this:
 }
 ```
 
-With machine access, the inner actor is the service app that called the MCP server:
+The original subject stays the same across all tokens. The downstream resource can use the `act` claim in T3 to see the MCP server and the AI agent or client that started the request.
 
-```JSON
-"act": {
-  "sub": "{mcpServerClientId}",
-  "sub_profile": "mcp_server",
-  "act": {
-    "sub": "{serviceAppClientId}",
-    "sub_profile": "service"
-  }
-}
-```
-
-In all cases, the original subject stays the same across all tokens. The downstream resource can use the `act` claim in T3 to see the MCP server and the AI agent or client that started the request.
-
-The delegation chain has a maximum depth of 5 actors. If the `act` chain exceeds this limit, Okta rejects the exchange and returns the `invalid_subject_token_act_claim_depth` OAuth error.
+The delegation chain has a maximum depth of five actors. If the `act` chain exceeds this limit, Okta rejects the exchange and returns the `invalid_subject_token_act_claim_depth` OAuth error.
 
 ### Variant: MCP-to-MCP chaining
 
