@@ -19,32 +19,32 @@ Let your app access another app's APIs on behalf of a signed-in user. No separat
 [Cross App Access (XAA)](/docs/concepts/xaa/) lets your app call another app's API on behalf of a user who is already signed in through Okta, without static API keys or a second sign-in prompt. As a requesting app, your app signs the user in through SSO (OIDC or SAML), exchanges that sign-in for an ID-JAG from Okta, and redeems the ID-JAG at the resource app's authorization server for a scoped access token. In Okta, a requesting app is registered as an AI agent.
 
 > **Notes:**
-> - This journey assumes that your app already has OIDC or SAML SSO set up. You're adding the XAA token exchange on top.
+> - This journey assumes that your app already has OIDC or SAML SSO setup. You're adding the XAA token exchange on top.
 > - Starting from scratch? Set up SSO first.
 > - This journey covers apps with a human user in the loop. It doesn't cover autonomous agents or background jobs.
 
-This journey covers the requesting app role. If you are building an API that accepts incoming XAA calls, see [**Enable Cross App Access (XAA) for a resource app**](/docs/journeys/XAA-resource-app/main/).
+This journey covers the requesting app role. If you're building an API that accepts incoming XAA calls, see [Enable Cross App Access (XAA): Build a resource app](/docs/journeys/XAA-resource-app/main/).
 
 ## What you will accomplish
 
 By the end of this journey:
 
-* Your app can sign a user in and complete the full XAA token exchange, from authentication through ID-JAG to a scoped resource access token.
-* You can see the token exchange working end-to-end in the Okta system log, and any enterprise logging tool can capture the same events.
-* You have a tested, end-to-end XAA flow that passes the xaa.dev conformance tests.
-* Your integration is ready to submit to the OIN catalog through the OIN Wizard, with the xaa.dev conformance log as test evidence.
+- Your app can sign a user in and complete the full XAA token exchange, from authentication through ID-JAG to a scoped resource access token.
+- You can see the token exchange working end-to-end in the Okta system log and with any enterprise logging tool can capture the same events.
+- You have a tested the end-to-end XAA flow that passes the xaa.dev conformance tests.
+- Your integration is ready to submit to the OIN catalog through the OIN Wizard with the xaa.dev conformance log as test evidence.
 
 ## Learn
 
 New to Okta? Understand these concepts:
 
-* [Okta org](/docs/concepts/okta-organizations/): serves as your central Okta development hub, encapsulating all configurations, users, groups, policies, and other objects that your app uses.
-* [Identity and Access Management (IAM) overview](/docs/concepts/iam-overview/): Learn the key issues and concepts for adding identity and access management to your internal and external services.
+- [Okta org](/docs/concepts/okta-organizations/): serves as your central Okta development hub, encapsulating all configurations, users, groups, policies, and other objects that your app uses.
+- [Identity and Access Management (IAM) overview](/docs/concepts/iam-overview/): Learn the key issues and concepts for adding identity and access management to your internal and external services.
 
 Understand these before you build:
 
-* [Cross App Access overview](/docs/concepts/xaa/): how XAA works and how it layers over OIDC or SAML.
-* [ID-JAG token](/docs/guides/xaa-request-token-ex/openidconnect/main/): The assertion Okta issues when you exchange your sign-in token (an ID token or a refresh token). You redeem it at the resource app's authorization server for an access token.
+- [Cross App Access overview](/docs/concepts/xaa/): how XAA works and how it layers over OIDC or SAML.
+- [ID-JAG token](/docs/guides/xaa-request-token-ex/openidconnect/main/): The assertion Okta issues when you exchange your sign-in token (an ID token or a refresh token). You redeem it at the resource app's authorization server for an access token.
 
 ## Plan
 

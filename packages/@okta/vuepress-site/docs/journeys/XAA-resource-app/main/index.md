@@ -65,7 +65,7 @@ Additional planning considerations:
 
 ### Choose your path
 
-1. If you're new to Okta, build your SSO integration first ([OIDC](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/) or [SAML](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/)), then follow the steps below. You add Cross App Access in the same OIN Wizard submission.
+1. If you're new to Okta, build your SSO integration first ([OIDC](/docs/guides/submit-oin-app/openidconnect/main/) or [SAML](/docs/guides/submit-oin-app/saml2/main/)), then follow the steps below. You add Cross App Access in the same OIN Wizard submission.
 2. If your SSO app is already on the OIN, follow the steps below, then extend your existing integration from your OIN Integrations.
 
 If you have your SSO app listed on OIN, follow these steps:
