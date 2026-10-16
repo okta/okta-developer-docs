@@ -10,6 +10,8 @@ journeys:
  - OCI-migrate-users
  - OCI-prepare-upgrade-oie
  - OCI-replace-ce-auth-flows
+ - XAA-requesting-app
+ - XAA-resource-app
 ---
 
 # Journeys
