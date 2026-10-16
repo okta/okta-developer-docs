@@ -95,7 +95,7 @@ For apps that connect through the On-Premises Provisioning Agent (OPP) or the Ok
 
 * **OPP:** The standard attributes are `externalId`, `status`, `userName`, `firstName`, `lastName`, `email`, `secondEmail`, and `mobilePhone`. Every other attribute is a custom attribute that uses the property name from the app user profile schema. For example, `importedAppUser.department == 'Engineering'`.
 
-* **OPS:** The standard attributes are `userName` and `externalId`. Every other attribute is an `ext_*` attribute that uses the property name from the app user profile schema. For example, for an app that uses the On-prem Connector for Generic Databases, `importedAppUser.ext_LAST_NAME == 'NormalUser8'`.
+* **OPS:** The standard attributes are `userName`, `externalId`, and `userEntitlements`. Every other attribute is an `ext_*` attribute that uses the property name from the app user profile schema. For example, for an app that uses the On-prem Connector for Generic Databases, `importedAppUser.ext_LAST_NAME == 'Smith'`.
 
 > **Note:** Okta drops any attribute that isn't in the app user profile schema, and omits attributes that have a null value. An expression that references either type of attribute doesn't match the user.
 
