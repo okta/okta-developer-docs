@@ -10,6 +10,10 @@ sections:
 - main
 ---
 
+# Enable Cross App Access (XAA): Build a resource app
+
+Make your API accept authenticated cross-app calls from other apps using a signed-in user's Okta identity.
+
 ## Introduction
 
 [Cross App Access (XAA)](/docs/concepts/xaa/) lets an app call your API on behalf of a user who is already signed in through Okta, without static API keys or a second sign-in prompt.
