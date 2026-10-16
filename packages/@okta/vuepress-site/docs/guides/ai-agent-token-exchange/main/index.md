@@ -17,11 +17,11 @@ Learn how to configure token exchange for AI agents so that you can securely req
 
 - An Okta org that's subscribed to Okta for AI Agents
 - An Okta admin account with the super admin role
-- [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in your Okta custom authorization server for each resource app where you're requesting access. These scopes specify what permissions the token exchange grants in the final access token. You select these scopes when you [connect AI agents to resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
 - A registered AI agent in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
-  > **Note**: If you're using the agent-to-agent connection type, you need two registered AI agents.
+  > **Note**: If you're using the **Connect to another AI Agent** resource type, you need two registered AI agents.
 - A **Resource connection** that's configured for each AI agent, defining which resources they're allowed to access. See [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
-  > **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent Security Token Service (STS) flow.
+  - If you're connecting to an Okta custom authorization server, define the [custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) for each resource app where you're requesting access. These scopes specify what permissions the token exchange grants in the final access token.
+
 - [User access or machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Configure user access** or **Configure machine access** sections of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
 
 ---
@@ -34,27 +34,53 @@ You've also created [resource connections](https://help.okta.com/okta_help.htm?t
 
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection) to the following resource types:
 
+- **Agent Gateway**: NEW Uses brokered consent STS.
+
+<!-- FYI VAN: (Okta currently supports only STS_ACCESS_TOKEN connections to MCP_SERVER resources. See steps 5-8 here: https://developer.okta.com/docs/guides/ai-configure-agent-gateway/main/#what-happens-at-runtime. They are working on ID_JAG but that isn't done yet.) -->
+
 - **Authorization server**: Grants the AI agent access to resources that are protected by an Okta custom authorization server. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access), which uses ID-JAG (Identity Assertion JWT).
 
 - **Secret**: Uses a static credential for a downstream resource that has been vaulted in Okta Privileged Access.
 
 - **Service account**: Uses a static credential for an app that's specified in Universal Directory. This resource is vaulted in Okta Privileged Access.
 
-- **Resource server (STS)**: Uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
+- **Application**: NEW uses Authorization Server (ID-JAG) and brokered consent STS
 
-- **Agent-to-agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
+- **MCP server**: NEW uses Authorization Server (ID-JAG) and brokered consent STS
+
+- **Connect to another AI Agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
+
+<!-- VAN should we just take this out now? > **Resource server (STS)**: Uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
+
+> **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent Security Token Service (STS) flow. -->
 
 After the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
 > **Note:** If you're integrating a third-party AI agent platform, such as AWS Bedrock or Azure AI Foundry, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/). This guide provides a complete setup walkthrough and a functional demo that you can test end to end.
 
+### Connection types
+
+The `connectionType` property identifies how an AI agent obtains credentials for a resource. Okta uses this value to determine which token exchange flow to run: Security Token Service (STS) or identity assertion (ID-JAG).
+
+Use the following values when you create or update a resource connection through the API:
+
+| enum | x-enumDescriptions |
+| --- | --- |
+| `STS_VAULT_SECRET` | Security Token Service connection for vaulted secrets |
+| `STS_SERVICE_ACCOUNT` | Security Token Service connection for service accounts |
+| `IDENTITY_ASSERTION_CUSTOM_AS` | Identity assertion connection for custom authorization servers |
+| `STS_ACCESS_TOKEN` | Security Token Service connection for OAuth-based token exchange (app instances or third-party MCP servers) |
+| `IDENTITY_ASSERTION_A2A_SERVER` | Identity assertion connection for agent-to-agent (A2A) servers |
+| `IDENTITY_ASSERTION_APP_INSTANCE` | Identity assertion connection for an app instance |
+| `IDENTITY_ASSERTION_MCP_SERVER` | Identity assertion connection for an MCP server |
+
 ## Token exchange flow
 
-The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.
+The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** token exchange flow. If you want to change the token exchange flow on this page, select that flow from the **Instructions for** dropdown list on the right.
 
-### Initial authentication
+### Okta authentication
 
-During the initial authentication request in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent must obtain an ID token directly. For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access.
+During the Okta authentication request in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent must obtain an ID token directly. For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation. So, the initial step is different for these two types of access.
 
 > **Note**: Okta also accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. See [Use the CIMD client ID in a token request](/docs/guides/ai-agent-cimd-registration/main/#use-the-cimd-client-id-in-a-token-request) for more detailed information.
 
@@ -62,7 +88,7 @@ During the initial authentication request in a [user access configuration](https
 
 ## Flow specifics
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** token exchange flow. If you want to change the token exchange flow on this page, select that flow from the **Instructions for** dropdown list on the right.
 
 ### Initial authentication
 
@@ -109,7 +135,7 @@ The token returned in the response contains the `aud` claim. The claim value is 
 
 ### Exchange subject token for resource token
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.<br>
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** token exchange flow. If you want to change the token exchange flow on this page, select that flow from the **Instructions for** dropdown list on the right.<br>
 
 <StackSnippet snippet="exchange-token-for-idjag1" />
 
