@@ -26,8 +26,8 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 #### What you need
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
-* A Databricks workspace with Databricks Apps enabled, and permission to create apps and secret scopes
-* An existing Databricks app that serves an AI agent through the MLflow `AgentServer`. The [Databricks agent app templates](https://github.com/databricks/app-templates) are a good starting point.
+* A Databricks workspace with Databricks Apps enabled, and permission to create apps and secret scopes. You need **Can manage** permission on both the app and the secret resource.
+* An existing Databricks app that serves an AI agent through the MLflow `AgentServer`. The [Databricks agent app templates](https://github.com/databricks/app-templates) are a good starting point. The examples in this guide use the `agent-openai-agents-sdk` template.
 * A Databricks AI agent identity registered in Okta. See [Register your AI agent in Okta](#register-your-ai-agent-in-okta).
 * The [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/), authenticated to your workspace
 * [Python](https://www.python.org/) 3.10 or later, [Node.js](https://nodejs.org/) 20, and [uv](https://docs.astral.sh/uv/)
@@ -86,6 +86,8 @@ Two tokens travel on the same request. Don't confuse them.
 
 Databricks also injects an `x-forwarded-access-token` header. Databricks issues that token, not Okta, so you can't use it for the token exchange.
 
+> **Note:** You don't need to turn on user authorization (`user_api_scopes`) for the app. The token exchange doesn't use the forwarded Databricks token. Turn it on only if the AI agent also needs to call Databricks on the user's behalf.
+
 ## Before you begin
 
 The token exchange depends on Okta objects that you configure once per org. Confirm that the following are in place before you add any integration code. For detailed steps, see [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/).
@@ -143,7 +145,7 @@ Create an app connection in Databricks:
 1. In Application Name, enter a recognizable name, for example, Okta AI Agent Import.
 1. In Redirect URLs, enter your Okta org URL followed by /oauth2/v1/sts/callback, for example, https://{yourOktaDomain}/oauth2/v1/sts/callback.
 1. Under Access scopes, keep the default scopes and add provisioning, workspace, supervisor-agents, knowledge-assistants, and genie.
-   Open question: Engineering notes say the import also needs the offline_access scope to receive a refresh token. Without it, the import works for about one hour and then fails with NO_REFRESH_TOKEN / E0000009. The Okta Help Center article doesn't list this scope. Confirm with engineering whether to add it to this list.
+   Also add offline_access. Engineering notes confirm the import needs it to receive a refresh token. Without it, the import works for about one hour and then fails with NO_REFRESH_TOKEN / E0000009. The Okta Help Center article doesn't list this scope, and the engineering notes mark the import steps as unverified, so confirm before publication.
 1. Optional. Set Single-use Refresh Tokens, Access token TTL (in minutes), and Refresh token TTL (in minutes).
 1. Click Add. Copy the Client ID and Client Secret from the dialog and store them in a secrets manager. You can't retrieve the secret after you close the dialog.
 
@@ -243,11 +245,15 @@ def resolve_okta_access_token() -> str | None:
     if not id_token:
         return None
 
+    # Log prefixes only. Never log a whole token.
+    logger.info("[XAA] id_token received (prefix: %s...), starting exchange", id_token[:20])
     try:
         id_jag = get_id_jag(id_token)
+        logger.info("[XAA] Step 1 OK, ID-JAG obtained (prefix: %s...)", id_jag[:20])
         access_token = get_access_token(id_jag)
+        logger.info("[XAA] Step 2 OK, access_token obtained (prefix: %s...)", access_token[:20])
     except Exception:
-        logger.exception("Okta token exchange failed")
+        logger.exception("[XAA] Okta token exchange failed")
         return None
 
     _okta_access_token.set(access_token)
@@ -256,7 +262,7 @@ def resolve_okta_access_token() -> str | None:
 
 > **Note:** Exchange the token on each request instead of caching it. The access token is valid for 24 hours while the ID-JAG is valid for only five minutes, so a cached user token in memory carries far more risk than the exchange costs. Steps 1 and 2 are also one retryable unit. If step 2 fails, repeat both steps from the `id_token`, because the ID-JAG may have expired.
 
-<span style="color: #c0392b;">**TODO:** Engineering flagged an open security item. The app doesn't compare the id_token `sub` claim with the X-Forwarded-Email header that Databricks adds. Without that check, anyone who can reach the app can present any valid id_token and the app acts as that user. Decide with engineering whether this guide adds the check or documents it as a prerequisite before production use.</span>
+<span style="color: #c0392b;">**TODO:** Engineering flagged an open security item. The app doesn't compare the id_token `sub` claim with the X-Forwarded-Email header that Databricks adds. Without that check, anyone who can reach the app can present any valid id_token and the app acts as that user. Decide with engineering whether this guide adds the check or documents it as a prerequisite before production use. The engineering notes add that Databricks documents forwarded headers as injectable outside its proxy, so neither the header nor the id_token is an authentication boundary on its own, and that their sample okta_context.py already captures x-forwarded-email for this check but doesn't compare it yet. As of 2026-10-07, this is still undecided.</span>
 
 ### Call the token exchange from the invoke handler
 
@@ -353,8 +359,8 @@ env:
 ```
 
 > **Note:** In `databricks.yml`, the key for referencing a resource is `value_from`. In `app.yaml`, it's `valueFrom`. Each file keeps its own convention.
-
-<span style="color: #c0392b;">**TODO:** Confirm that OKTA_DOMAIN takes a bare domain (no https:// prefix) in the shared token_exchange.py module, consistent with the Okta values table. The engineering sample code used a full URL with the https:// prefix.</span>
+>
+> Set `OKTA_DOMAIN` to the bare domain, for example, `example.okta.com`, with no `https://` prefix. The `token_exchange.py` module adds the scheme itself.
 
 If your workspace uses an Enterprise-tier network policy, add your Okta domain to the policy's allowed destinations. Otherwise, the token exchange requests from the app fail with a connection error.
 
@@ -406,6 +412,12 @@ databricks bundle deploy
 databricks bundle run agent_okta_xaa
 ```
 
+If you created the app in the Databricks UI first, bind it to the bundle before the first deploy:
+
+```bash
+databricks bundle deployment bind agent_okta_xaa <app-name> --auto-approve
+```
+
 Get a Databricks OAuth token. PATs don't work against an app URL.
 
 ```bash
@@ -425,13 +437,21 @@ curl -s -X POST "https://<app-url>.databricksapps.com/responses" \
 
 <span style="color: #c0392b;">**TODO:** Add a sample successful response for the deployed invoke. Engineering hasn't run the deployed invoke yet because it's blocked on Databricks credits (2026-10-07). The Okta exchange and the in-handler code path were verified locally against a live org, but the response body of a deployed app isn't confirmed.</span>
 
-To confirm that the exchange ran, stream the app's logs and look for your own log lines for the token exchange:
+To confirm that the exchange ran, stream the app's logs and filter for the `[XAA]` lines:
 
 ```bash
-databricks apps logs agent-okta-xaa --follow --source APP
+databricks apps logs agent-okta-xaa --follow --source APP --search '[XAA]'
 ```
 
-<span style="color: #c0392b;">**TODO:** The sample code in this guide doesn't log the exchange steps. If you want a log check here, add logger.info calls to resolve_okta_access_token that print only a token prefix, never a whole token.</span>
+The log shows token prefixes only:
+
+```text
+[XAA] id_token received (prefix: eyJraWQiOiI3ZHkwOWZX...), starting exchange
+[XAA] Step 1 OK, ID-JAG obtained (prefix: eyJraWQiOiJQRUlNX1pS...)
+[XAA] Step 2 OK, access_token obtained (prefix: eyJraWQiOiJQRUlNX1pS...)
+```
+
+<span style="color: #c0392b;">**TODO:** These log lines are illustrative. Engineering hasn't run the deployed app yet (blocked on Databricks credits, 2026-10-07), so replace them with the real output from the deployed run. The CLI flags come from the Databricks CLI v1.19.0 help output in the engineering notes.</span>
 
 ## Troubleshoot your integration
 
