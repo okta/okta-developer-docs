@@ -83,4 +83,3 @@ Congratulations, your requesting application is now XAA-enabled. Here's how to e
 * [**Build a resource app:**](/docs/journeys/XAA-resource-app/main/) allow your API to accept incoming XAA calls from other apps.
 * [**Add SCIM provisioning**](/docs/guides/scim-provisioning-integration-overview/main/): Automate user lifecycle management alongside SSO and XAA so admins can manage your app's users entirely from Okta.
 * [**Implement Universal Logout**](/docs/guides/oin-universal-logout-overview/): End user sessions across connected apps in real time when Okta fires a security event.
-* [**Add custom claims to the ID-JAG token**](https://www.ietf.org/archive/id/draft-ietf-oauth-identity-assertion-authz-grant-04.html#name-introduction): Configure Okta's auth server to include app-specific claims for fine-grained access control.
