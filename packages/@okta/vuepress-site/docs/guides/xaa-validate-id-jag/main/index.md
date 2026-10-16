@@ -204,7 +204,7 @@ After claims are validated and user identity is resolved, complete the exchange:
 
 **Note:** Don't issue refresh tokens in response to an ID-JAG token exchange. Requesting apps must submit a new ID-JAG token when their access token expires.
 
-## Error handling and troubleshooting
+## Handle errors and troubleshoot
 
 Return standard HTTP status codes and OAuth error responses when validation fails (see [RFC 6749 Section 5.2](https://datatracker.ietf.org/doc/html/rfc6749#section-5.2)):
 
