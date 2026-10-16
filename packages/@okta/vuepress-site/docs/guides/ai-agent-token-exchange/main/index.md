@@ -17,11 +17,11 @@ Learn how to configure token exchange for AI agents so that you can securely req
 
 - An Okta org that's subscribed to Okta for AI Agents
 - An Okta admin account with the super admin role
-- [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in your Okta custom authorization server for each resource app where you're requesting access. These scopes specify what permissions the token exchange grants in the final access token. You select these scopes when you [connect AI agents to resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
 - A registered AI agent in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
   > **Note**: If you're using the agent-to-agent connection type, you need two registered AI agents.
 - A **Resource connection** that's configured for each AI agent, defining which resources they're allowed to access. See [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
-  > **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent Security Token Service (STS) flow.
+  - If you're connecting to an Okta custom authorization server, define the [custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) for each resource app where you're requesting access. These scopes specify what permissions the token exchange grants in the final access token.
+
 - [User access or machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Configure user access** or **Configure machine access** sections of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
 
 ---
@@ -34,19 +34,38 @@ You've also created [resource connections](https://help.okta.com/okta_help.htm?t
 
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection) to the following resource types:
 
+- **Agent Gateway**: NEW -> use Authorization server access method?
+
 - **Authorization server**: Grants the AI agent access to resources that are protected by an Okta custom authorization server. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access), which uses ID-JAG (Identity Assertion JWT).
 
 - **Secret**: Uses a static credential for a downstream resource that has been vaulted in Okta Privileged Access.
 
 - **Service account**: Uses a static credential for an app that's specified in Universal Directory. This resource is vaulted in Okta Privileged Access.
 
-- **Resource server (STS)**: Uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
+- **Application**: NEW uses Authorization Server (ID-JAG) and brokered consent STS
 
-- **Agent-to-agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
+- **MCP server**: NEW uses Authorization Server (ID-JAG) and brokered consent STS
+
+- **Connect to another AI Agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
+
+> **Resource server (STS)**: Uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
+
+> **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent Security Token Service (STS) flow.
 
 After the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
 > **Note:** If you're integrating a third-party AI agent platform, such as AWS Bedrock or Azure AI Foundry, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/). This guide provides a complete setup walkthrough and a functional demo that you can test end to end.
+
+### ConnectionType
+| enum | x-enumDescriptions |
+| --- | --- |
+| STS_VAULT_SECRET | Security Token Service connection for vaulted secrets |
+| STS_SERVICE_ACCOUNT | Security Token Service connection for service accounts |
+| IDENTITY_ASSERTION_CUSTOM_AS | Identity assertion connection for custom authorization servers |
+| `STS_ACCESS_TOKEN` | Security Token Service connection for OAuth-based token exchange (app instances or third-party MCP servers) |
+| `IDENTITY_ASSERTION_A2A_SERVER` | Identity assertion connection for agent-to-agent (A2A) servers |
+| `IDENTITY_ASSERTION_APP_INSTANCE` | Identity assertion connection for an app instance |
+| `IDENTITY_ASSERTION_MCP_SERVER` | Identity assertion connection for an MCP server |
 
 ## Token exchange flow
 
