@@ -26,7 +26,6 @@ The following table compares the two hosting options:
 | Setup and operation | Install Python packages, clone repositories, configure tooling, and manage infrastructure (OS patches, updates, dependency management). | No installation required. Connect through an HTTPS endpoint. Okta manages infrastructure, updates, scaling, and security patches. |
 | Transport protocol | Uses STDIO. | Uses a secure internet connection (HTTPS). |
 | User authentication | Device Authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
-| Service-to-service authentication | JWT private key (API Services for autonomous agents). | JWT private key (API Services for autonomous agents). |
 | Cost model | You manage infrastructure, licensing, and operational costs. | Okta managed cloud service. |
 | Best for | Developers testing code in a sandbox or using a command-line interface. | Help Desk teams, IT admins, and automated workflows. |
 
