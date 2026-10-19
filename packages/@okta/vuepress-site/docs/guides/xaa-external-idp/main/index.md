@@ -66,7 +66,7 @@ An IdP can issue an ID-JAG that Okta trusts only if its IdP usage includes XAA. 
    * **Cross App Access only**: The IdP only issues ID-JAGs that Okta accepts for XAA. It doesn't sign users in to Okta.
 1. Save the IdP.
 
-See [IdP usage](/docs/concepts/identity-providers/#idp-usage) for what each option means for Okta's trust of the IdP.
+You can't change the IdP usage of an IdP after you save it with **Cross App Access only** or **SSO and Cross App Access**. To use a different option, delete the IdP and create a new one. See [IdP usage](/docs/concepts/identity-providers/#idp-usage) for what each option means for Okta's trust of the IdP.
 
 ## Configure the access policy IdP condition
 

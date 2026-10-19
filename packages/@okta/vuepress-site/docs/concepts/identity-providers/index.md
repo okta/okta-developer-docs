@@ -102,7 +102,7 @@ IdP usage controls the purpose of the IdP and what Okta uses it for. Select one 
 * **Factor only**: When a user signs in through the IdP, Okta counts that authentication as one factor (something you have) toward multifactor authentication, but not as proof of identity on its own.
 * **Device posture provider**: Okta doesn't accept any claim about the user from the IdP. It accepts data about the user's device instead, for use in device assurance policies. Available only if device posture is enabled for your org. See [Configure a device posture IdP](/docs/guides/device-posture-idp/).
 
-> **Note:** **Cross App Access only** and **SSO and Cross App Access** are mutually exclusive with **SSO only** and **Factor only** on the same IdP. An IdP that's already trusted for SSO or as a factor can't also be set to **Cross App Access only** without first removing the SSO or factor usage. You can't update a **Cross App Access only** or **SSO and Cross App Access** profile after you create it. Delete it and create a new one instead.
+> **Note:** **Cross App Access only** and **SSO and Cross App Access** are mutually exclusive with **SSO only** and **Factor only** on the same IdP. An IdP that's already trusted for SSO or as a factor can't also be set to **Cross App Access only** without first removing the SSO or factor usage. You can't change the IdP usage of an IdP after you save it with **Cross App Access only** or **SSO and Cross App Access**. To use a different option, delete the IdP and create a new one.
 
 ## Account Linking and Just-In-Time provisioning
 
