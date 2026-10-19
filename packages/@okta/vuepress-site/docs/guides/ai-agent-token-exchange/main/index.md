@@ -32,6 +32,8 @@ You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=
 
 You've also created [resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) that define the AI agent's access to your org's resources. Now, the agent must obtain the actual tokens or credentials to perform tasks.
 
+> **Note**: The [`connectionType`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=0/connectiontype) property in the AI Agent Connections API identifies how an AI agent obtains credentials for a resource. Okta uses this value to determine which token exchange flow to apply to the connection.
+
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection) to the following resource types:
 
 - **Agent Gateway**: NEW Uses brokered consent STS.
@@ -40,13 +42,25 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - **Authorization server**: Grants the AI agent access to resources that are protected by an Okta custom authorization server. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access), which uses ID-JAG (Identity Assertion JWT).
 
+    Okta supports the [`IDENTITY_ASSERTION_CUSTOM_AS`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=0/connectiontype) `connectionType` for the **Authorization server** resource type. Select **Authorization server (ID-JAG)** from the **Instructions for** dropdown on the right to review the authorization server [token exchange flow](#token-exchange-flow).
+
 - **Secret**: Uses a static credential for a downstream resource that has been vaulted in Okta Privileged Access.
+
+    Okta supports the [`STS_VAULT_SECRET`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=1/connectiontype) `connectionType` for the **Secret** resource type. Select **Secret** from the **Instructions for** dropdown on the right to review the STS vaulted secret OPA [token exchange flow](#token-exchange-flow).
 
 - **Service account**: Uses a static credential for an app that's specified in Universal Directory. This resource is vaulted in Okta Privileged Access.
 
-- **Application**: NEW uses Authorization Server (ID-JAG) and brokered consent STS
+    Okta supports the [`STS_SERVICE_ACCOUNT`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=1/connectiontype) `connectionType` for the **Service account** resource type. Select **Service account** from the **Instructions for** dropdown on the right to review the service account static credentials OPA [token exchange flow](#token-exchange-flow).
 
-- **MCP server**: NEW uses Authorization Server (ID-JAG) and brokered consent STS
+- **Application**: If you have an app or a custom resource server as the resource type, Okta supports two types of connections:
+
+    - The [`IDENTITY_ASSERTION_APP_INSTANCE`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=5/connectiontype) `connectionType` which uses the Cross App Access (XAA) token exchange flow. Select **Authorization server (ID-JAG)** from the **Instructions for** dropdown on the right to review the XAA authorization server [token exchange flow](#token-exchange-flow).
+    - The [`STS_ACCESS_TOKEN`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=3/connectiontype) `connectionType` which uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This connection flow requires user consent before an AI agent can act on behalf of the user. Select **Resource server (STS)** from the **Instructions for** dropdown on the right to review the brokered consent STS [token exchange flow](#token-exchange-flow).
+
+- **MCP server**: The MCP server resource type supports two types of connections.
+
+    - The [`IDENTITY_ASSERTION_MCP_SERVER`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=6/connectiontype) `connectionType` which uses the Cross App Access (XAA) token exchange flow. Select **MCP server** from the **Instructions for** dropdown on the right to review the XAA MCP server [token exchange flow](#token-exchange-flow).
+    - The [`STS_ACCESS_TOKEN`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection#other/createresourceconnection/t=request&path=&d=3/connectiontype) `connectionType` which uses a third-party access token that's issued by the third-party authorization server and brokered by Okta. This connection flow requires user consent before an AI agent can act on behalf of the user. Select **Resource server (STS)** from the **Instructions for** dropdown on the right to review the brokered consent STS [token exchange flow](#token-exchange-flow).
 
 - **Connect to another AI Agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
 
@@ -62,16 +76,9 @@ After the resource type is configured and the AI agent has the token or credenti
 
 The `connectionType` property identifies how an AI agent obtains credentials for a resource. Okta uses this value to determine which token exchange flow to run: Security Token Service (STS) or identity assertion (ID-JAG).
 
-Use the following values when you create or update a resource connection through the API:
-
 | enum | x-enumDescriptions |
 | --- | --- |
-| `STS_VAULT_SECRET` | Security Token Service connection for vaulted secrets |
-| `STS_SERVICE_ACCOUNT` | Security Token Service connection for service accounts |
 | `IDENTITY_ASSERTION_CUSTOM_AS` | Identity assertion connection for custom authorization servers |
-| `STS_ACCESS_TOKEN` | Security Token Service connection for OAuth-based token exchange (app instances or third-party MCP servers) |
-| `IDENTITY_ASSERTION_A2A_SERVER` | Identity assertion connection for agent-to-agent (A2A) servers |
-| `IDENTITY_ASSERTION_APP_INSTANCE` | Identity assertion connection for an app instance |
 | `IDENTITY_ASSERTION_MCP_SERVER` | Identity assertion connection for an MCP server |
 
 ## Token exchange flow
