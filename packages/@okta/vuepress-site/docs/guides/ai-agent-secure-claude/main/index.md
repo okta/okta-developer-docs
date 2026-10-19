@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to secure a Claude AI agent by adding a tool that performs Okta's two-step token exchange. It assumes that you host the loop that drives your Claude AI agent, and that you can modify its code. The service that hosts the loop, called the orchestrator, receives the signed-in user's Okta `id_token`. A tool that the model calls then exchanges that `id_token` for a scoped access token, so the AI agent can call Okta-protected resources on the user's behalf.
+This guide shows you how to secure a Claude AI agent by adding a tool that performs Okta's two-step token exchange. It assumes that you host the loop that drives your Claude AI agent, and that you can modify its code. The service that hosts the loop is the orchestrator. It receives the signed-in user's Okta `id_token`. A tool that the model calls then exchanges the `id_token` for a scoped access token, so the AI agent can call Okta-protected resources on the user's behalf.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Claude-specific code and configuration that consumes it.
 
@@ -23,7 +23,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 #### What you need
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
-* An Anthropic API key that has model access, for the orchestrator that hosts your Claude AI agent loop
+* An Anthropic API key that has model access. Your orchestrator uses it to call Claude.
 * A Claude AI agent imported into Okta as an AI agent identity. See [Import your AI agent from Claude](#import-your-ai-agent-from-claude).
 * [Python](https://www.python.org/) 3.10 or later
 
@@ -94,7 +94,7 @@ Okta can discover and import Claude Managed Agents directly from your Anthropic 
 
 > **Important:** The Claude import depends on Anthropic beta APIs that can change or be removed. If you have problems with the setup, contact [Okta Support](https://support.okta.com/help/s/opencase).
 
-You need the super admin role in Okta.
+You need the super admin role in Okta and access to the Claude Console.
 
 Create an API key in the Claude Console:
 
@@ -103,7 +103,7 @@ Create an API key in the Claude Console:
 1. Enter a descriptive name, for example, `okta-ai-agent-import`, and then click **Add**.
 1. Copy the key and store it in a secrets manager. You can't view the key again after you close the dialog.
 
-   > **Note:** If your Anthropic Enterprise account uses Workspaces, create the key in a dedicated Workspace. Okta only needs read access to list AI agents.
+   > **Note:** If your Anthropic Enterprise account uses Workspaces, create the key in a dedicated Workspace. Okta needs only read access to list AI agents.
 
 Add the Claude app to your org:
 
@@ -113,7 +113,7 @@ Add the Claude app to your org:
 
    > **Note:** To change the URL later, open the app, go to the **General** tab, and click **Edit** in the **App Setting** section.
 
-<!-- TODO: Confirm the exact field label for the Anthropic URL on the General Settings page in the live Admin Console. The help article calls it Anthropic URL, and an older Confluence page calls it Anthropic API Url. -->
+<span style="color: #c0392b;">**TODO:** Confirm the exact field label for the Anthropic URL on the General Settings page in the live Admin Console. The help article calls it Anthropic URL, and an older Confluence page calls it Anthropic API Url.</span>
 
 Enable imports for the app:
 
@@ -134,11 +134,11 @@ Register the imported AI agent and set up its identity:
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
 
 1. On the **Client registration** tab, click **Configure** next to **Public/private key**, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, since Okta shows it only once. Click **Done**.
-1. Note the **Client ID**, which starts with `wlp`, and the public key's **Key ID**. You need them for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`, respectively.
+1. Copy the **Client ID**, which starts with `wlp`, and the public key's **Key ID**. You need them for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`, respectively.
 1. On the **Resource connections** tab, click **Add resource connection**. For **Resource type**, select **Authorization server**, and then select your custom authorization server. Under **Scopes**, select **Only allow**, enter your custom scope, for example, `xaa:read`, and then click **Add**.
 1. Click **Actions** > **Activate**, and then click **Confirm**.
 
-<!-- TODO: Confirm the exact Admin Console labels and step order for registering an imported Claude AI agent, including where the User access, Client registration, and Resource connections tabs appear after the import. These steps follow the shared manual-registration procedure in the engineering notes, not a Claude-specific source. -->
+<span style="color: #c0392b;">**TODO:** Confirm the exact Admin Console labels and step order for registering an imported Claude AI agent, including where the User access, Client registration, and Resource connections tabs appear after the import. These steps follow the shared manual-registration procedure in the engineering notes, not a Claude-specific source.</span>
 
 > **Note:** If you create the OIDC app from the AI agent's **User access** tab, the app shares the AI agent's client ID. In that case, the OIDC client ID and `AGENT_CLIENT_ID` are the same `wlp` value. If you select an existing OIDC app, the two values differ, and the `id_token` `aud` claim holds the OIDC app's client ID.
 
@@ -152,7 +152,7 @@ Your orchestrator reads these values as environment variables. The token exchang
 
 | Environment variable | Description | Where to find it |
 | --- | --- | --- |
-| `ANTHROPIC_API_KEY` | The Anthropic API key that your orchestrator uses to call Claude. The Anthropic SDK reads this variable automatically. Don't reuse the key that you gave Okta for imports, because that key only needs permission to list AI agents. | **Claude Console** > **Manage** > **API keys** |
+| `ANTHROPIC_API_KEY` | The Anthropic API key that your orchestrator uses to call Claude. The Anthropic SDK reads this variable automatically. Don't reuse the key that you gave Okta for imports, because that key needs permission only to list AI agents. | **Claude Console** > **Manage** > **API keys** |
 
 ## Add Okta authentication to your AI agent
 
@@ -162,16 +162,16 @@ The `token_exchange.py` module that you create here has no dependency on Claude.
 
 ## Integrate the token exchange into your Claude AI agent
 
-This section is specific to Claude. Here you add a tool that calls `get_id_jag` and `get_access_token`, and then run it in your AI agent loop.
+This section is specific to Claude. Here you add a tool that calls `get_id_jag` and `get_access_token`, and then run the tool in your AI agent loop.
 
 ### Choose the integration point
 
 Run the token exchange in a tool that your orchestrator executes. Your orchestrator holds the private key and receives the user's `id_token`. The model only decides when to call the tool.
 
-Keep the following in mind when you design the integration:
+Follow these rules when you design the integration:
 
 * **Supply the `id_token` out of band.** Don't make the `id_token` a tool parameter. A tool argument passes a bearer token through the model's context and the transcript. Instead, your orchestrator stores the `id_token` in a context variable, and the tool takes no arguments.
-* **Keep the private key in your orchestrator.** Claude Managed Agents vaults substitute credentials into outgoing requests, and the credentials never enter the sandbox. Signing a `private_key_jwt` happens in your code and the key is never sent in a request, so a vault can't hold it. Store the key in a secrets manager that your orchestrator reads.
+* **Keep the private key in your orchestrator.** Claude Managed Agents vaults substitute credentials into outgoing requests, and the credentials never enter the sandbox. Your code signs the `private_key_jwt` and never sends the key in a request, so a vault can't hold the key. Store the key in a secrets manager that your orchestrator reads.
 * **Return a confirmation, not the token.** The tool stores the access token for the request and returns only a status message, so the token stays out of the transcript.
 
 ### Add the Claude dependencies
@@ -185,7 +185,9 @@ cryptography>=42.0.0
 requests>=2.31.0
 ```
 
-<!-- TODO: Confirm the minimum version of the anthropic package that includes the Tool Runner (client.beta.messages.tool_runner) and the beta_tool decorator. The engineering notes list anthropic>=0.40.0 but don't confirm that version provides them. -->
+> **Note:** The Anthropic Tool Runner is a beta feature in the Python SDK. Anthropic can change it before general availability. See [Tool runner (SDK)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner).
+
+<span style="color: #c0392b;">**TODO:** Confirm the minimum version of the anthropic package that includes the Tool Runner (client.beta.messages.tool_runner) and the beta_tool decorator. The engineering notes list anthropic>=0.40.0 but don't confirm that version provides them.</span>
 
 ### Project structure
 
@@ -200,13 +202,13 @@ okta-claude-agent/
 
 ### Create the token exchange tool
 
-Create `okta_tool.py` next to `token_exchange.py`. It defines two context variables, the tool that performs the exchange, and a sample tool that uses the access token.
+Create `okta_tool.py` next to `token_exchange.py`. It defines two context variables, a function that performs the exchange, the tool that wraps it, and a sample tool that uses the access token.
 
 ```python
 from contextvars import ContextVar
 
 import requests
-from anthropic.lib.tools import beta_tool
+from anthropic import beta_tool
 
 from token_exchange import get_access_token, get_id_jag
 
@@ -225,11 +227,8 @@ def get_okta_access_token() -> str | None:
     return _okta_access_token.get()
 
 
-@beta_tool
-def exchange_okta_token() -> str:
-    """Exchange the signed-in user's Okta identity for a scoped access token so that this
-    AI agent can call Okta-protected APIs on their behalf. Takes no arguments. The host
-    supplies the user's identity, not you."""
+def perform_exchange() -> str:
+    """Run both exchange steps for the current request and store the access token."""
     id_token = _current_id_token.get()
     if not id_token:
         return "No Okta identity available for this request."
@@ -238,8 +237,16 @@ def exchange_okta_token() -> str:
     access_token = get_access_token(id_jag)
     _okta_access_token.set(access_token)
 
-    # Return only a confirmation. Never return the token, which keeps it out of the transcript.
+    # Return only a confirmation. Never return the token, so it stays out of the transcript.
     return "Okta access token obtained. Downstream Okta calls act as the user."
+
+
+@beta_tool
+def exchange_okta_token() -> str:
+    """Exchange the signed-in user's Okta identity for a scoped access token so that this
+    AI agent can call Okta-protected APIs on their behalf. Takes no arguments. The host
+    supplies the user's identity, not you."""
+    return perform_exchange()
 
 
 @beta_tool
@@ -262,7 +269,7 @@ def call_protected_api() -> str:
 
 > **Important:** The access token's audience is your custom authorization server, for example, `api://default`. The Okta Management API (`/api/v1/*`) doesn't accept it. Point `call_protected_api` at an API that trusts your custom authorization server.
 
-<!-- TODO: Engineering hasn't confirmed whether the orchestrator should verify that the id_token subject is the caller before it exchanges the token. The exchange proves that the token is valid, not that the caller is its subject. Decide with engineering whether this guide adds the check or documents it as a prerequisite before production use. -->
+<span style="color: #c0392b;">**TODO:** Engineering hasn't confirmed whether the orchestrator should verify that the id_token subject is the caller before it exchanges the token. The exchange proves that the token is valid, not that the caller is its subject. Decide with engineering whether this guide adds the check or documents it as a prerequisite before production use.</span>
 
 ### Run the AI agent loop
 
@@ -300,13 +307,66 @@ if __name__ == "__main__":
 
 In a production app, `handle_request` runs inside your own HTTP layer or session handler, which supplies `user_id_token` from the signed-in user's session.
 
-<!-- TODO: The engineering notes verified the token exchange by calling the tool function directly, with no model in the loop. The model-driven loop shown here is unrun. Confirm that the Tool Runner calls the tools in a context where the value set by set_current_id_token is visible, especially if you use async tools. Confirm the model ID and the Tool Runner calls against a live run. -->
+<span style="color: #c0392b;">**TODO:** The engineering notes verified the token exchange by calling the tool function directly, with no model in the loop. The model-driven loop shown here is unrun. Confirm with a live run that the value set by set_current_id_token is visible when the Tool Runner calls the tool. The Anthropic documentation confirms the tool_runner call, the beta_tool decorator, and the model ID, but says nothing about context variables.</span>
 
 ### Use a Managed Agents custom tool
 
-If you want Anthropic to host the AI agent loop, declare `exchange_okta_token` as a custom tool on your Claude AI agent. When the AI agent emits an `agent.custom_tool_use` event, your orchestrator runs the same exchange and returns the result in a `user.custom_tool_result` event. The tool body is identical. The difference is who runs the loop. Your orchestrator still holds the private key and the `id_token`.
+If you want Anthropic to host the AI agent loop, declare `exchange_okta_token` as a custom tool on your Claude AI agent. Claude Managed Agents is a beta feature. All of its endpoints require the `anthropic-beta: managed-agents-2026-04-01` header, and the Anthropic SDK sets that header for you. See [Claude Managed Agents overview](https://platform.claude.com/docs/en/managed-agents/overview).
 
-<!-- TODO: The engineering notes describe this variant but haven't run it. Confirm the event names and the beta header against Anthropic's current Managed Agents documentation, and add working code once it's verified. -->
+Claude doesn't run a custom tool itself. The session emits an `agent.custom_tool_use` event, your orchestrator runs the tool, and you send the result back in a `user.custom_tool_result` event. The exchange logic is the same `perform_exchange` function that you created in the previous section. The difference is who runs the loop. Your orchestrator still holds the private key and the `id_token`.
+
+Declare the tool when you create the AI agent:
+
+```python
+agent = client.beta.agents.create(
+    name="Okta-aware agent",
+    model="claude-opus-5-5",
+    tools=[
+        {"type": "agent_toolset_20260401"},
+        {
+            "type": "custom",
+            "name": "exchange_okta_token",
+            "description": (
+                "Exchange the signed-in user's Okta identity for a scoped access token so that "
+                "this AI agent can call Okta-protected APIs on their behalf. Takes no arguments. "
+                "The host supplies the user's identity, not you."
+            ),
+            "input_schema": {"type": "object", "properties": {}},
+        },
+    ],
+)
+```
+
+Then handle the tool call in your orchestrator. This example assumes that you already created an environment and a session for the AI agent. See [Claude Managed Agents overview](https://platform.claude.com/docs/en/managed-agents/overview). The `custom_tool_use_id` value is the ID of the `agent.custom_tool_use` event:
+
+```python
+from okta_tool import perform_exchange, set_current_id_token
+
+set_current_id_token(user_id_token)  # out of band, as before
+
+with client.beta.sessions.events.stream(session.id) as stream:
+    for event in stream:
+        match event.type:
+            case "agent.custom_tool_use" if event.name == "exchange_okta_token":
+                result = perform_exchange()  # runs both exchange steps in your orchestrator
+                client.beta.sessions.events.send(
+                    session.id,
+                    events=[
+                        {
+                            "type": "user.custom_tool_result",
+                            "custom_tool_use_id": event.id,
+                            "content": [{"type": "text", "text": result}],
+                        },
+                    ],
+                )
+            case "session.status_idle":
+                if event.stop_reason and event.stop_reason.type == "end_turn":
+                    break
+```
+
+> **Note:** A session pauses with a `session.status_idle` event whose `stop_reason.type` is `requires_action` while it waits for a custom tool result. You can send the result as soon as the `agent.custom_tool_use` event arrives, without waiting for the `session.status_idle` event.
+
+<span style="color: #c0392b;">**TODO:** The event names, the custom tool definition, and the result shape in this section come from Anthropic's Managed Agents documentation. Engineering hasn't run this variant. Confirm it with a live run.</span>
 
 ## Verify the configuration
 
@@ -327,7 +387,7 @@ python3 main_claude.py /tmp/okta-id-token.txt \
 
 Delete the token file after the run.
 
-<!-- TODO: Add a sample successful response after a live model-driven run. Engineering hasn't run the full loop with a model yet. -->
+<span style="color: #c0392b;">**TODO:** Add a sample successful response after a live model-driven run. Engineering hasn't run the full loop with a model yet.</span>
 
 ## Troubleshoot your integration
 
@@ -336,14 +396,14 @@ The following errors are specific to the Claude integration:
 | Error | Root cause | Fix |
 | --- | --- | --- |
 | The `id_token` appears in the transcript or the model's context | You passed the `id_token` as a tool argument | Set the `id_token` in a context variable from your orchestrator, and make the tool take no token argument |
-| You can't store the private key in a Claude Managed Agents vault | Vault credentials are substituted into outgoing requests and never enter the sandbox. Signing a `private_key_jwt` happens in your code, and the key is never sent | Keep the key in your orchestrator and run the exchange there |
-| **Test API Credentials** fails with an authentication error | The Anthropic API key is wrong or empty, or it lacks access to the Workspace | Verify the key in the Claude Console and enter it again |
+| You can't store the private key in a Claude Managed Agents vault | A vault substitutes credentials into outgoing requests, and the credentials never enter the sandbox. Your code signs the `private_key_jwt` and never sends the key | Keep the key in your orchestrator and run the exchange there |
+| **Test API Credentials** fails with an authentication error | The Anthropic API key is wrong or empty, or the key can't access the Workspace | Verify the key in the Claude Console and enter it again |
 | An expected AI agent is missing after the import | The AI agent is archived in your Anthropic account. Okta doesn't import archived AI agents | Unarchive the AI agent in the Claude Console, and then run the import again |
-| `KeyError` for an Okta environment variable when the orchestrator starts | The `token_exchange.py` module reads its Okta values when it loads | Set all of `OKTA_DOMAIN`, `AGENT_CLIENT_ID`, `AGENT_KEY_ID`, and `AGENT_PRIVATE_KEY_JWK` before you start the orchestrator |
+| `KeyError` for an Okta environment variable when the orchestrator starts | The `token_exchange.py` module reads its Okta values when the module loads | Set all of `OKTA_DOMAIN`, `AGENT_CLIENT_ID`, `AGENT_KEY_ID`, and `AGENT_PRIVATE_KEY_JWK` before you start the orchestrator |
 | A downstream call to the Okta Management API returns `400` with the delegated token | The access token's audience is your custom authorization server, for example, `api://default`, and the Okta Management API doesn't accept it. This isn't a token exchange failure | Call an API that trusts your custom authorization server |
-| The model never calls `exchange_okta_token` | The model wasn't told to act as the user | Tell the model in your prompt or system instructions to call `exchange_okta_token` before any Okta-protected call |
+| The model never calls `exchange_okta_token` | Nothing tells the model to act as the user | Tell the model in your prompt or system instructions to call `exchange_okta_token` before any Okta-protected call |
 
-<!-- TODO: Confirm the Claude-specific errors with engineering after a live model-driven run. The rows above come from the engineering notes and the token exchange verification. -->
+<span style="color: #c0392b;">**TODO:** Confirm the Claude-specific errors with engineering after a live model-driven run. The rows above come from the engineering notes and the token exchange verification.</span>
 
 The following errors come from the Okta token exchange and are covered in [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
@@ -363,4 +423,5 @@ Your AI agent can now authenticate as a user and call Okta-protected resources o
 * [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Configure Claude for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-claude.htm)
 * [Enable AI agent imports for an app](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm)
-<!-- TODO: Add a link to Anthropic's Claude Managed Agents and Tool Runner documentation once the correct public URLs are confirmed. -->
+* [Claude Managed Agents overview](https://platform.claude.com/docs/en/managed-agents/overview)
+* [Tool runner (SDK)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner)
