@@ -641,6 +641,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Migrate Okta for AI Agents APIs",
+            guideName: "ai-agent-v2api-migration",
+          },
         ],
       },
       {
