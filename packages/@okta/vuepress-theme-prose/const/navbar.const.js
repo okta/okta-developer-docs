@@ -600,7 +600,7 @@ export const guides = [
             guideName: "ai-configure-agent-for-gateway",
           },
           {
-            title: "Set up MCP server token exchange",
+            title: "Connect MCP servers to downstream resources",
             guideName: "ai-mcp-server-token-exchange",
           },
           {
