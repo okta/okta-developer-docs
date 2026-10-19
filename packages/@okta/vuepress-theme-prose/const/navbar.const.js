@@ -1425,11 +1425,11 @@ export const journeys = [
         title: "Build your integration",
         subLinks: [
           {
-            title: "Build a requesting app",
+            title: "Build an XAA requesting app",
             journeyName: "XAA-requesting-app"
           },
           {
-            title: "Build a resource app",
+            title: "Build an XAA resource app",
             journeyName: "XAA-resource-app"
           },
         ]
