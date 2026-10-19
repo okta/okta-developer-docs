@@ -1,5 +1,5 @@
 ---
-title: MCP server as a client token exchange
+title: Connect MCP servers to downstream resources
 excerpt: Learn how to configure an MCP server as an OAuth client so that it can get its own token to access a downstream resource.
 layout: Guides
 ---
@@ -20,7 +20,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 #### What you need
 
 - An Okta org that's subscribed to Okta for AI Agents and an Okta admin account with a super admin role
-- The MCP server as a client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it. To use the `IDENTITY_ASSERTION_MCP_SERVER` connection type in [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining), also ask Support to enable downstream MCP server connections.
+- The MCP server as an OAuth client feature enabled for your org. Contact [Okta Support](https://support.okta.com/) to enable it. To use the `IDENTITY_ASSERTION_MCP_SERVER` connection type in [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining), also ask Support to enable downstream MCP server connections.
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in the Okta custom authorization server that protects the downstream resource. These scopes specify what permissions the token exchange grants in the final access token.
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that has a delegation link to the MCP server.
@@ -43,7 +43,7 @@ This guide covers a downstream MCP server that's protected by an Okta custom aut
 
 The MCP server handles both user and machine subjects. This includes the exchange of the ID-JAG for a downstream access token. See [Exchange ID-JAG for access token](#exchange-id-jag-for-access-token).
 
-> **Note**: An MCP server can also hold other connection types. Use `IDENTITY_ASSERTION_MCP_SERVER` for a downstream MCP server. See [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining). Use `STS_ACCESS_TOKEN` for a third-party resource.
+> **Note**: An MCP server can also hold other connection types. Use `IDENTITY_ASSERTION_MCP_SERVER` for a downstream MCP server. See [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining). Use `STS_ACCESS_TOKEN` for a third-party resource, which is outside the scope of this guide. <!-- TODO: link to the STS guide when it's published -->
 
 ## Token exchange flow
 
@@ -51,7 +51,7 @@ The following diagram describes the token exchange flow for an MCP server acting
 
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of MCP server as a client token exchange](/img/auth/ai-agent-token-exchange/MCPSrvrasClientDiagram.png)
+  ![Flow diagram illustrating the process of an MCP server exchanging a token for a downstream resource](/img/auth/ai-agent-token-exchange/MCPSrvrasClientDiagram.png)
 
 </div>
 
@@ -96,7 +96,7 @@ The following steps show how an AI agent or client calls an MCP server and how t
 1. The server performs validation and returns an access token (T3). T3 keeps the original subject and identifies the MCP server as the client. Its `act` claim has the same nested chain as T2.
 1. The MCP server uses the access token (T3) to request access to the downstream resource.
 
-## Set up MCP server as a client
+## Set up the MCP server as an OAuth client
 
 Before an MCP server can exchange tokens, you must enable it as an OAuth client, add a public key, and create a resource connection. Use the [MCP Server Client Registration](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverclientregistration/other/createmcpserveroauthclient), [MCP Server Credentials](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpservercredentials/other/addmcpserverjwk), and [MCP Server Connections](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverconnections/other/createmcpserverconnection) APIs to complete these steps.
 
@@ -201,7 +201,7 @@ If you added the key with the `INACTIVE` status, activate it. Replace `{keyId}` 
 
 To rotate a key, add the new key and make sure that it's active. Then deactivate the old key. Okta accepts assertions signed by any active key, so both keys work during the changeover.
 
-> **Note:** Okta doesn't allow you to deactivate the last active key. The request returns a `409 Conflict` error with the `DEACTIVATE_NOT_ALLOWED` error. Activate the new key before you deactivate the old one.
+> **Note:** Okta doesn't allow you to deactivate the last active key while the MCP server has active connections. The request returns a `409 Conflict` error with the `DEACTIVATE_NOT_ALLOWED` error. Activate the new key before you deactivate the old one.
 
 ### Create a resource connection
 
@@ -232,7 +232,7 @@ Create a connection of type `IDENTITY_ASSERTION_CUSTOM_AS` for a downstream reso
 | Property | Description and value |
 | --- | --- |
 | `connectionType` | The type of connection. Use `IDENTITY_ASSERTION_CUSTOM_AS` for any downstream resource that's protected by an Okta custom authorization server. |
-| `resourceIndicator` | Optional. The URL of the downstream resource. If you don't specify a value, Okta uses the default audience of the custom authorization server. Use the same value as the `resource` parameter in the token exchange requests. |
+| `resourceIndicator` | Optional. The URL of the downstream resource. If you don't specify a value, Okta uses the default audience of the custom authorization server. Use the same value as the `resource` parameter in the token exchange requests. If the values don't match, the token exchange fails with a `400 invalid_target` error. If a request omits `resource`, Okta matches the connection on the issuer only. |
 | `authorizationServer.orn` | The ORN of the custom authorization server that protects the downstream resource |
 | `scopeCondition` | Controls how Okta applies the `scopes` list. `INCLUDE_ONLY` limits the connection to the listed scopes. |
 | `scopes` | The scopes that the MCP server can request at the downstream resource |
@@ -285,16 +285,18 @@ To connect to a downstream MCP server that's registered in your org, see [Varian
 
 ### Delete the OAuth client
 
-To delete the OAuth client, remove its resources in this order:
+When you delete the MCP server, Okta automatically deletes its connections, keys, and OAuth client. You don't need to remove them first.
 
-1. Delete its connections. For each connection, send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections/{connectionId}`.
+To delete the OAuth client but keep the MCP server, remove the client's resources in this order:
+
+1. Delete its connections first. Okta doesn't allow you to deactivate the last active key while active connections remain. For each connection, send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections/{connectionId}`.
 1. Deactivate its keys. Send a `POST` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/deactivate`.
 1. Delete its keys. Deactivate a key before you delete it. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}`.
 1. Delete the OAuth client. Send a `DELETE` request to `/workload-principals/api/v1/mcp-servers/{mcpServerId}/oauth-client`. The response is `204 No Content`.
 
-The request to delete the OAuth client returns `409` if any connections or keys remain.
+The request to delete the OAuth client returns `409` if any active connections or active keys remain. Deactivated keys don't block the request.
 
-## MCP server as a client token exchange
+## Exchange tokens for the downstream resource
 
 After you set up the MCP server as an OAuth client, it can exchange the token that it receives for a downstream resource token.
 
@@ -318,7 +320,7 @@ In the following request, the `scope` value lists scopes that are defined on the
     --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
     --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
-    --data-urlencode "resource=https://downstream-mcp.example.com" \
+    --data-urlencode "resource=https://downstream-api.example.com" \
     --data-urlencode "scope=tools:read tools:execute" \
     --data-urlencode "client_id={mcpServerClientId}" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
@@ -356,6 +358,8 @@ Pragma: no-cache
 }
 ```
 
+> **Note**: The `access_token` field contains the ID-JAG, not an access token. The `issued_token_type` value, `urn:ietf:params:oauth:token-type:id-jag`, identifies the token type. You can't use this token to call a resource. Exchange it for an access token in the next step.
+
 The ID-JAG carries the `act` claim from T1 with the MCP server added as the outermost actor. See [Delegation chain and the act claim](#delegation-chain-and-the-act-claim).
 
 The ID-JAG contains the following claims:
@@ -369,7 +373,7 @@ The ID-JAG contains the following claims:
    "exp": 1780597234,
    "sub": "{userId}",
    "email": "{userEmail}",
-   "resource": "https://downstream-mcp.example.com",
+   "resource": "https://downstream-api.example.com",
    "client_id": "{mcpServerClientId}",
    "sub_profile": "user",
    "scope": "tools:read tools:execute",
@@ -409,7 +413,7 @@ This exchange works for both user and machine subjects.
     --header "Accept: application/json" \
     --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
     --data-urlencode "assertion=eyJraWQiOiJuc3MwV3UyblE4...[jwt-id-jag]" \
-    --data-urlencode "resource=https://downstream-mcp.example.com" \
+    --data-urlencode "resource=https://downstream-api.example.com" \
     --data-urlencode "client_id={mcpServerClientId}" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]"
@@ -446,7 +450,7 @@ The access token contains the following claims. The `act` claim lists the MCP se
   "ver": 1,
   "jti": "AT.PuAPw4ornR4HezKipVQx7l0h1PVMXjgA_FjS80QfQGc",
   "iss": "https://{yourOktaDomain}/oauth2/{authServerId}",
-  "aud": "https://downstream-mcp.example.com",
+  "aud": "https://downstream-api.example.com",
   "iat": 1780596935,
   "exp": 1780600535,
   "cid": "{mcpServerClientId}",
