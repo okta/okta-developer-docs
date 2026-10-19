@@ -53,7 +53,9 @@ Verify the following readiness requirements before implementation:
 
 * **Existing SSO integration:** XAA is added on top of an existing SSO app integration (OIDC or SAML). If you haven't set up SSO yet, configure a functional [SSO integration](https://developer.okta.com/blog/2023/07/28/oidc_workshop) first.
 * **Test environment configuration:** Use [xaa.dev](https://xaa.dev) as the test tool. It acts as the requesting app in the [Validate](#validate) step, and its conformance log is the test evidence for OIN submission.
-* **Okta org:** An Okta [Integrator Free Plan](https://developer.okta.com/signup/) org and a user with the super admin role (or the app and org admin roles).
+* **Okta org:** An Okta [Integrator Free Plan](https://developer.okta.com/signup/) org and a user with the appropriate admin permissions to manage your org, apps, and AI agents. See [Learn about administrators](https://help.okta.com/okta_help.htm?type=oie&id=administrators-learn-about-admins) in the product documentation.
+
+the super admin role (or the app and org admin roles).
 
 More planning considerations:
 

@@ -55,7 +55,7 @@ Before you write any code, ensure that you have the following:
 - **Check your IdP/CIAM provider:** Verify WorkOS, Auth0, or custom CIAM solutions support RFC 8693 token exchange. For homegrown CIAM, plan the necessary changes to support the [token exchange flow](/docs/guides/xaa-request-token-ex/openidconnect/main/).
 - **Design your scope handling:** Scopes are defined by the resource app. Decide which scopes your app requests, and make sure that the resource connection on your AI agent allows them.
 - **Test environment:** Use [xaa.dev](https://xaa.dev) as the test tool. It acts as the resource app and authorization server for your tests, and its conformance log serves as the test evidence for OIN submission.
-- **Okta org:** An Okta [Integrator Free Plan](https://developer.okta.com/signup/) org and a user with the super admin role (or the app and org admin roles).
+- **Okta org:** An Okta [Integrator Free Plan](https://developer.okta.com/signup/) org and a user with the appropriate admin permissions to manage your org, apps, and AI agents. See [Learn about administrators](https://help.okta.com/okta_help.htm?type=oie&id=administrators-learn-about-admins) in the product documentation.
 
 > **Note:** The audience (the resource app's authorization server issuer URL) and the resource identifier that are configured in your IdP must exactly match the values your resource app expects. Even minor differences, such as a trailing slash or a scheme mismatch, commonly cause token validation failures.
 
