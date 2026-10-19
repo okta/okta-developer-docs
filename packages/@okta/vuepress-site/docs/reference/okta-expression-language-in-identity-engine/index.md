@@ -59,6 +59,8 @@ When you create an Okta expression, you can reference any property that exists i
 | `user.$property`                  | `user` - references the Okta user<br>`property` - top-level property variable name<br>Values: `id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
 | `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>
 
+To see the property names that you can use, go to **Directory** > **Profile Editor**, select **User (default)**, and scroll to the bottom of the page. The **Variable Name** column lists the names.
+
 ### Imported app user
 
 <ApiLifecycle access="ea" />
@@ -69,7 +71,7 @@ When you create an Okta expression for an [IGA Access Certification campaign](ht
 
 | Syntax                          | Definitions                                                                                       | Examples                                            |
 | --------                        | ----------                                                                                        | ------------                                        |
-| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of an attribute of the imported user. For most apps, this is the property name in the app user profile. For Active Directory and Office 365, it's the raw attribute name that the connector returns, which can differ from the app user profile name. See [Imported app user attributes](#imported-app-user-attributes). | `importedAppUser.dept`<br>`importedAppUser.title` |
+| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of an attribute of the imported user. For most apps, this is the property name in the app user profile. For Office 365, it's the raw attribute name that the connector returns, which can differ from the app user profile name. See [Imported app user attributes](#imported-app-user-attributes). | `importedAppUser.dept`<br>`importedAppUser.title` |
 | `importedAppUser.userEntitlements.group.$attribute` | References a group entitlement held by the imported user. Use with a `.?[$predicate]` selection.<br>`$attribute` - a field on the group entitlement, such as `displayName` or `externalId` | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins']` |
 
 Only the following operators and functions are supported with `importedAppUser`:
@@ -89,6 +91,12 @@ Relational operators (`<`, `>`, `<=`, `>=`) and comparisons against numeric or B
 
 The attribute names that you can use with `importedAppUser` depend on the connector that imports the user.
 
+> **Note:** Active Directory doesn't use `importedAppUser`. For users imported from Active Directory, use `user.$property` and `user.profile.$profile_property`. See [Okta user profile](#okta-user-profile).
+
+<span style="color: #c0392b;">**TODO (Engineering):** Does `user.profile` work in IGA Access Certification campaign expressions for Active Directory users? The wiki page (1147404766, owner Ravi Chauhan, version 6) describes Account Reconciliation expressions. If this guidance applies only to Account Reconciliation, remove the Active Directory note from this section.</span>
+
+<span style="color: #c0392b;">**TODO (Engineering):** Engineering's reply says `user.profile.userName` resolves for Active Directory, but the wiki says it doesn't and to use `login`. Which is correct? Also, the wiki's "Watch out for" items 2 and 3 still describe `manager` as a nested object and say `firstName`, `lastName`, `userName`, and `email` are never populated. Those conflict with the reply, so confirm the wiki gets updated.</span>
+
 ##### Apps that use the app user profile schema
 
 For apps that connect through the On-Premises Provisioning Agent (OPP) or the Okta On-Prem SCIM Agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
@@ -98,24 +106,6 @@ For apps that connect through the On-Premises Provisioning Agent (OPP) or the Ok
 * **OPS:** The standard attributes are `userName`, `externalId`, and `userEntitlements`. Every other attribute is an `ext_*` attribute that uses the property name from the app user profile schema. For example, for an app that uses the On-prem Connector for Generic Databases, `importedAppUser.ext_LAST_NAME == 'Smith'`.
 
 > **Note:** Okta drops any attribute that isn't in the app user profile schema, and omits attributes that have a null value. An expression that references either type of attribute doesn't match the user.
-
-##### Active Directory
-
-For Active Directory, use the raw account reconciliation names, not the names in the app user profile in the Profile Editor. The most common differences are:
-
-| Field | Account reconciliation name | App user profile name |
-| ----- | --------------------------- | --------------------- |
-| First name | `givenName` | `firstName` |
-| Last name | `surname` | `lastName` |
-| Sign-in name | `userPrincipalName` | `userName` |
-| Email | `mail` | `email` |
-| Distinguished name | `distinguishedName` | `dn` |
-| Manager | `manager` (nested object that contains `distinguishedName`) | `managerDn` |
-| Extension attributes 1-15 | `extensionAttribute1` to `extensionAttribute15` (nested in `onPremisesExtensionAttributes`) | Not present |
-
-> **Note:** Active Directory never populates `firstName`, `lastName`, `userName`, or `email` in account reconciliation data. An expression that uses these names is valid but never matches. Active Directory also doesn't produce entitlements, so `importedAppUser.userEntitlements` isn't available.
-
-<span style="color: #c0392b;">**TODO (Engineering):** How do you reference the nested `manager` and `onPremisesExtensionAttributes` values in an expression? Add an example once confirmed. Also confirm whether the guide needs to list the other Active Directory attributes (such as `accountEnabled`, `status`, and the app-user-only attributes), or link to a full list. Source: Confluence page 1147404766 (owner Ravi Chauhan).</span>
 
 ##### Microsoft Office 365
 
@@ -133,7 +123,7 @@ For Office 365, use the raw account reconciliation names, not the names in the a
 
 Most other attributes, such as `displayName` and `department`, have the same name in both places except that the account reconciliation name starts with a lowercase letter and the app user profile name starts with an uppercase letter.
 
-<span style="color: #c0392b;">**TODO (Engineering):** The source page lists `firstName`, `lastName`, `userName`, and `email` as having the same name in both places, which conflicts with its rename table (`givenName`, `surname`, `userPrincipalName`, `mail`). Which names are valid in an expression? Also, how do you reference the nested `userEntitlements.roles`, `userEntitlements.licenses`, and `onPremisesExtensionAttributes` values? Confirm whether the guide needs the full list of Office 365 attributes, or a link to one. Source: Confluence page hBRVR (owner Anagh H V).</span>
+<span style="color: #c0392b;">**TODO (Engineering):** Engineering's reply says Active Directory uses `user.$attribute` expressions instead of `importedAppUser`. Does Office 365 do the same, or does it use `importedAppUser` with the raw names below? The source page lists `firstName`, `lastName`, `userName`, and `email` as having the same name in both places, which conflicts with its rename table (`givenName`, `surname`, `userPrincipalName`, `mail`). Which names are valid in an expression? Also, how do you reference the nested `userEntitlements.roles`, `userEntitlements.licenses`, and `onPremisesExtensionAttributes` values? Confirm whether the guide needs the full list of Office 365 attributes, or a link to one. Source: Confluence page hBRVR (owner Anagh H V).</span>
 
 #### Imported app user examples
 
