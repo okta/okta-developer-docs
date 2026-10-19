@@ -45,7 +45,7 @@ Understand these before you build:
 * [**Cross App Access overview**](/docs/concepts/xaa/): Understand how XAA works and how it layers over OIDC or SAML.
 * [**ID-JAG token**](/docs/guides/xaa-request-token-ex/openidconnect/main/): The token Okta issues to the requesting app. Your authorization server validates its type, audience, and claims before it issues an access token for your API.
 
-> **Note:** XAA supports both OIDC and SAML implementations. OIDC is recommended for new integrations. Existing SAML implementations don't require protocol migration.
+> **Note:** XAA supports both OIDC and SAML implementations. Okta recommends OIDC for new integrations. Existing SAML implementations don't require protocol migration.
 
 ## Plan
 
@@ -58,7 +58,7 @@ Verify the following readiness requirements before implementation:
 More planning considerations:
 
 * Decide which scopes your API exposes and which requesting apps you allow initially.
-* Decide what to log per call: requesting app (`act.sub`), user (`sub`), scopes, timestamp.
+* Decide what to log per call: requesting app (`act.sub`), user (`sub`), scopes, time stamp.
 * Decide your resource authorization server's issuer URL. It becomes the `aud` claim in every ID-JAG that your server receives, and it can't be changed without resetting the XAA connection.
 
 ## Build

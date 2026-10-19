@@ -26,8 +26,8 @@ Journeys break down your development project into consumable steps:
 ## Featured journeys
 
 <Cards>
-  <Card href="/docs/journeys/XAA-requesting-app/main/" cardTitle="Build a requesting app">Enable Cross App Access (XAA) for your client (requesting app). Signed-in users can access data in external apps with no static keys or redundant login prompts.</Card>
-  <Card href="/docs/journeys/XAA-resource-app/main/" cardTitle="Build a resource app">Enable Cross App Access (XAA) for your resource app. Authorize external apps to call your API for authenticated users with no static keys or redundant login prompts.</Card>
+  <Card href="/docs/journeys/XAA-requesting-app/main/" cardTitle="Build a requesting app">Enable Cross App Access (XAA) for your client (requesting app). Signed-in users can access data in external apps with no static keys or redundant sign-in prompts.</Card>
+  <Card href="/docs/journeys/XAA-resource-app/main/" cardTitle="Build a resource app">Enable Cross App Access (XAA) for your resource app. Authorize external apps to call your API for authenticated users with no static keys or redundant sign-in prompts.</Card>
 </Cards>
 <br>
 <Cards>
