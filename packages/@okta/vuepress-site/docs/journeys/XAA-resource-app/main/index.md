@@ -55,8 +55,6 @@ Verify the following readiness requirements before implementation:
 * **Test environment configuration:** Use [xaa.dev](https://xaa.dev) as the test tool. It acts as the requesting app in the [Validate](#validate) step, and its conformance log is the test evidence for OIN submission.
 * **Okta org:** An Okta [Integrator Free Plan](https://developer.okta.com/signup/) org and a user with the appropriate admin permissions to manage your org, apps, and AI agents. See [Learn about administrators](https://help.okta.com/okta_help.htm?type=oie&id=administrators-learn-about-admins) in the product documentation.
 
-the super admin role (or the app and org admin roles).
-
 More planning considerations:
 
 * Decide which scopes your API exposes and which requesting apps you allow initially.
