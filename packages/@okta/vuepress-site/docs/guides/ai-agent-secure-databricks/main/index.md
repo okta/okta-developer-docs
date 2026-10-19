@@ -220,16 +220,21 @@ Save the `token_exchange.py` module in your app's `agent_server` folder, and the
 
 ```python
 import logging
+import os
 from contextvars import ContextVar
 
 from mlflow.genai.agent_server import get_request_headers
-
-from agent_server.token_exchange import get_id_jag, get_access_token
 
 logger = logging.getLogger(__name__)
 
 # Starlette lowercases request headers, so read the lowercase name.
 OKTA_ID_TOKEN_HEADER = "x-okta-identity-token"
+
+# The token exchange module reads these variables when it loads.
+# OKTA_CUSTOM_AS_ID and OKTA_SCOPE are optional because they have defaults.
+REQUIRED_VARS = frozenset(
+    {"OKTA_DOMAIN", "AGENT_CLIENT_ID", "AGENT_KEY_ID", "AGENT_PRIVATE_KEY_JWK"}
+)
 
 _okta_access_token: ContextVar[str | None] = ContextVar("okta_access_token", default=None)
 
@@ -240,7 +245,11 @@ def get_okta_access_token() -> str | None:
 
 
 def resolve_okta_access_token() -> str | None:
-    """Run the token exchange if the request carries an Okta id_token."""
+    """Run the token exchange if Okta is configured and the request carries an id_token."""
+    # Do nothing if the Okta variables are missing, so the app still starts and runs without Okta.
+    if not REQUIRED_VARS.issubset(os.environ):
+        return None
+
     id_token = get_request_headers().get(OKTA_ID_TOKEN_HEADER)
     if not id_token:
         return None
@@ -248,6 +257,9 @@ def resolve_okta_access_token() -> str | None:
     # Log prefixes only. Never log a whole token.
     logger.info("[XAA] id_token received (prefix: %s...), starting exchange", id_token[:20])
     try:
+        # Import here because token_exchange.py reads the Okta variables when it loads.
+        from agent_server.token_exchange import get_access_token, get_id_jag
+
         id_jag = get_id_jag(id_token)
         logger.info("[XAA] Step 1 OK, ID-JAG obtained (prefix: %s...)", id_jag[:20])
         access_token = get_access_token(id_jag)
@@ -317,7 +329,15 @@ databricks secrets create-scope okta-xaa
 databricks secrets put-secret okta-xaa agent-private-key-jwk
 ```
 
-Then add the secret to your app as a resource and grant the app's service principal the **Can read** permission on it.
+Then add the secret to your app as a resource:
+
+1. In the Databricks workspace, open your app and go to the **App resources** section.
+1. Click **Add resource**, and then select **Secret**.
+1. Select the `okta-xaa` scope and the `agent-private-key-jwk` key.
+1. Grant the app's service principal the **Can read** permission.
+1. Set the resource key to `okta_private_key`. The `databricks.yml` and `app.yaml` files in the next section reference this key.
+
+When `app.yaml` references the resource with `valueFrom`, the app receives the decrypted secret value in the environment variable. The configuration file holds only the resource key, never the private key.
 
 ### Configure the app
 
