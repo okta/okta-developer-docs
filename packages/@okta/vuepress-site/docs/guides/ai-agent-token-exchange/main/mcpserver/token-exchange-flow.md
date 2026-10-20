@@ -40,4 +40,4 @@ The token exchange flow for an AI agent involves the following steps:
 
    > **Note**: The MCP server doesn't forward T1 to the downstream resource. It always requests a separate token that's issued for the downstream resource.
 
-See the [token exchange flow for the MCP server as a client](/docs/guides/ai-mcp-server-token-exchange/main/#token-exchange-flow) for the downstream token exchange flow.
+See the [token exchange flow for the MCP server as a client] ( "/docs/guides/ai-mcp-server-token-exchange/main/#token-exchange-flow" ) for the downstream token exchange flow.

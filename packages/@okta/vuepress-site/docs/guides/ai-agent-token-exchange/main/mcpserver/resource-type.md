@@ -1,1 +1,1 @@
-Authorization server
+MCP server
