@@ -81,16 +81,13 @@ After the resource type is configured and the AI agent has the token or credenti
 
 ## Token exchange flow
 
-The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** token exchange flow. If you want to change the token exchange flow on this page, select that flow from the **Instructions for** dropdown list on the right.
+The following diagrams and steps describe the **<StackSnippet snippet="resource-type" inline/>** token exchange flow. If you want to change the token exchange flow on this page, select that flow from the **Instructions for** dropdown list on the right.
 
 ### Authenticate with Okta
 
-The initial authentication step is different for the two types of access configurations supported by Okta:
+<StackSnippet snippet="token-exchange-flow-init" />
 
-- **User access**: During the initial authentication request to Okta in a [user access configuration](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), the AI agent obtains an ID token directly from the Okta org authorization server (the IdP).
-- **Machine access**: For [machine access](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually), another client calls the AI agent and provides its access token for delegation.
-
-> **Note**: Okta also accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. See [Use the CIMD client ID in a token request](/docs/guides/ai-agent-cimd-registration/main/#use-the-cimd-client-id-in-a-token-request) for more detailed information.
+### The exchange flow
 
 <StackSnippet snippet="token-exchange-flow" />
 
