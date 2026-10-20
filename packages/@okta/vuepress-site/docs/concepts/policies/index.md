@@ -252,9 +252,7 @@ To see the grace periods object in the API reference documentation, see the [Pol
 
 ##### Passkey enrollment promotion
 
-<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
-
-> **Note:** This functionality is available as a self-service Early Access (EA) feature for Identity Engine orgs. To use it, enable the Prompt users to enroll passkeys feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
+<ApiLifecycle access="ie" />
 
 Passkey enrollment promotion lets you configure a non-blocking nudge that prompts users to enroll a Passkey (FIDO2 WebAuthn) authenticator during sign-in. Unlike grace periods, which apply to required authenticators, enrollment promotion applies only to the Passkey authenticator when it's configured as optional (`enroll.self = OPTIONAL`). Users who skip the prompt can still sign in with other authenticators.
 
