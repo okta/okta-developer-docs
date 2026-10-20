@@ -42,7 +42,7 @@ You can deploy your JavaScript application to Heroku in five steps:
    }
    ```
 
-4. For `static.json` to be read, you have to use the [Heroku static buildpack](https://github.com/heroku/heroku-buildpack-static). The static buildpack runs `npm run build` by default. For Angular, use `ng build` in the build script.
+4. To read `static.json`, use the [Heroku static buildpack](https://github.com/heroku/heroku-buildpack-static). The static buildpack runs `npm run build` by default. For Angular, use `ng build` in the build script.
 
    ```json
    "scripts": {
