@@ -179,6 +179,8 @@ Identity Threat Protection (ITP) is an identity threat solution that combines cu
 
 * [Self-service registration policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`SELF_SERVICE_REGISTRATION`): This policy evaluates and controls end-user sign-up attempts based on blocking disposable email domains and restricting network zones, and prevents fraudulent and unauthorized account creation. For Admin Console tasks and further information, see [Self-service registration](https://help.okta.com/okta_help.htm?type=oie&id=itp-ssr). <ApiLifecycle access="ea" />
 
+* [Attack protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/listpolicies) (`ATTACK_PROTECTION`): This policy moves bot protection into the policy framework, so you can set a detection threshold and a response for each flow. Each rule applies to the sign-in, sign-up (`SELF_SERVICE_REGISTRATION`), or password reset (`SELF_SERVICE_PASSWORD_RESET`) flow. A rule sets a bot confidence threshold and either monitors the activity or enforces an Okta Challenge. For Admin Console tasks and further information, see [Attack protection](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection). <ApiLifecycle access="ea" />
+
 #### Device signal collection policies
 
 <ApiLifecycle access="ie" />
