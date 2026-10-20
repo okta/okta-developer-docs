@@ -327,7 +327,7 @@
             and warrant that I have the legal authority to bind that entity and
             its users to these terms.
             I acknowledge that my access to the Integrator Free Plan will automatically expire after
-            180 consecutive days of inactivity.
+            90 consecutive days of inactivity.
           </p>
         </div>
       </div>
