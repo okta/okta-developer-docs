@@ -1908,9 +1908,9 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml/create-your-app/index.html
     to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/oidc/submit-your-app/index.html
-    to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
+    to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
-    to: /docs/guides/create-an-app-integration/saml2/main/#next-steps
+    to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/build-sso-integration/oidc/test-your-app/index.html
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
@@ -1922,11 +1922,11 @@ redirects:
   - from: /docs/api/getting_started/api_test_client
     to: /docs/reference/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
-    to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
+    to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
-    to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
+    to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
-    to: /docs/guides/create-an-app-integration/saml2/main/#next-steps
+    to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
     to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
@@ -4190,7 +4190,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/-/test-your-app
     to: /docs/guides/create-an-app-integration/
   - from: /docs/guides/build-sso-integration/-/next-steps
-    to: /docs/guides/create-an-app-integration/openidconnect/main/#next-steps
+    to: /docs/guides/create-an-app-integration/openidconnect/main/#see-also
   - from: /docs/guides/build-sso-integration/-/overview/index.html
     to: /docs/guides/create-an-app-integration/
   - from: /docs/guides/build-sso-integration/-/before-you-begin/index.html
