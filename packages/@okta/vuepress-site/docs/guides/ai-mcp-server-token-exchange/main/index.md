@@ -25,7 +25,7 @@ Learn how to configure an MCP server to act as an OAuth client. The MCP server e
 - An MCP server registered in your Okta org. See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server).
 - An AI agent or client that has a delegation link to the MCP server.
   > **Note**: In the link, `to.resourceOrn` is the `oauthClient.orn` value of the MCP server, not the ORN of the MCP server resource. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
-- An access token (T1) that the AI agent or client passes to the MCP server. See [initial authentication](/docs/guides/ai-agent-token-exchange/resourceserver/main/#initial-authentication). <!-- [Link to page Van is updating]() -->
+- An access token (T1) that the AI agent or client passes to the MCP server. See [Authenticate with Okta](/docs/guides/ai-agent-token-exchange/mcpserver/main/#authenticate-with-okta).
 
 > **Note**: Complete these prerequisites before you start. This guide begins when the AI agent or client presents T1 to the MCP server.
 
