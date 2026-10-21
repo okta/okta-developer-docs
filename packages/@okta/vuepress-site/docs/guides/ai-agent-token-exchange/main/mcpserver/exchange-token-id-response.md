@@ -20,37 +20,23 @@ The ID-JAG contains the following claims:
 
 ```JSON
 {
-   "scope": "chat.read chat.history",
+   "typ": "oauth-id-jag+jwt",
    "iss": "https://{yourOktaDomain}",
-   "sub": "{subjectFromSubjectToken}",
-   "aud": "https://{yourOktaDomain}/oauth2/{authServerId}",
-   "iat": "1780596934 // 12:15:34 PM",
-   "exp": "1780597234 // 12:20:34 PM",
-   "jti": "IDAAG.tAO20ExqeUlh6VcpyQxTJ42fn3vDp9E3xR5Iq3Y79pY",
-   "sub_profile": "service"
+   "aud": "{AsIssuerUrl}", // Authorization server for the MCP server
+   "sub": "{subjectFromSubjectToken}", // Typically, user email
+   "client_id": "{clientIdAtResource}", // The client ID of the MCP server, not the Okta client ID
+   "resource": "{mcpServerResourceUrl}",
+   "scope": "{mcpServerScopes}",
+   "act": { // The actor or delegate, which is the AI agent
+     "sub": "wlpr5x8cWECycE4jhao5", // The ID of the AI agent in Okta
+     "sub_profile": "ai_agent web_app"
+     },
+   "iat": "1780596934", // 12:15:34 PM
+   "exp": "1780597234", // 12:20:34 PM
+   "jti": "IDAAG.tAO20ExqeUlh6VcpyQxTJ42fn3vDp9E3xR5Iq3Y79pY"
 }
 ```
 
-If you included the `resource` parameter in the request because your custom authorization server protects multiple resources, the ID-JAG also contains a `resource` claim:
+> **Note:** If your authorization server protects multiple MCP servers and you included the `resource` parameter in the request, then the ID-JAG also contains a `resource` claim.
 
-```JSON
-{
-   "scope": "chat.read chat.history",
-   "iss": "https://{yourOktaDomain}",
-   "sub": "{subjectFromSubjectToken}",
-   "aud": "https://{yourOktaDomain}/oauth2/{authServerId}",
-   "iat": "1780596934",
-   "exp": "1780597234",
-   "jti": "IDAAG.tAO20ExqeUlh6VcpyQxTJ42fn3vDp9E3xR5Iq3Y79pY",
-   "sub_profile": "service",
-   "resource": "https://mcpserver1.example.com",
-   "act": {
-     "sub": "{aiAgentPrincipalId}",
-     "sub_profile": "ai_agent"
-   }
-}
-```
-
-The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain. For example, an agent-to-agent flow nests an additional `act` claim for each agent in the delegation chain.
-
-> **Note**: See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.
+The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain.
