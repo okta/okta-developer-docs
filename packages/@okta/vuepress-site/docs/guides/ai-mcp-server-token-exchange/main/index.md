@@ -43,7 +43,7 @@ This guide covers a downstream MCP server that's protected by an Okta custom aut
 
 The MCP server handles both user and machine subjects. This includes the exchange of the ID-JAG for a downstream access token. See [Exchange ID-JAG for access token](#exchange-id-jag-for-access-token).
 
-> **Note**: An MCP server can also hold other connection types. Use `IDENTITY_ASSERTION_MCP_SERVER` for a downstream MCP server. See [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining). Use `STS_ACCESS_TOKEN` for a third-party resource. <!-- TODO: link to the STS guide when it's published -->
+> **Note**: An MCP server can also hold other connection types. Use `IDENTITY_ASSERTION_MCP_SERVER` for a downstream MCP server. See [Variant: MCP-to-MCP chaining](#variant-mcp-to-mcp-chaining).
 
 ## Token exchange flow
 
@@ -51,7 +51,7 @@ The following diagram describes the token exchange flow for an MCP server acting
 
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of an MCP server exchanging a token for a downstream resource](/img/auth/ai-agent-token-exchange/MCPSrvrasClientDiagram.png)
+  ![Flow diagram illustrating the process of an MCP server exchanging a token for a downstream resource](/img/auth/ai-agent-token-exchange/mcp-server-as-a-client-token-exchange-1299684.svg)
 
 </div>
 
