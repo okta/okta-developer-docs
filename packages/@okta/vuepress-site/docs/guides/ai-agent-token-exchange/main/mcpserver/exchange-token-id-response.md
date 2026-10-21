@@ -1,6 +1,6 @@
 #### Response
 
-The response contains the requested resource token.
+The response contains the requested ID-JAG token.
 
 ``` http
 HTTP/1.1 200 OK

@@ -16,13 +16,13 @@ The token exchange flow for an AI agent involves the following steps:
     * An `audience` parameter that's set to the issuer URL of the authorization server protecting the MCP server
 
     After a successful token exchange, an ID-JAG is returned to the AI agent with the following claims:
-    * `aud` contains the MCP server's resource URL
-    * `sub` contains the original subject, which is either a user or machine reference
-    * `act` contains the AI agent reference, which is the actor or delegate operating on behalf of the subject.
+    * `aud`: Contains the MCP server's resource URL
+    * `sub`: Contains the original subject, which is either a user or machine reference
+    * `act`: Contains the AI agent reference, which is the actor or delegate operating on behalf of the subject.
 
 3. The AI agent exchanges the ID-JAG for an access token from the authorization server protecting the MCP server.
    The authorization server responds with an access token (T1) for the MCP server.
 
-4. The AI agent calls the MCP server and passes the access token (T1).
+4. The AI agent uses the access token (T1) to access the MCP server's tools or endpoints.
 
-   The MCP server doesn't forward the access token (T1) to a downstream resource. It always requests a separate token that's issued for the downstream resource. See the [token exchange flow for the MCP server as a client] ( "/docs/guides/ai-mcp-server-token-exchange/main/#token-exchange-flow" ) for the downstream token exchange flow.
+   If the MCP server acts as an OAuth client and needs to access downstream resources, it uses the obtained access token (T1) to request another access token (T2) for those resources through XAA. The MCP server never forwards or reuses the same access token (T1) for downstream resource access. See the [Connect MCP servers to downstream resources] ( "/docs/guides/ai-mcp-server-token-exchange/main/" ) for the downstream token exchange flow.
