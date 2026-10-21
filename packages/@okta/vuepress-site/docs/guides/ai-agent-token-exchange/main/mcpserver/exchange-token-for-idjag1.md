@@ -17,7 +17,7 @@ curl --i --X POST \
   -d "resource={mcpServerResourceUrl}" \
   -d "scope={mcpServerScopes}" \
   -d "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
-  -d "client_assertion={agentJWT}""
+  -d "client_assertion={agentJWT}"
 
 ```
 
@@ -38,7 +38,7 @@ curl --i --X POST \
   -d "resource={mcpServerResourceUrl}" \
   -d "scope={mcpServerScopes}" \
   -d "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
-  -d "client_assertion={agentJWT}""
+  -d "client_assertion={agentJWT}"
 
 ```
 

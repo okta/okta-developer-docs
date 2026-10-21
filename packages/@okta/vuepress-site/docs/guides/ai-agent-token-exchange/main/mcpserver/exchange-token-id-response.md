@@ -37,6 +37,6 @@ The ID-JAG contains the following claims:
 }
 ```
 
-> **Note:** If your authorization server protects multiple MCP servers and you included the `resource` parameter in the request, then the ID-JAG also contains a `resource` claim.
-
-The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain.
+> **Notes:**
+> * If your authorization server protects multiple MCP servers and you included the `resource` parameter in the request, then the ID-JAG also contains a `resource` claim.
+> * The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain.
