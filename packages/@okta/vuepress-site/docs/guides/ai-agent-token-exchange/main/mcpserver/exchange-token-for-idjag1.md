@@ -5,7 +5,7 @@ This request supports multiple client authentication methods. The example below 
 #### Example: ID-JAG exchange request with an ID token for an MCP server with an external authorization server
 
 ```bash
-curl --i --X POST \
+curl -i -X POST \
   'https://{yourOktaDomain}/oauth2/v1/token' \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -H "Accept: application/json" \
@@ -26,7 +26,7 @@ curl --i --X POST \
 #### Example: ID-JAG exchange request with an access token for an MCP server with an Okta custom authorization server
 
 ```bash
-curl --i --X POST \
+curl -i -X POST \
   'https://{yourOktaDomain}/oauth2/v1/token' \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -H "Accept: application/json" \
