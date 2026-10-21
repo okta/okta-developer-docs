@@ -15,13 +15,14 @@ The token exchange flow for an AI agent involves the following steps:
     * A `resource` parameter that's set to the MCP server's resource URL
     * An `audience` parameter that's set to the issuer URL of the authorization server protecting the MCP server
 
-    An ID-JAG is returned to the AI agent on a successful token exchange.
+    After a successful token exchange, an ID-JAG is returned to the AI agent with the following claims:
+    * `aud` contains the MCP server's resource URL
+    * `sub` contains the original subject, which is either a user or machine reference
+    * `act` contains the AI agent reference, which is the actor or delegate operating on behalf of the subject.
 
-3. The AI agent Because the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the custom authorization server to exchange it for a usable access token.
-   The authorization server responds with an access token (T1) with the MCP server's resource URL as the `aud` value. T1 keeps the original subject, which is either a user or a machine. With user access, T1 also has an `act` claim that identifies the AI agent.
+3. The AI agent exchanges the ID-JAG for an access token from the authorization server protecting the MCP server.
+   The authorization server responds with an access token (T1) for the MCP server.
 
 4. The AI agent calls the MCP server and passes the access token (T1).
 
-   > **Note**: The MCP server doesn't forward T1 to the downstream resource. It always requests a separate token that's issued for the downstream resource.
-
-See the [token exchange flow for the MCP server as a client] ( "/docs/guides/ai-mcp-server-token-exchange/main/#token-exchange-flow" ) for the downstream token exchange flow.
+   The MCP server doesn't forward the access token (T1) to a downstream resource. It always requests a separate token that's issued for the downstream resource. See the [token exchange flow for the MCP server as a client] ( "/docs/guides/ai-mcp-server-token-exchange/main/#token-exchange-flow" ) for the downstream token exchange flow.
