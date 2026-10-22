@@ -274,7 +274,7 @@ Create a counterpart resource app in Okta that points to [xaa.dev](https://xaa.d
 1. Click **Create App Integration**, and select **SAML 2.0**.
 1. Enter a name (for example, `SAML XAA Resource Testing App`), and configure the SAML properties as described in [SAML properties](/docs/guides/submit-oin-app/saml2/main/#saml-properties).
 1. Click **Save**.
-1. Select the **Resource Server** tab.
+1. Select the **Machine Assignments** tab.
 1. Set **Cross App Access (XAA)** to **Enabled**.
 1. In the **Issuer URL** field, enter the same value you copied from [xaa.dev](https://xaa.dev/developer/test-requesting-app/?tab=saml) in Step 1.
 1. Click **Save**.
@@ -358,8 +358,7 @@ Download the conformance log from [xaa.dev](https://xaa.dev/developer/test-reque
 1. Confirm that the **Single Sign-On URL** and **Entity ID** of your resource app are configured correctly on your authorization server.
 1. Click **Get started with testing**, and then go to the **Test integration** page.
 1. Click **Generate instance** to create your resource app instance, and complete the standard SAML SSO testing.
-1. On your resource app instance, open the **Resource Server** tab, and enter the **Issuer URL** of the authorization server.
-1. Confirm that **Cross App Access (XAA)** is set to **Enabled**.
+1. On your resource app instance, open the **Machine Assignments** tab, and confirm that **Cross App Access (XAA)** is set to **Enabled**.
 1. Assign your test user to the resource app instance.
 
 #### Step 2: Create a custom SAML client app
@@ -448,8 +447,7 @@ Follow [Step 5](#step-5-complete-testing-and-submit) in Testing a SAML client ap
 1. Click **View testing information**, and then click **Close wizard** on the **Test your integration** page.
 1. In the Okta Admin Console, go to **Applications and Resources** > **Your OIN Integrations**, select your OIDC resource app, and go directly to the **Test integration** page.
 1. Click **Generate instance** to create your OIDC SSO test instance, and complete the standard OIDC SSO testing.
-1. On your resource app instance, open the **Resource Server** tab, and enter the **Issuer URL** of the authorization server.
-1. Confirm that **Cross App Access (XAA)** is set to **Enabled**.
+1. On your resource app instance, open the **Machine Assignments** tab, and confirm that **Cross App Access (XAA)** is set to **Enabled**.
 1. Assign your test user to the resource app instance.
 
 #### Step 2: Create a custom OIDC client app
@@ -495,7 +493,7 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/t
 1. Go to the client app's **General** tab and copy the value from **Client secret**, and enter it in the **Client secret** field.
 1. Enter your resource app's issuer URL in the **Resource AS Issuer (ID-JAG Audience)** field.
 
-    > **Warning:** This value becomes the `aud` claim in the ID-JAG. If you change it later, you must delete and recreate the connection. This value must exactly match the **Issuer URL** you set on the resource app's **Resource Server** tab. A mismatch here still produces a correctly signed ID-JAG, but redemption fails the `aud` check.
+    > **Warning:** This value becomes the `aud` claim in the ID-JAG. If you change it later, you must delete and recreate the connection. This value must exactly match the **Issuer URL** you set under [XAA resource app properties](#xaa-resource-app-properties). A mismatch here still produces a correctly signed ID-JAG, but redemption fails the `aud` check.
 
 1. Enter the required scope (for example, `todos.read`).
 1. Click **Save**. Confirm that a green **Auto-discovered SSO** checkmark appears.
