@@ -20,7 +20,7 @@ The monthly usage report includes the following metrics for each published app:
 | Metric | Description |
 | ------ | ----------- |
 | **Orgs using this app** | The number of customer orgs that use your app. |
-| **Integrations built** | The number of integration capabilities that your app supports, compared to the total number of capabilities that Okta offers. For example, if your app supports Single Sign-On (SSO), Lifecycle Management (LCM), and a Workflows connector, the report shows that you've built 3 of 5 available integrations. |
+| **Integrations built** | The number of integration capabilities that your app supports, compared to the total number of capabilities that Okta offers. For example, if your app supports Single Sign-On (SSO), Lifecycle Management (LCM), and a Workflows connector, the report shows that you've built three of five available integrations. |
 | **Last updated** | The time since you last updated your app's OIN catalog listing. |
 
 The report also tells you about new integration types that Okta recently added. Use this information to decide which capabilities to add to your integration. If you need help, contact Okta using the email address in the report email.
