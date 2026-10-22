@@ -406,9 +406,6 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/t
 1. Enter the AI agent's **Client ID** and **Key ID** that you obtained in **Client Registration**.
 1. Enter the AI agent's private key.
 1. Enter your resource app's issuer URL in the **Resource AS Issuer (ID-JAG Audience)** field.
-
-    > **Warning:** This value becomes the `aud` claim in the ID-JAG. If you change it later, you must delete and recreate the connection.
-
 1. Enter the required scope (for example, `todos.read`).
 1. Click **Save**.
 
@@ -492,9 +489,6 @@ You need to perform the following steps in [xaa.dev](https://xaa.dev/developer/t
 1. Go to the client app's **General** tab and copy the value from **Client ID**, and enter it in the **Client ID** field.
 1. Go to the client app's **General** tab and copy the value from **Client secret**, and enter it in the **Client secret** field.
 1. Enter your resource app's issuer URL in the **Resource AS Issuer (ID-JAG Audience)** field.
-
-    > **Warning:** This value becomes the `aud` claim in the ID-JAG. If you change it later, you must delete and recreate the connection. This value must exactly match the **Issuer URL** you set under [XAA resource app properties](#xaa-resource-app-properties). A mismatch here still produces a correctly signed ID-JAG, but redemption fails the `aud` check.
-
 1. Enter the required scope (for example, `todos.read`).
 1. Click **Save**. Confirm that a green **Auto-discovered SSO** checkmark appears.
 
