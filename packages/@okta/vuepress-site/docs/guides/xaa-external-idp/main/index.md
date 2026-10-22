@@ -15,19 +15,20 @@ Configure Cross App Access (XAA) to accept an Identity Assertion JWT Authorizati
 #### Learning outcomes
 
 - Understand how an external IdP fills the IdP role in the XAA flow with a custom authorization server.
-- Set the IdP usage for XAA.
+- Understand the IdP usage that XAA requires.
+- Understand how users are linked to the IdP.
 - Add an IdP condition to an authorization server's access policy rule.
 - Understand the token request and response for this flow.
 
 #### What you need
 
 - A custom authorization server. See [Create an authorization server](/docs/guides/customize-authz-server/).
-- The scopes that the client requests, created on the custom authorization server. See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
+- The scopes that the client requests and that must be created on the custom authorization server. See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 - A generic OIDC IdP or an Okta Integration IdP that's already configured in your org. See [Add an external identity provider](/docs/guides/add-an-external-idp/).
-- An app integration in your org that represents the AI agent, with the **JWT Bearer** grant type enabled. See [Configure Cross App Access with an external identity provider](https://help.okta.com/oie/en-us/content/topics/apps/apps-config-xaa-external-idp.htm).
-- Users who already exist in your org and are linked to the IdP.
-- For an Okta Integration IdP, OIDC federation between the issuing org and your org, and an issuing org that's subscribed to Okta for AI Agents. See [Configure federation between orgs using OIDC](https://help.okta.com/oie/en-us/content/topics/provisioning/org2org/org2org-integrate.htm).
-- A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.authorizationServers.manage` scope.
+- An app integration in your org that represents the AI agent, with the **JWT Bearer** grant type enabled. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-config-xaa-external-idp).
+- Users that exist in your org and who are linked to the IdP. See [Link users to the IdP](#link-users-to-the-idp).
+- For an Okta Integration IdP, OIDC federation between the issuing org and your org, and an issuing org that's subscribed to Okta for AI Agents. See [Configure federation between orgs using OIDC](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+- A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.authorizationServers.manage` scope. To link users with the API, the token also needs the `okta.users.manage` scope.
 
 ---
 
@@ -54,6 +55,7 @@ See [External IdP in the IdP role](/docs/concepts/xaa/#external-idp-in-the-idp-r
 Complete the following steps to configure and use an external IdP for XAA:
 
 1. [Configure the external IdP for XAA](#configure-the-external-idp-for-xaa).
+1. [Link users to the IdP](#link-users-to-the-idp).
 1. [Configure the access policy IdP condition](#configure-the-access-policy-idp-condition).
 1. [Configure the issuing Okta org for Org2Org](#configure-the-issuing-okta-org-for-org2org), if the IdP is another Okta org.
 1. [Complete the token exchange at runtime](#complete-the-token-exchange-at-runtime).
@@ -63,11 +65,35 @@ Complete the following steps to configure and use an external IdP for XAA:
 An IdP can issue an ID-JAG that Okta trusts only if its **IdP Usage** is set to one of the following options in the Admin Console:
 
 * **SSO and Cross App Access**: The IdP does two things. It signs users in to Okta through SSO, and it issues ID-JAGs that Okta accepts for XAA.
-* **Cross App Access only**: The IdP only issues ID-JAGs that Okta accepts for XAA. It doesn't sign users in to Okta.
+* **Cross App Access only**: The IdP only issues ID-JAGs that Okta accepts for XAA. It doesn't sign users in to Okta. Okta uses only the IdP's client ID, issuer, and JWKS endpoint, and ignores the settings that apply only to sign-in.
 
-To set the IdP usage, see [Configure Cross App Access with an external identity provider](https://help.okta.com/oie/en-us/content/topics/apps/apps-config-xaa-external-idp.htm).
+To set the IdP usage, see [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-config-xaa-external-idp).
 
 You can't change the IdP usage of an IdP after you save it with **Cross App Access only** or **SSO and Cross App Access**. To use a different option, delete the IdP and create a new one. See [IdP usage](/docs/concepts/identity-providers/#idp-usage) for what each option means for Okta's trust of the IdP.
+
+## Link users to the IdP
+
+Okta doesn't create a user when it receives an ID-JAG. Each user that the client acts for must exist in your org and be linked to the IdP. How the link is created depends on the IdP usage:
+
+* **SSO and Cross App Access**: Okta links the user when they sign in to Okta through the IdP. Depending on the IdP's account linking and Just-In-Time (JIT) provisioning settings, Okta matches the user to an existing Okta user or creates one. See [Account Linking and Just-In-Time provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+* **Cross App Access only**: Users don't sign in to Okta through the IdP, so Okta can't link them automatically. Set `externalId` to the user's identifier at the IdP, which is the value of the `sub` claim in the ID-JAG.
+
+Use the [Link a user to an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/#tag/IdentityProviderUsers/operation/linkUserToIdentityProvider) API to link users to the IdP.
+
+```bash
+curl -i -X POST \
+  'https://{yourOktaDomain}/api/v1/idps/{idpId}/users/{userId}' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "externalId": "{subClaimValue}"
+  }'
+```
+
+* `{idpId}`: The ID of the IdP.
+* `{userId}`: The ID of the Okta user.
+* `externalId`: The user's identifier at the IdP. Use the value of the `sub` claim in the ID-JAGs that the IdP issues for this user.
 
 ## Configure the access policy IdP condition
 
@@ -126,7 +152,7 @@ See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-man
 
 If the IdP is another Okta org, configure that org to issue ID-JAGs for your custom authorization server. In this section, the issuing org is the Okta org where the AI agent is registered. Your org is the org with the custom authorization server.
 
-In the issuing org, enable XAA on the Org2Org app and set its **Issuer URL** to the issuer URL of your custom authorization server. Then add a resource connection for the AI agent to the Org2Org app. The issuing org then issues ID-JAGs for the AI agent with your custom authorization server as the audience. See [Configure Cross App Access with an external identity provider](https://help.okta.com/oie/en-us/content/topics/apps/apps-config-xaa-external-idp.htm).
+In the issuing org, enable XAA on the Org2Org app and set its **Issuer URL** to the issuer URL of your custom authorization server. Then add a resource connection for the AI agent to the Org2Org app. The issuing org then issues ID-JAGs for the AI agent with your custom authorization server as the audience. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-config-xaa-external-idp).
 
 ## Complete the token exchange at runtime
 
@@ -171,7 +197,7 @@ Okta validates the parameters of the ID-JAG, in this order:
 1. Okta confirms that the `aud` claim in the ID-JAG matches the custom authorization server.
 1. Okta matches the `iss` claim to a single trusted IdP that has its IdP usage set to **Cross App Access only** or **SSO and Cross App Access**. If no IdP matches, or if more than one IdP matches, Okta rejects the request.
 1. Okta confirms that the `client_id` claim in the ID-JAG matches the client that sends the request.
-1. Okta validates the timestamps in the ID-JAG. The ID-JAG can have a maximum lifetime of 5 minutes.
+1. Okta validates the timestamps in the ID-JAG. The ID-JAG can have a maximum lifetime of five minutes.
 1. Okta verifies the ID-JAG signature with a key from the JWKS endpoint configured for the IdP.
 1. Okta confirms that the ID-JAG hasn't already been used.
 1. Okta matches the `sub` claim to an Okta user through an existing linked identity (`externalId`) between that user and the IdP. If no link exists, the request fails.
