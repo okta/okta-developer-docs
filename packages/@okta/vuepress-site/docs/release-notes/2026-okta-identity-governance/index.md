@@ -522,6 +522,25 @@ The new [Manage delegates for governance](/docs/guides/iga-delegates/main/) guid
 
 * The response for `GET /governance/api/v1/requests` with a `lastUpdated` value for the `filter` query parameter, and without the `orderBy` parameter, was sorted by `createdAt` instead of `updatedAt`. (OKTA-1140026)
 
+### Weekly release 2026.03.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Certify resource collections - User campaigns is EA](#certify-resource-collections---user-campaigns-is-ea) | March 11, 2026 |
+
+#### Certify resource collections - User campaigns is EA
+
+Use access certification user campaigns to certify user access to resource collections. Running user campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the context they need to make informed decisions. See [Create identity campaigns](https://help.okta.com/okta_help.htm?type=oie&id=csh-ac-uc-resource-scope) in the product documentation.
+
+You can now run identity campaigns to certify more than just app and group resources. A new property (`targetTypes`) is now used in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) API request to specify the target resource for either identity or resource campaigns:
+
+* The [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property replaces the previous [`resourcSettings.type`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property. `resourceSettings.type` is still supported, but Okta recommends that you use `resourceSettings.targetTypes` for all future resource or user campaigns.
+
+* For `USER` campaigns, you can select multiple resources (`APPLICATION`, `GROUP`, or `COLLECTION`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
+
+* For `RESOURCE` campaigns, you can only specify one resource (`APPLICATION`, `GROUP`, `COLLECTION`, `APP_SERVICE_ACCOUNT`, or `OKTA_SERVICE_ACCOUNT`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
+<!-- OKTA-1116762 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS_USER_CAMPAIGNS, Preview: March 11, 2026 -->
+
 ### Monthly release 2026.03.0
 <!-- Published on: 2026-03-04T12:00:00Z -->
 
