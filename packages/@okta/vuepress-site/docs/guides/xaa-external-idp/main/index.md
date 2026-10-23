@@ -25,8 +25,8 @@ Configure Cross App Access (XAA) to accept an Identity Assertion JWT Authorizati
 - A custom authorization server. See [Create an authorization server](/docs/guides/customize-authz-server/).
 - The scopes that the client requests and that must be created on the custom authorization server. See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 - A generic OIDC IdP or an Okta Integration IdP that's already configured in your org. See [Add an external identity provider](/docs/guides/add-an-external-idp/).
-- An app integration in your org that represents the AI agent, with the **JWT Bearer** grant type enabled. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-config-xaa-external-idp).
-- Users that exist in your org and who are linked to the IdP. See [Link users to the IdP](#link-users-to-the-idp).
+- An app integration in your org that represents the AI agent, with the **JWT Bearer** grant type enabled. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-config-xaa-external-idp).
+- Users who exist in your org and who are linked to the IdP. See [Link users to the IdP](#link-users-to-the-idp).
 - For an Okta Integration IdP, OIDC federation between the issuing org and your org, and an issuing org that's subscribed to Okta for AI Agents. See [Configure federation between orgs using OIDC](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 - A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.authorizationServers.manage` scope. To link users with the API, the token also needs the `okta.users.manage` scope.
 
@@ -65,9 +65,9 @@ Complete the following steps to configure and use an external IdP for XAA:
 An IdP can issue an ID-JAG that Okta trusts only if its **IdP Usage** is set to one of the following options in the Admin Console:
 
 * **SSO and Cross App Access**: The IdP does two things. It signs users in to Okta through SSO, and it issues ID-JAGs that Okta accepts for XAA.
-* **Cross App Access only**: The IdP only issues ID-JAGs that Okta accepts for XAA. It doesn't sign users in to Okta. Okta uses only the IdP's client ID, issuer, and JWKS endpoint, and ignores the settings that apply only to sign-in.
+* **Cross App Access only**: The IdP only issues ID-JAGs that Okta accepts for XAA. It doesn't sign users in to Okta.
 
-To set the IdP usage, see [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-config-xaa-external-idp).
+To set the IdP usage, see [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-config-xaa-external-idp).
 
 You can't change the IdP usage of an IdP after you save it with **Cross App Access only** or **SSO and Cross App Access**. To use a different option, delete the IdP and create a new one. See [IdP usage](/docs/concepts/identity-providers/#idp-usage) for what each option means for Okta's trust of the IdP.
 
@@ -97,53 +97,56 @@ curl -i -X POST \
 
 ## Configure the access policy IdP condition
 
-Add an IdP condition to your authorization server's access policy rule to restrict a `jwt-bearer` grant. This ensures that Okta accepts an ID-JAG only from the IdPs that you select. See [Configure an access policy](/docs/guides/configure-access-policy/).
+Add an IdP condition to your authorization server's access policy rule to restrict a `jwt-bearer` grant. This ensures that Okta accepts an ID-JAG only from the IdPs that you select.
+
+Okta checks this condition at the custom authorization server's `/token` endpoint, after it matches the ID-JAG's `iss` claim to an IdP in your org. If the IdP isn't one that the condition allows, the rule doesn't apply to the request. See [Configure an access policy](/docs/guides/configure-access-policy/).
 
 To set the `xaaSupportedIdentityProvider` condition on a policy rule, follow these steps:
 
 1. Confirm that the rule's grant types include `jwt-bearer`. The condition is valid only on those rules.
-1. Choose which IdPs to accept:
-   * `provider` (String): `ANY` to accept an ID-JAG from any eligible IdP, or `SPECIFIC_IDP` to restrict to the IdPs listed in `idpIds`.
-   * `idpIds` (Array of strings): The IdP IDs to accept. Required when `provider` is `SPECIFIC_IDP`.
+1. Decide which IdPs that the rule accepts an ID-JAG from. Set the following properties in the `xaaSupportedIdentityProvider` object:
+   * `provider` (String): Set to `ANY` to accept an ID-JAG from any IdP that's configured for XAA. Set to `SPECIFIC_IDP` to accept an ID-JAG only from the IdPs that are listed in `idpIds`. The default value is `ANY`.
+   * `idpIds` (Array of strings): The IDs of the IdPs to accept an ID-JAG from. This property is required when you set `provider` as `SPECIFIC_IDP`. Each IdP must have its IdP usage set to **Cross App Access only** or **SSO and Cross App Access**.
 
-   Only IdPs with their IdP usage set to **Cross App Access only** or **SSO and Cross App Access** are selectable.
+   Use `SPECIFIC_IDP` if your org has more than one IdP that's configured for XAA and you want the rule to apply to only some of them. To get the ID of an IdP, see [List all IdPs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders).
 
 1. Update the policy rule with the condition. This request replaces the entire rule, so include the rule's existing properties along with the new condition. The following example shows a rule that allows the `jwt-bearer` grant from a specific IdP:
 
    ```bash
-   PUT /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}
-   ```
-
-   ```json
-   {
-     "type": "RESOURCE_ACCESS",
-     "name": "XAA external IdP rule",
-     "conditions": {
-       "people": {
-         "groups": {
+   curl -i -X PUT \
+     'https://{yourOktaDomain}/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}' \
+     -H 'Authorization: Bearer {yourOktaAccessToken}' \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     -d '{
+       "type": "RESOURCE_ACCESS",
+       "name": "XAA external IdP rule",
+       "conditions": {
+         "people": {
+           "groups": {
+             "include": [
+               "EVERYONE"
+             ]
+           }
+         },
+         "grantTypes": {
            "include": [
-             "EVERYONE"
+             "urn:ietf:params:oauth:grant-type:jwt-bearer"
+           ]
+         },
+         "scopes": {
+           "include": [
+             "*"
+           ]
+         },
+         "xaaSupportedIdentityProvider": {
+           "provider": "SPECIFIC_IDP",
+           "idpIds": [
+             "{idpId}"
            ]
          }
-       },
-       "grantTypes": {
-         "include": [
-           "urn:ietf:params:oauth:grant-type:jwt-bearer"
-         ]
-       },
-       "scopes": {
-         "include": [
-           "*"
-         ]
-       },
-       "xaaSupportedIdentityProvider": {
-         "provider": "SPECIFIC_IDP",
-         "idpIds": [
-           "{idpId}"
-         ]
        }
-     }
-   }
+     }'
    ```
 
 See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/#tag/AuthorizationServerRules/operation/replaceAuthorizationServerPolicyRule) and [Rule policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/).
@@ -152,7 +155,7 @@ See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-man
 
 If the IdP is another Okta org, configure that org to issue ID-JAGs for your custom authorization server. In this section, the issuing org is the Okta org where the AI agent is registered. Your org is the org with the custom authorization server.
 
-In the issuing org, enable XAA on the Org2Org app and set its **Issuer URL** to the issuer URL of your custom authorization server. Then add a resource connection for the AI agent to the Org2Org app. The issuing org then issues ID-JAGs for the AI agent with your custom authorization server as the audience. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-config-xaa-external-idp).
+In the issuing org, enable XAA on the Org2Org app and set its **Issuer URL** to the issuer URL of your custom authorization server. Then add a resource connection for the AI agent to the Org2Org app. The issuing org then issues ID-JAGs for the AI agent with your custom authorization server as the audience. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-config-xaa-external-idp).
 
 ## Complete the token exchange at runtime
 
@@ -169,20 +172,20 @@ After the IdP and access policy are configured, a client presents the externally
    * The `aud` claim is your custom authorization server.
    * The `client_id` claim matches the client that sends the token request.
    * The `sub` claim identifies a user who has a linked identity in Okta.
-   * The lifetime is no more than 5 minutes.
+   * The lifetime is no more than five minutes.
 
 1. Send the ID-JAG to the `/token` endpoint. Authenticate the client with the client authentication method registered for your app on the custom authorization server.
 
    ```bash
-   curl --location --request POST \
-     --url 'https://{yourOktaDomain}/oauth2/{authServerId}/v1/token' \
-     --header "Content-Type: application/x-www-form-urlencoded" \
-     --header "Accept: application/json" \
-     --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
-     --data-urlencode "assertion=eyJraWQiOiJuc3MwV3UyblE4...[external-idp-id-jag]" \
-     --data-urlencode "scope=chat.read chat.history" \
-     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
-     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]"
+   curl -i -X POST \
+     'https://{yourOktaDomain}/oauth2/{authServerId}/v1/token' \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/x-www-form-urlencoded' \
+     --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer' \
+     --data-urlencode 'assertion=eyJraWQiOiJuc3MwV3UyblE4...[external-idp-id-jag]' \
+     --data-urlencode 'scope=chat.read chat.history' \
+     --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
+     --data-urlencode 'client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]'
    ```
 
    * `grant_type`: The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`.
@@ -191,7 +194,7 @@ After the IdP and access policy are configured, a client presents the externally
    * `client_assertion_type`: The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
    * `client_assertion`: A signed JWT that's used for client authentication. This example uses the `private_key_jwt` client authentication method. If your client uses a different method, such as `client_secret_basic`, replace these parameters with the credentials for that method. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods).
 
-Okta validates the parameters of the ID-JAG, in this order:
+Okta validates the request in this order:
 
 1. Okta confirms that the request was sent to a custom authorization server and not to the Okta org authorization server.
 1. Okta confirms that the `aud` claim in the ID-JAG matches the custom authorization server.
