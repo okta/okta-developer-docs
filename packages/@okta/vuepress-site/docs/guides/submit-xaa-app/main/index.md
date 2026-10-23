@@ -390,7 +390,7 @@ Create a counterpart client app in Okta that redirects SAML sign-in responses to
 1. Allow the required scopes (for example, `todos.read`).
 1. Go to **Actions**, and select **Activate**. Confirm that every checkmark on the agent configuration page is green.
 
-> **Important:** The client app instance and the resource app only appear as connectable if you fully configured the XAA properties and the resource server settings, including a valid Issuer URL.
+> **Important:** The client app instance and the resource app only appear as connectable if you fully configured the XAA properties and the machine assignments settings, including a valid Issuer URL.
 
 #### Step 4: Configure the xaa.dev test environment
 
