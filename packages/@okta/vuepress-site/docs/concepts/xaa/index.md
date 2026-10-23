@@ -27,14 +27,14 @@ Roles and responsibilities in the XAA flow:
 
 * **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external resource server.
 * **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API resource server.
-* **IdP**: The identity provider that has an SSO relationship to the requesting and resource apps. It issues the ID-JAG based on this relationship connection. With Okta as the IdP, the Okta admin manages this connection in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that connection. With an [external IdP](#external-idp-in-the-idp-role), the IdP manages the connection and issues the ID-JAG accordingly.
+* **IdP**: The identity provider that has an SSO relationship to the requesting and resource apps. It issues the ID-JAG based on this relationship connection. With Okta as the IdP, the admin manages this connection in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that connection. With an [external IdP](#external-idp-in-the-idp-role), the IdP manages the connection and issues the ID-JAG accordingly.
 * **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG tokens and issues scoped access tokens in accordance with local access control policies.
 
 ### External IdP in the IdP role
 
-An external OpenID Connect (OIDC) identity provider, or another Okta org acting as an Okta Integration IdP, can also fill the IdP role and issue the ID-JAG. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/).
+An external OpenID Connect (OIDC) IdP, or another Okta org acting as an Okta integration IdP, can also fill the IdP role and issue the ID-JAG. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/).
 
-In that scenario, Okta acts only as the resource authorization server. Okta trusts the ID-JAG from the external IdP. Okta retrieves the signing key from the JWKS endpoint configured for the IdP and uses it to verify the ID-JAG signature. Okta then matches the user in the ID-JAG to an existing Okta user through a linked IdP identity, so the user doesn't sign in to Okta. For org-to-org (Org2Org) scenarios, the issuing Okta org configures an Org2Org app as an XAA resource app that targets your custom authorization server. This scenario applies only to a custom authorization server. The Okta org authorization server doesn't accept an ID-JAG issued by an external IdP.
+In that scenario, Okta acts only as the resource authorization server. Okta trusts the ID-JAG from the external IdP. Okta retrieves the signing key from the JWKS endpoint that's configured for the IdP and uses it to verify the ID-JAG signature. Okta then matches the user in the ID-JAG to an Okta user through a linked IdP identity, so the user doesn't sign in to Okta. For org-to-org (Org2Org) scenarios, the issuing Okta org configures an Org2Org app as an XAA resource app that targets your custom authorization server. This scenario applies only to a custom authorization server. The Okta org authorization server doesn't accept an ID-JAG issued by an external IdP.
 
 ### XAA token exchange flow
 

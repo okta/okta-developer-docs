@@ -2,13 +2,13 @@
 title: Configure XAA with an external IdP
 meta:
   - name: description
-    content: Accept an ID-JAG issued by an external identity provider or another Okta org for XAA with a custom authorization server.
+    content: Accept an ID-JAG that's issued by an external identity provider or another Okta org for XAA with a custom authorization server.
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" />
 
-Configure Cross App Access (XAA) to accept an Identity Assertion JWT Authorization Grant (ID-JAG) issued directly by an external identity provider (IdP), or by another Okta org, instead of only an ID-JAG that Okta itself issues.
+Configure Cross App Access (XAA) to accept an Identity Assertion JWT Authorization Grant (ID-JAG) that's issued directly by an external identity provider (IdP), or by another Okta org, instead of only an ID-JAG that Okta itself issues.
 
 ---
 
@@ -45,8 +45,8 @@ This is a high-level overview of an XAA flow with an external IdP:
 
 1. The client obtains an ID-JAG from the external IdP and presents it to the custom authorization server's `/token` endpoint as a `jwt-bearer` grant.
 1. Okta trusts the ID-JAG from the external IdP. The `iss` claim in the ID-JAG must match an IdP in your org that has its IdP usage set to **Cross App Access only** or **SSO and Cross App Access**, and the authorization server's access policy must allow that IdP.
-1. Okta retrieves the signing key from the JWKS endpoint configured for the IdP and uses it to verify the ID-JAG signature.
-1. Okta matches the user, identified by the `sub` claim in the ID-JAG, to an existing Okta user through a linked IdP identity. The user doesn't sign in to Okta.
+1. Okta retrieves the signing key from the JWKS endpoint that's configured for the IdP and uses it to verify the ID-JAG signature.
+1. Okta matches the user, identified by the `sub` claim in the ID-JAG, to an Okta user through a linked IdP identity. The user doesn't sign in to Okta.
 1. Okta issues a short-lived, scoped access token. The client uses that token to access the resource on behalf of the Okta user.
 
 See [External IdP in the IdP role](/docs/concepts/xaa/#external-idp-in-the-idp-role) for the conceptual overview.
@@ -175,7 +175,7 @@ After the IdP and access policy are configured, a client presents the externally
    * The `sub` claim identifies a user who has a linked identity in Okta.
    * The lifetime is no more than five minutes.
 
-1. Send the ID-JAG to the `/token` endpoint. Authenticate the client with the client authentication method registered for your app on the custom authorization server.
+1. Send the ID-JAG to the `/token` endpoint. Authenticate the client with the client authentication method that's registered for your app on the custom authorization server.
 
    ```bash
    curl -i -X POST \
@@ -201,7 +201,7 @@ Okta validates the request in this order:
 1. Okta confirms that the `aud` claim in the ID-JAG matches the custom authorization server.
 1. Okta matches the `iss` claim to a single trusted IdP that has its IdP usage set to **Cross App Access only** or **SSO and Cross App Access**. If no IdP matches, or if more than one IdP matches, Okta rejects the request.
 1. Okta confirms that the `client_id` claim in the ID-JAG matches the client that sends the request.
-1. Okta validates the timestamps in the ID-JAG. The ID-JAG can have a maximum lifetime of five minutes.
+1. Okta validates the time stamps in the ID-JAG. The ID-JAG can have a maximum lifetime of five minutes.
 1. Okta verifies the ID-JAG signature with a key from the JWKS endpoint configured for the IdP.
 1. Okta confirms that the ID-JAG hasn't already been used.
 1. Okta matches the `sub` claim to an Okta user through an existing linked identity (`externalId`) between that user and the IdP. If no link exists, the request fails.
