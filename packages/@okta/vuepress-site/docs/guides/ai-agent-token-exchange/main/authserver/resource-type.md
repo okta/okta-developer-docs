@@ -1,1 +1,1 @@
-Authorization server
+Authorization server (ID-JAG)
