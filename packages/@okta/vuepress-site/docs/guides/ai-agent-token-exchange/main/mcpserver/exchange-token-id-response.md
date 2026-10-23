@@ -24,7 +24,7 @@ The ID-JAG contains the following claims:
    "iss": "https://{yourOktaDomain}",
    "aud": "{AsIssuerUrl}", // Authorization server for the MCP server
    "sub": "{subjectFromSubjectToken}", // Typically, user email
-   "client_id": "{clientIdAtResource}", // The client ID of the MCP server, not the Okta client ID
+   "client_id": "{clientIdAtRequest}", // The client ID of the requesting client, which is the AI agent
    "resource": "{mcpServerResourceUrl}",
    "scope": "{mcpServerScopes}",
    "act": { // The actor or delegate, which is the AI agent
@@ -37,6 +37,4 @@ The ID-JAG contains the following claims:
 }
 ```
 
-> **Notes:**
-> * If your authorization server protects multiple MCP servers and you included the `resource` parameter in the request, then the ID-JAG also contains a `resource` claim.
-> * The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain.
+> **Note:** The `act` claim identifies the AI agent as the actor performing the exchange on behalf of the subject. The nesting of this claim depends on the authentication chain.
