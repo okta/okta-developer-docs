@@ -241,6 +241,7 @@ guides:
  - xaa-agent-to-app
  - xaa-request-token-ex
  - xaa-validate-id-jag
+ - xaa-external-idp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
