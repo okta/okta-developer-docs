@@ -27,7 +27,8 @@ Configure Cross App Access (XAA) to accept an Identity Assertion JWT Authorizati
 - A generic OIDC IdP or an Okta Integration IdP that's already configured in your org. See [Add an external identity provider](/docs/guides/add-an-external-idp/).
 - An app integration in your org that represents the AI agent, with the **JWT Bearer** grant type enabled. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-config-xaa-external-idp).
 - Users who exist in your org and who are linked to the IdP. See [Link users to the IdP](#link-users-to-the-idp).
-- For an Okta Integration IdP, OIDC federation between the issuing org and your org, and an issuing org that's subscribed to Okta for AI Agents. See [Configure federation between orgs using OIDC](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+- If the IdP is a third-party OIDC IdP, your org must be subscribed to Okta for AI Agents. If the IdP is another Okta org, your org only needs the SSO feature.
+- For an Okta Integration IdP, OIDC federation between the issuing org and your org. See [Configure federation between orgs using OIDC](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 - A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.authorizationServers.manage` scope. To link users with the API, the token also needs the `okta.users.manage` scope.
 
 ---
