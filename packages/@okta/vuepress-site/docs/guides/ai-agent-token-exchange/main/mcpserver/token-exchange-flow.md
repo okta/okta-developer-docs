@@ -25,6 +25,6 @@ The token exchange flow for an AI agent involves the following steps:
 
 4. The AI agent uses the access token (T1) to access the MCP server's tools or endpoints.
 
-   If the MCP server acts as an OAuth client and needs to access downstream resources, it uses the obtained access token (T1) to request another access token (T2) for those resources through XAA. The MCP server never forwards or reuses the same access token (T1) for downstream resource access. See the [Connect MCP servers to downstream resources] (/docs/guides/ai-mcp-server-token-exchange/main/) for the downstream token exchange flow.
+   If the MCP server acts as an OAuth client and needs to access downstream resources, it uses the obtained access token (T1) to request another access token (T2) for those resources through XAA. The MCP server never forwards or reuses the same access token (T1) for downstream resource access. See the [Connect MCP servers to downstream resources](/docs/guides/ai-mcp-server-token-exchange/main/) for the downstream token exchange flow.
 
 > **Note**: See [Add an MCP Server manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server) for details on MCP servers as resource servers.
