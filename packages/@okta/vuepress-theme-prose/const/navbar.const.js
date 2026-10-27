@@ -932,6 +932,10 @@ export const guides = [
               },
             ]
           },
+          {
+            title: "Monitor integration performance",
+            path: "/docs/guides/oin-monitor-integration-performance/",
+          },
         ],
       },
       {
