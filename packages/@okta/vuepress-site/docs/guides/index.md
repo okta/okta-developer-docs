@@ -340,9 +340,7 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 
 ## Monitor integration performance
 
-After your integration is published in the OIN, track its performance and adoption:
-
-1. [Monitor integration performance](/docs/guides/oin-monitor-integration-performance/)
+After your integration is published in the OIN, track its performance and adoption. See [Monitor integration performance](/docs/guides/oin-monitor-integration-performance/).
 
 ## Perform Identity Governance tasks through the API
 
