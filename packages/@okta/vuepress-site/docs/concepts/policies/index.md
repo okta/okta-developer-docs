@@ -203,14 +203,18 @@ A user identification policy maps one-to-one to an app sign-in policy. Currently
 
 The identity claims sourcing policy (`IDENTITY_CLAIM_SOURCING`) controls how Okta re-authenticates federated users. Federated users have their Okta session established through a third-party IdP (such as Microsoft Entra ID) or an Okta Org2Org IdP. Third-party IdPs are external identity providers connected to Okta through OIDC or SAML. Org2Org IdPs connect two Okta orgs, where one org acts as the identity provider for users signing in to the other.
 
-When an [app sign-in policy](#app-sign-in-policies) or [Okta account management policy](#okta-account-management-policy) requires re-authentication, Okta evaluates the claims sourcing policy to determine whether to handle re-authentication locally or redirect the user back to the IdP that established their session. Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. For example, a user is prompted to authenticate with Okta Verify instead of redirecting to the external IdP.
+When an [app sign-in policy](#app-sign-in-policies) or [Okta account management policy](#okta-account-management-policy) requires re-authentication, Okta evaluates the claims sourcing policy to determine whether to handle re-authentication locally or redirect the user to an IdP. Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. For example, a user is prompted to authenticate with Okta Verify instead of redirecting to the external IdP.
 
 Re-authentication is required when a user's session in an app has reached its maximum lifetime, and you set that re-authentication requirement in app sign-in policies or the Okta account management policy.
 
-The policy rule `refresh.redirectType` setting has two options:
+The policy rule `refresh.redirectType` setting has four options:
 
 * `NONE`: (default) Okta performs re-authentication locally, prompting the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
-* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, Okta handles re-authentication locally.
+* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, Okta handles re-authentication locally. You can also configure an exclude list of IdPs that aren't eligible for redirect.
+* `SPECIFIC`: Okta redirects the user to the IdP that you specify, regardless of the IdP they used to sign in.
+* `IDP_DISCOVERY`: Okta redirects the user to the IdP that your IdP routing rules select.
+
+For `SPECIFIC` and `IDP_DISCOVERY`, you can set `refresh.fallback.redirectType` to `MOST_RECENT_ACTIVE_SSO` or `NONE`. Okta uses the fallback if the specified IdP isn't active or the routing rules don't return an IdP.
 
 See:
 

@@ -25,13 +25,13 @@ Use the Policies API to configure the identity claims sourcing policy for IdP re
 
 ## Overview
 
-The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to their SSO IdP for re-authentication. Each org has one identity claims sourcing policy with one default rule. You can't create other policies or delete the default rule. You can only update the default rule's settings. When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
+The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to an IdP for re-authentication. Each org has one identity claims sourcing policy with one default rule. You can't create other policies or delete the default rule. You can only update the default rule's settings. When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
 
 ### How the identity claims sourcing policy works
 
 When an app sign-in policy or Okta account management policy requires re-authentication, Okta prompts the user for a local Okta authenticator by default. Prompting to enroll local authenticators can be disruptive for federated users. That's because federated users typically authenticate with their IdP credentials instead of using Okta authenticators.
 
-The identity claims sourcing policy improves the re-authentication user experience for federated users. When it's configured, it redirects federated users back to the SSO IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
+The identity claims sourcing policy improves the re-authentication user experience for federated users. When it's configured, it redirects federated users to an IdP. That IdP is the SSO IdP that last established their most recent Okta session, a specific IdP that you choose, or the IdP that your IdP routing rules select. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
 
 Federated users can access the app or resource without having to authenticate with or enroll in local Okta authenticators.
 
@@ -196,12 +196,16 @@ These settings trigger the identity claims sourcing policy when a federated user
 
 ### Enable IdP redirection for re-authentication
 
-Two configuration options are available when you enable IdP redirection for re-authentication:
+Set `refresh.redirectType` to one of the following options to configure where Okta sends users to re-authenticate:
 
 * `NONE` (default): Okta handles re-authentication locally, prompting the user for locally configured authenticators such as Okta Verify.
-* `FIXED`: Okta redirects the user to the third-party SSO or Org2Org SSO IdP that last established their Okta session. Only active SSO IdPs can re-authenticate users. You can optionally configure a filter list of allowed SSO IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as NONE.
+* `FIXED`: Okta redirects the user to the third-party SSO or Org2Org SSO IdP that last established their Okta session. Only active SSO IdPs can re-authenticate users. You can optionally configure a filter list to limit which IdPs are eligible for redirect. If the IdP isn't eligible, the policy behaves as `NONE`.
+* `SPECIFIC`: Okta redirects all users to the IdP that you specify, regardless of the IdP they used to sign in. See [Redirect users to a specific IdP](#redirect-users-to-a-specific-idp).
+* `IDP_DISCOVERY`: Okta redirects users to the IdP that your IdP routing rules select. See [Redirect users with IdP routing rules](#redirect-users-with-idp-routing-rules).
 
-Okta tracks which IdP most recently established the user's session. If you configure an include filter, Okta checks the user's last SSO IdP against the list at re-authentication time. If there's no match, the policy falls back to `NONE` for that user and Okta handles re-authentication locally. This means that if a user's last SSO IdP isn't in the filter, they must then authenticate with a local authenticator.
+For `FIXED`, Okta tracks which IdP most recently established the user's session. If you configure an `include` filter, Okta checks the user's last SSO IdP against the list at re-authentication time. If there's no match, the policy falls back to `NONE` for that user and Okta handles re-authentication locally. This means that if a user's last SSO IdP isn't in the filter, they must then authenticate with a local authenticator.
+
+To exclude IdPs instead, add them to the `exclude` list. An IdP in the `exclude` list isn't eligible for redirect, even if it's also in the `include` list. If the `include` list is empty, all IdPs that aren't excluded are eligible.
 
 1. Update the default rule using the Replace a policy rule [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/replacepolicyrule).
 1. In the path parameters of the PUT request, use the policy ID and rule ID from the previous steps.
@@ -286,6 +290,56 @@ A successful response returns the updated policy rule and is structured like the
     }
     }
 ```
+
+### Redirect users to a specific IdP
+
+To send all users to one IdP for re-authentication, set `refresh.redirectType` to `SPECIFIC` and add the IdP to the `filter.include` list. Okta uses the first IdP in the list. If the list is empty, no IdP is eligible.
+
+If the specified IdP isn't active, Okta uses the `refresh.fallback.redirectType` value. Set `refresh.fallback.redirectType` to `MOST_RECENT_ACTIVE_SSO` to redirect the user to the SSO IdP that last established their Okta session, or to `NONE` to handle re-authentication locally. If you don't specify a fallback, the behavior is the same as `NONE`.
+
+```json
+"actions": {
+    "claimSourcing": {
+        "redirectType": "IDP_DISCOVERY",
+        "refresh": {
+            "redirectType": "SPECIFIC",
+            "filter": {
+                "include": [
+                    {
+                        "id": "idpId1",
+                        "name": "idpName1"
+                    }
+                ]
+            },
+            "fallback": {
+                "redirectType": "MOST_RECENT_ACTIVE_SSO"
+            }
+        }
+    }
+}
+```
+
+### Redirect users with IdP routing rules
+
+To use your existing [IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) to select the IdP, set `refresh.redirectType` to `IDP_DISCOVERY`. Okta evaluates the routing rules for the user and the app, and redirects the user to the IdP that the rules return. You don't configure a `filter` for this option.
+
+If the routing rules don't return an IdP, Okta uses the `refresh.fallback.redirectType` value. The fallback options are the same as for `SPECIFIC`.
+
+```json
+"actions": {
+    "claimSourcing": {
+        "redirectType": "IDP_DISCOVERY",
+        "refresh": {
+            "redirectType": "IDP_DISCOVERY",
+            "fallback": {
+                "redirectType": "NONE"
+            }
+        }
+    }
+}
+```
+
+> **Note:** You can set `refresh.fallback` only when `refresh.redirectType` is `SPECIFIC` or `IDP_DISCOVERY`.
 
 ### Test the configuration
 
