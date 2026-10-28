@@ -22,11 +22,9 @@ title: Okta Identity Engine API release notes 2026
 | [Anything-as-a-Source device import is GA in Production](#anything-as-a-source-device-import-is-ga-in-production) | August 5, 2026 |
 | [High Risk Proxy detection is GA in Preview](#high-risk-proxy-detection-is-ga-in-preview) | October 28, 2026 |
 | [Connect MCP servers to downstream resources as OAuth clients is GA in Preview](#connect-mcp-servers-to-downstream-resources-as-oauth-clients-is-ga-in-preview) | October 28, 2026 |
-| [Okta Expression Language support for XAA resource identifiers](#okta-expression-language-support-for-xaa-resource-identifiers) | October 28, 2026 |
 | [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | October 7, 2026 |
 | [Connect with Okta removal](#connect-with-okta-removal) | October 28, 2026 |
 | [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
-| [Monitor integration performance is GA in Production](#monitor-integration-performance-is-ga-in-production) | October 28, 2026 |
 | [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) | October 28, 2026 |
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
@@ -59,11 +57,6 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 MCP servers registered in Okta can now act as OAuth clients. Use the [MCP Server Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverconnections/other/createmcpserverconnection) to create a connection to each downstream resource, with its own scopes, and revoke it at any time. At runtime, the MCP server exchanges the user's access token at the /oauth2/v1/token endpoint for a downstream access token. Each call carries the user's identity, so downstream systems log the user instead of a shared service account. See [Connect MCP servers to downstream resources](/docs/guides/ai-mcp-server-token-exchange/main/).
 <!-- OKTA-1251282 SECURE_AI_MCP_AS_CLIENT -->
 
-#### Okta Expression Language support for XAA resource identifiers
-
-Resource identifiers (formerly protected resources) for Cross App Access (XAA) resource apps now support Okta Expression Language. See [Dynamic properties with Okta Expression Language](https://developer.okta.com/docs/guides/submit-xaa-app/main/#dynamic-properties-with-okta-expression-language).
-<!-- OKTA-1263995 -->
-
 #### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production
 
 OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
@@ -71,7 +64,7 @@ OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto iss
 
 #### Connect with Okta removal
 
-The Early Access *Connect with Okta* feature is no longer available. The legacy *Manage Connections* tab on the Admin Console app profile pages and the associated *Application Cross App Access Connections* APIs (`/api/v1/apps/{appId}/cwo/connections`) have been retired. Configurations created under this feature will no longer function as of release 2026.44.0. Reconfigure Cross App Access (XAA) integrations using the current [AI agent-to-app resource connections](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-manage-cross-app-access) in the Admin Console to avoid disruptions.
+The Early Access **Connect with Okta** feature is no longer available. The legacy **Manage Connections** tab on the Admin Console app profile pages and the associated **Application Cross App Access Connections** APIs (`/api/v1/apps/{appId}/cwo/connections`) have been retired. Configurations created under this feature will no longer function as of release 2026.44.0. Reconfigure Cross App Access (XAA) integrations using the current [AI agent-to-app resource connections](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-manage-cross-app-access) in the Admin Console to avoid disruptions.
 See [Configure AI agent-to-app with XAA](https://developer.okta.com/docs/guides/xaa-agent-to-app/main/).
 <!-- OKTA-1268002 ENABLE_CONNECT_WITH_OKTA -->
 
@@ -79,11 +72,6 @@ See [Configure AI agent-to-app with XAA](https://developer.okta.com/docs/guides/
 
 The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect).
 <!-- OKTA-1287415 -->
-
-#### Monitor integration performance is GA in Production
-
-After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
-<!-- OKTA-1288974 -->
 
 #### OAuth 2.0 client credentials grant is GA
 

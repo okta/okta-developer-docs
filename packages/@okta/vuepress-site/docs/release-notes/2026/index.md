@@ -20,7 +20,6 @@ title: Okta Classic Engine API release notes 2026
 | [High Risk Proxy detection is GA in Preview](#high-risk-proxy-detection-is-ga-in-preview) | October 28, 2026 |
 | [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | October 7, 2026 |
 | [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
-| [Monitor integration performance is GA in Production](#monitor-integration-performance-is-ga-in-production) | October 28, 2026 |
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
 | [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) | October 28, 2026 |
@@ -45,11 +44,6 @@ OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto iss
 
 The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect).
 <!-- OKTA-1287415 -->
-
-#### Monitor integration performance is GA in Production
-
-After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
-<!-- OKTA-1288974 -->
 
 #### New System Log event for updates to the managed server's attributes in Okta Privileged Access
 
