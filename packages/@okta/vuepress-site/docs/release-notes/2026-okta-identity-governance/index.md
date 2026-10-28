@@ -18,13 +18,13 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Unified requester experience](#unified-requester-experience) | October 28, 2026 |
-| [Certify resource collections - Resource campaigns](#certify-resource-collections-resource-campaigns) | October 28, 2026 |
-| [Certify resource collections - User campaigns](#certify-resource-collections-user-campaigns) | October 28, 2026 |
-| [Stage certification campaigns before launch](#stage-certification-campaigns-before-launch) | October 28, 2026 |
+| [Unified requester experience is GA in Production](#unified-requester-experience-is-ga-in-production) | July 16, 2025 |
+| [Certify resource collections - Resource campaigns is GA in Preview](#certify-resource-collections-resource-campaigns-is-ga-in-preview) | January 28, 2026 |
+| [Certify resource collections - User campaigns is GA in Preview](#certify-resource-collections-user-campaigns-is-ga-in-preview) | March 11, 2026 |
+| [Stage certification campaigns before launch is EA](#stage-certification-campaigns-before-launch-is-ea) | October 28, 2026 |
 | [Access Request email notification settings](#access-request-email-notification-settings) | October 28, 2026 |
 
-#### Unified requester experience
+#### Unified requester experience is GA in Production
 
 Use this feature to create a consistent and unified experience for initiating requests in End-User Dashboard, Slack, and Microsoft Teams regardless of whether the request is managed by conditions or request types. This gives you the flexibility to use either or both methods together to manage resource access without altering the requester experience.
 
@@ -40,14 +40,14 @@ The following Access Request API updates have been made to support the unified r
 * [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/catalogs/listalldefaultuserentriesv2)
 <!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG -->
 
-#### Certify resource collections - Resource campaigns
+#### Certify resource collections - Resource campaigns is GA in Preview
 
 Use access certification resource campaigns to certify user access to resource collections. Rather than reviewing individual apps, entitlements, or bundles separately, running resource campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the necessary context to make informed decisions.
 
 A new `COLLECTION` resource option in the campaign [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property has been added to support resource collection campaigns.
 <!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS -->
 
-#### Certify resource collections - User campaigns
+#### Certify resource collections - User campaigns is GA in Preview
 
 Use access certification identity campaigns (previously called user campaigns) to certify user access to resource collections. Running identity campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the context they need to make informed decisions. See [Create identity campaigns](https://help.okta.com/okta_help.htm?type=oie&id=csh-ac-uc-resource-scope) in the product documentation.
 
@@ -58,7 +58,7 @@ You can now run identity campaigns to certify more than just app and group resou
 * For `RESOURCE` campaigns, you can only specify one resource (`APPLICATION`, `GROUP`, `COLLECTION`, `APP_SERVICE_ACCOUNT`, or `OKTA_SERVICE_ACCOUNT`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
 <!-- OKTA-1116762 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS_USER_CAMPAIGNS -->
 
-#### Stage certification campaigns before launch
+#### Stage certification campaigns before launch is EA
 
 Staging a campaign lets you preview target users, resources, and reviewer assignments in advance to ensure accurate scope, fix configuration errors, and guarantee that requests reach the correct reviewers from day one. See [Generate a staged campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/generatecampaignstaging).
 <!-- OKTA-1268371 IGA_ACCESS_CERT_CAMPAIGN_STAGING -->

@@ -18,22 +18,23 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Self-service registration policy for ITP](#self-service-registration-policy-for-itp) | October 28, 2026 |
-| [Anything-as-a-Source device import is GA](#anything-as-a-source-device-import-is-ga) | October 28, 2026 |
-| [High Risk Proxy detection](#high-risk-proxy-detection) | October 28, 2026 |
+| [Self-service registration policy for ITP is GA in Preview](#self-service-registration-policy-for-itp-is-ga-in-preview) | October 7, 2026 |
+| [Anything-as-a-Source device import is GA in Production](#anything-as-a-source-device-import-is-ga-in-production) | August 5, 2026 |
+| [High Risk Proxy detection is GA in Preview](#high-risk-proxy-detection-is-ga-in-preview) | October 28, 2026 |
 | [Connect MCP servers to downstream resources as OAuth clients is GA in Preview](#connect-mcp-servers-to-downstream-resources-as-oauth-clients-is-ga-in-preview) | October 28, 2026 |
 | [Okta Expression Language support for XAA resource identifiers](#okta-expression-language-support-for-xaa-resource-identifiers) | October 28, 2026 |
+| [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | October 7, 2026 |
 | [Connect with Okta removal](#connect-with-okta-removal) | October 28, 2026 |
-| [System Log event for indicators of compromise detection](#system-log-event-for-indicators-of-compromise-detection) | October 28, 2026 |
-| [Monitor integration performance](#monitor-integration-performance) | October 28, 2026 |
+| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
+| [Monitor integration performance is GA in Production](#monitor-integration-performance-is-ga-in-production) | October 28, 2026 |
 | [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) | October 28, 2026 |
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
-| [System Log event for updated IoC protection status](#system-log-event-for-updated-ioc-protection-status) | October 28, 2026 |
-| [Cross App Access support for MCP Servers](#cross-app-access-support-for-mcp-servers) | October 28, 2026 |
+| [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
+| [Cross App Access support for MCP Servers is GA in Preview](#cross-app-access-support-for-mcp-servers-is-ga-in-preview) | October 28, 2026 |
 | [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
 
-#### Self-service registration policy for ITP
+#### Self-service registration policy for ITP is GA in Preview
 
 The [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy) API now supports the `SELF_SERVICE_REGISTRATION` policy type for ITP. Use it to control self-service registration attempts based on network zone and email domain checks.
 
@@ -42,12 +43,12 @@ A self-service registration policy rule can evaluate the requester's network zon
 Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/mapresourcetopolicy) API with the new `PROFILE_ENROLLMENT` resource type to link a self-service registration policy to a profile enrollment policy.
 <!-- OKTA-1182716 OKTA-1204105 SELF_SERVICE_REGISTRATION_POLICY -->
 
-#### Anything-as-a-Source device import is GA
+#### Anything-as-a-Source device import is GA in Production
 
 The Identity Sources API now supports bulk device import for Anything-as-a-Source (XaaS) integrations, through the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-upsert`) and [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-delete`) endpoints. These calls allow you to synchronize device inventory (serial number, platform, and display name) from your identity source in the same identity-source session as your user and group data, giving you a single workflow to keep all three entity types in sync. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
 <!-- OKTA-1214738 OKTA-1218468 IDENTITY_SOURCE_DEVICE_IMPORT -->
 
-#### High Risk Proxy detection
+#### High Risk Proxy detection is GA in Preview
 
 The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/listnetworkzones#other/listnetworkzones/t=response&c=200&path=&d=2/ipservicecategories) now supports a new `HIGH_RISK_PROXIES` IP service category. This category is powered by an Okta-curated list of proxy providers that Okta CyberDefense has identified as consistently high-risk, based on correlation with observed attacks such as credential stuffing and rate-limit abuse.
 <!-- OKTA-1216387 NETWORK_ZONE_HIGH_RISK_PROXIES_DETECTION -->
@@ -62,18 +63,23 @@ MCP servers registered in Okta can now act as OAuth clients. Use the [MCP Server
 Resource identifiers (formerly protected resources) for Cross App Access (XAA) resource apps now support Okta Expression Language. See [Dynamic properties with Okta Expression Language](https://developer.okta.com/docs/guides/submit-xaa-app/main/#dynamic-properties-with-okta-expression-language).
 <!-- OKTA-1263995 -->
 
+#### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production
+
+OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+<!-- OKTA-1265993 ON_BEHALF_TOKEN_EXCHANGE_ACT_CLAIM -->
+
 #### Connect with Okta removal
 
 The Early Access *Connect with Okta* feature is no longer available. The legacy *Manage Connections* tab on the Admin Console app profile pages and the associated *Application Cross App Access Connections* APIs (`/api/v1/apps/{appId}/cwo/connections`) have been retired. Configurations created under this feature will no longer function as of release 2026.44.0. Reconfigure Cross App Access (XAA) integrations using the current [AI agent-to-app resource connections](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-manage-cross-app-access) in the Admin Console to avoid disruptions.
 See [Configure AI agent-to-app with XAA](https://developer.okta.com/docs/guides/xaa-agent-to-app/main/).
 <!-- OKTA-1268002 ENABLE_CONNECT_WITH_OKTA -->
 
-#### System Log event for indicators of compromise detection
+#### System Log event for indicators of compromise detection is GA in Preview
 
 The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect).
 <!-- OKTA-1287415 -->
 
-#### Monitor integration performance
+#### Monitor integration performance is GA in Production
 
 After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
 <!-- OKTA-1288974 -->
@@ -88,12 +94,12 @@ The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions i
 A new System Log event (`pam.server.update`) has been added to track changes for servers managed by Okta Privileged Access. The event is generated when a server becomes inactive and it stops contacting Okta for longer than its configured visibility window. See [Event Types](https://developer.okta.com/docs/reference/api/event-types/).
 <!-- OKTA-1295331 -->
 
-#### System Log event for updated IoC protection status
+#### System Log event for updated IoC protection status is GA in Preview
 
 The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update).
 <!-- OKTA-1295421 -->
 
-#### Cross App Access support for MCP Servers
+#### Cross App Access support for MCP Servers is GA in Preview
 
 Cross App Access enables Okta admins to securely connect AI agents to third-party MCP servers. This gives admins full visibility and control over actions taken on behalf of users and eliminates user consent prompts at runtime.
 
