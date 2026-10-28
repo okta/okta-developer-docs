@@ -29,6 +29,7 @@ Configure Cross App Access (XAA) to accept an Identity Assertion JWT Authorizati
 - Users who exist in your org and who are linked to the IdP. See [Link users to the IdP](#link-users-to-the-idp).
 - If the IdP is a third-party OIDC IdP, your org must be subscribed to Okta for AI Agents. If the IdP is another Okta org, your org only needs the SSO feature.
 - For an Okta Integration IdP, OIDC federation between the issuing org and your org. See [Configure federation between orgs using OIDC](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+- For an Okta Integration IdP, the Org2Org app in the issuing org has the ID of your custom authorization server in the **Custom Authorization Server ID** field on the **General** tab. If this field is empty, you can't configure XAA on the **Machine Assignments** tab.
 - A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.authorizationServers.manage` scope. To link users with the API, the token also needs the `okta.users.manage` scope.
 
 ---
@@ -156,7 +157,7 @@ See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-man
 
 If the IdP is another Okta org, configure that org to issue ID-JAGs for your custom authorization server. In this section, the issuing org is the Okta org where the AI agent is registered. Your org is the org with the custom authorization server.
 
-In the issuing org, enable XAA on the Org2Org app and set its **Issuer URL** to the issuer URL of your custom authorization server. Then add a resource connection for the AI agent to the Org2Org app. The issuing org then issues ID-JAGs for the AI agent with your custom authorization server as the audience. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-config-xaa-external-idp).
+In the issuing org, set the **Custom Authorization Server ID** field on the **General** tab of the Org2Org app to the ID of your custom authorization server. Enable XAA on the Org2Org app and set its **Issuer URL** to the issuer URL of your custom authorization server. Then add a resource connection for the AI agent to the Org2Org app. The issuing org then issues ID-JAGs for the AI agent with your custom authorization server as the audience. See [Configure Cross App Access with an external identity provider](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-config-xaa-external-idp).
 
 ## Complete the token exchange at runtime
 
