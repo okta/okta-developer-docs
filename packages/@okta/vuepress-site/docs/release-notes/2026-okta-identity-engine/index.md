@@ -29,6 +29,7 @@ title: Okta Identity Engine API release notes 2026
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
 | [Cross App Access support for MCP Servers is GA in Preview](#cross-app-access-support-for-mcp-servers-is-ga-in-preview) | October 28, 2026 |
+| [Cross App Access with an external identity provider is GA in Preview](#cross-app-access-with-an-external-identity-provider-is-ga-in-preview) | October 28, 2026 |
 | [Single audience claim for custom authorization servers](#single-audience-claim-for-custom-authorization-servers) | October 28, 2026 |
 | [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
@@ -94,6 +95,13 @@ Cross App Access enables Okta admins to securely connect AI agents to third-part
 
 See [Cross App Access (XAA) for external authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server-xaa) in the product documentation and [Set up AI agent token exchange > MCP server](/docs/guides/ai-agent-token-exchange/mcpserver/main/).
 <!-- OKTA-1296037 SECURE_AI_MCP_SERVERS_XAA_FOR_EXTERNAL_AS -->
+
+#### Cross App Access with an external identity provider is GA in Preview
+
+Cross App Access (XAA) now supports an Identity Assertion JWT Authorization Grant (ID-JAG) issued directly by an external OpenID Connect (OIDC) identity provider (IdP) or by another Okta org. Until now, an AI agent could use XAA with your custom authorization server only if Okta issued its identity assertion. AI agents that signed in through another IdP, or through another Okta org, needed a separate Okta credential. Now your custom authorization server can accept an ID-JAG directly from a trusted OIDC IdP or another Okta org that supports XAA.
+
+Clients can present the ID-JAG to the custom authorization server `/token` endpoint (`POST /oauth2/{authServerId}/v1/token`) as a `jwt-bearer` grant, without first exchanging it with Okta. You can restrict which IdPs that a policy rule accepts by setting the `xaaSupportedIdentityProvider` condition. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/main/).
+<!-- OKTA-1309544 OKTA-1305064 EXTERNAL_IDP_XAA_SUPPORT -->
 
 #### Single audience claim for custom authorization servers
 
