@@ -27,7 +27,7 @@ Okta manages connections to other IdPs for your app and sits between your app an
 
 * You can add connections to identity verification (IDV) vendors which work like IdPs with a few key differences. IDV vendors verify your user’s identities by requiring them to submit a proof of identity. The proof of identity can be matching a user’s digital identity against a trusted data source or requiring a user to take a selfie as a liveliness check. You can only use IDV vendors with the [Okta account management policy](/docs/guides/okta-account-management-policy/main/).
 
-* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OIDC or SAML.
+* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OIDC or SAML. OIDC federation between Okta orgs uses the Okta Integration IdP type.
 
 Adding any of these IdPs allows users to sign in to your app using their credentials from a specific IdP.
 
@@ -91,6 +91,18 @@ ua -> ok: GET /oauth2/v1/authorize/callback + state  + code
 ok -> ua: 302 to redirect_uri
 @enduml
 -->
+
+## IdP usage
+
+IdP usage controls the purpose of the IdP and what Okta uses it for. Select one of the following usage options:
+
+* **SSO only**: When a user signs in through the IdP, Okta accepts that authentication as proof of identity and establishes the user's Okta session. This is the same as if the user had signed in with their password. That session then lets the user access apps and other resources.
+* **Cross App Access only**: Available only for a generic OIDC IdP or an Okta Integration IdP. The IdP never signs users in or establishes an Okta session. Instead, it vouches for individual Cross App Access (XAA) authorization grants. This means that the IdP signs a specific assertion (an ID-JAG) stating that a user authorized a client to access a resource on their behalf. Okta trusts that signature as sufficient proof for that one request and then exchanges the assertion for a short-lived and scoped access token. Okta doesn't separately verify the user's identity or require a sign-in. Because users don't sign in through the IdP, each user must be linked to the IdP before Okta accepts an ID-JAG for them. See [Cross App Access (XAA)](/docs/concepts/xaa/) and [Link users to the IdP](/docs/guides/xaa-external-idp/main/#link-users-to-the-idp).
+* **SSO and Cross App Access**: Available only for a generic OIDC IdP or an Okta Integration IdP. The IdP can both establish the user's Okta session (as in **SSO only**), and vouch for Cross App Access authorization grants (as in **Cross App Access only**). Both usages rely on the same issuer and signing key, so deactivating the IdP removes both at once. A signing-key rotation for the IdP can take some time to reach the Cross App Access path, since Okta caches the IdP's keys.
+* **Factor only**: When a user signs in through the IdP, Okta counts that authentication as one factor (something you have) toward multifactor authentication, but not as proof of identity on its own.
+* **Device posture provider**: Okta doesn't accept any claim about the user from the IdP. It accepts data about the user's device instead, for use in device assurance policies. Available only if device posture is enabled for your org. See [Configure a device posture IdP](/docs/guides/device-posture-idp/).
+
+> **Note:** **Cross App Access only** and **SSO and Cross App Access** are mutually exclusive with **SSO only** and **Factor only** on the same IdP. An IdP that's already trusted for SSO or as a factor can't also be set to **Cross App Access only** without first removing the SSO or factor usage. You can't change the IdP usage of an IdP after you save it with **Cross App Access only** or **SSO and Cross App Access**. To use a different option, delete the IdP and create a new one.
 
 ## Account Linking and Just-In-Time provisioning
 
