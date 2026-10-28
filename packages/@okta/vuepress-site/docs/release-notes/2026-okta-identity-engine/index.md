@@ -105,7 +105,7 @@ Clients can present the ID-JAG to the custom authorization server `/token` endpo
 
 #### Single audience claim for custom authorization servers
 
-For orgs with the *Multiple audiences for custom authorization servers* feature enabled, access tokens now have a single `aud` claim value by default. A custom authorization server can still list up to 100 `audiences`, but the `/token` endpoint now accepts at most one `resource` parameter. A request with more than one `resource` fails with an `invalid_target` error. For authorization code, device code, and refresh token grants, the `resource` must be one of the resources from the original `/authorize` request. It's required if that request specified more than one. See [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/tokencustomas).
+For orgs with the **Multiple audiences for custom authorization servers** feature enabled, access tokens now have a single `aud` claim value by default. A custom authorization server can still list up to 100 `audiences`, but the `/token` endpoint now accepts at most one `resource` parameter. A request with more than one `resource` fails with an `invalid_target` error. For authorization code, device code, and refresh token grants, the `resource` must be one of the resources from the original `/authorize` request. It's required if that request specified more than one. See [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/tokencustomas).
 <!-- OKTA-1296114 -->
 
 #### Incomplete authorization check for SAML delegation links to MCP servers
