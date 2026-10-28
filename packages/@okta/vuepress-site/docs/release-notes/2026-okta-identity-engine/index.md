@@ -116,7 +116,7 @@ For orgs with the **Multiple audiences for custom authorization servers** featur
 
 #### Incomplete authorization check for SAML delegation links to MCP servers
 
-The [Create a delegation link API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) didn't apply the correct permission check when linking a SAML app to a vMCP server. Some admins could create these delegation links without the intended vMCP server permission.
+The [Create a delegation link API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) didn't apply the correct permission check when linking a SAML app to a vMCP server. Some admins could create these delegation links without the intended vMCP server permission.
 <!-- OKTA-1300914 -->
 
 #### Bugs fixed in 2026.44.0
