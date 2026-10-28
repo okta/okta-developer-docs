@@ -580,6 +580,7 @@ The new [Manage delegates for governance](/docs/guides/iga-delegates/main/) guid
 * The response for `GET /governance/api/v1/requests` with a `lastUpdated` value for the `filter` query parameter, and without the `orderBy` parameter, was sorted by `createdAt` instead of `updatedAt`. (OKTA-1140026)
 
 ### Weekly release 2026.03.1
+<!-- Published on: 2026-10-28T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|

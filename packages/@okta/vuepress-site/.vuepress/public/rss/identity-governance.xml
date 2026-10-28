@@ -4,8 +4,17 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 14 Oct 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 28 Oct 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Version 2026.44.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&amp;utm_medium=feed#version-2026-44-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#version-2026-44-0</guid>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#unified-requester-experience-is-ga-in-preview">Unified requester experience is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-resource-collections-resource-campaigns-is-ga-in-preview">Certify resource collections - Resource campaigns is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-resource-collections-user-campaigns-is-ga-in-preview">Certify resource collections - User campaigns is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#stage-certification-campaigns-before-launch-is-ga-in-preview">Stage certification campaigns before launch is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#access-request-email-notification-settings">Access Request email notification settings</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Version 2026.42.1</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&amp;utm_medium=feed#version-2026-42-1</link>
@@ -174,6 +183,15 @@
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-03-3</guid>
       <pubDate>Wed, 25 Mar 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#bug-fixed-in-2026-03-3">Bug fixed in 2026.03.3</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2026.03.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-03-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-03-1</guid>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/?utm_source=rss&utm_medium=feed#certify-resource-collections---user-campaigns-is-ea">Certify resource collections - User campaigns is EA</a>]]></description>
     </item>
   
 
