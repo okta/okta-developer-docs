@@ -1,6 +1,6 @@
 {
-  "release" : "2026.42.1",
-  "build" : "2026.42.1-begin-283-g291450d3a489",
+  "release" : "2026.45.1",
+  "build" : "2026.45.1-begin-192-g646634b10e71",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,

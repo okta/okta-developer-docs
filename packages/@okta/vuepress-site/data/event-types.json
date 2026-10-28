@@ -1,6 +1,6 @@
 {
-  "release" : "2026.42.1",
-  "build" : "2026.42.1-begin-283-g291450d3a489",
+  "release" : "2026.45.1",
+  "build" : "2026.45.1-begin-192-g646634b10e71",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -185,6 +185,9 @@
     "id" : "isv-catalog-and-telemetry",
     "name" : "ISV Catalog and Telemetry"
   }, {
+    "id" : "ispm",
+    "name" : "ISPM"
+  }, {
     "id" : "okta-personal",
     "name" : "Okta Personal"
   }, {
@@ -271,9 +274,6 @@
   }, {
     "id" : "workforce-authenticators",
     "name" : "Workforce Authenticators"
-  }, {
-    "id" : "workload-principal",
-    "name" : "Workload Principal"
   }, {
     "id" : "unclassified",
     "name" : "Unknown"
@@ -2156,7 +2156,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.activate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Activate an AI agent provider. Track when an AI agent import provider is enabled for scheduled imports.",
       "info" : {
         "created" : "2026-02-09",
@@ -2173,7 +2173,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.create",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Create an AI agent provider. Track when a new connection to an external AI agent provider is established for importing agents.",
       "info" : {
         "created" : "2026-02-09",
@@ -2190,7 +2190,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.credential.validate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Validate credentials for an AI agent import provider. Verify that credentials for an AI agent import provider are valid before activating the provider. Typically follows provider.credential.update and precedes provider.activate.",
       "info" : {
         "created" : "2026-02-09",
@@ -2207,7 +2207,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.deactivate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Deactivate an AI agent provider. Track when an AI agent import provider is disabled.",
       "info" : {
         "created" : "2026-02-09",
@@ -2224,7 +2224,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.delete",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Delete an AI agent provider. Track when a connection to an external AI agent provider is removed.",
       "info" : {
         "created" : "2026-02-09",
@@ -2241,7 +2241,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.import.complete",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Complete a bulk import of AI agents from an external provider. Audit the outcome of AI agent imports, including the number of agents found, imported, and errored. Paired with app.ai_agent_provider.import.start. Import outcome details are in the targets.",
       "info" : {
         "created" : "2026-02-09",
@@ -2258,7 +2258,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.import.start",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Start a bulk import of AI agents from an external provider. Audit when bulk imports of AI agents from external providers begin. A corresponding app.ai_agent_provider.import.complete event is fired when the import completes.",
       "info" : {
         "created" : "2026-02-09",
@@ -2343,7 +2343,7 @@
       }
     }, {
       "id" : "app.ai_agent_provider.update",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Update an AI agent provider. Track AI agent import provider changes, such as credential configuration, owner info, and schedule updates. This event refers to the OAuth2 credentials used to connect to an external AI agent provider. For AI agent workload identity credentials (JWK signing keys), see workload_principal.ai_agent.credential.* events.",
       "info" : {
         "created" : "2026-02-09",
@@ -3356,7 +3356,7 @@
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "OAuth2DebugData",
         "actor" : null,
         "targets" : [ "OAuth2ResourceDetails" ],
         "changeDetails" : [ ]
@@ -3856,7 +3856,7 @@
       }
     }, {
       "id" : "app.oauth2.token.grant.service_account",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Grant Okta Privileged Access service account credentials. Audit when an application successfully exchanges an OAuth token for credentials for a service account in Okta Privileged Access.",
       "info" : {
         "created" : "2025-12-01",
@@ -3873,7 +3873,7 @@
       }
     }, {
       "id" : "app.oauth2.token.grant.vaulted_secret",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Grant Okta Privileged Access vaulted secret. Audit when an application successfully exchanges an OAuth token for a vaulted secret in Okta Privileged Access.",
       "info" : {
         "created" : "2025-12-01",
@@ -5867,6 +5867,23 @@
       "info" : {
         "created" : "2026-06-23",
         "release" : "2026.08.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account", "event-hook-eligible", "import" ],
+      "schema" : {
+        "debugData" : "AccountReconciliationDebugData",
+        "actor" : null,
+        "targets" : [ "UserProvisioningResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "application.account.decision.unignore",
+      "category" : "core-identity",
+      "description" : "Return a previously ignored unmanaged app account to review during reconciliation. Audit reversals of ignore decisions, so an account that was set aside and later reopened can be traced to the admin who reopened it. Fired per account returned to review. The legacy import UI reports the same action as system.import.user_match.unignore, which carries only the app instance as a target.",
+      "info" : {
+        "created" : "2026-10-16",
+        "release" : "2026.11.0"
       },
       "beta" : false,
       "internal" : false,
@@ -12236,6 +12253,23 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "pam.server.update",
+      "category" : "asa",
+      "description" : "Update a server's attributes in Okta Privileged Access. Audit changes to a server, such as a server becoming inactive after it stops contacting Okta or active again when it resumes contact. A server's attributes, such as its activity status, were modified.",
+      "info" : {
+        "created" : "2026-10-13",
+        "release" : "2026.46.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "pam.server_account.discovered",
       "category" : "asa",
       "description" : "This event is triggered after a server account is first discovered by the Server Agent. Only applicable for Okta Privileged Access. This event contains the name of the discovered account and the associated server.",
@@ -15721,6 +15755,23 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "security.ioc_protection.status.update",
+      "category" : "itp",
+      "description" : "Update IoC protection status. Audit when an admin disables or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). A change to DISABLED followed by a later change to ENABLED indicates the timeframe when protective actions were suppressed. This event is fired only after the new setting is saved.",
+      "info" : {
+        "created" : "2026-10-12",
+        "release" : "2026.44.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oie-only", "security" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "IoCProtectionStatusChangeEntry" ]
+      }
+    }, {
       "id" : "security.origin.auto_whitelisted",
       "category" : "passwordless",
       "description" : "A new origin (redirectUrl) was automatically whitelisted. This can be used to monitor when trusted origins are dynamically added to your tenant by Okta. This is a temporary event, which will be used by the subset of tenants who get the dynamic whitelisting functionality prior to having the enforcement of Trusted Origins whitelists enabled.",
@@ -15872,6 +15923,23 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "security.threat.ioc.detect",
+      "category" : "itp",
+      "description" : "Request matched an indicator of compromise from Okta Threat Intelligence. This event can be used to identify users and authentication flows targeted from known malicious infrastructure. The outcome.result field is DENY if the request was blocked, or ALLOW if the admin opted out of enforcement.",
+      "info" : {
+        "created" : "2026-10-09",
+        "release" : "2026.11.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oie-only", "security" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthenticatorEnrollmentResourceDetailsEx" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "security.trusted_origin.activate",
@@ -21044,7 +21112,7 @@
     }, {
       "id" : "user.authentication.sso",
       "category" : "authn-platform",
-      "description" : "Fired when a user performs a single sign-on (SSO) to an app instance and contains the client details of the user. Can be used to identify when a user attempted to sign into an application for audit or debugging purposes. Note that the event is fired even when the sign-on is unsuccessful.",
+      "description" : "Record an app sign-in step that's processed by Okta. Use the AppInstance entry in target to identify the app, and available debugContext.debugData fields to troubleshoot the sign-in. outcome.result is always SUCCESS and does not confirm that the app accepted the user. OIDC records can also reflect ID-token refresh rather than a new interactive sign-in.",
       "info" : {
         "created" : "2016-03-08",
         "release" : "2016.11"
@@ -21095,7 +21163,7 @@
     }, {
       "id" : "user.authentication.verify",
       "category" : "authn-platform",
-      "description" : "Verify user identity.",
+      "description" : "Record a successful authentication-flow state in Identity Engine or session-policy validation in Classic Engine. Use this event to troubleshoot authentication flows and inspect target entries of type.AuthenticatorMethod when it's present. outcome.result is always SUCCESS. In Classic Engine, required enrollment, expired-password changes, or consent can still follow. This event alone does not confirm a usable session or application access. Correlate with user.session.start for authentication-attempt outcomes and policy.evaluate_sign_on for policy decisions. Not every authentication flow produces this event; for example, Identity Engine omits it when an active session is reused without another factor verification.",
       "info" : {
         "created" : "2017-06-30",
         "release" : "2017.27"
@@ -21315,8 +21383,8 @@
       }
     }, {
       "id" : "user.internal.session_context_change",
-      "category" : "passwordless",
-      "description" : "User session context changed. This internal event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
+      "category" : "authn-platform",
+      "description" : "Record an internal session context change for risk engine evaluation. Internal counterpart to user.session.context.change used to evaluate Okta risk engine efficacy. Not visible to administrators. Often this indicates a security issue related to the session.",
       "info" : {
         "created" : "2023-02-06",
         "release" : "2023.03.0"
@@ -21808,8 +21876,8 @@
       }
     }, {
       "id" : "user.session.clear",
-      "category" : "passwordless",
-      "description" : "Clear user session.",
+      "category" : "authn-platform",
+      "description" : "Clear all active sessions for a user.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -21825,8 +21893,8 @@
       }
     }, {
       "id" : "user.session.context.change",
-      "category" : "passwordless",
-      "description" : "User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
+      "category" : "authn-platform",
+      "description" : "Detect a significant change to the context of an active session. Use this event to monitor active sessions for risk signals such as changes in device, network location, or authentication state that may require policy re-evaluation. Useful for continuous access evaluation (CAE), SIEM detections, and security investigations. Often this indicates a security issue related to the session.",
       "info" : {
         "created" : "2023-01-11",
         "release" : "2023.01.0"
@@ -21842,8 +21910,8 @@
       }
     }, {
       "id" : "user.session.end",
-      "category" : "passwordless",
-      "description" : "User logout from Okta.",
+      "category" : "authn-platform",
+      "description" : "End a user's session.",
       "info" : {
         "created" : "2016-01-08",
         "release" : "2016.02"
@@ -21859,8 +21927,8 @@
       }
     }, {
       "id" : "user.session.expire",
-      "category" : "passwordless",
-      "description" : "Expire user session. This event does not appear in the system logs unless the user explicitly signs out or the user session is revoked by an admin.",
+      "category" : "authn-platform",
+      "description" : "Expire a user session that reaches its configured session lifetime. This event does not appear in the System Log unless the user explicitly signs out or the user session is revoked by an admin.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -21961,8 +22029,8 @@
       }
     }, {
       "id" : "user.session.start",
-      "category" : "passwordless",
-      "description" : "User login to Okta.",
+      "category" : "authn-platform",
+      "description" : "Attempt to authenticate a user or establish an Okta session. Use this event to investigate authentication attempts, including failures before credentials are checked. Despite its name, it does not prove that a usable session was created. SUCCESS can precede additional authentication or a later policy denial. FAILURE can reflect a policy block or unsuccessful challenge; INVALID_CREDENTIALS does not necessarily mean a wrong password. Review related policy and authentication events to understand how the sign-in progressed, and SSO or token-grant events to investigate application access or token issuance. This event does not record every authentication or factor verification. For example, in Identity Engine, look for user.authentication.auth_via_mfa for a second-factor check, not another user.session.start.",
       "info" : {
         "created" : "2016-01-08",
         "release" : "2016.02"
@@ -22845,7 +22913,7 @@
       }
     }, {
       "id" : "workload_principal.activate",
-      "category" : "workload-principal",
+      "category" : "secure-ai",
       "description" : "Workload principal has been activated. This event can be used to track the activation of workload principals within the organization, including details about the agent and the user who performed the activation. When fired, this event contains information about the workload principal, such as its configuration, and the user who activated it.",
       "info" : {
         "created" : "2025-11-04",
@@ -22857,12 +22925,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.ai_agent.activate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Activate an AI agent. Use this event to track the activation of AI agents within the org, including details about the agent and the user who performed the activation.",
       "info" : {
         "created" : "2026-06-05",
@@ -22879,7 +22947,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.credential.activate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Activate an AI agent credential. This event can be used to track the activation of credentials for AI agents within the organization, including details about the credential and the user who performed the activation.",
       "info" : {
         "created" : "2026-01-14",
@@ -22896,7 +22964,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.credential.create",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Create an AI agent credential. This event can be used to track the creation of credentials for AI agents within the organization, including details about the credential and the user who performed the creation.",
       "info" : {
         "created" : "2026-01-14",
@@ -22913,7 +22981,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.credential.deactivate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Deactivate an AI agent credential. This event can be used to track the deactivation of credentials for AI agents within the organization, including details about the credential and the user who performed the deactivation.",
       "info" : {
         "created" : "2026-01-14",
@@ -22930,7 +22998,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.credential.delete",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Delete an AI agent credential. This event can be used to track the deletion of credentials for AI agents within the organization, including details about the credential and the user who performed the deletion.",
       "info" : {
         "created" : "2026-01-14",
@@ -22947,7 +23015,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.deactivate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Deactivate an AI agent. Use this event to track the deactivation of AI agents within the org, including details about the agent and the user who performed the deactivation.",
       "info" : {
         "created" : "2026-06-05",
@@ -22964,7 +23032,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.delete",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Delete an AI agent. Use this event to track the deletion of AI agents within the org, including details about the agent and the user who performed the deletion.",
       "info" : {
         "created" : "2026-06-05",
@@ -22981,7 +23049,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.register",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Register an AI agent. Use this event to track the registration of AI agents within the org, including details about the user who registered it.",
       "info" : {
         "created" : "2026-06-05",
@@ -23015,7 +23083,7 @@
       }
     }, {
       "id" : "workload_principal.ai_agent.sign_on_provider.add",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Add a sign-on provider to an AI agent. Use this event to track the addition of sign-on providers to AI agents within the org, including details about the provider and the user who made the addition. Targets contain both the AI agent (WorkloadPrincipalResourceDetails) and the sign-on provider (WorkloadPrincipalSignOnProviderDetails); correlate via workloadPrincipalId.",
       "info" : {
         "created" : "2026-06-05",
@@ -23027,12 +23095,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.ai_agent.sign_on_provider.remove",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Remove a sign-on provider from an AI agent. Use this event to track the removal of sign-on providers from AI agents within the org, including details about the provider and the user who made the removal. Targets contain both the AI agent (WorkloadPrincipalResourceDetails) and the sign-on provider (WorkloadPrincipalSignOnProviderDetails); correlate via workloadPrincipalId.",
       "info" : {
         "created" : "2026-06-05",
@@ -23044,12 +23112,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.ai_agent.update",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Update an AI agent. Use this event to track updates made to AI agents within the org, including details about the changes and the user who made them. Changed fields and their old/new values are available in WorkloadPrincipalChangeDetailsEntry.",
       "info" : {
         "created" : "2026-06-05",
@@ -23066,7 +23134,7 @@
       }
     }, {
       "id" : "workload_principal.deactivate",
-      "category" : "workload-principal",
+      "category" : "secure-ai",
       "description" : "Workload principal has been deactivated. This event can be used to track the deactivation of workload principals within the organization, including details about the agent and the user who performed the deactivation. When fired, this event contains information about the workload principal, such as its configuration, and the user who deactivated it.",
       "info" : {
         "created" : "2025-11-04",
@@ -23078,12 +23146,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.delegation_link.create",
-      "category" : "workload-principal",
+      "category" : "secure-ai-authentication",
       "description" : "Create a workload principal delegation link. This event can be used to track the creation of delegation link for workload principals within the organization, including details about the source, target and the user who created it. When fired, this event contains information about the workload principal, the delegation link created, and the user who performed the creation.",
       "info" : {
         "created" : "2026-05-11",
@@ -23100,7 +23168,7 @@
       }
     }, {
       "id" : "workload_principal.delegation_link.delete",
-      "category" : "workload-principal",
+      "category" : "secure-ai-authentication",
       "description" : "Delete a workload principal delegation link. This event can be used to track the deletion of delegation link for workload principals within the organization, including details about the source, target and the user who deleted it. When fired, this event contains information about the delegation link deleted, and the user who performed the deletion.",
       "info" : {
         "created" : "2026-05-11",
@@ -23117,7 +23185,7 @@
       }
     }, {
       "id" : "workload_principal.delete",
-      "category" : "workload-principal",
+      "category" : "secure-ai",
       "description" : "Workload principal has been deleted. This event can be used to track the deletion of workload principals within the organization, including details about the agent and the user who performed the deletion. When fired, this event contains information about the workload principal, such as its configuration, and the user who deleted it.",
       "info" : {
         "created" : "2025-11-04",
@@ -23129,7 +23197,7 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -23236,7 +23304,7 @@
       }
     }, {
       "id" : "workload_principal.register",
-      "category" : "workload-principal",
+      "category" : "secure-ai",
       "description" : "Workload Principal has been registered. This event can be used to track the registration of workload principals within the organization, including details about the user who registered it. When fired, this event contains information about the workload principal, such as its type, configuration, and the user who registered it.",
       "info" : {
         "created" : "2025-11-04",
@@ -23248,12 +23316,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalAiAgentImportDetails", "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalAiAgentImportDetails", "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.resource_connection.activate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Workload principal resource connection activation. This event can be used to track the activation of resource connections for workload principals within the organization, including details about the connection and the user who made the activation. When fired, this event contains information about the workload principal, the resource connection activated, and the user who performed the activation.",
       "info" : {
         "created" : "2025-11-21",
@@ -23270,7 +23338,7 @@
       }
     }, {
       "id" : "workload_principal.resource_connection.create",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Workload principal resource connection creation. This event can be used to track the creation of resource connections for workload principals within the organization, including details about the connection and the user who made the creation. When fired, this event contains information about the workload principal, the resource connection created, and the user who performed the creation.",
       "info" : {
         "created" : "2025-11-07",
@@ -23287,7 +23355,7 @@
       }
     }, {
       "id" : "workload_principal.resource_connection.deactivate",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Workload principal resource connection deactivation. This event can be used to track the deactivation of resource connections for workload principals within the organization, including details about the connection and the user who made the deactivation. When fired, this event contains information about the workload principal, the resource connection deactivated, and the user who performed the deactivation.",
       "info" : {
         "created" : "2025-11-21",
@@ -23304,7 +23372,7 @@
       }
     }, {
       "id" : "workload_principal.resource_connection.delete",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Workload principal resource connection deletion. This event can be used to track the deletion of resource connections for workload principals within the organization, including details about the connection and the user who made the deletion. When fired, this event contains information about the workload principal, the resource connection deleted, and the user who performed the deletion.",
       "info" : {
         "created" : "2025-11-07",
@@ -23321,7 +23389,7 @@
       }
     }, {
       "id" : "workload_principal.resource_connection.update",
-      "category" : "workload-principal",
+      "category" : "secure-ai-connections",
       "description" : "Workload principal resource connection update. This event can be used to track updates made to resource connections for workload principals within the organization, including details about the changes and the user who made them. When fired, this event contains information about the workload principal, the resource connection updated, the changes made, and the user who performed the update.",
       "info" : {
         "created" : "2025-11-07",
@@ -23338,7 +23406,7 @@
       }
     }, {
       "id" : "workload_principal.sign_on_provider.add",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Sign-on provider has been added to workload principal. This event can be used to track the addition of sign-on providers to workload principals within the organization, including details about the provider and the user who made the addition. When fired, this event contains information about the workload principal, the sign-on provider added, and the user who performed the addition.",
       "info" : {
         "created" : "2025-11-04",
@@ -23350,12 +23418,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.sign_on_provider.remove",
-      "category" : "workload-principal",
+      "category" : "secure-ai-registry",
       "description" : "Sign-on provider has been removed from workload principal. This event can be used to track the removal of sign-on providers from workload principals within the organization, including details about the provider and the user who made the removal. When fired, this event contains information about the workload principal, the sign-on provider removed, and the user who performed the removal.",
       "info" : {
         "created" : "2025-11-04",
@@ -23367,12 +23435,12 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.update",
-      "category" : "workload-principal",
+      "category" : "secure-ai",
       "description" : "workload principal has been updated. This event can be used to track updates made to workload principals within the organization, including details about the changes and the user who made them. When fired, this event contains information about the workload principal, such as its configuration changes, and the user who updated it.",
       "info" : {
         "created" : "2025-11-04",
@@ -23384,7 +23452,7 @@
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
-        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails" ],
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalSignOnProviderDetails", "OAuthClientDetails" ],
         "changeDetails" : [ "WorkloadPrincipalChangeDetailsEntry" ]
       }
     }, {
@@ -40075,6 +40143,14 @@
             "format" : "enum",
             "examples" : [ "GROUP", "APP" ]
           },
+          "campaign_item_resource_external_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c3f9a2b1-7d4e-4f6a-9b8c-2e1f5a7d9b34" ]
+          },
           "campaign_item_resource_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -42833,6 +42909,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "verification_record" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "INSERTED", "UPDATED" ]
           },
           "relay_request_id" : {
             "type" : "String",
@@ -59895,6 +59979,27 @@
           }
         }
       },
+      "OAuthClientDetails" : {
+        "name" : "OAuthClientDetails",
+        "properties" : {
+          "oauth_client_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "CIMD", "OKTA" ]
+          },
+          "oauth_client_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Ooa1234abcdEFGH5678", "https://agent.example.com/.well-known/cimd.json" ]
+          }
+        }
+      },
       "OktaCAMobilePlatformResourceDetails" : {
         "name" : "OktaCAMobilePlatformResourceDetails",
         "properties" : {
@@ -61780,6 +61885,30 @@
       "WorkloadPrincipalAiAgentImportOutcomeDetails" : {
         "name" : "WorkloadPrincipalAiAgentImportOutcomeDetails",
         "properties" : {
+          "workload_principal_ai_agent_import_processed_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "42" ]
+          },
+          "workload_principal_ai_agent_import_failed_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1" ]
+          },
+          "workload_principal_ai_agent_import_staged_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "3" ]
+          },
           "workload_principal_ai_agent_import_unchanged_count" : {
             "type" : "Integer",
             "sensitive" : false,
@@ -64180,6 +64309,19 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "source.login eq target.login", "source.email eq target.email" ]
+          }
+        }
+      },
+      "IoCProtectionStatusChangeEntry" : {
+        "name" : "IoCProtectionStatusChangeEntry",
+        "properties" : {
+          "status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ENABLED", "DISABLED" ]
           }
         }
       },

@@ -1,6 +1,6 @@
 {
-  "release" : "2026.42.1",
-  "build" : "2026.42.1-begin-283-g291450d3a489",
+  "release" : "2026.45.1",
+  "build" : "2026.45.1-begin-192-g646634b10e71",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1514,6 +1514,27 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "None of the WebAuthn authenticators the user has enrolled for was able to validate the assertion"
   }, {
+    "title" : "Identity assurance code redemption failed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_code_redemption_failed",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Invalid grant"
+  }, {
+    "title" : "Identity assurance result not found",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_result_not_found",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Invalid grant"
+  }, {
+    "title" : "Identity assurance user not active or assigned",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_user_not_active_or_assigned",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Invalid grant"
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2655,6 +2676,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Invalid request"
   }, {
+    "title" : "Identity assurance missing code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "identity_assurance_missing_code",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The authorization code is required."
+  }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -3459,6 +3487,13 @@
     "internalErrorCode" : "invalid_client_aerial_authorization_server",
     "errorCode" : "unauthorized_client",
     "errorDescription" : "This client cannot use the Aerial authorization server."
+  }, {
+    "title" : "Direct auth classic pipeline not supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_classic_pipeline_not_supported",
+    "errorCode" : "unauthorized_client",
+    "errorDescription" : "Direct authentication is not supported for applications that use the Classic authentication pipeline. Configure the application to use the Identity Engine authentication pipeline."
   }, {
     "title" : "Confidential client required",
     "statusCode" : 400,
