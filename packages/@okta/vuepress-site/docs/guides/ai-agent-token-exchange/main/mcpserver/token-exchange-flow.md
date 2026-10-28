@@ -1,8 +1,8 @@
 The token exchange flow for an AI agent involves the following steps:
 
-<div class="full wireframe-border">
+<div class="full wireframe">
 
-  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_ID-JAG-1192893v2.svg)
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/id-jag-token-exchange-flow-for-an-mcp-server-1192893v2.svg)
 
 </div>
 

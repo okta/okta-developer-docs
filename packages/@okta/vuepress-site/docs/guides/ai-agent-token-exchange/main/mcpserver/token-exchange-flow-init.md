@@ -7,7 +7,7 @@ The initial authentication step is different for the two types of access configu
 
 ### User access
 
-  ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/user-access-authentication-step-ID-JAG-1192893v2.svg)
+  ![Flow diagram illustrating the process of the initial authentication flow for user access](/img/auth/ai-agent-token-exchange/user-access-authentication-step-ID-JAG-1192893v2mcp.svg)
 
 1. The AI agent authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) authorization server and obtains a subject token (T1) that satisfies the access requirement for the AI agent.
 
@@ -15,7 +15,7 @@ The initial authentication step is different for the two types of access configu
 
 ### Machine access
 
-  ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/machine-access-authentication-step-ID-JAG-1192893v2.svg)
+  ![Flow diagram illustrating the process of the initial authentication flow for machine access](/img/auth/ai-agent-token-exchange/machine-access-authentication-step-ID-JAG-1192893v2mcp.svg)
 
 1. The initiating client authenticates with a [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (access token) that satisfies a delegation link for the AI agent.
 
