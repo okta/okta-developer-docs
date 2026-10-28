@@ -13,6 +13,63 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## October
 
+### Version 2026.44.0
+<!-- Published on: 2026-10-28T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Unified requester experience is GA in Preview](#unified-requester-experience-is-ga-in-preview) | July 16, 2025 |
+| [Certify resource collections - Resource campaigns is GA in Preview](#certify-resource-collections-resource-campaigns-is-ga-in-preview) | January 28, 2026 |
+| [Certify resource collections - User campaigns is GA in Preview](#certify-resource-collections-user-campaigns-is-ga-in-preview) | March 11, 2026 |
+| [Stage certification campaigns before launch is GA in Preview](#stage-certification-campaigns-before-launch-is-ga-in-preview) | September 16, 2026 |
+| [Access Request email notification settings](#access-request-email-notification-settings) | October 28, 2026 |
+
+#### Unified requester experience is GA in Preview
+
+Use this feature to create a consistent and unified experience for initiating requests in End-User Dashboard, Slack, and Microsoft Teams regardless of whether the request is managed by conditions or request types. This gives you the flexibility to use either or both methods together to manage resource access without altering the requester experience.
+
+* Request types now appear as tiles in the End-User Dashboard's resource catalog alongside other resources. Your settings for a request type's audience continue to govern which users can view the request type on their dashboard and request access.
+* In Slack and Microsoft Teams, users can now request access to resources that are governed by access request conditions, and the user experience for requesting resources that are managed by request types has also been changed.
+  Additionally, in the Okta Access Requests app, the *Access requests* page has been renamed to *Resource catalog*, and clicking it redirects requesters to the resource catalog on the End-User Dashboard. The *Request types* section in the web app is only visible to admins and team members who own the request type. See [Create requests](https://help.okta.com/okta_help.htm?type=oie&id=ext-ar-create-manage-reqs).
+
+The following Access Request API updates have been made to support the unified requester experience:
+
+* New `REQUEST_TYPE` option for [accessScopeType](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2#requests/listallrequestsv2/t=response&c=200&path=data/requested/accessscopetype) in the Requests API
+* New [validRequestOnBehalfOfSettings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/getrequestsettingsv2#request-settings/getrequestsettingsv2/t=response&c=200&path=validrequestonbehalfofsettings) property for the Request Settings API
+* [Related entry link updates for catalog entry responses](/docs/release-notes/2025-okta-identity-governance/#related-entity-link-updates-for-catalog-entry-responses)
+* [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/catalogs/listalldefaultuserentriesv2)
+<!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG -->
+
+#### Certify resource collections - Resource campaigns is GA in Preview
+
+Use access certification resource campaigns to certify user access to resource collections. Rather than reviewing individual apps, entitlements, or bundles separately, running resource campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the necessary context to make informed decisions.
+
+A new `COLLECTION` resource option in the campaign [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property has been added to support resource collection campaigns.
+<!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS -->
+
+#### Certify resource collections - User campaigns is GA in Preview
+
+Use access certification identity campaigns (previously called user campaigns) to certify user access to resource collections. Running identity campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the context they need to make informed decisions. See [Create identity campaigns](https://help.okta.com/okta_help.htm?type=oie&id=csh-ac-uc-resource-scope) in the product documentation.
+
+You can now run identity campaigns to certify more than just app and group resources. A new property (`targetTypes`) is now used in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) API request to specify the target resource for either identity or resource campaigns:
+
+* The [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property replaces the previous [`resourcSettings.type`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property. `resourceSettings.type` is still supported, but Okta recommends that you use `resourceSettings.targetTypes` for all future resource or identity campaigns.
+* For `USER` campaigns, you can select multiple resources (`APPLICATION`, `GROUP`, `AI_AGENT_CONNECTION`, or `COLLECTION`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
+* For `RESOURCE` campaigns, you can only specify one resource (`APPLICATION`, `GROUP`, `COLLECTION`, `APP_SERVICE_ACCOUNT`, or `OKTA_SERVICE_ACCOUNT`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
+<!-- OKTA-1116762 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS_USER_CAMPAIGNS -->
+
+#### Stage certification campaigns before launch is GA in Preview
+
+Staging a campaign lets you preview target users, resources, and reviewer assignments in advance to ensure accurate scope, fix configuration errors, and guarantee that requests reach the correct reviewers from day one. See [Generate a staged campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/generatecampaignstaging).
+<!-- OKTA-1268371 IGA_ACCESS_CERT_CAMPAIGN_STAGING Preview: Sept 16, 2026 -->
+
+#### Access Request email notification settings
+
+Admins can now turn off Access Request email notifications at the org level. This is useful for orgs that want to build their own custom-branded email notification instead of using the default Okta emails.
+
+See the [`email.settings`](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/getorgrequestsettingsv2#request-settings/getorgrequestsettingsv2/t=response&c=200&path=email/settings) property in the [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) request.
+<!-- OKTA-1281756 OKTA-1209983 ACCESS_REQUESTS_EMAIL_NOTIFICATION_SETTINGS -->
+
 ### Version 2026.42.1
 <!-- Published on: 2026-10-14T12:00:00Z -->
 
