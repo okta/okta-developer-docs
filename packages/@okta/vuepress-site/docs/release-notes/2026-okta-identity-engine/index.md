@@ -31,6 +31,7 @@ title: Okta Identity Engine API release notes 2026
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
 | [Cross App Access support for MCP Servers is GA in Preview](#cross-app-access-support-for-mcp-servers-is-ga-in-preview) | October 28, 2026 |
+| [Single audience claim for custom authorization servers](#single-audience-claim-for-custom-authorization-servers) | October 28, 2026 |
 | [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
 
@@ -105,6 +106,11 @@ Cross App Access enables Okta admins to securely connect AI agents to third-part
 
 See [Cross App Access (XAA) for external authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server-xaa) in the product documentation and [Set up AI agent token exchange > MCP server](/docs/guides/ai-agent-token-exchange/mcpserver/main/).
 <!-- OKTA-1296037 SECURE_AI_MCP_SERVERS_XAA_FOR_EXTERNAL_AS -->
+
+#### Single audience claim for custom authorization servers
+
+For orgs with the *Multiple audiences for custom authorization servers* feature enabled, access tokens now have a single `aud` claim value by default. A custom authorization server can still list up to 100 `audiences`, but the `/token` endpoint now accepts at most one `resource` parameter. A request with more than one `resource` fails with an `invalid_target` error. For authorization code, device code, and refresh token grants, the `resource` must be one of the resources from the original `/authorize` request. It's required if that request specified more than one. See [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/tokencustomas).
+<!-- OKTA-1296114 -->
 
 #### Incomplete authorization check for SAML delegation links to MCP servers
 
