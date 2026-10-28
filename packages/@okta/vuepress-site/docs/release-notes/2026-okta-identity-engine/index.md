@@ -30,6 +30,7 @@ title: Okta Identity Engine API release notes 2026
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
 | [Cross App Access support for MCP Servers is GA in Preview](#cross-app-access-support-for-mcp-servers-is-ga-in-preview) | October 28, 2026 |
 | [Cross App Access with an external identity provider is GA in Preview](#cross-app-access-with-an-external-identity-provider-is-ga-in-preview) | October 28, 2026 |
+| [Match on AAGUID alone for passkey authenticator groups is self-service EA in Preview](#match-on-aaguid-alone-for-passkey-authenticator-groups-is-self-service-ea-in-preview) | October 28, 2026 |
 | [Single audience claim for custom authorization servers](#single-audience-claim-for-custom-authorization-servers) | October 28, 2026 |
 | [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
@@ -102,6 +103,11 @@ Cross App Access (XAA) now supports an Identity Assertion JWT Authorization Gran
 
 Clients can present the ID-JAG to the custom authorization server `/token` endpoint (`POST /oauth2/{authServerId}/v1/token`) as a `jwt-bearer` grant, without first exchanging it with Okta. You can restrict which IdPs that a policy rule accepts by setting the `xaaSupportedIdentityProvider` condition. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/main/).
 <!-- OKTA-1309544 OKTA-1305064 EXTERNAL_IDP_XAA_SUPPORT -->
+
+#### Match on AAGUID alone for passkey authenticator groups is self-service EA in Preview
+
+The Authenticators API now supports the `matchOnAaguidAlone` property on AAGUID groups for the `webauthn` authenticator. This allows users to enroll authenticators from a group that don't provide a trusted attestation certificate. See [`matchOnAaguidAlone`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authenticator/other/replaceauthenticatormethod#other/replaceauthenticatormethod/t=request&path=&d=8/settings/aaguidgroups[]/matchonaaguidalone).
+<!-- OKTA-1299535 WEBAUTHN_AAGUID_GROUP_MATCH_ON_AAGUID_ALONE -->
 
 #### Single audience claim for custom authorization servers
 
