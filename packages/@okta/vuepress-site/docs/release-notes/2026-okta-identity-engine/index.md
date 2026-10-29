@@ -124,7 +124,7 @@ The [Create a delegation link API](https://developer.okta.com/docs/api/secures-a
 
 * The new [Build an XAA resource app](/docs/journeys/XAA-resource-app/main/) journey helps you plan to add Cross App Access (XAA) functionality to your resource server and the authorization server protecting it. After you build and test your resource server with the XAA flow, you can submit your resource app integration to the Okta Integration Network (OIN). <!-- OKTA-1232134 -->
 
-* The new [Build an XAA requesting app](/docs/journeys/XAA-requesting-app/main/) journey helps you plan how to add Cross App Access (XAA) functionality to your existing SSO app. After you build and test your app with the XAA flow, you can submit your app integration to the Okta Integration Network (OIN). <!-- OKTA-1232133 -->
+* The new [Build an XAA requesting app](/docs/journeys/XAA-requesting-app/main/) journey helps you plan to add Cross App Access (XAA) functionality to your existing SSO app. After you build and test your app with the XAA flow, you can submit your app integration to the Okta Integration Network (OIN). <!-- OKTA-1232133 -->
 
 * Learn how to validate ID-JAG tokens and resolve user identities on your resource authorization server for the Cross App Access (XAA) flow. See [Validate ID-JAG token for your authorization server](/docs/guides/xaa-validate-id-jag/main/). <!-- OKTA-1232139 -->
 
