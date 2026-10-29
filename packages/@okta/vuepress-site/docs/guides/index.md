@@ -15,6 +15,7 @@ guides:
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
  - ai-configure-agent-for-gateway
+ - ai-mcp-server-token-exchange
  - app-cimd-registration
  - app-provisioning-connection
  - archive-auth-js
@@ -241,6 +242,7 @@ guides:
  - xaa-agent-to-app
  - xaa-request-token-ex
  - xaa-validate-id-jag
+ - xaa-external-idp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

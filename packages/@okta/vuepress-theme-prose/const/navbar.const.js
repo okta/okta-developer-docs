@@ -600,6 +600,10 @@ export const guides = [
             guideName: "ai-configure-agent-for-gateway",
           },
           {
+            title: "Connect MCP servers to downstream resources",
+            guideName: "ai-mcp-server-token-exchange",
+          },
+          {
             title: "Configure an Agent Gateway",
             guideName: "ai-configure-agent-gateway",
           },
@@ -756,6 +760,10 @@ export const guides = [
           {
             title: "Configure AI agent-to-app with XAA",
             guideName: "xaa-agent-to-app",
+          },
+          {
+            title: "Configure XAA with an external IdP",
+            guideName: "xaa-external-idp",
           },
           {
             title: "Implement XAA token exchange for your requesting app",
