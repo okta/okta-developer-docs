@@ -89,50 +89,30 @@ Relational operators (`<`, `>`, `<=`, `>=`) and comparisons against numeric or B
 
 #### Imported app user attributes
 
-The attribute names that you can use with `importedAppUser` depend on the connector that imports the user.
+The attribute names that you can use with `importedAppUser` depend on the connector that imports the user. For most apps, they're the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
 
 ##### Standard attributes
 
-To certify unmanaged users and group members, an Access Certification campaign needs these attributes for each imported user: `userName`, `firstName`, `lastName`, and `email`. Every imported user also has an `externalId`. Active Directory, Office 365, OPP, and OPS all use these exact names. The connector sets an attribute only when the source app provides a value.
+To certify unmanaged users and group members, an Access Certification campaign needs these attributes for each imported user: `userName`, `firstName`, `lastName`, and `email`. If the connected app doesn't provide one of them, the campaign review shows `-` or **Not defined** for that field, and the results may be unexpected.
 
-If the source app doesn't provide a value, Okta omits the attribute instead of storing an empty string. The campaign review then shows `-` or **Not defined** for that field, and an expression that references the attribute can filter out users:
+Okta omits any attribute that has no value in the connected app instead of storing an empty string. An expression that references a missing attribute behaves as follows:
 
 * A comparison against a missing attribute never matches. For example, `importedAppUser.dept != 'ENG'` skips users who have no `dept` attribute.
 * To include those users, negate the equality: `!(importedAppUser.dept == 'ENG')`.
 
 ##### Apps that use the app user profile schema
 
-For apps that connect through the On-Premises Provisioning Agent (OPP) or the Okta On-Prem SCIM Agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
+For apps that connect through the On-Premises Provisioning Agent (OPP) or the Okta On-Prem SCIM Agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema.
 
 * **OPP:** OPP discovers the schema from the SCIM server, so the attributes vary by app. It maps the SCIM `userName`, `name.givenName`, `name.familyName`, and primary `emails` values to `userName`, `firstName`, `lastName`, and `email`. It also provides `externalId`, `status`, `secondEmail`, `mobilePhone`, and `userEntitlements`. Every other attribute is a custom attribute that uses the property name from the app user profile schema. For example, `importedAppUser.department == 'Engineering'`. Okta doesn't import users that have no `externalId`. The other standard attributes are present only if the SCIM server returns them.
 
-* **OPS:** The user-provided SQL query determines the attributes. `userName`, `externalId`, and `userEntitlements` are always available. If the query returns columns named `firstName`, `lastName`, or `email` (case-insensitive), OPS provides them under those names. Every other column is an `ext_*` attribute that uses the property name from the app user profile schema. For example, for an app that uses the On-prem Connector for Generic Databases, `importedAppUser.ext_LAST_NAME == 'Smith'`. To use the standard attributes, alias the columns in your query, for example `SELECT givenName AS firstName`.
-
-<span style="color: #c0392b;">**TODO (Engineering):** Confirm the OPS change that drops the `ext_` prefix for `firstName`, `lastName`, and `email` is released (Aravind MJ confirmed on 2026-10-27; merge ETA not given), and whether the casing of the resulting names is exactly `firstName`, `lastName`, and `email`. Also confirm whether `userEntitlements` is always available for OPS.</span>
+* **OPS:** The standard attributes are `userName` and `externalId`. Every other attribute is an `ext_*` attribute that uses the property name from the app user profile schema. For example, for an app that uses the On-prem Connector for Generic Databases, `importedAppUser.ext_LAST_NAME == 'Smith'`.
 
 > **Note:** Okta drops any attribute that isn't in the app user profile schema, and omits attributes that have a null value. An expression that references either type of attribute doesn't match the user.
 
-##### Active Directory
-
-Active Directory provides the standard attributes. The remaining attributes use the property names that the Active Directory connector returns, which differ from the LDAP attribute names. The most common ones are:
-
-| Field | LDAP attribute | `importedAppUser` attribute |
-| ----- | -------------- | --------------------------- |
-| Sign-in name | `userPrincipalName` | `userName` (also `userPrincipalName`) |
-| First name | `givenName` | `firstName` (also `givenName`) |
-| Last name | `sn` | `lastName` (also `surname`) |
-| Email | `mail` | `email` (also `mail`) |
-| Account status | `userAccountControl` | `status` (`ACTIVE` or `INACTIVE`) and `accountEnabled` (`"true"` or `"false"`) |
-| Mobile phone | `mobile` | `mobilePhone` |
-| City, state, country | `l`, `st`, `c` | `city`, `state`, `countryCode` |
-
-Most other attributes, such as `displayName`, `department`, `title`, `sAMAccountName`, and `employeeNumber`, use the LDAP name with camelCase capitalization. All values are strings. Okta omits any attribute that is missing or empty in Active Directory, and skips users that have no `objectGUID`.
-
-<span style="color: #c0392b;">**TODO (Engineering):** Active Directory previously used `user.$attribute` expressions according to engineering. The 2026-10-21 meeting says the Active Directory team will honor the standard attributes for `importedAppUser`, and the wiki (1147404766, version 13) now lists them as property keys. Confirm that `importedAppUser` is valid for Active Directory, that the change is released, and which table names are valid. The wiki's rule of thumb still says `user.profile.<attribute>` for Account Reconciliation. Is that a separate context from IGA campaigns? Also confirm how to reference nested values (`manager`, `onPremisesExtensionAttributes`).</span>
-
 ##### Microsoft Office 365
 
-For Office 365, use the raw account reconciliation names, not the names in the app user profile in the Profile Editor. The standard attributes `userName`, `firstName`, `lastName`, and `email` are available. For other fields, the most common differences are:
+For Office 365, use the raw account reconciliation names, not the names in the app user profile in the Profile Editor. The most common differences are:
 
 | Field | Account reconciliation name | App user profile name |
 | ----- | --------------------------- | --------------------- |
@@ -145,8 +125,6 @@ For Office 365, use the raw account reconciliation names, not the names in the a
 | Roles and licenses | `roles` and `licenses` (nested in `userEntitlements`) | `roles` and `licenses` |
 
 Most other attributes, such as `displayName` and `department`, have the same name in both places except that the account reconciliation name starts with a lowercase letter and the app user profile name starts with an uppercase letter.
-
-<span style="color: #c0392b;">**TODO (Engineering):** The Office 365 team says `userName`, `firstName`, `lastName`, and `email` are the same in both places, but the wiki rename table (1146426500, version 2) lists `userPrincipalName`, `givenName`, `surname`, and `mail` as the account reconciliation names. Are both sets valid in an expression, or only the standard names? Also, how do you reference the nested `userEntitlements.roles`, `userEntitlements.licenses`, and `onPremisesExtensionAttributes` values?</span>
 
 #### Imported app user examples
 
