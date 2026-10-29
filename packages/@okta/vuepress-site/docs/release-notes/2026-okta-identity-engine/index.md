@@ -122,7 +122,7 @@ The [Create a delegation link API](https://developer.okta.com/docs/api/secures-a
 
 #### Developer documentation updates in 2026.44.0
 
-* The new [Build an XAA resource app](/docs/journeys/XAA-resource-app/main/) journey helps you plan how to add Cross App Access (XAA) functionality to your resource server and the authorization server protecting it. After you build and test your resource server with the XAA flow, you can submit your resource app integration to the Okta Integration Network (OIN). <!-- OKTA-1232134 -->
+* The new [Build an XAA resource app](/docs/journeys/XAA-resource-app/main/) journey helps you plan to add Cross App Access (XAA) functionality to your resource server and the authorization server protecting it. After you build and test your resource server with the XAA flow, you can submit your resource app integration to the Okta Integration Network (OIN). <!-- OKTA-1232134 -->
 
 * The new [Build an XAA requesting app](/docs/journeys/XAA-requesting-app/main/) journey helps you plan how to add Cross App Access (XAA) functionality to your existing SSO app. After you build and test your app with the XAA flow, you can submit your app integration to the Okta Integration Network (OIN). <!-- OKTA-1232133 -->
 
