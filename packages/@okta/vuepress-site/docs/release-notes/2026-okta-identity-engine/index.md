@@ -33,6 +33,7 @@ title: Okta Identity Engine API release notes 2026
 | [Match on AAGUID alone for passkey authenticator groups is self-service EA in Preview](#match-on-aaguid-alone-for-passkey-authenticator-groups-is-self-service-ea-in-preview) | October 28, 2026 |
 | [Single audience claim for custom authorization servers](#single-audience-claim-for-custom-authorization-servers) | October 28, 2026 |
 | [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
+| [Developer documentation updates in 2026.44.0](#developer-documentation-updates-in-2026-44-0) | October 28, 2026 |
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
 
 #### Self-service registration policy for ITP is GA in Preview
@@ -118,6 +119,14 @@ For orgs with the **Multiple audiences for custom authorization servers** featur
 
 The [Create a delegation link API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) didn't apply the correct permission check when linking a SAML app to a vMCP server. Some admins could create these delegation links without the intended vMCP server permission.
 <!-- OKTA-1300914 -->
+
+#### Developer documentation updates in 2026.44.0
+
+* The new [Build an XAA resource app](/docs/journeys/XAA-resource-app/main/) journey helps you plan how to add Cross App Access (XAA) functionality to your resource server and the authorization server protecting it. After you build and test your resource server with the XAA flow, you can submit your resource app integration to the Okta Integration Network (OIN). <!-- OKTA-1232134 -->
+
+* The new [Build an XAA requesting app](/docs/journeys/XAA-requesting-app/main/) journey helps you plan how to add Cross App Access (XAA) functionality to your existing SSO app. After you build and test your app with the XAA flow, you can submit your app integration to the Okta Integration Network (OIN). <!-- OKTA-1232133 -->
+
+* Learn how to validate ID-JAG tokens and resolve user identities on your resource authorization server for the Cross App Access (XAA) flow. See [Validate ID-JAG token for your authorization server](/docs/guides/xaa-validate-id-jag/main/). <!-- OKTA-1232139 -->
 
 #### Bugs fixed in 2026.44.0
 
