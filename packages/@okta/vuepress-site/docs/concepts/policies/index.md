@@ -209,12 +209,12 @@ Re-authentication is required when a user's session in an app has reached its ma
 
 The policy rule `refresh.redirectType` setting has four options:
 
-* `NONE`: (default) Okta performs re-authentication locally, prompting the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
-* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, Okta handles re-authentication locally. You can also configure an exclude list of IdPs that aren't eligible for redirect.
+* `NONE`: (default) Okta doesn't redirect the user to an IdP. If the app sign-in policy or Okta account management policy requires the user to re-enter their password, the user sees an error and can't continue. Okta can't verify a federated user's password. If the app sign-in policy or Okta account management policy requires only other authenticators, Okta prompts the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
+* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the behavior is the same as `NONE`. You can also configure an exclude list of IdPs that aren't eligible for redirect.
 * `SPECIFIC`: Okta redirects the user to the IdP that you specify, regardless of the IdP they used to sign in.
 * `IDP_DISCOVERY`: Okta redirects the user to the IdP that your IdP routing rules select.
 
-For `SPECIFIC` and `IDP_DISCOVERY`, you can set `refresh.fallback.redirectType` to `MOST_RECENT_ACTIVE_SSO` or `NONE`. Okta uses the fallback if the specified IdP isn't active or the routing rules don't return an IdP.
+For `SPECIFIC` and `IDP_DISCOVERY`, you can set `refresh.fallback.redirectType` to `MOST_RECENT_ACTIVE_SSO` or `NONE`. For `IDP_DISCOVERY`, Okta uses the fallback if the routing rules don't return an IdP. With `NONE`, a federated user sees an error when the app sign-in policy or Okta account management policy requires them to re-enter their password. If the app sign-in policy or Okta account management policy requires only other authenticators, Okta prompts the user for them locally.
 
 See:
 
