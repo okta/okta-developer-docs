@@ -17,7 +17,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Okta Verify [activated](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator) as an authenticator, with the Okta FastPass method [enabled](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticatorMethod)
-* The Passkey (FIDO2 WebAuthn) authenticator, if you want to show the **Sign in with a passkey** button. The authenticator must be [activated](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator). See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn). <ApiLifecycle access="ea" />
+* The Passkey (FIDO2 WebAuthn) authenticator, if you want to show the **Sign in with a passkey** button. The authenticator must be [activated](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator). See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn).
 * An existing [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies) for the app that you want to configure
 * A test [user account](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser)
 * A test [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in your org that includes the test user
@@ -50,7 +50,7 @@ User identification policy rules support [platform](https://developer.okta.com/d
 Each rule uses the following properties in `actions.userIdentification.settings.securityMethods` to show or hide each button:
 
 * `fastpass.showSignInButton`: Controls the **Sign in with Okta FastPass** button.
-* `passkey.showSignInButton` <ApiLifecycle access="ea" />: Controls the **Sign in with a passkey** button.
+* `passkey.showSignInButton`: Controls the **Sign in with a passkey** button.
 
 Set each property to one of the following values:
 
@@ -265,7 +265,7 @@ Create your own POST request body or copy the [example request](#create-a-user-i
    * Set `conditions.network.connection` as `ANYWHERE`.
    * Include `WINDOWS` as a `DESKTOP` platform condition.
    * Set `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` as `ALWAYS`.
-   * Set `actions.userIdentification.settings.securityMethods.passkey.showSignInButton` as `ALWAYS`. <ApiLifecycle access="ea" />
+   * Set `actions.userIdentification.settings.securityMethods.passkey.showSignInButton` as `ALWAYS`.
 1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
 ### Create a user identification policy rule request example
@@ -378,7 +378,7 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
 
 1. In the path parameters, set the user identification policy `id` as the `policyId` and the rule `id` as the `ruleId`.
 1. Set `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` as `NEVER`.
-1. Set `actions.userIdentification.settings.securityMethods.passkey.showSignInButton` as `NEVER`. <ApiLifecycle access="ea" />
+1. Set `actions.userIdentification.settings.securityMethods.passkey.showSignInButton` as `NEVER`.
 1. Send the `PUT /api/v1/policies/{policyId}/rules/{ruleId}` request.
 
 ### Update a user identification policy rule request example
