@@ -17,6 +17,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Okta Verify [activated](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator) as an authenticator, with the Okta FastPass method [enabled](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticatorMethod)
+* The Passkey (FIDO2 WebAuthn) authenticator, if you want to show the **Sign in with a passkey** button. The authenticator must be [activated](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator). See [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn).
 * An existing [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies) for the app that you want to configure
 * A test [user account](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser)
 * A test [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in your org that includes the test user
@@ -25,17 +26,16 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 ## About user identification policies
 
-A user identification policy controls the pre-identification experience on the [Sign-In Widget](/docs/guides/custom-widget/) for an app. It applies before a user enters their username. Currently, the policy controls whether the **Sign in with Okta FastPass** button appears on the Sign-In Widget.
+A user identification policy controls the pre-identification experience on the [Sign-In Widget](/docs/guides/custom-widget/) for an app. It applies before a user enters their username. The policy controls whether the **Sign in with Okta FastPass** button and the **Sign in with a passkey** button appear on the Sign-In Widget.
 
-Previously, the **Sign in with Okta FastPass** button was an org-wide authenticator setting. The user identification policy moves this control to a per-app policy, so that you can show or hide the button for each app.
+Previously, both buttons were org-wide authenticator settings. The user identification policy moves this control to a per-app policy, so that you can show or hide each button for each app.
 
 ### Relationship to app sign-in policies
 
 Each user identification policy maps one-to-one to an [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies). Okta creates, maps, clones, and removes the user identification policy automatically with its app sign-in policy. You can't create, activate, update, deactivate, remove, map, or clone a user identification policy directly.
 
-If you call one of those operations directly, Okta returns the following error: 
+If you call one of those operations directly, Okta returns the following error:
 `This operation isn't supported in the user identification policy.`
-
 
 You manage only the **rules** on the policy. You can create, update, and delete rules, but you can't deactivate or remove the default rule.
 
@@ -47,18 +47,27 @@ To apply different button settings to different apps, create separate sign-in po
 
 User identification policy rules support [platform](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/platform&t=request) and [network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/network&t=request) conditions only.
 
-Each rule sets `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` to one of the following values:
+Each rule uses the following properties in `actions.userIdentification.settings.securityMethods` to show or hide each button:
 
-* `ALWAYS`: Show the **Sign in with Okta FastPass** button on the Sign-In Widget.
-* `NEVER`: Hide the **Sign in with Okta FastPass** button on the Sign-In Widget.
+* `fastpass.showSignInButton`: Controls the **Sign in with Okta FastPass** button.
+* `passkey.showSignInButton`: Controls the **Sign in with a passkey** button.
 
-> **Note:** You can only set `showSignInButton` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
+Set each property to one of the following values:
+
+* `ALWAYS`: Show the button on the Sign-In Widget.
+* `NEVER`: Hide the button on the Sign-In Widget.
+
+Keep the following restrictions in mind when you set these properties:
+
+* You can only set `fastpass.showSignInButton` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
+* You can only set `passkey.showSignInButton` to `ALWAYS` when the Passkey (FIDO2 WebAuthn) authenticator is active.
+* While any rule has `passkey.showSignInButton` set to `ALWAYS`, you can't set the Passkey (FIDO2 WebAuthn) authenticator method `settings.residentKeyRequirement` to `DISCOURAGED`.
 
 ### How user identification works at sign-in
 
-The following diagram shows how Okta evaluates the user identification policy to decide whether to show the **Sign in with Okta FastPass** button.
+The following diagram shows how Okta evaluates the user identification policy to decide whether to show a sign-in button, such as **Sign in with Okta FastPass** or **Sign in with a passkey**.
 
-![Sequence diagram showing Okta resolve the app sign-in policy, find the linked user identification policy, and evaluate its rules against platform and network conditions. Okta then checks the global gate against the Okta Verify authenticator and returns the Sign in with Okta FastPass button decision to the Sign-In Widget.](/img/user-identification-policies/uip-evaluation-sequence.svg)
+![Sequence diagram showing Okta resolve the app sign-in policy, find the linked user identification policy, and evaluate its rules against platform and network conditions. Okta then checks the global gate against the configured authenticator and returns the sign-in button decision to the Sign-In Widget.](/img/user-identification-policies/uip-evaluation-sequence.svg)
 
 ### How to configure a user identification policy
 
@@ -202,7 +211,7 @@ You can also find a user identification policy from its mapped app sign-in polic
 
 ### Review the default rule
 
-Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. Until you set a value, `actions.userIdentification.settings` is empty and Okta hides the button, the same as `showSignInButton: NEVER`. You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
+Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. Until you set a value, `actions.userIdentification.settings` is empty and Okta hides the buttons, the same as `showSignInButton: NEVER`. You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
 
 1. In the path parameters, set the user identification policy `id` as the `policyId`.
 1. Send the `GET /api/v1/policies/{policyId}/rules` request.
@@ -243,7 +252,7 @@ Each user identification policy includes a default rule. This is a system rule (
 
 ## Create a user identification policy rule
 
-In this example, create a rule that shows the **Sign in with Okta FastPass** button for users on the `WINDOWS` desktop platform from any network.
+In this example, create a rule that shows the **Sign in with Okta FastPass** and **Sign in with a passkey** buttons for users on the `WINDOWS` desktop platform from any network.
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a user identification policy rule.
 
@@ -256,6 +265,7 @@ Create your own POST request body or copy the [example request](#create-a-user-i
    * Set `conditions.network.connection` as `ANYWHERE`.
    * Include `WINDOWS` as a `DESKTOP` platform condition.
    * Set `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` as `ALWAYS`.
+   * Set `actions.userIdentification.settings.securityMethods.passkey.showSignInButton` as `ALWAYS`.
 1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
 ### Create a user identification policy rule request example
@@ -283,6 +293,9 @@ Create your own POST request body or copy the [example request](#create-a-user-i
             "settings": {
                 "securityMethods": {
                     "fastpass": {
+                        "showSignInButton": "ALWAYS"
+                    },
+                    "passkey": {
                         "showSignInButton": "ALWAYS"
                     }
                 }
@@ -325,6 +338,9 @@ Create your own POST request body or copy the [example request](#create-a-user-i
                 "securityMethods": {
                     "fastpass": {
                         "showSignInButton": "ALWAYS"
+                    },
+                    "passkey": {
+                        "showSignInButton": "ALWAYS"
                     }
                 }
             }
@@ -356,12 +372,13 @@ Create your own POST request body or copy the [example request](#create-a-user-i
 
 ## Update a user identification policy rule
 
-To change a rule, update it with the [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule) endpoint. In this example, update the rule to hide the **Sign in with Okta FastPass** button.
+To change a rule, update it with the [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule) endpoint. In this example, update the rule to hide the **Sign in with Okta FastPass** and **Sign in with a passkey** buttons.
 
 Create your own PUT request body or copy the [example request](#update-a-user-identification-policy-rule-request-example) and input your values.
 
 1. In the path parameters, set the user identification policy `id` as the `policyId` and the rule `id` as the `ruleId`.
 1. Set `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` as `NEVER`.
+1. Set `actions.userIdentification.settings.securityMethods.passkey.showSignInButton` as `NEVER`.
 1. Send the `PUT /api/v1/policies/{policyId}/rules/{ruleId}` request.
 
 ### Update a user identification policy rule request example
@@ -389,6 +406,9 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
             "settings": {
                 "securityMethods": {
                     "fastpass": {
+                        "showSignInButton": "NEVER"
+                    },
+                    "passkey": {
                         "showSignInButton": "NEVER"
                     }
                 }
@@ -431,6 +451,9 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
                 "securityMethods": {
                     "fastpass": {
                         "showSignInButton": "NEVER"
+                    },
+                    "passkey": {
+                        "showSignInButton": "NEVER"
                     }
                 }
             }
@@ -466,12 +489,12 @@ Review your System Log events to confirm that your user identification policy is
 
 ## Test your policy with a policy simulation
 
-You can use the [policy simulation](/docs/guides/policy-simulation/main/) endpoint to test how your user identification policy rules evaluate for a given user and device context. Do this before you go live. Policy simulation returns the matched rule and the resulting `showSignInButton` value. See [Test your policies with access simulations](/docs/guides/policy-simulation/main/).
+You can use the [policy simulation](/docs/guides/policy-simulation/main/) endpoint to test how your user identification policy rules evaluate for a given user and device context. Do this before you go live. Policy simulation returns the matched rule and the resulting `showSignInButton` values. See [Test your policies with access simulations](/docs/guides/policy-simulation/main/).
 
 ## Next steps
 
-* **[Configure app sign-in policies](/docs/guides/configure-signon-policy/main/):** Create more sign-in policies and assign apps to each one. Each sign-in policy automatically gets its own user identification policy. This lets you control the **Sign in with Okta FastPass** button independently per app or group of apps.
-* **[Multibrand architecture](/docs/concepts/multibrand-architecture/):** If you're building a multibrand experience, assign each app to its own sign-in policy to control the Okta FastPass button per brand independently.
+* **[Configure app sign-in policies](/docs/guides/configure-signon-policy/main/):** Create more sign-in policies and assign apps to each one. Each sign-in policy automatically gets its own user identification policy. This lets you control the **Sign in with Okta FastPass** and **Sign in with a passkey** buttons independently per app or group of apps.
+* **[Multibrand architecture](/docs/concepts/multibrand-architecture/):** If you're building a multibrand experience, assign each app to its own sign-in policy to control the sign-in buttons per brand independently.
 * **[Device signal collection policies](/docs/guides/device-signal-collection-policies/):** A closely related policy that also works with app sign-in policies to control the pre-identification experience on the Sign-In Widget.
 * **[Customize the Sign-In Widget](/docs/guides/custom-widget/main/):** Further customize the sign-in experience for your app.
 * **[System Log query](/docs/reference/system-log-query/):** Query System Log events to monitor user identification policy evaluation in production.
