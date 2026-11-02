@@ -146,12 +146,22 @@ Beginning in October, Okta release version notations are changing from year.mont
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Monitor integration performance](#monitor-integration-performance) ||
+| [OAuth 2.0 client credentials grant is GA](#oauth-20-client-credentials-grant-is-ga)||
 | [Additional telephony inline hook payload fields are self-service EA in Preview](#additional-telephony-inline-hook-payload-fields-are-self-service-ea-in-preview) | August 26, 2026 |
 | [Cross App Access submission through the OIN Wizard is GA in Production](#cross-app-access-submission-through-the-oin-wizard-is-ga-in-production) | |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | September 10, 2026 |
 | [New Malware Proxies IP Service available for enhanced dynamic network zones is GA in Production](#new-malware-proxies-ip-service-available-for-enhanced-dynamic-network-zones-is-ga-in-production) | August 5, 2026 |
 | [PowerShell scripts for Active Directory is GA in Preview](#powershell-scripts-for-active-directory-is-ga-in-preview) | September 10, 2026 |
 | [Search, filter, and export apps for Applications page is EA](#search-filter-and-export-apps-for-applications-page-is-ea) | September 10, 2026 |
+
+#### Monitor integration performance
+
+After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
+
+#### OAuth 2.0 client credentials grant is GA
+
+The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions integration setup. ISVs specify only a token endpoint, with no shared credentials or sign-in redirects to manage. Admins set their own tenant-specific client ID and secret. Okta generates and refreshes access tokens automatically, so user sync stays reliable without manual sign-in.
 
 #### Additional telephony inline hook payload fields are self-service EA in Preview
 

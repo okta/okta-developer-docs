@@ -18,6 +18,9 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Okta Expression Language support for XAA resource identifiers](#okta-expression-language-support-for-xaa-resource-identifiers)| |
+| [Monitor integration performance](#monitor-integration-performance) ||
+| [OAuth 2.0 client credentials grant is GA](#oauth-20-client-credentials-grant-is-ga)||
 | [Self-service registration policy for ITP is GA in Preview](#self-service-registration-policy-for-itp-is-ga-in-preview) | October 7, 2026 |
 | [Anything-as-a-Source device import is GA in Production](#anything-as-a-source-device-import-is-ga-in-production) | August 5, 2026 |
 | [High Risk Proxy detection is GA in Preview](#high-risk-proxy-detection-is-ga-in-preview) | October 28, 2026 |
@@ -35,6 +38,19 @@ title: Okta Identity Engine API release notes 2026
 | [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
 | [Developer documentation updates in 2026.44.0](#developer-documentation-updates-in-2026-44-0) | October 28, 2026 |
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
+
+#### Okta Expression Language support for XAA resource identifiers
+
+Resource identifiers (formerly protected resources) for Cross App Access (XAA) resource apps now support Okta Expression Language. See [Dynamic properties with Okta Expression Language
+](/docs/guides/submit-xaa-app/main/#dynamic-properties-with-okta-expression-language).
+
+#### Monitor integration performance
+
+After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
+
+#### OAuth 2.0 client credentials grant is GA
+
+The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions integration setup. ISVs specify only a token endpoint, with no shared credentials or sign-in redirects to manage. Admins set their own tenant-specific client ID and secret. Okta generates and refreshes access tokens automatically, so user sync stays reliable without manual sign-in.
 
 #### Self-service registration policy for ITP is GA in Preview
 
