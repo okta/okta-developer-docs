@@ -9,16 +9,6 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
-## November
-
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| [Bugs fixed in 2026.45.1](#bugs-fixed-in-2026-45-1)| November 04, 2026|
-
-#### Bugs fixed in 2026.45.1
-
-* Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/fr-fr/integrations/template-app/). (OKTA-1314535)
-
 ## October
 
 ### Version 2026.44.0

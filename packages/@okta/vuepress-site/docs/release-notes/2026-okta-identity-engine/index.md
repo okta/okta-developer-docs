@@ -34,11 +34,11 @@ The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/op
 
 #### Bugs fixed in 2026.45.1
 
-* The `PUT /policies/{policyId}/rules/{ruleId}` endpoint incorrectly increased a rule's priority value each time a request omitted priority for some policy types, including POST_AUTH_SESSION. (OKTA-1310339). (OKTA-1310339)
+* The `PUT /policies/{policyId}/rules/{ruleId}` endpoint incorrectly increased a rule's priority value each time a request omitted priority for some policy types, including POST_AUTH_SESSION. (OKTA-1310339)
 
-* A `POST /workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` returned 400 Bad Request when the connection already existed instead of 409 Conflict. (OKTA-1307607) (OKTA-1307607)
+* A `POST /workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` returned 400 Bad Request when the connection already existed instead of 409 Conflict. (OKTA-1307607)
 
-* Token refresh failed for MCP server connections that used `client_secret_basic` client authentication and pointed to an Okta authorization server. The refresh request sent the client credentials in both the Authorization header and the request body, which caused a `multiple_client_credentials` error. (OKTA-1304803) (OKTA-1304803)
+* Token refresh failed for MCP server connections that used `client_secret_basic` client authentication and pointed to an Okta authorization server. The refresh request sent the client credentials in both the Authorization header and the request body, which caused a `multiple_client_credentials` error. (OKTA-1304803)
 
 
 ## October
