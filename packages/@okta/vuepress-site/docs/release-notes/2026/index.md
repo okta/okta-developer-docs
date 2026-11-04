@@ -22,7 +22,8 @@ title: Okta Classic Engine API release notes 2026
 | [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
-| [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) | October 28, 2026 |
+| [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) |  |
+| [Monitor integration performance](#monitor-integration-performance) ||
 | [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
 
 #### Anything-as-a-Source device import is GA in Production
@@ -59,6 +60,11 @@ The System Log now shows the `security.ioc_protection.status.update` event when 
 
 The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions integration setup. ISVs specify only a token endpoint, with no shared credentials or sign-in redirects to manage. Admins set their own tenant-specific client ID and secret. Okta generates and refreshes access tokens automatically, so user sync stays reliable without manual sign-in.
 <!-- OKTA-1293764 -->
+
+#### Monitor integration performance
+
+After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
+<!-- OKTA-1288974-->
 
 #### Bugs fixed in 2026.44.0
 

@@ -25,7 +25,9 @@ title: Okta Identity Engine API release notes 2026
 | [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | October 7, 2026 |
 | [Connect with Okta removal](#connect-with-okta-removal) | October 28, 2026 |
 | [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
-| [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) | October 28, 2026 |
+| [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) ||
+| [Okta Expression Language support for XAA resource identifiers](#okta-expression-language-support-for-xaa-resource-identifiers)| |
+| [Monitor integration performance](#monitor-integration-performance) ||
 | [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
 | [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
 | [Cross App Access support for MCP Servers is GA in Preview](#cross-app-access-support-for-mcp-servers-is-ga-in-preview) | October 28, 2026 |
@@ -80,6 +82,17 @@ The System Log now shows the `security.threat.ioc.detect` event when a request m
 
 The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions integration setup. ISVs specify only a token endpoint, with no shared credentials or sign-in redirects to manage. Admins set their own tenant-specific client ID and secret. Okta generates and refreshes access tokens automatically, so user sync stays reliable without manual sign-in.
 <!-- OKTA-1293764 -->
+
+#### Okta Expression Language support for XAA resource identifiers
+
+Resource identifiers (formerly protected resources) for Cross App Access (XAA) resource apps now support Okta Expression Language. See [Dynamic properties with Okta Expression Language
+](/docs/guides/submit-xaa-app/main/#dynamic-properties-with-okta-expression-language).
+<!-- OKTA-1263995 -->
+
+#### Monitor integration performance
+
+After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
+<!-- OKTA-1288974-->
 
 #### New System Log event for updates to the managed server's attributes in Okta Privileged Access
 
