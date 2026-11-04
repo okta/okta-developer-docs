@@ -38,8 +38,7 @@ Okta supports four IDV vendors that admins can configure in the [Admin Console](
 
 * [Incode](/docs/guides/add-id-verification-idp/incode/main/)
 
-<!-- OKTA-1299424: link Entrust to its public setup docs once the partner owner (Nicole Lam) provides the URL. -->
-* Entrust
+* [Entrust](https://documentation.identity.entrust.com/guide/okta-identity-verification/)
 
 After you've integrated your IDV service with this process, it can be added as an identity provider (IdP) in orgs. See [Custom IDV vendor](/docs/guides/add-id-verification-idp/customidv/main/).
 
