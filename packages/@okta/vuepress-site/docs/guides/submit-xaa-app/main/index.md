@@ -248,9 +248,8 @@ Choose the walkthrough that matches your role and protocol:
 
 * [Testing a SAML client app](#testing-a-saml-client-app)
 * [Testing a SAML resource app](#testing-a-saml-resource-app)
+* [Testing an OIDC client app](#testing-an-oidc-client-app)
 * [Testing an OIDC resource app](#testing-an-oidc-resource-app)
-
-> **Note:** If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
 
 ### Testing a SAML client app
 
@@ -432,6 +431,10 @@ See [Enable your SAML resource app for Cross App Access](https://developer.okta.
 #### Step 5: Complete testing and submit
 
 Follow [Step 5](#step-5-complete-testing-and-submit) in Testing a SAML client app. Upload the conformance log to the **SAML Resource** row instead of the **SAML client** row.
+
+### Testing an OIDC client app
+
+If you're submitting the OIDC client app role, you can submit your integration directly, without testing.
 
 ### Testing an OIDC resource app
 
