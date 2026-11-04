@@ -11,7 +11,32 @@ title: Okta Privileged Access API release notes 2026
 
 Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta Identity Engine.
 
+## November
+
+### Version 2026.45.1
+<!-- Published on: 2026-11-04T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| [Resource group and project in SaaS app account API responses](#resource-group-and-project-in-saas-app-account-api-responses) | November 3, 2026 | November 3, 2026 |
+
+#### Resource group and project in SaaS app account API responses
+
+The [List all SaaS app accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listallsaasappaccountsforsecurityadmin) `(GET /v1/teams/{team_name}/all_saas_app_accounts)` API response now includes the `resource_group` and `project` properties for each SaaS app account. See [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts). <!-- OKTA-1299206, GA date: Nov 3, 2026 -->
+
 ## October
+
+### Version 2026.44.0
+<!-- Published on: 2026-10-28T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| [Credential versioning for Okta Privileged Access database accounts is GA](#credential-versioning-for-okta-privileged-access-database-accounts-is-ga) | October 19, 2026 | October 23, 2026 |
+
+#### Credential versioning for Okta Privileged Access database accounts is GA
+
+Database account credentials in Okta Privileged Access now keep a version history. The new List credential versions for a database account (https://developer.ok ta.com/docs/api/openapi/opa/opa/database-accounts/listdatabaseaccountcredentialversions) endpoint returns version metadata without credential values. The [Reveal the credentials for a database account](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts/revealdatabaseaccountcredentials) endpoint accepts the `version_id` and `version_status` query parameters to reveal a specific version. See [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts). <!-- OKTA-1253479, FF: database_account_credential_versioning, Preview date: Oct 19, 2027 (EA) , Prod date: Oct 23, 2026 (GA) -->
+
 
 ### Version 2026.41.0
 <!-- Published on: 2026-10-07T12:00:00Z -->
@@ -35,8 +60,8 @@ Beginning in October, Okta release version notations are changing from year.mont
 
 ### Weekly release 2026.09.2
 <!-- Published on: 2026-09-30T12:00:00Z -->
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
 | [Database privileged access management is GA](#database-privileged-access-management-is-ga) | May 29, 2026 | September 28, 2026 |
 | [New properties for Assignments API is EA](#new-properties-for-assignments-api-is-ea) | September 28, 2026 | |
 
@@ -53,9 +78,9 @@ The Assignments API now returns `created_by` and `updated_by` properties on assi
 ### Weekly release 2026.09.1
 <!-- Published on: 2026-09-17T12:00:00Z -->
 
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| [Plain-text secrets is GA](#plain-text-secrets-is-ga) | September 17, 2026 |
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| [Plain-text secrets is GA](#plain-text-secrets-is-ga) | September 17, 2026 | September 17, 2026 |
 
 #### Plain-text secrets is GA
 
