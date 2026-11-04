@@ -34,8 +34,6 @@ The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/op
 
 #### Bugs fixed in 2026.45.1
 
-* Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/fr-fr/integrations/template-app/). (OKTA-1314535)
-
 * The `PUT /policies/{policyId}/rules/{ruleId}` endpoint incorrectly increased a rule's priority value each time a request omitted priority for some policy types, including POST_AUTH_SESSION. (OKTA-1310339). (OKTA-1310339)
 
 * A `POST /workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` returned 400 Bad Request when the connection already existed instead of 409 Conflict. (OKTA-1307607) (OKTA-1307607)
