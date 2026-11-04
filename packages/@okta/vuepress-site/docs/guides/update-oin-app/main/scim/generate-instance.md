@@ -6,7 +6,8 @@ Generate a SCIM instance based on your submission configuration:
 1. Click **Provisioning** > **Configure API Integration**.
 1. Select **Enable API integration**.
    * For custom or bearer authentication, specify the **API token** for your instance.
-   * For OAuth 2.0 authentication, click **Authenticate with {yourApp}** and provide credentials for your test instance.
+    * For OAuth 2.0 with the **Authorization Code** grant type, click **Authenticate with {yourApp}** and provide credentials for your test instance.
+   * For OAuth 2.0 with the **Client Credentials** grant type, specify the **Client ID** and **Client secret** for your test instance directly.
 1. Click **Test API Credentials** to test authentication to your SCIM service. If there's an error, verify that the credentials are correct.
 1. Click **Save**.
 1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
