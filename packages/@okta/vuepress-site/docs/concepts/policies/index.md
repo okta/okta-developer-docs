@@ -209,7 +209,7 @@ Re-authentication is required when a user's session in an app has reached its ma
 
 The policy rule `refresh.redirectType` setting has four options:
 
-* `NONE`: (default) Okta doesn't redirect the user to an IdP. If the app sign-in policy or Okta account management policy requires the user to re-enter their password, the user sees an error and can't continue. Okta can't verify a federated user's password. If the app sign-in policy or Okta account management policy requires only other authenticators, Okta prompts the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
+* `NONE`: (default) Okta doesn't redirect the user to an IdP. If the app sign-in policy or Okta account management policy requires the user to re-enter their password, the user sees an error and can't continue. Okta can't verify a federated user's password. If the app sign-in policy or Okta account management policy requires only other authenticators, Okta prompts the user to sign in with authenticators that are configured and enrolled from the org, such as Okta Verify.
 * `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the behavior is the same as `NONE`. You can also configure an exclude list of IdPs that aren't eligible for redirect.
 * `SPECIFIC`: Okta redirects the user to the IdP that you specify, regardless of the IdP they used to sign in.
 * `IDP_DISCOVERY`: Okta redirects the user to the IdP that your IdP routing rules select.
