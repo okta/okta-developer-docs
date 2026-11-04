@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Import staged AI agents](#import-staged-ai-agents) | November 04, 2026|
-| [Multiple AGENT_IMPORT client authentication settings per app instance](#multiple-agent_import-client-authentication-settings-per-app-instance) | November 04, 2026 |
+| [Multiple AGENT_IMPORT client authentication settings per app instance](##multiple-agent-import-client-authentication-settings-per-app-instance) | November 04, 2026 |
 | [Bugs fixed in 2026.45.1](#bugs-fixed-in-2026-45-1)| November 04, 2026 |
 
 #### Import staged AI agents
