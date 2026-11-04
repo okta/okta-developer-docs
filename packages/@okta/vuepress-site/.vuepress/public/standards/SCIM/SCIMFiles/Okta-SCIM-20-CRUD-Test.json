@@ -1,8 +1,7 @@
 {
-  "trigger_url": "https://api.runscope.com/radar/f713a8ea-2d7e-4a26-b2c6-0322f47f1a73/trigger", 
-  "name": "Okta SCIM 2.0 CRUD Test", 
-  "version": "1.0", 
-  "exported_at": 1478562039, 
+  "name": "Okta SCIM 2.0 CRUD Test",
+  "version": "1.0",
+  "exported_at": 1478562039,
   "steps": [
     {
       "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}", 

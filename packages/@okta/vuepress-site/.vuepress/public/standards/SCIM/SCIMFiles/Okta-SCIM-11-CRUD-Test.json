@@ -1,23 +1,22 @@
 {
-  "trigger_url": "https://api.runscope.com/radar/1d93f531-7fd3-4416-82aa-b22b731b3f9f/trigger", 
-  "name": "Okta SCIM 1.1 CRUD Test", 
-  "version": "1.0", 
-  "exported_at": 1542199107, 
+  "name": "Okta SCIM 1.1 CRUD Test",
+  "version": "1.0",
+  "exported_at": 1542199107,
   "steps": [
     {
-      "skipped": false, 
-      "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}", 
-      "variables": [], 
-      "step_type": "request", 
-      "auth": {}, 
-      "note": "Check SCIM Apps instance in Okta ", 
+      "skipped": false,
+      "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}",
+      "variables": [],
+      "step_type": "request",
+      "auth": {},
+      "note": "Check SCIM Apps instance in Okta ",
       "headers": {
         "Content-Type": [
           "application/json"
-        ], 
+        ],
         "Accept": [
           "application/json"
-        ], 
+        ],
         "Authorization": [
           "SSWS {{oktaToken}}"
         ]
