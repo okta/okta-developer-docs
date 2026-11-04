@@ -11,6 +11,38 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## November
+
+### Version 2026.45.1
+<!-- Published on: 2026-11-04T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Import staged AI agents](#import-staged-ai-agents) | November 04, 2026|
+| [Multiple AGENT_IMPORT client authentication settings per app instance](#multiple-agent_import-client-authentication-settings-per-app-instance) | November 04, 2026 |
+| [Bugs fixed in 2026.45.1](#bugs-fixed-in-2026-45-1)| November 04, 2026 |
+
+#### Import staged AI agents
+
+You can now import AI agents that are in a staged or preview state.
+<!-- OKTA-1310881 -->
+
+#### Multiple AGENT_IMPORT client authentication settings per app instance
+
+The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/listclientauthsettings)(`POST /resource-servers/api/{version}/client-auth-settings`) now supports multiple client authentication settings with the `AGENT_IMPORT` purpose for the same Okta Integration Network (OIN) app instance. Previously, creating a second `AGENT_IMPORT` setting for an app instance returned a `400 Bad Request` error. Each setting has its own client credentials and OAuth configuration, so platforms in one app instance can authenticate separately. Settings with other purposes, such as `STS`, are still limited to one per app instance.
+<!-- OKTA-1303935 -->
+
+#### Bugs fixed in 2026.45.1
+
+* Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/fr-fr/integrations/template-app/). (OKTA-1314535)
+
+* The `PUT /policies/{policyId}/rules/{ruleId}` endpoint incorrectly increased a rule's priority value each time a request omitted priority for some policy types, including POST_AUTH_SESSION. (OKTA-1310339). (OKTA-1310339)
+
+* A `POST /workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` returned 400 Bad Request when the connection already existed instead of 409 Conflict. (OKTA-1307607) (OKTA-1307607)
+
+* Token refresh failed for MCP server connections that used `client_secret_basic` client authentication and pointed to an Okta authorization server. The refresh request sent the client credentials in both the Authorization header and the request body, which caused a `multiple_client_credentials` error. (OKTA-1304803) (OKTA-1304803)
+
+
 ## October
 
 ### Version 2026.44.0
