@@ -26,7 +26,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 ## About user identification policies
 
-A user identification policy controls the pre-identification experience on the [Sign-In Widget](/docs/guides/custom-widget/) for an app. It applies before a user enters their username. The policy controls whether the **Sign in with Okta FastPass** button and the **Sign in with a passkey** button appear on the Sign-In Widget.
+A user identification policy controls the pre-identification experience on the [Sign-In Widget](/docs/guides/custom-widget/) for an app. It applies before a user enters their username. The policy controls whether the **Sign in with Okta FastPass** and **Sign in with a passkey** buttons appear on the Sign-In Widget.
 
 Previously, both buttons were org-wide authenticator settings. The user identification policy moves this control to a per-app policy, so that you can show or hide each button for each app.
 
