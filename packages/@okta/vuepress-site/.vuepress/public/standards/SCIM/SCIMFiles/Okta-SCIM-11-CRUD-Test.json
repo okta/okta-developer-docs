@@ -4,19 +4,19 @@
   "exported_at": 1542199107,
   "steps": [
     {
-      "skipped": false,
-      "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}",
-      "variables": [],
-      "step_type": "request",
-      "auth": {},
-      "note": "Check SCIM Apps instance in Okta ",
+      "skipped": false, 
+      "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}", 
+      "variables": [], 
+      "step_type": "request", 
+      "auth": {}, 
+      "note": "Check SCIM Apps instance in Okta ", 
       "headers": {
         "Content-Type": [
           "application/json"
-        ],
+        ], 
         "Accept": [
           "application/json"
-        ],
+        ], 
         "Authorization": [
           "SSWS {{oktaToken}}"
         ]

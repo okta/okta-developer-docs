@@ -4,7 +4,7 @@
   "exported_at": 1478558963,
   "steps": [
     {
-      "url": "{{SCIMBaseURL}}/ServiceProviderConfigs",
+      "url": "{{SCIMBaseURL}}/ServiceProviderConfigs", 
       "variables": [], 
       "args": {}, 
       "step_type": "request", 
