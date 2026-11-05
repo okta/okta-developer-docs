@@ -56,13 +56,13 @@ Use this table to find the API that you call. Select the link in the last column
 | Delegation Links | Available | `_links` removed from individual objects. `to.authorizationServerOrn` removed from create requests. New `ID_TOKEN` links can't be created. | [Delegation Links](#delegation-links) |
 | STS Authorization | Not applicable | No V2 version. Keep using the V1 STS callback endpoint. | [STS Authorization](#sts-authorization) |
 | Workload Principal Operations | Available | `_links` removed from individual objects. Operation types for registration writes removed. | [Workload Principal Operations](#workload-principal-operations) |
-| Resource Server Operations | Not yet available | <!-- TODO: Confirm changes. --> | [Resource Server Operations](#resource-server-operations) |
+| Resource Server Operations | Available | `_links` removed from the `resource`, and `orn` added. Fewer operation types. | [Resource Server Operations](#resource-server-operations) |
 | AI Agent Credentials | Available | Link format changed. `_links` returned on `GET` only when you pass the new `links` query parameter. The client secrets list returns `data`. | [AI Agent Credentials](#ai-agent-credentials) |
 | AI Agent Registration | Available | Writes are synchronous. `appId`, `externalId`, and `platform` removed. Link format changed. | [AI Agent Registration](#ai-agent-registration) |
 | Virtual MCP Server Registrations | Available | Writes are synchronous. `_links` removed from individual objects. | [Virtual MCP Server Registrations](#virtual-mcp-server-registrations) |
-| Agent-to-Agent Server Registrations | Not yet available | Writes become synchronous. `_links` possibly removed from individual objects. | [Agent-to-Agent Server Registrations](#agent-to-agent-server-registrations) |
-| API Server Registration | Not yet available | Writes become synchronous. `_links` possibly removed from individual objects. | [API Server Registration](#api-server-registration) |
-| MCP Server Registrations | Not yet available | Writes become synchronous, or conditionally asynchronous. `_links` possibly removed from individual objects. | [MCP Server Registrations](#mcp-server-registrations) |
+| Agent-to-Agent Server Registrations | Available | `_links` removed. Authorization servers are linked by `orn`. Authorization server writes are synchronous. | [Agent-to-Agent Server Registrations](#agent-to-agent-server-registrations) |
+| API Server Registration | Available | Writes are synchronous. `_links` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [API Server Registration](#api-server-registration) |
+| MCP Server Registrations | Available | Writes are synchronous, except discovery-based registration and `resourceUrl` changes. `_links` and `detectedMetadata` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [MCP Server Registrations](#mcp-server-registrations) |
 | MCP Server Capabilities | Available | `_links` removed from individual objects. Discovery is asynchronous. | [MCP Server Capabilities](#mcp-server-capabilities) |
 | Virtual MCP Servers (Resource Server) | Available | Writes are synchronous. `_links` possibly removed from individual objects. | [Virtual MCP Servers](#virtual-mcp-servers) |
 | Client Authentication Settings | Available | `_links` removed. OAuth fields moved under `oauthClientConfiguration`. `purpose` renamed `purposes`. New `client_credentials` grant type. | [Client Authentication Settings](#client-authentication-settings) |
@@ -345,7 +345,146 @@ In V2, the list `_links` are plain URL strings:
 
 ## Resource Server Operations
 
-<!-- TODO: Add changes when engineering confirms them. -->
+The list and retrieve endpoints are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/operations` becomes `/resource-servers/api/v2/operations`.
+
+V2 makes these changes:
+
+- Returns fewer operation types. Most resource server writes are now synchronous, so they don't create an operation.
+- Adds `orn` to the `resource` object and removes `_links` from it.
+- Returns `_links` on lists as plain URL strings, and documents a `Link` header for pagination.
+- Doesn't document a `404` response on the list operation.
+
+### Operation types
+
+The `type` property of an operation identifies the action that created it.
+
+| Operation type | V1 | V2 |
+| --- | --- | --- |
+| `resource-server:Register` | Yes | Yes |
+| `resource-server:Patch` | Yes | Yes |
+| `resource-server:Discover` | Yes | Yes |
+| `client-auth-settings:Create` | Yes | Yes |
+| `resource-server:Delete` | Yes | No |
+| `resource-server:Activate` | Yes | No |
+| `resource-server:Deactivate` | Yes | No |
+| `resource-server-authorization-server:Link` | Yes | No |
+| `resource-server-authorization-server:Unlink` | Yes | No |
+| `resource-server-authorization-server:Patch` | Yes | No |
+
+In V2, `resource-server:Register` and `resource-server:Patch` apply only when Okta detects the metadata of an MCP server asynchronously. If your code branches on the operation `type`, update it to handle only the V2 types. The `status` values are the same in both versions.
+
+### Examples
+
+This V1 response from `GET /resource-servers/api/v1/operations/op-1a2b3c4d` has a `_links.self` object in the `resource`:
+
+```json
+{
+  "id": "op-1a2b3c4d",
+  "type": "resource-server:Register",
+  "status": "COMPLETED",
+  "created": "2025-01-29T10:00:00.000Z",
+  "started": "2025-01-29T10:00:01.000Z",
+  "completed": "2025-01-29T10:00:05.000Z",
+  "resource": {
+    "id": "api8nUa7p0g4zrZbs2f4",
+    "type": "API_SERVER",
+    "status": "ACTIVE",
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4"
+      }
+    }
+  }
+}
+```
+
+This V2 response from `GET /resource-servers/api/v2/operations/op-1a2b3c4d` has an `orn` and no `_links` in the `resource`:
+
+```json
+{
+  "id": "op-1a2b3c4d",
+  "type": "resource-server:Register",
+  "status": "COMPLETED",
+  "created": "2025-01-29T10:00:00.000Z",
+  "started": "2025-01-29T10:00:01.000Z",
+  "completed": "2025-01-29T10:00:05.000Z",
+  "resource": {
+    "id": "ems8nUa7p0g4zrZbs2f4",
+    "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4",
+    "type": "MCP_SERVER",
+    "status": "ACTIVE"
+  }
+}
+```
+
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 resource server operations specs. The V1 example in the spec shows an API_SERVER resource with an MCP server link, so the V1 example is inconsistent in the spec. Confirm with engineering. -->
+
+## Authorization servers for resource servers
+
+MCP server, API server, and A2A server registrations share the same changes to how you add authorization servers. This section describes those changes once.
+
+In V1, you add an authorization server inline. The request includes a `type` and, for a manual server, the issuer and endpoints.
+
+In V2, you link an existing authorization server by its `orn`. External authorization servers are a separate resource. Create them first with the External Authorization Servers API, then link them. For an Okta custom authorization server, you only link it by `orn`.
+
+| Area | V1 | V2 |
+| --- | --- | --- |
+| Add request | Inline properties and a `type` of `MANUAL`, `OKTA`, or `OIN` | `orn` of an existing authorization server |
+| Create an external authorization server | Part of the add request | `POST /authorization-servers/api/v2/external-authorization-servers`, with the `okta.authorizationServers.manage` scope |
+| Response object | The authorization server, with `_links` and `lastUpdated` | A link object with `authorizationServer`, `created`, and `lastUpdated` |
+| Timestamps | `lastUpdated` on the authorization server | `created` and `lastUpdated` on both the authorization server and the link |
+| `subjectMappingExpression` | Set on the add and update calls for each resource server | Belongs to the authorization server and applies to every resource server that links it |
+| Add response | `202` with a `Location` header | `201` with the link object |
+| Remove response | `202` with a `Location` header | `204` |
+| Conflicts | Not documented | `409` documented on the add call |
+
+V2 `type` values on an authorization server are `DISCOVERABLE`, `MANUAL`, `OIN`, and `OKTA`.
+
+To create an external authorization server in V2, send this request to `POST /authorization-servers/api/v2/external-authorization-servers`:
+
+```json
+{
+  "issuer": "https://auth.example.com",
+  "metadata": {
+    "authorizationEndpoint": "https://auth.example.com/oauth/authorize",
+    "tokenEndpoint": "https://auth.example.com/oauth/token",
+    "registrationEndpoint": "https://auth.example.com/oauth/register",
+    "grantTypesSupported": [
+      "authorization_code",
+      "refresh_token"
+    ],
+    "tokenEndpointAuthMethod": "client_secret_basic"
+  }
+}
+```
+
+The response is the external authorization server. Use its `orn` when you link it to a resource server:
+
+```json
+{
+  "id": "easMa1nU2aL3p0g4zrZb",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:external-authorization-servers:easMa1nU2aL3p0g4zrZb",
+  "issuer": "https://auth.example.com",
+  "status": "ACTIVE",
+  "type": "MANUAL",
+  "metadata": {
+    "authorizationEndpoint": "https://auth.example.com/oauth/authorize",
+    "tokenEndpoint": "https://auth.example.com/oauth/token",
+    "registrationEndpoint": "https://auth.example.com/oauth/register",
+    "grantTypesSupported": [
+      "authorization_code",
+      "refresh_token"
+    ],
+    "tokenEndpointAuthMethod": "client_secret_basic"
+  },
+  "created": "2025-02-01T10:00:00Z",
+  "lastUpdated": "2025-02-01T10:00:00Z"
+}
+```
+
+To change the endpoints or the `subjectMappingExpression` of an external authorization server, use the External Authorization Servers API. You can no longer change them through the resource server.
+
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and okta-oas3 specs/monolith/secures-ai/spec/v2/authorization-servers. The create response example is the ExternalAuthorizationServerResponseManualV2 example. Confirm with engineering that the External Authorization Servers API will be documented in the V2 reference at release. -->
 
 ## AI Agent Credentials
 
@@ -611,21 +750,556 @@ V2 makes these changes:
 
 ## Agent-to-Agent Server Registrations
 
-<!-- TODO: Update when the V2 design is final. -->
+The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/a2a-servers` becomes `/resource-servers/api/v2/a2a-servers`. This API lists and retrieves A2A servers and manages their authorization servers.
 
-V2 is planned to make write operations synchronous and might remove `_links` from individual objects.
+V2 makes these changes:
+
+- Removes `_links` from the A2A server. The V1 `self`, `ai-agent`, and `authorization-servers` links are gone.
+- Returns `_links` on lists as plain URL strings, with no `parent` link, and documents a `Link` header for pagination.
+- Changes the add authorization server request from `{ "type": "OKTA", "orn": "..." }` to `{ "orn": "..." }`.
+- Returns authorization servers as link objects. The embedded authorization server gains `type` and `created` and loses `_links`.
+
+| Operation | V1 response | V2 response |
+| --- | --- | --- |
+| Add authorization server | `202`, no body | `201` with the link. Adds `409`. |
+| Remove authorization server | `202`, no body | `204` |
+
+The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply.
+
+### Examples
+
+This V1 A2A server from `GET /resource-servers/api/v1/a2a-servers/wlpx9jQ16k9V8IFEL0g3` has `_links` objects:
+
+```json
+{
+  "a2aServerId": "wlpx9jQ16k9V8IFEL0g3",
+  "orn": "orn:okta:directory:00o5rb5mt2H3d1TJd0h7:resource-servers:a2a:wlpx9jQ16k9V8IFEL0g3",
+  "resourceUrl": "https://demo-agent.example.com",
+  "created": "2025-01-27T08:00:00Z",
+  "lastUpdated": "2025-01-29T10:00:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/a2a-servers/wlpx9jQ16k9V8IFEL0g3"
+    },
+    "ai-agent": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/wlpx9jQ16k9V8IFEL0g3"
+    },
+    "authorization-servers": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/a2a-servers/wlpx9jQ16k9V8IFEL0g3/authorization-servers"
+    }
+  }
+}
+```
+
+The V2 A2A server has no `_links`:
+
+```json
+{
+  "a2aServerId": "wlpx9jQ16k9V8IFEL0g3",
+  "orn": "orn:okta:directory:00o5rb5mt2H3d1TJd0h7:resource-servers:a2a:wlpx9jQ16k9V8IFEL0g3",
+  "resourceUrl": "https://demo-agent.example.com",
+  "created": "2025-01-27T08:00:00Z",
+  "lastUpdated": "2025-01-29T10:00:00Z"
+}
+```
+
+To add an Okta custom authorization server in V1, send a request with a `type` to `POST /resource-servers/api/v1/a2a-servers/{a2aServerId}/authorization-servers`:
+
+```json
+{
+  "type": "OKTA",
+  "orn": "orn:okta:idp:00o5rb5mt2H3d1TJd0h7:authorization_servers:aus5rb5mt2H3d1TJd0h7"
+}
+```
+
+In V2, send only the `orn` to `POST /resource-servers/api/v2/a2a-servers/{a2aServerId}/authorization-servers`:
+
+```json
+{
+  "orn": "orn:okta:idp:00o5rb5mt2H3d1TJd0h7:authorization_servers:aus5rb5mt2H3d1TJd0h7"
+}
+```
+
+The V2 response is `201 Created` with a link object:
+
+```json
+{
+  "authorizationServer": {
+    "id": "aus5rb5mt2H3d1TJd0h7",
+    "orn": "orn:okta:idp:00o5rb5mt2H3d1TJd0h7:authorization_servers:aus5rb5mt2H3d1TJd0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7",
+    "status": "ACTIVE",
+    "type": "OKTA",
+    "metadata": {
+      "authorizationEndpoint": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7/v1/authorize",
+      "tokenEndpoint": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7/v1/token",
+      "grantTypesSupported": [
+        "authorization_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ]
+    },
+    "created": "2025-01-27T08:00:00Z",
+    "lastUpdated": "2025-01-27T08:00:00Z"
+  },
+  "created": "2025-01-28T08:00:00Z",
+  "lastUpdated": "2025-01-28T08:00:00Z"
+}
+```
+
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 A2A server specs. V2 examples are spec-derived, not from live calls. The Confluence page lists only list, retrieve, and authorization server operations for A2A servers, so the guide doesn't describe how A2A servers are registered. -->
 
 ## API Server Registration
 
-<!-- TODO: Update when the V2 design is final. -->
+The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/api-servers` becomes `/resource-servers/api/v2/api-servers`.
 
-V2 is planned to make write operations synchronous and might remove `_links` from individual objects.
+### Synchronous writes
+
+| Operation | V1 response | V2 response |
+| --- | --- | --- |
+| Register server (`POST`) | `202`, no body | `201` with the server |
+| Update server (`PATCH`) | `202`, no body | `200` with the server |
+| Delete server (`DELETE`) | `202`, no body | `204` |
+| Activate or deactivate server | `202`, no body | `200` with the server |
+| Add authorization server | `202`, no body | `201` with the link |
+| Remove authorization server | `202`, no body | `204` |
+
+V2 documents `409` on register, update, and add authorization server. Unlike MCP servers, no API server call stays asynchronous.
+
+### Property changes
+
+| Property | V1 | V2 |
+| --- | --- | --- |
+| `displayName`, `description` in requests | Top-level properties | Under `metadata` |
+| `scopesSupported`, `app` in requests | Top-level properties | Under `metadata` |
+| `registrationType` | `MANUAL`. `OIN` requires a feature flag and `app.orn`. | `MANUAL` and `OIN`. `OIN` requires `metadata.app.orn`. |
+| `resourceUrl` | Not marked read-only | Read-only. You can't change it after registration. |
+| `_links` | `self` and `authorization-servers` | Removed |
+| `_embedded.counts` | Optional | Always returned |
+
+On a list, V2 returns `_links` as plain URL strings and adds a `Link` response header for pagination.
+
+### Authorization server changes
+
+The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply. In V1, the add request has `type`, `issuer`, endpoints, `grantTypesSupported`, `tokenEndpointAuthMethod`, and `tenantId`. In V2, the add request is only the `orn` of an existing external authorization server. The response is a link object that includes a read-only `tenantId`.
+
+### What to change
+
+- Move `displayName`, `description`, `scopesSupported`, and `app` under `metadata` in create and update requests.
+- Stop parsing `_links`.
+- Create external authorization servers first, then link them by `orn`.
+- Stop polling operations for API server writes.
+
+### Examples
+
+The V1 request to `POST /resource-servers/api/v1/api-servers` has top-level `displayName` and `description`:
+
+```json
+{
+  "resourceUrl": "https://api.example.com",
+  "displayName": "Example API",
+  "description": "Example API server"
+}
+```
+
+The V1 response is `202 Accepted` with no body, and a `Location` header to poll. The V1 server has `_links` objects:
+
+```json
+{
+  "id": "api8nUa7p0g4zrZbs2f4",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:api:api8nUa7p0g4zrZbs2f4",
+  "resourceUrl": "https://api.example.com",
+  "status": "ACTIVE",
+  "metadata": {
+    "displayName": "Example API",
+    "description": "Example API server"
+  },
+  "created": "2025-01-29T10:00:00Z",
+  "lastUpdated": "2025-01-29T10:00:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/api-servers/api8nUa7p0g4zrZbs2f4"
+    },
+    "authorization-servers": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/api-servers/api8nUa7p0g4zrZbs2f4/authorization-servers"
+    }
+  },
+  "_embedded": {
+    "counts": {
+      "authorizationServers": 2,
+      "clientAuthSettings": 5
+    }
+  }
+}
+```
+
+The V2 request to `POST /resource-servers/api/v2/api-servers` puts `displayName` and `description` under `metadata`:
+
+```json
+{
+  "resourceUrl": "https://api.example.com",
+  "metadata": {
+    "displayName": "Example API",
+    "description": "Example API server"
+  }
+}
+```
+
+The V2 response is `201 Created` with the server. The response has no `_links`:
+
+```json
+{
+  "id": "api8nUa7p0g4zrZbs2f4",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:api:api8nUa7p0g4zrZbs2f4",
+  "resourceUrl": "https://api.example.com",
+  "status": "ACTIVE",
+  "metadata": {
+    "displayName": "Example API",
+    "description": "Example API server"
+  },
+  "created": "2025-01-29T10:00:00Z",
+  "lastUpdated": "2025-01-29T10:00:00Z",
+  "_embedded": {
+    "counts": {
+      "authorizationServers": 2,
+      "clientAuthSettings": 5
+    }
+  }
+}
+```
+
+To add an authorization server in V1, you send the issuer and endpoints to `POST /resource-servers/api/v1/api-servers/{apiServerId}/authorization-servers`:
+
+```json
+{
+  "type": "MANUAL",
+  "issuer": "https://auth.example.com",
+  "authorizationEndpoint": "https://auth.example.com/oauth/authorize",
+  "tokenEndpoint": "https://auth.example.com/oauth/token",
+  "grantTypesSupported": [
+    "authorization_code",
+    "refresh_token"
+  ]
+}
+```
+
+In V2, you link the external authorization server that you created. The request to `POST /resource-servers/api/v2/api-servers/{apiServerId}/authorization-servers` is:
+
+```json
+{
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:external-authorization-servers:easMa1nU2aL3p0g4zrZb"
+}
+```
+
+The V2 response is `201 Created` with a link object:
+
+```json
+{
+  "authorizationServer": {
+    "id": "easMa1nU2aL3p0g4zrZb",
+    "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:external-authorization-servers:easMa1nU2aL3p0g4zrZb",
+    "issuer": "https://auth.example.com",
+    "status": "ACTIVE",
+    "type": "MANUAL",
+    "metadata": {
+      "authorizationEndpoint": "https://auth.example.com/oauth/authorize",
+      "tokenEndpoint": "https://auth.example.com/oauth/token",
+      "registrationEndpoint": "https://auth.example.com/oauth/register",
+      "grantTypesSupported": [
+        "authorization_code",
+        "refresh_token"
+      ]
+    },
+    "created": "2025-02-01T10:00:00Z",
+    "lastUpdated": "2025-02-01T10:00:00Z"
+  },
+  "created": "2025-03-04T09:12:00Z",
+  "lastUpdated": "2025-03-04T09:12:00Z"
+}
+```
+
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 API server specs. V2 examples are spec-derived, not from live calls. The V2 link request body ({ orn }) comes from the Confluence page and the LinkResourceServerAuthorizationServerRequestV2 schema, because the spec has no named request example. -->
 
 ## MCP Server Registrations
 
-<!-- TODO: Update when the V2 design is final. -->
+The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/mcp-servers` becomes `/resource-servers/api/v2/mcp-servers`. The request and response bodies, the response codes, and how you add authorization servers differ.
 
-V2 is planned to make write operations synchronous, except where an operation must stay asynchronous. For example, registering an MCP server that uses dynamic client registration might remain asynchronous. V2 might also remove `_links` from individual objects.
+### Synchronous writes
+
+In V1, almost every write returns `202 Accepted` with no body. You follow the `Location` header and poll the Resource Server Operations API for the result.
+
+In V2, the result is in the response. Only two calls stay asynchronous.
+
+| Operation | V1 response | V2 response |
+| --- | --- | --- |
+| Register server (`POST`), `MANUAL` or `OIN` | `202`, no body | `201` with the server |
+| Register server (`POST`), `DISCOVERABLE` | `202`, no body | `202` with a `Location` header to poll |
+| Update server (`PATCH`) | `202`, or `204` for an empty body | `200` with the server |
+| Update server (`PATCH`) that changes `resourceUrl` | `202`, no body | `202` with a `Location` header to poll |
+| Delete server (`DELETE`) | `202`, no body | `204` |
+| Activate or deactivate server | `202`, no body | `200` with the server |
+| Add authorization server | `202`, no body | `201` with the link |
+| Update authorization server | `202`, no body | `200` with the link |
+| Remove authorization server | `202`, no body | `204` |
+
+The two asynchronous calls remain because Okta detects the metadata of the server after the call. The `Location` header in V2 points to `/resource-servers/api/v2/operations/{operationId}`.
+
+V2 documents `409` on register and update, for a duplicate `resourceUrl` or `displayName`. V2 also documents `409` on add authorization server, and on update authorization server when an active managed connection uses the protocol.
+
+### Property changes
+
+| Property | V1 | V2 |
+| --- | --- | --- |
+| `displayName`, `description` in requests | Top-level properties | Under `metadata`. `metadata.displayName` is required for standard registration. |
+| `scopesSupported` in requests | Not accepted | `metadata.scopesSupported`, for `MANUAL` registrations only |
+| `detectedMetadata` | Separate object with `lastRefreshedAt`, `resourceName`, and `scopesSupported` | Removed. Those properties are read-only properties of `metadata`. |
+| `_embedded` | Returned only when you pass `expand=stats` | Always returned, with `counts.authorizationServers` and `counts.clientAuthSettings` |
+| `expand` query parameter | Supported on list and retrieve | Removed |
+| `orgConfigPropertyValues` | Request only | Also returned for servers registered from the OIN catalog |
+| List `search` on the resource name | `detectedMetadata.resourceName` | `metadata.resourceName` |
+
+### Link changes
+
+V2 removes `_links` from individual MCP servers. The V1 `self` and `authorization-servers` links are gone. On a list, V2 returns `_links` as plain URL strings and adds a `Link` response header for pagination.
+
+### Authorization server changes
+
+The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply. These changes are specific to MCP servers:
+
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Enabled protocols | `protocolConfigured` array with `STS` and `IDENTITY_ASSERTION` | `protocolConfigurations` object with `sts.enabled` and `identityAssertion.enabled` |
+| Tenant ID | Top-level `tenantId` | `protocolConfigurations.identityAssertion.tenantId`, for external authorization servers only |
+| Update request | Changes the authorization server: endpoints, grant types, `tokenEndpointAuthMethod`, `protocolConfigured`, `subjectMappingExpression`, and `tenantId` | Changes the link only: `protocolConfigurations` |
+
+### What to change
+
+- Move `displayName` and `description` under `metadata` in create and update requests.
+- Read `resourceName`, `lastRefreshedAt`, and `scopesSupported` from `metadata` instead of `detectedMetadata`.
+- Stop passing `expand`. Read `_embedded.counts`.
+- Poll an operation only after you register a `DISCOVERABLE` server or change a `resourceUrl`.
+- Create external authorization servers first, then link them by `orn`.
+
+### Examples
+
+This example registers an MCP server manually.
+
+The V1 request to `POST /resource-servers/api/v1/mcp-servers` has top-level `displayName` and `description`:
+
+```json
+{
+  "registrationType": "MANUAL",
+  "resourceUrl": "https://mcp.example.com",
+  "displayName": "Manually registered MCP Server",
+  "description": "MCP server registered with manually supplied metadata"
+}
+```
+
+The V1 response is `202 Accepted` with no body, and a `Location` header to poll. The V1 server returned by `GET /resource-servers/api/v1/mcp-servers/emsMa1nU2aL3p0g4zrZb` has `_links` objects:
+
+```json
+{
+  "id": "emsMa1nU2aL3p0g4zrZb",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:emsMa1nU2aL3p0g4zrZb",
+  "resourceUrl": "https://mcp.example.com",
+  "status": "ACTIVE",
+  "authorizationServerCount": 1,
+  "metadata": {
+    "displayName": "Manually registered MCP Server",
+    "description": "MCP server registered with manually supplied metadata",
+    "scopesSupported": [
+      "mcp.read",
+      "mcp.write"
+    ]
+  },
+  "created": "2025-02-01T10:00:00Z",
+  "lastUpdated": "2025-02-01T10:00:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/emsMa1nU2aL3p0g4zrZb"
+    },
+    "authorization-servers": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/emsMa1nU2aL3p0g4zrZb/authorization-servers"
+    }
+  }
+}
+```
+
+The V2 request to `POST /resource-servers/api/v2/mcp-servers` puts `displayName`, `description`, and `scopesSupported` under `metadata`:
+
+```json
+{
+  "registrationType": "MANUAL",
+  "resourceUrl": "https://mcp.example.com",
+  "metadata": {
+    "displayName": "Manually registered MCP Server",
+    "description": "MCP server registered with manually supplied metadata",
+    "scopesSupported": [
+      "mcp.read",
+      "mcp.write"
+    ]
+  }
+}
+```
+
+The V2 response is `201 Created` with the server. The response has no `_links` and includes `_embedded.counts`:
+
+```json
+{
+  "id": "emsMa1nU2aL3p0g4zrZb",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:emsMa1nU2aL3p0g4zrZb",
+  "resourceUrl": "https://mcp.example.com",
+  "status": "ACTIVE",
+  "authorizationServerCount": 0,
+  "metadata": {
+    "displayName": "Manually registered MCP Server",
+    "description": "MCP server registered with manually supplied metadata",
+    "scopesSupported": [
+      "mcp.read",
+      "mcp.write"
+    ]
+  },
+  "created": "2025-02-01T10:00:00Z",
+  "lastUpdated": "2025-02-01T10:00:00Z",
+  "_embedded": {
+    "counts": {
+      "authorizationServers": 0,
+      "clientAuthSettings": 0
+    }
+  }
+}
+```
+
+For a server that Okta detected metadata for, V1 returns `detectedMetadata`. V2 folds those properties into `metadata`. This V1 response has a `detectedMetadata` object:
+
+```json
+{
+  "id": "ems8nUa7p0g4zrZbs2f4",
+  "resourceUrl": "https://api.example.com/mcp",
+  "status": "ACTIVE",
+  "metadata": {
+    "displayName": "Example MCP Server",
+    "description": "Example Model Context Protocol Server"
+  },
+  "detectedMetadata": {
+    "lastRefreshedAt": "2025-01-29T10:00:00Z",
+    "resourceName": "Example MCP",
+    "scopesSupported": [
+      "mcp.read",
+      "mcp.write"
+    ]
+  }
+}
+```
+
+The V2 response has the same values in `metadata`:
+
+```json
+{
+  "id": "ems8nUa7p0g4zrZbs2f4",
+  "resourceUrl": "https://api.example.com/mcp",
+  "status": "ACTIVE",
+  "metadata": {
+    "displayName": "Example MCP Server",
+    "description": "Example Model Context Protocol Server",
+    "lastRefreshedAt": "2025-01-29T10:00:00Z",
+    "resourceName": "Example MCP",
+    "scopesSupported": [
+      "mcp.read",
+      "mcp.write"
+    ]
+  }
+}
+```
+
+The next examples add an authorization server to an MCP server. In V1, you add a manual authorization server inline with a request to `POST /resource-servers/api/v1/mcp-servers/{mcpServerId}/authorization-servers`:
+
+```json
+{
+  "type": "MANUAL",
+  "issuer": "https://auth.example.com",
+  "authorizationEndpoint": "https://auth.example.com/oauth/authorize",
+  "tokenEndpoint": "https://auth.example.com/oauth/token",
+  "registrationEndpoint": "https://auth.example.com/oauth/register",
+  "grantTypesSupported": [
+    "authorization_code",
+    "refresh_token"
+  ]
+}
+```
+
+In V2, create the external authorization server first, as shown in [Authorization servers for resource servers](#authorization-servers-for-resource-servers). Then link it with a request to `POST /resource-servers/api/v2/mcp-servers/{mcpServerId}/authorization-servers`. This request also enables cross-app access with a tenant. V1 used `protocolConfigured` and `tenantId` for this:
+
+```json
+{
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:external-authorization-servers:easMa1nU2aL3p0g4zrZb",
+  "protocolConfigurations": {
+    "sts": {
+      "enabled": false
+    },
+    "identityAssertion": {
+      "enabled": true,
+      "tenantId": "T024BE7LD"
+    }
+  }
+}
+```
+
+The V2 response is `201 Created` with a link object. The `authorizationServer` is embedded, and the outer `created` and `lastUpdated` describe the link:
+
+```json
+{
+  "authorizationServer": {
+    "id": "easMa1nU2aL3p0g4zrZb",
+    "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:external-authorization-servers:easMa1nU2aL3p0g4zrZb",
+    "issuer": "https://slack.com",
+    "status": "ACTIVE",
+    "type": "MANUAL",
+    "metadata": {
+      "authorizationEndpoint": "https://slack.com/oauth/v2/authorize",
+      "tokenEndpoint": "https://slack.com/api/oauth.v2.access",
+      "grantTypesSupported": [
+        "authorization_code",
+        "refresh_token"
+      ],
+      "protocolSupported": [
+        "STS",
+        "IDENTITY_ASSERTION"
+      ]
+    },
+    "subjectMappingExpression": "user.email",
+    "created": "2025-02-01T10:00:00Z",
+    "lastUpdated": "2025-02-01T10:00:00Z"
+  },
+  "protocolConfigurations": {
+    "sts": {
+      "enabled": false
+    },
+    "identityAssertion": {
+      "enabled": true,
+      "tenantId": "T024BE7LD"
+    }
+  },
+  "created": "2025-03-04T09:12:00Z",
+  "lastUpdated": "2025-03-04T09:12:00Z"
+}
+```
+
+To update the link in V2, send a merge patch to `PATCH /resource-servers/api/v2/mcp-servers/{mcpServerId}/authorization-servers/{authorizationServerId}`. This request enables the STS protocol and changes the tenant. The omitted `identityAssertion.enabled` property is unchanged:
+
+```json
+{
+  "protocolConfigurations": {
+    "sts": {
+      "enabled": true
+    },
+    "identityAssertion": {
+      "tenantId": "T0ABCDEF1"
+    }
+  }
+}
+```
+
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 MCP server specs under specs/monolith/secures-ai/spec/v1 and v2/resource-servers/mcp-servers. V2 examples are spec-derived, not from live calls. The detectedMetadata comparison uses the "Active MCP server" examples from the V1 and V2 specs, trimmed to the properties that differ (orn, authorizationServerCount, created, lastUpdated, _links, and _embedded are omitted). Confirm with engineering that protocolConfigurations is gated by SECURE_AI_MCP_SERVERS_XAA_FOR_EXTERNAL_AS and whether the V2 reference docs will describe that gate. -->
 
 ## MCP Server Capabilities
 
@@ -812,9 +1486,59 @@ Response codes are the same in V1 and V2. Provider writes that were asynchronous
 
 ### Provider attributes
 
-V2 provides the provider attributes for a provider name with `GET /api/v2/ai-agents/provider-attributes/{providerName}`.
+The endpoint for retrieving the attributes of a provider is the same in V1 and V2. Only the version in the path changes:
 
-<!-- TODO: Confirm with the Registry team what the V1 path for provider attributes was and whether it moved. The Confluence page gives only the V2 path. Then add a V1 to V2 comparison. -->
+- V1: `GET /workload-principals/api/v1/ai-agents/provider-attributes/{providerName}`
+- V2: `GET /workload-principals/api/v2/ai-agents/provider-attributes/{providerName}`
+
+The response codes and the `data` array of attributes are the same. V2 removes `_links` from the response.
+
+This V1 response includes `_links.self`:
+
+```json
+{
+  "data": [
+    {
+      "name": "source.Id",
+      "type": "string"
+    },
+    {
+      "name": "source.Description",
+      "type": "string"
+    },
+    {
+      "name": "source.MasterLabel",
+      "type": "string"
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/provider-attributes/salesforce"
+    }
+  }
+}
+```
+
+This V2 response has the same attributes and no `_links`:
+
+```json
+{
+  "data": [
+    {
+      "name": "source.Id",
+      "type": "string"
+    },
+    {
+      "name": "source.Description",
+      "type": "string"
+    },
+    {
+      "name": "source.MasterLabel",
+      "type": "string"
+    }
+  ]
+}
+```
 
 <!-- TODO: Add V1 and V2 examples, including the supported `search` fields and operators, and confirm the Link header behavior with engineering. -->
 
@@ -838,7 +1562,11 @@ V2 consolidates the AI Agent Connections, Virtual MCP Connections, and Potential
 6. Stop sending `to.authorizationServerOrn` and stop creating `ID_TOKEN` links in Delegation Links calls.
 7. Rename `purpose` to `purposes` and move the OAuth fields under `oauthClientConfiguration` in client authentication settings calls.
 8. Read the client secrets list from `data` and pass `links=ALL` on credential `GET` operations if you use the action links.
-9. Test your integration against V2 before the V1 cutoff date.
+9. Move `displayName`, `description`, `scopesSupported`, and `app` under `metadata` in MCP server and API server create and update requests. Read `detectedMetadata` values from `metadata`.
+10. Create external authorization servers with the External Authorization Servers API, then link them to resource servers by `orn`. Move `subjectMappingExpression` and endpoint changes to that API.
+11. For MCP servers, replace `protocolConfigured` and `tenantId` with `protocolConfigurations`.
+12. Poll a resource server operation only after you register a `DISCOVERABLE` MCP server or change an MCP server `resourceUrl`.
+13. Test your integration against V2 before the V1 cutoff date.
 
 ## See also
 
