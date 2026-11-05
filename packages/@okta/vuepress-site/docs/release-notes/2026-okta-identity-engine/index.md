@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2026
 
 #### Import staged AI agents
 
-You can now import AI agents that are in a staged or preview state.
+You can now import AI agents that are in a staged or preview state. See [Start the import of an AI agent provider](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentproviders/startaiagentproviderimport).
 <!-- OKTA-1310881 -->
 
 #### Multiple AGENT_IMPORT client authentication settings per app instance
