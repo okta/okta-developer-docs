@@ -1,7 +1,7 @@
 {
-  "name": "Okta SCIM 2.0 CRUD Test",
-  "version": "1.0",
-  "exported_at": 1478562039,
+  "name": "Okta SCIM 2.0 CRUD Test", 
+  "version": "1.0", 
+  "exported_at": 1478562039, 
   "steps": [
     {
       "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}", 
