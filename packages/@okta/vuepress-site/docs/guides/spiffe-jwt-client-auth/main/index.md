@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-Configure an OAuth 2.0 client so that a workload, such as a service or an AI agent, authenticates to Okta with the SPIFFE JWT-SVID that it already has. You don't create, store, or rotate a client secret or a private key in Okta.
+Configure an OAuth 2.0 client so that a workload, such as a backend service, a scheduled job, or an AI agent, authenticates to Okta with a JWT-SVID from its SPIFFE deployment. You don't create, store, or rotate a client secret or a private key in Okta.
 
 ---
 
@@ -19,11 +19,12 @@ Configure an OAuth 2.0 client so that a workload, such as a service or an AI age
 
 #### What you need
 
-- An Okta Identity Engine org with SPIFFE JWT-SVID client authentication enabled. FEATURE_AVAILABILITY_TBD
-- A super admin role. The API Access Management administrator role can also manage trust domains.
+- A SPIFFE implementation, such as SPIRE, that issues JWT-SVIDs to your workloads. See [SPIRE](https://spiffe.io/docs/latest/spire-about/).
+- The SPIFFE ID of each workload that authenticates to Okta. See [SPIFFE ID specification](https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE-ID.md).
+- The trust domain of those SPIFFE IDs and the HTTPS URL of its bundle endpoint. Okta must be able to reach the endpoint, and it must serve JWT-SVID signing keys. See [SPIFFE Trust Domain and Bundle](https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE_Trust_Domain_and_Bundle.md).
+- An org with SPIFFE JWT-SVID client authentication enabled.
+- A super admin or API Access Management admin role to manage trust domains.
 - A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.spiffe.manage` and `okta.apps.manage` scopes.
-- A SPIFFE trust domain and the HTTPS URL of its bundle endpoint. Okta must be able to reach the endpoint, and it must serve JWT-SVID signing keys. See [SPIFFE Trust Domain and Bundle](https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE_Trust_Domain_and_Bundle.md).
-- A workload that has a SPIFFE ID in that trust domain and can get a JWT-SVID, for example from SPIRE. See [SPIRE documentation](https://spiffe.io/docs/latest/spire-about/).
 - An authorization server that issues tokens to the client. See [Create an authorization server](/docs/guides/customize-authz-server/).
 - For a CIMD client, an org with CIMD enabled and a CIMD URL that you host. See [Register apps with a Client ID Metadata Document (CIMD)](/docs/guides/app-cimd-registration/).
 
@@ -31,43 +32,65 @@ Configure an OAuth 2.0 client so that a workload, such as a service or an AI age
 
 ## Overview
 
-This guide is for developers and admins who set up workload authentication. Read the key concepts first, and then complete the tasks in order.
+This guide explains how to use SPIFFE JWT-SVIDs for client authentication with Okta. To follow the steps, you must already run SPIFFE and use Okta to protect APIs or AI agents. The guide doesn't explain how to set up SPIRE or another SPIFFE implementation.
 
-### Key concepts for SPIFFE JWT-SVID authentication
+### Key terms
 
-A SPIFFE ID is a URI that identifies a workload, such as `spiffe://example.org/payments-service`. The part after `spiffe://` and before the next `/` is the trust domain, which is the boundary within which one SPIFFE deployment issues identities.
+This guide uses the following terms. SPIFFE terms come from the [SPIFFE standards](https://github.com/spiffe/spiffe/tree/main/standards), and Okta doesn't define them.
 
-A JWT-SVID is a JSON Web Token that proves a workload's SPIFFE ID in its `sub` claim. The SPIFFE deployment signs it for a specific audience. A trust domain publishes the public keys that verify its JWT-SVIDs at an HTTPS URL called the bundle endpoint. Okta retrieves and caches these keys, so you don't register or upload keys in Okta.
+| Term | Description |
+| --- | --- |
+| SPIFFE | Secure Production Identity Framework For Everyone. A set of open-source standards for identifying software systems. |
+| SPIRE | SPIFFE Runtime Environment. An implementation of the SPIFFE standards that issues identities to workloads. Other SPIFFE implementations exist, such as Istio, Consul, and cert-manager. |
+| Workload | A piece of software that runs for a specific purpose, such as a backend service, a scheduled job, or an AI agent. In this guide, a workload is also the OAuth 2.0 client that authenticates to Okta. |
+| SPIFFE ID | A URI that identifies a workload, in the format `spiffe://{trustDomain}/{workloadPath}`. For example, `spiffe://example.org/payments-service`. |
+| Trust domain | The identity namespace that one SPIFFE implementation controls. It's the part of a SPIFFE ID after `spiffe://` and before the next `/`. In Okta, you register each trust domain with the URL of its bundle endpoint. |
+| SVID | SPIFFE Verifiable Identity Document. The document that a workload uses to prove its SPIFFE ID. An SVID is either an X.509 certificate or a JWT. Okta only supports JWT-SVIDs, currently. |
+| JWT-SVID | An SVID in JSON Web Token format. The `sub` claim holds the SPIFFE ID of the workload. Okta supports JWT-SVIDs for client authentication. |
+| Bundle | The object that contains a trust domain's cryptographic keys, also called a trust bundle. Okta uses the keys marked for JWT-SVIDs to verify signatures. |
+| Bundle endpoint | The HTTPS URL where a trust domain publishes its bundle. Okta retrieves the keys from this URL and caches them, so you don't upload keys to Okta. |
 
-With `spiffe_jwt`, the JWT-SVID replaces a client secret or a `private_key_jwt` assertion. The workload sends it to the token endpoint as the `client_assertion`. This follows [OAuth SPIFFE Client Authentication](https://datatracker.ietf.org/doc/draft-ietf-oauth-spiffe-client-auth/) (IETF Internet-Draft).
+### SPIFFE values that Okta needs
+
+Okta doesn't issue, store, or manage workload identities. It verifies the JWT-SVID that your SPIFFE implementation issues, and then applies your authorization server's access policy, as it does for any other client. With `spiffe_jwt`, the JWT-SVID replaces a client secret or a `private_key_jwt` assertion. The `spiffe_jwt` method is based on [OAuth SPIFFE Client Authentication](https://datatracker.ietf.org/doc/draft-ietf-oauth-spiffe-client-auth/) (IETF Internet-Draft).
+
+You bring three values from your SPIFFE implementation to Okta.
+
+| SPIFFE value | Where it comes from | Where you use it in Okta |
+| --- | --- | --- |
+| Trust domain and bundle endpoint URL | Your SPIFFE implementation. The bundle endpoint publishes the public keys that verify the trust domain's JWT-SVIDs. | The trust domain registration. Okta retrieves the keys itself, so you don't register or upload keys. |
+| SPIFFE ID, such as `spiffe://example.org/payments-service` | Your SPIFFE implementation assigns it to the workload. | The `spiffe_id` of the client |
+| JWT-SVID | The workload requests it from your SPIFFE implementation. | The `client_assertion` in the token request |
 
 ### How Okta authenticates a client with a JWT-SVID
 
-1. The workload gets a JWT-SVID from its SPIFFE deployment and sends it to the token endpoint of your authorization server, with the client ID.
+1. The workload requests a JWT-SVID from your SPIFFE implementation, with the issuer of your authorization server as the audience. It sends the JWT-SVID and its client ID to the token endpoint of your authorization server.
 1. Okta confirms that the JWT-SVID hasn't expired, that the `aud` claim is the issuer of the authorization server, and that the `sub` claim is the SPIFFE ID that you registered for the client.
 1. Okta retrieves the signing keys from the bundle endpoint that you registered for the trust domain, and verifies the signature.
 1. Okta authenticates the client and issues a token according to your access policy.
 
 ### Supported clients and limits
 
-You can use `spiffe_jwt` with OpenID Connect (OIDC) web, native, and service apps that you create as app integrations, and with CIMD clients. AI_AGENT_POSITIONING_TBD
+You can use `spiffe_jwt` with OpenID Connect (OIDC) web, native, and service apps that you create as app integrations, and with CIMD clients. You can also use it with AI agents that you register. An AI agent uses the same trust domain registration and SPIFFE ID as any other client, but it can't use the `client_credentials` grant type. See [Register AI agents with a CIMD](/docs/guides/ai-agent-cimd-registration/).
 
-You can't use it with single-page apps (SPAs) or with apps from the Okta Integration Network (OIN). Each client has one SPIFFE ID, and a SPIFFE ID can belong to only one client in your org. It works with the org authorization server and with custom authorization servers.
+You can't use `spiffe_jwt` with single-page apps (SPAs) or with apps from the Okta Integration Network (OIN). Each client has one SPIFFE ID, and a SPIFFE ID can belong to only one client in your org. It works with the org authorization server and with custom authorization servers.
 
-### Steps in this guide
+## Configure client authentication with a JWT-SVID
 
 1. [Register the trust domain](#register-the-trust-domain) so that Okta can find the signing keys.
-1. Configure the client with its SPIFFE ID, either as [an app integration](#configure-an-app-integration) or as [a CIMD client](#configure-a-cimd-client).
-1. [Get a JWT-SVID](#get-a-jwt-svid) for the workload to send to Okta.
-1. [Request a token](#request-a-token) to authenticate the client.
+1. Configure the client with its SPIFFE ID, either as [an app integration](#configure-an-app-integration) or as [a CIMD client](#configure-a-cimd-client). For a CIMD client, the app owner adds the SPIFFE ID to the CIMD document.
+1. [Get a JWT-SVID](#get-a-jwt-svid) from your SPIFFE implementation. The developer who owns the code that runs as the workload, such as a backend service or an AI agent, completes this step.
+1. [Request a token](#request-a-token) with the JWT-SVID. The same developer completes this step, and needs the client ID and the authorization server URL from the Okta admin.
 1. [Manage trust domains](#manage-trust-domains) to update or remove a registration.
 
-## Register the trust domain
+### Register the trust domain
 
-Register each trust domain before you configure a client that uses a SPIFFE ID in it. Okta rejects a SPIFFE ID in an unregistered trust domain, and it rejects token requests from a CIMD client for the same reason.
+Register the trust domain of the SPIFFE IDs that your workloads use. The registration tells Okta where to get the keys that verify JWT-SVIDs from that trust domain. If your workloads use SPIFFE IDs in more than one trust domain, register each of those trust domains.
 
-1. Find the trust domain and the bundle endpoint URL of your SPIFFE deployment. For `spiffe://example.org/payments-service`, the trust domain is `example.org`.
-1. Send a `POST` request to the [Create a SPIFFE trust domain registration](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint. Set `trustDomain` to the trust domain and `bundleUrl` to the HTTPS URL of the bundle endpoint. The response includes the `id` of the registration, which you need to update or delete it.
+Complete this task before you configure any client. Okta rejects a client configuration, and token requests from a CIMD client, when the trust domain of the SPIFFE ID isn't registered.
+
+1. Find the trust domain of your workloads' SPIFFE IDs and the HTTPS URL of its bundle endpoint. Both come from your SPIFFE implementation. For `spiffe://example.org/payments-service`, the trust domain is `example.org`.
+1. Send a `POST` request to the [Create a SPIFFE trust domain registration](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint to register the trust domain. Set `trustDomain` to the trust domain and `bundleUrl` to the HTTPS URL of the bundle endpoint. Save the `id` from the response, because you need it to update or delete the registration.
 
    ```bash
    curl -i -X POST \
@@ -85,16 +108,22 @@ You can also register a trust domain in the Admin Console. See [Add a SPIFFE tru
 
 Registration rules:
 
-- The `bundleUrl` must use HTTPS and can't contain a wildcard or credentials. Okta doesn't contact it when you save the registration, so a wrong URL shows up later as a failed token request.
+- The `bundleUrl` must use HTTPS and can't contain a wildcard or credentials. Okta checks that it's a valid URL, but it doesn't request the URL when you register the trust domain. Confirm that the URL returns your trust domain's bundle before you register it. A wrong URL shows up later as a failed token request.
 - Each trust domain can have one registration, and you can't change `trustDomain` after you create it. An org can have up to 100 registrations. A duplicate or a request over the limit returns a `409 Conflict` error.
 
-## Configure the client
+### Configure the client
 
-Tell Okta which SPIFFE ID identifies the client. Use an app integration if you manage the client in your org. Use a CIMD client if the app owner publishes the client's configuration at a URL.
+Configure the client so that Okta can match a JWT-SVID to it. Okta matches the `sub` claim of the JWT-SVID to the SPIFFE ID of the client.
 
-### Configure an app integration
+- Use an app integration if you manage the client's configuration in your org.
+- Use a CIMD client if the app owner publishes the client's configuration at a URL.
 
-1. Send a `POST` request to the [Create an application](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/createapplication) endpoint. To update an existing app integration, send a `PUT` request to the [Replace an application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) endpoint with the full app object. Set `credentials.oauthClient.token_endpoint_auth_method` to `spiffe_jwt` and `settings.oauthClient.spiffe_id` to the SPIFFE ID of the workload. You must set both, and the trust domain of the SPIFFE ID must already be registered.
+#### Configure an app integration
+
+In this scenario, you, an Okta admin or developer, create or update the app integration for the workload.
+
+1. Send a `POST` request to the [Create an application](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/createapplication) endpoint to create the app integration for the workload. To update an existing app integration instead, send a `PUT` request to the [Replace an application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) endpoint with the full app object.
+1. In the request body, set `credentials.oauthClient.token_endpoint_auth_method` to `spiffe_jwt` and `settings.oauthClient.spiffe_id` to the SPIFFE ID of the workload. You must set both, and the trust domain of the SPIFFE ID must already be registered.
 
    ```bash
    curl -i -X POST \
@@ -123,9 +152,9 @@ Tell Okta which SPIFFE ID identifies the client. Use an app integration if you m
      }'
    ```
 
-1. Save the `client_id` from the response. The workload sends it with every token request.
+1. Save the `client_id` from the response, and give it to the developer who's responsible for the workload. The workload sends it with every token request.
 
-For a service app, set `application_type` to `service` and `grant_types` to `client_credentials`, and omit the redirect URIs. CLIENT_CREDENTIALS_SAMPLE_VERIFY_TBD
+To create a service app, set `application_type` to `service` and `grant_types` to `client_credentials` in the request body, and omit the redirect URIs. CLIENT_CREDENTIALS_SAMPLE_VERIFY_TBD
 
 You can also set the authentication method and SPIFFE ID in the Admin Console. See [Configure an app integration for SPIFFE JWT-SVID authentication](HELP_LINK_TBD).
 
@@ -136,12 +165,12 @@ App integration rules:
 - Okta removes the `spiffe_id` if you change the authentication method or delete the app integration.
 - If `spiffe_jwt` isn't enabled for your org, Okta rejects the request. FLAG_OFF_BEHAVIOR_WORDING_TBD
 
-### Configure a CIMD client
+#### Configure a CIMD client
 
-For a CIMD client, the app owner publishes the SPIFFE ID in the CIMD document, and you register only the CIMD URL in Okta.
+For a CIMD client, an Okta admin registers the CIMD URL in Okta, and the app owner, who hosts the CIMD document, adds the SPIFFE ID to it.
 
-1. Register the CIMD URL as an app integration, or convert an existing app integration. See [Add a CIMD client to an app integration](/docs/guides/app-cimd-registration/#add-a-cimd-client-to-an-app-integration).
-1. Ask the app owner to add `token_endpoint_auth_method` and `spiffe_id` to the CIMD document. They can also add `spiffe_bundle_endpoint`.
+1. Register the CIMD URL as an app integration, or convert an existing app integration to use the CIMD URL. See [Add a CIMD client to an app integration](/docs/guides/app-cimd-registration/#add-a-cimd-client-to-an-app-integration).
+1. Ask the app owner to set `token_endpoint_auth_method` to `spiffe_jwt` in the CIMD document and to add the `spiffe_id` of the workload. The app owner can also add `spiffe_bundle_endpoint`.
 
    ```json
    {
@@ -161,11 +190,11 @@ CIMD client rules:
 - If the document includes `spiffe_bundle_endpoint`, it must match the `bundleUrl` that you registered, or Okta rejects the request. If the document omits it, Okta uses the registered `bundleUrl`.
 - The document doesn't need `jwks` or `jwks_uri`, because Okta gets the signing keys from the trust domain.
 
-## Get a JWT-SVID
+### Get a JWT-SVID
 
-The workload gets a JWT-SVID from its SPIFFE deployment, because Okta doesn't issue it. This section shows the request for SPIRE. If you use a different SPIFFE implementation, use its Workload API.
+The developer who owns the workload gets a JWT-SVID from your SPIFFE implementation, because Okta doesn't issue it. The workload requests it through the SPIFFE Workload API. This section shows the request with the SPIRE agent command line. If you use a different SPIFFE implementation, use its Workload API.
 
-1. Request a JWT-SVID with the issuer of the authorization server that receives the token request as the only audience. For the org authorization server, the audience is the issuer of your org, which is `https://{yourOktaDomain}` unless the client uses a custom domain issuer.
+1. Request a JWT-SVID for the workload. Set the audience to the issuer of the authorization server that receives the token request, and don't add other audiences. For the org authorization server, the audience is the issuer of your org, which is `https://{yourOktaDomain}` unless the client uses a custom domain issuer.
 
    ```bash
    spire-agent api fetch jwt \
@@ -173,7 +202,7 @@ The workload gets a JWT-SVID from its SPIFFE deployment, because Okta doesn't is
      -socketPath /tmp/spire-agent/public/api.sock
    ```
 
-1. Confirm the claims. The `sub` claim must be the SPIFFE ID that you registered for the client. The `exp` claim is required and can't be more than one hour in the future. Request a new JWT-SVID before the current one expires.
+1. Check the claims in the JWT-SVID. The `sub` claim must be the SPIFFE ID that the Okta admin registered for the client. The `exp` claim is required and can't be more than one hour in the future. Request a new JWT-SVID before the current one expires.
 
    ```json
    {
@@ -188,18 +217,20 @@ The workload gets a JWT-SVID from its SPIFFE deployment, because Okta doesn't is
    }
    ```
 
-After your SPIFFE deployment rotates its signing keys, Okta can reject a JWT-SVID that a new key signs until Okta refreshes its cached copy of the bundle. BUNDLE_CACHE_LIFETIME_SCOPE_TBD
+After your SPIFFE implementation rotates its signing keys, Okta can reject a JWT-SVID that a new key signs until Okta refreshes its cached copy of the bundle. BUNDLE_CACHE_LIFETIME_SCOPE_TBD
 
 JWT_SVID_HEADER_AND_ALG_LIMITS_SCOPE_TBD
 
-## Request a token
+### Request a token
 
-Send the JWT-SVID to the token endpoint as the client assertion. Always include the `client_id`, even though the JWT-SVID identifies the workload. Use the Okta-generated client ID for an app integration, and the CIMD URL for a CIMD client.
+The developer sends the JWT-SVID to the token endpoint of the authorization server as the client assertion. The request must also include the `client_id`, even though the JWT-SVID identifies the workload. For an app integration, the `client_id` is the Okta-generated client ID, which the Okta admin gives the developer. For a CIMD client, it's the CIMD URL.
 
-### Request a token with the authorization code flow
+#### Request a token with the authorization code flow
 
-1. Complete the authorization request and get an authorization code. See [Implement the authorization code flow](/docs/guides/implement-grant-type/authcode/main/). You exchange the code in the next step, so skip the token request in that guide.
-1. Send a `POST` request to the [`/token` endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS). Set `client_assertion_type` to `urn:ietf:params:oauth:client-assertion-type:jwt-spiffe` and `client_assertion` to the JWT-SVID. If the app requires PKCE, also include the `code_verifier` parameter.
+The developer completes these steps in the app. The user signs in during the authorization request.
+
+1. Start the authorization request from the app so that the user signs in and Okta returns an authorization code. See [Implement the authorization code flow](/docs/guides/implement-grant-type/authcode/main/). That guide's token request uses a client secret, so skip it and use the request in the next step.
+1. Send a `POST` request to the [`/token` endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) to exchange the code for tokens. Set `client_assertion_type` to `urn:ietf:params:oauth:client-assertion-type:jwt-spiffe` and `client_assertion` to the JWT-SVID. If the app requires PKCE, also include the `code_verifier` parameter.
 
    ```bash
    curl -i -X POST \
@@ -214,12 +245,12 @@ Send the JWT-SVID to the token endpoint as the client assertion. Always include 
      --data-urlencode 'client_assertion={jwtSvid}'
    ```
 
-### Request a token with the client credentials flow
+#### Request a token with the client credentials flow
 
 Use this flow when the workload acts on its own behalf and not for a user. AI agent CIMD clients can't use it. See [Register AI agents with a CIMD](/docs/guides/ai-agent-cimd-registration/).
 
-1. Configure a service app as described in [Configure an app integration](#configure-an-app-integration). Confirm that a rule in your authorization server's access policy allows the `client_credentials` grant type. See [Configure an access policy](/docs/guides/configure-access-policy/).
-1. Send a `POST` request to the [`/token` endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS). Okta returns an access token if the request succeeds.
+1. An Okta admin configures a service app as described in [Configure an app integration](#configure-an-app-integration), and confirms that a rule in the authorization server's access policy allows the `client_credentials` grant type. See [Configure an access policy](/docs/guides/configure-access-policy/).
+1. The developer sends a `POST` request to the [`/token` endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) to get an access token. Okta returns the access token if the request succeeds.
 
    ```bash
    curl -i -X POST \
@@ -251,13 +282,13 @@ If authentication fails, Okta returns an `invalid_client` error. Check the follo
 | The `aud` claim is wrong | That it's the only audience and is the issuer of the authorization server |
 | The JWT-SVID has expired | That `exp` is in the future and no more than one hour away |
 
-## Manage trust domains
+### Manage trust domains
 
-Update or remove a registration after you create it. These tasks change the registration, not the clients that use it. Each request needs the registration ID. To find it, send a `GET` request to the [List all SPIFFE trust domain registrations](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint with `search=trustDomain eq "example.org"`.
+An Okta admin updates or removes a trust domain registration after it's created. These tasks change the registration, not the clients that use it. Each request needs the ID of the registration. To find it, send a `GET` request to the [List all SPIFFE trust domain registrations](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint with the query `search=trustDomain eq "example.org"`.
 
-### Update the bundle endpoint
+#### Update the bundle endpoint
 
-Send a `PUT` request to the [Replace a SPIFFE trust domain registration](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint with the new `bundleUrl` and the existing `trustDomain`. The request can't change the `trustDomain`.
+To change the bundle endpoint of a trust domain, send a `PUT` request to the [Replace a SPIFFE trust domain registration](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint. Include the new `bundleUrl` and the existing `trustDomain` in the request body. The request can't change the `trustDomain`.
 
 ```bash
 curl -i -X PUT \
@@ -271,12 +302,12 @@ curl -i -X PUT \
   }'
 ```
 
-### Delete a trust domain
+#### Delete a trust domain
 
 After you delete a trust domain, workloads in it can no longer authenticate with a JWT-SVID.
 
-1. Remove the trust domain from each app integration that uses it. Change the app integration's authentication method, move it to a SPIFFE ID in another registered trust domain, or delete the app integration.
-1. Send a `DELETE` request to the [Delete a SPIFFE trust domain registration](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint. A successful request returns `204 No Content`.
+1. Stop using the trust domain in each app integration that has a SPIFFE ID in it. Change the app integration's authentication method, change its `spiffe_id` to a SPIFFE ID in another registered trust domain, or delete the app integration.
+1. Send a `DELETE` request to the [Delete a SPIFFE trust domain registration](API_REF_SPIFFE_TRUST_DOMAIN_TBD) endpoint to delete the registration. A successful request returns `204 No Content`.
 
    ```bash
    curl -i -X DELETE \
