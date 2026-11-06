@@ -40,6 +40,7 @@ The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/op
 
 * Token refresh failed for MCP server connections that used `client_secret_basic` client authentication and pointed to an Okta authorization server. The refresh request sent the client credentials in both the Authorization header and the request body, which caused a `multiple_client_credentials` error. (OKTA-1304803)
 
+* Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/integrations/template-app/). (OKTA-1314535)
 
 ## October
 
