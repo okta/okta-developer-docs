@@ -1,5 +1,4 @@
 {
-  "trigger_url": "https://api.runscope.com/radar/7c61be76-0b83-4e69-9240-be91c62642c0/trigger", 
   "name": "Okta SCIM 1.1 SPEC Test", 
   "version": "1.0", 
   "exported_at": 1478558963, 
