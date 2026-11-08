@@ -71,7 +71,7 @@ When you create an Okta expression for an [IGA Access Certification campaign](ht
 
 | Syntax                          | Definitions                                                                                       | Examples                                            |
 | --------                        | ----------                                                                                        | ------------                                        |
-| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of an attribute of the imported user. For most apps, this is the property name in the app user profile. For Office 365, it's the raw attribute name that the connector returns, which can differ from the app user profile name. See [Imported app user attributes](#imported-app-user-attributes). | `importedAppUser.dept`<br>`importedAppUser.title` |
+| `importedAppUser.$attribute`    | `importedAppUser` - references the in-context imported app user<br>`$attribute` - the name of an attribute of the imported user. The available names depend on the connector that imports the user. See [Imported app user attributes](#imported-app-user-attributes). | `importedAppUser.dept`<br>`importedAppUser.title` |
 | `importedAppUser.userEntitlements.group.$attribute` | References a group entitlement held by the imported user. Use with a `.?[$predicate]` selection.<br>`$attribute` - a field on the group entitlement, such as `displayName` or `externalId` | `importedAppUser.userEntitlements.group.?[displayName == 'Server Admins']` |
 
 Only the following operators and functions are supported with `importedAppUser`:
@@ -89,7 +89,7 @@ Relational operators (`<`, `>`, `<=`, `>=`) and comparisons against numeric or B
 
 #### Imported app user attributes
 
-The attribute names that you can use with `importedAppUser` depend on the connector that imports the user. For most apps, they're the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
+The attribute names that you can use with `importedAppUser` depend on the connector that imports the user. Apart from the standard attributes, names can't be generalized across apps. See the section for your connector, or check with the connector's documentation.
 
 ##### Standard attributes
 
@@ -102,7 +102,7 @@ Okta omits any attribute that has no value in the connected app instead of stori
 
 ##### Apps that use the app user profile schema
 
-For apps that connect through the On-Premises Provisioning Agent (OPP) or the Okta On-Prem SCIM Agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema.
+For apps that connect through the On-Premises Provisioning Agent (OPP) or the Okta On-Prem SCIM Agent (OPS), the `importedAppUser` attribute names are the property names in the app's **App User** profile schema. To find them, open the app in the Admin Console, go to **Directory** > **Profile Editor**, and select the app's user profile.
 
 * **OPP:** OPP discovers the schema from the SCIM server, so the attributes vary by app. It maps the SCIM `userName`, `name.givenName`, `name.familyName`, and primary `emails` values to `userName`, `firstName`, `lastName`, and `email`. It also provides `externalId`, `status`, `secondEmail`, `mobilePhone`, and `userEntitlements`. Every other attribute is a custom attribute that uses the property name from the app user profile schema. For example, `importedAppUser.department == 'Engineering'`. Okta doesn't import users that have no `externalId`. The other standard attributes are present only if the SCIM server returns them.
 
@@ -112,19 +112,7 @@ For apps that connect through the On-Premises Provisioning Agent (OPP) or the Ok
 
 ##### Microsoft Office 365
 
-For Office 365, use the raw account reconciliation names, not the names in the app user profile in the Profile Editor. The most common differences are:
-
-| Field | Account reconciliation name | App user profile name |
-| ----- | --------------------------- | --------------------- |
-| Job title | `jobTitle` | `Title` |
-| First name | `givenName` | `GivenName` |
-| Last name | `surname` | `Surname` |
-| Email | `mail` | `Mail` |
-| Sign-in name | `userPrincipalName` | `userName` |
-| Extension attributes 1-15 | `extensionAttribute1` to `extensionAttribute15` (nested in `onPremisesExtensionAttributes`) | `ExtensionAttribute1` to `ExtensionAttribute15` |
-| Roles and licenses | `roles` and `licenses` (nested in `userEntitlements`) | `roles` and `licenses` |
-
-Most other attributes, such as `displayName` and `department`, have the same name in both places except that the account reconciliation name starts with a lowercase letter and the app user profile name starts with an uppercase letter.
+For Office 365, use the [standard attributes](#standard-attributes) `userName`, `firstName`, `lastName`, and `email`. Other Office 365 attribute names aren't covered in this section.
 
 #### Imported app user examples
 
