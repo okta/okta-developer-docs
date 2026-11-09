@@ -6,7 +6,7 @@ layout: Guides
 
 Learn how the Okta for AI Agents V2 APIs differ from the V1 APIs, and what to change in your API calls.
 
-<!-- TODO: Verify the V2 examples before release. The V2 request and response examples in this guide come from the okta-oas3 specs on master (specs/monolith/secures-ai/spec/v2), not from calls to a live V2 API. V2 is behind SECURE_AI_APIS_V2 and the specs are still changing. Re-check each V2 example against the final specs, or against real calls, once V2 is testable. Sections with spec-derived V2 examples: Delegation Links, Workload Principal Operations, AI Agent Credentials (client secrets), AI Agent Registration, Client Authentication Settings. Known unconfirmed V2 details are marked with their own TODOs: the /api/v1/ paths in V2 agent links, and the DCR create Location header. -->
+<!-- TODO: Verify the V2 examples before release. The V2 request and response examples in this guide come from the okta-oas3 specs on master (specs/monolith/secures-ai/spec/v2), not from calls to a live V2 API. V2 is behind SECURE_AI_APIS_V2 and the specs are still changing. Re-check each V2 example against the final specs, or against real calls, once V2 is testable. Sections with spec-derived V2 examples: Delegation Links, Workload Principal Operations, AI Agent Credentials (client secrets), AI Agent Registration, Virtual MCP Server Registrations, MCP Server Capabilities, Virtual MCP Servers, AI Agent Providers, Resource Connections, Client Authentication Settings. Known unconfirmed V2 details are marked with their own TODOs: the /api/v1/ paths in V2 agent links, and the DCR create Location header. -->
 
 ---
 
@@ -49,7 +49,7 @@ Many V2 APIs share the same changes:
 
 Use this table to find the API that you call. Select the link in the last column for the details of the change.
 
-<!-- TODO: Confirm each row with engineering. Rows marked "Not yet available" are still in design or development. -->
+<!-- TODO: Confirm each row with engineering. The two Resource Connections rows say "Not yet confirmed" because the section is now written from the V2 spec and the engineering wiki, but their availability is not confirmed. -->
 
 | V1 API | V2 availability | Summary of changes | Details |
 | --- | --- | --- | --- |
@@ -59,17 +59,17 @@ Use this table to find the API that you call. Select the link in the last column
 | Resource Server Operations | Available | `_links` removed from the `resource`, and `orn` added. Fewer operation types. | [Resource Server Operations](#resource-server-operations) |
 | AI Agent Credentials | Available | Link format changed. `_links` returned on `GET` only when you pass the new `links` query parameter. The client secrets list returns `data`. | [AI Agent Credentials](#ai-agent-credentials) |
 | AI Agent Registration | Available | Writes are synchronous. `appId`, `externalId`, and `platform` removed. Link format changed. | [AI Agent Registration](#ai-agent-registration) |
-| Virtual MCP Server Registrations | Available | Writes are synchronous. `_links` removed from individual objects. | [Virtual MCP Server Registrations](#virtual-mcp-server-registrations) |
+| Virtual MCP Server Registrations | Available | Renamed agent gateways, with a new path. Writes are synchronous. `_links` removed from individual objects. | [Virtual MCP Server Registrations](#virtual-mcp-server-registrations) |
 | Agent-to-Agent Server Registrations | Available | `_links` removed. Authorization servers are linked by `orn`. Authorization server writes are synchronous. | [Agent-to-Agent Server Registrations](#agent-to-agent-server-registrations) |
 | API Server Registration | Available | Writes are synchronous. `_links` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [API Server Registration](#api-server-registration) |
 | MCP Server Registrations | Available | Writes are synchronous, except discovery-based registration and `resourceUrl` changes. `_links` and `detectedMetadata` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [MCP Server Registrations](#mcp-server-registrations) |
-| MCP Server Capabilities | Available | `_links` removed from individual objects. Discovery is asynchronous. | [MCP Server Capabilities](#mcp-server-capabilities) |
-| Virtual MCP Servers (Resource Server) | Available | Writes are synchronous. `_links` possibly removed from individual objects. | [Virtual MCP Servers](#virtual-mcp-servers) |
+| MCP Server Capabilities | Available | Discovery request properties moved under `credential`. `_links` removed from individual objects. Discovery is asynchronous. | [MCP Server Capabilities](#mcp-server-capabilities) |
+| Virtual MCP Servers (Resource Server) | Available | Renamed agent gateways, with a new path. `_links` removed from individual objects. Read-only: authorization server add and remove calls removed. | [Virtual MCP Servers](#virtual-mcp-servers) |
 | Client Authentication Settings | Available | `_links` removed. OAuth fields moved under `oauthClientConfiguration`. `purpose` renamed `purposes`. New `client_credentials` grant type. | [Client Authentication Settings](#client-authentication-settings) |
-| AI Agent Providers | Available | `_links` removed. `clientAuthSettingsId` replaces direct OAuth credentials. Filtering and sorting added. | [AI Agent Providers](#ai-agent-providers) |
+| AI Agent Providers | Available | `_links` removed. `configuration` references a client authentication settings object instead of holding OAuth credentials. Filtering and sorting are part of the base API. | [AI Agent Providers](#ai-agent-providers) |
 | AI Agent Schema | Available | `_links` removed from the response. | [AI Agent Schema](#ai-agent-schema) |
-| AI Agent Connections and Virtual MCP Connections | Not yet available | Consolidated into Resource Connections. | [Resource Connections](#resource-connections) |
-| Potential Connections | Not yet available | Consolidated into Resource Connections. | [Resource Connections](#resource-connections) |
+| AI Agent Connections, MCP Server Connections, and Virtual MCP Connections | Not yet confirmed | Consolidated into one Resource Connections collection. The actor moves into the body. `connectionType` splits into `protocolType` and `resourceType`. | [Resource Connections](#resource-connections) |
+| Managed Connections and Potential Connections | Not yet confirmed | Consolidated into Resource Connections. Reverse lookup uses `search`. Potential connections move to `/resource-connections/api/v2`. | [Resource Connections](#resource-connections) |
 
 ## Delegation Links
 
@@ -741,12 +741,127 @@ When you update an agent with `PATCH`, you can no longer set or remove `appId`. 
 
 ## Virtual MCP Server Registrations
 
-V2 makes these changes:
+The V2 reference calls a virtual MCP server an agent gateway. The operations are the same, but the path and the path parameter change.
 
-- Removes `_links` from individual objects.
-- Makes write operations synchronous. Calls that returned `202` now return `200`, `201`, or `204`.
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Path | `/workload-principals/api/v1/virtual-mcp-servers` | `/workload-principals/api/v2/agent-gateways` |
+| Path parameter | `virtualMcpServerId` | `agentGatewayId` |
+| Scopes | `okta.resourceServers.virtualMcpServers.read` and `.manage` | Same |
+| Request bodies | `resourcePath` and `profile` | Same |
+| Object properties | `id`, `orn`, `status`, `profile`, `created`, and `lastUpdated` | Same |
 
-<!-- TODO: Add V1 and V2 examples. -->
+### Synchronous writes
+
+In V1, create, delete, activate, and deactivate return `202 Accepted` with no body. You follow the `Location` header and poll the AI Agent Operations API for the result.
+
+In V2, the result is in the response.
+
+| Operation | V1 response | V2 response |
+| --- | --- | --- |
+| Create (`POST`) | `202`, no body | `201` with the agent gateway |
+| Update (`PATCH`) | `200` with the object | `200` with the agent gateway |
+| Delete (`DELETE`) | `202`, no body | `204` |
+| Activate | `202`, no body | `200` with the agent gateway |
+| Deactivate | `202`, no body | `200` with the agent gateway |
+
+V2 creates the agent gateway with a `status` of `INACTIVE`, the same as V1.
+
+In both versions, you can delete only an inactive agent gateway. Deleting an active one returns `409`, so deactivate it first.
+
+### Link changes
+
+V1 returns `self` and `resource-server` links on each object. V2 removes `_links` from individual objects.
+
+On a list, V1 returns `self` and `next` as objects with an `href`. V2 returns them as plain URL strings and adds a `Link` response header for pagination.
+
+### What to change
+
+- Replace `/workload-principals/api/v1/virtual-mcp-servers` with `/workload-principals/api/v2/agent-gateways` in your calls.
+- Stop polling an operation after create, delete, activate, and deactivate. Read the response instead.
+- Stop reading the `self` and `resource-server` links from an object. Build the URLs from the `id`.
+
+### Examples
+
+This example creates an agent gateway. The request is the same in V1 and V2. Send it to `POST /workload-principals/api/v1/virtual-mcp-servers` or `POST /workload-principals/api/v2/agent-gateways`:
+
+```json
+{
+  "resourcePath": "staging",
+  "profile": {
+    "displayName": "Staging MCP Servers",
+    "description": "Groups all staging MCP servers for testing"
+  }
+}
+```
+
+The V1 response is `202 Accepted` with no body, and a `Location` header that points to `/workload-principals/api/v1/operations/{operationId}`. After the operation completes, `GET /workload-principals/api/v1/virtual-mcp-servers/wlp7lM8nO9pQ0rS1tU2v` returns the virtual MCP server with `_links`:
+
+```json
+{
+  "id": "wlp7lM8nO9pQ0rS1tU2v",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp7lM8nO9pQ0rS1tU2v",
+  "status": "INACTIVE",
+  "profile": {
+    "displayName": "Staging MCP Servers",
+    "description": "Groups all staging MCP servers for testing"
+  },
+  "created": "2025-06-10T08:00:00Z",
+  "lastUpdated": "2025-06-10T08:00:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/virtual-mcp-servers/wlp7lM8nO9pQ0rS1tU2v"
+    },
+    "resource-server": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp7lM8nO9pQ0rS1tU2v"
+    }
+  }
+}
+```
+
+The V2 response is `201 Created` with the agent gateway in the body. There are no `_links`:
+
+```json
+{
+  "id": "wlp7lM8nO9pQ0rS1tU2v",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp7lM8nO9pQ0rS1tU2v",
+  "status": "INACTIVE",
+  "profile": {
+    "displayName": "Staging MCP Servers",
+    "description": "Groups all staging MCP servers for testing"
+  },
+  "created": "2025-06-10T08:00:00Z",
+  "lastUpdated": "2025-06-10T08:00:00Z"
+}
+```
+
+A V2 call to `POST /workload-principals/api/v2/agent-gateways/wlp7lM8nO9pQ0rS1tU2v/lifecycle/activate` returns `200` with the same object and a `status` of `ACTIVE`. The V1 call returns `202` with no body.
+
+On a list, the V2 `_links` are plain URL strings:
+
+```json
+{
+  "data": [
+    {
+      "id": "wlp1aB2cD3eF4gH5iJ6k",
+      "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+      "status": "ACTIVE",
+      "profile": {
+        "displayName": "Production MCP Servers",
+        "description": "Groups all production MCP servers for the engineering team"
+      },
+      "created": "2025-06-01T10:00:00Z",
+      "lastUpdated": "2025-06-15T14:30:00Z"
+    }
+  ],
+  "_links": {
+    "self": "https://{yourOktaDomain}/workload-principals/api/v2/agent-gateways?limit=20",
+    "next": "https://{yourOktaDomain}/workload-principals/api/v2/agent-gateways?after=wlp1aB2cD3eF4gH5iJ6k&limit=20"
+  }
+}
+```
+
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/registration/virtual-mcp-registration.yaml and spec/v2/ai-agents/registration/agent-gateway-registration.yaml (master, e795ff64f). The V2 list example is trimmed to one item. The Agent Gateway V2 APIs Status & Deltas wiki (Confluence page 1095041886, version 4) confirms the rename to agent-gateway and that ORNs are unchanged. The V1 PATCH response is `200` in the V1 spec, but the wiki says `202`. The guide follows the spec. TODO: Check the V1 PATCH status code with engineering. -->
 
 ## Agent-to-Agent Server Registrations
 
@@ -1303,15 +1418,441 @@ To update the link in V2, send a merge patch to `PATCH /resource-servers/api/v2/
 
 ## MCP Server Capabilities
 
-V2 removes `_links` from individual objects. The discovery operation is asynchronous.
+The endpoints and response codes are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/mcp-servers/{mcpServerId}/metadata/discover` becomes `/resource-servers/api/v2/mcp-servers/{mcpServerId}/metadata/discover`. The same applies to the `metadata/discovery` and `tools` endpoints.
 
-<!-- TODO: Add V1 and V2 examples. -->
+The request body for starting discovery changes, and V2 removes `_links` from individual objects.
+
+### Asynchronous discovery
+
+Starting discovery stays asynchronous in V2. The call returns `202 Accepted` with a `Location` header, and you poll the Resource Server Operations API for the result. In V2, the `Location` header points to `/resource-servers/api/v2/operations/{operationId}`.
+
+### Consent required
+
+The `409` consent-required response is the same in V1 and V2. The `reason` is `CONSENT_REQUIRED`, and the interaction URL is in `errorCauses[0].errorSummary`. Your existing consent handling works unchanged.
+
+### Request changes
+
+In V1, the discovery request is a flat object with a `type` property. In V2, the credential properties are under a `credential` object, and `type` is renamed `authType`.
+
+| Property | V1 | V2 |
+| --- | --- | --- |
+| Authentication type | `type` | `credential.authType` |
+| `clientAuthSettingsOrn` | Top-level | `credential.clientAuthSettingsOrn` |
+| `authorizationServerOrn` | Top-level | `credential.authorizationServerOrn` |
+| `scopes` | Top-level | `credential.scopes` |
+
+The `authType` values are the same: `CLIENT_AUTH_SETTINGS` and `IDENTITY_ASSERTION`.
+
+### Response changes
+
+| Property | V1 | V2 |
+| --- | --- | --- |
+| `_links` on a discovery | `self`, `mcpServer`, `clientAuthSettings`, and `tools` | Removed |
+| `_links` on a tool | `self` and `parent` | Removed |
+| `credential.scopes` on a discovery or tool | Not returned | Returned for `IDENTITY_ASSERTION` credentials |
+| `_links` on a list | Objects with an `href` | Plain URL strings |
+| `_links.parent` on a tools list | Object with an `href` | Plain URL string |
+| `Link` response header on the tools list | Not returned | Returned for pagination. The discoveries list returns it in both versions. |
+| `_embedded.metadata.total` on the tools list | Total number of tools that match the `search` filter | Removed |
+
+### What to change
+
+- Move `type`, `clientAuthSettingsOrn`, `authorizationServerOrn`, and `scopes` under `credential` in discovery requests. Rename `type` to `authType`.
+- Stop reading `_links` on individual discoveries and tools. Build the URLs from the `id` values.
+- Stop reading `_embedded.metadata.total` from the tools list. Page through the list with `_links.next` or the `Link` header.
+- Read `credential.scopes` from a discovery to see the scopes of the last discovery run.
+- Poll the V2 operation URL from the `Location` header.
+
+### Examples
+
+This example starts discovery with a client authentication settings object.
+
+The V1 request to `POST /resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discover` has a flat body:
+
+```json
+{
+  "type": "CLIENT_AUTH_SETTINGS",
+  "clientAuthSettingsOrn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc2c8xwvBn4h2Ry50g7"
+}
+```
+
+The V2 request to `POST /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discover` nests the credential:
+
+```json
+{
+  "credential": {
+    "authType": "CLIENT_AUTH_SETTINGS",
+    "clientAuthSettingsOrn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc2c8xwvBn4h2Ry50g7"
+  }
+}
+```
+
+Both versions return `202 Accepted` with no body. The `Location` header is `https://{yourOktaDomain}/resource-servers/api/v1/operations/op-1a2b3c4d` in V1 and `https://{yourOktaDomain}/resource-servers/api/v2/operations/op-1a2b3c4d` in V2.
+
+This example starts discovery with cross-app access (XAA) through an external authorization server.
+
+The V1 request body:
+
+```json
+{
+  "type": "IDENTITY_ASSERTION",
+  "clientAuthSettingsOrn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc2c8xwvBn4h2Ry50g7",
+  "scopes": [
+    "read:contacts"
+  ]
+}
+```
+
+The V2 request body:
+
+```json
+{
+  "credential": {
+    "authType": "IDENTITY_ASSERTION",
+    "clientAuthSettingsOrn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc2c8xwvBn4h2Ry50g7",
+    "scopes": [
+      "read:contacts"
+    ]
+  }
+}
+```
+
+For an Okta custom authorization server, replace `clientAuthSettingsOrn` with `authorizationServerOrn` in the same position in both versions.
+
+This example retrieves a discovery. The V1 response from `GET /resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discovery/emd1a2b3c4d5e6f7g8h9` has `_links`:
+
+```json
+{
+  "id": "emd1a2b3c4d5e6f7g8h9",
+  "mcpServerId": "ems8nUa7p0g4zrZbs2f4",
+  "credential": {
+    "authType": "CLIENT_AUTH_SETTINGS",
+    "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+  },
+  "status": "READY",
+  "lastDiscoveredAt": "2025-01-29T12:00:00Z",
+  "toolsCount": 12,
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discovery/emd1a2b3c4d5e6f7g8h9"
+    },
+    "mcpServer": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4"
+    },
+    "clientAuthSettings": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/client-auth-settings/rsc2c8xwvBn4h2Ry50g7"
+    },
+    "tools": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.clientAuthSettingsId%20eq%20%22rsc2c8xwvBn4h2Ry50g7%22"
+    }
+  }
+}
+```
+
+The V2 response from `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discovery/emd1a2b3c4d5e6f7g8h9` has no `_links`:
+
+```json
+{
+  "id": "emd1a2b3c4d5e6f7g8h9",
+  "mcpServerId": "ems8nUa7p0g4zrZbs2f4",
+  "credential": {
+    "authType": "CLIENT_AUTH_SETTINGS",
+    "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+  },
+  "status": "READY",
+  "lastDiscoveredAt": "2026-01-29T12:00:00Z",
+  "toolsCount": 12
+}
+```
+
+For an `IDENTITY_ASSERTION` discovery, the V2 `credential` also returns the `scopes` that the last run used:
+
+```json
+{
+  "id": "emd9h8g7f6e5d4c3b2a1",
+  "mcpServerId": "ems8nUa7p0g4zrZbs2f4",
+  "credential": {
+    "authType": "IDENTITY_ASSERTION",
+    "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7",
+    "scopes": [
+      "read:contacts",
+      "read:accounts"
+    ]
+  },
+  "status": "READY",
+  "lastDiscoveredAt": "2026-01-29T12:00:00Z",
+  "toolsCount": 8
+}
+```
+
+This example retrieves a tool. The V1 tool has `_links`. The V2 tool doesn't.
+
+The V1 response from `GET /resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools/emt1a2b3c4d5e6f7g8h9`, with the `inputSchema` shortened:
+
+```json
+{
+  "id": "emt1a2b3c4d5e6f7g8h9",
+  "name": "create_pull_request",
+  "description": "Creates a new pull request in a GitHub repository",
+  "inputSchema": {
+    "type": "object",
+    "required": ["repo", "title"]
+  },
+  "created": "2025-01-29T12:00:00Z",
+  "lastUpdated": "2025-01-29T12:00:00Z",
+  "credential": {
+    "authType": "CLIENT_AUTH_SETTINGS",
+    "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+  },
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools/emt1a2b3c4d5e6f7g8h9"
+    },
+    "parent": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs2f4"
+    }
+  }
+}
+```
+
+The V2 response from `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools/emt1a2b3c4d5e6f7g8h9`:
+
+```json
+{
+  "id": "emt1a2b3c4d5e6f7g8h9",
+  "name": "create_pull_request",
+  "description": "Creates a new pull request in a GitHub repository",
+  "inputSchema": {
+    "type": "object",
+    "required": ["repo", "title"]
+  },
+  "credential": {
+    "authType": "CLIENT_AUTH_SETTINGS",
+    "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+  },
+  "created": "2026-01-29T12:00:00Z",
+  "lastUpdated": "2026-01-29T12:00:00Z"
+}
+```
+
+On a V2 list, such as `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.authType%20eq%20%22CLIENT_AUTH_SETTINGS%22&limit=20`, the `_links` are plain URL strings and there is no `_embedded.metadata.total`. A tools list also returns a `parent` link:
+
+```json
+{
+  "data": [
+    {
+      "id": "emt1a2b3c4d5e6f7g8h9",
+      "name": "create_pull_request",
+      "credential": {
+        "authType": "CLIENT_AUTH_SETTINGS",
+        "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+      },
+      "created": "2026-01-29T12:00:00Z",
+      "lastUpdated": "2026-01-29T12:00:00Z"
+    }
+  ],
+  "_links": {
+    "self": "https://{yourOktaDomain}/resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.authType%20eq%20%22CLIENT_AUTH_SETTINGS%22&limit=20",
+    "next": "https://{yourOktaDomain}/resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.authType%20eq%20%22CLIENT_AUTH_SETTINGS%22&after=emt1a2b3c4d5e6f7g8h9&limit=20",
+    "parent": "https://{yourOktaDomain}/resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4"
+  }
+}
+```
+
+The `search` parameter is required on the tools list in both versions. It supports `eq` on `credential.authType` and `credential.clientAuthSettingsId`. The discoveries list supports the same `search` filter, but it's optional.
+
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/mcp-servers/mcp-server-capabilities.yaml and spec/v2/resource-servers/mcp-servers/mcp-server-capabilities.yaml (master, e795ff64f). Tool list and discovery examples are trimmed. The wiki confirms that credential.scopes is added to the credential on discoveries and tools, and that V2 list envelopes drop _embedded.metadata.total. The V1 example dates (2025) and V2 example dates (2026) come straight from the specs. -->
 
 ## Virtual MCP Servers
 
-V2 makes write operations synchronous and might remove `_links` from individual objects.
+The V2 reference calls a virtual MCP server an agent gateway. The resource server API changes the path, removes `_links`, and drops the authorization server write calls.
 
-<!-- TODO: Add V1 and V2 examples. -->
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Path | `/resource-servers/api/v1/virtual-mcp-servers` | `/resource-servers/api/v2/agent-gateways` |
+| Path parameters | `virtualMcpServerId` and `capabilityId` | `agentGatewayId` and `toolId` |
+| `_links` on an object | `self`, `authorization-servers`, and `tools` | Removed |
+| `_links` on a list | Objects with an `href` | Plain URL strings |
+| Authorization server links | List, retrieve, add, and remove | List and retrieve only |
+
+Agent gateway calls don't take the `links` query parameter that some other V2 APIs add. Lists always return `_links`.
+
+### Authorization servers
+
+V1 lets you add and remove an Okta custom authorization server on a virtual MCP server. Both calls return `202` with a `Location` header to poll.
+
+V2 removes the add and remove calls. The V2 resource server API for agent gateways is read-only. Only the list and retrieve calls remain, and the registration API has no authorization server calls.
+
+The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply to the responses. In V2, each item is a link object with `authorizationServer`, `created`, and `lastUpdated`. The V1 item is the authorization server itself, with `_links`.
+
+### What to change
+
+- Replace `/resource-servers/api/v1/virtual-mcp-servers` with `/resource-servers/api/v2/agent-gateways` in your calls.
+- Stop reading `self`, `authorization-servers`, and `tools` links from an object. Build the URLs from the `id`.
+- Read the authorization server from `authorizationServer` in each link object.
+- Stop calling the add and remove authorization server operations. V2 doesn't include them.
+
+### Examples
+
+This example retrieves a virtual MCP server. The V1 response from `GET /resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k` has `_links`:
+
+```json
+{
+  "id": "wlp1aB2cD3eF4gH5iJ6k",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+  "resourcePath": "production",
+  "resourceUrl": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/production",
+  "status": "ACTIVE",
+  "profile": {
+    "displayName": "Production MCP Servers",
+    "description": "Groups all production MCP servers for the engineering team"
+  },
+  "created": "2025-06-01T10:00:00Z",
+  "lastUpdated": "2025-06-15T14:30:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k"
+    },
+    "authorization-servers": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/authorization-servers"
+    },
+    "tools": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/tools"
+    }
+  }
+}
+```
+
+The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k` has no `_links`:
+
+```json
+{
+  "id": "wlp1aB2cD3eF4gH5iJ6k",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+  "resourcePath": "production",
+  "resourceUrl": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/production",
+  "status": "ACTIVE",
+  "profile": {
+    "displayName": "Production MCP Servers",
+    "description": "Groups all production MCP servers for the engineering team"
+  },
+  "created": "2025-06-01T10:00:00Z",
+  "lastUpdated": "2025-06-15T14:30:00Z"
+}
+```
+
+The `expand` query parameter works the same way on the list call in both versions. Pass `connectedResources`, `attachedAgents`, or both. The summaries appear under `_embedded`, and the single-object `GET` doesn't return them.
+
+This example lists the tools of a virtual MCP server. The V1 response from `GET /resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/tools?limit=20` returns `_links` as objects:
+
+```json
+{
+  "data": [
+    {
+      "id": "vsc1aB2cD3eF4gH5iJ6k",
+      "sourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4:tools:emt1aB2cD3eF4gH5iJ6k",
+      "connectionOrn": "orn:okta:idp:00o1gjjp4jsdR3Sww4x7:connections:mcn1aB2cD3eF4gH5iJ6k",
+      "status": "VALID",
+      "profile": {
+        "name": "get_issues",
+        "description": "Get issues from a repository",
+        "alias": "get_jira_issues"
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/tools?limit=20"
+    },
+    "next": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/tools?after=vsc1aB2cD3eF4gH5iJ6k&limit=20"
+    },
+    "parent": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k"
+    }
+  }
+}
+```
+
+The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k/tools?limit=20` returns the same `data` and plain URL strings in `_links`:
+
+```json
+{
+  "data": [
+    {
+      "id": "vsc1aB2cD3eF4gH5iJ6k",
+      "sourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4:tools:emt1aB2cD3eF4gH5iJ6k",
+      "connectionOrn": "orn:okta:idp:00o1gjjp4jsdR3Sww4x7:connections:mcn1aB2cD3eF4gH5iJ6k",
+      "status": "VALID",
+      "profile": {
+        "name": "get_issues",
+        "description": "Get issues from a repository",
+        "alias": "get_jira_issues"
+      }
+    }
+  ],
+  "_links": {
+    "self": "https://{yourOktaDomain}/resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k/tools?limit=20",
+    "next": "https://{yourOktaDomain}/resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k/tools?after=vsc1aB2cD3eF4gH5iJ6k&limit=20",
+    "parent": "https://{yourOktaDomain}/resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k"
+  }
+}
+```
+
+The tool object is the same in both versions. Pass `expand=inputSchema` to embed the input schema under `_embedded`.
+
+This example retrieves an authorization server link. The V1 response from `GET /resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/authorization-servers/aus5rb5mt2H3d1TJd0h7` is the authorization server:
+
+```json
+{
+  "id": "aus5rb5mt2H3d1TJd0h7",
+  "orn": "orn:okta:idp:00o5rb5mt2H3d1TJd0h7:authorization_servers:aus5rb5mt2H3d1TJd0h7",
+  "issuer": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7",
+  "status": "ACTIVE",
+  "metadata": {
+    "authorizationEndpoint": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7/v1/authorize",
+    "tokenEndpoint": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7/v1/token",
+    "grantTypesSupported": [
+      "authorization_code",
+      "urn:ietf:params:oauth:grant-type:token-exchange"
+    ]
+  },
+  "lastUpdated": "2025-01-27T08:00:00Z",
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/authorization-servers/aus5rb5mt2H3d1TJd0h7"
+    }
+  }
+}
+```
+
+The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k/authorization-servers/aus5rb5mt2H3d1TJd0h7` is a link object:
+
+```json
+{
+  "authorizationServer": {
+    "id": "aus5rb5mt2H3d1TJd0h7",
+    "orn": "orn:okta:idp:00o5rb5mt2H3d1TJd0h7:authorization_servers:aus5rb5mt2H3d1TJd0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7",
+    "status": "ACTIVE",
+    "type": "OKTA",
+    "metadata": {
+      "authorizationEndpoint": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7/v1/authorize",
+      "tokenEndpoint": "https://{yourOktaDomain}/oauth2/aus5rb5mt2H3d1TJd0h7/v1/token",
+      "grantTypesSupported": [
+        "authorization_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ]
+    },
+    "created": "2025-01-27T08:00:00Z",
+    "lastUpdated": "2025-01-27T08:00:00Z"
+  },
+  "created": "2025-01-28T08:00:00Z",
+  "lastUpdated": "2025-01-28T08:00:00Z"
+}
+```
+
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/virtual-mcp-servers/virtual-mcp-servers.yaml and spec/v2/resource-servers/agent-gateways/agent-gateway.yaml (master, e795ff64f). Examples are trimmed to one item. The wiki (Confluence page 1095041886) confirms that V2 drops the add and remove authorization server calls on purpose, and that individual tools have no _links. TODO: Ask engineering how a customer links an authorization server to an agent gateway in V2. The wiki says mutations would belong on the registration API if they are needed later, but that API has no such call today. -->
 
 ## Client Authentication Settings
 
@@ -1478,7 +2019,7 @@ The V2 response:
 V2 makes these changes:
 
 - Removes `_links` from individual objects.
-- Supports `clientAuthSettingsId` as a parameter. V2 no longer accepts OAuth credentials directly for certain app and agent import providers.
+- References a client authentication settings object by ID in `configuration`. V2 no longer accepts OAuth credentials directly for certain app and agent import providers.
 - Makes list filtering and sorting part of the base API. Use the `search`, `sourceInstanceName`, `orderBy`, and `sortOrder` parameters.
 - Removes `externalId` from the `search` filter and adds `id`.
 
@@ -1540,7 +2081,180 @@ This V2 response has the same attributes and no `_links`:
 }
 ```
 
-<!-- TODO: Add V1 and V2 examples, including the supported `search` fields and operators, and confirm the Link header behavior with engineering. -->
+### Filtering and sorting
+
+The list call, `GET /workload-principals/api/v2/ai-agent-providers`, takes these query parameters.
+
+| Parameter | V1 | V2 |
+| --- | --- | --- |
+| `search` | `eq` on `sourceOrn`, `sourceId`, `sourceName`, `sourceType`, `externalId`, and `status` | `eq` on `id`, `sourceOrn`, `sourceId`, `sourceName`, `sourceType`, and `status`. Also `pr` and `not ({propertyName} pr)` on `schedule`. |
+| `sourceInstanceName` | Available only when the enhancements are enabled | Matches providers whose app instance name contains the value |
+| `orderBy` | Available only when the enhancements are enabled | `createdDate`, `lastUpdate`, `lastImportedDate`, or `nextImportDate`. The default is descending creation date. |
+| `sortOrder` | Available only when the enhancements are enabled | `asc` or `desc`. The default is `desc`. |
+
+The `search` value needs URL encoding. For example, this V2 call lists active Salesforce providers, newest import first:
+
+```http
+GET /workload-principals/api/v2/ai-agent-providers?search=sourceName%20eq%20%22salesforce%22%20and%20status%20eq%20%22ACTIVE%22&orderBy=lastImportedDate&sortOrder=desc&limit=20
+```
+
+Both versions return a `Link` response header with `self` and `next` links. `next` is present only when there is another page.
+
+### Examples
+
+This example retrieves a provider. The V1 response from `GET /workload-principals/api/v1/ai-agent-providers/aip-1a2b3c4d` has `_links`:
+
+```json
+{
+  "id": "aip-1a2b3c4d",
+  "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+  "sourceId": "0oafxqCAJWWGELFTYASJ",
+  "sourceName": "salesforce",
+  "sourceType": "apps",
+  "status": "ACTIVE",
+  "integrationDate": "2024-01-01T12:00:00Z",
+  "lastImportDate": "2024-06-01T12:00:00Z",
+  "owners": {
+    "userOrns": [
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4",
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g5"
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/aip-1a2b3c4d"
+    }
+  }
+}
+```
+
+The V2 response from `GET /workload-principals/api/v2/ai-agent-providers/aip-1a2b3c4d` has the same properties and no `_links`:
+
+```json
+{
+  "id": "aip-1a2b3c4d",
+  "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+  "sourceId": "0oafxqCAJWWGELFTYASJ",
+  "sourceName": "salesforce",
+  "sourceType": "apps",
+  "status": "ACTIVE",
+  "integrationDate": "2024-01-01T12:00:00Z",
+  "lastImportDate": "2024-06-01T12:00:00Z",
+  "owners": {
+    "userOrns": [
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4",
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g5"
+    ]
+  }
+}
+```
+
+This example lists providers. In V1, the `_links` on the list and on each provider are objects with an `href`:
+
+```json
+{
+  "data": [
+    {
+      "id": "aip-1a2b3c4d",
+      "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+      "sourceId": "0oafxqCAJWWGELFTYASJ",
+      "sourceName": "salesforce",
+      "sourceType": "apps",
+      "status": "ACTIVE",
+      "integrationDate": "2024-01-01T12:00:00Z",
+      "lastImportDate": "2024-06-01T12:00:00Z",
+      "owners": {
+        "userOrns": [
+          "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4"
+        ]
+      },
+      "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/aip-1a2b3c4d"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers"
+    }
+  }
+}
+```
+
+In V2, the providers have no `_links`, and the list `_links` are plain URL strings:
+
+```json
+{
+  "data": [
+    {
+      "id": "aip-1a2b3c4d",
+      "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+      "sourceId": "0oafxqCAJWWGELFTYASJ",
+      "sourceName": "salesforce",
+      "sourceType": "apps",
+      "status": "ACTIVE",
+      "integrationDate": "2024-01-01T12:00:00Z",
+      "lastImportDate": "2024-06-01T12:00:00Z",
+      "owners": {
+        "userOrns": [
+          "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4"
+        ]
+      }
+    }
+  ],
+  "_links": {
+    "self": "https://{yourOktaDomain}/workload-principals/api/v2/ai-agent-providers"
+  }
+}
+```
+
+This example creates a provider. The V1 request to `POST /workload-principals/api/v1/ai-agent-providers` for a Salesforce source passes the OAuth credentials in `configuration`:
+
+```json
+{
+  "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+  "configuration": {
+    "clientId": "clientId",
+    "clientSecret": "clientSecret"
+  },
+  "owners": {
+    "userOrns": [
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4"
+    ]
+  }
+}
+```
+
+The V2 request to `POST /workload-principals/api/v2/ai-agent-providers` for a UiPath source references a client authentication settings object by ID instead. The `schedule` is part of the base API in V2:
+
+```json
+{
+  "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:uipath:0oa9uipXk2Lm4PqRs0g4",
+  "configuration": {
+    "clientAuthId": "rsc9uipXk2Lm4PqRs0g4",
+    "organizationUrl": "https://cloud.uipath.com/acme-org",
+    "tenantNames": [
+      "DefaultTenant",
+      "Production"
+    ]
+  },
+  "schedule": {
+    "cron": "0 0 9 ? * MON",
+    "timezone": "America/Los_Angeles"
+  },
+  "owners": {
+    "userOrns": [
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4"
+    ]
+  }
+}
+```
+
+Both versions return `201 Created` with the provider. The V1 response has `_links.self`, and the V2 response doesn't.
+
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/ai-agent-providers/ai-agent-providers.yaml and spec/v2/ai-agents/ai-agent-providers/ai-agent-providers-v2.yaml (master, e795ff64f). Provider IDs and source values are adapted so the V1 and V2 examples match, and the lists are trimmed to one item. The V1 and V2 create examples use different sources because the specs have no like-for-like pair. TODO: Confirm the name of the client authentication settings property in configuration. The V2 spec uses `clientAuthId` for UiPath and in responses, and `client_auth_id` in the Gemini Enterprise request examples. Earlier text in this guide called it `clientAuthSettingsId`. The Configuration schema is open-ended, so the spec doesn't settle it. TODO: Confirm which sources moved from direct OAuth credentials to a client authentication settings reference, and whether Salesforce is one of them. The AWS example still passes `accessKeyId` and `secretAccessKey` directly. TODO: Confirm that V1 `search` on `externalId` is not available in V2. The V1 base spec lists `externalId`, and the V1 enhancements version replaces it with `id`. -->
 
 ## AI Agent Schema
 
@@ -1548,9 +2262,450 @@ The endpoints and response codes are the same. V2 removes `_links` from the sche
 
 ## Resource Connections
 
-<!-- TODO: Add changes when engineering confirms them. -->
+V2 consolidates the AI Agent Connections, MCP Server Connections, Virtual MCP Connections, Managed Connections, and Potential Connections APIs into the Resource Connections API.
 
-V2 consolidates the AI Agent Connections, Virtual MCP Connections, and Potential Connections APIs into the Resource Connections API.
+This is the largest change in the migration. The path, the actor, the connection type, and the request and response bodies all change.
+
+### One collection for all actors
+
+In V1, each actor type has its own path. The reverse lookup by resource is a separate endpoint.
+
+| Purpose | V1 | V2 |
+| --- | --- | --- |
+| AI agent connections | `/workload-principals/api/v1/ai-agents/{agentId}/connections` | `/resource-connections/api/v2/connections` |
+| MCP server connections | `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` | `/resource-connections/api/v2/connections` |
+| Virtual MCP server connections | `/workload-principals/api/v1/virtual-mcp-servers/{virtualMcpServerId}/connections` | `/resource-connections/api/v2/connections` |
+| Reverse lookup by resource | `/workload-principals/api/v1/managed-connections` | `/resource-connections/api/v2/connections` with `search` |
+| Potential connections | `/workload-principals/api/v1/potential-connections` | `/resource-connections/api/v2/potential-connections` |
+
+V2 is one org-wide collection. The actor moves from the path into the request body as `actor.wlpId`. To list the connections of one actor, filter with `search=actor.wlpId eq "{wlpId}"`.
+
+The operations are the same: list, create, retrieve, update, delete, activate, and deactivate. In V2, the paths are `/connections/{connectionId}`, with `/lifecycle/activate` and `/lifecycle/deactivate` for the lifecycle calls.
+
+### Connection types
+
+V1 combines how the actor gets a token and what it connects to in one `connectionType` value. V2 splits it into two properties:
+
+- `protocol.protocolType` is `IDENTITY_ASSERTION` or `STS`.
+- `resource.resourceType` is `API_SERVER`, `A2A_SERVER`, `MCP_SERVER`, `SERVICE_ACCOUNT`, or `VAULT_SECRET`.
+
+Use this table to convert a V1 `connectionType`.
+
+| V1 `connectionType` | V2 `protocolType` | V2 `resourceType` | V2 `authorizationServer` | V2 `resourceIdentifier` |
+| --- | --- | --- | --- | --- |
+| `IDENTITY_ASSERTION_CUSTOM_AS` | `IDENTITY_ASSERTION` | None. Omit `resource`. | Required. An Okta custom authorization server. | Read-only. Okta sets it to the default audience of the authorization server. |
+| `IDENTITY_ASSERTION_APP_INSTANCE` | `IDENTITY_ASSERTION` | `API_SERVER` | Required. An external authorization server of the API server. | Required |
+| `IDENTITY_ASSERTION_A2A_SERVER` | `IDENTITY_ASSERTION` | `A2A_SERVER` | Required. An Okta custom authorization server. | Read-only. Okta sets it to the A2A server URL. |
+| `IDENTITY_ASSERTION_MCP_SERVER` | `IDENTITY_ASSERTION` | `MCP_SERVER` | Required. A custom or external authorization server. | Read-only. Okta sets it to the MCP server URL. |
+| `STS_SERVICE_ACCOUNT` | `STS` | `SERVICE_ACCOUNT` | Not applicable | Optional. Defaults to `resource.orn`. |
+| `STS_VAULT_SECRET` | `STS` | `VAULT_SECRET` | Not applicable | Optional. Defaults to `resource.orn`. |
+| `STS_ACCESS_TOKEN` for an API server or app instance | `STS`, with `protocol.credential` | `API_SERVER` | Not applicable | Required |
+| `STS_ACCESS_TOKEN` for an MCP server | `STS`, with `protocol.credential` | `MCP_SERVER` | Not applicable | Required |
+
+Not every actor can use every connection type. This table shows which actors can use each combination of protocol and resource.
+
+| Protocol | Resource | AI agent | MCP server | Virtual MCP server |
+| --- | --- | --- | --- | --- |
+| `IDENTITY_ASSERTION` | None (custom authorization server) | Yes | Yes | No |
+| `IDENTITY_ASSERTION` | `API_SERVER` | Yes | Yes | No |
+| `IDENTITY_ASSERTION` | `A2A_SERVER` | Yes | No | No |
+| `IDENTITY_ASSERTION` | `MCP_SERVER` | Yes | Yes | No |
+| `STS` | `API_SERVER` | Yes | Keep only | No |
+| `STS` | `MCP_SERVER` | Yes | Keep only | Yes |
+| `STS` | `SERVICE_ACCOUNT` or `VAULT_SECRET` | Yes | No | No |
+
+The table uses these values:
+
+- **Yes:** You can create, read, update, activate, deactivate, and delete the connection.
+- **Keep only:** Create and activate return `400`. STS needs a user, and the downstream call of an MCP server has none. You can still read, list, update, deactivate, and delete an existing connection.
+- **No:** Every operation returns `400`.
+
+### Request changes
+
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Actor | Path parameter | `actor.wlpId` in the body. `actor.wlpType` and `actor.displayName` are read-only. |
+| Type | `connectionType` | `protocol.protocolType` and `resource.resourceType` |
+| Resource reference | Differs by type: `appInstance.orn`, `secret.orn`, `app.orn` with `serviceAccount.orn`, or `resource.orn` | Always `resource.orn` with `resource.resourceType`. Omit `resource` for a custom authorization server. |
+| Target of an app instance connection | `appInstance.orn` is the app instance | `resource.orn` is the API server. Okta returns the owning app as `resource.appInstance`. |
+| Authorization server for an app instance connection | Not sent. Okta resolved it from the app instance. | `authorizationServer.orn` is required. |
+| App of a service account connection | `app.orn` is required | Removed. Okta derives `resource.appInstance` from the service account. |
+| STS access token | `resource.orn` is the client authentication settings | `resource.orn` is the API server or MCP server. `protocol.credential` holds the client authentication settings. |
+| `clientIdAtResource` | Top level | `protocol.clientIdAtResource`. You can't update it. |
+| `scopeCondition` and `scopes` | Top level | `protocol.scopeCondition` and `protocol.scopes`. Both are required for every `IDENTITY_ASSERTION` create. |
+| `resourceIndicator` | Optional on create for most types | Renamed `resourceIdentifier`. Required, optional, or read-only, depending on the type. |
+| Unknown properties | Not restricted | Not allowed on the connection, resource, and protocol objects |
+
+For an `STS` access token connection, `protocol.credential` is an object with `credentialType` set to `ACCESS_TOKEN` and the `orn` of the client authentication settings.
+
+### Response changes
+
+| Property | V1 | V2 |
+| --- | --- | --- |
+| `actor` | Not in the body | `actor` with `wlpId`, `wlpType`, and `displayName` |
+| `authorizationServer` | `orn`, `name`, `issuerUrl`, `logo`, and `_links` | `orn`, `displayName`, and `issuerUrl`. `name` is renamed `displayName`. `logo` and `_links` are removed. |
+| App instance | `appInstance.orn` or `app` with `orn`, `name`, `logo`, and `_links` | `resource.appInstance` with `orn`, `displayName`, and `logo`. Read-only, on `API_SERVER` and `SERVICE_ACCOUNT` resources. |
+| Vaulted secret | `secret` with `orn`, `name`, `description`, `path`, and `_links` | `resource` with `resourceType`, `orn`, `displayName`, `description`, and `location`. `name` becomes `displayName`, and `path` becomes `location`. |
+| Service account | `serviceAccount` with `orn`, `name`, and `_links` | `resource` with `resourceType`, `orn`, `displayName`, and `appInstance` |
+| A2A or MCP server | `resource` with `orn` and `name` | `resource` with `resourceType`, `orn`, `displayName`, and `location` |
+| STS access token resource | `resource` with IDs such as `apiServerId`, `mcpServerId`, and `appInstanceId`, plus `clientAuthSettings` | `resource` with `resourceType`, `orn`, `displayName`, and `location`. `protocol.credential` holds the client authentication settings. The raw IDs are removed. |
+| `resourceIndicator` | Present | Renamed `resourceIdentifier` |
+| `_links` | `_links.self` on every connection and on the objects it references | Removed |
+
+On a list, V2 returns `_links` as plain URL strings and adds a `Link` response header for pagination.
+
+### Update changes
+
+An update still uses JSON Merge Patch on `PATCH /connections/{connectionId}`. The changes are:
+
+- `resourceIndicator` is now `resourceIdentifier`. It's read-only for custom authorization server, A2A server, and MCP server identity assertion connections, so sending it returns `400`.
+- `scopeCondition` and `scopes` move under `protocol`. Send them together. V2 doesn't accept `null` for them, and returns `400` for `STS` connections.
+- A `null` for `resourceIdentifier` resets it to `resource.orn` for `SERVICE_ACCOUNT` and `VAULT_SECRET` connections. For `API_SERVER` connections, and for `MCP_SERVER` connections that use `STS`, `null` returns `400`.
+- `issuerUrl` is read-only. In V1, you could update it on identity assertion connections.
+- You can't change `actor`, `resource`, `protocol.protocolType`, or `protocol.clientIdAtResource`.
+
+### Response codes
+
+| Operation | V1 | V2 |
+| --- | --- | --- |
+| Create | `201` | `201`. An unknown `actor.wlpId` returns `400`, not `404`. |
+| Retrieve, update | `200` | `200` |
+| Delete | `204` | `204`. Only an `INACTIVE` connection can be deleted. An `ACTIVE` connection returns `409`. |
+| Activate, deactivate | `200` | `200` |
+
+Deactivate a connection before you delete it.
+
+### Scopes
+
+V2 accepts any one of the `okta.aiAgents.*`, `okta.resourceServers.mcpServers.*`, or `okta.resourceServers.virtualMcpServers.*` scope families on every operation. Use `.read` for `GET` calls and `.manage` for writes. You can keep the scopes that your integration uses today.
+
+### List search
+
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Parameter | `filter`, on the AI agent list only | `search` |
+| Results | The connections of one actor | All connections in the org. Narrow with `actor.wlpId`. |
+| Properties | `connectionType`, `status`, `resourceIndicator`, `authorizationServer.orn`, and `resource.orn` for A2A and MCP servers | `actor.wlpId`, `resource.orn`, `resource.appInstance.orn`, `authorizationServer.orn`, `resourceIdentifier`, `resource.resourceType`, `protocol.protocolType`, `status`, and `resource` |
+| Operators | `eq` and `and` | `eq` and `and`. `pr` on `resource` only, and `not` only as `not (resource pr)`. |
+
+The V2 `search` value can't use `or`. It also rejects repeated terms and blank values. Percent-encode the value.
+
+To find custom authorization server connections, V1 filters with `connectionType eq "IDENTITY_ASSERTION_CUSTOM_AS"`. V2 uses `protocol.protocolType eq "IDENTITY_ASSERTION" and not (resource pr)`.
+
+### Reverse lookup
+
+In V1, `GET /workload-principals/api/v1/managed-connections?filter=resourceOrn eq "{orn}"` lists the connections to a resource. In V2, use the list call with `search=resource.orn eq "{orn}"`. An unknown resource ORN returns an empty page.
+
+V1 lets you pass several resource ORNs in one call by joining them with `OR`. V2 doesn't support `or` in `search`, so make one call for each resource ORN.
+
+### Potential connections
+
+The potential connections call moves from `/workload-principals/api/v1/potential-connections` to `/resource-connections/api/v2/potential-connections`.
+
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Query | `filter` is required and selects one `connectionType`. `actorId` is optional. | `search` is optional. Without it, the call returns all candidates in the org. |
+| Forward query | `actorId` and `connectionType` | `actor.wlpId eq "{wlpId}"`. Rows include `resource` but not `actor`. |
+| Reverse query | Not available | `resource.orn eq "{orn}"`. Rows include `actor` but not `resource`. An unknown ORN returns `400`. |
+| Match | `match` for fuzzy matching | `match` for fuzzy matching on forward queries |
+
+A potential connection row isn't a complete create request. Add the `actor.wlpId` you queried by, or the `resource` for a reverse query, then send it to the create call.
+
+### What to change
+
+- Call `/resource-connections/api/v2/connections` for every actor type. Send `actor.wlpId` in the body.
+- Replace `connectionType` with `protocol.protocolType` and `resource.resourceType`. Use the conversion table.
+- Reference resources by `resource.orn`. For an app instance connection, send the API server ORN and the external authorization server ORN.
+- Move `scopeCondition`, `scopes`, and `clientIdAtResource` under `protocol`.
+- For an STS access token, send the client authentication settings ORN in `protocol.credential.orn`.
+- Rename `resourceIndicator` to `resourceIdentifier`. Don't send it for custom authorization server, A2A server, or MCP server identity assertion connections.
+- Replace `filter` and the managed connections call with `search`. Make one call for each resource ORN instead of joining them with `OR`.
+- Deactivate a connection before you delete it.
+- Stop reading `_links` on connections, and read `authorizationServer.displayName` instead of `name`.
+
+### Examples
+
+This example creates an identity assertion connection to a custom authorization server for an AI agent.
+
+The V1 request to `POST /workload-principals/api/v1/ai-agents/wlpkhjm0jnDp8RrUu0g4/connections`:
+
+```json
+{
+  "connectionType": "IDENTITY_ASSERTION_CUSTOM_AS",
+  "authorizationServer": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7"
+  },
+  "scopeCondition": "INCLUDE_ONLY",
+  "scopes": [
+    "repo.read",
+    "repo.write"
+  ]
+}
+```
+
+The V2 request to `POST /resource-connections/api/v2/connections` moves the agent into the body. There's no `resource`, because the target is the authorization server:
+
+```json
+{
+  "actor": {
+    "wlpId": "wlpkhjm0jnDp8RrUu0g4"
+  },
+  "authorizationServer": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7"
+  },
+  "protocol": {
+    "protocolType": "IDENTITY_ASSERTION",
+    "scopeCondition": "INCLUDE_ONLY",
+    "scopes": [
+      "repo.read",
+      "repo.write"
+    ]
+  }
+}
+```
+
+Both calls return `201 Created`. The V1 response has `connectionType`, `resourceIndicator`, and `_links`:
+
+```json
+{
+  "connectionType": "IDENTITY_ASSERTION_CUSTOM_AS",
+  "id": "mcn2b3c4d5e6f7g8h9i0",
+  "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:connections:mcn2b3c4d5e6f7g8h9i0",
+  "status": "ACTIVE",
+  "resourceIndicator": "https://api.example.com/orders",
+  "authorizationServer": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7",
+    "name": "Partner AS",
+    "issuerUrl": "https://example.okta.com/oauth2/aus5rb5mt2H3d1TJd0h7",
+    "_links": {
+      "self": {
+        "href": "https://example.okta.com/api/v1/authorizationServers/aus5rb5mt2H3d1TJd0h7"
+      }
+    }
+  },
+  "scopeCondition": "INCLUDE_ONLY",
+  "scopes": [
+    "repo.read",
+    "repo.write"
+  ],
+  "_links": {
+    "self": {
+      "href": "https://example.okta.com/workload-principals/api/v1/ai-agents/wlpkhjm0jnDp8RrUu0g4/connections/mcn2b3c4d5e6f7g8h9i0"
+    }
+  }
+}
+```
+
+The V2 response returns the actor, `protocol`, and `resourceIdentifier`, and has no `_links`:
+
+```json
+{
+  "id": "rcn2b3c4d5e6f7g8h9i0",
+  "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:connections:rcn2b3c4d5e6f7g8h9i0",
+  "status": "ACTIVE",
+  "actor": {
+    "wlpId": "wlpkhjm0jnDp8RrUu0g4",
+    "wlpType": "AI_AGENT",
+    "displayName": "Sales AI Agent"
+  },
+  "authorizationServer": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7",
+    "displayName": "Partner AS",
+    "issuerUrl": "https://example.okta.com/oauth2/aus5rb5mt2H3d1TJd0h7"
+  },
+  "protocol": {
+    "protocolType": "IDENTITY_ASSERTION",
+    "scopeCondition": "INCLUDE_ONLY",
+    "scopes": [
+      "repo.read",
+      "repo.write"
+    ]
+  },
+  "resourceIdentifier": "https://api.example.com/orders"
+}
+```
+
+This example creates an identity assertion connection to an A2A server.
+
+The V1 request body:
+
+```json
+{
+  "connectionType": "IDENTITY_ASSERTION_A2A_SERVER",
+  "resource": {
+    "orn": "orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:a2a:wlpkhjm0jnDp8RrUu0g4"
+  },
+  "authorizationServer": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7"
+  },
+  "scopeCondition": "INCLUDE_ONLY",
+  "scopes": [
+    "a2a.invoke"
+  ]
+}
+```
+
+The V2 request body adds the actor and `resourceType`, and moves the scopes under `protocol`:
+
+```json
+{
+  "actor": {
+    "wlpId": "wlpkhjm0jnDp8RrUu0g4"
+  },
+  "authorizationServer": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7"
+  },
+  "protocol": {
+    "protocolType": "IDENTITY_ASSERTION",
+    "scopeCondition": "INCLUDE_ONLY",
+    "scopes": [
+      "a2a.invoke"
+    ]
+  },
+  "resource": {
+    "resourceType": "A2A_SERVER",
+    "orn": "orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:a2a:wlpkhjm0jnDp8RrUu0g4"
+  }
+}
+```
+
+This example creates an STS access token connection to an API server. In V1, `resource.orn` is the client authentication settings. The V1 request body:
+
+```json
+{
+  "connectionType": "STS_ACCESS_TOKEN",
+  "resource": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc1gjh63g214q0Hq0g4"
+  }
+}
+```
+
+In V2, `resource.orn` is the API server, and the client authentication settings move to `protocol.credential`. You also send the `resourceIdentifier`:
+
+```json
+{
+  "actor": {
+    "wlpId": "wlpkhjm0jnDp8RrUu0g4"
+  },
+  "protocol": {
+    "protocolType": "STS",
+    "credential": {
+      "credentialType": "ACCESS_TOKEN",
+      "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc1gjh63g214q0Hq0g4"
+    }
+  },
+  "resource": {
+    "resourceType": "API_SERVER",
+    "orn": "orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:api:api8nUa7p0g4zrZbs2f4"
+  },
+  "resourceIdentifier": "https://api.example.com/mcp"
+}
+```
+
+This example creates an STS vaulted secret connection. In V1, `secret.orn` identifies the secret. The V1 request body:
+
+```json
+{
+  "connectionType": "STS_VAULT_SECRET",
+  "secret": {
+    "orn": "orn:okta:pam:00o1n8sbwArJ7OQRw406:secrets:d2642f68-df50-4ba8-a898-6c0f82f89d8a"
+  }
+}
+```
+
+The V2 request body uses `resource`:
+
+```json
+{
+  "actor": {
+    "wlpId": "wlpkhjm0jnDp8RrUu0g4"
+  },
+  "protocol": {
+    "protocolType": "STS"
+  },
+  "resource": {
+    "resourceType": "VAULT_SECRET",
+    "orn": "orn:okta:pam:00o1n8sbwArJ7OQRw406:secrets:d2642f68-df50-4ba8-a898-6c0f82f89d8a"
+  }
+}
+```
+
+The V2 response returns `resource.displayName` and `resource.description`, and sets `resourceIdentifier` to the secret ORN by default. V1 returned `secret.name`, `secret.path`, and `secret.description` with `_links`.
+
+This example lists the connections of an AI agent, filtered to active A2A server identity assertion connections.
+
+The V1 call filters on `connectionType`:
+
+```http
+GET /workload-principals/api/v1/ai-agents/wlpkhjm0jnDp8RrUu0g4/connections?filter=connectionType%20eq%20%22IDENTITY_ASSERTION_A2A_SERVER%22%20and%20status%20eq%20%22ACTIVE%22
+```
+
+The V2 call filters on the actor and the two type properties. Add `status eq "ACTIVE"` the same way:
+
+```http
+GET /resource-connections/api/v2/connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22%20and%20protocol.protocolType%20eq%20%22IDENTITY_ASSERTION%22%20and%20resource.resourceType%20eq%20%22A2A_SERVER%22
+```
+
+This example finds every connection to one MCP server. In V1, you use the managed connections call:
+
+```http
+GET /workload-principals/api/v1/managed-connections?filter=resourceOrn%20eq%20%22orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:mcp:mcp2c8xwvBn4h2Ry50g7%22
+```
+
+In V2, you use the list call:
+
+```http
+GET /resource-connections/api/v2/connections?search=resource.orn%20eq%20%22orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:mcp:mcp2c8xwvBn4h2Ry50g7%22
+```
+
+A V2 list returns `_links` as plain URL strings:
+
+```json
+{
+  "data": [
+    {
+      "id": "rcn3c4d5e6f7g8h9i0j1",
+      "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:connections:rcn3c4d5e6f7g8h9i0j1",
+      "status": "ACTIVE",
+      "actor": {
+        "wlpId": "wlpkhjm0jnDp8RrUu0g4",
+        "wlpType": "AI_AGENT",
+        "displayName": "Sales AI Agent"
+      },
+      "protocol": {
+        "protocolType": "STS"
+      },
+      "resource": {
+        "resourceType": "VAULT_SECRET",
+        "orn": "orn:okta:pam:00o1n8sbwArJ7OQRw406:secrets:d2642f68-df50-4ba8-a898-6c0f82f89d8a",
+        "displayName": "DB Password",
+        "description": "Production DB credentials"
+      },
+      "resourceIdentifier": "orn:okta:pam:00o1n8sbwArJ7OQRw406:secrets:d2642f68-df50-4ba8-a898-6c0f82f89d8a"
+    }
+  ],
+  "_links": {
+    "self": "https://example.okta.com/resource-connections/api/v2/connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22&limit=2",
+    "next": "https://example.okta.com/resource-connections/api/v2/connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22&after=rcn3c4d5e6f7g8h9i0j1&limit=2"
+  }
+}
+```
+
+This example lists the potential connections of an AI agent. The V1 call requires a `connectionType` in `filter` and passes the agent as `actorId`:
+
+```http
+GET /workload-principals/api/v1/potential-connections?filter=connectionType%20eq%20%22IDENTITY_ASSERTION_A2A_SERVER%22&actorId=wlpkhjm0jnDp8RrUu0g4
+```
+
+The V2 call passes the agent in `search`, and the type properties are optional:
+
+```http
+GET /resource-connections/api/v2/potential-connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22%20and%20protocol.protocolType%20eq%20%22IDENTITY_ASSERTION%22%20and%20resource.resourceType%20eq%20%22A2A_SERVER%22
+```
+
+<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. TODO: Confirm the availability in the summary table. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs, and the section is now complete. The row still says "Not yet available" until engineering confirms. TODO: Confirm whether connection IDs and ORNs keep their value and prefix between V1 and V2. The V1 examples use `mcn` IDs and the V2 examples use `rcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). TODO: Confirm the Okta MCP Server connection. The V2 spec shows an org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) for MCP_SERVER under XAA_OKTA_MCP_SERVER, but the wiki says create rejects it today (gap G3). The guide omits it. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. TODO: Confirm that scopes-only updates are rejected. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). The guide says to send them together. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. -->
+
+V1 managed connections and the AI agent, MCP server, and virtual MCP server connection APIs remain until the V1 cutoff.
 
 ## Migration checklist
 
@@ -1565,8 +2720,14 @@ V2 consolidates the AI Agent Connections, Virtual MCP Connections, and Potential
 9. Move `displayName`, `description`, `scopesSupported`, and `app` under `metadata` in MCP server and API server create and update requests. Read `detectedMetadata` values from `metadata`.
 10. Create external authorization servers with the External Authorization Servers API, then link them to resource servers by `orn`. Move `subjectMappingExpression` and endpoint changes to that API.
 11. For MCP servers, replace `protocolConfigured` and `tenantId` with `protocolConfigurations`.
-12. Poll a resource server operation only after you register a `DISCOVERABLE` MCP server or change an MCP server `resourceUrl`.
-13. Test your integration against V2 before the V1 cutoff date.
+12. Poll a resource server operation only after you register a `DISCOVERABLE` MCP server, change an MCP server `resourceUrl`, or start MCP server discovery.
+13. Change the paths for virtual MCP servers from `/virtual-mcp-servers` to `/agent-gateways` in the Workload Principals and Resource Servers APIs.
+14. In MCP server discovery requests, move `type` (renamed `authType`), `clientAuthSettingsOrn`, `authorizationServerOrn`, and `scopes` under `credential`.
+15. Call `/resource-connections/api/v2/connections` for AI agent, MCP server, and virtual MCP server connections. Send `actor.wlpId` in the body, and replace `connectionType` with `protocol.protocolType` and `resource.resourceType`.
+16. In connection calls, move `scopeCondition`, `scopes`, and `clientIdAtResource` under `protocol`, and rename `resourceIndicator` to `resourceIdentifier`.
+17. Replace the `filter` parameter and the managed connections call with `search`. Deactivate a connection before you delete it.
+18. Stop calling the add and remove authorization server operations on virtual MCP servers. V2 doesn't include them.
+19. Test your integration against V2 before the V1 cutoff date.
 
 ## See also
 
