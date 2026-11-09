@@ -9,8 +9,6 @@ This guide shows you how to build a FastAPI app that authenticates users with Ok
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Copilot Studio-specific code and the configuration that consumes it.
 
-<!-- TODO: Confirm with engineering how this guide relates to the Okta Agent Gateway and Model Context Protocol (MCP) integration for Copilot Studio (Confluence page 1173974555). That approach registers the gateway as an MCP tool in Copilot Studio and doesn't use the token exchange module. This guide covers only the Direct Line wrapper. Decide whether to document the gateway approach in a separate guide. -->
-
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
 ---
@@ -96,9 +94,9 @@ Okta imports AI agents from Microsoft 365 through the Microsoft Office 365 app i
 1. On the **Resource connections** tab, click **Add resource connection**. For **Resource type**, select **Authorization server**, select your custom authorization server, and then set the scopes to **Only allow** with your custom scope, such as `xaa:read`.
 1. Click **Actions** > **Activate**.
 
-<!-- TODO: Confirm with engineering whether standalone Copilot Studio AI agents can be imported in any way. The source material says the Microsoft import lists only Microsoft 365 declarative AI agents through Microsoft Graph. Also confirm the exact steps and labels for manual registration against the current Admin Console, and whether to link to the Okta Help Center "Add AI agents manually" page instead of repeating the procedure. -->
+<span style="color: #c0392b;">**TODO (Engineering):** Confirm whether standalone Copilot Studio AI agents can be imported in any way. The source material says the Microsoft import lists only Microsoft 365 declarative AI agents through Microsoft Graph. Also confirm the exact steps and labels for manual registration against the current Admin Console, and whether to link to the Okta Help Center "Add AI agents manually" page instead of repeating the procedure.</span>
 
-<!-- TODO: If you want to import Microsoft 365 declarative AI agents instead, add the import procedure here. The source material describes an Azure Entra ID app registration with the CopilotPackages.Read.All Application permission and admin consent, then entering the client ID, tenant ID, and client secret value on the Microsoft Office 365 app's AI agent import tab. -->
+<span style="color: #c0392b;">**TODO (Engineering):** If you want to import Microsoft 365 declarative AI agents instead, add the import procedure here. The source material describes an Azure Entra ID app registration with the CopilotPackages.Read.All Application permission and admin consent, then entering the client ID, tenant ID, and client secret value on the Microsoft Office 365 app's AI agent import tab.</span>
 
 ### Collect your configuration values
 
@@ -112,7 +110,7 @@ Your FastAPI app reads these values as environment variables. The token exchange
 | --- | --- | --- |
 | `COPILOT_DIRECT_LINE_SECRET` | The Direct Line secret key for your published standalone AI agent | **Copilot Studio** > your AI agent > **Channels** > **Custom website** > **Secret key** |
 
-<!-- TODO: Confirm the Direct Line base URL (DIRECT_LINE_URL in the sample code). The source code uses a DIRECT_LINE_URL constant, but the source material doesn't give its value or say whether to read it from an environment variable. Confirm the regional endpoint for your tenant. -->
+<span style="color: #c0392b;">**TODO (Engineering):** Confirm the Direct Line base URL (DIRECT_LINE_URL in the sample code). The source code uses a DIRECT_LINE_URL constant, but the source material doesn't give its value or say whether to read it from an environment variable. Confirm the regional endpoint for your tenant.</span>
 
 ## Add Okta authentication to your AI agent
 
@@ -200,7 +198,7 @@ uvicorn>=0.29.0
 python-dotenv>=1.0.0
 ```
 
-<!-- TODO: Confirm the dependency list. The source material doesn't include a requirements.txt for the Copilot Studio wrapper. The sample code reuses the requests and PyJWT packages that the token exchange module already installs. -->
+<span style="color: #c0392b;">**TODO (Engineering):** Confirm the dependency list. The source material doesn't include a requirements.txt for the Copilot Studio wrapper. The sample code reuses the requests and PyJWT packages that the token exchange module already installs.</span>
 
 Install the complete set of dependencies:
 
@@ -338,7 +336,7 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 
-<!-- TODO: Confirm the Direct Line base URL (https://directline.botframework.com/v3/directline) and that the standalone Copilot Studio channel uses it. The source material lists the three Direct Line calls (POST /v3/directline/conversations, POST /conversations/{id}/activities, GET /conversations/{id}/activities) but not the host. -->
+<span style="color: #c0392b;">**TODO (Engineering):** Confirm the Direct Line base URL (https://directline.botframework.com/v3/directline) and that the standalone Copilot Studio channel uses it. The source material lists the three Direct Line calls (POST /v3/directline/conversations, POST /conversations/{id}/activities, GET /conversations/{id}/activities) but not the host.</span>
 
 > **Note:** The `access_token` is available in your app after step 2 of the token exchange. You can pass it to downstream Okta-protected APIs. In this pattern, your app obtains it but doesn't forward it to the Copilot Studio AI agent. The AI agent receives only the user's name, email, and subject in the message.
 
