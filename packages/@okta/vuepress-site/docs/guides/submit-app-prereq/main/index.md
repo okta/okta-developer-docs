@@ -98,7 +98,7 @@ Part of your OIN Wizard journey includes using the OIN Submission Tester to veri
 
 #### OIN Wizard Okta Browser Plugin setup
 
-See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=eu&id=ext_plugin_installation).
+See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=oie&id=ext_plugin_installation).
 
 > **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.39.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
 
@@ -526,6 +526,8 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
+* **On-premises apps:** The OIN Wizard only supports Software-as-a-Service (SaaS) app integrations. On-premises apps aren't eligible for OIN publication.
+
 * **SPA apps:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a back-end server handles the authentication. See the [Enterprise-Ready workshop](https://developer.okta.com/blog/2023/07/28/oidc_workshop) for more information on authenticating SaaS apps with OpenID Connect.
 
 * **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be available in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
@@ -594,11 +596,11 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
-### API Integration Actions limitations
+### API integration actions limitations
 
-* Integrations that use API Integration Actions for Universal Logout is only supported with the SSO capabililty. You must select a SSO capabililty before you can select API Integration Actions for Universal Logout.
+* Integrations that use API integration actions for Universal Logout are only supported with the SSO capability. You must select an SSO capability before you can select API integration actions for Universal Logout.
 
-* For integrations with multiple capabilities that include API Integration Actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** navigation path in the Admin Console. API Integration Actions capability isn't available through the **Home** landing page.
+* For integrations with multiple capabilities that include API integration actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** navigation path in the Admin Console. The API integration actions capability isn't available through the **Home** landing page.
 
 ## Next step
 

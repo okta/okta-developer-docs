@@ -1,6 +1,6 @@
 In this step, after Agent 1 receives the access or ID token (T1), Agent 1 sends a `POST` request to the Okta org authorization server's `/token` endpoint as the requesting app. This request is to exchange the token for an ID-JAG resource token (T2). This exchange establishes Agent 1 as the immediate actor in the delegation chain while maintaining the original service client as the subject.
 
-This request supports multiple client authentication methods. The example below changes, depending on how the agent was configured to authenticate it's identity to Okta. See [Add client registration details](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) on the Add AI agents manually page in the help docs.
+This request supports multiple client authentication methods. The example below changes, depending on how the agent was configured to authenticate its identity to Okta. See [Add client registration details](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) on the Add AI agents manually page in the help docs.
 
 > **Note**: This request example uses the access token subject token type and public/private key for client authentication. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#client-authentication-methods) for more details on each type of authentication method.
 

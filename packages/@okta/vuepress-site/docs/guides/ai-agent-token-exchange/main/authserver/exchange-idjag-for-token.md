@@ -17,6 +17,8 @@ After receiving the ID-JAG, the agent sends a `POST` request to the resource aut
 | --- | --- |
 | `grant_type` | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `assertion` | The ID-JAG that's received in the **Exchange subject token for resource token** response. |
+| `client_assertion_type` | The type of assertion. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | A signed JWT that's used for client authentication. You must sign the JWT using the key that you created when you registered the AI agent. |
 
 #### Response
 
@@ -27,6 +29,38 @@ The response contains the access token that the AI agent uses to access the reso
   "token_type": "Bearer",
   "expires_in": 3600,
   "access_token": "eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0blJobUY4Q0xTaUdBenlwemJVIiwiYWxnIjoi...",
-  "scope": "chat.read+chat.history"
+  "scope": "chat.read chat.history"
+}
+```
+
+If the ID-JAG doesn't contain a `resource` claim, then the access token's `aud` claim is the default audience configured on the custom authorization server.
+
+```JSON
+{
+  "iss": "https://{yourOktaDomain}/oauth2/{authServerId}",
+  "sub": "0oa9jh6hizeR7uMag0g7",
+  "aud": "https://{yourOktaDomain}/oauth2/{authServerId}",
+  "iat": 1780596935,
+  "exp": 1780600535,
+  "scope": "chat.read chat.history",
+  "sub_profile": "service"
+}
+```
+
+If the ID-JAG does contain the `resource` claim, then the access token's `aud` claim matches that resource URL instead of the resource URL configured on the custom authorization server:
+
+```JSON
+{
+  "iss": "https://{yourOktaDomain}/oauth2/{authServerId}",
+  "sub": "0oa9jh6hizeR7uMag0g7",
+  "aud": "https://mcpserver1.example.com",
+  "iat": 1780596935,
+  "exp": 1780600535,
+  "scope": "chat.read chat.history",
+  "sub_profile": "service",
+  "act": {
+     "sub": "{aiAgentPrincipalId}",
+     "sub_profile": "ai_agent"
+   }
 }
 ```

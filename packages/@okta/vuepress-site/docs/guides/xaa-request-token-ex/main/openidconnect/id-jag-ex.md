@@ -58,7 +58,7 @@ If you decode the ID-JAG token, the following claims appear in the payload.
   "iss": "https://{yourOktaDomain}", // The Okta org that issued the ID-JAG
   "sub": "00uzkk8ctx1WtQ8fy1d7",     // The user ID
   "aud": "https://as.myresource.com", // The resource audience: {resourceAud}
-  "client_id": "0oaa0esowyOyPreaI0g7",   // The resource server's client ID: {resourceClientId}
+  "client_id": "wlpa0eiuaoCNrpoaE0g7",   // The requesting client ID registered at the resource authorization server: {clientId}
   "resource": "{resourceApiUrl}",
   "scope": "my.xaa.a.read my.xaa.b.manage",  // resource server scopes requested: {idJagScopes}
   "email": "example.user@okta.com",    // The user's email

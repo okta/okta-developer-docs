@@ -4,41 +4,50 @@
   <title>Okta Developer Tools release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/</link>
   <description>Recent release notes for Okta Developer Tools</description>
-  <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
   
     <item>
+      <title>Version 2026.41.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&amp;utm_medium=feed#version-2026-41-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#version-2026-41-0</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#developer-documentation-update-in-2026-41-0">Developer documentation update in 2026.41.0</a>]]></description>
+    </item>
+  
+
+    <item>
       <title>Monthly release 2026.08.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-08-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-08-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-08-0</guid>
       <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#okta-client-sdk-for-swift-220-adds-pushed-authorization-request-support">Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#okta-client-sdk-for-kotlin-300-adds-kotlin-multiplatform-support">Okta Client SDK for Kotlin 3.0.0 adds Kotlin Multiplatform support</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#bugs-fixed-in-okta-client-sdk-for-swift-220">Bugs fixed in Okta Client SDK for Swift 2.2.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#bugs-fixed-in-okta-client-sdk-for-kotlin-300">Bugs fixed in Okta Client SDK for Kotlin 3.0.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#okta-client-sdk-for-swift-220-adds-pushed-authorization-request-support">Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#okta-client-sdk-for-kotlin-300-adds-kotlin-multiplatform-support">Okta Client SDK for Kotlin 3.0.0 adds Kotlin Multiplatform support</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#bugs-fixed-in-okta-client-sdk-for-swift-220">Bugs fixed in Okta Client SDK for Swift 2.2.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#bugs-fixed-in-okta-client-sdk-for-kotlin-300">Bugs fixed in Okta Client SDK for Kotlin 3.0.0</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.07.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-07-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-07-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-07-0</guid>
       <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#manage-resource-owners">Manage resource owners</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#manage-labels">Manage labels</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#manage-resource-owners">Manage resource owners</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#manage-labels">Manage labels</a>]]></description>
     </item>
   
 
     <item>
       <title>Monthly release 2026.06.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-06-0</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&amp;utm_medium=feed#monthly-release-2026-06-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-06-0</guid>
       <pubDate>Thu, 04 Jun 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#manage-identity-sources-with-the-okta-terraform-provider">Manage identity sources with the Okta Terraform provider</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#manage-identity-sources-with-the-okta-terraform-provider">Manage identity sources with the Okta Terraform provider</a>]]></description>
     </item>
   
 
     <item>
       <title>Weekly release 2026.04.3</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#weekly-release-2026-04-3</link>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&amp;utm_medium=feed#weekly-release-2026-04-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#weekly-release-2026-04-3</guid>
       <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#identity-threat-protection-managed-with-terraform">Identity Threat Protection managed with Terraform</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/?utm_source=rss&utm_medium=feed#identity-threat-protection-managed-with-terraform">Identity Threat Protection managed with Terraform</a>]]></description>
     </item>
   
 </channel>

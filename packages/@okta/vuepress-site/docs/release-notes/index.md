@@ -7,7 +7,7 @@ meta:
 
 # Okta Developer Doc Release Notes
 
-Each month, Okta releases API-specific features, enhancements, bug fixes, and Okta Integration Network updates. The monthly release includes Generally Available (GA) and Early Access (EA) features. Following the monthly release, bug fixes and stability improvements are deployed weekly for the remainder of the month.
+Okta continually releases new features and fixes. Features are generally first deployed to the Preview environments, and then later promoted to the Production environments.
 
 You can identify your product type and release version from the Admin Console. The page footer contains the cell number for your org, your org type (Preview or Production), your product type (C - Classic Engine, E - Identity Engine), and the release version.
 

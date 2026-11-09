@@ -92,8 +92,6 @@ Once the operation's `status` is `COMPLETED`, use its `resource.id` to retrieve 
 }
 ```
 
-> **Note:** If you register an AI agent with a CIMD client through the API, it doesn't appear on the **AI agent** > **Credentials** tab in the Admin Console. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. It doesn't mean that registration failed.
-
 CIMD client ID matching is exact-match only. Okta doesn't support pattern or regex matching for CIMD clients.
 
 ## Configure an existing AI agent as a CIMD client

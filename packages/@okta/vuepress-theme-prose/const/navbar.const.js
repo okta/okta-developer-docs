@@ -600,8 +600,14 @@ export const guides = [
             guideName: "ai-configure-agent-for-gateway",
           },
           {
+            title: "Connect MCP servers to downstream resources",
+            guideName: "ai-mcp-server-token-exchange",
+          },
+          {
             title: "Configure an Agent Gateway",
             guideName: "ai-configure-agent-gateway",
+          },
+          {
             title: "Register AI agents with CIMD",
             guideName: "ai-agent-cimd-registration",
           },
@@ -610,12 +616,28 @@ export const guides = [
             path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
               {
-                title: "Secure Amazon Bedrock Agents with Okta",
+                title: "Secure Amazon Bedrock Classic AI agents with Okta",
                 guideName: "ai-agent-secure-aws-bedrock"
               },
               {
-                title: "Secure an Amazon Bedrock AgentCore agent",
+                title: "Secure an Amazon Bedrock AgentCore AI agent",
                 guideName: "ai-agent-secure-amazon-bedrock",
+              },
+              {
+                title: "Secure Azure AI Foundry AI agents",
+                guideName: "ai-agent-secure-azure",
+              },
+                            {
+                title: "Secure a DataRobot AI agent",
+                guideName: "ai-agent-secure-datarobot",
+              },
+              {
+                title: "Secure a Google Vertex AI agent",
+                guideName: "ai-agent-secure-google-vertex",
+              },
+              {
+                title: "Secure a Salesforce Agentforce AI agent",
+                guideName: "ai-agent-secure-salesforce-agentforce",
               },
             ],
           },
@@ -740,12 +762,20 @@ export const guides = [
             guideName: "xaa-agent-to-app",
           },
           {
+            title: "Configure XAA with an external IdP",
+            guideName: "xaa-external-idp",
+          },
+          {
             title: "Implement XAA token exchange for your requesting app",
             guideName: "xaa-request-token-ex",
           },
           {
             title: "Expose XAA metadata for your resource app",
             guideName: "xaa-resource-metadata",
+          },
+          {
+            title: "Validate ID-JAG tokens on your authorization server",
+            guideName: "xaa-validate-id-jag",
           },
         ],
       },
@@ -889,6 +919,18 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
+                title: "Submit a Cross App Access integration",
+                guideName: "submit-xaa-app",
+              },
+              {
+                title: "Submit an API service integration",
+                guideName: "submit-apiservice-app",
+              },
+              {
+                title: "Submit an integration with API integration actions",
+                guideName: "submit-wfactions-app",
+              },
+              {
                 title: "OIN Wizard: Update an integration",
                 guideName: "update-oin-app",
               },
@@ -897,6 +939,10 @@ export const guides = [
                 guideName: "submit-app",
               },
             ]
+          },
+          {
+            title: "Monitor integration performance",
+            path: "/docs/guides/oin-monitor-integration-performance/",
           },
         ],
       },
@@ -1114,6 +1160,19 @@ export const guides = [
               {
                 title: "Session changes",
                 guideName: "oie-upgrade-sessions-api",
+              },
+            ],
+          },
+          {
+            title: "App-level upgrade",
+            subLinks: [
+              {
+                title: "Switch an app to the Identity Engine pipeline",
+                guideName: "oie-upgrade-app-pipeline",
+              },
+              {
+                title: "Manage app branding during the Identity Engine upgrade",
+                guideName: "oie-upgrade-app-branding",
               },
             ],
           }
@@ -1374,6 +1433,19 @@ export const journeys = [
           },
         ]
       },
+      {
+        title: "Build your integration",
+        subLinks: [
+          {
+            title: "Build an XAA requesting app",
+            journeyName: "XAA-requesting-app"
+          },
+          {
+            title: "Build an XAA resource app",
+            journeyName: "XAA-resource-app"
+          },
+        ]
+      }
     ],
   }
 ];

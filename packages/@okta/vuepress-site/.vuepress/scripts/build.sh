@@ -1,6 +1,11 @@
 #!/bin/sh
 echo "[build.sh] NODE_OPTIONS inherited from environment: '${NODE_OPTIONS}'"
-export NODE_OPTIONS="${NODE_OPTIONS:-"--max-old-space-size=8192"}"
+# Preserve inherited options (such as --use-openssl-ca), adding a heap limit
+# only when one has not been explicitly configured.
+case " ${NODE_OPTIONS:-} " in
+  *" --max-old-space-size="*|*" --max_old_space_size="*) ;;
+  *) export NODE_OPTIONS="${NODE_OPTIONS:+${NODE_OPTIONS} }--max-old-space-size=8192" ;;
+esac
 echo "[build.sh] NODE_OPTIONS in effect: '${NODE_OPTIONS}'"
 node -e "console.log('[build.sh] effective V8 heap limit (MB):', Math.round(require('v8').getHeapStatistics().heap_size_limit/1024/1024))"
 export BUILD_WORKER_THREADS="${BUILD_WORKER_THREADS:-2}"

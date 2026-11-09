@@ -9,6 +9,129 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## October
+
+### Version 2026.44.0
+<!-- Published on: 2026-10-28T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Anything-as-a-Source device import is GA in Production](#anything-as-a-source-device-import-is-ga-in-production) | August 5, 2026 |
+| [High Risk Proxy detection is GA in Preview](#high-risk-proxy-detection-is-ga-in-preview) | October 28, 2026 |
+| [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | October 7, 2026 |
+| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
+| [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
+| [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
+| [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) |  |
+| [Monitor integration performance](#monitor-integration-performance) ||
+| [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
+
+#### Anything-as-a-Source device import is GA in Production
+
+The Identity Sources API now supports bulk device import for Anything-as-a-Source (XaaS) integrations, through the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-upsert`) and [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-delete`) endpoints. These calls allow you to synchronize device inventory (serial number, platform, and display name) from your identity source in the same identity-source session as your user and group data, giving you a single workflow to keep all three entity types in sync. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
+<!-- OKTA-1214738 OKTA-1218468 OKTA-1295023 IDENTITY_SOURCE_DEVICE_IMPORT -->
+
+#### High Risk Proxy detection is GA in Preview
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/listnetworkzones#other/listnetworkzones/t=response&c=200&path=&d=2/ipservicecategories) now supports a new `HIGH_RISK_PROXIES` IP service category. This category is powered by an Okta-curated list of proxy providers that Okta CyberDefense has identified as consistently high-risk, based on correlation with observed attacks such as credential stuffing and rate-limit abuse.
+<!-- OKTA-1216387 NETWORK_ZONE_HIGH_RISK_PROXIES_DETECTION -->
+
+#### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production
+
+OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+<!-- OKTA-1265993 ON_BEHALF_TOKEN_EXCHANGE_ACT_CLAIM -->
+
+#### System Log event for indicators of compromise detection is GA in Preview
+
+The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect).
+<!-- OKTA-1287415 -->
+
+#### New System Log event for updates to the managed server's attributes in Okta Privileged Access
+
+A new System Log event (`pam.server.update`) has been added to track changes for servers managed by Okta Privileged Access. The event is generated when a server becomes inactive and it stops contacting Okta for longer than its configured visibility window. See [Event Types](https://developer.okta.com/docs/reference/api/event-types/).
+<!-- OKTA-1295331 -->
+
+#### System Log event for updated IoC protection status is GA in Preview
+
+The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update).
+<!-- OKTA-1295421 -->
+
+#### OAuth 2.0 client credentials grant is GA
+
+The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions integration setup. ISVs specify only a token endpoint, with no shared credentials or sign-in redirects to manage. Admins set their own tenant-specific client ID and secret. Okta generates and refreshes access tokens automatically, so user sync stays reliable without manual sign-in.
+<!-- OKTA-1293764 -->
+
+#### Monitor integration performance
+
+After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
+<!-- OKTA-1288974-->
+
+#### Bugs fixed in 2026.44.0
+
+* The [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers) API (`GET /api/v1/groups/{groupId}/users`) returned the first page again instead of the remaining members when paging through large app-imported groups. (OKTA-1265598)
+
+* When you created an OIDC app (`POST /apps`) with `self_signed_tls_client_auth` as the token endpoint authentication method, the request succeeded even when the app had no JWK with an `x5c` attribute. (OKTA-1294374)
+
+* The Application Public Keys API (`POST /apps/{appId}/credentials/jwks/{keyId}/lifecycle/deactivate`) incorrectly allowed you to deactivate the last active JWK with an `x5c` attribute for an app that used `self_signed_tls_client_auth`. This caused the app's requests to the `/token` endpoint to fail. (OKTA-1299403)
+
+### Version 2026.42.1
+<!-- Published on: 2026-10-14T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview](#mutual-tls-client-authentication-for-oauth-2-0-is-self-service-ea-in-preview) | October 14, 2026 |
+
+#### Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview
+
+The `self_signed_tls_client_auth` client authentication method is now available for OAuth 2.0 and OpenID Connect apps. Clients authenticate by presenting a self-signed X.509 certificate during the TLS handshake. Okta then issues access tokens that are bound to that certificate, so an intercepted token can't be replayed without the certificate's private key. The `self_signed_tls_client_auth` value is supported for the `token_endpoint_auth_method` property in the Apps API and the Dynamic Client Registration API. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#tls-client-certificate).
+
+<!-- OAUTH2_MTLS OKTA-1294131 preview date: oct 14, 2026 -->
+
+### Version 2026.41.0
+<!-- Published on: 2026-10-07T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | October 7, 2026 |
+| [Password provisioning is now configurable during user creation](#password-provisioning-is-now-configurable-during-user-creation) | October 7, 2026 |
+| [PowerShell scripts for Active Directory is GA in Production](#powershell-scripts-for-active-directory-is-ga-in-production) | October 7, 2026 |
+| [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
+| [App branding migration](#app-branding-migration) | October 7, 2026 |
+| [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
+
+#### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview
+
+OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+<!-- OKTA-1265993 ON_BEHALF_TOKEN_EXCHANGE_ACT_CLAIM preview date: oct 7, 2026 -->
+
+#### Password provisioning is now configurable during user creation
+
+Enable or disable whether Okta sends a password during user creation in SCIM 2.0 test app templates (OAuth Bearer Token, Basic Auth, and Header Auth). To configure this, navigate to **Provisioning** > **To App** > **Create Users** and toggle the **Set password when creating a new user** setting. See [To App](/docs/guides/scim-provisioning-integration-connect/main/#to-app).
+
+#### PowerShell scripts for Active Directory is GA in Production
+
+Admins can now execute custom PowerShell scripts in on-premises Active Directory environments using the Active Directory agent to support custom lifecycle management functionalities. After configuration, admins can invoke scripts through Okta Workflows using the Okta public API. See [Enable and configure PowerShell script in Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-agent-powershell-script) and [Invoke a remote script on the AD agent](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration/other/invokeremotescript).
+
+#### New System Log events for staging Access Certification campaigns is EA
+
+The System Log now logs the following events for staging Access Certification campaigns:
+
+* `certification.campaign.stage.start`: This event is logged when the staging process starts for a campaign.
+* `certification.campaign.stage.end`: This event is logged when the campaign staging process ends. The `outcome.result` field reports `SUCCESS` if the campaign snapshot is created successfully, or `FAILURE` if there were errors during the staging process.
+
+See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=campaign.stage).
+<!-- OKTA-1282649  Preview Oct. 7, 2026 -->
+
+#### App branding migration
+
+Currently, when you upgrade to Identity Engine, that upgrade happens for your entire org, at a global level. You must prepare all of your customizations and integrations for every app before upgrading your tenant and then reconfigure your upgraded org. If anything goes wrong, the whole upgrade must be rolled back.
+
+The app branding migration feature allows eligible orgs to stage, preview, and deploy Identity Engine on an app-by-app basis while preserving their Classic Engine customizations and brands. Upgrade your most important and high-traffic apps first and with confidence, while leaving less critical apps for a later time. If anything goes wrong, only the affected apps need to be rolled back. See [App-level upgrade](/docs/guides/app-level-upgrade/). <!--OKTA-1255018, KS: team.authx.interop.preOieUpgradeEligibility.enabled -->
+
+#### Developer documentation updates in 2026.41.0
+
+Beginning in October, Okta release version notations are changing from year.month to year.week. For example, 2026.10.0 will become 2026.41.0, where 41 indicates the week of the year that the deployment occurs. More information is available in this [knowledge base article](https://support.okta.com/help/s/article/okta-update-to-delivery-release-cadence-and-deployment-version-naming-in-october-2026).
+
 ## September
 
 ### Weekly release 2026.09.1
@@ -49,7 +172,7 @@ See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?
 
 #### Cross App Access submission through the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
+ISV and partners can now configure, test, and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern, and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-xaa-app/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
 
 #### New IP Service available for enhanced dynamic network zones
 
@@ -478,7 +601,7 @@ With Enhanced DR, admins gain active control to initiate a failover and restore 
 #### Submit API service integrations
 
 Independent Software Vendors (ISVs) can now use the OIN Wizard to submit API service integrations to the Okta Integration Network (OIN). Previously, ISVs provided metadata in the OIN Manager. With this update, ISVs can create and configure API service apps directly within the OIN Wizard
-The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 <!-- OKTA-1119846 API_SERVICE_SUBMISSION preview date: March 4, 2026  -->
 
 #### Admin Console Home page
@@ -499,7 +622,7 @@ The inline hook and event hook framework now supports read and write permissions
 #### Developer documentation updates in 2026.03.0
 
 * Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
-* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 * A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
   * Initiate failover and restoration (failback) using the self-service portal or APIs.
   * Validate system resilience by safely testing recovery capabilities.

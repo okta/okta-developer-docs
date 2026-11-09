@@ -6,11 +6,16 @@ guides:
  - ai-agent-secure-amazon-bedrock
  - ai-agent-secure-aws-bedrock
  - ai-agent-cimd-registration
+ - ai-agent-secure-datarobot
+ - ai-agent-secure-azure
+ - ai-agent-secure-google-vertex
+ - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
  - ai-configure-agent-for-gateway
+ - ai-mcp-server-token-exchange
  - app-cimd-registration
  - app-provisioning-connection
  - archive-auth-js
@@ -104,6 +109,9 @@ guides:
  - submit-app
  - submit-app-prereq
  - submit-oin-app
+ - submit-xaa-app
+ - submit-wfactions-app
+ - submit-apiservice-app
  - update-oin-app
  - deployment-checklist
  - deploy-your-app
@@ -190,6 +198,9 @@ guides:
  - oie-upgrade-test-widget-custom
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
+ # App-level upgrade
+ - oie-upgrade-app-pipeline
+ - oie-upgrade-app-branding
  - oie-choose-signin-deploy
  - oie-manage-id-first-signin
  - authenticators-overview
@@ -230,6 +241,8 @@ guides:
  - xaa-resource-metadata
  - xaa-agent-to-app
  - xaa-request-token-ex
+ - xaa-validate-id-jag
+ - xaa-external-idp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -326,6 +339,10 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app-overview/)
+
+## Monitor integration performance
+
+After your integration is published in the OIN, track its performance and adoption. See [Monitor integration performance](/docs/guides/oin-monitor-integration-performance/).
 
 ## Perform Identity Governance tasks through the API
 
