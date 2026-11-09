@@ -205,7 +205,7 @@ In V2, `_links.self` is a plain URL string:
 }
 ```
 
-<!-- TODO: Confirm with engineering whether the V2 reference docs will describe ID_TOKEN links as deprecated or removed. -->
+<!-- The V2 delegation links spec describes ID_TOKEN as deprecated: returned for existing links only, and not usable when creating a new link. The guide matches. -->
 
 <!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). -->
 
@@ -523,7 +523,7 @@ Neither version paginates the credential lists. An agent has at most 50 JWKs and
 
 The public key mode and JWKS URI operations are the same in V1 and V2. They have the same fields, and neither version returns `_links`.
 
-<!-- TODO: Confirm the feature gate with engineering. The Confluence page (1176240645) says V2 is gated by SECURE_AI_ALTERNATIVE_TOKEN_ENDPOINT_AUTH_METHODS instead of SECURE_AI_XAA, but the okta-oas3 master V2 spec (agentCredentialsPublicKeys-v2.yaml) uses SECURE_AI_XAA. The guide follows the spec. -->
+<!-- The wiki (Confluence page 1176240645, version 6) says V2 public key mode and JWKS URI are gated by SECURE_AI_ALTERNATIVE_TOKEN_ENDPOINT_AUTH_METHODS instead of SECURE_AI_XAA. The okta-oas3 spec changed that on 2026-10-26 (OKTA-1308840) to align V2 with V1, so both versions use SECURE_AI_XAA. The wiki is out of date on this point. -->
 
 ### What to change
 
@@ -607,7 +607,7 @@ With `links=ALL`, each credential includes `activate`, `deactivate`, and `delete
 }
 ```
 
-<!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). -->
+<!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). The wiki says V2 credential links have no delete link and that the links parameter accepts only ALL, activate, and deactivate. The okta-oas3 spec added the delete link on 2026-10-29 (OKTA-1308918), so the guide follows the spec. -->
 
 ## AI Agent Registration
 
@@ -1867,7 +1867,7 @@ The endpoints, operations, and scopes are the same in V1 and V2. V2 restructures
 | `clientCredentials` | Top-level object with `clientId` and `clientSecret`. `clientSecret` is write-only. | Moved to `oauthClientConfiguration.clientCredentials`. Adds a required `credentialType` of `CLIENT_SECRET`. Create requests need `credentialType`, `clientId`, and `clientSecret`. |
 | `scopes` | `oauthConfiguration.scopes` | `oauthClientConfiguration.scopes` |
 | `grantTypes` | `oauthConfiguration.grantTypes`. Optional. Defaults to `authorization_code`. | `oauthClientConfiguration.grantTypes`. Required whenever `oauthClientConfiguration` is present. Adds `client_credentials` to the allowed values. |
-| `additionalRequestParameters` | Not available. | New. `oauthClientConfiguration.additionalRequestParameters` holds custom key-value parameters for the authorize and token requests. Only for API server and MCP server resources. |
+| `additionalRequestParameters` | Not available. | New. `oauthClientConfiguration.additionalRequestParameters` holds custom key-value parameters. `authorize` takes parameters for `authorization_code`. `token` takes parameters for `authorization_code`, `refresh_token`, `client_credentials`, and `urn:ietf:params:oauth:grant-type:jwt-bearer`. Only for API server and MCP server resources. |
 | `authorizationServerConfiguration` | Not available. | New. Overrides the `authorizeEndpoint` and `tokenEndpoint` URLs. Only for eligible app resources, such as Workday and Databricks. Okta rejects it for any other resource. |
 | `_links` on individual objects | Required. `_links.self` is an object with an `href`. | Removed. |
 
@@ -1894,7 +1894,7 @@ V2 also validates the new properties:
 | --- | --- | --- |
 | Client secret rotation | `clientCredentials.clientSecret` | `oauthClientConfiguration.clientCredentials.clientSecret`. You can also send `credentialType`, which must remain `CLIENT_SECRET`. |
 | Scopes | `oauthConfiguration.scopes`. Set `oauthConfiguration` to `null` to remove it. | `oauthClientConfiguration.scopes`. Set `oauthClientConfiguration` to `null` to remove it. |
-| `additionalRequestParameters` | Not available. | Updatable. Set it to `null` to remove all parameters. |
+| `additionalRequestParameters` | Not available. | Updatable. Set it to `null` to remove all parameters. Set `authorize` or `token` to `null` to clear only that part. Parts that you omit stay unchanged. |
 | `authorizationServerConfiguration` | Not available. | Updatable. Set it to `null` to remove it. |
 
 In both versions, you can update `name` but can't clear it after you set it. You can't change `purpose` (V1) or `purposes` (V2), `protocol`, `registrationMethod`, `grantTypes`, or `resourceOrn` after you create the settings.
@@ -2012,7 +2012,7 @@ The V2 response:
 }
 ```
 
-<!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). -->
+<!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). The PATCH behavior for clearing authorize or token parameters comes from okta-oas3 OKTA-1311524 (2026-11-02), which is newer than the wiki. -->
 
 ## AI Agent Providers
 
