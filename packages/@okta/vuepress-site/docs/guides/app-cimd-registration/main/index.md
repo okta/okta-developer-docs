@@ -46,10 +46,15 @@ The app owner is responsible for hosting and maintaining the CIMD. Okta validate
 | Property | Requirement |
 | --- | --- |
 | `client_id` | Must exactly match the URL that Okta requests. This is the same URL that you set as `cimdUrl` when you register the app integration. |
-| `jwks_uri` | A URL to the hosted JSON Web Key Set (JWKS) or an inline `jwks` object. Okta uses this to verify the app's signature. |
+| `jwks_uri` | A URL to the hosted JSON Web Key Set (JWKS) or an inline `jwks` object. Okta uses this to verify the app's signature. Not required if the app authenticates with `spiffe_jwt`. |
 | `redirect_uris` | Must be a non-empty array, even for an app that doesn't use a redirect-based flow. |
+| `token_endpoint_auth_method` | Set to `spiffe_jwt` if the app authenticates with a SPIFFE JWT-SVID. |
+| `spiffe_id` | The SPIFFE ID of the app. Required if `token_endpoint_auth_method` is `spiffe_jwt`. |
+| `spiffe_bundle_endpoint` | Optional. The URL of the SPIFFE bundle endpoint. If you include it, it must match the `bundleUrl` of the trust domain registration. |
 
 The app owner can include other properties from the [OAuth Dynamic Client Registration Metadata](https://www.iana.org/assignments/oauth-parameters/oauth-parameters.xhtml#client-metadata) registry. Okta reads the client configuration from the document, so anything the document declares becomes part of the client definition.
+
+To authenticate the app with a SPIFFE JWT-SVID, register the trust domain of the SPIFFE ID in your org first. Okta rejects a `spiffe_jwt` CIMD client if the trust domain isn't registered. Okta can't tell which trust domain a CIMD client uses until it retrieves the document, so deleting a trust domain that only CIMD clients use succeeds and breaks their token requests. See [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/#configure-a-cimd-client).
 
 A CIMD can't establish a shared secret. The document must not contain `client_secret`, `client_secret_expires_at`, private key material, or a `token_endpoint_auth_method` value that relies on a symmetric secret.
 
@@ -163,7 +168,7 @@ https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=h
 
 The `redirect_uri` must match one of the `redirect_uris` in the document.
 
-Exchange the authorization code for tokens at the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS). A CIMD client has no client secret, so a confidential client authenticates with `private_key_jwt`.
+Exchange the authorization code for tokens at the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS). A CIMD client has no client secret, so a confidential client authenticates with `private_key_jwt` or `spiffe_jwt`.
 
 1. Build a JWT and sign it with the private key that matches a public key in the JWKS that the document's `jwks_uri` or `jwks` property provides. Set both `iss` and `sub` to the CIMD URL. See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/).
 1. Send the signed JWT as the `client_assertion` parameter, and set `client_assertion_type` to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
@@ -179,6 +184,8 @@ curl --request POST https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/t
     --data-urlencode "client_assertion={signedJwt}"
 ```
 
+A client that uses `spiffe_jwt` sends the JWT-SVID as the `client_assertion` parameter and sets `client_assertion_type` to `urn:ietf:params:oauth:client-assertion-type:jwt-spiffe`. See [Request a token](/docs/guides/spiffe-jwt-client-auth/main/#request-a-token).
+
 A public client, such as a single-page app or a native app, uses Proof Key for Code Exchange (PKCE) instead of a client assertion. Send the `code_verifier` parameter in the token request.
 
 To confirm which client Okta resolved, decode the access token and check the `cid` claim. For a CIMD client, `cid` is the CIMD URL.
@@ -186,6 +193,7 @@ To confirm which client Okta resolved, decode the access token and check the `ci
 ## See also
 
 - [Register AI agents with a Client ID Metadata Document (CIMD)](/docs/guides/ai-agent-cimd-registration/)
+- [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/)
 - [Create an app integration](/docs/guides/create-an-app-integration/)
 - [Rotate client secrets](/docs/guides/client-secret-rotation-key/)
 - [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (IETF Internet-Draft)
