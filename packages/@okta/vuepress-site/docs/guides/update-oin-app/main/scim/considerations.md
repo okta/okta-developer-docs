@@ -10,7 +10,7 @@ For published integrations that were migrated from the OIN Manager, if you need 
   
     * Contact <oin@okta.com> if you need to update configured properties that aren't available in the OIN Wizard.
 
-    * The **Import users** and **Import groups** (if groups are managed) capabilities are automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, contact <developers@okta.com>.
+    * The **Import users** and **Import groups** (if groups are managed) capabilities are automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
 
 * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
 
