@@ -676,7 +676,7 @@ If you need help during your submission, Okta provides the following support str
 
 1. Testing an integration phase
 
-    * If you have issues during your integration testing phase, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or open a support case and select `API Access Management` as the **Issue Area** and include your test results. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
+    * If you have issues during your integration testing phase, open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.  You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 ## See also
 
