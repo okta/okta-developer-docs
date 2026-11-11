@@ -18,10 +18,10 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | November 11, 2026 |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta-is-ga-in-production) | November 11, 2026 |
 | [Increased Access Request task assignee limit](#increased-access-request-task-assignee-limit) | November 11, 2026 |
-| [Certify resource collections - User campaigns is GA in Production](#certify-resource-collections---user-campaigns-is-ga-in-production) | November 11, 2026 |
-| [Certify resource collections - Resource campaigns is GA in Production](#certify-resource-collections---resource-campaigns-is-ga-in-production) | November 11, 2026 |
+| [Certify resource collections - Resource campaigns is GA in Production](#certify-resource-collections-user-campaigns-is-ga-in-production) | November 11, 2026 |
+| [Certify resource collections - User campaigns is GA in Production](#certify-resource-collections-user-campaigns-is-ga-in-production) | November 11, 2026 |
 | [New System Log event](#new-system-log-event) | November 11, 2026 |
 
 #### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production
@@ -63,8 +63,8 @@ A new `COLLECTION` resource option in the campaign [`resourceSettings.targetType
 
 #### New System Log event
 
-The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate. 
-<! -- OKTA-1005733 Preview date: Oct 8, 2025 -- >
+The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
+<!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
 
 ## October
 
