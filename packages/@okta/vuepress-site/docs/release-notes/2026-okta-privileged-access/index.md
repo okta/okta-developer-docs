@@ -35,7 +35,7 @@ The [List all SaaS app accounts](https://developer.okta.com/docs/api/openapi/opa
 
 #### Credential versioning for Okta Privileged Access database accounts is GA
 
-Database account credentials in Okta Privileged Access now keep a version history. The new List credential versions for a database account (https://developer.ok ta.com/docs/api/openapi/opa/opa/database-accounts/listdatabaseaccountcredentialversions) endpoint returns version metadata without credential values. The [Reveal the credentials for a database account](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts/revealdatabaseaccountcredentials) endpoint accepts the `version_id` and `version_status` query parameters to reveal a specific version. See [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts). <!-- OKTA-1253479, FF: database_account_credential_versioning, Preview date: Oct 19, 2027 (EA) , Prod date: Oct 23, 2026 (GA) -->
+Database account credentials in Okta Privileged Access now keep a version history. The new List credential versions for a database account (https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts/listdatabaseaccountcredentialversions) endpoint returns version metadata without credential values. The [Reveal the credentials for a database account](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts/revealdatabaseaccountcredentials) endpoint accepts the `version_id` and `version_status` query parameters to reveal a specific version. See [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts). <!-- OKTA-1253479, FF: database_account_credential_versioning, Preview date: Oct 19, 2027 (EA) , Prod date: Oct 23, 2026 (GA) -->
 
 
 ### Version 2026.41.0
