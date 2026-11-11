@@ -18,7 +18,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |
-| [Resource group and project in SaaS app account API responses](#resource-group-and-project-in-saas-app-account-api-responses) | November 3, 2026 | November 3, 2026 |
+| [Resource group and project in SaaS app account API responses](#resource-group-and-project-in-saas-app-account-api-responses) | November 3, 2026 | November 6, 2026 |
 
 #### Resource group and project in SaaS app account API responses
 
