@@ -11,6 +11,61 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## November
+
+### Version 2026.46.0
+<!-- Published on: 2026-11-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | November 11, 2026 |
+| [Increased Access Request task assignee limit](#increased-access-request-task-assignee-limit) | November 11, 2026 |
+| [Certify resource collections - User campaigns is GA in Production](#certify-resource-collections---user-campaigns-is-ga-in-production) | November 11, 2026 |
+| [Certify resource collections - Resource campaigns is GA in Production](#certify-resource-collections---resource-campaigns-is-ga-in-production) | November 11, 2026 |
+| [New System Log event](#new-system-log-event) | November 11, 2026 |
+
+#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production
+
+<ApiLifecycle access="beta" />
+
+The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
+
+To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+<!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Prod date: Nov 12, 2025 -->
+<!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Preview date: July 29, 2026 -->
+<!-- OKTA-1313744,  IGA_COLLECTIONS_PHASE_TWO Flag GA Prod Prod date: Nov 11, 2026 -->
+
+#### Increased Access Request task assignee limit
+
+The maximum number of assigned users per task or question has been increased to 50 (previously 25).
+<!-- OKTA-1256450, Preview: Nov 11, 2026 -->
+
+#### Certify resource collections - User campaigns is GA in Production
+
+Use access certification identity campaigns (previously called user campaigns) to certify user access to resource collections. Running identity campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the context they need to make informed decisions. See [Create identity campaigns](https://help.okta.com/okta_help.htm?type=oie&id=csh-ac-uc-resource-scope) in the product documentation.
+
+You can now run identity campaigns to certify more than just app and group resources. A new property (`targetTypes`) is now used in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) API request to specify the target resource for either identity or resource campaigns:
+
+* The [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property replaces the previous [`resourcSettings.type`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property. `resourceSettings.type` is still supported, but Okta recommends that you use `resourceSettings.targetTypes` for all future resource or identity campaigns.
+* For `USER` campaigns, you can select multiple resources (`APPLICATION`, `GROUP`, `AI_AGENT_CONNECTION`, or `COLLECTION`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
+* For `RESOURCE` campaigns, you can only specify one resource (`APPLICATION`, `GROUP`, `COLLECTION`, `APP_SERVICE_ACCOUNT`, or `OKTA_SERVICE_ACCOUNT`) to target in the [`targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) array.
+<!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS_USER_CAMPAIGNS Prod date: Nov 12, 2026 -->
+<!-- OKTA-1116762 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS_USER_CAMPAIGNS, Preview: March 11, 2026 -->
+
+#### Certify resource collections - Resource campaigns is GA in Production
+
+Use access certification resource campaigns to certify user access to resource collections. Rather than reviewing individual apps, entitlements, or bundles separately, running resource campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the necessary context to make informed decisions.
+
+A new `COLLECTION` resource option in the campaign [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property has been added to support resource collection campaigns.
+<!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS Prod date: Nov 12, 2026 -->
+<!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS Preview date: Jan 28, 2026 -->
+
+#### New System Log event
+
+The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate. 
+<! -- OKTA-1005733 Preview date: Oct 8, 2025 -- >
+
 ## October
 
 ### Version 2026.44.0

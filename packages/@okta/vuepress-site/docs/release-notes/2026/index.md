@@ -9,6 +9,44 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## November
+
+### Version 2026.46.0
+<!-- Published on: 2026-11-11T12:00:00Z -->
+\
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [System Log event for updated IoC protection status  is GA in Preview](#system-log-event-for-updated-ioc-protection-status--is-ga-in-preview) | November 11, 2026 |
+| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | November 11, 2026 |
+| [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
+| [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
+| [System Log event for emails added to the bounced email list](#system-log-event-for-emails-added-to-the-bounced-email-list) | November 11, 2026 |
+
+#### System Log event for updated IoC protection status  is GA in Preview
+
+The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update). <!-- OKTA-1295421 - - >
+
+#### System Log event for indicators of compromise detection is GA in Preview
+
+The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect). <!-- OKTA-1287415 - - >
+
+#### New rate limit event type is GA in Preview
+
+This rate limit event type now appears in the System Log: `system.rate_limit.configuration.update`. It logs the following:
+
+* Changes to client-based rate limit settings
+* Changes in the rate limit warning notification threshold
+* If the rate limit notification is enabled or disabled
+* Updates to the rate-limit percentage of an API token
+
+#### New identity sources System Log events
+
+System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
+
+#### System Log event for emails added to the bounced email list
+
+A System Log `system.email.bounce.removal` event is now triggered when an API request is made to [remove bounced emails](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) (`POST /org/email/bounces/remove-list`). This request sends a list of emails to a third-party email service to remove the emails from the bounce list. The event is triggered when the API request is made. The event doesn’t indicate when the emails are actually removed by the third-party email service. <!--OKTA-807544 -->
+
 ## October
 
 ### Version 2026.44.0

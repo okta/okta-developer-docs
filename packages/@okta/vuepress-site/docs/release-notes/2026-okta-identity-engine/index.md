@@ -13,6 +13,116 @@ title: Okta Identity Engine API release notes 2026
 
 ## November
 
+### Version 2026.46.0
+<!-- Published on: 2026-11-011T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Source property for AI agents](#source-property-for-ai-agents) | November 11, 2026 |
+| [Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production](#passkey-fido2-webauthn-authenticator-enabled-by-default) | November 11, 2026 |
+| [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
+| [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
+| [System Log event for updated IoC protection status  is GA in Preview](#system-log-event-for-updated-ioc-protection-status--is-ga-in-preview) | November 11, 2026 |
+| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | November 11, 2026 |
+| [Managed connections renamed to resource connections is GA in Production](#managed-connections-renamed-to-resource-connections-is-ga-in-production) | November 11, 2026 |
+| [New field in `user.identity_verification` event type is GA in Preview](#new-field-in-useridentity_verification-event-type-is-ga-in-preview) | November 11, 2026 |
+| [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
+| [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
+| [System Log event for emails added to the bounced email list](#system-log-event-for-emails-added-to-the-bounced-email-list) | November 11, 2026 |
+| [New System Log events for Shared Signals Framework transmitter](#new-system-log-events-for-shared-signals-framework-transmitter) | November 11, 2026 |
+| [Event hook for session context changes](#event-hook-for-session-context-changes) | November 11, 2026 |
+| [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
+
+#### Source property for AI agents
+
+The AI agent registration APIs now return a read-only `source` property in agent responses. The property shows how the agent was added to Okta:
+* `IMPORTED` for agents imported from a provider
+* `MANUAL` for agents registered manually
+The `source` property appears in the GET and LIST responses for both v1 and v2 of the [AI Agent Registration API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration). Okta sets the value, so requests that include `source` in the body don't change it.
+<!-- OKTA-1318926 -->
+
+#### Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production
+
+You can now manage rules in the user identification policy to control whether the **Sign in with a passkey** button appears on an app-by-app basis, instead of relying on a single org-wide setting. This makes it easier to manage pilot groups during passkey rollouts and to tailor the sign-in experience for individual apps. See [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+<!--FVM for UIP for Passkeys for Monthly/Weekly Release <2026.46.0> OKTA-1317708 -->
+#### Multiple platform mappings and external ID filter for AI agents
+
+AI agent provider integrations can now map attributes for more than one platform. You can also filter AI agents by external ID.
+
+Previously, each integration supported one platform mapping, so you needed a separate integration for each platform from the same provider. In the [AI Agent Providers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/getaiagentproviderprofilemapping), use the `perPlatform` array on a property mapping to set a source expression for each platform. Each entry updates only the platform that it names. To remove a platform's source, send an empty `sourceExpression`. An AWS provider integration can also now include both `AWS_BEDROCK_AGENTS` and `AWS_BEDROCK_AGENTCORE`.
+
+In the [AI Agent Registrations API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration), use the `search` parameter with `profile.externalId eq "{externalId}"` to find an agent by the ID from its source system. The filter supports only the `eq` operator. <!-- SECURE_AI_AGENTS_SCHEMA_POST_GA SECURE_AI_AGENTS_SCHEMA OKTA-1316311 OKTA-1264176 preview 11.12.2026 2026.46.0-->
+
+#### AI agent attributes in custom claims is GA in preview
+
+Okta Expression Language now supports the `agent` object in custom claims. Use `agent.id` and `agent.profile` attributes, such as `agent.profile.name`, to add AI agent data to access tokens. This allows resource servers to identify which AI agent is calling them. <!-- SECURE_AI_AGENTS_EL_CONTEXT OKTA-1303899 OKTA-1293195 preview 11.12.2026 2026.46.0-->
+
+#### System Log event for updated IoC protection status  is GA in Preview
+
+The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update). <!-- OKTA-1295421 - - >
+
+#### System Log event for indicators of compromise detection is GA in Preview
+
+The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect). <!-- OKTA-1287415 - - >
+
+#### Managed connections renamed to resource connections is GA in Production
+
+The **Managed connections** tab has been renamed to **Resource connections** on the Okta for AI Agents pages. The associated System Logs' event types, debug data key, and details entries have been renamed accordingly.
+
+<!-- [Terminology Change] Rename “Managed Connections” to “Resource Connections” - Syslogs OKTA-1166385 preview 11.11.2026.46.0 -->
+
+#### New field in `user.identity_verification` event type is GA in Preview
+
+The System Log now displays a `reasonForFailure` field in `user.identity_verification` events when a reason for failure of the IDV flow is known. This additional information helps IDV vendors integrating with Okta troubleshoot their software. See [Event Types](/docs/reference/api/event-types/).
+
+<!--Add debug info to IDV Flow Completion syslogs OKTA-1056546 -->
+#### New rate limit event type is GA in Preview
+
+This rate limit event type now appears in the System Log: `system.rate_limit.configuration.update`. It logs the following:
+
+* Changes to client-based rate limit settings
+* Changes in the rate limit warning notification threshold
+* If the rate limit notification is enabled or disabled
+* Updates to the rate-limit percentage of an API token
+<!-- Add and Update Syslog Entries for Rate Limits, OKTA-797466 -->
+
+#### New identity sources System Log events
+
+System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
+
+<!-- Bedrock - Add syslog to XaaS bulk-upsert and bulk-delete OKTA-755721 -->
+
+#### System Log event for emails added to the bounced email list
+
+A System Log `system.email.bounce.removal` event is now triggered when an API request is made to [remove bounced emails](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) (`POST /org/email/bounces/remove-list`). This request sends a list of emails to a third-party email service to remove the emails from the bounce list. The event is triggered when the API request is made. The event doesn’t indicate when the emails are actually removed by the third-party email service. <!--OKTA-807544 -->
+
+#### New System Log events for Shared Signals Framework transmitter
+
+New System Log events are generated for Shared Signals Framework transmitter:
+`security.events.transmitter.create`
+`security.events.transmitter.update`
+`security.events.transmitter.delete`
+See [Event types](https://developer.okta.com/docs/reference/api/event-types/).
+
+<!-- Design and Implement System log Events - /api/v1/ssf/stream  OKTA-750879 -->
+#### Event hook for session context changes
+
+The `user.session.context.change` System Log event is now available for use in an event hook. See the [Event type](https://developer.okta.com/docs/reference/api/event-types/?q=user.session.context.change) reference and [Event hooks](https://help.okta.com/okta_help.htm?type=oie&id=ext-event-hooks) in the Product documentation. 
+<!--OKTA-730871-->
+
+#### Bugs fixed in 2026.46.0
+
+* When you sent an invalid `showSignInButton` value in a `USER_IDENTIFICATION` policy rule request (either POST or PUT `/policies/{policyId}/rules` requests), the HTTP 400 error response incorrectly referred to the `type` field. (OKTA-1307433)
+
+* When you tried to delete a `webauthn` factor that had the `PENDING_ACTIVATION` status (`DELETE /users/{userId}/factors/{factorId}`), an HTTP 500 Internal Server Error occurred, even though the factor was deleted. (OKTA-1264748)
+
+* When you managed an AI agent's JSON web keys with the [AI Agent Credentials API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpublickey/other/listagentjwk, the events didn't appear in the System Log. See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=workload_principal.ai_agent.credential). (OKTA-1082695)
+
+* The System Log event description for `security.events.provider.receive_event` was "Third Party Vendor reported risk" and was updated to "Security Events Provider Reported Risk". (OKTA-725427)
+
+* The `user.authentication.universal_logout` System Log event didn't capture all of the client data. (OKTA-706046)
+
 ### Version 2026.45.1
 <!-- Published on: 2026-11-04T12:00:00Z -->
 
