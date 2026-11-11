@@ -47,6 +47,17 @@ System Log events have been added to indicate when identity sources upload bulk 
 
 A System Log `system.email.bounce.removal` event is now triggered when an API request is made to [remove bounced emails](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) (`POST /org/email/bounces/remove-list`). This request sends a list of emails to a third-party email service to remove the emails from the bounce list. The event is triggered when the API request is made. The event doesn’t indicate when the emails are actually removed by the third-party email service. <!--OKTA-807544 -->
 
+### Version 2026.45.1
+<!-- Published on: 2026-11-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.45.1](#bug-fixed-in-2026-45-1)| November 04, 2026 |
+
+#### Bug fixed in 2026.45.1
+
+Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/integrations/template-app/). (OKTA-1314535)
+
 ## October
 
 ### Version 2026.44.0
