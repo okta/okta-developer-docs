@@ -68,9 +68,9 @@ When your AI agent connects to the Agent Gateway for the first time, the followi
 
 ### If an admin deactivates your AI agent
 
-The Agent Gateway checks that your AI agent is active on every request. If an admin deactivates the AI agent, the gateway rejects its tool calls. This applies even if your access token hasn't expired.
+The Agent Gateway checks that your AI agent is active on every request. If an admin deactivates the AI agent, the gateway rejects its requests. This applies even if your access token hasn't expired.
 
-The gateway returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`. Your AI agent should treat this response as a signal to authenticate again. While the AI agent is deactivated, authentication doesn't produce a token that the gateway accepts.
+The gateway returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`. Your AI agent should treat this response as a signal to authenticate again. While the AI agent is deactivated, Okta refuses to issue it a new token, so authentication fails until an admin reactivates the AI agent.
 
 After an admin reactivates the AI agent, authenticating again gives your AI agent a new token. The gateway then allows its tool calls.
 
