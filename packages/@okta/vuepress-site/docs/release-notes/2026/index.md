@@ -11,30 +11,8 @@ title: Okta Classic Engine API release notes 2026
 
 ## November
 
-### Version 2026.46.0
-<!-- Published on: 2026-11-11T12:00:00Z -->
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
-| [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
-
-#### New rate limit event type is GA in Preview
-
-This rate limit event type now appears in the System Log: `system.rate_limit.configuration.update`. It logs the following:
-
-* Changes to client-based rate limit settings
-* Changes in the rate limit warning notification threshold
-* If the rate limit notification is enabled or disabled
-* Updates to the rate-limit percentage of an API token
-<!-- Add and Update Syslog Entries for Rate Limits, OKTA-797466 -->
-
-#### New identity sources System Log events
-
-System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
-<!-- Bedrock - Add syslog to XaaS bulk-upsert and bulk-delete OKTA-755721 -->
-
 ### Version 2026.45.1
-<!-- Published on: 2026-11-11T12:00:00Z -->
+<!-- Published on: 2026-11-04T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |

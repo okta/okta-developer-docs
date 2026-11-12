@@ -22,11 +22,6 @@ title: Okta Identity Engine API release notes 2026
 | [Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production](#passkey-fido2-webauthn-support-for-user-identification-policies-is-ga-in-production) | November 11, 2026 |
 | [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
 | [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
-| [New field in `user.identity_verification` event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | November 11, 2026 |
-| [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
-| [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
-| [New System Log events for Shared Signals Framework transmitter](#new-system-log-events-for-shared-signals-framework-transmitter) | November 11, 2026 |
-| [Event hook for session context changes](#event-hook-for-session-context-changes) | November 11, 2026 |
 | [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
 
 #### Source property for AI agents
@@ -54,52 +49,11 @@ In the [AI Agent Registrations API](https://developer.okta.com/docs/api/secures-
 
 Okta Expression Language now supports the `agent` object in custom claims. Use `agent.id` and `agent.profile` attributes, such as `agent.profile.name`, to add AI agent data to access tokens. This allows resource servers to identify which AI agent is calling them. <!-- SECURE_AI_AGENTS_EL_CONTEXT OKTA-1303899 OKTA-1293195 preview 11.12.2026 2026.46.0-->
 
-#### New field in `user.identity_verification` event type is GA in Preview
-
-The System Log now displays a `reasonForFailure` field in `user.identity_verification` events when a reason for failure of the IDV flow is known. This additional information helps IDV vendors integrating with Okta troubleshoot their software. See [Event Types](/docs/reference/api/event-types/).
-
-<!--Add debug info to IDV Flow Completion syslogs OKTA-1056546 -->
-#### New rate limit event type is GA in Preview
-
-This rate limit event type now appears in the System Log: `system.rate_limit.configuration.update`. It logs the following:
-
-* Changes to client-based rate limit settings
-* Changes in the rate limit warning notification threshold
-* If the rate limit notification is enabled or disabled
-* Updates to the rate-limit percentage of an API token
-<!-- Add and Update Syslog Entries for Rate Limits, OKTA-797466 -->
-
-#### New identity sources System Log events
-
-System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
-
-<!-- Bedrock - Add syslog to XaaS bulk-upsert and bulk-delete OKTA-755721 -->
-
-#### New System Log events for Shared Signals Framework transmitter
-
-New System Log events are generated for Shared Signals Framework transmitter:
-`security.events.transmitter.create`
-`security.events.transmitter.update`
-`security.events.transmitter.delete`
-See [Event types](https://developer.okta.com/docs/reference/api/event-types/).
-
-<!-- Design and Implement System log Events - /api/v1/ssf/stream  OKTA-750879 -->
-#### Event hook for session context changes
-
-The `user.session.context.change` System Log event is now available for use in an event hook. See the [Event type](https://developer.okta.com/docs/reference/api/event-types/?q=user.session.context.change) reference and [Event hooks](https://help.okta.com/okta_help.htm?type=oie&id=ext-event-hooks) in the Product documentation. 
-<!--OKTA-730871-->
-
 #### Bugs fixed in 2026.46.0
 
 * When you sent an invalid `showSignInButton` value in a `USER_IDENTIFICATION` policy rule request (either POST or PUT `/policies/{policyId}/rules` requests), the HTTP 400 error response incorrectly referred to the `type` field. (OKTA-1307433)
 
 * When you tried to delete a `webauthn` factor that had the `PENDING_ACTIVATION` status (`DELETE /users/{userId}/factors/{factorId}`), an HTTP 500 Internal Server Error occurred, even though the factor was deleted. (OKTA-1264748)
-
-* When you managed an AI agent's JSON web keys with the [AI Agent Credentials API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpublickey/other/listagentjwk, the events didn't appear in the System Log. See [Event Types](https://developer.okta.com/docs/reference/api/event-types/?q=workload_principal.ai_agent.credential). (OKTA-1082695)
-
-* The System Log event description for `security.events.provider.receive_event` was "Third Party Vendor reported risk" and was updated to "Security Events Provider Reported Risk". (OKTA-725427)
-
-* The `user.authentication.universal_logout` System Log event didn't capture all of the client data. (OKTA-706046)
 
 ### Version 2026.45.1
 <!-- Published on: 2026-11-04T12:00:00Z -->
