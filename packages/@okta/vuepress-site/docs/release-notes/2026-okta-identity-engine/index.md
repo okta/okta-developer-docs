@@ -22,9 +22,6 @@ title: Okta Identity Engine API release notes 2026
 | [Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production](#passkey-fido2-webauthn-support-for-user-identification-policies-is-ga-in-production) | November 11, 2026 |
 | [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
 | [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
-| [System Log event for updated IoC protection status  is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | November 11, 2026 |
-| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | November 11, 2026 |
-| [Managed connections renamed to resource connections is GA in Production](#managed-connections-renamed-to-resource-connections-is-ga-in-production) | November 11, 2026 |
 | [New field in `user.identity_verification` event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | November 11, 2026 |
 | [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
 | [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
@@ -57,20 +54,6 @@ In the [AI Agent Registrations API](https://developer.okta.com/docs/api/secures-
 #### AI agent attributes in custom claims is GA in preview
 
 Okta Expression Language now supports the `agent` object in custom claims. Use `agent.id` and `agent.profile` attributes, such as `agent.profile.name`, to add AI agent data to access tokens. This allows resource servers to identify which AI agent is calling them. <!-- SECURE_AI_AGENTS_EL_CONTEXT OKTA-1303899 OKTA-1293195 preview 11.12.2026 2026.46.0-->
-
-#### System Log event for updated IoC protection status  is GA in Preview
-
-The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update). <!-- OKTA-1295421 -->
-
-#### System Log event for indicators of compromise detection is GA in Preview
-
-The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect). <!-- OKTA-1287415 -->
-
-#### Managed connections renamed to resource connections is GA in Production
-
-The **Managed connections** tab has been renamed to **Resource connections** on the Okta for AI Agents pages. The associated System Logs' event types, debug data key, and details entries have been renamed accordingly.
-
-<!-- [Terminology Change] Rename “Managed Connections” to “Resource Connections” - Syslogs OKTA-1166385 preview 11.11.2026.46.0 -->
 
 #### New field in `user.identity_verification` event type is GA in Preview
 

@@ -15,19 +15,9 @@ title: Okta Classic Engine API release notes 2026
 <!-- Published on: 2026-11-11T12:00:00Z -->
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [System Log event for updated IoC protection status  is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | November 11, 2026 |
-| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | November 11, 2026 |
 | [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
 | [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
 | [System Log event for emails added to the bounced email list](#system-log-event-for-emails-added-to-the-bounced-email-list) | November 11, 2026 |
-
-#### System Log event for updated IoC protection status  is GA in Preview
-
-The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update). <!-- OKTA-1295421 -->
-
-#### System Log event for indicators of compromise detection is GA in Preview
-
-The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect). <!-- OKTA-1287415 -->
 
 #### New rate limit event type is GA in Preview
 
