@@ -588,6 +588,10 @@ export const guides = [
         title: "Okta for AI Agents",
         subLinks: [
           {
+            title: "Migrate Okta for AI Agents APIs from V1 to V2",
+            guideName: "ai-agent-v2api-migration",
+          },
+          {
             title: "Set up AI agent token exchange",
             guideName: "ai-agent-token-exchange",
           },

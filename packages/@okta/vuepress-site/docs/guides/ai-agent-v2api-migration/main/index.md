@@ -49,7 +49,7 @@ Many V2 APIs share the same changes:
 
 Use this table to find the API that you call. Select the link in the last column for the details of the change.
 
-<!-- TODO: Confirm each row with engineering. The two Resource Connections rows say "Not yet confirmed" because the section is now written from the V2 spec and the engineering wiki, but their availability is not confirmed. -->
+<!-- Engineering confirmed on 2026-11-12 that the consolidated Resource Connections API will be available at V2 release, so both Resource Connections rows say "Available". -->
 
 | V1 API | V2 availability | Summary of changes | Details |
 | --- | --- | --- | --- |
@@ -69,8 +69,8 @@ Use this table to find the API that you call. Select the link in the last column
 | Token Request Settings | Available | Same operations and bodies. Only the version in the path changes. | [Token Request Settings](#token-request-settings) |
 | AI Agent Providers | Available | `_links` removed. `configuration` references a client authentication settings object instead of holding OAuth credentials. Filtering and sorting are part of the base API. | [AI Agent Providers](#ai-agent-providers) |
 | AI Agent Schema | Available | `_links` removed from the response. | [AI Agent Schema](#ai-agent-schema) |
-| AI Agent Connections, MCP Server Connections, and Virtual MCP Connections | Not yet confirmed | Consolidated into one Resource Connections collection. The actor moves into the body. `connectionType` splits into `protocolType` and `resourceType`. | [Resource Connections](#resource-connections) |
-| Managed Connections and Potential Connections | Not yet confirmed | Consolidated into Resource Connections. Reverse lookup uses `search`. Potential connections move to `/resource-connections/api/v2`. | [Resource Connections](#resource-connections) |
+| AI Agent Connections, MCP Server Connections, and Virtual MCP Connections | Available | Consolidated into one Resource Connections collection. The actor moves into the body. `connectionType` splits into `protocolType` and `resourceType`. | [Resource Connections](#resource-connections) |
+| Managed Connections and Potential Connections | Available | Consolidated into Resource Connections. Reverse lookup uses `search`. Potential connections move to `/resource-connections/api/v2`. | [Resource Connections](#resource-connections) |
 
 ## Delegation Links
 
@@ -249,7 +249,9 @@ The `type` property of an operation identifies the action that created it. V2 re
 
 If your code filters or branches on the operation `type`, update it to handle only the V2 types. The `status` values are the same in both versions: `SCHEDULED`, `IN_PROGRESS`, `COMPLETED`, and `FAILED`.
 
-<!-- TODO: Confirm with the Registry team that the virtual-mcp types are also removed in V2 because those writes are synchronous. The Confluence page infers this but doesn't state it. -->
+<!-- The Registry team confirmed that V2 removes the virtual-mcp types because those writes are synchronous. Their wording was "removed virtual Mcp and V1 Registry Register, Delete, Activate, Deactivate and update". The guide reads "update" as virtual-mcp:ReplaceCapabilities. TODO: Confirm that reading. -->
+
+The `virtual-mcp` types are also gone because agent gateway registration writes are synchronous.
 
 ### Examples
 
@@ -1673,7 +1675,7 @@ Agent gateway calls don't take the `links` query parameter that some other V2 AP
 
 V1 lets you add and remove an Okta custom authorization server on a virtual MCP server. Both calls return `202` with a `Location` header to poll.
 
-V2 removes the add and remove calls. The V2 resource server API for agent gateways is read-only. Only the list and retrieve calls remain, and the registration API has no authorization server calls.
+Okta now creates a custom authorization server for each agent gateway automatically, so V2 removes the add and remove calls. The V2 resource server API for agent gateways is read-only. Only the list and retrieve calls remain, and the registration API has no authorization server calls. Okta doesn't currently expose these calls.
 
 The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply to the responses. In V2, each item is a link object with `authorizationServer`, `created`, and `lastUpdated`. The V1 item is the authorization server itself, with `_links`.
 
@@ -1843,7 +1845,7 @@ The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4g
 }
 ```
 
-<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/virtual-mcp-servers/virtual-mcp-servers.yaml and spec/v2/resource-servers/agent-gateways/agent-gateway.yaml (master, e795ff64f). Examples are trimmed to one item. The wiki (Confluence page 1095041886) confirms that V2 drops the add and remove authorization server calls on purpose, and that individual tools have no _links. TODO: Ask engineering how a customer links an authorization server to an agent gateway in V2. The wiki says mutations would belong on the registration API if they are needed later, but that API has no such call today. -->
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/virtual-mcp-servers/virtual-mcp-servers.yaml and spec/v2/resource-servers/agent-gateways/agent-gateway.yaml (master, e795ff64f). Examples are trimmed to one item. The wiki (Confluence page 1095041886) confirms that V2 drops the add and remove authorization server calls on purpose, and that individual tools have no _links. Engineering answered how a customer links an authorization server in V2 (2026-11-12): they don't. Okta auto-generates a custom authorization server for each gateway. The V1 add and remove APIs were already disabled (ccs secure.ai.virtual.mcp.auto.create.authorization.server.enabled), V2 behaves the same, and Okta doesn't want to expose them now. The optional authorizationServer property on create (EXTERNAL_AUTHORITY, SECURE_AI_EXTERNAL_IDP_GATEWAY) applies to V1 and V2. When it's set, Okta uses that server instead of the generated one. It's under development and is expected to reach GA after V2 GA, so the guide doesn't document it. TODO: Revisit when SECURE_AI_EXTERNAL_IDP_GATEWAY goes GA. -->
 
 ## Client Authentication Settings
 
@@ -2117,9 +2119,9 @@ GET /resource-servers/api/v2/token-request-settings?search=resourceOrn%20eq%20%2
 V2 makes these changes:
 
 - Removes `_links` from individual objects.
-- References a client authentication settings object by ID in `configuration`. V2 no longer accepts OAuth credentials directly for certain app and agent import providers.
+- References a client authentication settings object by ID in `configuration`. V2 no longer accepts OAuth credentials directly for providers that use a client ID and client secret. Providers that use an API key, such as AWS with `accessKeyId` and `secretAccessKey`, still pass those credentials directly.
 - Makes list filtering and sorting part of the base API. Use the `search`, `sourceInstanceName`, `orderBy`, and `sortOrder` parameters.
-- Removes `externalId` from the `search` filter and adds `id`.
+- Adds `id` to the `search` filter. `externalId` stays supported.
 
 Response codes are the same in V1 and V2. Provider writes that were asynchronous in V1 are still asynchronous in V2.
 
@@ -2185,7 +2187,7 @@ The list call, `GET /workload-principals/api/v2/ai-agent-providers`, takes these
 
 | Parameter | V1 | V2 |
 | --- | --- | --- |
-| `search` | `eq` on `sourceOrn`, `sourceId`, `sourceName`, `sourceType`, `externalId`, and `status` | `eq` on `id`, `sourceOrn`, `sourceId`, `sourceName`, `sourceType`, and `status`. Also `pr` and `not ({propertyName} pr)` on `schedule`. |
+| `search` | `eq` on `sourceOrn`, `sourceId`, `sourceName`, `sourceType`, `externalId`, and `status` | `eq` on `id`, `sourceOrn`, `sourceId`, `sourceName`, `sourceType`, `externalId`, and `status`. Also `pr` and `not ({propertyName} pr)` on `schedule`. |
 | `sourceInstanceName` | Available only when the enhancements are enabled | Matches providers whose app instance name contains the value |
 | `orderBy` | Available only when the enhancements are enabled | `createdDate`, `lastUpdate`, `lastImportedDate`, or `nextImportDate`. The default is descending creation date. |
 | `sortOrder` | Available only when the enhancements are enabled | `asc` or `desc`. The default is `desc`. |
@@ -2347,7 +2349,7 @@ The V2 request to `POST /workload-principals/api/v2/ai-agent-providers` for the 
 
 Both versions return `201 Created` with the provider. The V1 response has `_links.self`, and the V2 response doesn't. The V2 response returns the property as `configuration.clientAuthId`, with `platforms` set to `SALESFORCE_AGENTFORCE`.
 
-<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/ai-agent-providers/ai-agent-providers.yaml and spec/v2/ai-agents/ai-agent-providers/ai-agent-providers-v2.yaml (master, e795ff64f). Provider IDs and source values are adapted so the V1 and V2 examples match, and the lists are trimmed to one item. The V1 and V2 create examples both use Salesforce, from okta-oas3 master 81cf28712 (2026-11-09), which added provider-specific V2 examples. TODO: Confirm the name of the client authentication settings property in configuration. The V2 spec uses `clientAuthId` for UiPath and in responses, and `client_auth_id` in the Gemini Enterprise request examples. The V2 request examples for every provider use `client_auth_id`, and the responses use `clientAuthId`. The Configuration schema is open-ended, so the spec doesn't document the name. The V2 examples for Salesforce, Databricks, UiPath, and others reference client authentication settings. AWS still passes `accessKeyId` and `secretAccessKey` directly. TODO: Confirm which providers moved off direct OAuth credentials. TODO: Confirm that V1 `search` on `externalId` is not available in V2. The V1 base spec lists `externalId`, and the V1 enhancements version replaces it with `id`. -->
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/ai-agent-providers/ai-agent-providers.yaml and spec/v2/ai-agents/ai-agent-providers/ai-agent-providers-v2.yaml (master, e795ff64f). Provider IDs and source values are adapted so the V1 and V2 examples match, and the lists are trimmed to one item. The V1 and V2 create examples both use Salesforce, from okta-oas3 master 81cf28712 (2026-11-09), which added provider-specific V2 examples. TODO: Confirm the name of the client authentication settings property in configuration. The V2 spec uses `clientAuthId` for UiPath and in responses, and `client_auth_id` in the Gemini Enterprise request examples. The V2 request examples for every provider use `client_auth_id`, and the responses use `clientAuthId`. The Configuration schema is open-ended, so the spec doesn't document the name. Engineering answered on 2026-11-12. Today the request takes `client_auth_id` and the response returns `clientAuthId`. Engineering will check whether the request can also accept `clientAuthId`. TODO: Follow up, and update the V2 request example if the name changes. Providers that use a client ID and client secret go through client authentication settings. AWS and any other provider that uses an API key still pass credentials directly. Engineering also confirmed that `externalId` search is supported in V2, which corrects the spec-based inference. -->
 
 ## AI Agent Schema
 
@@ -2507,8 +2509,8 @@ V1 answers one question: which targets of one `connectionType` exist. V2 answers
 
 | Aspect | V1 | V2 |
 | --- | --- | --- |
-| Parameter | `filter` is required and selects one `connectionType`. | `search`. It must name an anchor. |
-| Type | `connectionType eq "{type}"` | `protocol.protocolType` and `resource.resourceType`. These narrow an anchored search. |
+| Parameter | `filter` is required and selects one `connectionType`. | `search`. It's optional. |
+| Type | `connectionType eq "{type}"` | `protocol.protocolType` and `resource.resourceType`. Use them alone to list the candidates of one type, or with an anchor to narrow the results. |
 | Actor | `actorId` is optional. It only adds `clientIdAtResource` to app instance rows. | `actor.wlpId eq "{wlpId}"` runs a forward query. An unknown `wlpId` returns `400`. |
 | Reverse query | Not available | `resource.orn eq "{orn}"` returns one row for each actor and protocol. Okta lists a row only when the resource is set up for that protocol. An unknown ORN returns `400`. |
 | App instance | `appInstanceOrn eq "{orn}"`, for `STS_SERVICE_ACCOUNT` only | `resource.appInstance.orn eq "{orn}"`, for `API_SERVER` and `SERVICE_ACCOUNT` rows |
@@ -2518,7 +2520,7 @@ V1 answers one question: which targets of one `connectionType` exist. V2 answers
 
 In V2, the client authentication settings of an app instance come back as an `API_SERVER` row. The row has `resource.appInstance` set.
 
-V2 requires `search` to name at least one anchor: `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`. An omitted, blank, or type-only `search` returns `400`, so there is no org-wide list.
+If you omit `search`, V2 returns all candidates in the org. A `search` that has only `protocol.protocolType` and `resource.resourceType` is also valid. To narrow the results to one actor, resource, or app instance, anchor `search` on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`.
 
 V2 also returns `400` for these `search` values:
 
@@ -2531,7 +2533,7 @@ V2 also returns `400` for these `search` values:
 
 #### Query mapping
 
-Most V1 queries need an actor in V2, because V2 needs an anchor. A V1 call that lists candidates without an actor has no direct V2 equivalent. Use this table to convert a V1 `filter`.
+Use this table to convert a V1 `filter`. The V2 examples anchor on an actor. To list the candidates for every actor, as a V1 call without `actorId` does, drop the `actor.wlpId` term and keep the type terms.
 
 | V1 `filter` | V2 `search` |
 | --- | --- |
@@ -2576,7 +2578,7 @@ A row isn't a complete create request. Add the `actor.wlpId` you queried by, or 
 | Row | Add before you create the connection |
 | --- | --- |
 | Any `IDENTITY_ASSERTION` row | `protocol.scopeCondition` and `protocol.scopes`. Take the scopes from `scopesSupported`. |
-| `IDENTITY_ASSERTION` row for an `API_SERVER` | `resourceIdentifier`, the audience of the API server. The row might not include a value. |
+| `IDENTITY_ASSERTION` row for an `API_SERVER` | `resourceIdentifier`, the audience of the API server, if the row has none. Check the value when the row includes one. |
 | STS access token row for an app instance | `resourceIdentifier`. The row has none. |
 | Custom authorization server row | Nothing. Don't send `resourceIdentifier`. It's read-only for a custom authorization server, and create returns `400` if you send it. |
 
@@ -2591,8 +2593,8 @@ Remove the read-only properties of the row, such as `displayName`, `appInstance`
 - For an STS access token, send the client authentication settings ORN in `protocol.credential.orn`.
 - Rename `resourceIndicator` to `resourceIdentifier`. Don't send it for custom authorization server, A2A server, or MCP server identity assertion connections.
 - Replace `filter` and the managed connections call with `search`. Make one call for each resource ORN instead of joining them with `OR`.
-- Anchor every potential connections `search` on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`. Use the query mapping table to convert a V1 `filter`.
-- Read the scopes that a resource declares from `scopesSupported`. Add `resourceIdentifier` yourself when you create a connection from an API server row.
+- Replace the potential connections `filter` with `search`. Anchor it on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn` to narrow the results. Use the query mapping table to convert a V1 `filter`.
+- Read the scopes that a resource declares from `scopesSupported`. Check `resourceIdentifier` when you create a connection from an API server row, and add it if the row has none.
 - Deactivate a connection before you delete it.
 - Stop reading `_links.self` on connections, and read `authorizationServer.displayName` instead of `name`. Pass `links=web` if you need the Admin Console URL of a nested object.
 
@@ -2876,7 +2878,7 @@ The V2 call passes the agent in `search`, and the type properties are optional:
 GET /resource-connections/api/v2/potential-connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22%20and%20protocol.protocolType%20eq%20%22IDENTITY_ASSERTION%22%20and%20resource.resourceType%20eq%20%22A2A_SERVER%22
 ```
 
-<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. TODO: Confirm the availability in the summary table. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs, and the section is now complete. The row says "Not yet confirmed" until engineering confirms. TODO: Confirm whether connection IDs and ORNs keep their value and prefix between V1 and V2. The V1 examples use `mcn` IDs and the V2 examples use `rcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). TODO: Confirm the Okta MCP Server connection. The V2 spec shows an org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) for MCP_SERVER under XAA_OKTA_MCP_SERVER, but the wiki says create rejects it today (gap G3). The guide omits it. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. TODO: Confirm that scopes-only updates are rejected. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). The guide says to send them together. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. The Potential connections subsection comes from Potential Connections V1 vs V2 API (Confluence eng page 1189445644, version 9) and okta-oas3 master 81cf28712 (2026-11-09). TODO: Resolve conflicts between the wiki and the spec on potential connections. (1) The wiki says an omitted, blank, or type-only search returns 400 and there is no org-wide list. The spec says that omitting search returns all candidates, and lists a type-only search as valid. The guide follows the wiki. (2) The wiki says every V2 row has actor, resource, authorizationServer, and protocol. The spec says forward rows omit actor and reverse rows omit resource, and OKTA-1316107 (in progress) says reverse rows are bare. The guide follows the spec. OKTA-1316106 (resolved 2026-11-06) added actor to app instance rows. (3) The wiki says resourceIdentifier is never populated on IDENTITY_ASSERTION rows for an API_SERVER. The spec example shows a value. The guide says the row might not include one. (4) match is ignored on reverse queries. The wiki links OKTA-1316068 (triaged) to decide whether that is intended. -->
+<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. Engineering confirmed availability at V2 release on 2026-11-12. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs. TODO: Confirm whether connection IDs and ORNs keep their value and prefix between V1 and V2. The V1 examples use `mcn` IDs and the V2 examples use `rcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). TODO: Confirm the Okta MCP Server connection. The V2 spec shows an org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) for MCP_SERVER under XAA_OKTA_MCP_SERVER, but the wiki says create rejects it today (gap G3). The guide omits it. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. TODO: Confirm that scopes-only updates are rejected. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). The guide says to send them together. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. The Potential connections subsection comes from Potential Connections V1 vs V2 API (Confluence eng page 1189445644, version 9) and okta-oas3 master 81cf28712 (2026-11-09). The wiki and the spec disagreed on potential connections in four places. Engineering answered on 2026-11-12 that the spec is the most up to date and that they will sync the wiki with it. The guide follows the spec (okta-oas3 7047b6e6d, 2026-11-10). (1) Omitting search returns all candidates, and a type-only search is valid. The guide previously followed the wiki and said these returned 400. (2) Forward rows omit actor and reverse rows omit resource. OKTA-1316107 (in progress) was deciding whether reverse rows carry the authorization server and credential. The spec still says reverse rows include actor but not resource, so the guide follows that. TODO: Check OKTA-1316107 before release. OKTA-1316106 (resolved 2026-11-06) added actor to app instance rows. (3) The spec example shows resourceIdentifier on an IDENTITY_ASSERTION row for an API_SERVER, so the guide no longer says it is never populated. (4) The spec says match applies to forward queries and not to reverse queries, so the guide describes the ignore as documented behavior. OKTA-1316068 (triaged) is still open. -->
 
 V1 managed connections and the AI agent, MCP server, and virtual MCP server connection APIs remain until the V1 cutoff.
 
@@ -2900,7 +2902,7 @@ V1 managed connections and the AI agent, MCP server, and virtual MCP server conn
 16. In connection calls, move `scopeCondition`, `scopes`, and `clientIdAtResource` under `protocol`, and rename `resourceIndicator` to `resourceIdentifier`.
 17. Replace the `filter` parameter and the managed connections call with `search`. Deactivate a connection before you delete it.
 18. Stop calling the add and remove authorization server operations on virtual MCP servers. V2 doesn't include them.
-19. Anchor potential connections queries on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`, and replace `connectionType` filters with `protocol.protocolType` and `resource.resourceType`.
+19. Replace potential connections `connectionType` filters with `search` on `protocol.protocolType` and `resource.resourceType`. Anchor on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn` to narrow the results.
 20. Change the path for token request settings from `/resource-servers/api/v1/token-request-settings` to `/resource-servers/api/v2/token-request-settings`.
 21. Test your integration against V2 before the V1 cutoff date.
 
