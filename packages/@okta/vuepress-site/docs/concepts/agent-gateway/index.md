@@ -111,9 +111,9 @@ The following sequence occurs when an admin deactivates an AI agent:
 1. The gateway rejects the request because the token was issued before the deactivation. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
 1. The gateway no longer uses downstream credentials that it cached for the AI agent. When it requests new credentials, the org authorization server refuses the token exchange.
 
-Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
+Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning. You don't need to configure Kill Switch.
 
-When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
+While the AI agent is deactivated, Okta refuses to issue it new tokens. When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
 
 Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
 
@@ -121,7 +121,6 @@ Kill Switch applies only to AI agents that route through Agent Gateway. AI agent
   TODO before publishing (confirm, then remove this comment):
   - Antoine Crepin: EA vs GA labeling (PRFAQ says GA with no separate EA).
   - Antoine Crepin: cell and org availability statement. Tracy Lee confirmed 2026-11-09 that Fed cells are excluded.
-  - Isaiah Cummins / Sehrish Naeem: token lifetime buffer, so we can say how long a stale epoch record is kept (max token lifetime is 24h).
   - Antoine Crepin: delegation chain behavior (Agent A to Agent B) before adding a caveat.
   - Bridget (OKTA-1318558): System Log event name, fields, and reason text for a denied request.
   - Add a flow diagram SVG for this sequence. Source: design doc section 6 (mermaid sequence diagram).
