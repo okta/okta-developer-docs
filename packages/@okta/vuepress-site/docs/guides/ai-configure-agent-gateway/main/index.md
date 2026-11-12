@@ -439,7 +439,7 @@ After you complete all the preceding steps, the following sequence occurs when a
 1. The AI agent discovers the gateway's authorization server metadata from `{gatewayURL}/.well-known/oauth-protected-resource`.
 1. The AI agent obtains an access token from the custom authorization server through authorization code + PKCE.
 1. The AI agent presents the token to the gateway and establishes an MCP session.
-1. The gateway validates the token against the linked custom authorization server and checks that the Agent Gateway is active.
+1. The gateway validates the token against the linked custom authorization server and checks that the Agent Gateway is active. It also checks that the AI agent hasn't been deactivated since the token was issued. If it has, the gateway returns a `401` response with an `invalid_token` error.
 1. On `tools/call`, the gateway initiates an OAuth Security Token Service token exchange with the Okta org authorization server.
 1. Okta validates the delegation link and the resource connection.
 1. If this is the user's first time calling a tool from a specific remote server, an `interaction_required` response prompts the user to consent. After consent, subsequent calls are silent.
@@ -482,4 +482,6 @@ Complete the following tasks after you activate the gateway:
 
 * Give your developers the gateway URL and client credentials so that they can configure their AI agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
 * Review administrative actions in the Okta System Log.
-* To revoke a specific agent's or app's access, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire. To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection instead.
+* To stop a specific agent's or app's access to new tokens, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire.
+* To block a compromised AI agent immediately, including requests that use tokens it already holds, deactivate the AI agent. Agent Gateway then rejects its requests. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+* To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection.
