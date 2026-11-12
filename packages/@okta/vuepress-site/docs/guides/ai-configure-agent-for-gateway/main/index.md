@@ -66,6 +66,14 @@ When your AI agent connects to the Agent Gateway for the first time, the followi
 
 > **Note**: See the [Okta Agent Gateway concept doc](/docs/concepts/agent-gateway/) for a flow diagram of the sequence.
 
+### If an admin deactivates your AI agent
+
+The Agent Gateway checks that your AI agent is active on every request. If an admin deactivates the AI agent, the gateway rejects its tool calls. This applies even if your access token hasn't expired.
+
+The gateway returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`. Your AI agent should treat this response as a signal to authenticate again. While the AI agent is deactivated, authentication doesn't produce a token that the gateway accepts.
+
+After an admin reactivates the AI agent, authenticating again gives your AI agent a new token. The gateway then allows its tool calls.
+
 ## Client identity methods
 
 Your AI agent identifies itself to the Agent Gateway as an OAuth client using one of the following methods.
@@ -188,7 +196,8 @@ After your AI agent is connected to Agent Gateway, perform these tasks:
 - Verify the connection by running a tool call and confirming the response.
 - Review AI agent activity in the Okta System Log under **AI Agent activity** (admin events).
 - To adjust which tools the AI agent can call, update the tool selection on the Agent Gateway. See [Add tools](/docs/guides/ai-configure-agent-gateway/main/#add-tools).
-- To revoke the AI agent's access, deactivate the agent-to-agent gateway resource connection in the Okta Admin Console.
+- To block the AI agent immediately, including requests that use tokens it already holds, an admin deactivates the AI agent. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+- To revoke the AI agent's access to a specific remote MCP server, an admin deactivates the agent-to-agent gateway resource connection in the Okta Admin Console.
 
 ## Related topics
 
