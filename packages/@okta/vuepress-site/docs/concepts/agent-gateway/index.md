@@ -87,7 +87,7 @@ When an AI agent invokes a tool through the Agent Gateway, the following sequenc
 
 1. The AI agent requests an authorization code from the Okta custom authorization server using the authorization code flow with PKCE. The authorization server returns an authorization code to the AI agent.
 1. The AI agent exchanges the authorization code and PKCE code verifier for an access token. The authorization server returns an access token that's scoped to the Agent Gateway.
-1. The AI agent sends a `tools/list` or `tools/call` request to the Agent Gateway with the access token as a Bearer token. The gateway validates the token against the linked authorization server and checks that the [virtual MCP server (vMCP)](#key-concepts) is active.
+1. The AI agent sends a `tools/list` or `tools/call` request to the Agent Gateway with the access token as a Bearer token. The gateway validates the token against the linked authorization server and checks that the [virtual MCP server (vMCP)](#key-concepts) is active. It also checks that the AI agent hasn't been deactivated since the token was issued. See [Kill Switch](#kill-switch).
 1. The gateway sends an OAuth STS token exchange request to the Okta org authorization server. It presents the AI agent's access token as the subject token. The authorization server validates the delegation link, confirming that the AI agent's OAuth 2.0 client is authorized to delegate to this vMCP. Then, it validates that the resource connection to the remote MCP server is active.
 1. (First use only) If the user has no stored refresh token for the remote MCP server, the org authorization server returns an `interaction_required` response with a consent URL. See the [Token exchange flow for OAuth Security Token Service](/docs/guides/ai-agent-token-exchange/resourceserver/main/) for an example of this entire flow.
 1. The AI agent directs the user to the consent URL, where the user authenticates and consents to Okta accessing the remote MCP server on their behalf. The remote MCP server returns a refresh token, which Okta stores.
@@ -96,6 +96,36 @@ When an AI agent invokes a tool through the Agent Gateway, the following sequenc
 1. The gateway injects the downstream access token into the outbound call and proxies the request to the remote MCP server. The remote MCP server returns the response to the AI agent.
 
 > **Note:** The AI agent never holds a credential for the remote service.
+
+## Kill Switch
+
+Agent Gateway checks an AI agent's status on every request, not only when the AI agent obtains a token. When an admin deactivates an AI agent, the gateway blocks that agent's requests. This applies even if the agent's access token hasn't expired.
+
+Without Agent Gateway, deactivating an AI agent stops Okta from issuing new tokens. Tokens that were already issued remain usable until they expire. With Agent Gateway in the path, the gateway also rejects those tokens.
+
+The following sequence occurs when an admin deactivates an AI agent:
+
+1. An admin deactivates the AI agent in the Admin Console or with the Okta API.
+1. Agent Gateway records when the AI agent was deactivated.
+1. The AI agent sends a request through the gateway with an access token that it received before deactivation.
+1. The gateway rejects the request because the token was issued before the deactivation. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
+1. The gateway no longer uses downstream credentials that it cached for the AI agent. When it requests new credentials, the org authorization server refuses the token exchange.
+
+Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
+
+When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
+
+Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
+
+<!--
+  TODO before publishing (confirm, then remove this comment):
+  - Antoine Crepin: EA vs GA labeling (PRFAQ says GA with no separate EA).
+  - Antoine Crepin: cell and org availability statement. Tracy Lee confirmed 2026-11-09 that Fed cells are excluded.
+  - Isaiah Cummins / Sehrish Naeem: token lifetime buffer, so we can say how long a stale epoch record is kept (max token lifetime is 24h).
+  - Antoine Crepin: delegation chain behavior (Agent A to Agent B) before adding a caveat.
+  - Bridget (OKTA-1318558): System Log event name, fields, and reason text for a denied request.
+  - Add a flow diagram SVG for this sequence. Source: design doc section 6 (mermaid sequence diagram).
+-->
 
 ## Key concepts
 
@@ -108,7 +138,7 @@ The link between the gateway and a remote MCP server is one example of a resourc
 
 * **Delegation links**: A delegation link declares that a specific OAuth 2.0 client (the MCP client app) is authorized to delegate to a specific vMCP on behalf of users. The Okta org authorization server evaluates delegation links during the OAuth STS token exchange. Without a delegation link, the token exchange fails, and the AI agent can't invoke tools.
 
-The link between an AI agent and the Agent Gateway is one example of a delegation link. It authorizes a specific agent to use a specific vMCP. Deactivating this connection immediately revokes that AI agent's access without affecting other AI agents or the gateway itself.
+The link between an AI agent and the Agent Gateway is one example of a delegation link. It authorizes a specific agent to use a specific vMCP. Deleting this link stops new token exchanges for that AI agent without affecting other AI agents or the gateway itself. Tokens that are already issued remain valid until they expire. To block an AI agent's existing tokens, deactivate the agent. See [Kill Switch](#kill-switch).
 
 * **Tools**: An admin selects specific tools from remote MCP servers to expose through a vMCP. Admins choose which tools to surface per connection. Upstream MCP servers often expose dozens of tools. Exposing all of them would expand the agent's context window unnecessarily and increase the attack surface. Tool limits are enforced per vMCP and per org (both configurable), not per connection. Tool aliases must be unique within a vMCP.
 * **Custom authorization server**: Each vMCP is protected by an Okta custom authorization server. The gateway validates all inbound AI agent tokens against the linked custom authorization server. Only one custom authorization server per vMCP is supported. The custom authorization server also issues the access tokens that agents use to authenticate to the gateway.
@@ -144,7 +174,8 @@ The exception is embedded AI agents in pure silo mode. These are AI agents that 
 | Stateless sessions | Every tool call initiates a new session with the remote MCP server. MCPs that require session state, such as multi-step workflows, resource subscriptions, and paginated responses, break silently. |
 | Remote MCP servers only | The gateway relay makes outbound calls from the Okta cloud. Upstream MCP servers that run inside a private network aren't reachable. Examples include servers behind a corporate firewall or in an on-premises data center. The gateway has no way to connect to infrastructure outside of the Okta hosted environment. |
 | OAuth 2.0/Bearer auth only | Upstream MCP servers must accept OAuth 2.0 Bearer tokens, which the gateway obtains through the OAuth STS token exchange and injects into outbound calls. Upstreams that require API keys, mTLS, vaulted credentials, or custom header authentication aren't supported. |
-| No real-time token revocation | Revoked AI agent tokens remain valid at the gateway until they expire naturally. Effective revocation time equals the shorter of the inbound and cached downstream token lifetimes. |
+| Token revocation outside Kill Switch | [Kill Switch](#kill-switch) blocks requests from a deactivated AI agent, even if its token hasn't expired. Other changes, such as deleting a delegation link, don't affect tokens that are already issued. Those tokens remain valid at the gateway until they expire. |
+| Kill Switch scope | Kill Switch applies to a whole AI agent that routes through the gateway. It can't block a single user's access through an AI agent. AI agents that don't route through the gateway behave as before. |
 | Cloud-only deployment | The gateway is hosted in the Okta Workforce domain. You can't run your own copy of the gateway. |
 | Dynamic Client Registration (DCR) not supported | AI agents that rely on DCR for OAuth 2.0 client registration can't use the gateway without reconfiguration. The recommended alternative is CIMD-based registration or a pre-registered client ID. |
 | MCP protocol only | The gateway calls remote MCP servers, not raw REST or GraphQL APIs. To connect a REST or GraphQL API, wrap it in an MCP server first, then connect the gateway to that server. |
