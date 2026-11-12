@@ -26,10 +26,12 @@ This rate limit event type now appears in the System Log: `system.rate_limit.con
 * Changes in the rate limit warning notification threshold
 * If the rate limit notification is enabled or disabled
 * Updates to the rate-limit percentage of an API token
+<!-- Add and Update Syslog Entries for Rate Limits, OKTA-797466 -->
 
 #### New identity sources System Log events
 
 System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
+<!-- Bedrock - Add syslog to XaaS bulk-upsert and bulk-delete OKTA-755721 -->
 
 ### Version 2026.45.1
 <!-- Published on: 2026-11-11T12:00:00Z -->
