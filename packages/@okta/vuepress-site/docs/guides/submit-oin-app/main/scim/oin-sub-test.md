@@ -130,7 +130,7 @@ If you have to update the SSO or test detail properties in your submission to re
 
 It's good practice to deactivate your test instances that aren't in use. You can delete the instance later to clean up your app integration list.
 
-Follow these steps to obtain your test results:
+Follow these step to obtain your test results:
 
 1. From the OIN Submission Tester, click **Export results** (upper-right corner) to download a JSON-formatted file of all your test results.
 
