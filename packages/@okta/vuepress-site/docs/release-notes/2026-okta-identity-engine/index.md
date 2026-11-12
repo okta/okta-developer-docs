@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 | [Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production](#passkey-fido2-webauthn-support-for-user-identification-policies-is-ga-in-production) | November 11, 2026 |
 | [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
 | [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
-| [Attack protection policy](#attack-protection-policy)| November 11, 2026|
+| [Attack protection policy](#attack-protection-policy) | November 11, 2026 |
 | [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
 
 #### Source property for AI agents
