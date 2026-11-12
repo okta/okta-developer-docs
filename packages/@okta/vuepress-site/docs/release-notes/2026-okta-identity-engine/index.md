@@ -25,7 +25,6 @@ title: Okta Identity Engine API release notes 2026
 | [New field in `user.identity_verification` event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | November 11, 2026 |
 | [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
 | [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
-| [System Log event for emails added to the bounced email list](#system-log-event-for-emails-added-to-the-bounced-email-list) | November 11, 2026 |
 | [New System Log events for Shared Signals Framework transmitter](#new-system-log-events-for-shared-signals-framework-transmitter) | November 11, 2026 |
 | [Event hook for session context changes](#event-hook-for-session-context-changes) | November 11, 2026 |
 | [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
@@ -75,10 +74,6 @@ This rate limit event type now appears in the System Log: `system.rate_limit.con
 System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
 
 <!-- Bedrock - Add syslog to XaaS bulk-upsert and bulk-delete OKTA-755721 -->
-
-#### System Log event for emails added to the bounced email list
-
-A System Log `system.email.bounce.removal` event is now triggered when an API request is made to [remove bounced emails](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) (`POST /org/email/bounces/remove-list`). This request sends a list of emails to a third-party email service to remove the emails from the bounce list. The event is triggered when the API request is made. The event doesn’t indicate when the emails are actually removed by the third-party email service. <!--OKTA-807544 -->
 
 #### New System Log events for Shared Signals Framework transmitter
 

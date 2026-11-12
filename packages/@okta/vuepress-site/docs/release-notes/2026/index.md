@@ -17,7 +17,6 @@ title: Okta Classic Engine API release notes 2026
 | ------ | ------------------------ |
 | [New rate limit event type is GA in Preview](#new-rate-limit-event-type-is-ga-in-preview) | November 11, 2026 |
 | [New identity sources System Log events](#new-identity-sources-system-log-events) | November 11, 2026 |
-| [System Log event for emails added to the bounced email list](#system-log-event-for-emails-added-to-the-bounced-email-list) | November 11, 2026 |
 
 #### New rate limit event type is GA in Preview
 
@@ -31,10 +30,6 @@ This rate limit event type now appears in the System Log: `system.rate_limit.con
 #### New identity sources System Log events
 
 System Log events have been added to indicate when identity sources upload bulk upserts data and upload bulk deletes data.
-
-#### System Log event for emails added to the bounced email list
-
-A System Log `system.email.bounce.removal` event is now triggered when an API request is made to [remove bounced emails](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) (`POST /org/email/bounces/remove-list`). This request sends a list of emails to a third-party email service to remove the emails from the bounce list. The event is triggered when the API request is made. The event doesn’t indicate when the emails are actually removed by the third-party email service. <!--OKTA-807544 -->
 
 ### Version 2026.45.1
 <!-- Published on: 2026-11-11T12:00:00Z -->

@@ -22,7 +22,6 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Increased Access Request task assignee limit](#increased-access-request-task-assignee-limit) | November 11, 2026 |
 | [Certify resource collections - User campaigns is GA in Production](#certify-resource-collections-user-campaigns-is-ga-in-production) | November 11, 2026 |
 | [Certify resource collections - Resource campaigns is GA in Production](#certify-resource-collections-resource-campaigns-is-ga-in-production) | November 11, 2026 |
-| [New System Log event](#new-system-log-event) | November 11, 2026 |
 
 #### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production
 
@@ -60,11 +59,6 @@ Use access certification resource campaigns to certify user access to resource c
 A new `COLLECTION` resource option in the campaign [`resourceSettings.targetTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targettypes) property has been added to support resource collection campaigns.
 <!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS Prod date: Nov 12, 2026 -->
 <!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS Preview date: Jan 28, 2026 -->
-
-#### New System Log event
-
-The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
-<!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
 
 ## October
 
