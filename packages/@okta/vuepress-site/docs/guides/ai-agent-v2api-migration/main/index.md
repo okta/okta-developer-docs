@@ -135,7 +135,22 @@ The V1 response includes `_links.self` as an object with an `href`:
 }
 ```
 
-The V2 response has the same properties and no `_links`.
+The V2 response doesn't include `_links`:
+
+```json
+{
+  "id": "dlk1a2b3c4d5e6f7g8h9",
+  "from": {
+    "type": "OKTA_AUTHORIZATION_SERVER",
+    "clientOrn": "orn:okta:directory:00o4p0z0f8s5rNkEJ8g6:workload-principals:ai-agents:wlp19kc5yr3UTqS8o2p8",
+    "tokenType": "ACCESS_TOKEN"
+  },
+  "to": {
+    "resourceOrn": "orn:okta:directory:00o4p0z0f8s5rNkEJ8g6:workload-principals:ai-agents:wlp25spbxqmZzyS4f0h8",
+    "authorizationServerOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:authorization_servers:aus1gjh63g214q0Hq0g4"
+  }
+}
+```
 
 On a list, the V1 `_links.self` is an object with an `href`:
 
@@ -163,11 +178,24 @@ On a list, the V1 `_links.self` is an object with an `href`:
 }
 ```
 
-In V2, `_links.self` is a plain URL string. The `data` items are the same:
+In V2, `_links.self` is a plain URL string:
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "dlk2b3c4d5e6f7g8h9i0",
+      "from": {
+        "type": "OKTA_AUTHORIZATION_SERVER",
+        "clientOrn": "orn:okta:directory:00o4p0z0f8s5rNkEJ8g6:workload-principals:ai-agents:wlp19kc5yr3UTqS8o2p8",
+        "tokenType": "ACCESS_TOKEN"
+      },
+      "to": {
+        "resourceOrn": "orn:okta:directory:00o4p0z0f8s5rNkEJ8g6:workload-principals:ai-agents:wlp1j8yjr17pp6l8V0x8",
+        "authorizationServerOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:authorization_servers:aus1gjh63g214q0Hq0g4"
+      }
+    }
+  ],
   "_links": {
     "self": "https://{yourOktaDomain}/workload-principals/api/v2/delegation-links"
   }
@@ -294,11 +322,19 @@ On a list, the V1 `_links.self` and `_links.next` are objects with an `href`:
 }
 ```
 
-In V2, the list `_links` are plain URL strings. The `data` items have the same properties:
+In V2, the list `_links` are plain URL strings:
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "op-6g7h8i9j",
+      "type": "ai-agent:BulkStaging",
+      "status": "IN_PROGRESS",
+      "created": "2025-09-11T18:52:48.000Z",
+      "started": "2025-09-11T18:52:48.000Z"
+    }
+  ],
   "_links": {
     "self": "https://{yourOktaDomain}/workload-principals/api/v2/operations",
     "next": "https://{yourOktaDomain}/workload-principals/api/v2/operations?after=op-6g7h8i9j"
@@ -361,11 +397,16 @@ This V1 response from `GET /resource-servers/api/v1/operations/op-1a2b3c4d` has 
 }
 ```
 
-This V2 response from `GET /resource-servers/api/v2/operations/op-1a2b3c4d` has an `orn` and no `_links` in the `resource`. The other properties are the same:
+This V2 response from `GET /resource-servers/api/v2/operations/op-1a2b3c4d` has an `orn` and no `_links` in the `resource`:
 
 ```json
 {
-  ...
+  "id": "op-1a2b3c4d",
+  "type": "resource-server:Register",
+  "status": "COMPLETED",
+  "created": "2025-01-29T10:00:00.000Z",
+  "started": "2025-01-29T10:00:01.000Z",
+  "completed": "2025-01-29T10:00:05.000Z",
   "resource": {
     "id": "ems8nUa7p0g4zrZbs2f4",
     "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4",
@@ -540,14 +581,18 @@ The V2 response wraps the credentials in `data`. Without the `links` query param
 }
 ```
 
-With `links=ALL`, each credential includes `activate`, `deactivate`, and `delete` links as plain URL strings. The other properties are the same:
+With `links=ALL`, each credential includes `activate`, `deactivate`, and `delete` links as plain URL strings:
 
 ```json
 {
   "data": [
     {
       "id": "ocs2f4zrZbs8nUa7p0g4",
-      ...
+      "status": "INACTIVE",
+      "client_secret": "DRUFXGF9XbLn......a3x3POBiIxDreBCdZuFs5B",
+      "secret_hash": "yk4SVx4sUWVJVbHt6M-UPA",
+      "created": "2023-02-21T20:08:24.000Z",
+      "lastUpdated": "2023-02-21T20:08:24.000Z",
       "_links": {
         "activate": "https://{yourOktaDomain}/workload-principals/api/v2/ai-agents/{agentId}/credentials/secrets/ocs2f4zrZbs8nUa7p0g4/lifecycle/activate",
         "deactivate": "https://{yourOktaDomain}/workload-principals/api/v2/ai-agents/{agentId}/credentials/secrets/ocs2f4zrZbs8nUa7p0g4/lifecycle/deactivate",
@@ -673,7 +718,13 @@ The V2 response is `201 Created` with the agent. The agent has no `externalId`, 
 ```json
 {
   "id": "wlpx8kR27j0U7HGDM1h4",
-  ...
+  "created": "2022-04-04T15:56:05.000Z",
+  "lastUpdated": "2022-05-05T18:15:44.000Z",
+  "status": "ACTIVE",
+  "profile": {
+    "name": "Orchestrator Agent",
+    "description": "Orchestrator Agent"
+  },
   "_links": {
     "providers": [
       "https://{yourOktaDomain}/workload-principals/api/v2/ai-agent-providers/aip-1a2b3c4d"
@@ -768,7 +819,21 @@ The V1 response is `202 Accepted` with no body, and a `Location` header that poi
 }
 ```
 
-The V2 response is `201 Created` with the agent gateway in the body. It has the same properties and no `_links`.
+The V2 response is `201 Created` with the agent gateway in the body. There are no `_links`:
+
+```json
+{
+  "id": "wlp7lM8nO9pQ0rS1tU2v",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp7lM8nO9pQ0rS1tU2v",
+  "status": "INACTIVE",
+  "profile": {
+    "displayName": "Staging MCP Servers",
+    "description": "Groups all staging MCP servers for testing"
+  },
+  "created": "2025-06-10T08:00:00Z",
+  "lastUpdated": "2025-06-10T08:00:00Z"
+}
+```
 
 A V2 call to `POST /workload-principals/api/v2/agent-gateways/wlp7lM8nO9pQ0rS1tU2v/lifecycle/activate` returns `200` with the same object and a `status` of `ACTIVE`. The V1 call returns `202` with no body.
 
@@ -776,7 +841,19 @@ On a list, the V2 `_links` are plain URL strings:
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "wlp1aB2cD3eF4gH5iJ6k",
+      "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+      "status": "ACTIVE",
+      "profile": {
+        "displayName": "Production MCP Servers",
+        "description": "Groups all production MCP servers for the engineering team"
+      },
+      "created": "2025-06-01T10:00:00Z",
+      "lastUpdated": "2025-06-15T14:30:00Z"
+    }
+  ],
   "_links": {
     "self": "https://{yourOktaDomain}/workload-principals/api/v2/agent-gateways?limit=20",
     "next": "https://{yourOktaDomain}/workload-principals/api/v2/agent-gateways?after=wlp1aB2cD3eF4gH5iJ6k&limit=20"
@@ -831,7 +908,17 @@ This V1 A2A server from `GET /resource-servers/api/v1/a2a-servers/wlpx9jQ16k9V8I
 }
 ```
 
-The V2 A2A server has the same properties and no `_links`.
+The V2 A2A server has no `_links`:
+
+```json
+{
+  "a2aServerId": "wlpx9jQ16k9V8IFEL0g3",
+  "orn": "orn:okta:directory:00o5rb5mt2H3d1TJd0h7:resource-servers:a2a:wlpx9jQ16k9V8IFEL0g3",
+  "resourceUrl": "https://demo-agent.example.com",
+  "created": "2025-01-27T08:00:00Z",
+  "lastUpdated": "2025-01-29T10:00:00Z"
+}
+```
 
 To add an Okta custom authorization server in V1, send a request with a `type` to `POST /resource-servers/api/v1/a2a-servers/{a2aServerId}/authorization-servers`:
 
@@ -972,7 +1059,28 @@ The V2 request to `POST /resource-servers/api/v2/api-servers` puts `displayName`
 }
 ```
 
-The V2 response is `201 Created` with the server. It has the same properties and no `_links`.
+The V2 response is `201 Created` with the server. The response has no `_links`:
+
+```json
+{
+  "id": "api8nUa7p0g4zrZbs2f4",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:api:api8nUa7p0g4zrZbs2f4",
+  "resourceUrl": "https://api.example.com",
+  "status": "ACTIVE",
+  "metadata": {
+    "displayName": "Example API",
+    "description": "Example API server"
+  },
+  "created": "2025-01-29T10:00:00Z",
+  "lastUpdated": "2025-01-29T10:00:00Z",
+  "_embedded": {
+    "counts": {
+      "authorizationServers": 2,
+      "clientAuthSettings": 5
+    }
+  }
+}
+```
 
 To add an authorization server in V1, you send the issuer and endpoints to `POST /resource-servers/api/v1/api-servers/{apiServerId}/authorization-servers`:
 
@@ -1143,12 +1251,25 @@ The V2 request to `POST /resource-servers/api/v2/mcp-servers` puts `displayName`
 }
 ```
 
-The V2 response is `201 Created` with the server. The response has no `_links` and includes `_embedded.counts`. The other properties are the same:
+The V2 response is `201 Created` with the server. The response has no `_links` and includes `_embedded.counts`:
 
 ```json
 {
   "id": "emsMa1nU2aL3p0g4zrZb",
-  ...
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:emsMa1nU2aL3p0g4zrZb",
+  "resourceUrl": "https://mcp.example.com",
+  "status": "ACTIVE",
+  "authorizationServerCount": 0,
+  "metadata": {
+    "displayName": "Manually registered MCP Server",
+    "description": "MCP server registered with manually supplied metadata",
+    "scopesSupported": [
+      "mcp.read",
+      "mcp.write"
+    ]
+  },
+  "created": "2025-02-01T10:00:00Z",
+  "lastUpdated": "2025-02-01T10:00:00Z",
   "_embedded": {
     "counts": {
       "authorizationServers": 0,
@@ -1416,17 +1537,19 @@ This example retrieves a discovery. The V1 response from `GET /resource-servers/
 }
 ```
 
-The V2 response from `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discovery/emd1a2b3c4d5e6f7g8h9` has no `_links`. The `authType` is `BROKERED_CONSENT`, and the other properties are the same:
+The V2 response from `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/metadata/discovery/emd1a2b3c4d5e6f7g8h9` has no `_links`:
 
 ```json
 {
   "id": "emd1a2b3c4d5e6f7g8h9",
-  ...
+  "mcpServerId": "ems8nUa7p0g4zrZbs2f4",
   "credential": {
     "authType": "BROKERED_CONSENT",
     "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
   },
-  ...
+  "status": "READY",
+  "lastDiscoveredAt": "2026-01-29T12:00:00Z",
+  "toolsCount": 12
 }
 ```
 
@@ -1476,13 +1599,42 @@ The V1 response from `GET /resource-servers/api/v1/mcp-servers/ems8nUa7p0g4zrZbs
 }
 ```
 
-The V2 response from `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools/emt1a2b3c4d5e6f7g8h9` has the same properties and no `_links`. The `credential.authType` is `BROKERED_CONSENT`.
+The V2 response from `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools/emt1a2b3c4d5e6f7g8h9`:
+
+```json
+{
+  "id": "emt1a2b3c4d5e6f7g8h9",
+  "name": "create_pull_request",
+  "description": "Creates a new pull request in a GitHub repository",
+  "inputSchema": {
+    "type": "object",
+    "required": ["repo", "title"]
+  },
+  "credential": {
+    "authType": "BROKERED_CONSENT",
+    "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+  },
+  "created": "2026-01-29T12:00:00Z",
+  "lastUpdated": "2026-01-29T12:00:00Z"
+}
+```
 
 On a V2 list, such as `GET /resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.authType%20eq%20%22BROKERED_CONSENT%22&limit=20`, the `_links` are plain URL strings. There is no `_embedded.metadata.total` or `parent` link:
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "emt1a2b3c4d5e6f7g8h9",
+      "name": "create_pull_request",
+      "credential": {
+        "authType": "BROKERED_CONSENT",
+        "clientAuthSettingsId": "rsc2c8xwvBn4h2Ry50g7"
+      },
+      "created": "2026-01-29T12:00:00Z",
+      "lastUpdated": "2026-01-29T12:00:00Z"
+    }
+  ],
   "_links": {
     "self": "https://{yourOktaDomain}/resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.authType%20eq%20%22BROKERED_CONSENT%22&limit=20",
     "next": "https://{yourOktaDomain}/resource-servers/api/v2/mcp-servers/ems8nUa7p0g4zrZbs2f4/tools?search=credential.authType%20eq%20%22BROKERED_CONSENT%22&after=emt1a2b3c4d5e6f7g8h9&limit=20"
@@ -1555,7 +1707,23 @@ This example retrieves a virtual MCP server. The V1 response from `GET /resource
 }
 ```
 
-The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k` has the same properties and no `_links`.
+The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k` has no `_links`:
+
+```json
+{
+  "id": "wlp1aB2cD3eF4gH5iJ6k",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
+  "resourcePath": "production",
+  "resourceUrl": "https://{yourOktaSubdomain}.gateway.okta.com/mcp/production",
+  "status": "ACTIVE",
+  "profile": {
+    "displayName": "Production MCP Servers",
+    "description": "Groups all production MCP servers for the engineering team"
+  },
+  "created": "2025-06-01T10:00:00Z",
+  "lastUpdated": "2025-06-15T14:30:00Z"
+}
+```
 
 The `expand` query parameter works the same way on the list call in both versions. Pass `connectedResources`, `attachedAgents`, or both. The summaries appear under `_embedded`, and the single-object `GET` doesn't return them.
 
@@ -1594,7 +1762,19 @@ The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4g
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "vsc1aB2cD3eF4gH5iJ6k",
+      "sourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4:tools:emt1aB2cD3eF4gH5iJ6k",
+      "connectionOrn": "orn:okta:idp:00o1gjjp4jsdR3Sww4x7:connections:mcn1aB2cD3eF4gH5iJ6k",
+      "status": "VALID",
+      "profile": {
+        "name": "get_issues",
+        "description": "Get issues from a repository",
+        "alias": "get_jira_issues"
+      }
+    }
+  ],
   "_links": {
     "self": "https://{yourOktaDomain}/resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k/tools?limit=20",
     "next": "https://{yourOktaDomain}/resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4gH5iJ6k/tools?after=vsc1aB2cD3eF4gH5iJ6k&limit=20"
@@ -1968,7 +2148,26 @@ This V1 response includes `_links.self`:
 }
 ```
 
-The V2 response has the same `data` array and no `_links`.
+This V2 response has the same attributes and no `_links`:
+
+```json
+{
+  "data": [
+    {
+      "name": "source.Id",
+      "type": "string"
+    },
+    {
+      "name": "source.Description",
+      "type": "string"
+    },
+    {
+      "name": "source.MasterLabel",
+      "type": "string"
+    }
+  ]
+}
+```
 
 ### Filtering and sorting
 
@@ -2026,7 +2225,26 @@ This example retrieves a provider. The V1 response from `GET /workload-principal
 }
 ```
 
-The V2 response from `GET /workload-principals/api/v2/ai-agent-providers/aip-1a2b3c4d` has the same properties and no `_links`.
+The V2 response from `GET /workload-principals/api/v2/ai-agent-providers/aip-1a2b3c4d` has the same properties and no `_links`:
+
+```json
+{
+  "id": "aip-1a2b3c4d",
+  "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+  "sourceId": "0oafxqCAJWWGELFTYASJ",
+  "sourceName": "salesforce",
+  "sourceType": "apps",
+  "status": "ACTIVE",
+  "integrationDate": "2024-01-01T12:00:00Z",
+  "lastImportDate": "2024-06-01T12:00:00Z",
+  "owners": {
+    "userOrns": [
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4",
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g5"
+    ]
+  }
+}
+```
 
 This example lists providers. In V1, the `_links` on the list and on each provider are objects with an `href`:
 
@@ -2066,7 +2284,23 @@ In V2, the providers have no `_links`, and the list `_links` are plain URL strin
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "aip-1a2b3c4d",
+      "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
+      "sourceId": "0oafxqCAJWWGELFTYASJ",
+      "sourceName": "salesforce",
+      "sourceType": "apps",
+      "status": "ACTIVE",
+      "integrationDate": "2024-01-01T12:00:00Z",
+      "lastImportDate": "2024-06-01T12:00:00Z",
+      "owners": {
+        "userOrns": [
+          "orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00u10sfroCwbHQO4a0g4"
+        ]
+      }
+    }
+  ],
   "_links": {
     "self": "https://{yourOktaDomain}/workload-principals/api/v2/ai-agent-providers"
   }
@@ -2594,7 +2828,28 @@ A V2 list returns `_links` as plain URL strings:
 
 ```json
 {
-  "data": [ ... ],
+  "data": [
+    {
+      "id": "rcn3c4d5e6f7g8h9i0j1",
+      "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:connections:rcn3c4d5e6f7g8h9i0j1",
+      "status": "ACTIVE",
+      "actor": {
+        "wlpId": "wlpkhjm0jnDp8RrUu0g4",
+        "wlpType": "AI_AGENT",
+        "displayName": "Sales AI Agent"
+      },
+      "protocol": {
+        "protocolType": "STS"
+      },
+      "resource": {
+        "resourceType": "VAULT_SECRET",
+        "orn": "orn:okta:pam:00o1n8sbwArJ7OQRw406:secrets:d2642f68-df50-4ba8-a898-6c0f82f89d8a",
+        "displayName": "DB Password",
+        "description": "Production DB credentials"
+      },
+      "resourceIdentifier": "orn:okta:pam:00o1n8sbwArJ7OQRw406:secrets:d2642f68-df50-4ba8-a898-6c0f82f89d8a"
+    }
+  ],
   "_links": {
     "self": "https://example.okta.com/resource-connections/api/v2/connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22&limit=2",
     "next": "https://example.okta.com/resource-connections/api/v2/connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22&after=rcn3c4d5e6f7g8h9i0j1&limit=2"
@@ -2620,16 +2875,27 @@ V1 managed connections and the AI agent, MCP server, and virtual MCP server conn
 
 ## Migration checklist
 
-Each API section ends its changes with a "What to change" list. This checklist covers only the changes that apply across APIs, or that aren't in one of those lists.
-
 1. Change the path prefix in your calls from `/api/v1` to `/api/v2`.
 2. Stop polling operations for write calls that are synchronous in V2.
 3. Remove references to `appId`, `externalId`, and `platform` on AI agents.
 4. Update code that reads `_links`.
 5. Update code that branches on operation `type` values.
-6. Move `subjectMappingExpression` and endpoint changes for external authorization servers to the External Authorization Servers API.
-7. For MCP servers, replace `protocolConfigured` and `tenantId` with `protocolConfigurations`.
-8. Test your integration against V2 before the V1 cutoff date.
+6. Stop sending `to.authorizationServerOrn` and stop creating `ID_TOKEN` links in Delegation Links calls.
+7. Rename `purpose` to `purposes` and move the OAuth fields under `oauthClientConfiguration` in client authentication settings calls.
+8. Read the client secrets list from `data` and pass `links=ALL` on credential `GET` operations if you use the action links.
+9. Move `displayName`, `description`, `scopesSupported`, and `app` under `metadata` in MCP server and API server create and update requests. Read `detectedMetadata` values from `metadata`.
+10. Create external authorization servers with the External Authorization Servers API, then link them to resource servers by `orn`. Move `subjectMappingExpression` and endpoint changes to that API.
+11. For MCP servers, replace `protocolConfigured` and `tenantId` with `protocolConfigurations`.
+12. Poll a resource server operation only after you register a `DISCOVERABLE` MCP server, change an MCP server `resourceUrl`, or start MCP server discovery.
+13. Change the paths for virtual MCP servers from `/virtual-mcp-servers` to `/agent-gateways` in the Workload Principals and Resource Servers APIs.
+14. In MCP server discovery requests, move `type` (renamed `authType`), `clientAuthSettingsOrn`, and `tokenRequestSettingsOrn` under `credential`. Change `CLIENT_AUTH_SETTINGS` to `BROKERED_CONSENT`.
+15. Call `/resource-connections/api/v2/connections` for AI agent, MCP server, and virtual MCP server connections. Send `actor.wlpId` in the body, and replace `connectionType` with `protocol.protocolType` and `resource.resourceType`.
+16. In connection calls, move `scopeCondition`, `scopes`, and `clientIdAtResource` under `protocol`, and rename `resourceIndicator` to `resourceIdentifier`.
+17. Replace the `filter` parameter and the managed connections call with `search`. Deactivate a connection before you delete it.
+18. Stop calling the add and remove authorization server operations on virtual MCP servers. V2 doesn't include them.
+19. Replace potential connections `connectionType` filters with `search` on `protocol.protocolType` and `resource.resourceType`. Anchor on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn` to narrow the results.
+20. Change the path for token request settings from `/resource-servers/api/v1/token-request-settings` to `/resource-servers/api/v2/token-request-settings`.
+21. Test your integration against V2 before the V1 cutoff date.
 
 ## See also
 
