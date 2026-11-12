@@ -50,6 +50,10 @@ In the [AI Agent Registrations API](https://developer.okta.com/docs/api/secures-
 
 Okta Expression Language now supports the `agent` object in custom claims. Use `agent.id` and `agent.profile` attributes, such as `agent.profile.name`, to add AI agent data to access tokens. This allows resource servers to identify which AI agent is calling them. <!-- SECURE_AI_AGENTS_EL_CONTEXT OKTA-1303899 OKTA-1293195 preview 11.12.2026 2026.46.0-->
 
+#### Attack protection policy
+
+Bot protection currently uses one detection threshold and one action for every protected flow. Admins have to choose between letting more bots through on sign-up or adding friction to every sign-in. With the attack protection policy, admins create a rule for each sign-in, sign-up, and password reset flow, with its own bot likeliness threshold and action. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).This policy lets admins enforce Okta Challenge where bot traffic costs the most and monitor the rest. When you enable the feature, your existing bot protection settings migrate to the policy automatically, and, after you turn on Attack Protection, changes made with the [Bot Protection APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) no longer take effect. See also [Attack protection](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection).
+
 #### Bugs fixed in 2026.46.0
 
 * When you sent an invalid `showSignInButton` value in a `USER_IDENTIFICATION` policy rule request (either POST or PUT `/policies/{policyId}/rules` requests), the HTTP 400 error response incorrectly referred to the `type` field. (OKTA-1307433)
@@ -74,10 +78,6 @@ You can now import AI agents that are in a staged or preview state. See [Start t
 
 The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/listclientauthsettings)(`POST /resource-servers/api/{version}/client-auth-settings`) now supports multiple client authentication settings with the `AGENT_IMPORT` purpose for the same Okta Integration Network (OIN) app instance. Previously, creating a second `AGENT_IMPORT` setting for an app instance returned a `400 Bad Request` error. Each setting has its own client credentials and OAuth configuration, so platforms in one app instance can authenticate separately. Settings with other purposes, such as `STS`, are still limited to one per app instance.
 <!-- OKTA-1303935 -->
-
-#### Attack protection policy
-
-Bot protection currently uses one detection threshold and one action for every protected flow. Admins have to choose between letting more bots through on sign-up or adding friction to every sign-in. With the attack protection policy, admins create a rule for each sign-in, sign-up, and password reset flow, with its own bot likeliness threshold and action. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).This policy lets admins enforce Okta Challenge where bot traffic costs the most and monitor the rest. When you enable the feature, your existing bot protection settings migrate to the policy automatically, and, after you turn on Attack Protection, changes made with the [Bot Protection APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) no longer take effect. See also [Attack protection](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection).
 
 #### Bugs fixed in 2026.45.1
 
