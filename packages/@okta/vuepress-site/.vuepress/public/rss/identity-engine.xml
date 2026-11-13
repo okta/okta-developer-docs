@@ -4,8 +4,17 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Wed, 04 Nov 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Version 2026.46.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&amp;utm_medium=feed#version-2026-46-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#version-2026-46-0</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&utm_medium=feed#source-property-for-ai-agents">Source property for AI agents</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&utm_medium=feed#passkey-fido2-webauthn-support-for-user-identification-policies-is-ga-in-production">Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&utm_medium=feed#multiple-platform-mappings-and-external-id-filter-for-ai-agents">Multiple platform mappings and external ID filter for AI agents</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&utm_medium=feed#ai-agent-attributes-in-custom-claims-is-ga-in-preview">AI agent attributes in custom claims is GA in preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&utm_medium=feed#attack-protection-policy">Attack protection policy</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&utm_medium=feed#bugs-fixed-in-2026-46-0">Bugs fixed in 2026.46.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Version 2026.45.1</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/?utm_source=rss&amp;utm_medium=feed#version-2026-45-1</link>
