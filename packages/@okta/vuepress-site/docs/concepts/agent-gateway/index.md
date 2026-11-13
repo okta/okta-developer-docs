@@ -26,7 +26,7 @@ Agent Gateway solves this by sitting in the path of AI agent requests to connect
 Agent Gateway follows a decoupled architecture with two layers:
 
 * **Control plane (Okta)**: Admins configure gateways (virtual MCP servers), resource connections, tool capabilities, and authorization policy through the Admin Console or the Okta APIs. The control plane stores all configuration. The gateway (data plane) fetches it and refreshes it periodically, so that configuration changes propagate without AI agent-side reconfiguration.
-* **Data plane (gateway relay)**: An Okta-hosted relay container that handles live AI agent traffic. It validates inbound tokens and consults the configuration that's loaded from the control plane. It then retrieves downstream credentials through OAuth Security Token Service (STS), injects them into outbound calls, and proxies requests to remote MCP servers.
+* **Data plane (gateway relay)**: An Okta-hosted relay container that handles live AI agent traffic. It validates inbound tokens and consults the configuration that's loaded from the control plane. It then retrieves downstream credentials through OAuth Security Token Service (STS) or Cross-App Access (XAA). Finally, it injects them into outbound calls and proxies requests to remote MCP servers.
 
 The two layers are independently scalable. The data plane picks up configuration changes in the control plane without AI agent-side reconfiguration.
 
@@ -43,6 +43,13 @@ The following diagram describes the Agent Gateway flow when an AI agent invokes 
    -->
 
 </div>
+
+<!--
+  TODO before publishing (confirm, then remove this comment):
+  - Isaiah Cummins / Daniel Zeller: confirm the XAA outbound sequence before anyone draws it. For a custom authorization server, the gateway receives an ID-JAG and redeems it. For an external authorization server, Okta models the connection as STS and uses the ID-JAG internally (2026-11-01 thread in #agent-gateway-xaa).
+  - Isaiah Cummins / Kamron Batmanghelich: what the System Log and API show when an ID-JAG is used.
+  - Then add an XAA branch to the Outbound section of the diagram below, regenerate the SVG, and update the numbered steps (step 4 describes only the STS exchange).
+-->
 
 <!-- Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -133,7 +140,7 @@ Agent Gateway is built around a small set of concepts that govern how agents, to
 * **Virtual MCP server**: A virtual MCP server (vMCP) is the Okta-managed Agent Gateway endpoint. It aggregates tools from one or more remote MCP servers and exposes them to AI agents as a single MCP endpoint at `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`. AI agents discover available tools and invoke them through this URL. They don't connect to remote MCP servers directly. A vMCP has a lifecycle. It's created in `INACTIVE` status and must be explicitly activated before AI agents can connect. You can deactivate it to suspend access without deleting configurations.
 * **Resource connections**: [Resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) are the explicit, governable links between entities in the Agent Gateway model. The connection must be active for tool calls to succeed at runtime. Resource connections are created and managed independently of each other and of the vMCP's own lifecycle.
 
-The link between the gateway and a remote MCP server is one example of a resource connection. It authorizes the gateway to obtain an access token for that remote MCP server through the OAuth STS token exchange. It also enables the gateway to forward tool calls to that server.
+The link between the gateway and a remote MCP server is one example of a resource connection. It authorizes the gateway to obtain an access token for that remote MCP server through the OAuth STS token exchange or XAA. It also enables the gateway to forward tool calls to that server.
 
 * **Delegation links**: A delegation link declares that a specific OAuth 2.0 client (the MCP client app) is authorized to delegate to a specific vMCP on behalf of users. The Okta org authorization server evaluates delegation links during the OAuth STS token exchange. Without a delegation link, the token exchange fails, and the AI agent can't invoke tools.
 
@@ -147,7 +154,7 @@ The link between an AI agent and the Agent Gateway is one example of a delegatio
 
 The following concepts aren't part of Agent Gateway itself, but they intersect with it and often come up in the same conversations. Understanding how they differ from Agent Gateway's model helps you choose the right approach for a given AI agent.
 
-* **Cross-App Access (XAA)**: An alternative approach to AI agent identity that delivers Okta-issued tokens to the AI agent, which then calls remote services directly. XAA is better suited to AI agents that the enterprise builds and controls. Unlike Agent Gateway, XAA doesn't sit in the path of every request. As a result, it can't enforce tool-level policy or produce a unified audit trail across different upstreams. For third-party AI agents the enterprise can't instrument, Agent Gateway is the appropriate choice.
+* **Cross-App Access (XAA)**: An approach to AI agent identity that delivers Okta-issued tokens to the AI agent, which then calls remote services directly. XAA is better suited to AI agents that the enterprise builds and controls. In this direct model, XAA doesn't sit in the path of every request. As a result, it can't enforce tool-level policy or produce a unified audit trail across different upstreams. For third-party AI agents the enterprise can't instrument, Agent Gateway is the appropriate choice. The two approaches also work together. Agent Gateway can use XAA outbound to get the access token for a remote MCP server, instead of using the OAuth STS token exchange.
 
 * **Okta for AI Agents**: The broader Okta product surface for securing AI agents, of which Agent Gateway is one component. Agent Gateway extends the identity fabric for Okta for AI Agents specifically to AI agents that the enterprise doesn't build or control.
 
@@ -172,7 +179,9 @@ The exception is embedded AI agents in pure silo mode. These are AI agents that 
 | Tools only | MCP resources, prompts, sampling, completion, logging, and roots aren't supported. Upstream MCPs that rely on these capabilities have reduced functionality or break silently when routed through the gateway. |
 | Stateless sessions | Every tool call initiates a new session with the remote MCP server. MCPs that require session state, such as multi-step workflows, resource subscriptions, and paginated responses, break silently. |
 | Remote MCP servers only | The gateway relay makes outbound calls from the Okta cloud. Upstream MCP servers that run inside a private network aren't reachable. Examples include servers behind a corporate firewall or in an on-premises data center. The gateway has no way to connect to infrastructure outside of the Okta hosted environment. |
-| OAuth 2.0/Bearer auth only | Upstream MCP servers must accept OAuth 2.0 Bearer tokens, which the gateway obtains through the OAuth STS token exchange and injects into outbound calls. Upstreams that require API keys, mTLS, vaulted credentials, or custom header authentication aren't supported. |
+| OAuth 2.0/Bearer auth only | Upstream MCP servers must accept OAuth 2.0 Bearer tokens. The gateway obtains these tokens through the OAuth STS token exchange or XAA, and injects them into outbound calls. Upstreams that require API keys, mTLS, vaulted credentials, or custom header authentication aren't supported. |
+| No scope downscoping with XAA | When the gateway uses XAA, it requests all of the scopes that are configured for the connection. You limit what an AI agent can do by selecting tools, not by narrowing scopes. Direct connections that bypass the gateway still support downscoping. |
+| Shared client identity with XAA | All gateways that use the same MCP server share one client identity. The remote authorization server can't tell one gateway from another. The gateway is the policy boundary. See [Considerations](/docs/guides/ai-configure-agent-gateway/#considerations). |
 | Token revocation outside Kill Switch | [Kill Switch](#kill-switch) blocks requests from a deactivated AI agent, even if its token hasn't expired. Other changes, such as deleting a delegation link, don't affect tokens that are already issued. Those tokens remain valid at the gateway until they expire. |
 | Kill Switch scope | Kill Switch applies to a whole AI agent that routes through the gateway. It can't block a single user's access through an AI agent. AI agents that don't route through the gateway behave as before. |
 | Cloud-only deployment | The gateway is hosted in the Okta Workforce domain. You can't run your own copy of the gateway. |
