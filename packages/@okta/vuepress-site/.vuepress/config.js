@@ -287,7 +287,19 @@ module.exports = ctx => ({
     copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta. All rights reserved.`
   },
 
-  chainWebpack(config) {
+  chainWebpack(config, isServer) {
+    if (isServer) {
+      // The server bundle only runs in Node during the build, so the compiled
+      // markdown pages (~3800 render functions) don't need Babel there. This
+      // roughly halves Babel work during compile. Theme .vue/.js files are
+      // still transpiled because webpack 4 can't parse `?.`/`??`.
+      config.module.rule('js').exclude.add(/\.md\.js$/);
+
+      // The server bundle is only used to pre-render HTML and never ships, so
+      // generating its source map is wasted time and worker memory.
+      config.devtool(false);
+    }
+
     config.module
       .rule('string-replacement')
       .test(/(\.md|\.vue)$/)
