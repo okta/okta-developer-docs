@@ -75,7 +75,7 @@ After you obtain your client ID and secret from your app integration, see [Get a
 
 If your use case requires access to a limited number of Okta endpoints as a service or daemon without user context, use the Client Credentials grant flow. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
 
- > **Note:** Client Credentials grant requests to the Okta org authorization server must use the private key JSON Web Token (JWT) token method (`client_assertion_type`) for the `/token` endpoint. The client ID and secret method isn't allowed. Tasks in this section show you how to generate the public/private JWKS and JWT for the `/token` endpoint.
+ > **Note:** Client Credentials grant requests to the Okta org authorization server must use the private key JSON Web Token (JWT) token method (`client_assertion_type`) for the `/token` endpoint, or the `spiffe_jwt` method. The client ID and secret method isn't allowed. Tasks in this section show you how to generate the public/private JWKS and JWT for the `/token` endpoint.
 
 See the following tasks to set up your Okta org for a service app API access.
 
@@ -104,7 +104,7 @@ First, create a service app integration where you can define your scope-based ac
 
    > **Notes:** When an API request is sent to the org authorization server's `/token` endpoint, it validates the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
-1. Generate the public/private JSON Web Key Set (JWKS) for client authentication. This is the only authentication method supported for OAuth 2.0 service apps that want access to tokens with Okta scopes. For testing purposes, you can use the Admin Console to generate the JWKS:
+1. Generate the public/private JSON Web Key Set (JWKS) for `private_key_jwt` client authentication. For `spiffe_jwt`, see [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/). For testing purposes, you can use the Admin Console to generate the JWKS:
    1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
    [[style="list-style-type:lower-alpha"]]
    1. Select **Public key/Private key** as the **Client authentication** method.

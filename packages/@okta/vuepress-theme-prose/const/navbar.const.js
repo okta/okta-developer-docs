@@ -705,6 +705,10 @@ export const guides = [
             guideName: "app-cimd-registration",
           },
           {
+            title: "Authenticate a client with a SPIFFE JWT-SVID",
+            guideName: "spiffe-jwt-client-auth",
+          },
+          {
             title: "Set up On-Behalf-Of Token Exchange",
             guideName: "set-up-token-exchange",
           },

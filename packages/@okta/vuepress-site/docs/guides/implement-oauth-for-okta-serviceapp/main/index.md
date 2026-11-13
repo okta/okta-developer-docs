@@ -121,7 +121,7 @@ curl -i -X POST \
 -->
 ## Generate the JWK using the API
 
-The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
+OAuth service apps that want to get access tokens with Okta scopes can use the `private_key_jwt` or `spiffe_jwt` client authentication method. This guide uses `private_key_jwt`. For `spiffe_jwt`, see [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/).
 
 The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) of the OAuth service app. Okta recommends generating the public/private key pair first before creating the OAuth service app.
 
