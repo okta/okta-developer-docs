@@ -24,7 +24,7 @@ Learn how to configure Temporary Offline Access (offline mode) for Access Gatewa
 * Version `2026.03.0` or later of Access Gateway
 * The Offline mode feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
 * An LDAP server or an Active Directory (AD) server that's synced with your Okta tenant using either the [Okta LDAP agent](https://help.okta.com/okta_help.htm?type=oie&id=ext_LDAP_Provisioning) or the [Okta AD agent](https://help.okta.com/okta_help.htm?type=oie&id=ext-ad-agent-install)
-* A MySQL database and the configuration details for the database, such as the name, host, port, username, and password
+* A MySQL, PostgreSQL, or MariaDB database and the configuration details for the database, such as the name, host, port, username, and password
 * An [Okta identity provider (IdP)](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_config_idp_okta)
 * An app, such as a [generic app](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_app_gen_header)
 
@@ -69,8 +69,14 @@ The authentication service is a component of Access Gateway that handles user au
 
 This step is needed only if your authentication service isn't already configured.
 
+> **Note:** If you use a PostgreSQL database, grant the database user permissions on the `public` schema before you enable the authentication service. The authentication service creates tables in the `public` schema when it first starts.
+>
+> ```sql
+> GRANT ALL ON SCHEMA public TO <db_user>;
+> ```
+
 1. Retrieve your `certificateId` by using the List all certificates [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/certificates/other/listcertificates).
-1. In the request body, include the details of your [MySQL database](#what-you-need).
+1. In the request body, include the details of your [database](#what-you-need). Set `database.type` to `mysql`, `postgres`, or `mariadb`.
 1. Then, use the Enable the authentication service setting [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/enableauthenticationservicesetting).
 
 #### Request example
