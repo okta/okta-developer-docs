@@ -179,8 +179,8 @@ If you need help during your submission, Okta provides the following support:
 
 * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
-* Submit your OIN Wizard question to <developers@okta.com> if you can't find an answer in the documentation.
+* If you can't find an answer in the documentation, open a support case and select `API Access Management` as the **Issue Area** and submit your OIN Wizard question. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
 
-* If you have issues during your integration testing phase, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
+* If you have issues during your integration testing phase, open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.  You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 * If you have an integration status issue, contact <oin@okta.com>.
