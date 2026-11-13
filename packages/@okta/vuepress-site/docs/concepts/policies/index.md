@@ -179,6 +179,8 @@ Identity Threat Protection (ITP) is an identity threat solution that combines cu
 
 * [Self-service registration policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`SELF_SERVICE_REGISTRATION`): This policy evaluates and controls end-user sign-up attempts based on blocking disposable email domains and restricting network zones, and prevents fraudulent and unauthorized account creation. For Admin Console tasks and further information, see [Self-service registration](https://help.okta.com/okta_help.htm?type=oie&id=itp-ssr). <ApiLifecycle access="ea" />
 
+* [Attack protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`ATTACK_PROTECTION`): This policy detects bot-like traffic in your org's authentication flows and applies the action that you choose. Each rule in the policy targets the sign-in, self-service registration, or self-service password reset flow, and sets a bot likelihood threshold. When a request meets the threshold, the rule challenges the user or logs the event. An org has one attack protection policy. For Admin Console tasks and further information, see [Attack protection policy](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection). <ApiLifecycle access="ea" />
+
 #### Device signal collection policies
 
 <ApiLifecycle access="ie" />
@@ -195,7 +197,7 @@ See [Create device signal collection rules](https://help.okta.com/okta_help.htm?
 
 Use [user identification policies](/docs/guides/user-identification-policies/main/) to control the pre-identification experience on the Sign-In Widget for an app. User identification works as part of your [app sign-in policies](#app-sign-in-policies).
 
-A user identification policy maps one-to-one to an app sign-in policy. Currently, it controls whether the **Sign in with Okta FastPass** button appears on the Sign-In Widget for the app.
+A user identification policy maps one-to-one to an app sign-in policy. It controls whether the **Sign in with Okta FastPass** and **Sign in with a passkey** buttons appear on the Sign-In Widget for the app.
 
 ### Identity claims sourcing policy
 

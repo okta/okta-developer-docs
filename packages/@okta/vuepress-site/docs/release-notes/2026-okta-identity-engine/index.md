@@ -13,6 +13,53 @@ title: Okta Identity Engine API release notes 2026
 
 ## November
 
+### Version 2026.46.0
+<!-- Published on: 2026-11-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Source property for AI agents](#source-property-for-ai-agents) | November 11, 2026 |
+| [Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production](#passkey-fido2-webauthn-support-for-user-identification-policies-is-ga-in-production) | November 11, 2026 |
+| [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
+| [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
+| [Attack protection policy](#attack-protection-policy) | November 11, 2026 |
+| [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
+
+#### Source property for AI agents
+
+The AI agent registration APIs now return a read-only `source` property in agent responses. The property shows how the agent was added to Okta:
+* `IMPORTED` for agents imported from a provider
+* `MANUAL` for agents registered manually
+The `source` property appears in the GET and LIST responses for both v1 and v2 of the [AI Agent Registration API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration). Okta sets the value, so requests that include `source` in the body don't change it.
+<!-- OKTA-1318926 -->
+
+#### Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production
+
+You can now manage rules in the user identification policy to control whether the **Sign in with a passkey** button appears on an app-by-app basis, instead of relying on a single org-wide setting. This makes it easier to manage pilot groups during passkey rollouts and to tailor the sign-in experience for individual apps. See [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+<!--FVM for UIP for Passkeys for Monthly/Weekly Release <2026.46.0> OKTA-1317708 -->
+#### Multiple platform mappings and external ID filter for AI agents
+
+AI agent provider integrations can now map attributes for more than one platform. You can also filter AI agents by external ID.
+
+Previously, each integration supported one platform mapping, so you needed a separate integration for each platform from the same provider. In the [AI Agent Providers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/getaiagentproviderprofilemapping), use the `perPlatform` array on a property mapping to set a source expression for each platform. Each entry updates only the platform that it names. To remove a platform's source, send an empty `sourceExpression`. An AWS provider integration can also now include both `AWS_BEDROCK_AGENTS` and `AWS_BEDROCK_AGENTCORE`.
+
+In the [AI Agent Registrations API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration), use the `search` parameter with `profile.externalId eq "{externalId}"` to find an agent by the ID from its source system. The filter supports only the `eq` operator. <!-- SECURE_AI_AGENTS_SCHEMA_POST_GA SECURE_AI_AGENTS_SCHEMA OKTA-1316311 OKTA-1264176 preview 11.12.2026 2026.46.0-->
+
+#### AI agent attributes in custom claims is GA in preview
+
+Okta Expression Language now supports the `agent` object in custom claims. Use `agent.id` and `agent.profile` attributes, such as `agent.profile.name`, to add AI agent data to access tokens. This allows resource servers to identify which AI agent is calling them. <!-- SECURE_AI_AGENTS_EL_CONTEXT OKTA-1303899 OKTA-1293195 preview 11.12.2026 2026.46.0-->
+
+#### Attack protection policy
+
+Bot protection currently uses one detection threshold and one action for every protected flow. Admins have to choose between letting more bots through on sign-up or adding friction to every sign-in. With the attack protection policy, admins create a rule for each sign-in, sign-up, and password reset flow, with its own bot likeliness threshold and action. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).This policy lets admins enforce Okta Challenge where bot traffic costs the most and monitor the rest. When you enable the feature, your existing bot protection settings migrate to the policy automatically, and, after you turn on Attack Protection, changes made with the [Bot Protection APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) no longer take effect. See also [Attack protection](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection).
+
+#### Bugs fixed in 2026.46.0
+
+* When you sent an invalid `showSignInButton` value in a `USER_IDENTIFICATION` policy rule request (either POST or PUT `/policies/{policyId}/rules` requests), the HTTP 400 error response incorrectly referred to the `type` field. (OKTA-1307433)
+
+* When you tried to delete a `webauthn` factor that had the `PENDING_ACTIVATION` status (`DELETE /users/{userId}/factors/{factorId}`), an HTTP 500 Internal Server Error occurred, even though the factor was deleted. (OKTA-1264748)
+
 ### Version 2026.45.1
 <!-- Published on: 2026-11-04T12:00:00Z -->
 
@@ -39,6 +86,8 @@ The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/op
 * A `POST /workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` returned 400 Bad Request when the connection already existed instead of 409 Conflict. (OKTA-1307607)
 
 * Token refresh failed for MCP server connections that used `client_secret_basic` client authentication and pointed to an Okta authorization server. The refresh request sent the client credentials in both the Authorization header and the request body, which caused a `multiple_client_credentials` error. (OKTA-1304803)
+
+* Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/integrations/template-app/). (OKTA-1314535)
 
 
 ## October
