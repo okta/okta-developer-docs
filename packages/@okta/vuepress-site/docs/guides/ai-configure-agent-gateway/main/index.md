@@ -195,9 +195,38 @@ Before you create a connection to a remote MCP server, retrieve your org's virtu
 }
 ```
 
+## Discover tools on an XAA-configured MCP server
+
+Before you add tools to the gateway, Okta must discover which tools the remote MCP server offers. For an MCP server that uses XAA, the way Okta gets an access token for discovery depends on the authorization server that protects the MCP server.
+
+Okta handles discovery differently for each type of authorization server:
+
+* **Okta custom authorization server**: Okta gets the access token directly from the custom authorization server. You don't enter a client ID or client secret. You select the scopes when you configure the MCP server.
+* **External authorization server**: Enter the client ID and client secret that the MCP server's provider registered for Okta. Okta uses them to get the access token. Direct connections don't require this step. Tool discovery and gateways do. An MCP server without credentials can't be added to a gateway.
+
+Treat the discovered tool list as informational. When an AI agent connects to an MCP server directly, it performs its own discovery with its own client ID. The tools that it sees can differ from the tools that Okta discovered.
+
+After discovery succeeds, create the connection and then select the tools to expose.
+
+<!--
+  TODO before publishing (confirm, then remove this comment):
+  - Justin Abrokwah: does tool discovery for Okta-hosted MCP servers (Okta org authorization server) ship with this GA? The program page says scopes are chosen at configuration time. The 2026-10-28 thread says scopes stay on the agent connection. Add a bullet once confirmed.
+  - Kevin Tang (OKTA-1318840): does this guide document the discovery API, or does the Admin Console (Help Center) own discovery? Add request and response examples if the API is public.
+  - Ted Zhou / Kevin Huang / Ishan Korde: error handling when a requested scope isn't offered, or when the scope list comes back empty. Document the error once it is defined.
+  - Raymond Jia / Kevin Huang: whether choosing all available scopes saves an explicit list or a wildcard. Affects how this section describes scope selection.
+-->
+
 ## Create a connection to a remote MCP server
 
-A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed. Okta currently supports only `STS_ACCESS_TOKEN` connections to `MCP_SERVER` resources. See [Create a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/createvirtualmcpconnection).
+A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed. Okta supports `STS_ACCESS_TOKEN` connections to `MCP_SERVER` resources. How you configure the MCP server determines how the gateway gets its access token. It uses either the OAuth STS token exchange or XAA, which uses an ID-JAG. See [Create a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/createvirtualmcpconnection).
+
+<!--
+  TODO before publishing (confirm, then remove this comment):
+  - Isaiah Cummins / Daniel Zeller (OKTA-1306547): confirm the public connectionType for each XAA case. Per the 2026-11-01 thread in #agent-gateway-xaa, an external AS connection is modeled as STS_ACCESS_TOKEN and Okta uses the ID-JAG internally. The custom AS case is not confirmed.
+  - Isaiah Cummins / Kamron Batmanghelich: what customers see in the API and the System Log when an ID-JAG is used. The thread left this open.
+  - Gianfranco Monzon / Isaiah Cummins: the final connection request shape. The v2 draft adds a credential object with credentialType (CLIENT_AUTH_SETTINGS or INTERNAL_AUTH_SETTINGS) and an orn. Not final.
+  - Isaiah Cummins / Mohamed Moselhy: how an admin adds the gateway to the custom AS policy so ID-JAG exchanges work. The API allows it today and a UI call is in progress. Add a step to this guide when it ships.
+-->
 
 ### Create the connection
 
@@ -258,6 +287,23 @@ The `resource.orn` value references the `ClientAuthSettings` record for the remo
 Repeat this step for each remote MCP server that you want to connect to this gateway.
 
 To change a connection later, send a `PATCH` request to the same connection URL. Okta supports updating only the `resourceIndicator` field.
+
+### Considerations
+
+Keep the following in mind when the gateway uses XAA to get access tokens for a remote MCP server:
+
+* **No scope downscoping**: The gateway requests all of the scopes that are configured for the connection. To limit what an AI agent can do, select specific tools in [Add tools](#add-tools). Connections that an AI agent makes directly to an MCP server, without the gateway, still support downscoping.
+* **Shared client identity**: All gateways that use the same MCP server share one client identity. The remote authorization server can't tell one gateway from another. The gateway is the policy boundary, so use its tool selection and authorization policy to control access.
+* **Separate credentials for XAA and STS**: You can't share one set of client credentials between XAA and the OAuth STS token exchange. An MCP server can have both, so create a separate set of credentials for each.
+* **Blocked deletion**: You can't delete an authorization server or a set of client credentials while a gateway connection uses it. Delete or disconnect the gateway connection first.
+
+<!--
+  TODO before publishing (confirm, then remove this comment):
+  - Antoine Crepin / Kevin Huang: "Shared client identity" comes from the 2026-10-01 decisions. On 2026-10-21 Raymond Jia said the design must support multiple credential sets for gateways, so confirm it still holds.
+  - Kevin Huang / Raymond Jia: the program page says one XAA configuration per authorization server. The 2026-10-28 design (option 3a) allows multiple configurations per MCP server. Confirm the limit before adding it here.
+  - Justin Abrokwah (Kevin Huang, 2026-11-12): confirm "Blocked deletion" ships for the XAA configuration at GA. Kevin Huang said to clean up the XAA validation to match brokered consent.
+  - Daniel Zeller / Antoine Crepin: where scopes are stored (a single scopes field or scopes plus accessTokenScopes) before describing scope behavior in more detail.
+-->
 
 ## Add tools
 
