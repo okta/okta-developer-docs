@@ -1027,7 +1027,7 @@ The list endpoints for the [Application Interclient Trust Mappings API](https://
 
 #### Removal of Cross App Access as a self-service feature
 
-You can no longer enable or disable the **Cross App Access** feature from the Early Access section of the **Settings** > **Features** page in the Admin Console. To change the availability of this feature for your org, contact [Okta Support](https://support.okta.com). If you have an Integrator Free Plan org, contact [Developer Support](mailto:developers@okta.com) to enable the feature. This change doesn't impact any existing configurations.
+You can no longer enable or disable the **Cross App Access** feature from the Early Access section of the **Settings** > **Features** page in the Admin Console. To change the availability of this feature for your org, contact [Okta Support](https://support.okta.com). If you have an Integrator Free Plan org, contact [Developer Support](https://support.okta.com/help/s/?language=en_US) to enable the feature. This change doesn't impact any existing configurations.
 <!-- OKTA-1203672 ENABLE_CONNECT_WITH_OKTA -->
 
 #### Spec-compliant client ID claims for AI agent tokens

@@ -180,7 +180,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 1. Submit an integration phase
 
-   * If you need help with using the OIN Wizard during the submission process, see [Submit an integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+   * If you need help with using the OIN Wizard during the submission process, see [Submit an integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, [open a support case]((https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US)) or post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
    * If you need help with using the OIN Manager during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta Developer Portal.
 
