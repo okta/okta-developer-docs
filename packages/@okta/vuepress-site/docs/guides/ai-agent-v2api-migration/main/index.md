@@ -63,6 +63,7 @@ Use this table to find the API that you call. Select the link in the last column
 | Agent-to-Agent Server Registrations | Available | `_links` removed. Authorization servers are linked by `orn`. Authorization server writes are synchronous. | [Agent-to-Agent Server Registrations](#agent-to-agent-server-registrations) |
 | API Server Registration | Available | Writes are synchronous. `_links` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [API Server Registration](#api-server-registration) |
 | MCP Server Registrations | Available | Writes are synchronous, except discovery-based registration and `resourceUrl` changes. `_links` and `detectedMetadata` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [MCP Server Registrations](#mcp-server-registrations) |
+| MCP Server OAuth Client and Credentials | Available | The path version changes. `_links` removed from JWK responses and from the JWK list. `status` is no longer accepted when you add a key. | [MCP Server OAuth Client and Credentials](#mcp-server-oauth-client-and-credentials) |
 | MCP Server Capabilities | Available | Discovery request properties moved under `credential`. `CLIENT_AUTH_SETTINGS` renamed `BROKERED_CONSENT`. `_links` removed from individual objects. Discovery is asynchronous. | [MCP Server Capabilities](#mcp-server-capabilities) |
 | Virtual MCP Servers (Resource Server) | Available | Renamed agent gateways, with a new path. `_links` removed from individual objects. Read-only: authorization server add and remove calls removed. | [Virtual MCP Servers](#virtual-mcp-servers) |
 | Client Authentication Settings | Available | `_links` removed. OAuth fields moved under `oauthClientConfiguration`. `purpose` renamed `purposes`. New `client_credentials` grant type. | [Client Authentication Settings](#client-authentication-settings) |
@@ -1411,6 +1412,169 @@ To update the link in V2, send a merge patch to `PATCH /resource-servers/api/v2/
 
 <!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 MCP server specs under specs/monolith/secures-ai/spec/v1 and v2/resource-servers/mcp-servers. V2 examples are spec-derived, not from live calls. The detectedMetadata comparison uses the "Active MCP server" examples from the V1 and V2 specs, trimmed to the properties that differ (orn, authorizationServerCount, created, lastUpdated, _links, and _embedded are omitted). Confirm with engineering that protocolConfigurations is gated by SECURE_AI_MCP_SERVERS_XAA_FOR_EXTERNAL_AS and whether the V2 reference docs will describe that gate. -->
 
+## MCP Server OAuth Client and Credentials
+
+An MCP server can act as an OAuth client to a downstream resource. These calls create the OAuth client identity of the MCP server. They also manage the JSON Web Keys (JWKs) that Okta uses to verify its `private_key_jwt` client assertions.
+
+The operations and scopes are the same in V1 and V2. The path version changes, and V2 changes the JWK responses and the request to add a key.
+
+### Operations
+
+| Operation | Method and V2 path | Success response |
+| --- | --- | --- |
+| Create OAuth client | `POST /workload-principals/api/v2/mcp-servers/{mcpServerId}/oauth-client` | `201` with the OAuth client |
+| Delete OAuth client | `DELETE /workload-principals/api/v2/mcp-servers/{mcpServerId}/oauth-client` | `204` |
+| List JWKs | `GET /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks` | `200` |
+| Add a JWK | `POST /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks` | `201` with the key |
+| Retrieve a JWK | `GET /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}` | `200` |
+| Delete a JWK | `DELETE /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}` | `204` |
+| Activate a JWK | `POST /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/activate` | `200` with the key |
+| Deactivate a JWK | `POST /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks/{keyId}/lifecycle/deactivate` | `200` with the key |
+
+Each V1 path is the same with `/api/v1` in place of `/api/v2`. Both versions use the `okta.resourceServers.mcpServers.read` scope to list and retrieve keys. They use the `okta.resourceServers.mcpServers.manage` scope for every other call.
+
+### Property changes
+
+| Item | V1 | V2 |
+| --- | --- | --- |
+| `status` in an add key request | Optional. `ACTIVE` or `INACTIVE`. The default is `ACTIVE`. | Not accepted. Okta always creates the key as `ACTIVE`. A request that sends `status` returns `400`. |
+| `_links` on a JWK | `activate`, `deactivate`, and `delete` links, which are objects with an `href` and `hints` | Removed |
+| `_links` on the list of JWKs | `self`, an object with an `href` | Removed. The response is `{ "data": [...] }`. |
+| Create OAuth client response | `201`, no body | `201` with the OAuth client, including `clientId`, `orn`, `status`, `tokenEndpointAuthMethod`, `grantTypes`, and `connectionCount` |
+
+### Error responses
+
+The V2 reference documents these `409` and `400` responses.
+
+| Call | V2 response |
+| --- | --- |
+| Create OAuth client | `409` if the MCP server already has an OAuth client |
+| Delete OAuth client | `409` while the MCP server has resource connections or credentials |
+| Add a JWK | `400` if the MCP server already has 50 keys. `409` if a key with the same `kid` exists. |
+| Delete a JWK | `409` if the key is active. Deactivate it first. |
+| Deactivate a JWK | `409` if the key is the last active key and `private_key_jwt` is the client authentication method |
+
+### What to change
+
+Make these changes:
+
+- Remove `status` from the request body when you add a key.
+- Stop reading `_links` on keys and on the list. Build the activate, deactivate, and delete calls from the MCP server ID and the key `id`.
+- Read the keys from `data` in the list response, and don't expect `_links`.
+- Handle the `409` responses in your rotation and cleanup code.
+
+Okta creates every new key as `ACTIVE`, so a replacement key is active as soon as you add it. Before you deactivate the superseded key, make sure that the replacement key is active.
+
+### Examples
+
+This example adds a key to an MCP server. The V1 request can include `status`:
+
+```json
+{
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "e": "AQAB",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d......fMVjH-bUec9j2Tl40qDTktrYgYfxz9pfj",
+  "status": "ACTIVE"
+}
+```
+
+The V2 request is the same without `status`:
+
+```json
+{
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "e": "AQAB",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d......fMVjH-bUec9j2Tl40qDTktrYgYfxz9pfj"
+}
+```
+
+The V1 response includes `_links` for the actions that the current status allows:
+
+```json
+{
+  "id": "pks2f4zrZbs8nUa7p0g4",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "e": "AQAB",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d......fMVjH-bUec9j2Tl40qDTktrYgYfxz9pfj",
+  "status": "ACTIVE",
+  "created": "2023-02-21T20:08:24.000Z",
+  "lastUpdated": "2023-02-21T20:08:24.000Z",
+  "_links": {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/mcp-servers/{mcpServerId}/credentials/jwks/pks2f4zrZbs8nUa7p0g4/lifecycle/deactivate",
+      "hints": { "allow": ["POST"] }
+    }
+  }
+}
+```
+
+The V2 response has the same properties and no `_links`:
+
+```json
+{
+  "id": "pks2f4zrZbs8nUa7p0g4",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "e": "AQAB",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d......fMVjH-bUec9j2Tl40qDTktrYgYfxz9pfj",
+  "status": "ACTIVE",
+  "created": "2023-02-21T20:08:24.000Z",
+  "lastUpdated": "2023-02-21T20:08:24.000Z"
+}
+```
+
+The V2 response from `GET /workload-principals/api/v2/mcp-servers/{mcpServerId}/credentials/jwks` wraps the keys in `data`. The V1 response also has a top-level `_links` object with a `self` link.
+
+```json
+{
+  "data": [
+    {
+      "id": "pks2f4zrZbs8nUa7p0g4",
+      "kty": "RSA",
+      "alg": "RS256",
+      "use": "sig",
+      "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+      "e": "AQAB",
+      "n": "mkC6yAJVvFwUlmM9gKjb2d......fMVjH-bUec9j2Tl40qDTktrYgYfxz9pfj",
+      "status": "ACTIVE",
+      "created": "2023-02-21T20:08:24.000Z",
+      "lastUpdated": "2023-02-21T20:08:24.000Z"
+    }
+  ]
+}
+```
+
+The create call for the OAuth client takes no request body in either version. The V1 call returns `201` with no body. The V2 call returns `201` with the OAuth client:
+
+```json
+{
+  "clientId": "wlp8nUa7p0g4zrZbs2f4",
+  "orn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:mcp:wlp8nUa7p0g4zrZbs2f4",
+  "status": "ACTIVE",
+  "tokenEndpointAuthMethod": "private_key_jwt",
+  "grantTypes": [
+    "urn:ietf:params:oauth:grant-type:token-exchange",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ],
+  "connectionCount": 0
+}
+```
+
+In V1, read the same identity from the `oauthClient` property of the MCP server. The delete call doesn't change, apart from the path.
+
+<!-- Source: Engineering answer to Q13 (2026-11-16), the V1 okta-oas3 specs mcpServerClient.yaml and mcpServerCredentialsPublicKeys.yaml under specs/monolith/secures-ai/spec/v1/ai-agents/registration (master, 7047b6e6d), and the V2 specs mcpServerClient-v2.yaml and mcpServerCredentialsPublicKeys-v2.yaml from commit b56d6b4c4 (Dylan Cooper, OKTA-1321043, 2026-11-13) on the branch origin/dylancooper-OKTA-1321043-port-jwks-and-oauth-client-endpoints-to-v2. That commit is not on master as of a95043e38 (2026-11-16), so the V2 examples are from an unmerged branch. TODO: Re-check this section against master after the porting PR merges (Dylan Cooper), and confirm it ships by the Dec 4 code freeze, since the summary row says "Available". The V2 calls are PRODUCT_DEV behind SECURE_AI_APIS_V2. The V2 OAuth client response schema is also behind SECURE_AI_MCP_AS_CLIENT, which needs a customer-facing name. The V2 spec confirms the 8 paths, the same scopes, no _links on JWK responses, no status on add, a 50-key limit that returns 400, and 409 responses for a duplicate kid, deleting an active key, and deactivating the last active key. The V2 create OAuth client call returns 201 with the client, and the V1 spec returns no body. The V2 add key and activate descriptions still say to add a replacement key and then activate it, which is left over from V1 because V2 keys are always created ACTIVE. TODO: Ask Dylan Cooper to fix those two descriptions. The guide follows the behavior, not the description. The ai-mcp-server-token-exchange guide can switch to the V2 paths after the PR merges. See memory note v2-postrelease-guide-updates. -->
+
 ## MCP Server Capabilities
 
 The endpoints and response codes are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/mcp-servers/{mcpServerId}/metadata/discover` becomes `/resource-servers/api/v2/mcp-servers/{mcpServerId}/metadata/discover`. The same applies to the `metadata/discovery` and `tools` endpoints.
@@ -2100,7 +2264,7 @@ This example lists the settings for one MCP server. The V2 call:
 GET /resource-servers/api/v2/token-request-settings?search=resourceOrn%20eq%20%22orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4%22&limit=20
 ```
 
-<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/token-request-settings and spec/v2/resource-servers/token-request-settings (master 81cf28712, 2026-11-09, added by OKTA-1311475). The V1 and V2 specs differ only in the path, operation IDs, and the SECURE_AI_APIS_V2 flag. The PATCH example is the spec example, and the statement that the new scope array replaces the old one follows from JSON Merge Patch on an array. TODO: Both versions are at the PRODUCT_DEV lifecycle behind SECURE_AI_GATEWAY_XAA, so confirm with engineering whether any customer calls V1 today and whether this section belongs in a migration guide. The same flag needs a customer-facing name. TODO: Confirm the name cannot be cleared; the spec description is cut off after "cannot be cleared or set to nu". -->
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/token-request-settings and spec/v2/resource-servers/token-request-settings (master 81cf28712, 2026-11-09, added by OKTA-1311475). The V1 and V2 specs differ only in the path, operation IDs, and the SECURE_AI_APIS_V2 flag. The PATCH example is the spec example, and the statement that the new scope array replaces the old one follows from JSON Merge Patch on an array. Engineering confirmed (2026-11-16) that SECURE_AI_GATEWAY_XAA is not released yet. Both versions are at the PRODUCT_DEV lifecycle, and the flag releases with the Dec 4 code freeze (CF). TODO: Confirm whether any customer calls V1 today, since V1 isn't released, and whether this section belongs in a migration guide. The same flag needs a customer-facing name. TODO: Confirm the name cannot be cleared; the spec description is cut off after "cannot be cleared or set to nu". -->
 
 ## AI Agent Providers
 
@@ -2895,7 +3059,8 @@ V1 managed connections and the AI agent, MCP server, and virtual MCP server conn
 18. Stop calling the add and remove authorization server operations on virtual MCP servers. V2 doesn't include them.
 19. Replace potential connections `connectionType` filters with `search` on `protocol.protocolType` and `resource.resourceType`. Anchor on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn` to narrow the results.
 20. Change the path for token request settings from `/resource-servers/api/v1/token-request-settings` to `/resource-servers/api/v2/token-request-settings`.
-21. Test your integration against V2 before the V1 cutoff date.
+21. Change the paths for MCP server OAuth client and JWK calls from `/workload-principals/api/v1/mcp-servers/{mcpServerId}` to `/workload-principals/api/v2/mcp-servers/{mcpServerId}`. Remove `status` from add key requests, and stop reading `_links` on JWK responses.
+22. Test your integration against V2 before the V1 cutoff date.
 
 ## See also
 
