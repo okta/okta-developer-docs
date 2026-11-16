@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 04 Nov 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Version 2026.46.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#version-2026-46-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#version-2026-46-0</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&utm_medium=feed#opa-active-directory-api-resources-are-ga">OPA Active Directory API resources are GA</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Version 2026.45.1</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/?utm_source=rss&amp;utm_medium=feed#version-2026-45-1</link>

@@ -13,6 +13,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## November
 
+### Version 2026.46.0
 !-- Published on: 2026-11-13T12:00:00Z -->
 
 | Change | Expected in Preview Orgs | Expected in Production |
