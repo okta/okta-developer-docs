@@ -71,7 +71,7 @@ You bring three values from your SPIFFE implementation to Okta.
 
 ### Supported clients and limits
 
-You can use `spiffe_jwt` with OpenID Connect (OIDC) web, native, and service apps that you create as app integrations, and with CIMD clients. You can also use it with AI agents that you register in Okta.
+You can use `spiffe_jwt` with OpenID Connect (OIDC) web, native, and service apps that you create as app integrations, and with CIMD clients. You can also use it with AI agents. To add an AI agent with a SPIFFE credential in the Admin Console, see [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually). To register an AI agent as a CIMD client, see [Register AI agents with a CIMD](/docs/guides/ai-agent-cimd-registration/).
 
 You can't use `spiffe_jwt` with single-page apps (SPAs) or with apps from the Okta Integration Network (OIN). Each client has one SPIFFE ID. Okta enforces that a SPIFFE ID belongs to only one app integration in your org, but it doesn't check CIMD clients. It works with the org authorization server and with custom authorization servers.
 
@@ -107,7 +107,7 @@ Complete this task before you configure any client. Okta rejects a client config
      }'
    ```
 
-You can also register a trust domain in the Admin Console. See [Add a SPIFFE trust domain](https://help.okta.com/okta_help.htm?type=oie&id=).
+You can also register a trust domain in the Admin Console. See [Add SPIFFE trust domains](https://help.okta.com/okta_help.htm?type=oie&id=security-idp-add-spiffe-trust-domains).
 
 Note the following rules about how registration of a trust domain works:
 
@@ -159,7 +159,7 @@ In this scenario, you create or update the app integration for the workload.
 
 To create a service app, set `application_type` to `service` and `grant_types` to `client_credentials` in the request body, and omit the redirect URIs.
 
-You can also set the authentication method and SPIFFE ID in the Admin Console. See [Configure an app integration for SPIFFE JWT-SVID authentication](https://help.okta.com/okta_help.htm?type=oie&id=).
+You can also set the authentication method and SPIFFE ID in the Admin Console. See [Add a SPIFFE credential for client authentication](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
 Note the following rules about how updating an app integration works:
 
@@ -327,7 +327,11 @@ curl -i -X PUT \
 
 Delete the registration when you no longer use the trust domain, for example after you retire it or move its workloads to another trust domain. After you delete a trust domain, workloads in it can no longer authenticate with a JWT-SVID.
 
-1. Stop using the trust domain in each app integration that has a SPIFFE ID in it. Change the app integration's authentication method, change its `spiffe_id` to a SPIFFE ID in another registered trust domain, or delete the app integration.
+1. Find the app integrations and AI agents that use the trust domain.
+   1. Send a `GET` request to the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/listapplications) endpoint with the query `filter=spiffeTrustDomainId eq "{trustDomainRegistrationId}"` and `includeNonDeleted=true`.
+   [[style="list-style-type:lower-alpha"]]
+   1. Send a `GET` request to the [List all AI agents](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/listaiagents) endpoint with the query `spiffeTrustDomainId={trustDomainRegistrationId}`.
+1. Stop using the trust domain in each app integration and AI agent that the requests return, whether it's active or inactive. For an app integration, change its authentication method, change its `spiffe_id` to a SPIFFE ID in another registered trust domain, or delete it. For an AI agent, change or delete it.
 1. Send a `DELETE` request to the [Delete a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/deletespiffetrustdomainregistration) endpoint to delete the registration. A successful request returns `204 No Content`.
 
    ```bash
@@ -338,8 +342,8 @@ Delete the registration when you no longer use the trust domain, for example aft
 
 Note the following rules about deleting trust domains:
 
-- The request returns a `409 Conflict` error while an app integration still has a SPIFFE ID in that trust domain.
-- Okta doesn't count CIMD clients in that check. If you delete a trust domain that only CIMD clients use, the request succeeds and their token requests fail until you register the trust domain again.
+- The request returns a `409 Conflict` error while an app integration or AI agent, active or inactive, still has a SPIFFE ID in that trust domain.
+- Okta doesn't count CIMD clients in that check, and the `spiffeTrustDomainId` filter doesn't return them. If you delete a trust domain that only CIMD clients use, the request succeeds and their token requests fail until you register the trust domain again.
 
 ## See also
 
