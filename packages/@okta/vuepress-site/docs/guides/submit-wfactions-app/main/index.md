@@ -588,11 +588,19 @@ If you have to update the SSO or test detail properties in your submission to re
 
 It's good practice to deactivate your test instances that aren't in use. You can delete the instance later to clean up your app integration list.
 
-Follow these step to obtain your test results:
+Follow these steps to obtain your test results:
 
 1. From the OIN Submission Tester, click **Export results** (upper-right corner) to download a JSON-formatted file of all your test results.
 
-If you have questions or need more support, open a support case and select `API Access Management` as the **Issue Area**  and include your test results. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
+If you have questions or need more support, open a support case and include your test results:
+
+1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+
+    <span><img style="display: inline-block; margin-bottom: 0; width: 200px;" src="/img/admin/support_center.png" alt="Support Center"/></span>
+
+1. Click **Get Support** > **Open a Case**.
+
+1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**.
 
 All required tests in the OIN Submission Tester must have passed within 48 hours of submitting your integration.
 
@@ -673,19 +681,33 @@ See [Understand the submission review process](/docs/guides/submit-app-overview/
 
 If you need help during your submission, Okta provides the following support stream for the various phases of your OIN submission:
 
-1. Building an integration phase
+### Support channels
 
-    * When you're constructing your app integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
+For building, testing, or submitting your integration, use the following channels:
+
+*  **Open a support case:**
+
+    1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+
+        <span><img style="display: inline-block; margin-bottom: 0; width: 200px;" src="/img/admin/support_center.png" alt="Support Center"/></span>
+
+    1. Click **Get Support** > **Open a Case**.
+
+    1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**.
+
+*  **Ask the community:** You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+
+### Phase-specific guidance
+
+1. Building or testing an integration phase
+
+    * If you encounter any issues while building or testing your integration, use the [Support channels](#support-channels) mentioned before.
 
 1. Using the OIN Wizard to submit an integration phase
 
     * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
-    * If you can't find an answer in the documentation, open a support case and select `API Access Management` as the **Issue Area** and submit your OIN Wizard question. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
+    * If you can't find an answer in the documentation, use the [Support channels](#support-channels) mentioned before.
     * If you have an integration status issue, contact <oin@okta.com>.
-
-1. Testing an integration phase
-
-    * If you have issues during your integration testing phase, open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.  You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 ## See also
 

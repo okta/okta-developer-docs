@@ -132,10 +132,18 @@ If you have to update the SSO or test detail properties in your submission to re
 
 It's good practice to deactivate your test instances that aren't in use. You can delete the instance later to clean up your app integration list.
 
-Follow these step to obtain your test results:
+Follow these steps to obtain your test results:
 
 1. From the OIN Submission Tester, click **Export results** (upper-right corner) to download a JSON-formatted file of all your test results.
 
-If you have questions or need more support, open a support case and select `API Access Management` as the **Issue Area**  and include your test results. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
+If you have questions or need more support, open a support case and include your test results:
+
+1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+
+    <span><img style="display: inline-block; margin-bottom: 0; width: 200px;" src="/img/admin/support_center.png" alt="Support Center"/></span>
+
+1. Click **Get Support** > **Open a Case**.
+
+1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**.
 
 All required tests in the OIN Submission Tester must have passed within 48 hours of submitting your integration.

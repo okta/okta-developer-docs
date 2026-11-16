@@ -166,7 +166,17 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 1. Create an integration phase
 
-   * When you're constructing your Okta integration, open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**. You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+   * When you're constructing your Okta integration, open a support case:
+
+     1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+
+        <span><img style="display: inline-block; margin-bottom: 0; width: 200px;" src="/img/admin/support_center.png" alt="Support Center"/></span>
+
+     1. Click **Get Support** > **Open a Case**.
+
+     1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**.
+
+     You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 1. Submit an integration phase
 

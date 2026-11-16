@@ -179,8 +179,16 @@ If you need help during your submission, Okta provides the following support:
 
 * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
-* If you can't find an answer in the documentation, open a support case and select `API Access Management` as the **Issue Area** and submit your OIN Wizard question. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.
+* If you can't find an answer in the documentation or have issues during your integration testing phase, open a support case:
 
-* If you have issues during your integration testing phase, open a support case and select `API Access Management` as the **Issue Area**. For instructions, see [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US). If you have already created a support case before, to create a future support case, sign in to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then click **Open a Case**.  You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+    1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+
+        <span><img style="display: inline-block; margin-bottom: 0; width: 200px;" src="/img/admin/support_center.png" alt="Support Center"/></span>
+
+    1. Click **Get Support** > **Open a Case**.
+
+    1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**.
+
+    You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 * If you have an integration status issue, contact <oin@okta.com>.
