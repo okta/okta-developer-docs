@@ -47,7 +47,7 @@ This guide uses the following terms. SPIFFE terms come from the [SPIFFE standard
 | Trust domain | The identity namespace that one SPIFFE implementation controls. It's the part of a SPIFFE ID after `spiffe://` and before the next `/`. In Okta, you register each trust domain with the URL of its bundle endpoint. |
 | SVID | SPIFFE Verifiable Identity Document. The document that a workload uses to prove its SPIFFE ID. An SVID is either an X.509 certificate or a JWT. Okta only supports JWT-SVIDs, currently. |
 | JWT-SVID | An SVID in JSON Web Token format. The `sub` claim holds the SPIFFE ID of the workload. Okta supports JWT-SVIDs for client authentication. |
-| Bundle | The object that contains a trust domain's cryptographic keys, also called a trust bundle. Okta uses the keys marked for JWT-SVIDs to verify signatures. |
+| Bundle | The object that contains a trust domain's cryptographic keys, and is also called a trust bundle. Okta uses the keys marked for JWT-SVIDs to verify signatures. |
 | Bundle endpoint | The HTTPS URL where a trust domain publishes its bundle. Okta retrieves the keys from this URL and caches them, so you don't upload keys to Okta. |
 
 ### SPIFFE values that Okta needs
@@ -295,17 +295,17 @@ If authentication fails, Okta returns an `invalid_client` error. Check the follo
 
 | Cause | What to check |
 | --- | --- |
-| The `sub` claim doesn't match | The SPIFFE ID registered for the client |
-| The trust domain isn't registered | The registration for the trust domain of the SPIFFE ID |
-| Okta can't verify the signature | That the `bundleUrl` is reachable and that the bundle has a key for the JWT-SVID `kid` |
-| The `aud` claim is wrong | That it's the only audience and is the issuer of the authorization server |
-| The JWT-SVID has expired | That `exp` is in the future and no more than one hour away |
+| The `sub` claim doesn't match | Check that the SPIFFE ID registered for the client |
+| The trust domain isn't registered | Check that the registration for the trust domain of the SPIFFE ID exists |
+| Okta can't verify the signature | Check that the `bundleUrl` is reachable and that the bundle has a key for the JWT-SVID `kid` |
+| The `aud` claim is wrong | Check that it's the only audience and is the issuer of the authorization server |
+| The JWT-SVID has expired | Check that `exp` is in the future and no more than one hour away |
 
 ### Manage trust domains
 
-A trust domain registration tells Okta where to get the keys that verify JWT-SVIDs from that trust domain. Keep it in step with your SPIFFE setup. Update the registration if the URL of the bundle endpoint changes. Delete it if you stop using the trust domain, or to make room under the limit of 100 registrations per org.
+A trust domain registration tells Okta where to get the keys that verify JWT-SVIDs from that trust domain. Keep the trust domain in sync with your SPIFFE setup. Update the registration if the URL of the bundle endpoint changes. Delete it if you stop using the trust domain, or to make room under the limit of 100 registrations per org.
 
-These tasks change the registration, not the clients that use it. Each request needs the ID of the registration. To find it, send a `GET` request to the [List all SPIFFE trust domain registrations](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/listspiffetrustdomainregistrations) endpoint with the query `search=trustDomain eq "example.org"`.
+The following tasks change the trust domain registration, but not the clients that use it. Each request needs the ID of the registration. To find it, send a `GET` request to the [List all SPIFFE trust domain registrations](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/listspiffetrustdomainregistrations) endpoint with the query `search=trustDomain eq "example.org"`.
 
 #### Update the bundle endpoint
 
