@@ -13,6 +13,21 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## November
 
+!-- Published on: 2026-11-13T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| [OPA Active Directory API resources are GA](#opa-active-directory-api-resources-are-ga) | May 26, 2025 | November 13, 2026 |
+
+#### OPA Active Directory API resources are GA
+
+You can now manage Okta Privileged Access (OPA) Active Directory (AD) integrations through the API. To enable this Early Access feature, contact Okta Support. See the [Manage Active Directory accounts](https://help.okta.com/okta_help.htm?type=oie&id=pam-ad-accounts) product documentation. The following OPA AD API resources are available:
+
+* [Active Directory Accounts API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/)
+* [Active Directory Connections API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-connections/)
+* [Active Directory resources through the Projects API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/ListResourceGroupProjectActiveDirectoryAccounts)
+<!--OKTA-928117 - EA, OKTA-1293838 - GA PAMActiveDirectoryEnabled -->
+
 ### Version 2026.45.1
 <!-- Published on: 2026-11-04T12:00:00Z -->
 
