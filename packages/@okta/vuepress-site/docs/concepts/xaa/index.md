@@ -157,3 +157,53 @@ If you're an ISV wanting to add your resource app to the OIN with XAA capabiliti
 <!--
 * **[Build a resource app]**: Follow the resource app journey if your app exposes APIs that need to accept incoming XAA authorization requests.
 -->
+
+### OIN integrations that support Cross App Access
+
+The following integrations in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) support XAA. The table includes the following columns:
+
+* **XAA role**: The role that the integration takes in the XAA flow, based on the [Cross-App Access implementations](https://oauth.net/cross-app-access/) on oauth.net:
+  * **Client**: The requesting app that accesses a protected resource on behalf of the user.
+  * **Resource app**: The app that contains the protected resources.
+  * **Gateway**: A service that brokers XAA connections between AI agents and resource apps.
+
+  A dash (—) means that oauth.net doesn't list the integration.
+* **AI agent import**: Whether Okta for AI Agents can import AI agents from the integration. See [Apps that support AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-import-supported-apps.htm).
+
+| Integration | XAA role | AI agent import |
+| ----------- | -------- | --------------- |
+| [Archestra.AI](https://www.okta.com/integrations/archestra-ai/) | Client, gateway | — |
+| [Asana](https://www.okta.com/integrations/asana/) | Resource app | — |
+| [Atlassian Cloud](https://www.okta.com/integrations/atlassian-cloud/) | Resource app | — |
+| [Atomicwork](https://www.okta.com/integrations/atomicwork/) | Resource app | — |
+| [Barndoor AI](https://www.okta.com/integrations/barndoor-ai/) | — | — |
+| [Canva](https://www.okta.com/integrations/canva/) | Resource app | — |
+| [Claude](https://www.okta.com/integrations/claude/) | Client | ✔ Claude Managed Agents |
+| [Crossbeam](https://www.okta.com/integrations/crossbeam/) | Resource app | — |
+| [Datadog](https://www.okta.com/integrations/datadog/) | Resource app | — |
+| [Dropbox Business](https://www.okta.com/integrations/dropbox-business/) | Resource app | — |
+| [Ferentin](https://www.okta.com/integrations/ferentin/) | — | — |
+| [Figma](https://www.okta.com/integrations/figma/) | Resource app | — |
+| [Glean](https://www.okta.com/integrations/glean/) | Client, resource app | ✔ Glean Agent Builder |
+| [Granola](https://www.okta.com/integrations/granola/) | Resource app | — |
+| [Gumloop](https://www.okta.com/integrations/gumloop/) | Gateway | — |
+| [Kindo](https://www.okta.com/integrations/kindo/) | Resource app | — |
+| [Linear](https://www.okta.com/integrations/linear/) | Resource app | — |
+| [Mate Security](https://www.okta.com/integrations/mate-security/) | Resource app | — |
+| [MintMCP](https://www.okta.com/integrations/mintmcp/) | Gateway | — |
+| [Miro](https://www.okta.com/integrations/miro-formerly-realtimeboard/) | Resource app | — |
+| [monday.com](https://www.okta.com/integrations/monday-com/) | Resource app | — |
+| [NanoCo](https://www.okta.com/integrations/nanoco/) | — | — |
+| [Notion](https://www.okta.com/integrations/notion/) | Resource app | — |
+| [Okta Org2Org](https://www.okta.com/integrations/okta-org2org/) | — | — |
+| [Opal Security](https://www.okta.com/integrations/opal-security/) | Resource app | — |
+| [Serval](https://www.okta.com/integrations/serval/) | Resource app | — |
+| [Slack](https://www.okta.com/integrations/slack/) | Resource app | — |
+| [StitchOps](https://www.okta.com/integrations/stitchops/) | Resource app | — |
+| [Supabase](https://www.okta.com/integrations/supabase/) | Resource app | — |
+| [Tungsten](https://www.okta.com/integrations/tungsten/) | Client | — |
+| [Willow](https://www.okta.com/integrations/willow/) | Gateway | — |
+| [Zendesk](https://www.okta.com/integrations/zendesk/) | — | — |
+| [Zoom](https://www.okta.com/integrations/zoom/) | Client, resource app | — |
+
+> **Note:** More integrations appear in the OIN catalog as they add XAA support. For the current list, filter the [OIN catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) by **Cross App Access**.
