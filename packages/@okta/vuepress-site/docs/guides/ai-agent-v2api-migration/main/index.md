@@ -2578,7 +2578,7 @@ Virtual MCP server actors can create `STS` connections to MCP servers. The table
 
 ### Connect to the Okta MCP Server
 
-Both versions support a connection to the Okta MCP Server. The actor redeems an identity assertion at the org authorization server. Link the org authorization server by its ORN, `orn:okta:org:{orgId}:authorization_servers:org`.
+Both versions support identity assertion and STS connections to the Okta MCP Server through the org authorization server. For an identity assertion connection, the actor redeems the assertion at the org authorization server. Link the org authorization server by its ORN, `orn:okta:org:{orgId}:authorization_servers:org`.
 
 The org authorization server has the `OKTA_ORG` type. Okta links it only to the Okta MCP Server, and Okta manages its metadata. You can't change the subject of the ID-JAG token for the Okta MCP Server. Okta rejects `clientIdAtResource` with a `400` error.
 
@@ -2621,6 +2621,43 @@ The V2 request to `POST /resource-connections/api/v2/connections` sends the acto
     "resourceType": "MCP_SERVER",
     "orn": "orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:mcp:emsOk7aM9cP2p0g4zrZb"
   }
+}
+```
+
+An STS access token connection to the Okta MCP Server works differently. The connection has no `authorizationServer`. The client authentication settings that the connection references name the org authorization server in `authorizationServerOrn`.
+
+Those settings describe an OIDC web app in your org. The app uses the authorization code grant and `client_secret_post`. Its redirect URI is `https://{yourOktaDomain}/oauth2/v1/sts/callback`. Grant the app the Okta scopes that the agent requests.
+
+The V1 request to `POST /workload-principals/api/v1/ai-agents/wlpkhjm0jnDp8RrUu0g4/connections` puts the client authentication settings ORN in `resource`:
+
+```json
+{
+  "connectionType": "STS_ACCESS_TOKEN",
+  "resource": {
+    "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client-auth-settings:rsc4e0zxDp6j4Ta72i9"
+  }
+}
+```
+
+The V2 request to `POST /resource-connections/api/v2/connections` puts the MCP server in `resource` and the client authentication settings in `protocol.credential`:
+
+```json
+{
+  "actor": {
+    "wlpId": "wlpkhjm0jnDp8RrUu0g4"
+  },
+  "protocol": {
+    "protocolType": "STS",
+    "credential": {
+      "credentialType": "ACCESS_TOKEN",
+      "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client-auth-settings:rsc4e0zxDp6j4Ta72i9"
+    }
+  },
+  "resource": {
+    "resourceType": "MCP_SERVER",
+    "orn": "orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:mcp:emsOk7aM9cP2p0g4zrZb"
+  },
+  "resourceIdentifier": "https://{yourOktaDomain}/mcp"
 }
 ```
 
@@ -3082,7 +3119,7 @@ The V2 call passes the agent in `search`, and the type properties are optional:
 GET /resource-connections/api/v2/potential-connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22%20and%20protocol.protocolType%20eq%20%22IDENTITY_ASSERTION%22%20and%20resource.resourceType%20eq%20%22A2A_SERVER%22
 ```
 
-<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. Kamron confirmed availability at V2 release on 2026-11-12. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs. Engineering confirmed (2026-11-16) that existing connection IDs and ORNs carry over between V1 and V2, and that the `rcn` IDs in the V2 spec examples were an error. Kamron is fixing the spec examples (confirmed in a meeting on 2026-11-16). The guide's V2 examples use `mcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). Engineering confirmed (2026-11-16) that connecting to the Okta MCP Server through the org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) works when XAA_OKTA_MCP_SERVER is released, and that all feature flags for the V2 migration ship with the Dec 4 code freeze. The guide now documents the identity assertion connection as a V1 and V2 pair, from the spec examples create-resource-connection-identity-assertion-okta-mcp-server-example (V1) and CreateIdentityAssertionOktaManagedMcpServerConnectionRequestV2 (V2), master a95043e38. Both versions support it behind XAA_OKTA_MCP_SERVER. The wiki's gap G3 (create rejects it) is out of date for release. TODO: The question also mentioned that the spec documents STS on the Okta MCP Server. The spec says the OKTA_ORG authorization server supports both protocols, but it has no STS example for the Okta MCP Server, and the answer didn't mention STS. Confirm that STS works at release, then add it. The flag also needs a customer-facing name. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. TODO: Confirm that scopes-only updates are rejected. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). The guide says to send them together. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. The Potential connections subsection comes from Potential Connections V1 vs V2 API (Confluence eng page 1189445644, version 9) and okta-oas3 master 81cf28712 (2026-11-09). The wiki and the spec disagreed on potential connections in four places. Kamron answered on 2026-11-12, and again on 2026-11-16, that the spec is the most up to date and that Kamron will sync the wiki with it. The guide follows the spec (okta-oas3 7047b6e6d, 2026-11-10). The potential connections spec on master (b166e9ab0, 2026-11-16) hasn't changed since 2026-11-13. (1) Omitting search returns all candidates, and a type-only search is valid. The guide previously followed the wiki and said these returned 400. (2) Forward rows omit actor and reverse rows omit resource. OKTA-1316107 (in progress) was deciding whether reverse rows carry the authorization server and credential. The spec still says reverse rows include actor but not resource, so the guide follows that. TODO: Check OKTA-1316107 before release. OKTA-1316106 (resolved 2026-11-06) added actor to app instance rows. (3) The spec example shows resourceIdentifier on an IDENTITY_ASSERTION row for an API_SERVER, so the guide no longer says it is never populated. (4) The spec says match applies to forward queries and not to reverse queries, so the guide describes the ignore as documented behavior. OKTA-1316068 (triaged) is still open. -->
+<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. Kamron confirmed availability at V2 release on 2026-11-12. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs. Engineering confirmed (2026-11-16) that existing connection IDs and ORNs carry over between V1 and V2, and that the `rcn` IDs in the V2 spec examples were an error. Kamron is fixing the spec examples (confirmed in a meeting on 2026-11-16). The guide's V2 examples use `mcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). Engineering confirmed (2026-11-16) that connecting to the Okta MCP Server through the org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) works when XAA_OKTA_MCP_SERVER is released, and that all feature flags for the V2 migration ship with the Dec 4 code freeze. The guide now documents the identity assertion connection as a V1 and V2 pair, from the spec examples create-resource-connection-identity-assertion-okta-mcp-server-example (V1) and CreateIdentityAssertionOktaManagedMcpServerConnectionRequestV2 (V2), master a95043e38. Both versions support it behind XAA_OKTA_MCP_SERVER. The wiki's gap G3 (create rejects it) is out of date for release. Engineering is documenting STS on the Okta MCP Server in okta-oas3 PR 4402 (Justin Abrokwah, OKTA-1302755, commit 3491a566e, 2026-11-16). Susan was told the PR was coming, and no one stated in words that STS works at release. The PR's examples imply it does. The guide's STS examples come from that PR. It was not merged as of master b166e9ab0. TODO: Re-check the STS examples against master after the PR merges. The PR adds a V1 client authentication settings example for STS with the org authorization server, but no V2 one. TODO: Verify the V2 client authentication settings request for the Okta MCP Server, and add it to the Client Authentication Settings section, once it can be tested in the test org. The flag also needs a customer-facing name. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. TODO: Confirm that scopes-only updates are rejected. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). The guide says to send them together. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. The Potential connections subsection comes from Potential Connections V1 vs V2 API (Confluence eng page 1189445644, version 9) and okta-oas3 master 81cf28712 (2026-11-09). The wiki and the spec disagreed on potential connections in four places. Kamron answered on 2026-11-12, and again on 2026-11-16, that the spec is the most up to date and that Kamron will sync the wiki with it. The guide follows the spec (okta-oas3 7047b6e6d, 2026-11-10). The potential connections spec on master (b166e9ab0, 2026-11-16) hasn't changed since 2026-11-13. (1) Omitting search returns all candidates, and a type-only search is valid. The guide previously followed the wiki and said these returned 400. (2) Forward rows omit actor and reverse rows omit resource. OKTA-1316107 (in progress) was deciding whether reverse rows carry the authorization server and credential. The spec still says reverse rows include actor but not resource, so the guide follows that. TODO: Check OKTA-1316107 before release. OKTA-1316106 (resolved 2026-11-06) added actor to app instance rows. (3) The spec example shows resourceIdentifier on an IDENTITY_ASSERTION row for an API_SERVER, so the guide no longer says it is never populated. (4) The spec says match applies to forward queries and not to reverse queries, so the guide describes the ignore as documented behavior. OKTA-1316068 (triaged) is still open. -->
 
 V1 managed connections and the AI agent, MCP server, and virtual MCP server connection APIs remain until the V1 cutoff.
 
