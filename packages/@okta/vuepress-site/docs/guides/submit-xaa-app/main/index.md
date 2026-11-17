@@ -560,7 +560,7 @@ If you need help during your submission, Okta provides the following support str
 
 For building, testing, or submitting your integration, use the following channels:
 
-*  **Open a support case:**
+*  **Open a support case after you start a draft integration:**
 
     1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
 
