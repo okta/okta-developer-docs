@@ -18,18 +18,14 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta-is-ga-in-production) | November 11, 2026 |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is GA in Production](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-ga-in-production) | July 29, 2026 |
 | [Increased Access Request task assignee limit](#increased-access-request-task-assignee-limit) | November 11, 2026 |
-| [Certify resource collections - User campaigns is GA in Production](#certify-resource-collections-user-campaigns-is-ga-in-production) | November 11, 2026 |
-| [Certify resource collections - Resource campaigns is GA in Production](#certify-resource-collections-resource-campaigns-is-ga-in-production) | November 11, 2026 |
+| [Certify resource collections - User campaigns is GA in Production](#certify-resource-collections-user-campaigns-is-ga-in-production) | March 11, 2026 |
+| [Certify resource collections - Resource campaigns is GA in Production](#certify-resource-collections-resource-campaigns-is-ga-in-production) | January 28, 2026 |
 
-#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta is GA in Production
+#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is GA in Production
 
-<ApiLifecycle access="beta" />
-
-The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
-
-To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc) in the product documentation.
 
 <!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Prod date: Nov 12, 2025 -->
 <!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Preview date: July 29, 2026 -->
