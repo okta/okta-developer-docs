@@ -23,6 +23,7 @@ title: Okta Identity Engine API release notes 2026
 | [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
 | [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
 | [Attack protection policy](#attack-protection-policy) | November 11, 2026 |
+| [Start API Integration Actions integrations from the Home page is GA in Production](#start-api-integration-actions-integrations-from-the-home-page-is-ga-in-production)| |
 | [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
 
 #### Source property for AI agents
@@ -53,6 +54,10 @@ Okta Expression Language now supports the `agent` object in custom claims. Use `
 #### Attack protection policy
 
 Bot protection currently uses one detection threshold and one action for every protected flow. Admins have to choose between letting more bots through on sign-up or adding friction to every sign-in. With the attack protection policy, admins create a rule for each sign-in, sign-up, and password reset flow, with its own bot likeliness threshold and action. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).This policy lets admins enforce Okta Challenge where bot traffic costs the most and monitor the rest. When you enable the feature, your existing bot protection settings migrate to the policy automatically, and, after you turn on Attack Protection, changes made with the [Bot Protection APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) no longer take effect. See also [Attack protection](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection).
+
+#### Start API Integration Actions integrations from the Home page is GA in Production
+
+ISVs can now start and manage API Integration Actions integrations directly from the **Home** page of their Okta Integrator Free Plan org, instead of only through the **Your OIN Integrations** dashboard. This gives ISVs one consistent place to start any integration type, making it easier to find the right path when beginning a build. See [Submit an integration with the OIN Wizard](/docs/guides/submit-wfactions-app/main/).
 
 #### Bugs fixed in 2026.46.0
 
