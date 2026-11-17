@@ -6,7 +6,7 @@ layout: Guides
 
 Learn how the Okta for AI Agents V2 APIs differ from the V1 APIs, and what to change in your API calls.
 
-<!-- TODO: Verify the V2 examples before release. The V2 request and response examples in this guide come from the okta-oas3 specs on master (specs/monolith/secures-ai/spec/v2), not from calls to a live V2 API. V2 is behind SECURE_AI_APIS_V2 and the specs are still changing. Re-check each V2 example against the final specs, or against real calls, once V2 is testable. Sections with spec-derived V2 examples: Delegation Links, Workload Principal Operations, AI Agent Credentials (client secrets), AI Agent Registration, Virtual MCP Server Registrations, MCP Server Capabilities, Virtual MCP Servers, AI Agent Providers, Resource Connections, Token Request Settings, Client Authentication Settings. Known unconfirmed V2 details are marked with their own TODOs, including the DCR create Location header. -->
+<!-- TODO: Verify the V2 examples before release. The V2 request and response examples in this guide come from the okta-oas3 specs on master (specs/monolith/secures-ai/spec/v2), not from calls to a live V2 API. V2 is behind SECURE_AI_APIS_V2 and the specs are still changing. Re-check each V2 example against the final specs, or against real calls, once V2 is testable. Sections with spec-derived V2 examples: Delegation Links, Workload Principal Operations, AI Agent Credentials (client secrets), AI Agent Registration, Virtual MCP Server Registrations, MCP Server Capabilities, Virtual MCP Servers, AI Agent Providers, Resource Connections, Token Request Settings, Client Authentication Settings. Known unconfirmed V2 details are marked with their own TODOs, including the DCR create Location header. Verified live in the test org on 2026-11-17: AI Agent Registration (create, retrieve, patch, activate, deactivate, delete, in V1 and V2) and Virtual MCP Server Registrations (create, list, retrieve, patch, activate, delete, in V1 and V2). Also verified live: Client Authentication Settings (list, retrieve, create, patch, delete, and the DCR create Location header; the DCR success path is not verified), Resource Connections for a custom authorization server with identity assertion, Potential connections (before the okta-oas3 4369 deploy), and the FAILED operation example. Not testable in the test org yet: the Okta MCP Server connections, Token Request Settings, and the V2 MCP server OAuth client and JWKS routes. Everything else is still spec-derived. -->
 
 ---
 
@@ -38,11 +38,22 @@ You need to migrate if you call the Okta for AI Agents APIs directly. For exampl
 
 If you only use the Admin Console, you don't need to do anything. The Admin Console calls the V2 APIs for you.
 
+### Why migrate
+
+V2 offers these benefits:
+
+- **Fewer round trips:** You no longer poll an operation after you create, replace, update, delete, activate, or deactivate an agent. The response has the result, so your client tracks less state.
+- **One way to express delegation:** V2 removes deprecated properties, such as `appId`. Use the Delegation Links API instead.
+- **Easier discovery:** Use the `links` query parameter to request only the links that you need. Page through lists with the `Link` response header. Filter and sort providers without extra flags.
+- **Asynchronous only where needed:** Long-running provider work, such as import and staging, stays asynchronous. Everything else returns immediately.
+
+<!-- Source: Mymoona (Registry team), summary of the main V1 to V2 changes and their value, shared by Susan on 2026-11-17. Mymoona's wording said agent create, replace, and update return 201 or 200 with the agent, and delete, activate, and deactivate return 204. The guide's "Synchronous writes" table under AI Agent Registration matches. "Deprecated fields go away" maps to the removed appId, externalId, and platform properties. The "Filter and sort providers without extra flags" benefit refers to the V1 behavior where sourceInstanceName, orderBy, and sortOrder work only when the enhancements are enabled. -->
+
 ### Changes that affect most APIs
 
 Many V2 APIs share the same changes:
 
-- **Links:** V2 responses don't include `_links` on individual objects. `_links` are returned only on lists, for pagination. Where V2 returns `_links`, the values are plain URL strings instead of objects with an `href`.
+- **Links:** V2 responses don't include `_links` on individual objects. `_links` are returned only on lists, for pagination. Where V2 returns `_links`, the values are plain URL strings instead of objects with an `href`. Some APIs add a `links` query parameter that selects which links the response includes.
 - **Synchronous writes:** Write operations that were asynchronous in V1 are synchronous in V2. Calls that returned `202 Accepted` now return `200`, `201`, or `204`. You no longer poll an operation to get the result.
 
 ## V1 to V2 summary by API
@@ -58,7 +69,7 @@ Use this table to find the API that you call. Select the link in the last column
 | Workload Principal Operations | Available | `_links` removed from individual objects. Operation types for registration writes removed. | [Workload Principal Operations](#workload-principal-operations) |
 | Resource Server Operations | Available | `_links` removed from the `resource`, and `orn` added. Fewer operation types. | [Resource Server Operations](#resource-server-operations) |
 | AI Agent Credentials | Available | Link format changed. `_links` returned on `GET` only when you pass the new `links` query parameter. The client secrets list returns `data`. | [AI Agent Credentials](#ai-agent-credentials) |
-| AI Agent Registration | Available | Writes are synchronous. `appId`, `externalId`, and `platform` removed. Link format changed. | [AI Agent Registration](#ai-agent-registration) |
+| AI Agent Registration | Available | Writes are synchronous. `appId`, `externalId`, and `platform` removed. Link format changed, and a `links` parameter selects the links returned. | [AI Agent Registration](#ai-agent-registration) |
 | Virtual MCP Server Registrations | Available | Renamed agent gateways, with a new path. Writes are synchronous. `_links` removed from individual objects. | [Virtual MCP Server Registrations](#virtual-mcp-server-registrations) |
 | Agent-to-Agent Server Registrations | Available | `_links` removed. Authorization servers are linked by `orn`. Authorization server writes are synchronous. | [Agent-to-Agent Server Registrations](#agent-to-agent-server-registrations) |
 | API Server Registration | Available | Writes are synchronous. `_links` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [API Server Registration](#api-server-registration) |
@@ -207,9 +218,13 @@ In V2, `_links.self` is a plain URL string:
 
 <!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). -->
 
+---
+
 ## STS Authorization
 
 There's no V2 version of this API. Keep using the V1 STS callback endpoint.
+
+---
 
 ## Workload Principal Operations
 
@@ -246,7 +261,7 @@ The `type` property of an operation identifies the action that created it. V2 re
 
 If your code filters or branches on the operation `type`, update it to handle only the V2 types. The `status` values are the same in both versions: `SCHEDULED`, `IN_PROGRESS`, `COMPLETED`, and `FAILED`.
 
-<!-- The Registry team confirmed that V2 removes the virtual-mcp types because those writes are synchronous. Their wording was "removed virtual Mcp and V1 Registry Register, Delete, Activate, Deactivate and update". The Registry team gave the same wording again on 2026-11-16, without saying what "update" means. The guide reads "update" as virtual-mcp:ReplaceCapabilities. Mymoona owns this item. TODO: Confirm that reading with Mymoona. -->
+<!-- The Registry team confirmed that V2 removes the virtual-mcp types because those writes are synchronous. Their wording was "removed virtual Mcp and V1 Registry Register, Delete, Activate, Deactivate and update". The Registry team gave the same wording again on 2026-11-16, without saying what "update" means. Mymoona confirmed on 2026-11-17 that "update" means virtual-mcp:ReplaceCapabilities. Replace was added for ai-agent:update, and it applies to virtual MCP servers too. The guide's reading is correct. -->
 
 The `virtual-mcp` types are also gone because agent gateway registration writes are synchronous.
 
@@ -343,6 +358,8 @@ In V2, the list `_links` are plain URL strings:
 }
 ```
 
+---
+
 ## Resource Server Operations
 
 The list and retrieve endpoints are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/operations` becomes `/resource-servers/api/v2/operations`.
@@ -417,7 +434,26 @@ This V2 response from `GET /resource-servers/api/v2/operations/op-1a2b3c4d` has 
 }
 ```
 
-<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 resource server operations specs. The V1 example in the spec shows an API_SERVER resource with an MCP server link, so the V1 example is inconsistent in the spec. Confirm with engineering. -->
+A failed operation has a `status` of `FAILED` and an `errorDetails` object. This V2 response is from a `client-auth-settings:Create` operation for DCR settings, where registration with the authorization server failed. The `resource` is missing, because Okta didn't create the settings. V1 returns the same `errorDetails`:
+
+```json
+{
+  "id": "rsovam2cYUrV2pXt3ao5",
+  "type": "client-auth-settings:Create",
+  "status": "FAILED",
+  "created": "2026-11-17T19:01:19Z",
+  "started": "2026-11-17T19:01:20Z",
+  "completed": "2026-11-17T19:01:20Z",
+  "errorDetails": {
+    "code": "resourceserver.error.dcr.registrationFailed",
+    "message": "Dynamic client registration with the authorization server failed."
+  }
+}
+```
+
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 resource server operations specs. The FAILED example is a real response from the test org (2026-11-17), from a DCR create against a manual external authorization server that has a registration endpoint URL but no server behind it. The V1 operation returned the same errorDetails. The ID is kept as returned. The V1 example in the spec shows an API_SERVER resource with an MCP server link, so the V1 example is inconsistent in the spec. Confirm with engineering. -->
+
+---
 
 ## Authorization servers for resource servers
 
@@ -485,6 +521,8 @@ The response is the external authorization server. Use its `orn` when you link i
 To change the endpoints or the `subjectMappingExpression` of an external authorization server, use the External Authorization Servers API. You can no longer change them through the resource server.
 
 <!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and okta-oas3 specs/monolith/secures-ai/spec/v2/authorization-servers. The create response example is the ExternalAuthorizationServerResponseManualV2 example. Confirm with engineering that the External Authorization Servers API will be documented in the V2 reference at release. -->
+
+---
 
 ## AI Agent Credentials
 
@@ -609,6 +647,8 @@ With `links=ALL`, each credential includes `activate`, `deactivate`, and `delete
 
 <!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). The wiki says V2 credential links have no delete link and that the links parameter accepts only ALL, activate, and deactivate. The okta-oas3 spec added the delete link on 2026-10-29 (OKTA-1308918), so the guide follows the spec. -->
 
+---
+
 ## AI Agent Registration
 
 The endpoints and operations are the same in V1 and V2. The request and response bodies and the response codes differ.
@@ -639,6 +679,10 @@ V1 `_links` are objects with an `href`. V2 `_links` are plain URL strings, and `
 
 V2 adds a `links` query parameter to the list and retrieve operations. Set it to `ALL`, or name `providers`, `resourceServer`, or `delegationLinks`, to choose which links the response includes.
 
+The V2 spec documents a `Link` response header on the list operation. It has `self` and `next` links, and `next` is present only when there is another page. Use the header or `_links.next` to page through the list.
+
+<!-- Source: Mymoona (Registry team), 2026-11-17: "list responses add a Link pagination header". Live test on 2026-11-17: the V1 and V2 agents lists both returned the Link header with self and next, and a limit=1 request returned next on both. The V2 spec (registration-v2.yaml, line 168) documents the header, and the V1 spec doesn't, so the guide says that the V2 spec documents it instead of saying the header is new. V1 list _links are objects with an href, and V2 list _links are plain strings, which matches the guide. -->
+
 ### What to change
 
 Make these changes:
@@ -647,6 +691,7 @@ Make these changes:
 - Remove `appId`, `externalId`, and `platform` from your requests. Use the Delegation Links API instead of `appId`.
 - Stop reading `_links.self`. Read `providers` as an array of URL strings.
 - Pass the `links` query parameter to choose which links a list or retrieve response includes.
+- Page through agent lists with the `Link` response header or `_links.next`.
 
 ### Examples
 
@@ -671,7 +716,7 @@ HTTP/1.1 202 Accepted
 Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b3c4d
 ```
 
-After the operation completes, `GET /workload-principals/api/v1/ai-agents/wlpx8kR27j0U7HGDM1h4` returns the agent. The V1 agent includes `externalId`, `appId`, `platform`, and `_links` objects with `rel`, `href`, and `method`:
+After the operation completes, `GET /workload-principals/api/v1/ai-agents/wlpx8kR27j0U7HGDM1h4` returns the agent. The V1 agent includes `externalId`, `appId`, `platform`, and `_links` objects with an `href`. A new agent has a `status` of `STAGED` until you activate it:
 
 ```json
 {
@@ -679,24 +724,27 @@ After the operation completes, `GET /workload-principals/api/v1/ai-agents/wlpx8k
   "externalId": "7TTZGRL8PV",
   "created": "2022-04-04T15:56:05.000Z",
   "lastUpdated": "2022-05-05T18:15:44.000Z",
-  "status": "ACTIVE",
+  "status": "STAGED",
+  "source": "MANUAL",
   "appId": "0oab1234EXAMPLEID5d6",
   "platform": "OKTA",
   "profile": {
     "name": "Orchestrator Agent",
     "description": "Orchestrator Agent"
   },
+  "oauthClient": {
+    "clientId": "wlpx8kR27j0U7HGDM1h4"
+  },
   "_links": {
     "self": {
-      "rel": "self",
-      "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/wlpx8kR27j0U7HGDM1h4",
-      "method": "GET"
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/wlpx8kR27j0U7HGDM1h4"
+    },
+    "delegationLinks": {
+      "href": "https://{yourOktaDomain}/workload-principals/api/v1/delegation-links?filter=to.resourceOrn%20eq%20%22orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:ai-agents:wlpx8kR27j0U7HGDM1h4%22"
     },
     "providers": [
       {
-        "rel": "provider",
-        "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/aip-1a2b3c4d",
-        "method": "GET"
+        "href": "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/aip-1a2b3c4d"
       }
     ]
   }
@@ -714,19 +762,24 @@ The V2 request to `POST /workload-principals/api/v2/ai-agents` doesn't include `
 }
 ```
 
-The V2 response is `201 Created` with the agent. The agent has no `externalId`, `appId`, or `platform`. The `_links` values are plain URL strings, and there's no `self` link:
+The V2 response is `201 Created` with the agent. The agent has no `externalId`, `appId`, or `platform`. The `_links` values are plain URL strings, and there's no `self` link. The new agent has a `status` of `STAGED`. Call the activate operation to make it `ACTIVE`:
 
 ```json
 {
   "id": "wlpx8kR27j0U7HGDM1h4",
   "created": "2022-04-04T15:56:05.000Z",
   "lastUpdated": "2022-05-05T18:15:44.000Z",
-  "status": "ACTIVE",
+  "status": "STAGED",
+  "source": "MANUAL",
   "profile": {
     "name": "Orchestrator Agent",
     "description": "Orchestrator Agent"
   },
+  "oauthClient": {
+    "clientId": "wlpx8kR27j0U7HGDM1h4"
+  },
   "_links": {
+    "delegationLinks": "https://{yourOktaDomain}/workload-principals/api/v2/delegation-links?filter=to.resourceOrn%20eq%20%22orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:ai-agents:wlpx8kR27j0U7HGDM1h4%22",
     "providers": [
       "https://{yourOktaDomain}/workload-principals/api/v2/ai-agent-providers/aip-1a2b3c4d"
     ]
@@ -734,7 +787,9 @@ The V2 response is `201 Created` with the agent. The agent has no `externalId`, 
 }
 ```
 
-<!-- The okta-oas3 V2 agent response examples now use /api/v2/ paths in the provider, resourceServer, and delegationLinks links (OKTA-1319653, 2026-11-05). The guide example matches. -->
+<!-- The okta-oas3 V2 agent response examples now use /api/v2/ paths in the provider, resourceServer, and delegationLinks links (OKTA-1319653, 2026-11-05). The guide example matches. Live test, 2026-11-17 (test org, manually registered agents created without appId): the V2 create returned 201 with status STAGED, source MANUAL, oauthClient.clientId, and _links.delegationLinks as a plain string. It had no providers link, because the agent has no providers. V2 activate and deactivate returned 204, and V2 PATCH, with description null, returned 200 with the agent. The V1 create returned 202 with a Location header. The V1 agent has the same source and oauthClient properties, STAGED status, and _links objects with only an href (self and delegationLinks). The V1 and V2 calls return the same objects. The links=ALL query parameter added no links to an agent without providers. TODO: The V1 agent in the test org had no externalId, appId, or platform. The V1 example still shows them, because the request sends appId. Check whether those V1 properties appear only for agents that have an appId, or only for imported agents. The providers link in both examples is spec-derived, and so is its V1 shape, because no test agent has a provider yet. -->
+
+V1 and V2 return the same agents. You can read a V2-created agent through the V1 path, and the reverse.
 
 When you update an agent with `PATCH`, you can no longer set or remove `appId`. The V2 request to remove the description is:
 
@@ -745,6 +800,8 @@ When you update an agent with `PATCH`, you can no longer set or remove `appId`. 
   }
 }
 ```
+
+---
 
 ## Virtual MCP Server Registrations
 
@@ -757,7 +814,7 @@ The V2 reference calls a virtual MCP server an agent gateway. The operations are
 | Scopes | `okta.resourceServers.virtualMcpServers.read` and `.manage` | Same |
 | Request bodies | `resourcePath` and `profile` | Same |
 | Object properties | `id`, `orn`, `status`, `profile`, `created`, and `lastUpdated` | Same |
-| `_links` on an object | `self` and `resource-server` | Removed |
+| `_links` on an object | `self` | Removed |
 | `_links` on a list | `self` and `next` are objects with an `href` | `self` and `next` are plain URL strings, with a `Link` response header for pagination |
 
 ### Synchronous writes
@@ -776,11 +833,13 @@ V2 creates the agent gateway with a `status` of `INACTIVE`, the same as V1.
 
 In both versions, you can delete only an inactive agent gateway. Deleting an active one returns `409`, so deactivate it first.
 
+V1 and V2 share the same `resourcePath` values. If a virtual MCP server in V1 already uses a path, a V2 create with the same path returns `409`. The path is case-insensitive.
+
 ### What to change
 
 - Replace `/workload-principals/api/v1/virtual-mcp-servers` with `/workload-principals/api/v2/agent-gateways` in your calls.
 - Stop polling an operation after create, delete, activate, and deactivate. Read the response instead.
-- Stop reading the `self` and `resource-server` links from an object. Build the URLs from the `id`.
+- Stop reading the `self` link from an object. Build the URL from the `id`.
 
 ### Examples
 
@@ -812,9 +871,6 @@ The V1 response is `202 Accepted` with no body, and a `Location` header that poi
   "_links": {
     "self": {
       "href": "https://{yourOktaDomain}/workload-principals/api/v1/virtual-mcp-servers/wlp7lM8nO9pQ0rS1tU2v"
-    },
-    "resource-server": {
-      "href": "https://{yourOktaDomain}/resource-servers/api/v1/virtual-mcp-servers/wlp7lM8nO9pQ0rS1tU2v"
     }
   }
 }
@@ -862,7 +918,9 @@ On a list, the V2 `_links` are plain URL strings:
 }
 ```
 
-<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/registration/virtual-mcp-registration.yaml and spec/v2/ai-agents/registration/agent-gateway-registration.yaml (master, e795ff64f). The V2 list example is trimmed to one item. The Agent Gateway V2 APIs Status & Deltas wiki (Confluence page 1095041886, version 4) confirms the rename to agent-gateway and that ORNs are unchanged. The V1 PATCH response is `200` in the V1 spec, but the wiki says `202`. The guide follows the spec. TODO: Check the V1 PATCH status code with engineering. -->
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/registration/virtual-mcp-registration.yaml and spec/v2/ai-agents/registration/agent-gateway-registration.yaml (master, e795ff64f). The V2 list example is trimmed to one item. The Agent Gateway V2 APIs Status & Deltas wiki (Confluence page 1095041886, version 4) confirms the rename to agent-gateway and that ORNs are unchanged. The V1 PATCH response is `200` in the V1 spec, but the wiki says `202`. Engineering confirmed on 2026-11-17 that it is `200` and that virtual-mcp-registration.yaml is the source of truth. The guide follows the spec. A live call in the test org on 2026-11-17 also returned `200` with the gateway. Live test, same day: the V1 create returned `202` with a Location header, and the operation completed. The V1 GET, list, and PATCH responses have only a `self` link, with no `resource-server` link, so the guide no longer shows it. The V2 create returned `201`, the V2 activate and PATCH returned `200` with the object, a V2 delete returned `204`, and the V2 list has a plain-string `_links.self`. The V2 create with a resourcePath that a V1 create had used returned `409` with E0000195 and the reason UNIQUE_CONSTRAINT. Deleting an active gateway returned `409` in both versions, with E0000195 and the cause "Agent gateway must be in INACTIVE state to be deleted." The guide examples for the gateway are otherwise verified. -->
+
+---
 
 ## Agent-to-Agent Server Registrations
 
@@ -966,6 +1024,8 @@ The V2 response is `201 Created` with a link object:
 
 <!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 A2A server specs. V2 examples are spec-derived, not from live calls. The Confluence page lists only list, retrieve, and authorization server operations for A2A servers, so the guide doesn't describe how A2A servers are registered. -->
 
+---
+
 ## API Server Registration
 
 The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/api-servers` becomes `/resource-servers/api/v2/api-servers`.
@@ -996,7 +1056,15 @@ V2 documents `409` on register, update, and add authorization server. Unlike MCP
 
 ### Authorization server changes
 
-The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply. The V2 link object also includes a read-only `tenantId`.
+The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply. These changes are specific to API servers that you register for an app instance:
+
+| Aspect | V1 | V2 |
+| --- | --- | --- |
+| Tenant ID | Top-level `tenantId` on the add request, the update request, and the response. It's read-only in the response. | `protocolConfigurations.identityAssertion.tenantId` on the link. You can set it when you add the link, and change it later. |
+| Update request | Changes the authorization server, including `tenantId` | `PATCH` on the link changes only `protocolConfigurations`. The authorization server isn't changed. |
+| API server without an app instance | | Sending `protocolConfigurations` returns `400`. |
+
+Okta emits the tenant ID as the `aud_tenant` claim in the ID-JAG token. To change it on an existing link, send a `PATCH` request to `/resource-servers/api/v2/api-servers/{apiServerId}/authorization-servers/{authorizationServerId}` with the `application/merge-patch+json` content type. Omitted properties stay the same. Set `tenantId` to `null` to clear it. A request that changes nothing returns `200` with the unchanged link.
 
 ### What to change
 
@@ -1133,7 +1201,9 @@ The V2 response is `201 Created` with a link object:
 }
 ```
 
-<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 API server specs. V2 examples are spec-derived, not from live calls. The V2 link request body ({ orn }) comes from the Confluence page and the LinkResourceServerAuthorizationServerRequestV2 schema, because the spec has no named request example. -->
+<!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 API server specs. V2 examples are spec-derived, not from live calls. The V2 link request body ({ orn }) comes from the Confluence page and the LinkResourceServerAuthorizationServerRequestV2 schema, because the spec has no named request example. The tenant ID text comes from okta-oas3 #4395 (Kamron Batmanghelich, OKTA-1327529, merged 2026-11-16, commit 39885d180), which made tenantId writable on V2 API server authorization server links and added the PATCH. The PATCH, the protocolConfigurations object, and the app instance examples are behind SECURE_AI_APIS_V2, and the OIN app instance examples are also behind SECURE_AI_XAA_PHASE_3. The flag needs a customer-facing name. The V1 tenantId is on the add and update request schemas and is read-only in the response (specs/monolith/secures-ai/spec/v1/resource-servers/api-servers/api-servers.yaml). TODO: Add V2 examples for adding a link with a tenantId and for the PATCH once the examples are verified against a live V2 call. -->
+
+---
 
 ## MCP Server Registrations
 
@@ -1412,6 +1482,8 @@ To update the link in V2, send a merge patch to `PATCH /resource-servers/api/v2/
 
 <!-- Source: Resource Server V1 vs V2 API (Confluence eng page 1189150741, version 5) and the okta-oas3 MCP server specs under specs/monolith/secures-ai/spec/v1 and v2/resource-servers/mcp-servers. V2 examples are spec-derived, not from live calls. The detectedMetadata comparison uses the "Active MCP server" examples from the V1 and V2 specs, trimmed to the properties that differ (orn, authorizationServerCount, created, lastUpdated, _links, and _embedded are omitted). Confirm with engineering that protocolConfigurations is gated by SECURE_AI_MCP_SERVERS_XAA_FOR_EXTERNAL_AS and whether the V2 reference docs will describe that gate. -->
 
+---
+
 ## MCP Server OAuth Client and Credentials
 
 An MCP server can act as an OAuth client to a downstream resource. These calls create the OAuth client identity of the MCP server. They also manage the JSON Web Keys (JWKs) that Okta uses to verify its `private_key_jwt` client assertions.
@@ -1573,7 +1645,9 @@ The create call for the OAuth client takes no request body in either version. Th
 
 In V1, read the same identity from the `oauthClient` property of the MCP server. The delete call doesn't change, apart from the path.
 
-<!-- Source: Engineering answer to Q13 (2026-11-16), the V1 okta-oas3 specs mcpServerClient.yaml and mcpServerCredentialsPublicKeys.yaml under specs/monolith/secures-ai/spec/v1/ai-agents/registration (master, 7047b6e6d), and the V2 specs mcpServerClient-v2.yaml and mcpServerCredentialsPublicKeys-v2.yaml from commit b56d6b4c4 (Dylan Cooper, OKTA-1321043, 2026-11-13) on the branch origin/dylancooper-OKTA-1321043-port-jwks-and-oauth-client-endpoints-to-v2. That commit is not on master as of a95043e38 (2026-11-16), so the V2 examples are from an unmerged branch. TODO: Re-check this section against master after the porting PR merges (Dylan Cooper), and confirm it ships by the Dec 4 code freeze, since the summary row says "Available". The V2 calls are PRODUCT_DEV behind SECURE_AI_APIS_V2. The V2 OAuth client response schema is also behind SECURE_AI_MCP_AS_CLIENT, which needs a customer-facing name. The V2 spec confirms the 8 paths, the same scopes, no _links on JWK responses, no status on add, a 50-key limit that returns 400, and 409 responses for a duplicate kid, deleting an active key, and deactivating the last active key. The V2 create OAuth client call returns 201 with the client, and the V1 spec returns no body. The V2 add key and activate descriptions still say to add a replacement key and then activate it, which is left over from V1 because V2 keys are always created ACTIVE. TODO: Ask Dylan Cooper to fix those two descriptions. The guide follows the behavior, not the description. The ai-mcp-server-token-exchange guide can switch to the V2 paths after the PR merges. See memory note v2-postrelease-guide-updates. -->
+<!-- Source: Engineering answer to Q13 (2026-11-16), the V1 okta-oas3 specs mcpServerClient.yaml and mcpServerCredentialsPublicKeys.yaml under specs/monolith/secures-ai/spec/v1/ai-agents/registration (master, 7047b6e6d), and the V2 specs mcpServerClient-v2.yaml and mcpServerCredentialsPublicKeys-v2.yaml from commit b56d6b4c4 (Dylan Cooper, OKTA-1321043, 2026-11-13) on the branch origin/dylancooper-OKTA-1321043-port-jwks-and-oauth-client-endpoints-to-v2. That work merged to okta-oas3 master as #4360 (commit b166e9ab0) and was squash-merged, so the branch still looks unmerged to git. The two V2 spec files on master (mcpServerClient-v2.yaml and mcpServerCredentialsPublicKeys-v2.yaml) are identical to the branch versions, so the guide's examples still match. The V2 routes returned 405 in the test org on 2026-11-16 because okta-oas3 merges deploy later in the week (Susan, 2026-11-17). TODO: Retest the V2 calls in the test org after the deploy, and confirm it ships by the Dec 4 code freeze, since the summary row says "Available". The V2 calls are PRODUCT_DEV behind SECURE_AI_APIS_V2. The V2 OAuth client response schema is also behind SECURE_AI_MCP_AS_CLIENT, which needs a customer-facing name. The V2 spec confirms the 8 paths, the same scopes, no _links on JWK responses, no status on add, a 50-key limit that returns 400, and 409 responses for a duplicate kid, deleting an active key, and deactivating the last active key. The V2 create OAuth client call returns 201 with the client, and the V1 spec returns no body. The V2 add key and activate descriptions still say to add a replacement key and then activate it, which is left over from V1 because V2 keys are always created ACTIVE. TODO: Ask Dylan Cooper to fix those two descriptions. The guide follows the behavior, not the description. The ai-mcp-server-token-exchange guide can switch to the V2 paths after the PR merges. See memory note v2-postrelease-guide-updates. -->
+
+---
 
 ## MCP Server Capabilities
 
@@ -1810,6 +1884,8 @@ The `search` parameter is required on the tools list in both versions. In V2, it
 
 <!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/mcp-servers/mcp-server-capabilities.yaml and spec/v2/resource-servers/mcp-servers/mcp-server-capabilities.yaml (master, e795ff64f). Tool list and discovery examples are trimmed. V2 list envelopes drop _embedded.metadata.total. The Agent Gateway wiki (Confluence page 1095041886) says V2 adds credential.scopes and keeps a parent link on tools lists. Both are out of date: okta-oas3 master 81cf28712 (2026-11-09) removed credential.scopes, and OKTA-1319552 removed _links.parent. The BROKERED_CONSENT value, tokenRequestSettingsOrn, and the removal of authorizationServerOrn and scopes from discovery requests come from the SECURE_AI_GATEWAY_XAA changes in master. TODO: Confirm the customer-facing name of SECURE_AI_GATEWAY_XAA, and whether V2 keeps CLIENT_AUTH_SETTINGS for the V1 value only. The V1 example dates (2025) and V2 example dates (2026) come straight from the specs. -->
 
+---
+
 ## Virtual MCP Servers
 
 The V2 reference calls a virtual MCP server an agent gateway. The resource server API changes the path, removes `_links`, and drops the authorization server write calls.
@@ -2001,6 +2077,8 @@ The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4g
 
 <!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/virtual-mcp-servers/virtual-mcp-servers.yaml and spec/v2/resource-servers/agent-gateways/agent-gateway.yaml (master, e795ff64f). Examples are trimmed to one item. The wiki (Confluence page 1095041886) confirms that V2 drops the add and remove authorization server calls on purpose, and that individual tools have no _links. Engineering answered how a customer links an authorization server in V2 (2026-11-12): they don't. Okta auto-generates a custom authorization server for each gateway. The V1 add and remove APIs were already disabled (ccs secure.ai.virtual.mcp.auto.create.authorization.server.enabled), V2 behaves the same, and Okta doesn't want to expose them now. The optional authorizationServer property on create (EXTERNAL_AUTHORITY, SECURE_AI_EXTERNAL_IDP_GATEWAY) applies to V1 and V2. When it's set, Okta uses that server instead of the generated one. It's under development and is expected to reach GA after V2 GA, so the guide doesn't document it. Ted owns this item. TODO: Revisit with Ted when SECURE_AI_EXTERNAL_IDP_GATEWAY goes GA. -->
 
+---
+
 ## Client Authentication Settings
 
 The endpoints, operations, and scopes are the same in V1 and V2. V2 restructures the payload so that all OAuth client fields are under one `oauthClientConfiguration` object.
@@ -2125,6 +2203,10 @@ The V1 response:
   "clientCredentials": {
     "clientId": "0oa1gjh63g214q0Hq0g4"
   },
+  "oauthConfiguration": {
+    "scopes": ["api:read", "api:write"],
+    "grantTypes": ["authorization_code"]
+  },
   "created": "2024-01-29T10:30:00.000Z",
   "lastUpdated": "2024-01-29T10:35:00.000Z",
   "_links": {
@@ -2159,7 +2241,9 @@ The V2 response:
 }
 ```
 
-<!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). The PATCH behavior for clearing authorize or token parameters comes from okta-oas3 OKTA-1311524 (2026-11-02), which is newer than the wiki. -->
+<!-- Source: Delegation Links, Client Auth Settings & Agent Credentials V1 vs V2 API (Confluence eng page 1176240645, version 6). The PATCH behavior for clearing authorize or token parameters comes from okta-oas3 OKTA-1311524 (2026-11-02), which is newer than the wiki. Live test in the test org, 2026-11-17, with a manual MCP server and a manual external authorization server. V1 and V2 STATIC creates returned 201. The V2 response matches the guide and omits the secret and _links. The V1 response includes oauthConfiguration with scopes and a defaulted grantTypes of authorization_code, so the guide's V1 example now shows it. The V2 list returns _links as plain strings. A V2 PATCH that rotated the secret and changed scopes returned 200, and a delete returned 204. An STS create with client_credentials returned 400 with "The provided grant type is not valid for the specified purpose." A create with no scopes returned 400 with PROPERTY_REQUIRED. A PATCH of registrationMethod or grantTypes returned 400 E0000003, "not well-formed". That matches the spec and the guide, which say those properties are immutable, but the error doesn't name the property. A PATCH with name set to null, or to an empty string, returned 400 with EMPTY_PATCH_REQUEST, which is consistent with the name not being clearable. A PATCH that renamed the settings returned 200. The V1 PATCH with name null returned the same 400. The scopes come back in a different order than you send them. The DCR create returned 400 "Dynamic client registration is not enabled" on both V1 and V2 until Susan had the DCR feature flag added to the test org. After that, a V2 DCR create returned 202 with no body and a Location header of /resource-servers/api/v2/operations/{id}, and a V1 DCR create returned 202 with a Location header of /resource-servers/api/v1/operations/{id}. That confirms the spec and the guide, and the Confluence page (1176240645) that says otherwise is wrong. Susan then granted okta.resourceServers.read to the test app, which polling the operations needs. Both operations ended with a status of FAILED, a type of client-auth-settings:Create, and errorDetails with the code resourceserver.error.dcr.registrationFailed, because the test authorization server's registration endpoint isn't real. No settings were created, and the list stayed unchanged. TODO: The success path of DCR is still unverified: what the COMPLETED operation looks like, and whether its resource is the new settings. That needs an authorization server with a working registration endpoint. TODO: Test the authorizationServerConfiguration and additionalRequestParameters properties, which need an API server resource or an eligible app. -->
+
+---
 
 ## Token Request Settings
 
@@ -2264,7 +2348,9 @@ This example lists the settings for one MCP server. The V2 call:
 GET /resource-servers/api/v2/token-request-settings?search=resourceOrn%20eq%20%22orn:okta:directory:00o1n8sbwArJ7OQRw406:resource-servers:mcp:ems8nUa7p0g4zrZbs2f4%22&limit=20
 ```
 
-<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/token-request-settings and spec/v2/resource-servers/token-request-settings (master 81cf28712, 2026-11-09, added by OKTA-1311475). The V1 and V2 specs differ only in the path, operation IDs, and the SECURE_AI_APIS_V2 flag. The PATCH example is the spec example, and the statement that the new scope array replaces the old one follows from JSON Merge Patch on an array. Engineering confirmed (2026-11-16) that SECURE_AI_GATEWAY_XAA is not released yet. Both versions are at the PRODUCT_DEV lifecycle, and the flag releases with the Dec 4 code freeze (CF). Lalitha Pidaparthi answered on 2026-11-16 that no customer has V1 token request settings, because both V1 and V2 are gated behind SECURE_AI_GATEWAY_XAA. Okta is shipping both versions on purpose, in case the release timelines for API GA and for XAA for the gateway differ. The section stays. TODO: Decide with Lalitha whether the section should say that V1 isn't available to customers yet, since the answer doesn't address the guide. The flag needs a customer-facing name. TODO: Confirm the name cannot be cleared; the spec description is cut off after "cannot be cleared or set to nu". -->
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/resource-servers/token-request-settings and spec/v2/resource-servers/token-request-settings (master 81cf28712, 2026-11-09, added by OKTA-1311475). The V1 and V2 specs differ only in the path, operation IDs, and the SECURE_AI_APIS_V2 flag. The PATCH example is the spec example, and the statement that the new scope array replaces the old one follows from JSON Merge Patch on an array. Engineering confirmed (2026-11-16) that SECURE_AI_GATEWAY_XAA is not released yet. Both versions are at the PRODUCT_DEV lifecycle, and the flag releases with the Dec 4 code freeze (CF). Lalitha Pidaparthi answered on 2026-11-16 that no customer has V1 token request settings, because both V1 and V2 are gated behind SECURE_AI_GATEWAY_XAA. Okta is shipping both versions on purpose, in case the release timelines for API GA and for XAA for the gateway differ. Live test on 2026-11-17: create, list on V1 and V2, and list with the okta.resourceServers.read scope all returned 401 E0000015 ("You do not have permission to access the feature you are requesting"), so SECURE_AI_GATEWAY_XAA is probably off in the test org. The examples stay spec-derived. TODO: Ask Susan to have SECURE_AI_GATEWAY_XAA enabled in the test org, then run create, PATCH, list search, and a PATCH that sets name to null on V1 and V2. The section stays. Susan confirmed on 2026-11-17 that the section shouldn't say V1 isn't available to customers yet. TODO: The flag needs a customer-facing name. The name description in token-request-settings-common.yaml reads in full in both specs: "Once set, the name cannot be cleared or set to null." The V2 PATCH schema reuses the same definition. An earlier note that the text was cut off was a misreading, found when Ted asked about it on 2026-11-17. The guide's statement that you can't clear the name matches the spec. TODO: Confirm the behavior with a PATCH that sets name to null in the test org. -->
+
+---
 
 ## AI Agent Providers
 
@@ -2356,7 +2442,7 @@ Both versions return a `Link` response header with `self` and `next` links. `nex
 
 Make these changes:
 
-- Create a client authentication settings object for each provider that uses a client ID and client secret. Send its ID in `configuration` as `client_auth_id`, not the credentials.
+- Create a client authentication settings object for each provider that uses a client ID and client secret. Send its ID in `configuration` as `clientAuthId`, not the credentials.
 - Keep sending `accessKeyId` and `secretAccessKey` directly for providers that use an API key, such as AWS.
 - Stop reading `_links` on individual providers.
 - Keep polling the operation after provider writes, because they're still asynchronous.
@@ -2494,7 +2580,7 @@ The V2 request to `POST /workload-principals/api/v2/ai-agent-providers` for the 
 {
   "sourceOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:salesforce:0oafxqCAJWWGELFTYASJ",
   "configuration": {
-    "client_auth_id": "rsc9sfdXk2Lm4PqRs0g4"
+    "clientAuthId": "rsc9sfdXk2Lm4PqRs0g4"
   },
   "schedule": {
     "cron": "0 0 9 ? * MON",
@@ -2508,13 +2594,17 @@ The V2 request to `POST /workload-principals/api/v2/ai-agent-providers` for the 
 }
 ```
 
-Both versions return `201 Created` with the provider. The V1 response has `_links.self`, and the V2 response doesn't. The V2 request sends the property as `client_auth_id`, but the V2 response returns it as `configuration.clientAuthId`, with `platforms` set to `SALESFORCE_AGENTFORCE`.
+Both versions return `201 Created` with the provider. The V1 response has `_links.self`, and the V2 response doesn't. The V2 response returns the property as `configuration.clientAuthId`, with `platforms` set to `SALESFORCE_AGENTFORCE`. Requests that send `client_auth_id` still work.
 
-<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/ai-agent-providers/ai-agent-providers.yaml and spec/v2/ai-agents/ai-agent-providers/ai-agent-providers-v2.yaml (master, e795ff64f). Provider IDs and source values are adapted so the V1 and V2 examples match, and the lists are trimmed to one item. The V1 and V2 create examples both use Salesforce, from okta-oas3 master 81cf28712 (2026-11-09), which added provider-specific V2 examples. TODO: Confirm the name of the client authentication settings property in configuration. The V2 spec uses `clientAuthId` for UiPath and in responses, and `client_auth_id` in the Gemini Enterprise request examples. The V2 request examples for every provider use `client_auth_id`, and the responses use `clientAuthId`. The Configuration schema is open-ended, so the spec doesn't document the name. Engineering answered on 2026-11-12 and again on 2026-11-16. Today the request takes `client_auth_id` and the response returns `clientAuthId`. Engineering will check whether the request can also accept `clientAuthId`, and will report back. Mymoona owns this item and the provider answers below. TODO: Follow up with Mymoona, and update the V2 request example if the name changes. Providers that use a client ID and client secret go through client authentication settings. AWS and any other provider that uses an API key still pass credentials directly. Engineering also confirmed that `externalId` search is supported in V2, which corrects the spec-based inference. -->
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/ai-agent-providers/ai-agent-providers.yaml and spec/v2/ai-agents/ai-agent-providers/ai-agent-providers-v2.yaml (master, e795ff64f). Provider IDs and source values are adapted so the V1 and V2 examples match, and the lists are trimmed to one item. The V1 and V2 create examples both use Salesforce, from okta-oas3 master 81cf28712 (2026-11-09), which added provider-specific V2 examples. The V2 spec uses `clientAuthId` for UiPath and in responses, and `client_auth_id` in the request examples for the other providers. The Configuration schema is open-ended, so the spec doesn't document the name. Mymoona filed OKTA-1325929 (2026-11-17) to change the okta-oas3 create and validate examples to `clientAuthId`, so they match the response. The server already accepts both `client_auth_id` and `clientAuthId` (AIAgentImportProviderUtilsServiceImpl and AIAgentImportProviderUtils), so no okta-core change is needed. The guide uses `clientAuthId` and says that `client_auth_id` still works. TODO: Re-check the spec examples after OKTA-1325929 merges (Mymoona). Providers that use a client ID and client secret go through client authentication settings. AWS and any other provider that uses an API key still pass credentials directly. Engineering also confirmed that `externalId` search is supported in V2, which corrects the spec-based inference. Live test on 2026-11-17: V1 and V2 provider-attributes for salesforce both returned 200 with the same 20 attributes, and only V1 has `_links.self` as an object with `href`, as the guide says. Both list calls returned 200 with an empty `data` array and the Link header, and the V1 list `_links.self` is an object while V2 is a plain URL string. The test org has no provider, so the create, retrieve, and list item examples are still spec-derived. A V2 create with a made-up Salesforce sourceOrn returned 404 for the missing app instance with either `clientAuthId` or `client_auth_id` in configuration, so that test didn't reach the key validation. TODO: Add a Salesforce or other supported app instance to the test org, then create a provider with `clientAuthId` and `client_auth_id`, after OKTA-1325929 merges. -->
+
+---
 
 ## AI Agent Schema
 
 The endpoints and response codes are the same. V2 removes `_links` from the schema response. The property definitions are the same.
+
+---
 
 ## Resource Connections
 
@@ -2710,7 +2800,7 @@ An update still uses JSON Merge Patch on `PATCH /connections/{connectionId}`. Th
 
 | Operation | V1 | V2 |
 | --- | --- | --- |
-| Create | `201` | `201`. An unknown `actor.wlpId` returns `400`, not `404`. An `MCP_SERVER` actor that isn't active returns `404`. |
+| Create | `201`. A duplicate connection returns `400`. | `201`. A duplicate connection returns `409`. An unknown `actor.wlpId` returns `400`, not `404`. An `MCP_SERVER` actor that isn't active returns `404`. |
 | Retrieve, update | `200` | `200` |
 | Delete | `204` | `204`. Only an `INACTIVE` connection can be deleted. An `ACTIVE` connection returns `409`. |
 | Activate, deactivate | `200` | `200`. Activate follows the create rules for the actor. An unsupported combination returns `400`, and an inactive `MCP_SERVER` actor returns `404`. |
@@ -2752,31 +2842,35 @@ V1 answers one question: which targets of one `connectionType` exist. V2 answers
 
 | Aspect | V1 | V2 |
 | --- | --- | --- |
-| Parameter | `filter` is required and selects one `connectionType`. | `search`. It's optional. |
-| Type | `connectionType eq "{type}"` | `protocol.protocolType` and `resource.resourceType`. Use them alone to list the candidates of one type, or with an anchor to narrow the results. |
+| Parameter | `filter` is required and selects one `connectionType`. | `search`. It's required and must include `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`. |
+| Type | `connectionType eq "{type}"` | `protocol.protocolType` and `resource.resourceType`. Combine them with an anchor to narrow the results to one type. |
 | Actor | `actorId` is optional. It only adds `clientIdAtResource` to app instance rows. | `actor.wlpId eq "{wlpId}"` runs a forward query. An unknown `wlpId` returns `400`. |
 | Reverse query | Not available | `resource.orn eq "{orn}"` returns one row for each actor and protocol. Okta lists a row only when the resource is set up for that protocol. An unknown ORN returns `400`. |
 | App instance | `appInstanceOrn eq "{orn}"`, for `STS_SERVICE_ACCOUNT` only | `resource.appInstance.orn eq "{orn}"`, for `API_SERVER` and `SERVICE_ACCOUNT` rows |
 | STS access token type | `resourceType eq "APP_INSTANCE"`, `"MCP_SERVER"`, or `"API_SERVER"` | `resource.resourceType eq "API_SERVER"` or `"MCP_SERVER"`, with `protocol.protocolType eq "STS"`. There is no `APP_INSTANCE` type. |
-| `match` | Fuzzy substring of 3 to 50 characters on the typed list | The same length rule applies to every query. It takes effect on forward and app instance queries. On a reverse query, Okta ignores a valid `match`. |
+| `match` | Fuzzy substring of 3 to 50 characters on the typed list | The same length rule applies to every query. On forward and app instance queries, it matches the resource name. On reverse queries, it matches the actor's display name. |
 | `after`, `limit` | `limit` defaults to 20, with a maximum of 200. | Same |
 
 In V2, the client authentication settings of an app instance come back as an `API_SERVER` row. The row has `resource.appInstance` set.
 
-If you omit `search`, V2 returns all candidates in the org. A `search` that has only `protocol.protocolType` and `resource.resourceType` is also valid. To narrow the results to one actor, resource, or app instance, anchor `search` on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`.
+V2 requires `search`, and the expression must include `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`. Without one of them, the request returns `400`. Add `protocol.protocolType` and `resource.resourceType` to narrow the results to one type.
+
+You can combine `resource.orn` with `resource.appInstance.orn`. Okta returns the candidates of the resource only if the resource belongs to the app instance. Otherwise, the page is empty.
 
 V2 also returns `400` for these `search` values:
 
+- An expression without `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`
 - A property that's used more than once
 - A blank or non-string value
 - The `or` operator
-- `resource.appInstance.orn` together with `resource.orn`, or a value that isn't an app instance ORN
+- A `resource.appInstance.orn` value that isn't an app instance ORN
 - A `resource.resourceType` that differs from the type of the `resource.orn` value
 - Any use of `not` other than `not (resource pr)`
+- `not (resource pr)` together with `resource.orn`, `resource.resourceType`, or `resource.appInstance.orn`
 
 #### Query mapping
 
-Use this table to convert a V1 `filter`. The V2 examples anchor on an actor. To list the candidates for every actor, as a V1 call without `actorId` does, drop the `actor.wlpId` term and keep the type terms.
+Use this table to convert a V1 `filter`. V2 requires an anchor, so most V2 examples anchor on an actor. A V1 call without `actorId` listed the candidates of one type for every actor. V2 has no equivalent, so make one call for each actor.
 
 | V1 `filter` | V2 `search` |
 | --- | --- |
@@ -2793,15 +2887,11 @@ Use this table to convert a V1 `filter`. The V2 examples anchor on an actor. To 
 
 #### Row changes
 
-V1 rows differ by `connectionType`. V2 rows use one shape, with the same property names as the V2 create request. The parts of a row depend on the query:
-
-- Forward queries return `resource` but not `actor`.
-- Reverse queries return `actor` but not `resource`.
-- App instance queries return `resource`. They also return `actor`, unless the query has `actor.wlpId`.
-- Custom authorization server rows have no `resource`.
+V1 rows differ by `connectionType`. V2 rows use one shape, with the same property names as the V2 create request. Every V2 row includes `actor`. Every row except a custom authorization server row also includes `resource`. A reverse query returns the forward rows of the resource, plus the actor that can connect to each one.
 
 | Property | V1 | V2 |
 | --- | --- | --- |
+| Actor | Not returned. You pass `actorId` in the request. | `actor` with `wlpId`, `wlpType`, and `displayName`, on every row |
 | Type | `connectionType` | `protocol.protocolType` and `resource.resourceType` |
 | Resource | Differs by type: `authorizationServer`, `appInstance`, `resource` with `orn` and `name`, `secret`, `app` with `serviceAccount`, or a `resource` with `resourceType` | `resource`, with the same schema as a connection. Omitted on custom authorization server rows. |
 | `authorizationServer` | `orn`, `name`, `issuerUrl`, `logo`, and `_links` | `orn`, `displayName`, and `issuerUrl` |
@@ -2814,7 +2904,7 @@ V1 rows differ by `connectionType`. V2 rows use one shape, with the same propert
 
 #### Create a connection from a row
 
-A row isn't a complete create request. Add the `actor.wlpId` you queried by, or the `resource` for a reverse query. Then add these values before you call `POST /resource-connections/api/v2/connections`.
+A row isn't a complete create request. Add these values before you call `POST /resource-connections/api/v2/connections`.
 
 | Row | Add before you create the connection |
 | --- | --- |
@@ -2834,7 +2924,7 @@ Remove the read-only properties of the row, such as `displayName`, `appInstance`
 - For an STS access token, send the client authentication settings ORN in `protocol.credential.orn`.
 - Rename `resourceIndicator` to `resourceIdentifier`. Don't send it for custom authorization server, A2A server, or MCP server identity assertion connections.
 - Replace `filter` and the managed connections call with `search`. Make one call for each resource ORN instead of joining them with `OR`.
-- Replace the potential connections `filter` with `search`. Anchor it on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn` to narrow the results. Use the query mapping table to convert a V1 `filter`.
+- Replace the potential connections `filter` with `search`. You must anchor it on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`. Use the query mapping table to convert a V1 `filter`.
 - Read the scopes that a resource declares from `scopesSupported`. Check `resourceIdentifier` when you create a connection from an API server row, and add it if the row has none.
 - Deactivate a connection before you delete it.
 - Stop reading `_links.self` on connections, and read `authorizationServer.displayName` instead of `name`. Pass `links=web` if you need the Admin Console URL of a nested object.
@@ -2912,7 +3002,7 @@ Both calls return `201 Created`. The V1 response has `connectionType`, `resource
 }
 ```
 
-The V2 response returns the actor, `protocol`, and `resourceIdentifier`, and has no `_links`:
+The V2 response returns the actor, `protocol`, and `resourceIdentifier`. The connection has no top-level `_links`. A create response includes `_links.web` on the authorization server:
 
 ```json
 {
@@ -2927,7 +3017,10 @@ The V2 response returns the actor, `protocol`, and `resourceIdentifier`, and has
   "authorizationServer": {
     "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:authorization_servers:aus5rb5mt2H3d1TJd0h7",
     "displayName": "Partner AS",
-    "issuerUrl": "https://example.okta.com/oauth2/aus5rb5mt2H3d1TJd0h7"
+    "issuerUrl": "https://example.okta.com/oauth2/aus5rb5mt2H3d1TJd0h7",
+    "_links": {
+      "web": "https://{yourOktaAdminDomain}/admin/oauth2/as/aus5rb5mt2H3d1TJd0h7"
+    }
   },
   "protocol": {
     "protocolType": "IDENTITY_ASSERTION",
@@ -3113,13 +3206,15 @@ This example lists the potential connections of an AI agent. The V1 call require
 GET /workload-principals/api/v1/potential-connections?filter=connectionType%20eq%20%22IDENTITY_ASSERTION_A2A_SERVER%22&actorId=wlpkhjm0jnDp8RrUu0g4
 ```
 
-The V2 call passes the agent in `search`, and the type properties are optional:
+The V2 call anchors `search` on the agent, and the type properties are optional:
 
 ```http
 GET /resource-connections/api/v2/potential-connections?search=actor.wlpId%20eq%20%22wlpkhjm0jnDp8RrUu0g4%22%20and%20protocol.protocolType%20eq%20%22IDENTITY_ASSERTION%22%20and%20resource.resourceType%20eq%20%22A2A_SERVER%22
 ```
 
-<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. Kamron confirmed availability at V2 release on 2026-11-12. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs. Engineering confirmed (2026-11-16) that existing connection IDs and ORNs carry over between V1 and V2, and that the `rcn` IDs in the V2 spec examples were an error. Kamron is fixing the spec examples (confirmed in a meeting on 2026-11-16). The guide's V2 examples use `mcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). Engineering confirmed (2026-11-16) that connecting to the Okta MCP Server through the org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) works when XAA_OKTA_MCP_SERVER is released, and that all feature flags for the V2 migration ship with the Dec 4 code freeze. The guide now documents the identity assertion connection as a V1 and V2 pair, from the spec examples create-resource-connection-identity-assertion-okta-mcp-server-example (V1) and CreateIdentityAssertionOktaManagedMcpServerConnectionRequestV2 (V2), master a95043e38. Both versions support it behind XAA_OKTA_MCP_SERVER. The wiki's gap G3 (create rejects it) is out of date for release. Engineering is documenting STS on the Okta MCP Server in okta-oas3 PR 4402 (Justin Abrokwah, OKTA-1302755, commit 3491a566e, 2026-11-16). Susan was told the PR was coming, and no one stated in words that STS works at release. The PR's examples imply it does. The guide's STS examples come from that PR. It was not merged as of master b166e9ab0. TODO: Re-check the STS examples against master after the PR merges. The PR adds a V1 client authentication settings example for STS with the org authorization server, but no V2 one. TODO: Verify the V2 client authentication settings request for the Okta MCP Server, and add it to the Client Authentication Settings section, once it can be tested in the test org. The flag also needs a customer-facing name. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. TODO: Confirm that scopes-only updates are rejected. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). The guide says to send them together. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. The Potential connections subsection comes from Potential Connections V1 vs V2 API (Confluence eng page 1189445644, version 9) and okta-oas3 master 81cf28712 (2026-11-09). The wiki and the spec disagreed on potential connections in four places. Kamron answered on 2026-11-12, and again on 2026-11-16, that the spec is the most up to date and that Kamron will sync the wiki with it. The guide follows the spec (okta-oas3 7047b6e6d, 2026-11-10). The potential connections spec on master (b166e9ab0, 2026-11-16) hasn't changed since 2026-11-13. (1) Omitting search returns all candidates, and a type-only search is valid. The guide previously followed the wiki and said these returned 400. (2) Forward rows omit actor and reverse rows omit resource. OKTA-1316107 (in progress) was deciding whether reverse rows carry the authorization server and credential. The spec still says reverse rows include actor but not resource, so the guide follows that. TODO: Check OKTA-1316107 before release. OKTA-1316106 (resolved 2026-11-06) added actor to app instance rows. (3) The spec example shows resourceIdentifier on an IDENTITY_ASSERTION row for an API_SERVER, so the guide no longer says it is never populated. (4) The spec says match applies to forward queries and not to reverse queries, so the guide describes the ignore as documented behavior. OKTA-1316068 (triaged) is still open. -->
+<!-- Source: Resource Connections V1 vs V2 API (Confluence eng page 1189020584, version 12) and okta-oas3 specs/monolith/secures-ai/spec/v1/ai-agents/connections and spec/v2/resource-connections (master, e795ff64f). The V1 and V2 examples are adapted so each pair matches: the connection IDs, authorization server names, and scopes come from different spec examples. The V2 list example is trimmed to one item. Kamron confirmed availability at V2 release on 2026-11-12. The V2 connections spec is gated by SECURE_AI_APIS_V2 only, the same as the other V2 APIs. Engineering confirmed (2026-11-16) that existing connection IDs and ORNs carry over between V1 and V2, and that the `rcn` IDs in the V2 spec examples were an error. Kamron is fixing the spec examples (confirmed in a meeting on 2026-11-16). The guide's V2 examples use `mcn` IDs. The actor matrix in "Connection types" comes from Susan reading the wiki table, which uses images in its cells. The virtual MCP server supports only STS with MCP_SERVER, which matches the wiki text (gap G4). Engineering confirmed (2026-11-16) that connecting to the Okta MCP Server through the org authorization server (`orn:okta:org:{orgId}:authorization_servers:org`) works when XAA_OKTA_MCP_SERVER is released, and that all feature flags for the V2 migration ship with the Dec 4 code freeze. The guide now documents the identity assertion connection as a V1 and V2 pair, from the spec examples create-resource-connection-identity-assertion-okta-mcp-server-example (V1) and CreateIdentityAssertionOktaManagedMcpServerConnectionRequestV2 (V2), master a95043e38. Both versions support it behind XAA_OKTA_MCP_SERVER. The wiki's gap G3 (create rejects it) is out of date for release. Engineering is documenting STS on the Okta MCP Server in okta-oas3 PR 4402 (Justin Abrokwah, OKTA-1302755, commit 3491a566e, 2026-11-16). Susan was told the PR was coming, and no one stated in words that STS works at release. The PR's examples imply it does. The guide's STS examples come from that PR. It was not merged as of master b166e9ab0. TODO: Re-check the STS examples against master after the PR merges. The PR adds a V1 client authentication settings example for STS with the org authorization server, but no V2 one. TODO: Verify the V2 client authentication settings request for the Okta MCP Server, and add it to the Client Authentication Settings section, once it can be tested in the test org. The flag also needs a customer-facing name. TODO: Confirm the V2 scope fix. The wiki says the spec lists only okta.aiAgents.* and a fix is in progress (G35). The guide describes the intended behavior. The wiki says scopeCondition and scopes must be sent together, although the spec example implies otherwise (G33). A live V2 PATCH with only protocol.scopes returned 400 with "Required field 'protocol.scopeCondition' is missing" on 2026-11-17, so the guide's instruction to send them together is correct. The V1 managed connections example comes from spec/v1/managed-connections/managed-connections.yaml, which confirms `resourceOrn` and shows `OR` across several resource ORNs. The Potential connections subsection comes from Potential Connections V1 vs V2 API (Confluence eng page 1189445644, version 9) and okta-oas3 master 81cf28712 (2026-11-09). The wiki and the spec disagreed on potential connections in four places. Kamron answered on 2026-11-12, and again on 2026-11-16, that the spec is the most up to date and that Kamron will sync the wiki with it. The guide follows the spec (okta-oas3 7047b6e6d, 2026-11-10). okta-oas3 #4369 (Erica Long, OKTA-1320949, merged 2026-11-17, commit b9be30aeb) superseded the earlier spec in four places, and the guide now follows it. (1) search is required and must include actor.wlpId, resource.orn, or resource.appInstance.orn, or the request returns 400. Before, omitting search returned all candidates. The guide first followed the wiki, then the spec, and now follows #4369. (2) Every row includes actor, and every row except a custom authorization server row includes resource. Reverse rows are the forward rows of the resource plus the actor. This settles OKTA-1316107 and OKTA-1316106 for the guide. (3) The spec example shows resourceIdentifier on an IDENTITY_ASSERTION row for an API_SERVER, so the guide doesn't say it is never populated. (4) match now applies to reverse queries too, and filters on the actor display name. This closes the OKTA-1316068 concern. #4369 also allows resource.orn together with resource.appInstance.orn, and requires actor.wlpId for the custom authorization server query. TODO: Confirm with Kamron that the Potential Connections wiki (Confluence eng page 1189445644) gets synced with #4369, since it still describes the earlier behavior. Live test in the test org, 2026-11-17, before the #4369 deploy: Matches the guide: a call without search returns 400 ("The search must include actor.wlpId, resource.orn or resource.appInstance.orn"), and so does a custom authorization server query without actor.wlpId. Forward rows include actor. The 400 cases for the or operator, a repeated property, not (resource pr) with another resource term, an unknown actor.wlpId or resource.orn, a resource.resourceType that differs from the resource.orn type, and a resource.appInstance.orn that isn't an app instance ORN all behave as the guide says. Differs from #4369 and the guide, probably because #4369 isn't fully deployed: (1) Reverse rows (resource.orn eq the MCP server) had actor and protocol but no resource, on all 5 rows. (2) match=gateway and match=agent-v on a reverse query returned all 5 actors, so match is still ignored on reverse queries. (3) resource.orn together with resource.appInstance.orn returned 400, "resource.appInstance.orn cannot be combined with resource.orn". On a forward query, match=docs-test dropped the default authorization server and kept the others, so it matched the authorization server name. Those rows have no resource. The guide follows the spec. TODO: Retest all three after the okta-oas3 deploy. -->
+
+<!-- Live test on 2026-11-17 of V1 and V2 connection creates (custom authorization server, identity assertion, one agent for each version): both returned 201. The V1 create returned the same mcn connection ID and ORN that the V2 list shows, and each version reads the other's connections, which confirms the Q10 answer. A V2 create from a potential connection row failed with 400 until I removed resourceIdentifier ("The resourceIdentifier property doesn't apply to this type of connection"), as the guide says. A second create for the same agent and authorization server returned 409 DUPLICATE_CONNECTION on V2, and 400 DUPLICATE_CONNECTION on V1, which the guide's response codes table now shows. A V2 create needs the scopes to exist on the authorization server, or it returns 400 "One or more scopes are not defined on the authorization server". The V2 create response has _links.web on the authorization server, so the guide example now shows it. The V1 connection responses return relative _links hrefs, such as "workload-principals/api/v1/ai-agents/{id}/connections/{connectionId}" with no host and no leading slash, and "/api/v1/authorizationServers/{id}" and "/admin/oauth2/as/{id}" on the authorization server, where the guide's V1 example shows absolute URLs. TODO: Ask engineering whether the relative V1 hrefs are intended, since the missing leading slash looks like a bug. The guide keeps the spec's absolute URLs. Not yet tested live: STS, API server, A2A server, and Okta MCP server connections, and the mcn ID prefix on those. On 2026-11-17, an identity assertion create to the org authorization server (orn:okta:org:{orgId}:authorization_servers:org) returned 401 E0000015 ("You do not have permission to access the feature you are requesting") on both V1 and V2, while a control create on a custom authorization server reached validation. A V1 OIN registration with appName okta_managed_mcp_server returned 400 "OIN catalog registration is not enabled for this organization." The test org is probably missing XAA_OKTA_MCP_SERVER and SECURE_AI_MCP_OIN_CATALOG, so the Okta MCP Server examples stay spec-derived. TODO: Ask Susan to have both flags enabled in the test org, then register the Okta MCP Server and retest the identity assertion and STS connections. -->
 
 V1 managed connections and the AI agent, MCP server, and virtual MCP server connection APIs remain until the V1 cutoff.
 
@@ -3143,10 +3238,10 @@ V1 managed connections and the AI agent, MCP server, and virtual MCP server conn
 16. In connection calls, move `scopeCondition`, `scopes`, and `clientIdAtResource` under `protocol`, and rename `resourceIndicator` to `resourceIdentifier`.
 17. Replace the `filter` parameter and the managed connections call with `search`. Deactivate a connection before you delete it.
 18. Stop calling the add and remove authorization server operations on virtual MCP servers. V2 doesn't include them.
-19. Replace potential connections `connectionType` filters with `search` on `protocol.protocolType` and `resource.resourceType`. Anchor on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn` to narrow the results.
+19. Replace potential connections `connectionType` filters with `search` on `protocol.protocolType` and `resource.resourceType`. You must anchor on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`.
 20. Change the path for token request settings from `/resource-servers/api/v1/token-request-settings` to `/resource-servers/api/v2/token-request-settings`.
 21. Change the paths for MCP server OAuth client and JWK calls from `/workload-principals/api/v1/mcp-servers/{mcpServerId}` to `/workload-principals/api/v2/mcp-servers/{mcpServerId}`. Remove `status` from add key requests, and stop reading `_links` on JWK responses.
-22. For providers that use a client ID and client secret, create a client authentication settings object. Send its ID in `configuration` as `client_auth_id`, and read it back as `clientAuthId`. Keep sending `accessKeyId` and `secretAccessKey` directly for AWS and other API key providers.
+22. For providers that use a client ID and client secret, create a client authentication settings object. Send its ID in `configuration` as `clientAuthId`. Requests that send `client_auth_id` still work. Keep sending `accessKeyId` and `secretAccessKey` directly for AWS and other API key providers.
 23. Test your integration against V2 before the V1 cutoff date.
 
 ## See also
