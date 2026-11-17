@@ -73,7 +73,7 @@ Start your integration submission for OIN publication:
 
         > **Note:** **Catalog Info** is available only if your integration is already published. Otherwise, this option is disabled. See [Update catalog information only](/docs/guides/update-oin-app/wfactions/main/#update-catalog-information-only).
 
-1. Select the capability (**Universal Logout** or **Provisioning**) and **API integration actions** as the builder tool.
+1. Select the capability (**Universal Logout** or **Provisioning** ) and **API integration actions** as the builder tool from the **Add integration capabilities** section.
 
     > **Note:** You can't select new or disabled capabilities for existing submissions.
 
