@@ -122,7 +122,8 @@ Kill Switch applies only to AI agents that route through Agent Gateway. AI agent
   - Antoine Crepin: EA vs GA labeling (PRFAQ says GA with no separate EA).
   - Antoine Crepin: cell and org availability statement. Tracy Lee confirmed 2026-11-09 that Fed cells are excluded.
   - Antoine Crepin: delegation chain behavior (Agent A to Agent B) before adding a caveat.
-  - Bridget (OKTA-1318558): System Log event name, fields, and reason text for a denied request.
+  - Isaiah Cummins: confirm OKTA-1318558 is merged and the `agent_gateway.request.authenticate` event is in the System Log event reference. Event name, outcome, and reason text came from Isaiah on 2026-11-16.
+  - Isaiah Cummins: decide whether to publish the debounce cap (one event per node per 5 minutes). The admin guide says only that Okta limits how often it logs these events.
   - Add a flow diagram SVG for this sequence. Source: design doc section 6 (mermaid sequence diagram).
 -->
 
