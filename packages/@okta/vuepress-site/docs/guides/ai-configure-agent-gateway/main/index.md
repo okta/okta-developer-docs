@@ -481,7 +481,7 @@ This is an asynchronous operation. Poll the `Location` URL for status. See [Poll
 Complete the following tasks after you activate the gateway:
 
 * Give your developers the gateway URL and client credentials so that they can configure their AI agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
-* Review administrative actions in the Okta System Log.
+* Review administrative actions in the Okta System Log. When Agent Gateway rejects a request from a deactivated AI agent, it logs an `agent_gateway.request.authenticate` event. The event has the outcome `DENY` and the reason `Client is deactivated`. It identifies the client by its client ID and doesn't link to the AI agent. Okta limits how often it logs these events, so the System Log doesn't show every rejected request.
 * To stop a specific agent's or app's access to new tokens, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire.
 * To block a compromised AI agent immediately, including requests that use tokens it already holds, deactivate the AI agent. Agent Gateway then rejects its requests. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
 * To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection.
