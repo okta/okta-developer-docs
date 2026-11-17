@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-Configure an OAuth 2.0 client so that a workload, such as a backend service, a scheduled job, or an AI agent, authenticates to Okta with a JWT-SVID from its SPIFFE deployment. You don't create, store, or rotate a client secret or a private key in Okta.
+Configure an OAuth 2.0 client so that a workload, such as a back-end service, a scheduled job, or an AI agent, authenticates to Okta with a JWT-SVID from its SPIFFE deployment. You don't create, store, or rotate a client secret or a private key in Okta.
 
 ---
 
@@ -23,7 +23,7 @@ Configure an OAuth 2.0 client so that a workload, such as a backend service, a s
 - The SPIFFE ID of each workload that authenticates to Okta. See [SPIFFE ID specification](https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE-ID.md).
 - The trust domain of those SPIFFE IDs and the HTTPS URL of its bundle endpoint. Okta must be able to reach the endpoint, and it must serve JWT-SVID signing keys. See [SPIFFE Trust Domain and Bundle](https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE_Trust_Domain_and_Bundle.md).
 - An org with SPIFFE JWT-SVID client authentication enabled.
-- A super admin or API Access Management admin role to manage trust domains. An org admin or read-only admin role can view trust domains but can't manage them.
+- A super or API access management admin role to manage trust domains. An org admin or read-only admin role can view trust domains but can't manage them.
 - A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.spiffe.manage` and `okta.apps.manage` scopes.
 - An authorization server that issues tokens to the client. See [Create an authorization server](/docs/guides/customize-authz-server/).
 - For a CIMD client, an org with CIMD enabled and a CIMD URL that you host. See [Register apps with a Client ID Metadata Document (CIMD)](/docs/guides/app-cimd-registration/).
@@ -42,12 +42,12 @@ This guide uses the following terms. SPIFFE terms come from the [SPIFFE standard
 | --- | --- |
 | SPIFFE | Secure Production Identity Framework For Everyone. A set of open-source standards for identifying software systems. |
 | SPIRE | SPIFFE Runtime Environment. An implementation of the SPIFFE standards that issues identities to workloads. Other SPIFFE implementations exist, such as Istio, Consul, and cert-manager. |
-| Workload | A piece of software that runs for a specific purpose, such as a backend service, a scheduled job, or an AI agent. In this guide, a workload is also the OAuth 2.0 client that authenticates to Okta. |
+| Workload | A piece of software that runs for a specific purpose, such as a back-end service, a scheduled job, or an AI agent. In this guide, a workload is also the OAuth 2.0 client that authenticates to Okta. |
 | SPIFFE ID | A URI that identifies a workload, in the format `spiffe://{trustDomain}/{workloadPath}`. For example, `spiffe://example.org/payments-service`. |
 | Trust domain | The identity namespace that one SPIFFE implementation controls. It's the part of a SPIFFE ID after `spiffe://` and before the next `/`. In Okta, you register each trust domain with the URL of its bundle endpoint. |
-| SVID | SPIFFE Verifiable Identity Document. The document that a workload uses to prove its SPIFFE ID. An SVID is either an X.509 certificate or a JWT. Okta only supports JWT-SVIDs, currently. |
+| SVID | SPIFFE Verifiable Identity Document. The document that a workload uses to prove its SPIFFE ID. An SVID is either an X.509 certificate or a JWT. Okta only supports JWT-SVIDs. |
 | JWT-SVID | An SVID in JSON Web Token format. The `sub` claim holds the SPIFFE ID of the workload. Okta supports JWT-SVIDs for client authentication. |
-| Bundle | The object that contains a trust domain's cryptographic keys, and is also called a trust bundle. Okta uses the keys marked for JWT-SVIDs to verify signatures. |
+| Bundle | The object that contains a trust domain's cryptographic keys, and is also called a trust bundle. Okta uses the keys that are marked for JWT-SVIDs to verify signatures. |
 | Bundle endpoint | The HTTPS URL where a trust domain publishes its bundle. Okta retrieves the keys from this URL and caches them, so you don't upload keys to Okta. |
 
 ### SPIFFE values that Okta needs
