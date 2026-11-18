@@ -1,1 +1,1 @@
-Resource server (STS)
+OAuth STS

@@ -30,19 +30,18 @@ Follow this guide to secure access between an AI agent and resource apps with Cr
 
 You can configure the AI agent-to-app flow with Cross App Access (XAA) in an Okta org with Single Sign-On (SSO). See [Cross App Access (XAA)](/docs/concepts/xaa) for an overview of XAA.
 
-In the AI agent-to-app XAA flow, the AI agent assumes the requesting app role and the resource app can be any SSO app integration in Okta that has the XAA feature enabled. Build your AI agent app and resource app to have XAA features before registering and configuring them in the Admin Console.
-
-See [XAA flow specifics for an OIDC or SAML requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/#xaa-flow-specifics-for-requesting-app) for the AI agent-to-app token exchange flow.
-
-> **Note:** For developer guidance on requesting and resource apps:
-> * See [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/).
-> * See [Enabling Cross App Access for SAML-Based Resource Apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml).
+In the AI agent-to-app XAA flow, the AI agent assumes the requesting app role and the resource app can be any SSO app integration in Okta that has the XAA capability enabled. Build your AI agent app and resource app to have XAA capabilities before registering and configuring them in the Admin Console.
 
 To configure the AI agent-to-app flow with XAA, perform the following process steps in Okta:
 
 1. [Configure the AI agent (requesting app)](#configure-the-ai-agent-requesting-app).
 1. [Configure the resource app](#configure-the-resource-app).
 1. [Configure the XAA connection](#configure-the-xaa-connection).
+
+> **Note:** For developer guidance on requesting and resource apps:
+> * See [Implement XAA token exchange for your requesting app](/docs/guides/xaa-request-token-ex/openidconnect/main/).
+> * See [Validate ID-JAG tokens for resource authorization servers](/docs/guides/xaa-validate-id-jag/main/).
+> * See [Expose XAA metadata for your resource app](/docs/guides/xaa-resource-metadata/main/).
 
 ## Configure the AI agent (requesting app)
 

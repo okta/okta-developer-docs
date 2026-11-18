@@ -3,7 +3,6 @@
   "exported_at": 1715608731,
   "name": "Okta SCIM 2.0 SPEC Test",
   "description": "Basic tests to see if your SCIM server will work with Okta",
-  "trigger_url": "https://api.runscope.com/radar/37d9f10e-e250-4071-9cec-1fa30e56b42b/trigger",
   "steps": [
     {
       "step_type": "request",

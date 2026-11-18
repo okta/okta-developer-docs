@@ -30,13 +30,15 @@ IDV flows are customizable and can be configured in different ways to verify use
 
 ### Okta supported IDV vendors
 
-Okta supports three IDV vendors that admins can configure in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=id-verification) or by using [Okta APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider). Use this guide to integrate IDV vendors other than the ones listed here.
+Okta supports four IDV vendors that admins can configure in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=id-verification) or by using [Okta APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider). Use this guide to integrate IDV vendors other than the ones listed here.
 
 * [Persona](/docs/guides/add-id-verification-idp/persona/main/)
 
 * [CLEAR Verified](/docs/guides/add-id-verification-idp/clear/main/)
 
 * [Incode](/docs/guides/add-id-verification-idp/incode/main/)
+
+* [Entrust](https://documentation.identity.entrust.com/guide/okta-identity-verification/)
 
 After you've integrated your IDV service with this process, it can be added as an identity provider (IdP) in orgs. See [Custom IDV vendor](/docs/guides/add-id-verification-idp/customidv/main/).
 

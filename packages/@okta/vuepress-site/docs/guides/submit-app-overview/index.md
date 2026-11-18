@@ -41,7 +41,7 @@ Submit your integration to Okta and work with the OIN team as they test and revi
 
 The Okta OIN team reviews and prioritizes all submissions.
 
-### Submission process for SSO, SCIM provisioning, API service, and Identity Verification  integrations
+### Submission process for SSO, SCIM provisioning, API service, and Identity Verification integrations
 
 The following steps outline the process for submitting SSO, SCIM provisioning, Entitlement Management, UL, API service, and Identity Verification (IDV) integrations.
 
@@ -66,9 +66,9 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### Submission process for API Integration Actions
+### Submission process for API integration actions
 
-The following steps explain how to submit provisioning, Entitlement Management, or UL integrations that use API Integration Actions in the Integration Builder:
+The following steps explain how to submit provisioning, Entitlement Management, or UL integrations that use API integration actions in the Integration Builder:
 
 1. Sign in to the Admin Console of your Integrator Free Plan org.
    - Add integration details in the OIN Wizard.
@@ -84,7 +84,7 @@ The following steps explain how to submit provisioning, Entitlement Management, 
 1. Publish to OIN catalog.
    - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
 
-See [API Integration Actions](/docs/guides/oin-api-actions/).
+See [API integration actions](/docs/guides/oin-api-actions/).
 
 ### Submission process for Workflows integrations
 
@@ -150,11 +150,11 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) (for Okta management service apps, see [Build an API service integration](/docs/guides/build-api-integration/))
 
-* [API Integration Actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
+* [API integration actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
 
 * Identity Proofing (for Identity Verification integrations)
 
-* [Cross App Access (XAA)](/docs/guides/submit-oin-app/scrossapp/main/)
+* [Cross App Access (XAA)](/docs/guides/submit-xaa-app/main/)
 
     >**Note:** Cross App Access (XAA) requires and works alongside SSO. If you have an existing SSO integration, you don't need to create a new submission. Go to **Applications and Resources** > **Your OIN Integrations**, then click **Add more integrations** on your existing app. In **SSO (Single Sign-On)**, select **SAML 2.0** or **OpenID Connect** as your protocol. Select **Cross App Access** from the **Add integration capabilities** section, and reuse your existing SSO instance for testing.
 
@@ -190,12 +190,12 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 
-<Card href="/docs/guides/submit-oin-app/uapiservice/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
+<Card href="/docs/guides/submit-apiservice-app/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
-<Card href="/docs/guides/submit-oin-app/wfactions/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API Integration Actions" :showFooter=false>Submit an integration with API Integration Actions</Card>
+<Card href="/docs/guides/submit-wfactions-app/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API integration actions" :showFooter=false>Submit an integration with API integration actions</Card>
 
 <Card href="/docs/guides/submit-oin-app/xidv/main/" headerImage="/img/icons/customer_identity.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
 
-<Card href="/docs/guides/submit-oin-app/scrossapp/main/" headerImage="/img/customLanding/features-5.svg" cardTitle="Cross App Access" :showFooter=false>Submit a Cross App Access integration</Card>
+<Card href="/docs/guides/submit-xaa-app/main/" headerImage="/img/customLanding/features-5.svg" cardTitle="Cross App Access" :showFooter=false>Submit a Cross App Access integration</Card>
 
 </Cards>

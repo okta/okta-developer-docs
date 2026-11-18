@@ -11,7 +11,260 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## November
+
+### Version 2026.46.0
+<!-- Published on: 2026-11-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Source property for AI agents](#source-property-for-ai-agents) | November 11, 2026 |
+| [Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production](#passkey-fido2-webauthn-support-for-user-identification-policies-is-ga-in-production) | November 11, 2026 |
+| [Multiple platform mappings and external ID filter for AI agents](#multiple-platform-mappings-and-external-id-filter-for-ai-agents) | November 11, 2026 |
+| [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
+| [Attack protection policy](#attack-protection-policy) | November 11, 2026 |
+| [Start API Integration Actions integrations from the Home page is GA in Production](#start-api-integration-actions-integrations-from-the-home-page-is-ga-in-production)| |
+| [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
+
+#### Source property for AI agents
+
+The AI agent registration APIs now return a read-only `source` property in agent responses. The property shows how the agent was added to Okta:
+* `IMPORTED` for agents imported from a provider
+* `MANUAL` for agents registered manually
+The `source` property appears in the GET and LIST responses for both v1 and v2 of the [AI Agent Registration API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration). Okta sets the value, so requests that include `source` in the body don't change it.
+<!-- OKTA-1318926 -->
+
+#### Passkey (FIDO2 WebAuthn) support for user identification policies is GA in Production
+
+You can now manage rules in the user identification policy to control whether the **Sign in with a passkey** button appears on an app-by-app basis, instead of relying on a single org-wide setting. This makes it easier to manage pilot groups during passkey rollouts and to tailor the sign-in experience for individual apps. See [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+<!--FVM for UIP for Passkeys for Monthly/Weekly Release <2026.46.0> OKTA-1317708 -->
+#### Multiple platform mappings and external ID filter for AI agents
+
+AI agent provider integrations can now map attributes for more than one platform. You can also filter AI agents by external ID.
+
+Previously, each integration supported one platform mapping, so you needed a separate integration for each platform from the same provider. In the [AI Agent Providers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/getaiagentproviderprofilemapping), use the `perPlatform` array on a property mapping to set a source expression for each platform. Each entry updates only the platform that it names. To remove a platform's source, send an empty `sourceExpression`. An AWS provider integration can also now include both `AWS_BEDROCK_AGENTS` and `AWS_BEDROCK_AGENTCORE`.
+
+In the [AI Agent Registrations API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration), use the `search` parameter with `profile.externalId eq "{externalId}"` to find an agent by the ID from its source system. The filter supports only the `eq` operator. <!-- SECURE_AI_AGENTS_SCHEMA_POST_GA SECURE_AI_AGENTS_SCHEMA OKTA-1316311 OKTA-1264176 preview 11.12.2026 2026.46.0-->
+
+#### AI agent attributes in custom claims is GA in preview
+
+Okta Expression Language now supports the `agent` object in custom claims. Use `agent.id` and `agent.profile` attributes, such as `agent.profile.name`, to add AI agent data to access tokens. This allows resource servers to identify which AI agent is calling them. <!-- SECURE_AI_AGENTS_EL_CONTEXT OKTA-1303899 OKTA-1293195 preview 11.12.2026 2026.46.0-->
+
+#### Attack protection policy
+
+Bot protection currently uses one detection threshold and one action for every protected flow. Admins have to choose between letting more bots through on sign-up or adding friction to every sign-in. With the attack protection policy, admins create a rule for each sign-in, sign-up, and password reset flow, with its own bot likeliness threshold and action. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).This policy lets admins enforce Okta Challenge where bot traffic costs the most and monitor the rest. When you enable the feature, your existing bot protection settings migrate to the policy automatically, and, after you turn on Attack Protection, changes made with the [Bot Protection APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) no longer take effect. See also [Attack protection](https://help.okta.com/okta_help.htm?type=oie&id=itp-attack-protection).
+
+#### Start API Integration Actions integrations from the Home page is GA in Production
+
+ISVs can now start and manage API Integration Actions integrations directly from the **Home** page of their Okta Integrator Free Plan org, instead of only through the **Your OIN Integrations** dashboard. This gives ISVs one consistent place to start any integration type, making it easier to find the right path when beginning a build. See [Submit an integration with the OIN Wizard](/docs/guides/submit-wfactions-app/main/).
+
+#### Bugs fixed in 2026.46.0
+
+* When you sent an invalid `showSignInButton` value in a `USER_IDENTIFICATION` policy rule request (either POST or PUT `/policies/{policyId}/rules` requests), the HTTP 400 error response incorrectly referred to the `type` field. (OKTA-1307433)
+
+* When you tried to delete a `webauthn` factor that had the `PENDING_ACTIVATION` status (`DELETE /users/{userId}/factors/{factorId}`), an HTTP 500 Internal Server Error occurred, even though the factor was deleted. (OKTA-1264748)
+
+### Version 2026.45.1
+<!-- Published on: 2026-11-04T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Import staged AI agents](#import-staged-ai-agents) | November 04, 2026|
+| [Multiple AGENT_IMPORT client authentication settings per app instance](#multiple-agent-import-client-authentication-settings-per-app-instance) | November 04, 2026 |
+| [Bugs fixed in 2026.45.1](#bugs-fixed-in-2026-45-1)| November 04, 2026 |
+
+#### Import staged AI agents
+
+You can now import AI agents that are in a staged or preview state. See [Start the import of an AI agent provider](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentproviders/startaiagentproviderimport).
+<!-- OKTA-1310881 -->
+
+#### Multiple AGENT_IMPORT client authentication settings per app instance
+
+The [Client Auth Settings API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/listclientauthsettings)(`POST /resource-servers/api/{version}/client-auth-settings`) now supports multiple client authentication settings with the `AGENT_IMPORT` purpose for the same Okta Integration Network (OIN) app instance. Previously, creating a second `AGENT_IMPORT` setting for an app instance returned a `400 Bad Request` error. Each setting has its own client credentials and OAuth configuration, so platforms in one app instance can authenticate separately. Settings with other purposes, such as `STS`, are still limited to one per app instance.
+<!-- OKTA-1303935 -->
+
+#### Bugs fixed in 2026.45.1
+
+* The `PUT /policies/{policyId}/rules/{ruleId}` endpoint incorrectly increased a rule's priority value each time a request omitted priority for some policy types, including `POST_AUTH_SESSION`. (OKTA-1310339)
+
+* A `POST /workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` returned 400 Bad Request when the connection already existed instead of 409 Conflict. (OKTA-1307607)
+
+* Token refresh failed for MCP server connections that used `client_secret_basic` client authentication and pointed to an Okta authorization server. The refresh request sent the client credentials in both the Authorization header and the request body, which caused a `multiple_client_credentials` error. (OKTA-1304803)
+
+* Users without the super admin role could modify the URL for a Secure Password Store app instance, such as one created from the [SWA Template app](https://www.okta.com/integrations/template-app/). (OKTA-1314535)
+
+
 ## October
+
+### Version 2026.44.0
+<!-- Published on: 2026-10-28T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Self-service registration policy for ITP is GA in Preview](#self-service-registration-policy-for-itp-is-ga-in-preview) | October 7, 2026 |
+| [Anything-as-a-Source device import is GA in Production](#anything-as-a-source-device-import-is-ga-in-production) | August 5, 2026 |
+| [High Risk Proxy detection is GA in Preview](#high-risk-proxy-detection-is-ga-in-preview) | October 28, 2026 |
+| [Connect MCP servers to downstream resources as OAuth clients is GA in Preview](#connect-mcp-servers-to-downstream-resources-as-oauth-clients-is-ga-in-preview) | October 28, 2026 |
+| [Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#actor-claim-support-for-oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | October 7, 2026 |
+| [Connect with Okta removal](#connect-with-okta-removal) | October 28, 2026 |
+| [System Log event for indicators of compromise detection is GA in Preview](#system-log-event-for-indicators-of-compromise-detection-is-ga-in-preview) | October 28, 2026 |
+| [OAuth 2.0 client credentials grant is GA](#oauth-2-0-client-credentials-grant-is-ga) ||
+| [Okta Expression Language support for XAA resource identifiers](#okta-expression-language-support-for-xaa-resource-identifiers)| |
+| [Monitor integration performance](#monitor-integration-performance) ||
+| [New System Log event for updates to the managed server's attributes in Okta Privileged Access](#new-system-log-event-for-updates-to-the-managed-server-s-attributes-in-okta-privileged-access) | October 28, 2026 |
+| [System Log event for updated IoC protection status is GA in Preview](#system-log-event-for-updated-ioc-protection-status-is-ga-in-preview) | October 28, 2026 |
+| [Cross App Access support for MCP Servers is GA in Preview](#cross-app-access-support-for-mcp-servers-is-ga-in-preview) | October 28, 2026 |
+| [Cross App Access with an external identity provider is GA in Preview](#cross-app-access-with-an-external-identity-provider-is-ga-in-preview) | October 28, 2026 |
+| [Match on AAGUID alone for passkey authenticator groups is self-service EA in Preview](#match-on-aaguid-alone-for-passkey-authenticator-groups-is-self-service-ea-in-preview) | October 28, 2026 |
+| [Single audience claim for custom authorization servers](#single-audience-claim-for-custom-authorization-servers) | October 28, 2026 |
+| [Incomplete authorization check for SAML delegation links to MCP servers](#incomplete-authorization-check-for-saml-delegation-links-to-mcp-servers) | October 28, 2026 |
+| [Developer documentation updates in 2026.44.0](#developer-documentation-updates-in-2026-44-0) | October 28, 2026 |
+| [Bugs fixed in 2026.44.0](#bugs-fixed-in-2026-44-0) | October 28, 2026 |
+
+#### Self-service registration policy for ITP is GA in Preview
+
+The [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy) API now supports the `SELF_SERVICE_REGISTRATION` policy type for ITP. Use it to control self-service registration attempts based on network zone and email domain checks.
+
+A self-service registration policy rule can evaluate the requester's network zone and check whether the registration email domain is on Okta's list of known suspicious or disposable domains. When a rule matches, its action allows or denies the registration attempt.
+
+Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/mapresourcetopolicy) API with the new `PROFILE_ENROLLMENT` resource type to link a self-service registration policy to a profile enrollment policy.
+<!-- OKTA-1182716 OKTA-1204105 SELF_SERVICE_REGISTRATION_POLICY -->
+
+#### Anything-as-a-Source device import is GA in Production
+
+The Identity Sources API now supports bulk device import for Anything-as-a-Source (XaaS) integrations, through the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-upsert`) and [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-delete`) endpoints. These calls allow you to synchronize device inventory (serial number, platform, and display name) from your identity source in the same identity-source session as your user and group data, giving you a single workflow to keep all three entity types in sync. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
+<!-- OKTA-1214738 OKTA-1218468 IDENTITY_SOURCE_DEVICE_IMPORT -->
+
+#### High Risk Proxy detection is GA in Preview
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/listnetworkzones#other/listnetworkzones/t=response&c=200&path=&d=2/ipservicecategories) now supports a new `HIGH_RISK_PROXIES` IP service category. This category is powered by an Okta-curated list of proxy providers that Okta CyberDefense has identified as consistently high-risk, based on correlation with observed attacks such as credential stuffing and rate-limit abuse.
+<!-- OKTA-1216387 NETWORK_ZONE_HIGH_RISK_PROXIES_DETECTION -->
+
+#### Connect MCP servers to downstream resources as OAuth clients is GA in Preview
+
+MCP servers registered in Okta can now act as OAuth clients. Use the [MCP Server Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverconnections/other/createmcpserverconnection) to create a connection to each downstream resource, with its own scopes, and revoke it at any time. At runtime, the MCP server exchanges the user's access token at the /oauth2/v1/token endpoint for a downstream access token. Each call carries the user's identity, so downstream systems log the user instead of a shared service account. See [Connect MCP servers to downstream resources](/docs/guides/ai-mcp-server-token-exchange/main/).
+<!-- OKTA-1251282 SECURE_AI_MCP_AS_CLIENT -->
+
+#### Actor claim support for OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production
+
+OAuth 2.0 On-Behalf-Of Token Exchange now stamps an actor claim (`act`) onto issued access tokens to identify the service app that requested the exchange. If the subject token already carries an `act` claim from an earlier exchange, that claim nests under `act.act`, which provides a verifiable delegation chain of up to five service apps. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+<!-- OKTA-1265993 ON_BEHALF_TOKEN_EXCHANGE_ACT_CLAIM -->
+
+#### Connect with Okta removal
+
+The Early Access **Connect with Okta** feature is no longer available. The legacy **Manage Connections** tab on the Admin Console app profile pages and the associated **Application Cross App Access Connections** APIs (`/api/v1/apps/{appId}/cwo/connections`) have been retired. Configurations created under this feature will no longer function as of release 2026.44.0. Reconfigure Cross App Access (XAA) integrations using the current [AI agent-to-app resource connections](https://help.okta.com/okta_help.htm?type=oie&id=apps-apps-manage-cross-app-access) in the Admin Console to avoid disruptions.
+See [Configure AI agent-to-app with XAA](https://developer.okta.com/docs/guides/xaa-agent-to-app/main/).
+<!-- OKTA-1268002 ENABLE_CONNECT_WITH_OKTA -->
+
+#### System Log event for indicators of compromise detection is GA in Preview
+
+The System Log now shows the `security.threat.ioc.detect` event when a request matches an indicator of compromise (IoC) from Okta Threat Intelligence. The `outcome.result` is `DENY` when Okta blocks the request, or `ALLOW` when an admin has opted out of the protection and Okta takes no action. The `securityContext.indicators` list identifies the matching indicators. See [Event Types](/docs/reference/api/event-types/?q=security.threat.ioc.detect).
+<!-- OKTA-1287415 -->
+
+#### OAuth 2.0 client credentials grant is GA
+
+The OAuth 2.0 client credentials grant simplifies and secures SCIM and Actions integration setup. ISVs specify only a token endpoint, with no shared credentials or sign-in redirects to manage. Admins set their own tenant-specific client ID and secret. Okta generates and refreshes access tokens automatically, so user sync stays reliable without manual sign-in.
+<!-- OKTA-1293764 -->
+
+#### Okta Expression Language support for XAA resource identifiers
+
+Resource identifiers (formerly protected resources) for Cross App Access (XAA) resource apps now support Okta Expression Language. See [Dynamic properties with Okta Expression Language
+](/docs/guides/submit-xaa-app/main/#dynamic-properties-with-okta-expression-language).
+<!-- OKTA-1263995 -->
+
+#### Monitor integration performance
+
+After your integration is published in the Okta Integration Network (OIN), you can now track its adoption and health through monthly usage reports. Independent software vendors (ISVs) can use these reports to see how customers use their integrations. Use these insights to prioritize your roadmap, focus on the capabilities that customers use most, and keep your OIN listing current.
+<!-- OKTA-1288974-->
+
+#### New System Log event for updates to the managed server's attributes in Okta Privileged Access
+
+A new System Log event (`pam.server.update`) has been added to track changes for servers managed by Okta Privileged Access. The event is generated when a server becomes inactive and it stops contacting Okta for longer than its configured visibility window. See [Event Types](https://developer.okta.com/docs/reference/api/event-types/).
+<!-- OKTA-1295331 -->
+
+#### System Log event for updated IoC protection status is GA in Preview
+
+The System Log now shows the `security.ioc_protection.status.update` event when an admin disables (opts out of) or enables the protective actions that Okta takes when a request matches an indicator of compromise (IoC). The event's `target.changeDetails` shows the previous and new status, which is `ENABLED` or `DISABLED`. The event triggers only when the setting changes. See [Event Types](/docs/reference/api/event-types/?q=security.ioc_protection.status.update).
+<!-- OKTA-1295421 -->
+
+#### Cross App Access support for MCP Servers is GA in Preview
+
+Cross App Access enables Okta admins to securely connect AI agents to third-party MCP servers. This gives admins full visibility and control over actions taken on behalf of users and eliminates user consent prompts at runtime.
+
+See [Cross App Access (XAA) for external authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-mcp-server-xaa) in the product documentation and [Set up AI agent token exchange > MCP server](/docs/guides/ai-agent-token-exchange/mcpserver/main/).
+<!-- OKTA-1296037 SECURE_AI_MCP_SERVERS_XAA_FOR_EXTERNAL_AS -->
+
+#### Cross App Access with an external identity provider is GA in Preview
+
+Cross App Access (XAA) now supports an Identity Assertion JWT Authorization Grant (ID-JAG) issued directly by an external OpenID Connect (OIDC) identity provider (IdP) or by another Okta org. Until now, an AI agent could use XAA with your custom authorization server only if Okta issued its identity assertion. AI agents that signed in through another IdP, or through another Okta org, needed a separate Okta credential. Now your custom authorization server can accept an ID-JAG directly from a trusted OIDC IdP or another Okta org that supports XAA.
+
+Clients can present the ID-JAG to the custom authorization server `/token` endpoint (`POST /oauth2/{authServerId}/v1/token`) as a `jwt-bearer` grant, without first exchanging it with Okta. You can restrict which IdPs that a policy rule accepts by setting the `xaaSupportedIdentityProvider` condition. See [Configure XAA with an external IdP](/docs/guides/xaa-external-idp/main/).
+<!-- OKTA-1309544 OKTA-1305064 EXTERNAL_IDP_XAA_SUPPORT -->
+
+#### Match on AAGUID alone for passkey authenticator groups is self-service EA in Preview
+
+The Authenticators API now supports the `matchOnAaguidAlone` property on AAGUID groups for the `webauthn` authenticator. This allows users to enroll authenticators from a group that don't provide a trusted attestation certificate. See [`matchOnAaguidAlone`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authenticator/other/replaceauthenticatormethod#other/replaceauthenticatormethod/t=request&path=&d=8/settings/aaguidgroups[]/matchonaaguidalone).
+<!-- OKTA-1299535 WEBAUTHN_AAGUID_GROUP_MATCH_ON_AAGUID_ALONE -->
+
+#### Single audience claim for custom authorization servers
+
+For orgs with the **Multiple audiences for custom authorization servers** feature enabled, access tokens now have a single `aud` claim value by default. A custom authorization server can still list up to 100 `audiences`, but the `/token` endpoint now accepts at most one `resource` parameter. A request with more than one `resource` fails with an `invalid_target` error. For authorization code, device code, and refresh token grants, the `resource` must be one of the resources from the original `/authorize` request. It's required if that request specified more than one. See [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/tokencustomas).
+<!-- OKTA-1296114 -->
+
+#### Incomplete authorization check for SAML delegation links to MCP servers
+
+The [Create a delegation link API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink) didn't apply the correct permission check when linking a SAML app to a vMCP server. Some admins could create these delegation links without the intended vMCP server permission.
+<!-- OKTA-1300914 -->
+
+#### Developer documentation updates in 2026.44.0
+
+* The new [Build an XAA resource app](/docs/journeys/XAA-resource-app/main/) journey helps you plan to add Cross App Access (XAA) functionality to your resource server and the authorization server protecting it. After you build and test your resource server with the XAA flow, you can submit your resource app integration to the Okta Integration Network (OIN). <!-- OKTA-1232134 -->
+
+* The new [Build an XAA requesting app](/docs/journeys/XAA-requesting-app/main/) journey helps you plan to add Cross App Access (XAA) functionality to your existing SSO app. After you build and test your app with the XAA flow, you can submit your app integration to the Okta Integration Network (OIN). <!-- OKTA-1232133 -->
+
+* Learn how to validate ID-JAG tokens and resolve user identities on your resource authorization server for the Cross App Access (XAA) flow. See [Validate ID-JAG token for your authorization server](/docs/guides/xaa-validate-id-jag/main/). <!-- OKTA-1232139 -->
+
+#### Bugs fixed in 2026.44.0
+
+* The [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers) API (`GET /api/v1/groups/{groupId}/users`) returned the first page again instead of the remaining members when paging through large app-imported groups. (OKTA-1265598)
+
+* AI agents that used SAML user delegation and CIMD client registration couldn't perform token exchange. (OKTA-1289140)
+
+* When you created an OIDC app (`POST /apps`) with `self_signed_tls_client_auth` as the token endpoint authentication method, the request succeeded even when the app had no JWK with an `x5c` attribute. (OKTA-1294374)
+
+* The Application Public Keys API (`POST /apps/{appId}/credentials/jwks/{keyId}/lifecycle/deactivate`) incorrectly allowed you to deactivate the last active JWK with an `x5c` attribute for an app that used `self_signed_tls_client_auth`. This caused the app's requests to the `/token` endpoint to fail. (OKTA-1299403)
+
+### Version 2026.42.1
+<!-- Published on: 2026-10-14T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview](#mutual-tls-client-authentication-for-oauth-2-0-is-self-service-ea-in-preview) | October 14, 2026 |
+| [Device Visibility for macOS: Device Bound SSO sessions is EA](#device-visibility-for-macos-device-bound-sso-sessions-is-ea) | October 14, 2026 |
+| [Bug fixed in 2026.42.1](#bug-fixed-in-2026-42-1) | October 14, 2026 |
+
+#### Mutual TLS client authentication for OAuth 2.0 is self-service EA in Preview
+
+The `self_signed_tls_client_auth` client authentication method is now available for OAuth 2.0 and OpenID Connect apps. Clients authenticate by presenting a self-signed X.509 certificate during the TLS handshake. Okta then issues access tokens that are bound to that certificate, so an intercepted token can't be replayed without the certificate's private key. The `self_signed_tls_client_auth` value is supported for the `token_endpoint_auth_method` property in the Apps API and the Dynamic Client Registration API. See [Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth#tls-client-certificate).
+
+<!-- OAUTH2_MTLS OKTA-1294131 preview date: oct 14, 2026 -->
+
+#### Device Visibility for macOS: Device Bound SSO sessions is EA
+
+The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device) now includes three endpoints that return Device-Bound SSO session and device capability data for the Device Visibility feature:
+
+* `GET /api/v1/devices/{deviceId}/device-sessions` returns the active Device-Bound SSO sessions on a device, with one entry per user. Each entry includes the session `id`, the `userId`, and the factors verified in the session. Each factor has a `type`, `displayName`, `key`, and `lastUsedOn` time.
+* `GET /api/v1/devices/{deviceId}/capabilities` returns the status (`READY` or `NOT_READY`) of the `platformSso`, `deviceBoundSso`, `sensorMode`, and `desktopMfaRecoveryPin` capabilities on a device. When a capability is `NOT_READY`, `reasons` lists the unmet preconditions.
+* `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}/capabilities` returns the `deviceBoundSso` status for an OS account. When it is `NOT_READY`, `reasons` lists what is missing.
+
+These endpoints require the `okta.devices.read` scope. They support the Device Visibility feature for macOS devices. See [View macOS device details](https://help.okta.com/okta_help.htm?type=oie&id=devices-view-details-macos) to use the feature in the Admin Console.
+
+<!-- ENG_DEVICE_VISIBILITY_DBSSO_VISIBILITY OKTA-1244980 preview date: oct 14, 2026 -->
+
+#### Bug fixed in 2026.42.1
+
+A GET request to the List all potential connections endpoint (`/workload-principals/api/v1/potential-connections`) didn't return MCP servers linked to an inactive custom authorization server. (OKTA-1283300)
 
 ### Version 2026.41.0
 <!-- Published on: 2026-10-07T12:00:00Z -->
@@ -29,6 +282,7 @@ title: Okta Identity Engine API release notes 2026
 | [New System Log events for staging Access Certification campaigns is EA](#new-system-log-events-for-staging-access-certification-campaigns-is-ea) | October 7, 2026 |
 | [Self-service registration policy for ITP is self-service EA in Preview](#self-service-registration-policy-for-itp-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Email channel for Direct Authentication is self-service EA in Preview](#email-channel-for-direct-authentication-is-self-service-ea-in-preview) | October 7, 2026 |
+| [Authenticator Groups API is self-service EA in Preview](#authenticator-groups-api-is-self-service-ea-in-preview) | October 7, 2026 |
 | [Single Certificate Issuer is GA in Preview](#single-certificate-issuer-is-ga-in-preview) | October 7, 2026 |
 | [App branding migration](#app-branding-migration) | October 7, 2026 |
 | [Developer documentation updates in 2026.41.0](#developer-documentation-updates-in-2026-41-0) | October 7, 2026 |
@@ -334,7 +588,7 @@ The **Applications** page now provides options to filter apps by type and status
 
 #### Cross App Access submission through the OIN Wizard is GA in Production
 
-ISV and partners can now configure, test and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-oin-app/scrossapp/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
+ISV and partners can now configure, test, and submit Cross App Access (XAA) integrations to the Okta Integration Network (OIN) directly through the OIN Wizard. Integrators can define client and resource app roles, enabling enterprise customers and Okta admins to discover, centrally govern, and securely deploy policy-driven app-to-app and AI agent connections from the OIN catalog. See [Submit Cross App Integration (XAA) through the OIN wizard](/docs/guides/submit-xaa-app/main/). <!-- OKTA-1264344 FF: XAA_OIN_SUBMISSION GA Production -->
 
 #### Developer documentation updates in 2026.09.0
 
@@ -1122,11 +1376,11 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
 
-#### OIN submissions for API Integration Actions
+#### OIN submissions for API integration actions
 
-Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API Integration Actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API Integration Actions to the OIN catalog using the OIN Wizard.
+Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API integration actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API integration actions to the OIN catalog using the OIN Wizard.
 
-See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/wfactions/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
+See [API integration actions](/docs/guides/oin-api-actions/) and [Submit an integration with API integration actions](/docs/guides/submit-wfactions-app/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
 <!-- OKTA-1007250, OKTA-1145738, ACTIONS_3P_SUBMISSION, Production: May 12, 2026 -->
 
 #### Developer documentation updates in 2026.05.0
@@ -1379,7 +1633,7 @@ With Enhanced DR, admins gain active control to initiate a failover and restore 
 #### Submit API service integrations
 
 Independent Software Vendors (ISVs) can now use the OIN Wizard to submit API service integrations to the Okta Integration Network (OIN). Previously, ISVs provided metadata in the OIN Manager. With this update, ISVs can create and configure API service apps directly within the OIN Wizard
-The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 <!-- OKTA-1119846 API_SERVICE_SUBMISSION preview date: March 4, 2026  -->
 
 #### Admin Console Home page
@@ -1410,7 +1664,7 @@ The inline hook and event hook framework now supports read and write permissions
 #### Developer documentation updates in 2026.03.0
 
 * Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
-* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-apiservice-app/main/).
 * The new [Plan your self-service registration](/docs/concepts/self-service-registration/) doc explains the self-service registration (SSR) flow, how it works, its default state, and three different ways to customize and configure it.
 * A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
   * Initiate failover and restoration (failback) using the self-service portal or APIs.

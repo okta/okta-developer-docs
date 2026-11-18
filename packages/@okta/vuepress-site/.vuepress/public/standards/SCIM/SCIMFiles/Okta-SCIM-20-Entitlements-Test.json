@@ -5,7 +5,6 @@
   "test_usage_billing_period": 0,
   "name": "Okta SCIM 2.0 Entitlements Test",
   "description": "Basic tests to see if your SCIM server's entitlement endpoints work with Okta.",
-  "trigger_url": "https://api.runscope.com/radar/20a66fda-1902-44ca-8c50-9245c152f4e2/trigger",
   "is_skipped_at_bucket_level": false,
   "steps": [
     {

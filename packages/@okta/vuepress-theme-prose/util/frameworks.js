@@ -109,8 +109,9 @@ const COMMON_NAME_TO_FANCY_NAME = {
   authserver: 'Authorization server (ID-JAG)',
   secret: 'Secret',
   'service-account': 'Service account',
-  resourceserver: 'Resource server (STS)',
+  resourceserver: 'OAuth STS',
   'agent-to-agent': 'Agent-to-agent',
+  mcpserver: 'MCP server'
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

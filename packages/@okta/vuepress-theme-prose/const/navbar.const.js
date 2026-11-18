@@ -600,6 +600,10 @@ export const guides = [
             guideName: "ai-configure-agent-for-gateway",
           },
           {
+            title: "Connect MCP servers to downstream resources",
+            guideName: "ai-mcp-server-token-exchange",
+          },
+          {
             title: "Configure an Agent Gateway",
             guideName: "ai-configure-agent-gateway",
           },
@@ -622,6 +626,12 @@ export const guides = [
               {
                 title: "Secure Azure AI Foundry AI agents",
                 guideName: "ai-agent-secure-azure",
+              },
+                            {
+                title: "Secure a DataRobot AI agent",
+                guideName: "ai-agent-secure-datarobot",
+              },
+              {
                 title: "Secure a Google Vertex AI agent",
                 guideName: "ai-agent-secure-google-vertex",
               },
@@ -752,12 +762,20 @@ export const guides = [
             guideName: "xaa-agent-to-app",
           },
           {
+            title: "Configure XAA with an external IdP",
+            guideName: "xaa-external-idp",
+          },
+          {
             title: "Implement XAA token exchange for your requesting app",
             guideName: "xaa-request-token-ex",
           },
           {
             title: "Expose XAA metadata for your resource app",
             guideName: "xaa-resource-metadata",
+          },
+          {
+            title: "Validate ID-JAG tokens on your authorization server",
+            guideName: "xaa-validate-id-jag",
           },
         ],
       },
@@ -901,6 +919,18 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
+                title: "Submit a Cross App Access integration",
+                guideName: "submit-xaa-app",
+              },
+              {
+                title: "Submit an API service integration",
+                guideName: "submit-apiservice-app",
+              },
+              {
+                title: "Submit an integration with API integration actions",
+                guideName: "submit-wfactions-app",
+              },
+              {
                 title: "OIN Wizard: Update an integration",
                 guideName: "update-oin-app",
               },
@@ -909,6 +939,10 @@ export const guides = [
                 guideName: "submit-app",
               },
             ]
+          },
+          {
+            title: "Monitor integration performance",
+            path: "/docs/guides/oin-monitor-integration-performance/",
           },
         ],
       },
@@ -1399,6 +1433,19 @@ export const journeys = [
           },
         ]
       },
+      {
+        title: "Build your integration",
+        subLinks: [
+          {
+            title: "Build an XAA requesting app",
+            journeyName: "XAA-requesting-app"
+          },
+          {
+            title: "Build an XAA resource app",
+            journeyName: "XAA-resource-app"
+          },
+        ]
+      }
     ],
   }
 ];
