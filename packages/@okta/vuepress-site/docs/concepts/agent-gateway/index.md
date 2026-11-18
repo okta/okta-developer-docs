@@ -111,7 +111,9 @@ The following sequence occurs when an admin deactivates an AI agent:
 1. The gateway rejects the request because the token was issued before the deactivation. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
 1. The gateway no longer uses downstream credentials that it cached for the AI agent. When it requests new credentials, the org authorization server refuses the token exchange.
 
-Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning. You don't need to configure Kill Switch.
+Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
+
+Kill Switch is available wherever Agent Gateway is available. It's included for all Okta for AI Agents customers, and you don't need to configure it.
 
 While the AI agent is deactivated, Okta refuses to issue it new tokens. When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
 
@@ -119,9 +121,8 @@ Kill Switch applies only to AI agents that route through Agent Gateway. AI agent
 
 <!--
   TODO before publishing (confirm, then remove this comment):
-  - Antoine Crepin: EA vs GA labeling (PRFAQ says GA with no separate EA).
-  - Antoine Crepin: cell and org availability statement. Tracy Lee confirmed 2026-11-09 that Fed cells are excluded.
-  - Antoine Crepin: delegation chain behavior (Agent A to Agent B) before adding a caveat.
+  - Kevin Huang (PM for Connections): confirm whether "Resource connections" is renamed to "Outbound connections" and who owns the doc change. Antoine Crepin answered 2026-11-17.
+  - Antoine Crepin: the exact path of the deactivate API. He confirmed the existing agent lifecycle deactivate API is the supported way to trigger Kill Switch. Needed for a "Block a compromised agent" section in the admin guide.
   - Isaiah Cummins: confirm OKTA-1318558 is merged and the `agent_gateway.request.authenticate` event is in the System Log event reference. Event name, outcome, and reason text came from Isaiah on 2026-11-16.
   - Isaiah Cummins: decide whether to publish the debounce cap (one event per node per 5 minutes). The admin guide says only that Okta limits how often it logs these events.
   - Add a flow diagram SVG for this sequence. Source: design doc section 6 (mermaid sequence diagram).
