@@ -1,6 +1,6 @@
 {
-  "release" : "2026.47.1",
-  "build" : "2026.47.1-begin-228-gac4118031e07",
+  "release" : "2026.48.0",
+  "build" : "2026.48.0-begin-294-gc153e2dd8639",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -16,6 +16,9 @@
   }, {
     "id" : "agent-rotation",
     "name" : "Agent Rotation"
+  }, {
+    "id" : "ai-federation",
+    "name" : "AI Federation"
   }, {
     "id" : "asa",
     "name" : "Advanced Server Access"
@@ -100,6 +103,9 @@
   }, {
     "id" : "enterprise-auth",
     "name" : "Enterprise Auth"
+  }, {
+    "id" : "enterprise-federation",
+    "name" : "Enterprise Federation"
   }, {
     "id" : "essential-security",
     "name" : "Essential Security"
@@ -238,6 +244,9 @@
   }, {
     "id" : "secure-ai-gateway",
     "name" : "Secure AI Gateway"
+  }, {
+    "id" : "secure-ai-policy",
+    "name" : "Secure AI Policy"
   }, {
     "id" : "secure-ai-registry",
     "name" : "Secure AI Registry"
@@ -1039,6 +1048,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "agent-gateway",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "oauth-sts",
     "description" : "",
     "tags" : [ ]
@@ -1736,6 +1749,74 @@
         "actor" : null,
         "targets" : [ "OrgResourceDetails" ],
         "changeDetails" : [ "LiteUserClassificationChangeDetails" ]
+      }
+    }, {
+      "id" : "agent_gateway.mcp.session.establish",
+      "category" : "secure-ai-gateway",
+      "description" : "Establish an MCP session with a Virtual MCP server through Agent Gateway. This can be used to monitor which AI agents connect to which Virtual MCP servers, and when. Emitted for a valid MCP initialize request from an authenticated client. SUCCESS means the session was established; FAILURE means an internal error occurred. Malformed requests and unsupported protocol versions are not currently logged as this event. The target is the Virtual MCP server. The client ID and originating user can appear in gatewayContext.",
+      "info" : {
+        "created" : "2026-11-03",
+        "release" : "2026.48.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "agent-gateway", "virtual-mcp" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "agent_gateway.mcp.tool.call",
+      "category" : "secure-ai-gateway",
+      "description" : "Call a tool on a target MCP server through Agent Gateway. Use this event to audit tool requests and investigate failures. Emitted for a valid MCP tools/call request from an authenticated client. SUCCESS means the target completed the call; if the target asked for more input, the outcome reason says so and the retry logs the final outcome. CHALLENGE means the caller must connect an account first; no tool ran. FAILURE means the call or gateway encountered an error. DENY means the gateway rejected the request before contacting the target, such as for an unknown tool. The target MCP server is included when known. The tool name is in gatewayContext.capabilityName.",
+      "info" : {
+        "created" : "2026-11-03",
+        "release" : "2026.48.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "agent-gateway", "virtual-mcp" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "agent_gateway.mcp.tools.list",
+      "category" : "secure-ai-gateway",
+      "description" : "List the tools available on a Virtual MCP server through Agent Gateway. This can be used to monitor when AI agents discover the tools exposed by a Virtual MCP server. Emitted when an authenticated client sends an MCP tools/list request. The outcome is SUCCESS when the tool list is returned and FAILURE when an internal error occurs. Gateway-specific fields such as the client ID and the originating user are in gatewayContext.",
+      "info" : {
+        "created" : "2026-11-03",
+        "release" : "2026.48.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "agent-gateway", "virtual-mcp" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "agent_gateway.request.authenticate",
+      "category" : "secure-ai-gateway",
+      "description" : "Authenticate an AI agent's request to a Virtual MCP server. Use this event to detect AI agents that keep calling Agent Gateway after their access was revoked, for example to confirm that a deactivated AI agent can no longer use the gateway. Emitted when Agent Gateway denies a request from an AI agent whose access token is otherwise valid. The outcome is DENY, and outcome.reason gives the cause. Currently the only cause is \"AI agent is deactivated\": the AI agent was deactivated after its access token was issued. Other causes may be added. Successful authentication isn't logged by this event; the resulting agent_gateway.mcp.* event records it. Missing, malformed, or expired tokens aren't logged. The actor is the AI agent, and actor.alternateId is its client ID, which matches the target of workload_principal.ai_agent.* events. The Virtual MCP server is the target. The originating user and delegation chain can appear in gatewayContext.",
+      "info" : {
+        "created" : "2026-11-04",
+        "release" : "2026.48.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "agent-gateway", "virtual-mcp" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "analytics.feedback.provide",
@@ -16076,7 +16157,7 @@
         "created" : "2026-10-09",
         "release" : "2026.48.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "oie-only", "security" ],
       "schema" : {
@@ -18549,6 +18630,74 @@
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ "IdpConfigChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "system.import.app_data.download.execute.end",
+      "category" : "ud-platform",
+      "description" : "Finish downloading data from the app for an app data import. Shows that Okta finished reading data from the app for an app data import. Use it to tell slow reading from the app apart from slow processing.",
+      "info" : {
+        "created" : "2026-10-12",
+        "release" : "2026.48.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "schema" : {
+        "debugData" : "SystemImportAppDataDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.import.app_data.download.execute.start",
+      "category" : "ud-platform",
+      "description" : "Start downloading data from the app for an app data import. Marks the moment Okta starts reading data from the app for an app data import. Pair it with system.import.app_data.download.execute.end to see how long reading from the app took.",
+      "info" : {
+        "created" : "2026-10-13",
+        "release" : "2026.48.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "schema" : {
+        "debugData" : "SystemImportAppDataDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.import.app_data.execute.end",
+      "category" : "ud-platform",
+      "description" : "Finish an app data import for an app instance. Fires once per app data import, after its data has been processed or the import has failed. The outcome shows success or failure, and on failure the failed phase shows whether reading from the app or processing the data failed.",
+      "info" : {
+        "created" : "2026-10-12",
+        "release" : "2026.48.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "schema" : {
+        "debugData" : "SystemImportAppDataDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.import.app_data.execute.start",
+      "category" : "ud-platform",
+      "description" : "Start an app data import for an app instance. Marks the start of an app data import, which reads app data into Okta without creating or updating app users. Pair it with system.import.app_data.execute.end using the fetch ID to measure how long an import took.",
+      "info" : {
+        "created" : "2026-10-12",
+        "release" : "2026.48.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "schema" : {
+        "debugData" : "SystemImportAppDataDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "system.import.clear.unconfirmed.users.summary",
@@ -23802,6 +23951,40 @@
         "actor" : null,
         "targets" : [ "WorkloadPrincipalResourceConnectionDetails" ],
         "changeDetails" : [ "WorkloadPrincipalResourceConnectionChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "workload_principal.secure_access_monitor.delete",
+      "category" : "plugins",
+      "description" : "Delete a Secure Access Monitor plugin workload principal. Use this event to track the deletion of Secure Access Monitor plugin workload principals within the org, including details about the user who deleted it.",
+      "info" : {
+        "created" : "2026-11-09",
+        "release" : "2026.48.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "plugin", "workload-principal" ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.secure_access_monitor.register",
+      "category" : "plugins",
+      "description" : "Register a Secure Access Monitor plugin workload principal. Use this event to track the registration of Secure Access Monitor plugin workload principals within the org, including details about the user who registered it.",
+      "info" : {
+        "created" : "2026-11-09",
+        "release" : "2026.48.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "plugin", "workload-principal" ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "workload_principal.sign_on_provider.add",
@@ -53673,6 +53856,291 @@
           }
         }
       },
+      "SystemImportAppDataDebugData" : {
+        "name" : "SystemImportAppDataDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "ja4" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "t13d1516h2_8daaf6152771_02713d6af862" ]
+          },
+          "ja3" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "e7d705a3286e19ea42f587b344ee6865" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "error_message" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Request failed: 401 Unauthorized" ]
+          },
+          "message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "App data import failed during PROCESSING." ]
+          },
+          "elapsed_time" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "3 seconds", "1 minute and 10 seconds" ]
+          },
+          "failed_phase" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "DOWNLOAD", "PROCESSING" ]
+          },
+          "processed_objects" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1422", "0" ]
+          },
+          "import_object_types" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[USER]", "[USER, GROUP, MEMBERSHIP]" ]
+          },
+          "trigger_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "API", "SCHEDULED" ]
+          },
+          "import_mode" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "FULL", "DELTA" ]
+          },
+          "fetch_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "udu1fkq0yb394T3Ay01t7" ]
+          },
+          "AppName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "name",
+            "examples" : [ "office365", "snowflake" ]
+          }
+        }
+      },
       "SystemImportDebugData" : {
         "name" : "SystemImportDebugData",
         "properties" : {
@@ -67026,6 +67494,14 @@
       "WorkloadPrincipalChangeDetailsEntry" : {
         "name" : "WorkloadPrincipalChangeDetailsEntry",
         "properties" : {
+          "workload_principal_spiffe_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "uri",
+            "examples" : [ "spiffe://example.com/ns/payments/sa/billing-service" ]
+          },
           "workload_principal_jwks_uri" : {
             "type" : "String",
             "sensitive" : false,
@@ -67048,7 +67524,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "enum",
-            "examples" : [ "client_secret_basic", "none", "private_key_jwt" ]
+            "examples" : [ "client_secret_basic", "none", "private_key_jwt", "spiffe_jwt" ]
           },
           "workload_principal_cimd_url" : {
             "type" : "String",
