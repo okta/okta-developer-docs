@@ -462,7 +462,7 @@ Use the standard AI agent deactivation API. See [Deactivate an AI agent](https:/
   Authorization: Bearer {token}
 ```
 
-The request has no body. Replace `{agentID}` with the ID of the AI agent.
+The request has no body. Replace `{agentId}` with the ID of the AI agent.
 
 ### Response
 
