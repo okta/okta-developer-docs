@@ -138,7 +138,7 @@ Follow the step to obtain your test results:
 
 If you have questions or need more support, open a support case and include your test results:
 
-1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+1. In the Admin Console, go to **Resources** > **Support Center** to open the Support portal.
 
 1. Click **Get Support** > **Open a Case**.
 

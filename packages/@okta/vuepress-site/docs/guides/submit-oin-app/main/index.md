@@ -249,7 +249,7 @@ For building, testing, or submitting your integration, use the following channel
 
 *  **Open a support case (available only after you start a draft integration):**
 
-    1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+    1. In the Admin Console, go to **Resources** > **Support Center** to open the Support portal.
 
     1. Click **Get Support** > **Open a Case**.
 
@@ -261,12 +261,12 @@ For building, testing, or submitting your integration, use the following channel
 
 1. Building or testing an integration phase
 
-    * If you encounter any issues while building or testing your integration, use the [Support channels](#support-channels) mentioned before.
+    * If you encounter any issues while building or testing your integration, use the [Support channels](#support-channels).
 
 1. Using the OIN Wizard to submit an integration phase
 
     * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
-    * If you can't find an answer in the documentation, use the [Support channels](#support-channels) mentioned before.
+    * If you can't find an answer in the documentation, use the [Support channels](#support-channels).
     * If you have an integration status issue, contact <oin@okta.com>.
 
 ## See also

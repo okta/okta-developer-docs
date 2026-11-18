@@ -168,7 +168,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
    * When you're constructing your Okta integration, open a support case:
 
-     1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+     1. In the Admin Console, go to **Resources** > **Support Center** to open the Support portal.
 
      1. Click **Get Support** > **Open a Case**.
 

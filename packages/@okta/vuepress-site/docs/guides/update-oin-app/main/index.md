@@ -181,7 +181,7 @@ If you need help during your submission, Okta provides the following support:
 
 * If you can't find an answer in the documentation or have issues during your integration testing phase, open a support case:
 
-    1. From the **Admin Console**, go to **Resources** > **Support Center** to open the Support portal.
+    1. In the Admin Console, go to **Resources** > **Support Center** to open the Support portal.
 
     1. Click **Get Support** > **Open a Case**.
 
