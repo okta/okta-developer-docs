@@ -458,11 +458,11 @@ Use the standard AI agent deactivation API. See [Deactivate an AI agent](https:/
 ### Request
 
 ```http
-  POST /workload-principals/api/v1/ai-agents/wlpcFogtKCrK9aYq3fgV/lifecycle/deactivate
+  POST /workload-principals/api/v1/ai-agents/{agentId}/lifecycle/deactivate
   Authorization: Bearer {token}
 ```
 
-The request has no body. Replace `wlpcFogtKCrK9aYq3fgV` with the ID of the AI agent.
+The request has no body. Replace `{agentID}` with the ID of the AI agent.
 
 ### Response
 

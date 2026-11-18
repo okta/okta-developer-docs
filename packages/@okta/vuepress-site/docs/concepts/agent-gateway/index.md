@@ -113,8 +113,6 @@ The following sequence occurs when an admin deactivates an AI agent:
 
 Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
 
-Kill Switch is available wherever Agent Gateway is available. It's included for all Okta for AI Agents customers, and you don't need to configure it.
-
 While the AI agent is deactivated, Okta refuses to issue it new tokens. When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
 
 Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
