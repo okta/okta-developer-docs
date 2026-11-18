@@ -9,6 +9,7 @@ guides:
  - ai-agent-secure-datarobot
  - ai-agent-secure-azure
  - ai-agent-secure-google-vertex
+ - ai-agent-secure-microsoft-copilot-studio
  - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
