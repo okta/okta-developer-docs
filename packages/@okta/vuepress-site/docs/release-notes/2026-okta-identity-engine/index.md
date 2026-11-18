@@ -20,8 +20,7 @@ title: Okta Identity Engine API release notes 2026
 | ------ | ------------------------ |
 | [New Agent Gateway System Log events](#new-agent-gateway-system-log-events) | November 18, 2026 |
 | [On-demand identity verification is self-service EA in Preview](#on-demand-identity-verification-is-self-service-ea-in-preview) | November 18, 2026 |
-| [SPIFFE JWT-SVID client authentication for AI agents is GA in Preview](#spiffe-jwt-svid-client-authentication-for-ai-agents-is-ga-in-preview) | November 18, 2026 |
-| [SPIFFE JWT-SVID client authentication is GA in Production](#spiffe-jwt-svid-client-authentication-is-ga-in-production) | November 18, 2026 |
+| [SPIFFE JWT-SVID client authentication is GA in Preview](#spiffe-jwt-svid-client-authentication-is-ga-in-production) | November 18, 2026 |
 | [Bug fixed in 2026.47.1](#bug-fixed-in-2026-47-1) | November 18, 2026 |
 
 #### New Agent Gateway System Log events
@@ -44,11 +43,6 @@ Your OIDC apps can now request identity verification (IDV) for a specific user a
 
 To start verification, send a `GET /oauth2/v1/authorize` request to the org authorization server with the new `acr_values` value `urn:okta:identity-assurance:idv`, plus the `idv_integration_id` and `login_hint` parameters. After the user completes verification, exchange the authorization code at `POST /oauth2/v1/token` using the new `urn:okta:params:oauth:grant-type:identity-assurance` grant type. The ID token is returned in the `access_token` field. To use the flow, add the new grant type to the app's `grant_types` in the Apps API.
 <!-- OKTA-1258338 IDV_TRANSACTIONAL_IDENTITY_ASSURANCE -->
-
-#### SPIFFE JWT-SVID client authentication for AI agents is GA in Preview
-
-AI agents can now authenticate to Okta with a SPIFFE JWT-SVID instead of a client secret or private key. Okta validates the JWT-SVID against the trust domain bundle configured for your org. Okta also confirms that its SPIFFE ID matches the SPIFFE ID registered for the agent.
-<!-- OKTA-1320876 AI_AGENT_SPIFFE_JWT_CLIENT_AUTH -->
 
 #### SPIFFE JWT-SVID client authentication is GA in Production
 
