@@ -166,11 +166,19 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 1. Create an integration phase
 
-   * When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
+   * When you're constructing your Okta integration, open a support case:
+
+     1. In the Admin Console, go to **Resources** > **Support Center** to open the Support portal.
+
+     1. Click **Get Support** > **Open a Case**.
+
+     1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**. See [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US).
+
+     You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 1. Submit an integration phase
 
-   * If you need help with using the OIN Wizard during the submission process, see [Submit an integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+   * If you need help with using the OIN Wizard during the submission process, see [Submit an integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, [open a support case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US) or post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
    * If you need help with using the OIN Manager during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta Developer Portal.
 

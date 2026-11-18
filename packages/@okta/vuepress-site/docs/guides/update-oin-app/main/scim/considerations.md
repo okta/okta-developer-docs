@@ -10,7 +10,7 @@ For published integrations that were migrated from the OIN Manager, if you need 
   
     * Contact <oin@okta.com> if you need to update configured properties that aren't available in the OIN Wizard.
 
-    * The **Import users** and **Import groups** (if groups are managed) capabilities are automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, contact <developers@okta.com>.
+    * The **Import users** and **Import groups** (if groups are managed) capabilities are automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, open a support case. For instructions, see [Submission support](/docs/guides/update-oin-app/#submission-support).
 
 * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
 

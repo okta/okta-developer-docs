@@ -556,19 +556,31 @@ See [Understand the submission review process](/docs/guides/submit-app-overview/
 
 If you need help during your submission, Okta provides the following support stream for the various phases of your OIN submission:
 
-1. Building an integration phase
+### Support channels
 
-    * When you're constructing your app integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
+For building, testing, or submitting your integration, use the following channels:
+
+*  **Open a support case (available only after you start a draft integration):**
+
+    1. In the Admin Console, go to **Resources** > **Support Center** to open the Support portal.
+
+    1. Click **Get Support** > **Open a Case**.
+
+    1. Ensure that you select the correct impacted org and select `API Access Management` as **Issue Area**. For returning users, you can sign in directly to the [Okta Support Center](https://support.okta.com/help/s/?language=en_US), click **Get Support**, and then **Open a Case**. See [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US).
+
+*  **Ask the community:** You can also post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+
+### Phase-specific guidance
+
+1. Building or testing an integration phase
+
+    * If you encounter any issues while building or testing your integration, use the [Support channels](#support-channels).
 
 1. Using the OIN Wizard to submit an integration phase
 
     * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
-    * Submit your OIN Wizard question to <developers@okta.com> if you can't find an answer in the documentation.
+    * If you can't find an answer in the documentation, use the [Support channels](#support-channels).
     * If you have an integration status issue, contact <oin@okta.com>.
-
-1. Testing an integration phase
-
-    * If you have issues during your integration testing phase, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
 
 ## See also
 
