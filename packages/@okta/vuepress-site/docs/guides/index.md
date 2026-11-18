@@ -13,9 +13,10 @@ guides:
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
+ - ai-agent-v2api-migration
  - ai-configure-agent-gateway
  - ai-configure-agent-for-gateway
- - ai-agent-v2api-migration
+ - ai-mcp-server-token-exchange
  - app-cimd-registration
  - app-provisioning-connection
  - archive-auth-js
