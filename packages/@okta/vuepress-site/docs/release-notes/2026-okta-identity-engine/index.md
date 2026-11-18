@@ -52,7 +52,7 @@ AI agents can now authenticate to Okta with a SPIFFE JWT-SVID instead of a clien
 
 #### SPIFFE JWT-SVID client authentication is GA in Production
 
-Okta now supports SPIFFE JWT-SVID client authentication, based on the [SPIFFE framework](https://spiffe.io/). An AI agent can prove its own identity to Okta with a short-lived JWT-SVID that’s issued by your SPIFFE-compliant workload identity system, such as SPIRE. You don't need to create, store, or rotate a separate client secret or private key for them.
+Okta now supports SPIFFE JWT-SVID client authentication, based on the [SPIFFE framework](https://spiffe.io/). An AI agent can prove its own identity to Okta with a short-lived JWT-SVID that's issued by your SPIFFE-compliant workload identity system, such as SPIRE. You don't need to create, store, or rotate a separate client secret or private key for them.
 
 To use it, register your SPIFFE trust domain (`POST /spiffe/api/v1/trust-domains`), then set the app's authentication method to `spiffe_jwt` (`POST /api/v1/apps`). The feature is available to orgs that are subscribed to Okta for AI Agents. See [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/) and [Create a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/createspiffetrustdomainregistration).
 <!-- OKTA-1320898 OAUTH2_SPIFFE_JWT_CLIENT_AUTH -->
