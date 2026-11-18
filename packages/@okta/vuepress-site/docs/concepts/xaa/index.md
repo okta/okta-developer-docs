@@ -86,23 +86,23 @@ XAA integrates directly with AI agent frameworks and server standards, such as t
 
 Common AI agent scenarios include:
 
-* **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical specs from a documentation platform (such as Atlassian Confluence), inspecting designs from a design tool (such as Figma), and analyzing meeting notes from note-generating platforms (such as Zoom or Granola).
-* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker). They also inspect app performance metric tools (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
-* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions. This prevents data leaks across organizational boundaries.
+* **Cross-tool project aggregation**: An AI assistant, such as Claude or Cursor, compiles a project status report. It retrieves milestones from project management platforms, such as Asana or Linear, and pulls technical specs from a documentation platform, such as Atlassian Confluence. It also inspects designs in a design tool, such as Figma, and analyzes meeting notes from platforms that generate notes, such as Zoom or Granola.
+* **Automated developer operations**: Developer tools and code editors, such as Visual Studio Code or Cursor, query container registries, such as Docker. They also inspect tools that track app performance, such as Datadog, or query production databases, such as Supabase. These tools use the engineer's scoped user identity.
+* **Enterprise AI search**: Federated AI search tools, such as Glean, retrieve internal company records from connected cloud services only when the end user has active permissions. This prevents data leaks across organizational boundaries.
 
 > **Note:** See [Configure AI agent-to-app with XAA](/docs/guides/xaa-agent-to-app) for Okta Admin Console instructions on how to configure an AI agent-to-app connection with XAA.
 
 ### App-to-app
 
-Business apps need to share data and trigger workflows across identity service boundaries. Traditional app-to-app integrations rely either on user-managed OAuth authorization flows (which interrupt employees with consent pages) or static API keys and shared service accounts (which lack user context and bypass enterprise IT policy).
+Business apps need to share data and trigger workflows across identity service boundaries. Traditional app-to-app integrations rely on either user-managed OAuth authorization flows or static API keys and shared service accounts. OAuth authorization flows interrupt employees with consent pages. Static API keys and shared service accounts lack user context and bypass enterprise IT policy.
 
-XAA extends enterprise identity governance to direct app-to-app data exchange. When a user interacts with a requesting SaaS app, XAA allows that app to securely access APIs in a separate target app on the user's behalf (without prompting the user and without using shared secrets).
+XAA extends enterprise identity governance to direct app-to-app data exchange. When a user interacts with a requesting SaaS app, XAA lets that app securely access APIs in a separate target app on the user's behalf. XAA doesn't prompt the user or use shared secrets.
 
 Common app-to-app integration scenarios include:
 
-* **Messaging and productivity synchronization**: A team collaboration app (such as Zoom) accesses an enterprise notification API (such as Slack) on another server, sending action items and notifications to employees.
-* **Project management and issue tracking**: A project planning platform (such as Asana or Linear) pulls live issue statuses, customer details, or pull request updates from developer and CRM tools (such as Jira, Salesforce, or GitHub) under the context of the active team member.
-* **Automated workflow execution**: An enterprise integration platform (such as Zapier or Workato) triggers multi-step actions across connected HR, payroll, and IT ticketing tools while preserving the identity of the employee who initiated the request for compliance and auditing.
+* **Messaging and productivity synchronization**: A team collaboration app, such as Zoom, accesses an enterprise notification API, such as Slack, on another server, sending action items and notifications to employees.
+* **Project management and issue tracking**: A project planning platform, such as Asana or Linear, pulls live data from developer and CRM tools, such as Jira, Salesforce, or GitHub. This data includes issue statuses, customer details, or pull request updates. The platform pulls the data in the context of the active team member.
+* **Automated workflow execution**: An enterprise integration platform, such as Zapier or Workato, triggers multi-step actions across connected HR, payroll, and IT ticketing tools. For compliance and auditing, the platform preserves the identity of the employee who started the request.
 
 <!--
 > **Note:** See [Configure app-to-app with Cross App Access] for Okta Admin Console instructions on how to configure an app-to-app connection with XAA.
@@ -135,7 +135,7 @@ Okta supports requesting apps that use the following protocols for SSO:
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
 * **SAML 2.0**: Supported for existing enterprise federations, allowing orgs to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to obtain an ID-JAG through a refresh token exchange using your SAML assertion. See [XAA flow specifics for SAML 2.0 requesting app](/docs/guides/xaa-request-token-ex/saml2/main/#xaa-flow-specifics-for-requesting-app).
 
-If you're an independent software vendor (ISV) looking to add the XAA requesting-app role to your current SSO app integration in the OIN, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
+If you're an independent software vendor (ISV) and want to add the XAA requesting-app role to your existing SSO app integration in the Okta Integration Network (OIN), see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
 > **Note:** For the AI agent-to-app use case, see [Supported requesting apps](/docs/guides/xaa-agent-to-app/main/#supported-requesting-apps) in Okta.
 
@@ -150,7 +150,7 @@ Okta supports resource apps that use the following protocols for SSO:
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
 * **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, your resource authorization server must validate the ID-JAG and resolve the SAML `nameid` assertion. See [Enabling Cross-App Access for SAML-Based Resource Apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml)
 
-If you're an ISV wanting to add your resource app to the OIN with XAA capabilities, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
+If you're an ISV and want to add your resource app with XAA capabilities to the OIN, see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
 > **Note:** For the AI agent-to-app use case, see [Supported resource apps](/docs/guides/xaa-agent-to-app/main/#supported-resource-apps) in Okta.
 
@@ -160,7 +160,7 @@ If you're an ISV wanting to add your resource app to the OIN with XAA capabiliti
 
 ### OIN integrations that support Cross App Access
 
-The following integrations in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) support XAA. The table includes the following columns:
+The following integrations in the [OIN catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) support XAA. The table includes the following columns:
 
 * **XAA role**: The role that the integration takes in the XAA flow, based on the [Cross-App Access implementations](https://oauth.net/cross-app-access/) on oauth.net and on Okta integration data:
   * **Client**: The requesting app that accesses a protected resource on behalf of the user.
