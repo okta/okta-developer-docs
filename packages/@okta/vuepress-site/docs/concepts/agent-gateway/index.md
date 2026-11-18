@@ -105,13 +105,13 @@ Without Agent Gateway, deactivating an AI agent stops Okta from issuing new toke
 
 The following sequence occurs when an admin deactivates an AI agent:
 
-1. An admin deactivates the AI agent in the Admin Console or with the Okta API.
+1. An admin deactivates the AI agent in the Admin Console or with the Okta API. See [Block a compromised AI agent](/docs/guides/ai-configure-agent-gateway/main/#block-a-compromised-ai-agent).
 1. Agent Gateway records when the AI agent was deactivated.
 1. The AI agent sends a request to the gateway with an access token that it received before deactivation.
 1. The gateway compares the token's issue time with the deactivation time. It rejects the request because the token is older. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
 1. The gateway stops using downstream credentials that it cached for the AI agent. When the gateway asks the org authorization server for new credentials, the server refuses the token exchange.
 
-Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
+Enforcement begins shortly after an admin deactivates the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
 
 While the AI agent is deactivated, Okta refuses to issue it new tokens. When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
 
