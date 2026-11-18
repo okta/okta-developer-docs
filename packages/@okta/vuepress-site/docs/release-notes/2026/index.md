@@ -11,6 +11,27 @@ title: Okta Classic Engine API release notes 2026
 
 ## November
 
+### Version 2026.47.1
+<!-- Published on: 2026-11-18T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New Agent Gateway System Log events](#new-agent-gateway-system-log-events) | November 18, 2026 |
+
+#### New Agent Gateway System Log events
+
+The [Event Types](/docs/reference/api/event-types/?q=agent_gateway) reference now lists three System Log events that Agent Gateway generates for virtual MCP servers:
+
+* `agent_gateway.mcp.session.establish`: An AI agent starts a session with a virtual MCP server.
+* `agent_gateway.mcp.tools.list`: An AI agent requests the list of tools on a virtual MCP server.
+* `agent_gateway.mcp.tool.call`: An AI agent calls a tool. The event shows the target MCP server and the outcome.
+* `agent_gateway.request.authenticate`: Agent Gateway denies a request from an AI agent that was deactivated after Okta issued its access token.
+
+Use the `mcp.*` events to audit which AI agents connect to your virtual MCP servers and which tools they call on behalf of users.
+
+Use the `agent_gateway.request.authenticate` event to confirm that a deactivated AI agent can no longer use Agent Gateway and to detect continued attempts. The `outcome.result` is always `DENY`. Successful authentication, and requests with missing, malformed, or expired tokens, don't generate this event. To trace a denial to the deactivation, match `actor.alternateId` with the `workload_principal.ai_agent.deactivate` event.
+<!-- OKTA-1316091 -->
+
 ### Version 2026.45.1
 <!-- Published on: 2026-11-04T12:00:00Z -->
 

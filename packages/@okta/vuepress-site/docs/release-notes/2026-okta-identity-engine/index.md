@@ -13,6 +13,54 @@ title: Okta Identity Engine API release notes 2026
 
 ## November
 
+### Version 2026.47.1
+<!-- Published on: 2026-11-18T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New Agent Gateway System Log events](#new-agent-gateway-system-log-events) | November 18, 2026 |
+| [On-demand identity verification is self-service EA in Preview](#on-demand-identity-verification-is-self-service-ea-in-preview) | November 18, 2026 |
+| [SPIFFE JWT-SVID client authentication for AI agents is GA in Preview](#spiffe-jwt-svid-client-authentication-for-ai-agents-is-ga-in-preview) | November 18, 2026 |
+| [SPIFFE JWT-SVID client authentication is GA in Production](#spiffe-jwt-svid-client-authentication-is-ga-in-production) | November 18, 2026 |
+| [Bug fixed in 2026.47.1](#bug-fixed-in-2026-47-1) | November 18, 2026 |
+
+#### New Agent Gateway System Log events
+
+The [Event Types](/docs/reference/api/event-types/?q=agent_gateway) reference now lists three System Log events that Agent Gateway generates for virtual MCP servers:
+
+* `agent_gateway.mcp.session.establish`: An AI agent starts a session with a virtual MCP server.
+* `agent_gateway.mcp.tools.list`: An AI agent requests the list of tools on a virtual MCP server.
+* `agent_gateway.mcp.tool.call`: An AI agent calls a tool. The event shows the target MCP server and the outcome.
+* `agent_gateway.request.authenticate`: Agent Gateway denies a request from an AI agent that was deactivated after Okta issued its access token.
+
+Use the `mcp.*` events to audit which AI agents connect to your virtual MCP servers and which tools they call on behalf of users.
+
+Use the `agent_gateway.request.authenticate` event to confirm that a deactivated AI agent can no longer use Agent Gateway and to detect continued attempts. The `outcome.result` is always `DENY`. Successful authentication, and requests with missing, malformed, or expired tokens, don't generate this event. To trace a denial to the deactivation, match `actor.alternateId` with the `workload_principal.ai_agent.deactivate` event.
+<!-- OKTA-1316091 -->
+
+#### On-demand identity verification is self-service EA in Preview
+
+Your OIDC apps can now request identity verification (IDV) for a specific user at any point in the flow, such as before the user completes a high-risk action. Okta uses the IDV vendor configured in your org, and your app receives an ID token that indicates whether the user was verified.
+
+To start verification, send a 'GET /oauth2/v1/authorize' request to the org authorization server with the new 'acr_values' value 'urn:okta:identity-assurance:idv', plus the 'idv_integration_id' and 'login_hint' parameters. After the user completes verification, exchange the authorization code at 'POST /oauth2/v1/token' using the new 'urn:okta:params:oauth:grant-type:identity-assurance' grant type. The ID token is returned in the 'access_token' field. To use the flow, add the new grant type to the app's 'grant_types' in the Apps API.
+<!-- OKTA-1258338 IDV_TRANSACTIONAL_IDENTITY_ASSURANCE -->
+
+#### SPIFFE JWT-SVID client authentication for AI agents is GA in Preview
+
+AI agents can now authenticate to Okta with a SPIFFE JWT-SVID instead of a client secret or private key. Okta validates the JWT-SVID against the trust domain bundle configured for your org. Okta also confirms that its SPIFFE ID matches the SPIFFE ID registered for the agent.
+<!-- OKTA-1320876 AI_AGENT_SPIFFE_JWT_CLIENT_AUTH -->
+
+#### SPIFFE JWT-SVID client authentication is GA in Production
+
+Okta now supports SPIFFE JWT-SVID client authentication, based on the [SPIFFE framework](https://spiffe.io/). An AI agent can prove its own identity to Okta with a short-lived JWT-SVID that’s issued by your SPIFFE-compliant workload identity system, such as SPIRE. You don't need to create, store, or rotate a separate client secret or private key for them.
+
+To use it, register your SPIFFE trust domain (`POST /spiffe/api/v1/trust-domains`), then set the app's authentication method to `spiffe_jwt` (`POST /api/v1/apps`). The feature is available to orgs that are subscribed to Okta for AI Agents. See [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/) and [Create a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/createspiffetrustdomainregistration).
+<!-- OKTA-1320898 OAUTH2_SPIFFE_JWT_CLIENT_AUTH -->
+
+#### Bug fixed in 2026.47.1
+
+The Devices API returned different `status` values for the same pre-registered device, depending on which endpoint was called. (OKTA-1318524)
+
 ### Version 2026.46.0
 <!-- Published on: 2026-11-11T12:00:00Z -->
 
