@@ -7,7 +7,7 @@ meta:
 
 # Okta Agent Gateway
 
-Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple remote MCP servers behind a single Okta-secured endpoint, enforces identity and policy on every tool call, and produces a unified audit trail. Agent Gateway extends the Okta identity fabric to AI agents that the enterprise doesn't build or control.
+Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple remote MCP servers behind a single Okta-secured endpoint. It also enforces identity and policy on every tool call, and produces a unified audit trail. Agent Gateway extends the Okta identity fabric to AI agents that the enterprise doesn't build or control.
 
 ## The problem it solves
 
@@ -15,7 +15,7 @@ For AI agents that an enterprise builds in-house, the agent's code can be config
 
 Without something in the path of the AI agent's outbound requests, there's no way to enforce Okta on those AI agents. The typical workaround is giving the AI agent a long-lived API key or service account credential.
 
-This approach provides broad, standing access with no per-call policy enforcement, no per-user attribution, and no audit trail. It also gives the AI agent direct access to the credential, which prompt injection, log leaks, or a compromised model could use to steal.
+This approach provides broad, standing access with no per-call policy enforcement, no per-user attribution, and no audit trail. It also gives the AI agent direct access to the credential, which prompts injection, log leaks, or a compromised model could use to steal.
 
 ### The solution
 
@@ -90,7 +90,7 @@ When an AI agent invokes a tool through the Agent Gateway, the following sequenc
 1. The AI agent sends a `tools/list` or `tools/call` request to the Agent Gateway with the access token as a Bearer token. The gateway validates the token against the linked authorization server and checks that the [virtual MCP server (vMCP)](#key-concepts) is active. It also checks that the AI agent hasn't been deactivated since the token was issued. See [Kill Switch](#kill-switch).
 1. The gateway sends an OAuth STS token exchange request to the Okta org authorization server. It presents the AI agent's access token as the subject token. The authorization server validates the delegation link, confirming that the AI agent's OAuth 2.0 client is authorized to delegate to this vMCP. Then, it validates that the resource connection to the remote MCP server is active.
 1. (First use only) If the user has no stored refresh token for the remote MCP server, the org authorization server returns an `interaction_required` response with a consent URL. See the [Token exchange flow for OAuth Security Token Service](/docs/guides/ai-agent-token-exchange/resourceserver/main/) for an example of this entire flow.
-1. The AI agent directs the user to the consent URL, where the user authenticates and consents to Okta accessing the remote MCP server on their behalf. The remote MCP server returns a refresh token, which Okta stores.
+1. The AI agent directs the user to the consent URL. This is where the user authenticates and consents to Okta accessing the remote MCP server on their behalf. The remote MCP server returns a refresh token, which Okta stores.
 1. (First use only) The gateway retries the token exchange.
 1. The org authorization server returns a downstream access token for the remote MCP server.
 1. The gateway injects the downstream access token into the outbound call and proxies the request to the remote MCP server. The remote MCP server returns the response to the AI agent.
