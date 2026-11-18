@@ -95,15 +95,15 @@ Create an Application Registry for the import:
 1. In the import registry's **Auth Scopes** section, add **List AI Agents**, and then click **Update**. Without this scope, ServiceNow issues a token but returns a `403` error when Okta lists the AI agents.
 1. Copy the registry's **Client ID** and **Client Secret**.
 
-Enable imports for the app:
+Enable imports for the app in Okta:
 
 1. In the Admin Console, go to **Directory** > **AI Agent Providers**, and then select your ServiceNow Universal Directory app integration. If you have multiple ServiceNow app integrations, only configure AI agent imports for one of them.
-1. Check the app's **Base URL** setting. Okta reads your ServiceNow instance URL from this field. Enter it as a full URL with no trailing slash or path, for example, `https://acme.service-now.com`. Okta adds `/oauth_token.do` and the Table API path to it.
+1. In the **General** tab, check the app's **Base URL** setting. Okta reads your ServiceNow instance URL from this field. Enter it as a full URL with no trailing slash or path, for example, `https://acme.service-now.com`. Okta adds `/oauth_token.do` and the Table API path to it.
 
    > **Note:** If you change the **Base URL** later, Okta disables AI agent imports for the app until you re-enable them. This prevents Okta from sending credentials to the wrong host.
 
-1. Go to the **AI agent import** tab, and select **Enable AI agent import**.
-1. Enter the client ID and client secret of the import registry. Click **Test API Credentials** to validate them, and then click **Save configuration**.
+1. Go to the **AI agent import** tab, select **Configuration**, and then select **Enable AI agent import**.
+1. Click **Enter new client authentication**, and enter the **Client ID** and **Client secret** of the import registry. Click **Test and Save** to validate and save them.
 
    > **Note:** Okta imports only active AI agents that have a name, and it collapses duplicate configuration rows for the same AI agent.
 
@@ -115,14 +115,14 @@ Enable imports for the app:
 
 > **Note:** You can also run the same import through the AI agent import API.
 
-Register the imported AI agent and set up its identity. Token exchange works only for AI agents that you imported and registered in Okta under **Directory** > **AI Agents**.
+Register the imported AI agent and set up its identity in Okta. Token exchange works only for AI agents that you imported and registered in Okta under **Directory** > **AI Agents**.
 
-1. Go to **Directory** > **AI Agents**, and then register the imported AI agent. Importing an AI agent doesn't create its credentials, so you must register and activate it.
-1. On the **User access** tab, link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app.
+1. Go to **Directory** > **AI Agents**, select the imported AI agent, and then register it. Importing an AI agent doesn't create its credentials, so you must register and activate it.
+1. On the **User access** tab, click **Allow user access**, and then link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app. Click **Save**.
 
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
 
-1. On the **Client registration** tab, click **Configure** next to **Public/private key**, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, because Okta shows it only once. Click **Done**.
+1. On the **Client registration** tab, click **Configure** next to **Public/private key**, select **Okta** to manage your public/private key, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, because Okta shows it only once. Click **Done**.
 1. Copy the **Client ID**, which starts with `wlp`, and the public key's **Key ID**. You need them for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`, respectively.
 1. On the **Resource connections** tab, click **Add resource connection**. For **Resource type**, select **Authorization server**, and then select your custom authorization server. Under **Scopes**, select **Only allow**, enter your custom scope, for example, `xaa:read`, and then click **Add**.
 1. Click **Actions** > **Activate**, and then click **Confirm**.
@@ -512,7 +512,7 @@ The following errors are specific to the ServiceNow integration:
 | A call to the Virtual Agent Bot Integration API returns `200` but your AI agent never answers | That API runs a generic Virtual Agent conversation as a guest. It doesn't reach the AI Agent Studio agent | Use the AI agent invoke API (`/api/sn_aia/agenticai/v1`) |
 | Python client error `CERTIFICATE_VERIFY_FAILED: self-signed certificate in certificate chain` | A TLS-inspecting proxy is in the path, and Python's certificate bundle lacks its root CA | Use the operating system's trust store, for example, with the `truststore` package |
 | `invalid_client: The client_assertion signature is invalid.` at the code exchange | The client assertion was signed with a different private key than the one registered for that `kid` | Use the JWK whose `kid` matches the registered public key |
-| **Test API Credentials** fails even though the client ID and secret are correct | The app's **Base URL** is malformed, for example, it has no `https://` scheme or has a trailing slash or path, so the token request fails. This isn't a client ID error | Enter the full URL in the form `https://<instance>.service-now.com` in the app's **Base URL** field |
+| **Test and Save** fails even though the client ID and secret are correct | The app's **Base URL** is malformed, for example, it has no `https://` scheme or has a trailing slash or path, so the token request fails. This isn't a client ID error | Enter the full URL in the form `https://<instance>.service-now.com` in the app's **Base URL** field |
 | AI agent imports stop after you edit the app | Changing the **Base URL** disables AI agent imports for the app | Re-enable AI agent imports on the **AI agent import** tab |
 | Fewer AI agents are imported than you expected | Okta imports only active AI agents that have a name, and it collapses duplicate configuration rows for the same AI agent | Check the AI agents' active status and names in ServiceNow |
 
