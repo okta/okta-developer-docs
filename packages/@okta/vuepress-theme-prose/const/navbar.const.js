@@ -1195,6 +1195,10 @@ export const guides = [
             title: "Essentials",
             subLinks: [
               {
+                title: "Decide what to manage",
+                guideName: "terraform-decide-what-to-manage",
+              },
+              {
                 title: "Terraform overview",
                 guideName: "terraform-overview",
               },
