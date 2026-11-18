@@ -15,7 +15,7 @@ For AI agents that an enterprise builds in-house, the agent's code can be config
 
 Without something in the path of the AI agent's outbound requests, there's no way to enforce Okta on those AI agents. The typical workaround is giving the AI agent a long-lived API key or service account credential.
 
-This approach provides broad, standing access with no per-call policy enforcement, no per-user attribution, and no audit trail. It also gives the AI agent direct access to the credential, which prompts injection, log leaks, or a compromised model could use to steal.
+This approach provides broad, standing access with no per-call policy enforcement, no per-user attribution, and no audit trail. It also gives the AI agent direct access to the credential, which prompt injection, log leaks, or a compromised model could use to steal.
 
 ### The solution
 
