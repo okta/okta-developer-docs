@@ -30,7 +30,7 @@ To [create a campaign](https://developer.okta.com/docs/api/iga/openapi/governanc
 
 #### Certify intra-app group based separation of duties violations is self-service EA
 
-Run campaigns to review and remediate existing user access if they have an intra-app group separation of duties (SOD) rule conflict. When you create a resource campaign that reviews groups, select **Predefined user scope*** on the **Identities** page, and then select **Have separation of duties (SOD) conflicts**. This feature is available for groups associated with apps that don't have **Entitlement Management** enabled. See [Create resource campaigns](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-campaigns) in the product documentation.
+Run campaigns to review and remediate existing user access if they have an intra-app group separation of duties (SOD) rule conflict. When you create a resource campaign that reviews groups, select **Predefined user scope** on the **Identities** page, and then select **Have separation of duties (SOD) conflicts**. This feature is available for groups associated with apps that don't have **Entitlement Management** enabled. See [Create resource campaigns](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-campaigns) in the product documentation.
 
 To [create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) for users with intra-app group separation of duties (SOD) rule conflict, set `principalScopeSettings.onlyIncludeUsersWithSODConflicts` to true, `resourceSettings.targetTypes` to `GROUP`, and specify the specific target groups.
 

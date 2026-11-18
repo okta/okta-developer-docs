@@ -42,7 +42,7 @@ Use the `agent_gateway.request.authenticate` event to confirm that a deactivated
 
 Your OIDC apps can now request identity verification (IDV) for a specific user at any point in the flow, such as before the user completes a high-risk action. Okta uses the IDV vendor configured in your org, and your app receives an ID token that indicates whether the user was verified.
 
-To start verification, send a 'GET /oauth2/v1/authorize' request to the org authorization server with the new 'acr_values' value 'urn:okta:identity-assurance:idv', plus the 'idv_integration_id' and 'login_hint' parameters. After the user completes verification, exchange the authorization code at 'POST /oauth2/v1/token' using the new 'urn:okta:params:oauth:grant-type:identity-assurance' grant type. The ID token is returned in the 'access_token' field. To use the flow, add the new grant type to the app's 'grant_types' in the Apps API.
+To start verification, send a `GET /oauth2/v1/authorize` request to the org authorization server with the new `acr_values` value `urn:okta:identity-assurance:idv`, plus the `idv_integration_id` and `login_hint` parameters. After the user completes verification, exchange the authorization code at `POST /oauth2/v1/token` using the new `urn:okta:params:oauth:grant-type:identity-assurance` grant type. The ID token is returned in the `access_token` field. To use the flow, add the new grant type to the app's `grant_types` in the Apps API.
 <!-- OKTA-1258338 IDV_TRANSACTIONAL_IDENTITY_ASSURANCE -->
 
 #### SPIFFE JWT-SVID client authentication for AI agents is GA in Preview
