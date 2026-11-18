@@ -13,8 +13,20 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## November
 
+### Version 2026.47.1
+<!-- Published on: 2026-11-18T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ----------------------- |
+| [Secrets by path APIs are GA](#secrets-by-path-apis-are-ga) | November 19, 2026 | |
+
+#### Secrets by path APIs are GA
+
+You can now manage secrets and secret folders by their path instead of by UUID. The new by-path endpoints identify a secret or folder by resource group name, project name, parent folder path, and name. You can create, retrieve, update, delete, and reveal secrets, and create, retrieve, update, and delete secret folders. See the [Secrets API](https://developer.okta.com/docs/api/openapi/opa/opa/secrets).
+<!-- OKTA-1302859, OKTA-1251720 -->
+
 ### Version 2026.46.0
-!-- Published on: 2026-11-13T12:00:00Z -->
+<!-- Published on: 2026-11-13T12:00:00Z -->
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |

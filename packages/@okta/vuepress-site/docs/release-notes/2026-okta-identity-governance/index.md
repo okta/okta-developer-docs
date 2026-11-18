@@ -13,6 +13,32 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## November
 
+### Version 2026.47.1
+<!-- Published on: 2026-11-18T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Certify unmanaged accounts for AD and Entra ID groups is EA](#certify-unmanaged-accounts-for-ad-and-entra-id-groups-is-ea) | November 18, 2026 |
+| [Certify intra-app group based separation of duties violations is self-service EA](#certify-intra-app-group-based-separation-of-duties-violations-is-self-service-ea) | November 18, 2026 |
+
+#### Certify unmanaged accounts for AD and Entra ID groups is EA
+
+Certify unmanaged accounts associated with AD and Entra ID groups using campaigns to reduce drifts in access between Okta and Active Directory or Entra ID. This feature gives you more control over accounts to meet your security and governance needs. See [Certify unmanaged accounts](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-unmanaged-accounts) in the product documentation.
+
+To [create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) for unmanaged accounts with AD and Entra ID groups, set `principalScopeSettings.groupMemberScopeSettings` when `resourceSettings.type` is `GROUP` and `userScopeSettings.type` is `UNMANAGED`.
+<!-- OKTA-1318722 IGA_ACCESS_CERT_CERTIFY_UNMANAGED_AD_OFFICE365_APP_GROUP_MEMBERS -->
+
+#### Certify intra-app group based separation of duties violations is self-service EA
+
+Run campaigns to review and remediate existing user access if they have an intra-app group separation of duties (SOD) rule conflict. When you create a resource campaign that reviews groups, select **Predefined user scope** on the **Identities** page, and then select **Have separation of duties (SOD) conflicts**. This feature is available for groups associated with apps that don't have **Entitlement Management** enabled. See [Create resource campaigns](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-campaigns) in the product documentation.
+
+To [create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) for users with intra-app group separation of duties (SOD) rule conflict, set `principalScopeSettings.onlyIncludeUsersWithSODConflicts` to true, `resourceSettings.targetTypes` to `GROUP`, and specify the specific target groups.
+
+To see group conflicts on reviews, check for `data.riskRuleConflicts.type` of `GROUP_SEPARATION_OF_DUTIES` in the [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews) API.
+
+This is an Early Access release. See [Enable self-service features](https://help.okta.com/en-us/content/topics/security/manage-ea-and-beta-features.htm).
+<!-- OKTA-1321266 IGA_ACCESS_CERT_GROUP_SEPARATION_OF_DUTIES -->
+
 ### Version 2026.46.0
 <!-- Published on: 2026-11-11T12:00:00Z -->
 
