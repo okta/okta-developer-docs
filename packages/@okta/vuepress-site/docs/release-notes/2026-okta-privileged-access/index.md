@@ -18,7 +18,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |
-| [OPA Active Directory API resources are GA](#opa-active-directory-api-resources-are-ga) | May 26, 2025 | November 13, 2026 |
+| [OPA Active Directory API resources are GA](#opa-active-directory-api-resources-are-ga) | May 26, 2025 |  |
 
 #### OPA Active Directory API resources are GA
 
