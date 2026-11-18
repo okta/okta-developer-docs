@@ -447,6 +447,34 @@ After you complete all the preceding steps, the following sequence occurs when a
 
 Only the tools that you selected in [Add tools](#add-tools) are reachable.
 
+## Block a compromised AI agent
+
+If an AI agent is compromised or misbehaves, deactivate it. Agent Gateway then rejects the agent's requests, even when the agent holds an access token that hasn't expired. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+
+Use the standard AI agent deactivation API. See [Deactivate an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/deactivateaiagent). The request requires the `okta.aiAgents.manage` scope and the super admin role.
+
+> **Note:** Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
+
+### Request
+
+```http
+  POST /workload-principals/api/v1/ai-agents/wlpcFogtKCrK9aYq3fgV/lifecycle/deactivate
+  Authorization: Bearer {token}
+```
+
+The request has no body. Replace `wlpcFogtKCrK9aYq3fgV` with the ID of the AI agent.
+
+### Response
+
+```http
+  202 Accepted
+  Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b3c4d
+```
+
+This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status).
+
+While the AI agent is deactivated, Okta doesn't issue it new tokens. Agent Gateway rejects its requests with a `401` response. When you reactivate the AI agent, it authenticates again to get a new access token.
+
 ## Delete the Agent Gateway
 
 Deleting removes the Agent Gateway's registration and its `WorkloadPrincipal` identity entirely. This is irreversible. See [Delete a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/deletevirtualmcp).
@@ -483,5 +511,5 @@ Complete the following tasks after you activate the gateway:
 * Give your developers the gateway URL and client credentials so that they can configure their AI agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
 * Review administrative actions in the Okta System Log. When Agent Gateway rejects a request from a deactivated AI agent, it logs an `agent_gateway.request.authenticate` event. The event has the outcome `DENY` and the reason `Client is deactivated`. It identifies the client by its client ID and doesn't link to the AI agent. Okta limits how often it logs these events, so the System Log doesn't show every rejected request.
 * To stop a specific agent's or app's access to new tokens, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire.
-* To block a compromised AI agent, including requests that use tokens it already holds, deactivate the AI agent. Agent Gateway then rejects its requests. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+* To block a compromised AI agent, including requests that use tokens it already holds, deactivate the AI agent. Agent Gateway then rejects its requests. See [Block a compromised AI agent](#block-a-compromised-ai-agent) and [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
 * To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection.

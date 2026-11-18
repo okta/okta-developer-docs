@@ -107,9 +107,9 @@ The following sequence occurs when an admin deactivates an AI agent:
 
 1. An admin deactivates the AI agent in the Admin Console or with the Okta API.
 1. Agent Gateway records when the AI agent was deactivated.
-1. The AI agent sends a request through the gateway with an access token that it received before deactivation.
-1. The gateway rejects the request because the token was issued before the deactivation. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
-1. The gateway no longer uses downstream credentials that it cached for the AI agent. When it requests new credentials, the org authorization server refuses the token exchange.
+1. The AI agent sends a request to the gateway with an access token that it received before deactivation.
+1. The gateway compares the token's issue time with the deactivation time. It rejects the request because the token is older. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
+1. The gateway stops using downstream credentials that it cached for the AI agent. When the gateway asks the org authorization server for new credentials, the server refuses the token exchange.
 
 Enforcement begins shortly after you deactivate the AI agent. The check is deterministic and doesn't depend on AI or machine learning.
 
@@ -122,30 +122,7 @@ Kill Switch applies only to AI agents that route through Agent Gateway. AI agent
 <!--
   TODO before publishing (confirm, then remove this comment):
   - Kevin Huang (PM for Connections): confirm whether "Resource connections" is renamed to "Outbound connections" and who owns the doc change. Antoine Crepin answered 2026-11-17.
-  - Antoine Crepin: the exact path of the deactivate API. He confirmed the existing agent lifecycle deactivate API is the supported way to trigger Kill Switch. Needed for a "Block a compromised agent" section in the admin guide.
   - Isaiah Cummins: confirm OKTA-1318558 is merged and the `agent_gateway.request.authenticate` event is in the System Log event reference. Event name, outcome, and reason text came from Isaiah on 2026-11-16.
-  - Isaiah Cummins: decide whether to publish the debounce cap (one event per node per 5 minutes). The admin guide says only that Okta limits how often it logs these events.
-  - Susan Harper: render the flow diagram SVG from the PlantUML source below, then add it to this section. No renderer is installed on this machine, and the design doc diagram wasn't reachable on 2026-11-18. The source follows the sequence on this page, so check it against the design doc before rendering.
-
-  Generated using http://www.plantuml.com/plantuml/uml/
-
-  @startuml
-  skinparam monochrome true
-
-  participant "Admin" as Admin
-  participant "Okta" as Okta
-  participant "Gateway" as GW
-  participant "Agent\n(ex: Claude Code)" as Agent
-  participant "Okta org authorization server" as OrgAS
-
-  Admin -> Okta: Deactivate AI agent
-  Okta -> GW: Record deactivation time
-  Agent -> GW: Tool call with token issued before deactivation
-  GW -> GW: Compare token issue time with deactivation time
-  GW --> Agent: 401 WWW-Authenticate: Bearer error="invalid_token"
-  GW -> OrgAS: Token exchange for new downstream credentials
-  OrgAS --> GW: Refused
-  @enduml
 -->
 
 ## Key concepts
