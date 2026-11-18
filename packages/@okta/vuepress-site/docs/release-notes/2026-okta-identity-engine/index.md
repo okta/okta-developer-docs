@@ -22,6 +22,7 @@ title: Okta Identity Engine API release notes 2026
 | [On-demand identity verification is self-service EA in Preview](#on-demand-identity-verification-is-self-service-ea-in-preview) | November 18, 2026 |
 | [SPIFFE JWT-SVID client authentication is GA](#spiffe-jwt-svid-client-authentication-is-ga) | November 18, 2026 |
 | [Smart Card certificate policy AMR mapping is EA in Preview](#smart-card-certificate-policy-amr-mapping-is-ea-in-preview) | November 18, 2026 |
+| [Device Visibility for Windows: Desktop MFA and Device-Bound SSO](#device-visibility-for-windows-desktop-mfa-and-device-bound-sso) | November 18, 2026 |
 | [Bugs fixed in 2026.47.1](#bugs-fixed-in-2026-47-1) | November 18, 2026 |
 
 #### New Agent Gateway System Log events
@@ -56,6 +57,11 @@ To use it, register your SPIFFE trust domain (`POST /spiffe/api/v1/trust-domains
 
 The Identity Providers API now supports the `properties.policyBindings` property on Smart Card (X509) IdPs. This allows you to map certificate policy object identifiers (OIDs) to authentication method references (AMR). Sign-in attempts with a matching certificate carry those AMR values into an access sign-in policy evaluation. See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identityprovider/other/createidentityprovider#other/createidentityprovider/t=request&path=properties/policybindings).
 <!-- OKTA-1316363 X509_CERTIFICATE_POLICY_AMR_MAPPING -->
+
+#### Device Visibility for Windows: Desktop MFA and Device-Bound SSO
+
+The device details page for managed Windows devices now shows Desktop MFA (DMFA) enrollments and Device-Bound SSO (DBSSO) sessions. When a Windows device registered through Okta Device Access has a DMFA enrollment, the OS account is linked to the Okta user. The offline factors enrolled for that OS account appear in the account details alongside DBSSO session status and factors. This makes it easier for IT and security admins to confirm which users and offline factors are enrolled on a Windows device. See [View Windows device details](https://help.okta.com/okta_help.htm?type=oie&id=devices-view-details-win).
+<!-- OKTA-1255602 -->
 
 #### Bugs fixed in 2026.47.1
 
