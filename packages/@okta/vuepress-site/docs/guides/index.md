@@ -142,6 +142,7 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
+ - spiffe-jwt-client-auth
  - telephony-inline-hook
  - terraform-configure-device-signin-standards
  - terraform-create-custom-auth-server
