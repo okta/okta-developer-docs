@@ -8,33 +8,61 @@ const { version } = require('../../../package')
 /**
  * Worker file for HTML page rendering
  *
- * @param {number} workerNumber
- * @param {Array<Page>} pages
- * @returns {Promise<string>}
+ * Protocol (messages from the main thread):
+ *   { type: 'init', ... }    build the renderer once, reply { type: 'ready' }
+ *   { type: 'render', pages } render a batch, reply { type: 'rendered', filePaths }
+ *   { type: 'done' }          exit
+ *
  * @api private
  */
 
-parentPort.once('message', async payload => {
+let workerNumber
+let outDir
+let renderer
+let userHeadTags
+
+parentPort.on('message', async payload => {
+  try {
+    if (payload.type === 'init') {
+      await init(payload)
+      parentPort.postMessage({ type: 'ready' })
+    } else if (payload.type === 'render') {
+      const filePaths = await renderPages(payload.pages)
+      parentPort.postMessage({
+        type: 'rendered',
+        message: `Worker #${workerNumber} has rendered ${filePaths.length} of ${payload.pages.length} pages`,
+        filePaths
+      })
+    } else if (payload.type === 'done') {
+      parentPort.close()
+    }
+  } catch (e) {
+    // Surface the failure to the main thread as a worker 'error' event.
+    setImmediate(() => { throw e })
+  }
+})
+
+async function init (payload) {
   logger.setOptions({ logLevel: payload.logLevel })
+  workerNumber = payload.workerNumber
+  outDir = payload.outDir
   const siteConfig = JSON.parse(payload.siteConfig)
-  const ssrTemplate = JSON.parse(payload.ssrTemplate)
 
   // create server renderer using built manifests
-  const renderer = createBundleRenderer(JSON.parse(payload.serverBundle), {
+  renderer = createBundleRenderer(JSON.parse(payload.serverBundle), {
     clientManifest: JSON.parse(payload.clientManifest),
     runInNewContext: false,
     inject: false,
     shouldPrefetch: siteConfig.shouldPrefetch || (() => false),
-    template: await fs.readFile(ssrTemplate, 'utf-8')
+    template: await fs.readFile(payload.ssrTemplate, 'utf-8')
   })
 
   // pre-render head tags from user config
-  const userHeadTags = (siteConfig.head || []).map(renderHeadTag).join('\n  ')
+  userHeadTags = (siteConfig.head || []).map(renderHeadTag).join('\n  ')
+}
 
-  const pages = JSON.parse(Buffer.from(payload.pages))
-  logger.wait(`Worker #${payload.workerNumber} beginning rendering of ${pages.length} pages`)
+async function renderPages (pages) {
   const filePaths = []
-  let pagesRendered = 0
 
   for (const page of pages) {
     const pagePath = decodeURIComponent(page.path)
@@ -60,37 +88,23 @@ parentPort.once('message', async payload => {
       html = await renderer.renderToString(context)
     } catch (e) {
       logger.error(
-        `Worker #${payload.workerNumber} error rendering ${pagePath}`
+        `Worker #${workerNumber} error rendering ${pagePath}`
       )
       throw e
-    } finally {
-      if (html) {
-        const filename = pagePath
-            .replace(/\/$/, '/index.html')
-            .replace(/^\//, '')
-        const filePath = path.resolve(payload.outDir, filename)
-        await fs.ensureDir(path.dirname(filePath))
-
-        await fs.writeFile(filePath, html)
-        filePaths.push(filePath)
-        pagesRendered++
-      }
-
-      if (pagesRendered % 25 === 0) {
-        parentPort.postMessage({
-          complete: false,
-          message: `Worker #${payload.workerNumber} has rendered ${pagesRendered} of ${pages.length} pages`,
-          filePaths: null
-        })
-      }
     }
+
+    const filename = pagePath
+        .replace(/\/$/, '/index.html')
+        .replace(/^\//, '')
+    const filePath = path.resolve(outDir, filename)
+    await fs.ensureDir(path.dirname(filePath))
+
+    await fs.writeFile(filePath, html)
+    filePaths.push(filePath)
   }
-  parentPort.postMessage({
-    complete: true,
-    message: `Worker #${payload.workerNumber} has rendered ${pagesRendered} of ${pages.length} pages`,
-    filePaths: filePaths
-  })
-})
+
+  return filePaths
+}
 
 /**
  * Render html attributes

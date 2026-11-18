@@ -1,6 +1,7 @@
 'use strict'
 
 const EventEmitter = require('events').EventEmitter
+const os = require('os')
 const webpack = require('webpack')
 const readline = require('readline')
 const { Worker } = require('worker_threads')
@@ -17,8 +18,11 @@ const createClientConfig = require('../webpack/createClientConfig')
 const createServerConfig = require('../webpack/createServerConfig')
 const { applyUserWebpackConfig } = require('../util/index')
 
-const MAX_WORKER_THREADS = parseInt(process.env.BUILD_WORKER_THREADS, 10) || 6;
-const PAGES_PER_THREAD = 25;
+// Each worker builds the SSR renderer once and then renders batches of pages
+// until none are left, so the pool size is the real render parallelism.
+const MAX_WORKER_THREADS = parseInt(process.env.BUILD_WORKER_THREADS, 10)
+  || Math.max(1, Math.min(os.cpus().length - 1, 6));
+const PAGES_PER_BATCH = 25;
 
 /**
  * Expose Build Process Class.
@@ -29,10 +33,7 @@ module.exports = class Build extends EventEmitter {
     super()
     this.context = context;
     this.outDir = this.context.outDir;
-    this.activeWorkers = 0;
     this.pagePaths = [];
-    this.serverBundle = null;
-    this.clientManifest = null;
   }
 
   /**
@@ -68,14 +69,16 @@ module.exports = class Build extends EventEmitter {
     performance.start()
     const stats = await compile([this.clientConfig, this.serverConfig])
 
-    this.serverBundle = require(path.resolve(
-      this.outDir,
-      'manifest/server.json'
-    ))
-    this.clientManifest = require(path.resolve(
-      this.outDir,
-      'manifest/client.json'
-    ))
+    // Read the manifests as raw strings: workers parse them once each, so there
+    // is no need to parse and re-stringify them on the main thread.
+    const serverBundle = await fs.readFile(
+      path.resolve(this.outDir, 'manifest/server.json'),
+      'utf-8'
+    )
+    const clientManifest = await fs.readFile(
+      path.resolve(this.outDir, 'manifest/client.json'),
+      'utf-8'
+    )
 
     // remove manifests after loading them.
     await fs.remove(path.resolve(this.outDir, 'manifest'))
@@ -97,109 +100,113 @@ module.exports = class Build extends EventEmitter {
     if (!this.context.pages.some(p => p.path === '/404.html')) {
       await this.context.addPage({ path: '/404.html' })
     }
-    // set this parameter after we've got all pages, otherwise a random page(s) will
-    // be skipped during the build
-    this.pagesRemaining = this.context.pages.length;
-
     // render pages
     logger.wait('Rendering static HTML...')
 
-    for (let workerNumber = 0; workerNumber < MAX_WORKER_THREADS; workerNumber++) {
-      // Kick off up to MAX_WORKER_THREADS threads.
-      // Each thread will kick off new threads on completion if there
-      // are more pages left to render.
-      if (this.activeWorkers < MAX_WORKER_THREADS && this.pagesRemaining > 0) {
-        this.triggerWorker(workerNumber);
-      }
-    }
-
-    await this.context.pluginAPI.applyAsyncOption('generated', this.pagePaths)
-  }
-
-  /**
-   * Spawn a worker thread to render pages.
-   *
-   * @param {Number} workerNumber
-   */
-
-  triggerWorker(workerNumber) {
-    const startIndex = this.context.pages.length - this.pagesRemaining;
-    const pageData = this.context.pages.slice(
-      startIndex,
-      startIndex + PAGES_PER_THREAD,
-    )
-    const pages = pageData.map(p => ({
+    const pages = this.context.pages.map(p => ({
       path: p.path,
       frontmatter: JSON.stringify(p.frontmatter)
     }))
+    const batches = []
+    for (let i = 0; i < pages.length; i += PAGES_PER_BATCH) {
+      batches.push(pages.slice(i, i + PAGES_PER_BATCH))
+    }
 
-    const payload = {
-      clientManifest: JSON.stringify(this.clientManifest),
+    const init = {
+      clientManifest,
       outDir: this.outDir,
-      pages: Buffer.from(JSON.stringify(pages)),
-      serverBundle: JSON.stringify(this.serverBundle),
+      serverBundle,
       siteConfig: JSON.stringify(this.context.siteConfig),
-      ssrTemplate: JSON.stringify(this.context.ssrTemplate),
-      workerNumber,
+      ssrTemplate: this.context.ssrTemplate,
       logLevel: logger.options.logLevel
     }
 
-    const worker = new Worker(path.join(__dirname, './worker.js'))
+    const workerCount = Math.min(MAX_WORKER_THREADS, batches.length)
+    logger.wait(`Rendering ${pages.length} pages with ${workerCount} worker threads...`)
 
-    this.activeWorkers++;
+    await Promise.all(
+      Array.from({ length: workerCount }, (_, workerNumber) =>
+        this.runWorker(workerNumber, init, batches)
+      )
+    )
 
-    this.pagesRemaining = this.pagesRemaining - PAGES_PER_THREAD;
+    readline.clearLine(process.stdout, 0)
+    readline.cursorTo(process.stdout, 0)
+    const relativeDir = path.relative(this.context.cwd, this.outDir)
+    const uniqPaths = new Set(this.pagePaths)
+    logger.success(
+      `Generated ${chalk.cyan(uniqPaths.size)} static files in ${chalk.cyan(relativeDir)}.`
+    )
 
-    worker.postMessage(payload)
+    await this.context.pluginAPI.applyAsyncOption('generated', this.pagePaths)
 
-    worker.on('message', response => {
-      if (response.complete) {
-        this.pagePaths = this.pagePaths.concat(response.filePaths);
+    const { duration } = performance.stop()
+    logger.success(
+      `It took a total of ${chalk.cyan(
+        `${duration}ms`
+      )} to run the ${chalk.cyan('vuepress build')}.`
+    )
+    console.log()
+  }
+
+  /**
+   * Start a long-lived worker thread that pulls batches of pages off the
+   * shared queue until it is empty. Resolves when the worker has exited
+   * cleanly and rejects if any page fails to render.
+   *
+   * @param {Number} workerNumber
+   * @param {Object} init payload used to build the renderer once per worker
+   * @param {Array<Array<Object>>} batches shared queue of page batches
+   * @returns {Promise<void>}
+   */
+
+  runWorker (workerNumber, init, batches) {
+    return new Promise((resolve, reject) => {
+      const worker = new Worker(path.join(__dirname, './worker.js'))
+      let failed = false
+
+      const sendNextBatch = () => {
+        const batch = batches.shift()
+        if (batch) {
+          worker.postMessage({ type: 'render', pages: batch })
+        } else {
+          worker.postMessage({ type: 'done' })
+        }
       }
-      if (response.message) {
-        logger.wait(response.message)
-      }
-    });
 
-    worker.on('error', error => {
-      logger.error(chalk.red(
-        `Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`
-      ))
-    });
+      worker.on('message', response => {
+        if (response.message) {
+          logger.wait(response.message)
+        }
+        if (response.type === 'ready') {
+          sendNextBatch()
+        } else if (response.type === 'rendered') {
+          this.pagePaths.push(...response.filePaths)
+          sendNextBatch()
+        }
+      })
 
-    worker.on('exit', code => {
-      this.activeWorkers--;
-      if (code === 0) {
-        logger.success(`Worker ${workerNumber} completed successfully.`)
-      } else {
+      worker.on('error', error => {
+        failed = true
         logger.error(chalk.red(
-          `Worker #${workerNumber} sent exit code: ${code}`
+          `Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`
         ))
-      }
+        reject(error)
+      })
 
-      if (this.activeWorkers < MAX_WORKER_THREADS && this.pagesRemaining > 0) {
-        // Kick off another worker thread
-        this.triggerWorker(workerNumber);
-      }
+      worker.on('exit', code => {
+        if (code === 0 && !failed) {
+          logger.success(`Worker ${workerNumber} completed successfully.`)
+          resolve()
+        } else {
+          const error = new Error(`Worker #${workerNumber} sent exit code: ${code}`)
+          logger.error(chalk.red(error.message))
+          reject(error)
+        }
+      })
 
-      if (this.activeWorkers === 0) {
-        // DONE.
-        readline.clearLine(process.stdout, 0)
-        readline.cursorTo(process.stdout, 0)
-        const relativeDir = path.relative(this.context.cwd, this.outDir)
-        const uniqPaths = new Set(this.pagePaths);
-        logger.success(
-          `Generated ${chalk.cyan(uniqPaths.size)} static files in ${chalk.cyan(relativeDir)}.`
-        )
-        const { duration } = performance.stop()
-        logger.success(
-          `It took a total of ${chalk.cyan(
-            `${duration}ms`
-          )} to run the ${chalk.cyan('vuepress build')}.`
-        )
-        console.log()
-      }
-    });
+      worker.postMessage({ type: 'init', workerNumber, ...init })
+    })
   }
 
   /**

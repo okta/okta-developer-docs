@@ -1,19 +1,23 @@
+const os = require('os');
+const path = require('path');
+const { spawn } = require('child_process');
+const { DateTime } = require('luxon');
+
 module.exports = (options, ctx) => {
-  const { themeConfig, siteConfig } = ctx;
   return {
-    plugins: [
-      [
-        "@vuepress/last-updated",
-        {
-          transformer: (timestamp, lang) => {
-            const { DateTime } = require('luxon');
-            return DateTime.fromMillis(timestamp).setLocale(lang).toLocaleString(DateTime.DATE_FULL);
-          }
-        }
-      ]
-    ],
-    extendPageData($page) {
+    // Replaces @vuepress/last-updated, which runs a blocking `git log` per page
+    // (~3800 pages). Same git command and output, but run asynchronously with
+    // bounded concurrency and memoized per source file.
+    async extendPageData($page) {
       $page.fullHeaders = resolveHeaders($page);
+
+      const timestamp = await getGitLastUpdatedTimeStamp($page._filePath);
+      if (timestamp) {
+        $page.lastUpdated = DateTime.fromMillis(timestamp)
+          .setLocale($page._computed.$lang)
+          .toLocaleString(DateTime.DATE_FULL);
+        $page.lastUpdatedTimestamp = timestamp;
+      }
     }
   };
 };
@@ -49,4 +53,48 @@ function groupHeaders(headers) {
     }
   });
   return headers.filter(h => h.level === 2);
+}
+
+const GIT_CONCURRENCY = Math.max(4, os.cpus().length * 2);
+const gitQueue = [];
+const timestampCache = new Map();
+let gitActive = 0;
+
+function getGitLastUpdatedTimeStamp(filePath) {
+  if (!filePath) {
+    return Promise.resolve(undefined);
+  }
+  if (!timestampCache.has(filePath)) {
+    timestampCache.set(filePath, new Promise(resolve => {
+      gitQueue.push({ filePath, resolve });
+      drainGitQueue();
+    }));
+  }
+  return timestampCache.get(filePath);
+}
+
+function drainGitQueue() {
+  while (gitActive < GIT_CONCURRENCY && gitQueue.length) {
+    const { filePath, resolve } = gitQueue.shift();
+    gitActive++;
+    let stdout = '';
+    const child = spawn(
+      'git',
+      ['log', '-1', '--format=%at', path.basename(filePath)],
+      { cwd: path.dirname(filePath) }
+    );
+    let settled = false;
+    const done = value => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      gitActive--;
+      resolve(value);
+      drainGitQueue();
+    };
+    child.stdout.on('data', chunk => { stdout += chunk; });
+    child.on('error', () => done(undefined));
+    child.on('close', () => done(parseInt(stdout, 10) * 1000));
+  }
 }
