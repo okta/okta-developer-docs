@@ -125,7 +125,27 @@ Kill Switch applies only to AI agents that route through Agent Gateway. AI agent
   - Antoine Crepin: the exact path of the deactivate API. He confirmed the existing agent lifecycle deactivate API is the supported way to trigger Kill Switch. Needed for a "Block a compromised agent" section in the admin guide.
   - Isaiah Cummins: confirm OKTA-1318558 is merged and the `agent_gateway.request.authenticate` event is in the System Log event reference. Event name, outcome, and reason text came from Isaiah on 2026-11-16.
   - Isaiah Cummins: decide whether to publish the debounce cap (one event per node per 5 minutes). The admin guide says only that Okta limits how often it logs these events.
-  - Add a flow diagram SVG for this sequence. Source: design doc section 6 (mermaid sequence diagram).
+  - Susan Harper: render the flow diagram SVG from the PlantUML source below, then add it to this section. No renderer is installed on this machine, and the design doc diagram wasn't reachable on 2026-11-18. The source follows the sequence on this page, so check it against the design doc before rendering.
+
+  Generated using http://www.plantuml.com/plantuml/uml/
+
+  @startuml
+  skinparam monochrome true
+
+  participant "Admin" as Admin
+  participant "Okta" as Okta
+  participant "Gateway" as GW
+  participant "Agent\n(ex: Claude Code)" as Agent
+  participant "Okta org authorization server" as OrgAS
+
+  Admin -> Okta: Deactivate AI agent
+  Okta -> GW: Record deactivation time
+  Agent -> GW: Tool call with token issued before deactivation
+  GW -> GW: Compare token issue time with deactivation time
+  GW --> Agent: 401 WWW-Authenticate: Bearer error="invalid_token"
+  GW -> OrgAS: Token exchange for new downstream credentials
+  OrgAS --> GW: Refused
+  @enduml
 -->
 
 ## Key concepts
@@ -144,6 +164,7 @@ The link between an AI agent and the Agent Gateway is one example of a delegatio
 * **Tools**: An admin selects specific tools from remote MCP servers to expose through a vMCP. Admins choose which tools to surface per connection. Upstream MCP servers often expose dozens of tools. Exposing all of them would expand the agent's context window unnecessarily and increase the attack surface. Tool limits are enforced per vMCP and per org (both configurable), not per connection. Tool aliases must be unique within a vMCP.
 * **Custom authorization server**: Each vMCP is protected by an Okta custom authorization server. The gateway validates all inbound AI agent tokens against the linked custom authorization server. Only one custom authorization server per vMCP is supported. The custom authorization server also issues the access tokens that agents use to authenticate to the gateway.
 * **WorkloadPrincipal**: When an admin registers an AI agent in Okta Universal Directory, it's created as a `WorkloadPrincipal`, a first-class managed identity in Okta that's separate from human users and traditional app service accounts. The agent's identity is tied to its `WorkloadPrincipal`, which means audit logs attribute tool calls to the AI agent regardless of credential rotation. The vMCP itself also has a `WorkloadPrincipal`. This gives Agent Gateway a dual nature. It's a resource that AI agents connect to. It's also a workload principal in its own right when authenticating to remote MCP servers.
+* **Kill Switch**: Kill Switch is the Agent Gateway check that blocks requests from a deactivated AI agent, even when its access token hasn't expired. The gateway checks the AI agent's status on every request. See [Kill Switch](#kill-switch).
 
 ### Other related concepts
 
