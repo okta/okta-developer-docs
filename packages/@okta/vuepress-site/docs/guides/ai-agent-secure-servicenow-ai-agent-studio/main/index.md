@@ -98,23 +98,31 @@ Create an Application Registry for the import:
 Enable imports for the app:
 
 1. In the Admin Console, go to **Directory** > **AI Agent Providers**, and then select your ServiceNow Universal Directory app integration. If you have multiple ServiceNow app integrations, only configure AI agent imports for one of them.
-1. Go to the **AI Agent Import** tab, and select **Enable AI agent imports**.
+1. Check the app's **Base URL** setting. Okta reads your ServiceNow instance URL from this field. Enter it as a full URL with no trailing slash or path, for example, `https://acme.service-now.com`. Okta adds `/oauth_token.do` and the Table API path to it.
+
+   > **Note:** If you change the **Base URL** later, Okta disables AI agent imports for the app until you re-enable them. This prevents Okta from sending credentials to the wrong host.
+
+1. Go to the **AI agent import** tab, and select **Enable AI agent import**.
 1. Enter the client ID and client secret of the import registry. Click **Test API Credentials** to validate them, and then click **Save configuration**.
 
-   > **Note:** Okta only imports AI agents that the service user has permission to manage in ServiceNow. Okta imports only active AI agents that have a name.
+   > **Note:** Okta imports only active AI agents that have a name, and it collapses duplicate configuration rows for the same AI agent.
 
-1. Choose your import schedule, matching criteria, and preview settings, then save the configuration again. Okta runs the import immediately, and on the schedule you chose afterward.
+1. Choose your import schedule, matching criteria, and preview settings, and then save the configuration again.
 
-<span style="color: #c0392b;">**TODO:** Engineering hasn't run an import through the Admin Console, so these steps come from the connector code and the ServiceNow Table API calls that engineering ran directly. Confirm the following: where an admin enters the ServiceNow instance URL (the engineering notes say Okta reads it from the app instance's cpc_full_domain custom property, which must be a full https URL with no trailing path), the screen name and navigation for viewing imported or pending-preview AI agents, and how to trigger an on-demand import outside the schedule.</span>
+   > **Note:** Saving the configuration for the first time doesn't start an import. The first import runs when you click **Import** or at the next scheduled time. Later configuration changes start an import automatically.
 
-Register the imported AI agent and set up its identity:
+1. To run an import on demand, go to the **Imported AI agents** tab, which is next to the **Configuration** and **Attributes** tabs, and click **Import**. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported, including AI agents waiting in preview.
+
+> **Note:** You can also run the same import through the AI agent import API.
+
+Register the imported AI agent and set up its identity. Token exchange works only for AI agents that you imported and registered in Okta under **Directory** > **AI Agents**.
 
 1. Go to **Directory** > **AI Agents**, and then register the imported AI agent. Importing an AI agent doesn't create its credentials, so you must register and activate it.
 1. On the **User access** tab, link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app.
 
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
 
-1. On the **Client registration** tab, click **Configure** next to **Public/private key**, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, since Okta shows it only once. Click **Done**.
+1. On the **Client registration** tab, click **Configure** next to **Public/private key**, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, because Okta shows it only once. Click **Done**.
 1. Copy the **Client ID**, which starts with `wlp`, and the public key's **Key ID**. You need them for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`, respectively.
 1. On the **Resource connections** tab, click **Add resource connection**. For **Resource type**, select **Authorization server**, and then select your custom authorization server. Under **Scopes**, select **Only allow**, enter your custom scope, for example, `xaa:read`, and then click **Add**.
 1. Click **Actions** > **Activate**, and then click **Confirm**.
@@ -149,7 +157,7 @@ Use a non-interactive service user rather than your own admin account.
    * `sn_aia.admin` (required to read AI Agent Studio tables)
    * `web_service_admin` (allows access to REST APIs)
 
-<span style="color: #c0392b;">**TODO:** Engineering hasn't established the minimal role set. These two roles worked in testing, but they're broad for a runtime credential. Confirm whether narrower roles work, and update this list.</span>
+> **Note:** These two roles worked in testing, but they're broad for a runtime credential. Roles narrower than `sn_aia.admin` and `web_service_admin` haven't been tested.
 
 ### Create the Application Registry
 
@@ -182,7 +190,7 @@ Note the AI agent's `sys_id`. Use the AI agent record (`sn_aia_agent`), not an `
 
 > **Important:** Every tool that the AI agent uses must be accessible to the service user. A Now Assist skill that was attached as a tool was denied for the service user, and every run ended with **Terminated: Security Violation**. A Script tool passed the same check.
 
-<span style="color: #c0392b;">**TODO:** The AI Agent Studio field labels and settings in this table come from engineering's test run on a ServiceNow developer instance. Confirm the labels on a current instance, and add where an admin finds the AI agent's sys_id.</span>
+<span style="color: #c0392b;">**TODO:** The AI Agent Studio field labels and settings in this table come from engineering's test run on a ServiceNow developer instance. ServiceNow's [Create an AI agent](https://www.servicenow.com/docs/r/intelligent-experiences/create-aia-new.html) page describes a different path (**AI Agent Studio** > **Home** > **Create new agentic solution** > **New AI agent for a task**) and an **Activate** button. It doesn't use the labels **External discoverable** or **Active**, and it doesn't say where to find the sys_id. ServiceNow's [Define access rules for an AI agent](https://www.servicenow.com/docs/r/intelligent-experiences/define-sec-aia-new.html) page describes two settings that may relate to **External discoverable**: the **Third-party access** checkbox (only third-party AI agents with the correct user access can invoke the AI agent) and the **Allowed users** dropdown (who can discover or invoke the AI agent, which generates an ACL). No ServiceNow page links either setting to the "No agent available" error. Confirm the following on a current instance: the navigation path for creating an AI agent, which setting (if either) the "No agent available" error depends on and what it's called in the UI, whether **Active** corresponds to the **Activate** button, and where an admin finds the sys_id.</span>
 
 ### Collect your configuration values
 
@@ -194,14 +202,16 @@ Your FastAPI app reads these values as environment variables. The token exchange
 
 | Environment variable | Description | Where to find it |
 | --- | --- | --- |
-| `SN_INSTANCE_URL` | Your ServiceNow instance hostname, for example `example.service-now.com` | The URL bar when you're signed in to your ServiceNow instance |
+| `SN_INSTANCE_URL` | Your ServiceNow instance hostname only, with no `https://`, for example `example.service-now.com` | The URL bar when you're signed in to your ServiceNow instance |
 | `SN_CLIENT_ID` | The Application Registry's client ID | **System OAuth** > **Application Registry** > your registry |
 | `SN_CLIENT_SECRET` | The Application Registry's client secret | **System OAuth** > **Application Registry** > your registry |
 | `SN_AGENT_SYS_ID` | The `sys_id` of the AI agent that you want to call | The AI agent record in AI Agent Studio. See [Create the AI agent in AI Agent Studio](#create-the-ai-agent-in-ai-agent-studio) |
 
+This guide uses two forms of the instance URL. The import's **Base URL** is a full URL, such as `https://example.service-now.com`. The wrapper's `SN_INSTANCE_URL` is a bare hostname, such as `example.service-now.com`, because the code adds `https://`. Don't copy one form into the other field.
+
 ## Add Okta authentication to your AI agent
 
-The following example `token_exchange.py` module that you create here has no dependency on ServiceNow.
+The `token_exchange.py` module that you create here has no dependency on ServiceNow.
 
 <AiAgentTokenExchangeModule/>
 
@@ -363,12 +373,18 @@ def read_servicenow_answer(sn_headers: dict, created_ms: int, timeout: int = 120
     )
     resp.raise_for_status()
 
-    # Each task's output is a JSON string. For a tool task, the result is the tool's return value.
-    # For an agent task, the result is the AI agent's closing line.
+    # Each task's output is a JSON string. For a tool task, the result is the tool's
+    # return value, which is also a JSON string. For an agent task, the result is the
+    # AI agent's closing line. Keep only these two task types.
     answers = {}
     for task in resp.json()["result"]:
+        if task["type"] not in ("agent", "tool"):
+            continue
         output = json.loads(task["output"]) if task["output"] else {}
-        answers[task["type"]] = output.get("result")
+        result = output.get("result")
+        if task["type"] == "tool" and isinstance(result, str):
+            result = json.loads(result)
+        answers[task["type"]] = result
     return answers
 
 
@@ -381,11 +397,13 @@ def ask_servicenow_agent(prompt: str, user_claims: dict) -> dict:
     return read_servicenow_answer(sn_headers, created_ms)
 ```
 
-Use the plan's `state` to know when the run is finished. The `status` of the `agent` task can stay `ongoing` after the answer exists.
+Use the plan's `state` to know when the run is finished. While the run is in progress, the first couple of polls return no plan, and then the plan's `state` is `in_progress` before it becomes `completed`. The loop handles this. The `status` of the `agent` task can stay `ongoing` after the answer exists.
 
-> **Important:** Matching the execution plan by start time can pick up another run by the same service user. Until you can link a run to its plan, process one ServiceNow call at a time.
+ServiceNow writes four task types for a run: `agent`, `access_verification`, `tool`, and `gen_ai`. The code keeps only the `agent` and `tool` results. The `gen_ai` task contains the model's internal reasoning and a link to an internal ServiceNow log, so don't return it to users.
 
-<span style="color: #c0392b;">**TODO:** Engineering ran this sequence as HTTP calls against a live ServiceNow instance, but hasn't run this Python. Confirm the following with a live run: the sys_created_on timestamp format in the query, the plan state values while a run is in progress, and the shape of the task output. Also find a field that links the invoke response's session_id to its execution plan, so that concurrent calls can't read each other's answers.</span>
+If the AI agent has more than one tool, the code keeps only the last tool's result. To keep every result, store the results in a list for each task type.
+
+> **Important:** Matching the execution plan by start time can pick up another run by the same service user. The invoke response's `session_id` equals its `taskId`, but no field links either value to the execution plan. Until you can link a run to its plan, process one ServiceNow call at a time.
 
 ## Wire it into the FastAPI entry point
 
@@ -435,7 +453,7 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 
-<span style="color: #c0392b;">**TODO:** Engineering flagged an open security item. This wrapper accepts an id_token in the request body. The exchange proves that the token is valid, not that it came from the caller's own sign-in session, so a stolen id_token can be replayed until it expires. Decide with engineering whether this guide adds checks for the aud, exp, and nonce claims and binds the token to the session, or documents this as a prerequisite before production use.</span>
+> **Important:** Before you use this pattern in production, add your own protection against `id_token` replay. This wrapper accepts an `id_token` in the request body. The exchange proves that the token is valid, not that it came from the caller's own sign-in session, so a stolen `id_token` can be replayed until it expires. Validate the `aud`, `exp`, and `nonce` claims and bind the token to the caller's session.
 
 ## Verify the configuration
 
@@ -468,15 +486,13 @@ A successful response includes the AI agent's answer. In this example, the `Gree
   "ok": true,
   "user": "jessie.smith@example.com",
   "answer": {
-    "tool": {"output": null, "Output Fields": "Hello Jessie Smith, ServiceNow received your request through Okta."},
-    "agent": "The agent/action was invoked successfully."
+    "agent": "The agent/action was invoked successfully.",
+    "tool": {"output": null, "Output Fields": "Hello Jessie Smith, ServiceNow received your request through Okta."}
   }
 }
 ```
 
 To see the run in ServiceNow, go to **AI Agent Studio** > **View AI agent activity**. The run shows as **Completed**, created by the service user, with your message as the prompt.
-
-<span style="color: #c0392b;">**TODO:** This sample response is illustrative. It reflects the task results that engineering observed in a direct HTTP run, not the output of this guide's code. Replace it with the real response from a run of the code above.</span>
 
 ## Troubleshoot your integration
 
@@ -496,8 +512,9 @@ The following errors are specific to the ServiceNow integration:
 | A call to the Virtual Agent Bot Integration API returns `200` but your AI agent never answers | That API runs a generic Virtual Agent conversation as a guest. It doesn't reach the AI Agent Studio agent | Use the AI agent invoke API (`/api/sn_aia/agenticai/v1`) |
 | Python client error `CERTIFICATE_VERIFY_FAILED: self-signed certificate in certificate chain` | A TLS-inspecting proxy is in the path, and Python's certificate bundle lacks its root CA | Use the operating system's trust store, for example, with the `truststore` package |
 | `invalid_client: The client_assertion signature is invalid.` at the code exchange | The client assertion was signed with a different private key than the one registered for that `kid` | Use the JWK whose `kid` matches the registered public key |
-| Import validation rejects a correct client ID | The ServiceNow instance URL has no scheme or has a trailing path | Enter the full URL in the form `https://<instance>.service-now.com` |
-| Fewer AI agents are imported than you expected | Okta imports only active AI agents that have a name, and it collapses duplicate records for the same AI agent | Check the AI agents' active status and names in ServiceNow |
+| **Test API Credentials** fails even though the client ID and secret are correct | The app's **Base URL** is malformed, for example, it has no `https://` scheme or has a trailing slash or path, so the token request fails. This isn't a client ID error | Enter the full URL in the form `https://<instance>.service-now.com` in the app's **Base URL** field |
+| AI agent imports stop after you edit the app | Changing the **Base URL** disables AI agent imports for the app | Re-enable AI agent imports on the **AI agent import** tab |
+| Fewer AI agents are imported than you expected | Okta imports only active AI agents that have a name, and it collapses duplicate configuration rows for the same AI agent | Check the AI agents' active status and names in ServiceNow |
 
 [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting) covers the following errors from the Okta token exchange:
 
@@ -515,5 +532,4 @@ Your AI agent can now authenticate as a user and call Okta-protected resources o
 
 * [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/)
 * [Set up imported AI agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
-
-<span style="color: #c0392b;">**TODO:** Add links to ServiceNow's own AI Agent Studio and Table API documentation. Neither engineering nor the earlier drafting could fetch ServiceNow's documentation site, because it renders in the browser, and the public URLs aren't confirmed.</span>
+* [ServiceNow AI Agent Studio documentation](https://www.servicenow.com/docs/r/intelligent-experiences/aias-landing.html)
