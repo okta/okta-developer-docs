@@ -4,7 +4,7 @@ excerpt: Configure supported AI agents to authenticate with Okta and call tools 
 layout: Guides
 ---
 
-Configure your AI agent to call tools through an Agent Gateway. Agent Gateway exposes a single Okta-secured MCP endpoint, and you can point any AI agent that supports an external MCP endpoint at it without code changes.
+Configure your AI agent to call tools through an Agent Gateway. Agent Gateway exposes a single Okta-secured MCP endpoint. You can point any AI agent that supports an external MCP endpoint at it without code changes.
 
 > **Note**: Agent Gateway is available with the Okta for AI Agents subscription. Contact your Okta account team to enable the feature.
 

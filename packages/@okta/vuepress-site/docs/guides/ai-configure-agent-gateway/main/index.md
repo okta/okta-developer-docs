@@ -32,13 +32,13 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 ## Overview
 
-Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers and select which tools to expose, as well as selecting the AI Agents that can call the Agent Gateway. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
+Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers. You select which tools to expose and select the AI Agents that can call the Agent Gateway. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
 
 ## Create the Agent Gateway
 
 Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. See [Create a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/createvirtualmcp). The Agent Gateway is created in `INACTIVE` status and isn't reachable by AI agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
 
-> **Note:** When you create the Agent Gateway, Okta automatically creates a new custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
+> **Note:** When you create the Agent Gateway, Okta automatically creates a custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
 
 ### Request
 
@@ -100,7 +100,7 @@ When the operation completes, retrieve the Agent Gateway ([Retrieve a virtual MC
 }
 ```
 
-> **Note**: Make note of the `orn` in the response. You need this for additional requests.
+> **Note**: Make note of the `orn` in the response. You need this for more requests.
 
 ## Create a delegation link
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 }
 ```
 
-The `resourceOrn` is the `orn` value from the create the agent gateway response in the [last section](#create-the-agent-gateway). The `from.clientOrn` value in this example references the AI agent's ORN. If you're delegating to an MCP client app, reference the MCP client app's OAuth 2.0 ORN instead (`orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ`).
+The `resourceOrn` is the `orn` value from the "create the agent gateway" response in the [last section](#create-the-agent-gateway). The `from.clientOrn` value in this example references the AI agent's ORN. If you're delegating to an MCP client app, reference the MCP client app's OAuth 2.0 ORN instead (`orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ`).
 
 ### Response
 
