@@ -21,7 +21,8 @@ title: Okta Identity Engine API release notes 2026
 | [New Agent Gateway System Log events](#new-agent-gateway-system-log-events) | November 18, 2026 |
 | [On-demand identity verification is self-service EA in Preview](#on-demand-identity-verification-is-self-service-ea-in-preview) | November 18, 2026 |
 | [SPIFFE JWT-SVID client authentication is GA in Preview](#spiffe-jwt-svid-client-authentication-is-ga-in-production) | November 18, 2026 |
-| [Bug fixed in 2026.47.1](#bug-fixed-in-2026-47-1) | November 18, 2026 |
+| [Smart Card certificate policy AMR mapping is EA in Preview](#smart-card-certificate-policy-amr-mapping-is-ea-in-preview) | November 18, 2026 |
+| [Bugs fixed in 2026.47.1](#bugs-fixed-in-2026-47-1) | November 18, 2026 |
 
 #### New Agent Gateway System Log events
 
@@ -51,9 +52,16 @@ Okta now supports SPIFFE JWT-SVID client authentication, based on the [SPIFFE fr
 To use it, register your SPIFFE trust domain (`POST /spiffe/api/v1/trust-domains`), then set the app's authentication method to `spiffe_jwt` (`POST /api/v1/apps`). The feature is available to orgs that are subscribed to Okta for AI Agents. See [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/) and [Create a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/createspiffetrustdomainregistration).
 <!-- OKTA-1320898 OAUTH2_SPIFFE_JWT_CLIENT_AUTH -->
 
-#### Bug fixed in 2026.47.1
+#### Smart Card certificate policy AMR mapping is EA in Preview
 
-The Devices API returned different `status` values for the same pre-registered device, depending on which endpoint was called. (OKTA-1318524)
+The Identity Providers API now supports the `properties.policyBindings` property on Smart Card (X509) IdPs. This allows you to map certificate policy object identifiers (OIDs) to authentication method references (AMR). Sign-in attempts with a matching certificate carry those AMR values into an access sign-in policy evaluation. See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identityprovider/other/createidentityprovider#other/createidentityprovider/t=request&path=properties/policybindings).
+<!-- OKTA-1316363 X509_CERTIFICATE_POLICY_AMR_MAPPING -->
+
+#### Bugs fixed in 2026.47.1
+
+* The Devices API returned different `status` values for the same pre-registered device, depending on which endpoint was called. (OKTA-1318524)
+
+* After a native app requested tokens with the `interclient_access` and `offline_access` scopes (`/token`), users were sometimes prompted to sign in again instead of being signed in to a target web app without a prompt. (OKTA-1279818)
 
 ### Version 2026.46.0
 <!-- Published on: 2026-11-11T12:00:00Z -->
