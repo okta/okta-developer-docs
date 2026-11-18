@@ -20,7 +20,7 @@ title: Okta Identity Engine API release notes 2026
 | ------ | ------------------------ |
 | [New Agent Gateway System Log events](#new-agent-gateway-system-log-events) | November 18, 2026 |
 | [On-demand identity verification is self-service EA in Preview](#on-demand-identity-verification-is-self-service-ea-in-preview) | November 18, 2026 |
-| [SPIFFE JWT-SVID client authentication is GA in Preview](#spiffe-jwt-svid-client-authentication-is-ga-in-production) | November 18, 2026 |
+| [SPIFFE JWT-SVID client authentication is GA](#spiffe-jwt-svid-client-authentication-is-ga) | November 18, 2026 |
 | [Smart Card certificate policy AMR mapping is EA in Preview](#smart-card-certificate-policy-amr-mapping-is-ea-in-preview) | November 18, 2026 |
 | [Bugs fixed in 2026.47.1](#bugs-fixed-in-2026-47-1) | November 18, 2026 |
 
@@ -45,7 +45,7 @@ Your OIDC apps can now request identity verification (IDV) for a specific user a
 To start verification, send a `GET /oauth2/v1/authorize` request to the org authorization server with the new `acr_values` value `urn:okta:identity-assurance:idv`, plus the `idv_integration_id` and `login_hint` parameters. After the user completes verification, exchange the authorization code at `POST /oauth2/v1/token` using the new `urn:okta:params:oauth:grant-type:identity-assurance` grant type. The ID token is returned in the `access_token` field. To use the flow, add the new grant type to the app's `grant_types` in the Apps API.
 <!-- OKTA-1258338 IDV_TRANSACTIONAL_IDENTITY_ASSURANCE -->
 
-#### SPIFFE JWT-SVID client authentication is GA in Production
+#### SPIFFE JWT-SVID client authentication is GA
 
 Okta now supports SPIFFE JWT-SVID client authentication, based on the [SPIFFE framework](https://spiffe.io/). An AI agent can prove its own identity to Okta with a short-lived JWT-SVID that's issued by your SPIFFE-compliant workload identity system, such as SPIRE. You don't need to create, store, or rotate a separate client secret or private key for them.
 
