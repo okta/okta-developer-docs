@@ -42,7 +42,7 @@ For either user-based or service-based API access, grant the following scopes du
 
 * `okta.accessRequests.tasks.manage`
 * `okta.accessRequests.tasks.read`
-* `okta.accessRequests.request.manage` (to cancel requests)
+* `okta.accessRequests.request.manage` (To cancel requests)
 
 In addition, you have to grant an admin role to the service-based OAuth 2.0 client. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` or the `ACCESS_REQUESTS_ADMIN` role for access request admin operations.
 
@@ -152,7 +152,7 @@ curl -v -X GET \
 
 Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an access request task to another set of users or to a single user.
 
-> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign up to a maxium of ten assignees.
+> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign up to a maximum of ten assignees.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
@@ -253,7 +253,7 @@ curl -v -X POST \
 
 ### Cancel a request
 
-Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) request to cancel an access request that's no longer needed. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) API to cancel an access request that's no longer needed. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
 
 If you need to find the request ID to cancel, use [List all requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2) to search for your desired request with the `filter` query parameter.
 
@@ -485,7 +485,7 @@ curl -v -X POST \
 
 ### Cancel my request
 
-Use the [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) request to cancel an access request that you submitted and no longer need. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+Use the [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) API to cancel an access request that you submitted and no longer need. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
 
 > **Note:** You can't cancel a request if any of its tasks are already resolved.
 
@@ -560,5 +560,5 @@ curl -v -X PATCH \
 
 The following System Logs are triggered when you manage access request tasks and requests:
 
-* [access.request.cancel](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.cancel): When an access request has been cancelled.
-* [access.request.update](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.update): When an update to an access request has been made, such as changes to the request tasks.
+* [access.request.cancel](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.cancel): When an access request has been canceled
+* [access.request.update](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.update): When an update to an access request has been made, such as changes to the request tasks
