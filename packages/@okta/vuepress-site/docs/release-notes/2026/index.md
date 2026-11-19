@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 2026
 
 ## November
 
+### Version 2026.46.0
+<!-- Published on: 2026-11-19T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Support cases for ISV integration and submission help](#support-cases-for-isv-integration-and-submission-help) |
+
+#### Support cases for ISV integration and submission help
+
+Integration builders can now submit support cases in the Okta Support Center for help with building, testing, or submitting an Okta Integration Network (OIN) integration. The option to submit a support case is available only after integration builders start a draft integration. The `developers@okta.com` email address is no longer a support channel for OIN integrations. See [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US) and [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
+
 ### Version 2026.45.1
 <!-- Published on: 2026-11-04T12:00:00Z -->
 
