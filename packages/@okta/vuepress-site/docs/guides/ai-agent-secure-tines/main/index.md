@@ -108,30 +108,30 @@ Add the Tines app to your org:
 1. In the Admin Console, go to **Applications** > **Applications and Resources**, and then click **Browse App Catalog**.
 1. Search for **Tines**, open the integration, and then click **Add Integration**.
 
-<span style="color: #c0392b;">**TODO:** Document how Okta learns your Tines tenant URL. The engineering notes say the import reads a tenant URL (for example, https://example.tines.com) from a property on the Tines app instance, but the Okta Help Center article for Tines lists only the API key and team IDs as import settings. Confirm where an admin enters the tenant URL and add that step here.</span>
+<span style="color: #c0392b;">**TODO:** Document how Okta learns your Tines tenant URL. The engineering notes say the import reads a tenant URL (for example, https://example.tines.com) from a property on the Tines app instance, but the Okta Help Center article for Tines lists only the API key and team IDs as import settings. The updated engineering notes add that Okta validates it as an HTTPS origin, for example, `https://example.tines.com`, but they still list the console steps as pending. Confirm where an admin enters the tenant URL and add that step here.</span>
 
-Enable imports for the app:
+Enable imports for the app in Okta:
 
-1. Go to **Directory** > **AI Agent Providers**, and then select your Tines app. If you have multiple Tines app integrations, only configure AI agent imports for one of them.
-1. On the **AI Agent Import** tab, select **Enable AI agent imports**.
-1. Under **Configuration**, enter the following values:
+1. In the Admin Console, go to **Directory** > **AI Agent Providers**, and then select your Tines app. If you have multiple Tines app integrations, only configure AI agent imports for one of them.
+1. Go to the **AI agent import** tab, select **Configuration**, and then select **Enable AI agent import**.
+1. Enter the following values:
    * **API key:** The token secret that you generated in Tines
    * **Team IDs:** Optional. Enter one or more Tines team IDs to import AI agents from only those teams. Leave the field empty to import AI agents from all teams.
-1. Click **Test API Credentials** to confirm that Okta can reach your Tines tenant.
-1. Click **Save configuration**, and then run the import.
+1. Click **Test and Save** to confirm that Okta can reach your Tines tenant and to save the values.
+1. To run an import on demand, go to the **Imported AI agents** tab and click **Import**. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported.
 
 For the optional owner, schedule, matching, and preview settings, see [Enable AI agent imports for an app](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm). For the Tines-specific steps in the Okta Help Center, see [Configure Tines for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-tines.htm).
 
-<span style="color: #c0392b;">**TODO:** Confirm with engineering whether customer orgs can see the Tines **AI Agent Import** tab by default. The engineering notes say tinescom isn't in the default list of import-eligible apps (the ai.agents.import.eligible.app.names property), so the tab doesn't appear until Okta adds it. If customers need enablement, add that requirement to What you need or to the troubleshooting table. The Okta Help Center article doesn't mention it. Also confirm the deployment stage (the security review lists it as unknown).</span>
+<span style="color: #c0392b;">**TODO:** The updated engineering notes confirm that `tinescom` isn't in the default list of import-eligible apps (the `ai.agents.import.eligible.app.names` property), and that the Tines platform doesn't appear in the Admin Console until the property includes it. The notes treat this as an org-level override, not something a customer sets. Confirm with engineering how a customer gets the Tines import option (for example, through support or an Okta-side change), and then add that requirement to What you need and to the troubleshooting table. The Okta Help Center article doesn't mention it. Also confirm the deployment stage (the security review lists it as unknown).</span>
 
-Register the imported AI agent and set up its identity:
+Register the imported AI agent and set up its identity in Okta:
 
-1. Go to **Directory** > **AI Agents**, and then register the imported AI agent.
-1. On the **User access** tab, link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app.
+1. Go to **Directory** > **AI Agents**, select the imported AI agent, and then register it.
+1. On the **User access** tab, click **Allow user access**, and then link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app. Click **Save**.
 
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
 
-1. On the **Client registration** tab, click **Configure** next to **Public/private key**, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, since Okta shows it only once. Click **Done**.
+1. On the **Client registration** tab, click **Configure** next to **Public/private key**, select **Okta** to manage your public/private key, click **Add public key**, and then click **Generate new key**. Copy the private key and store it in a secrets manager, because Okta shows it only once. Click **Done**.
 1. Copy the **Client ID**, which starts with `wlp`, and the public key's **Key ID**. You need them for `AGENT_CLIENT_ID` and `AGENT_KEY_ID`, respectively.
 1. On the **Resource connections** tab, click **Add resource connection**. For **Resource type**, select **Authorization server**, and then select your custom authorization server. Under **Scopes**, select **Only allow**, enter your custom scope, for example, `xaa:read`, and then click **Add**.
 1. Click **Actions** > **Activate**, and then click **Confirm**.
@@ -191,7 +191,7 @@ Store the AI agent's client ID, key ID, and private key in Tines credentials. Ne
 
 1. For each credential, add `run-script` to the domain restrictions so that the Run Script action can read it.
 
-<span style="color: #c0392b;">**TODO:** Confirm the exact labels on the Text credential form, including the name of the domain restrictions field and how you add run-script to it. The Tines Credentials overview page doesn't show the form fields, and the engineering notes describe the restriction without the field label.</span>
+<span style="color: #c0392b;">**TODO:** The engineering notes confirm the path (team, then **Credentials**, then a new **Text** credential) and call the setting **domain restrictions**. Confirm how you add `run-script` to that setting on the form, because neither the notes nor the Tines Credentials overview page show the field.</span>
 
 ### Add the Webhook action
 
@@ -201,9 +201,7 @@ Store the AI agent's client ID, key ID, and private key in Tines credentials. Ne
 
 Tines lowercases header names in the emitted event and replaces dashes with underscores. A request header named `X-Okta-Identity-Token` arrives as `headers.x_okta_identity_token`.
 
-> **Important:** By default, anyone who has the Webhook URL can send a request to it, because the URL contains a secret. The exchange proves that the `id_token` is valid, not that the caller is the user it names. Restrict who can call the Webhook action, for example by changing its access control so that callers must present a Tines API key. See [Webhook action](https://www.tines.com/stories/docs/actions/types/webhook/).
-
-<span style="color: #c0392b;">**TODO:** Engineering flagged an open security item. The story doesn't verify that the id_token subject is the caller, so anyone who can reach the webhook can present any valid id_token. Decide with engineering whether this guide adds a check or documents the webhook access control as a prerequisite before production use.</span>
+> **Important:** By default, anyone who has the Webhook URL can send a request to it, because the URL contains a secret. The exchange proves that the `id_token` is valid, not that the caller is the user it names. Anyone who can post to the webhook can present any valid `id_token`. Add your own protection before production use. Restrict who can call the Webhook action, for example by changing its access control so that callers must present a Tines API key, and verify the `id_token` claims, such as `aud` and `exp`, before you act on a request. See [Webhook action](https://www.tines.com/stories/docs/actions/types/webhook/).
 
 ### Add the Run Script action
 
@@ -308,15 +306,46 @@ Connect a **Run Script** action to the Webhook action and name it `okta_xaa`. Co
       step2.raise_for_status()
       access_token = step2.json()["access_token"]
 
-      # Return the token for later actions, and a prefix that is safe to read in logs.
-      return {"ok": True, "access_token": access_token, "access_token_prefix": access_token[:20]}
+      # The token came straight from Okta's token endpoint in this call, so the script
+      # reads its claims without verifying the signature again.
+      claims = jwt.decode(access_token, options={"verify_signature": False})
+
+      # Return the identity, the token for later actions, and a prefix that is safe to read in logs.
+      return {
+          "ok": True,
+          "user": claims.get("sub"),
+          "agent": claims.get("cid"),
+          "scopes": claims.get("scp"),
+          "access_token": access_token,
+          "access_token_prefix": access_token[:20],
+      }
   ```
 
 > **Note:** Exchange the token on each run instead of saving it. The access token is valid for 24 hours while the ID-JAG is valid for only five minutes, so a saved user token carries far more risk than the exchange costs. Don't write the access token to a Tines resource or to a datastore. Steps 1 and 2 are also one retryable unit. If step 2 fails, repeat both steps from the `id_token`, because the ID-JAG may have expired.
 
 > **Important:** The Run Script event contains the full access token, and Tines keeps events. Return only what later actions need, and limit who can view the story's events.
 
-<span style="color: #c0392b;">**TODO:** The engineering notes verified a Webhook action and a Run Script action with this exchange on a live Tines tenant. This guide's script differs slightly: it takes the custom authorization server ID, scope, and a bare Okta domain as inputs, and it uses shared input names. Confirm with a live run that the script as written works.</span>
+<span style="color: #c0392b;">**TODO:** Engineering verified a Webhook action and a Run Script action with this exchange end to end on a live Tines tenant (2026-10-23). Their script differs from this guide's. It hardcodes the scope, takes the custom authorization server as `custom_as`, takes a full-URL Okta domain, and returns identity only, with no access token. This guide's script takes `custom_as_id`, `scope`, and a bare Okta domain as inputs, and it also returns the access token for later actions. Confirm with a live run that the script as written works.</span>
+
+### Return the result to the caller
+
+By default, a Webhook action only acknowledges a request. To return the result of the exchange to the caller, add a response action and turn on the story's API option.
+
+1. Connect an **Event Transform** action to the Run Script action, set its mode to **Message only**, and name it `greeting`.
+1. Build the payload as keys in the editor, not as typed JSON text:
+
+   | Key | Value |
+   | --- | --- |
+   | `status` | `200` |
+   | `body` > `answer` (a nested object) | `Hello <<okta_xaa.output.user>>, Tines received your request through Okta (AI agent <<okta_xaa.output.agent>>).` |
+
+1. Click an empty area of the storyboard to open the story properties, and turn on the story's **API** option. Set the **entry** to the Webhook action and the **exit** to `greeting`. Leave the API path prefix empty to keep the existing Webhook URL.
+
+The Webhook action then waits up to 30 seconds and returns the exit action's `status` and `body` instead of its default acknowledgment.
+
+A Run Script action's return value sits under `output` in its event, so the reference is `<<okta_xaa.output.user>>`, not `<<okta_xaa.user>>`. Use your action's actual name.
+
+> **Note:** Tines masks credential values in event output. The AI agent's client ID is stored as a credential, so the AI agent value in the response shows as asterisks.
 
 ### Call an Okta-protected resource
 
@@ -324,7 +353,7 @@ Add an **HTTP Request** action after the Run Script action, and set its `Authori
 
 ```text
 URL:    https://api.example.com/resource
-Header: Authorization: Bearer <<okta_xaa.access_token>>
+Header: Authorization: Bearer <<okta_xaa.output.access_token>>
 ```
 
 Replace the URL with an API that trusts your custom authorization server.
@@ -350,12 +379,23 @@ curl -s -X POST "https://<your-tenant>.tines.com/webhook/<path>/<secret>" \
   -H "X-Okta-Identity-Token: $ID_TOKEN"
 ```
 
-A standard webhook returns `201` with `{"status":"ok"}`. That response only confirms that Tines received the request and started the story. It isn't the output of the Run Script action. To confirm that the exchange ran, open the story in Tines, go to **Events**, and select the event from the `okta_xaa` action:
+If you added the `greeting` response action in [Return the result to the caller](#return-the-result-to-the-caller), the response names the signed-in user:
+
+```json
+{"answer": "Hello jessie.smith@example.com, Tines received your request through Okta (AI agent ****************)."}
+```
+
+Without a response action, a standard webhook returns `201` with `{"status":"ok"}`. That response only confirms that Tines received the request and started the story. To confirm that the exchange ran, open the story in Tines, go to **Events**, and select the event from the `okta_xaa` action:
 
 ```json
 {
-  "ok": true,
-  "access_token_prefix": "eyJraWQiOiJqX3JSLVhz"
+  "output": {
+    "ok": true,
+    "user": "jessie.smith@example.com",
+    "agent": "****************",
+    "scopes": ["xaa:read"],
+    "access_token_prefix": "eyJraWQiOiJqX3JSLVhz"
+  }
 }
 ```
 
@@ -368,7 +408,7 @@ scp          ["xaa:read"]
 act          {sub: "wlp...", sub_profile: "ai_agent web_app"}
 ```
 
-<span style="color: #c0392b;">**TODO:** The prefix values and the decoded claims above are illustrative. Replace the sample with the output of a live run. To return the Run Script result in the HTTP response instead of an acknowledgment, the story needs a response-enabled webhook. Confirm whether this guide documents that option.</span>
+<span style="color: #c0392b;">**TODO:** Engineering's verified run (2026-10-23) returned this response shape and these claims, but it used engineering's script, which returns identity only. Replace the sample values with the output of a live run of this guide's script, including the `access_token_prefix` field.</span>
 
 ## Troubleshoot your integration
 
@@ -383,10 +423,12 @@ The following errors are specific to the Tines integration:
 | `Key is not valid JSON` | The private key credential has surrounding quotes or escaped characters | Store the raw single-line JWK as a Text credential, with no outer quotes |
 | The script times out | The default Run Script timeout is 10 seconds, and the first run installs the requirements | Raise the timeout. The maximum is 110 seconds |
 | The `id_token` appears in the story's events | You sent the `id_token` in the request body instead of a header | Send the `id_token` in the `X-Okta-Identity-Token` header |
-| **Test API Credentials** fails | The Tines API key is wrong, or a team ID doesn't exist | Verify the API key. If you entered team IDs, correct them or leave the field empty |
+| The webhook returns `201` with `{"status":"ok"}` instead of the answer | A default Webhook action only acknowledges the request | Turn on the story's **API** option, with the Webhook action as the entry and a **Message only** Event Transform action as the exit. See [Return the result to the caller](#return-the-result-to-the-caller) |
+| The response keys contain extra quotes, or `body` is one string | You typed the payload as JSON text in the key and value editor | Build the payload as keys, or paste the JSON in the editor's code view |
+| The answer shows `Hello ,` with blank values | The reference skips the `output` level of the Run Script event | Use `<<okta_xaa.output.user>>`, not `<<okta_xaa.user>>` |
+| The webhook returns `504` | The exit action didn't emit a result within 30 seconds | Check the Run Script timeout and its event for errors |
+| **Test and Save** fails | The Tines API key is wrong, or a team ID doesn't exist | Verify the API key. If you entered team IDs, correct them or leave the field empty |
 | A call to the Okta Management API returns `400` with the delegated token | The access token's audience is your custom authorization server, and the Okta Management API doesn't accept it | Call an API that trusts your custom authorization server |
-
-<span style="color: #c0392b;">**TODO:** Confirm the Tines-specific errors with engineering after a live run of this guide's script. The rows above come from the engineering notes and the Tines documentation.</span>
 
 The following errors come from the Okta token exchange and are covered in [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
