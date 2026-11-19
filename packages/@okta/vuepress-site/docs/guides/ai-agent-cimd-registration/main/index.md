@@ -39,8 +39,10 @@ Host your CIMD at an HTTPS URL. Okta validates the following fields in the docum
 | Field | Requirement |
 | --- | --- |
 | `client_id` | Must exactly match the URL that Okta requests. This is the same URL you set as `clientIdMatchPattern` when you register the AI agent. |
-| `jwks_uri` | A URL to your hosted JSON Web Key Set (JWKS), or an inline `jwks` object. Okta uses this to verify the signature on your `client_assertion` JWT when the AI agent requests a token. |
+| `jwks_uri` | A URL to your hosted JSON Web Key Set (JWKS), or an inline `jwks` object. Okta uses this to verify the signature on your `client_assertion` JWT when the AI agent requests a token. Not required if the AI agent authenticates with `spiffe_jwt`. |
 | `redirect_uris` | Must be a non-empty array, even for AI agents that don't use a redirect-based flow. |
+| `token_endpoint_auth_method` | Set to `spiffe_jwt` if the AI agent authenticates with a SPIFFE JWT-SVID. |
+| `spiffe_id` | The SPIFFE ID of the AI agent. Required if `token_endpoint_auth_method` is `spiffe_jwt`. |
 
 See the following resources for the full OAuth CIMD specification, beyond the fields that Okta requires:
 
@@ -117,7 +119,7 @@ You can't change a CIMD client's `oauthClient.type` after you set it.
 
 ## Use the CIMD client ID in a token request
 
-Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. A CIMD client authenticates with `private_key_jwt`: the AI agent signs a `client_assertion` JWT with its private key, and Okta verifies the signature using the `jwks` or `jwks_uri` from your hosted CIMD.
+Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. A CIMD client authenticates with `private_key_jwt` or `spiffe_jwt`. With `private_key_jwt`, the AI agent signs a `client_assertion` JWT with its private key, and Okta verifies the signature using the `jwks` or `jwks_uri` from your hosted CIMD. With `spiffe_jwt`, the AI agent sends a JWT-SVID, and Okta verifies it using the bundle of the trust domain that you registered in your org.
 
 CIMD clients support the following grant types:
 
@@ -141,6 +143,8 @@ curl -v -X POST \
 
 Sign `client_assertion` with the private key that matches the public key in your CIMD's JWKS. Set both `iss` and `sub` in the JWT to the CIMD URL.
 
+For `spiffe_jwt`, set `client_assertion_type` to `urn:ietf:params:oauth:client-assertion-type:jwt-spiffe` and `client_assertion` to the JWT-SVID. The `sub` claim of the JWT-SVID is the SPIFFE ID, not the CIMD URL. See [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/).
+
 For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI agents without any manual client configuration. An admin registers the AI agent vendor's CIMD URL on the agent, such as the URL that Anthropic hosts for Claude Code. Then the AI agent connects to the gateway automatically. You don't need to manually configure a client ID or client secret.
 
 ## Troubleshoot errors
@@ -158,6 +162,7 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI
 | --- | --- |
 | Token request fails because Okta can't find a matching client | No AI agent is registered with an `oauthClient.clientId` that exactly matches the `client_id` that you sent. Register an AI agent with this CIMD URL first. See [Register an AI agent with a CIMD client](#register-an-ai-agent-with-a-cimd-client). |
 | Token request fails signature verification | The `client_assertion` JWT isn't signed with the private key that matches the public key in your CIMD's JWKS, or the CIMD's `jwks_uri` (or inline `jwks`) doesn't resolve to a valid JWKS. |
+| Token request fails for an AI agent that uses `spiffe_jwt` | The trust domain of the SPIFFE ID isn't registered in your org, or the `sub` claim of the JWT-SVID doesn't match the `spiffe_id` in your CIMD. |
 | Token request fails with an expired or invalid refresh token | The AI agent didn't request a new token before the refresh token's idle window elapsed. See [Refresh token lifetime](#refresh-token-lifetime). |
 
 ## Refresh token lifetime
@@ -167,6 +172,7 @@ CIMD OAuth clients, including AI agents that are registered with a CIMD OAuth cl
 ## See also
 
 - [Agent Gateway](/docs/concepts/agent-gateway/)
+- [Authenticate a client with a SPIFFE JWT-SVID](/docs/guides/spiffe-jwt-client-auth/main/)
 - [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration)
 - [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (IETF Internet-Draft)
 - [CIMD - OAuth Client ID Metadata Documents](https://client.dev)
