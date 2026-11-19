@@ -12,12 +12,12 @@ This guide describes how to manage in-flight access request tasks using the Okta
 
 #### Learning outcomes
 
-Learn how to use OIG admin [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and end user [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs to manage access request tasks in your custom app or workflow.
+Learn how to use OIG admin [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks), [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2), end user [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks), and [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) APIs to manage access request tasks in your custom app or workflow.
 
 #### What you need
 
 * An Okta org that's subscribed to OIG
-* Okta Workflows, Postman, or your custom app to follow this guide and test the OIG APIs
+* Okta Workflows, your custom app, or an API client (such as Postman) to follow this guide and test the OIG APIs
 
 ---
 
@@ -32,6 +32,7 @@ With the OIG Tasks APIs, you can:
 * Deliver custom notifications: Build tailored reminder workflows in collaboration tools (like Slack or Google Chat) or send custom-branded email alerts to approvers.
 * Build custom user interfaces: Embed task approvals into custom employee portals, IT Service Management (ITSM) tools like ServiceNow, or command-line interfaces (CLIs).
 * Monitor in-flight requests: Query active tasks, assignees, and timestamps to build real-time reporting dashboards for system health and SLA tracking.
+* Cancel requests: Programmatically allow admins and end users to cancel unnecessary requests.
 
 ## Make secure API requests with OAuth 2.0
 
@@ -41,10 +42,11 @@ For either user-based or service-based API access, grant the following scopes du
 
 * `okta.accessRequests.tasks.manage`
 * `okta.accessRequests.tasks.read`
+* `okta.accessRequests.request.manage` (to cancel requests)
 
 In addition, you have to grant an admin role to the service-based OAuth 2.0 client. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` or the `ACCESS_REQUESTS_ADMIN` role for access request admin operations.
 
-> **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the `okta.accessRequests.tasks.manage` scope to this app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
+> **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the `okta.accessRequests.tasks.manage` and `okta.accessRequests.request.manage` scopes to this app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
 
 If your workflow uses an OIDC client for user-based access, you don't need to assign an admin role to the OIDC client. For user-based access, Okta reviews the role that's assigned to the authenticated user and determines whether they have permission to perform the operation.
 
@@ -249,9 +251,86 @@ curl -v -X POST \
 }
 ```
 
+### Cancel a request
+
+Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) request to cancel an access request that's no longer needed. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+
+If you need to find the request ID to cancel, use [List all requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2) to search for your desired request with the `filter` query parameter.
+
+> **Note:** You can't cancel a request if any of its tasks are already resolved.
+
+| **API** | Access Requests - V2 |
+| ------- | --------- |
+| **Request** | [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) |
+| **Request URI** | `PATCH /governance/api/v2/requests/{requestId}` |
+| **Scopes required** | `okta.accessRequests.request.manage` |
+| **Admin role required** | Access requests admin (`ACCESS_REQUESTS_ADMIN`) |
+
+> **Note:** If your org uses request types, use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v1-reference/requests/updaterequest) V1 request instead: `PATCH /governance/api/v1/requests/{requestId}`. It requires the `okta.governance.accessRequests.manage` scope and the `ACCESS_REQUESTS_ADMIN` role.
+
+##### Request example
+
+This example cancels the access request with `req42kjDgk1EubTwo0g4` ID.
+
+```bash
+curl -v -X PATCH \
+  'https://{yourOktaDomain}/governance/api/v2/requests/req42kjDgk1EubTwo0g4' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
+  -d '{
+    "status": "CANCELED"
+  }'
+```
+
+##### Response example
+
+```json
+{
+  "id": "req42kjDgk1EubTwo0g4",
+  "created": "2026-03-24T14:15:22Z",
+  "createdBy": "00ub0oNGTSWTBKOLGLNR",
+  "lastUpdated": "2026-03-25T10:25:30Z",
+  "lastUpdatedBy": "00ub0oNGTSWTBKOLGLNR",
+  "status": "CANCELED",
+  "requestedBy": {
+    "type": "OKTA_USER",
+    "externalId": "00ub0oNGTSWTBKOLGLNR"
+  },
+  "requestedFor": {
+    "type": "OKTA_USER",
+    "externalId": "00ub0oNGTSWTBKOLGLNR"
+  },
+  "requested": {
+    "entryId": "cenb0oADRXTBKOLGLNR",
+    "resourceId": "0oafxqCAJWWGELFTYASJ",
+    "resourceType": "APPLICATION",
+    "accessScopeId": "0oafxqCAJWWGELFTYASJ",
+    "accessScopeType": "APPLICATION"
+  },
+  "requesterFieldValues": [
+    {
+      "id": "05c87fe9-11f6-4d40-a033-b155b39dcdbe",
+      "label": "What is the business justification for the request?",
+      "type": "TEXT",
+      "value": "I need access to complete a task."
+    }
+  ],
+  "_links": {
+    "catalogEntry": {
+      "href": "https://{yourOktaDomain}/governance/api/v1/catalogs/default/entries/cenb0oADRXTBKOLGLNR",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/governance/api/v1/requests/req42kjDgk1EubTwo0g4",
+      "type": "application/json"
+    }
+  }
+}
+```
+
 ## End user tasks
 
-The following API requests allow end users to retrieve and resolve tasks assigned to them.
+The following API requests allow end users to retrieve and resolve tasks assigned to them, and to cancel their own requests.
 
 ### List all my tasks
 
@@ -360,7 +439,7 @@ Use the [Resolve my task](https://developer.okta.com/docs/api/iga/openapi/govern
 | ------- | ----------- |
 | **Request** | [Resolve my task](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/resolvemytaskv2) |
 | **Request URI** | `POST /governance/api/v2/my/tasks/{taskId}/resolve` |
-| **Required Scopes** | `okta.accessRequests.tasks.managee` |
+| **Required Scopes** | `okta.accessRequests.tasks.manage` |
 | **Required Admin Roles** | None (standard Okta user) |
 
 ##### Request example
@@ -404,6 +483,82 @@ curl -v -X POST \
 }
 ```
 
+### Cancel my request
+
+Use the [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) request to cancel an access request that you submitted and no longer need. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+
+> **Note:** You can't cancel a request if any of its tasks are already resolved.
+
+| **API** | My Requests |
+| ------- | ----------- |
+| **Request** | [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) |
+| **Request URI** | `PATCH /governance/api/v2/my/catalogs/default/entries/{entryId}/requests/{requestId}` |
+| **Scopes required** | `okta.accessRequests.request.manage` |
+| **Admin roles required** | None (standard Okta user) |
+
+##### Request example
+
+This example cancels the access request with `req42kjDgk1EubTwo0g4` ID for the catalog entry with `cenb0oADRXTBKOLGLNR` ID.
+
+```bash
+curl -v -X PATCH \
+  'https://{yourOktaDomain}/governance/api/v2/my/catalogs/default/entries/cenb0oADRXTBKOLGLNR/requests/req42kjDgk1EubTwo0g4' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
+  -d '{
+    "status": "CANCELED"
+  }'
+```
+
+##### Response example
+
+```json
+{
+  "id": "req42kjDgk1EubTwo0g4",
+  "created": "2026-03-24T14:15:22Z",
+  "createdBy": "00ub0oNGTSWTBKOLGLNR",
+  "lastUpdated": "2026-03-25T10:25:30Z",
+  "lastUpdatedBy": "00ub0oNGTSWTBKOLGLNR",
+  "status": "CANCELED",
+  "requestedBy": {
+    "type": "OKTA_USER",
+    "externalId": "00ub0oNGTSWTBKOLGLNR"
+  },
+  "requestedFor": {
+    "type": "OKTA_USER",
+    "externalId": "00ub0oNGTSWTBKOLGLNR"
+  },
+  "requesterFieldValues": [
+    {
+      "id": "05c87fe9-11f6-4d40-a033-b155b39dcdbe",
+      "label": "What is the business justification for the request?",
+      "type": "TEXT",
+      "value": "I need access to complete a task."
+    }
+  ],
+  "requested": {
+    "entryId": "cenb0oADRXTBKOLGLNR",
+    "resourceId": "0oafxqCAJWWGELFTYASJ",
+    "resourceType": "APPLICATION",
+    "accessScopeId": "0oafxqCAJWWGELFTYASJ",
+    "accessScopeType": "APPLICATION"
+  },
+  "_links": {
+    "catalogEntry": {
+      "href": "https://{yourOktaDomain}/governance/api/v1/catalogs/default/entries/cenb0oADRXTBKOLGLNR",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/governance/api/v1/requests/req42kjDgk1EubTwo0g4",
+      "type": "application/json"
+    }
+  }
+}
+```
+
 ## System Logs
 
-Any System Log triggers from these APIs?
+The following System Logs are triggered when you manage access request tasks and requests:
+
+* [access.request.cancel](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.cancel): When an access request has been cancelled.
+* [access.request.update](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.update): When an update to an access request has been made, such as changes to the request tasks.
