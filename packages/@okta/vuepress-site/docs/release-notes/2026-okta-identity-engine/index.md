@@ -24,6 +24,7 @@ title: Okta Identity Engine API release notes 2026
 | [AI agent attributes in custom claims is GA in preview](#ai-agent-attributes-in-custom-claims-is-ga-in-preview) | November 11, 2026 |
 | [Attack protection policy](#attack-protection-policy) | November 11, 2026 |
 | [Start API Integration Actions integrations from the Home page is GA in Production](#start-api-integration-actions-integrations-from-the-home-page-is-ga-in-production)| |
+| [Support cases for ISV integration and submission help](#support-cases-for-isv-integration-and-submission-help) |
 | [Bugs fixed in 2026.46.0](#bugs-fixed-in-2026-46-0)| November 11, 2026 |
 
 #### Source property for AI agents
@@ -58,6 +59,10 @@ Bot protection currently uses one detection threshold and one action for every p
 #### Start API Integration Actions integrations from the Home page is GA in Production
 
 ISVs can now start and manage API Integration Actions integrations directly from the **Home** page of their Okta Integrator Free Plan org, instead of only through the **Your OIN Integrations** dashboard. This gives ISVs one consistent place to start any integration type, making it easier to find the right path when beginning a build. See [Submit an integration with the OIN Wizard](/docs/guides/submit-wfactions-app/main/).
+
+#### Support cases for ISV integration and submission help
+
+Integration builders can now submit support cases in the Okta Support Center for help with building, testing, or submitting an Okta Integration Network (OIN) integration. The option to submit a support case is available only after integration builders start a draft integration. The `developers@okta.com` email address is no longer a support channel for OIN integrations. See [How to Create a Support Case](https://support.okta.com/help/s/article/How-to-Create-a-Support-Case?language=en_US) and [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
 
 #### Bugs fixed in 2026.46.0
 
