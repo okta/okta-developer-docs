@@ -44,7 +44,7 @@ V2 offers these benefits:
 
 - **Fewer round trips:** Most write operations return the result instead of `202 Accepted`. You no longer poll an operation after you create, update, delete, activate, or deactivate an object. Your client tracks less state, and the Operations APIs have fewer operation types.
 - **Simpler responses:** V2 drops `_links` from individual objects, and lists return plain URL strings. Use the `links` query parameter to request only the links that you need. Page through lists with the `Link` response header.
-- **One model for connections:** One Resource Connections collection replaces the separate connection APIs for agents, MCP servers, and agent gateways. Reverse lookups and potential connections use `search`.
+- **One model for connections:** One Resource Connections collection replaces the separate connection APIs for agents, MCP servers, and Agent Gateways. Reverse lookups and potential connections use `search`.
 - **Cleaner requests:** V2 removes deprecated properties, such as `appId`. Use the Delegation Links API instead. Related request properties are grouped together, and you link authorization servers by `orn`. Filtering and sorting providers are part of the base API.
 - **Asynchronous only where needed:** Long-running work, such as provider import and staging or MCP server discovery, stays asynchronous. Everything else returns immediately.
 
@@ -57,6 +57,7 @@ V2 offers these benefits:
 Many V2 APIs share the same changes:
 
 - **Links:** V2 responses don't include `_links` on individual objects. `_links` are returned only on lists, for pagination. Where V2 returns `_links`, the values are plain URL strings instead of objects with an `href`. Some APIs add a `links` query parameter that selects which links the response includes.
+- **Agent Gateways:** V2 renames virtual MCP servers to Agent Gateways. The paths change from `/virtual-mcp-servers` to `/agent-gateways`. See [Virtual MCP Server Registrations](#virtual-mcp-server-registrations-agent-gateways) and [Virtual MCP Servers](#virtual-mcp-servers-agent-gateways).
 - **Synchronous writes:** Write operations that were asynchronous in V1 are synchronous in V2. Calls that returned `202 Accepted` now return `200`, `201`, or `204`. You no longer poll an operation to get the result.
 
 ## V1 to V2 summary by API
@@ -67,10 +68,10 @@ Use this table to find the API that you call. Select the link in the last column
 
 | V1 API | V2 availability | Summary of changes | Details |
 | --- | --- | --- | --- |
-| **Agents and agent gateways** | | | |
+| **Agents and Agent Gateways** | | | |
 | AI Agent Registration | Available | Writes are synchronous. `appId`, `externalId`, and `platform` removed. Link format changed, and a `links` parameter selects the links returned. | [AI Agent Registration](#ai-agent-registration) |
-| Virtual MCP Server Registrations | Available | Renamed agent gateways, with a new path. Writes are synchronous. `_links` removed from individual objects. | [Virtual MCP Server Registrations](#virtual-mcp-server-registrations) |
-| Virtual MCP Servers (Resource Server) | Available | Renamed agent gateways, with a new path. `_links` removed from individual objects. Read-only: authorization server add and remove calls removed. | [Virtual MCP Servers](#virtual-mcp-servers) |
+| Virtual MCP Server Registrations (Agent Gateways) | Available | Renamed to Agent Gateways, with a new path. Writes are synchronous. `_links` removed from individual objects. | [Virtual MCP Server Registrations](#virtual-mcp-server-registrations-agent-gateways) |
+| Virtual MCP Servers (Resource Server) (Agent Gateways) | Available | Renamed to Agent Gateways, with a new path. `_links` removed from individual objects. Read-only: authorization server add and remove calls removed. | [Virtual MCP Servers](#virtual-mcp-servers-agent-gateways) |
 | AI Agent Credentials | Available | Link format changed. `_links` returned on `GET` only when you pass the new `links` query parameter. The client secrets list returns `data`. | [AI Agent Credentials](#ai-agent-credentials) |
 | Delegation Links | Available | `_links` removed from individual objects. `to.authorizationServerOrn` removed from create requests. New `ID_TOKEN` links can't be created. | [Delegation Links](#delegation-links) |
 | AI Agent Providers | Available | `_links` removed. `configuration` references a client authentication settings object instead of holding OAuth credentials. Filtering and sorting are part of the base API. | [AI Agent Providers](#ai-agent-providers) |
@@ -92,6 +93,8 @@ Use this table to find the API that you call. Select the link in the last column
 | STS Authorization | Not applicable | No V2 version. Keep using the V1 STS callback endpoint. | [STS Authorization](#sts-authorization) |
 
 ## AI Agent Registration
+
+For the V2 calls, see the [AI Agent Registration API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistrationv2).
 
 The endpoints and operations are the same in V1 and V2. The request and response bodies and the response codes differ.
 
@@ -245,9 +248,11 @@ When you update an agent with `PATCH`, you can no longer set or remove `appId`. 
 
 ---
 
-## Virtual MCP Server Registrations
+## Virtual MCP Server Registrations (Agent Gateways)
 
-The V2 reference calls a virtual MCP server an agent gateway. The operations are the same, but the path and the path parameter change.
+For the V2 calls, see the [Agent Gateway Registration API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentgatewayregistrationv2).
+
+V2 renames virtual MCP servers to Agent Gateways. The operations are the same, but the path and the path parameter change.
 
 | Aspect | V1 | V2 |
 | --- | --- | --- |
@@ -265,15 +270,15 @@ In V2, the result is in the response.
 
 | Operation | V1 response | V2 response |
 | --- | --- | --- |
-| Create (`POST`) | `202`, no body | `201` with the agent gateway |
-| Update (`PATCH`) | `200` with the object | `200` with the agent gateway |
+| Create (`POST`) | `202`, no body | `201` with the Agent Gateway |
+| Update (`PATCH`) | `200` with the object | `200` with the Agent Gateway |
 | Delete (`DELETE`) | `202`, no body | `204` |
-| Activate | `202`, no body | `200` with the agent gateway |
-| Deactivate | `202`, no body | `200` with the agent gateway |
+| Activate | `202`, no body | `200` with the Agent Gateway |
+| Deactivate | `202`, no body | `200` with the Agent Gateway |
 
-V2 creates the agent gateway with a `status` of `INACTIVE`, the same as V1.
+V2 creates the Agent Gateway with a `status` of `INACTIVE`, the same as V1.
 
-In both versions, you can delete only an inactive agent gateway. Deleting an active one returns `409`, so deactivate it first.
+In both versions, you can delete only an inactive Agent Gateway. Deleting an active one returns `409`, so deactivate it first.
 
 V1 and V2 share the same `resourcePath` values. If a virtual MCP server in V1 already uses a path, a V2 create with the same path returns `409`. The path is case-insensitive.
 
@@ -285,7 +290,7 @@ V1 and V2 share the same `resourcePath` values. If a virtual MCP server in V1 al
 
 ### Examples
 
-This example creates an agent gateway. The request is the same in V1 and V2. Send it to `POST /workload-principals/api/v1/virtual-mcp-servers` or `POST /workload-principals/api/v2/agent-gateways`:
+This example creates an Agent Gateway. The request is the same in V1 and V2. Send it to `POST /workload-principals/api/v1/virtual-mcp-servers` or `POST /workload-principals/api/v2/agent-gateways`:
 
 ```json
 {
@@ -318,7 +323,7 @@ The V1 response is `202 Accepted` with no body, and a `Location` header that poi
 }
 ```
 
-The V2 response is `201 Created` with the agent gateway in the body. There are no `_links`:
+The V2 response is `201 Created` with the Agent Gateway in the body. There are no `_links`:
 
 ```json
 {
@@ -364,9 +369,11 @@ On a list, the V2 `_links` are plain URL strings:
 
 ---
 
-## Virtual MCP Servers
+## Virtual MCP Servers (Agent Gateways)
 
-The V2 reference calls a virtual MCP server an agent gateway. The resource server API changes the path, removes `_links`, and drops the authorization server write calls.
+For the V2 calls, see the [Agent Gateway Server API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/agentgatewayserverresource).
+
+V2 renames virtual MCP servers to Agent Gateways. The resource server API changes the path, removes `_links`, and drops the authorization server write calls.
 
 | Aspect | V1 | V2 |
 | --- | --- | --- |
@@ -377,13 +384,13 @@ The V2 reference calls a virtual MCP server an agent gateway. The resource serve
 | `_links.parent` on a tools list | Object with an `href` | Removed |
 | Authorization server links | List, retrieve, add, and remove | List and retrieve only |
 
-Agent gateway calls don't take the `links` query parameter that some other V2 APIs add. Lists always return `_links`.
+Agent Gateway calls don't take the `links` query parameter that some other V2 APIs add. Lists always return `_links`.
 
 ### Authorization servers
 
 V1 lets you add and remove an Okta custom authorization server on a virtual MCP server. Both calls return `202` with a `Location` header to poll.
 
-Okta now creates a custom authorization server for each agent gateway automatically. V2 removes the add and remove calls, and Okta doesn't currently expose them.
+Okta now creates a custom authorization server for each Agent Gateway automatically. V2 removes the add and remove calls, and Okta doesn't currently expose them.
 
 The changes in [Authorization servers for resource servers](#authorization-servers-for-resource-servers) apply to the responses. In V2, each item is a link object with `authorizationServer`, `created`, and `lastUpdated`. The V1 item is the authorization server itself, with `_links`.
 
@@ -559,6 +566,8 @@ The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4g
 
 ## AI Agent Credentials
 
+For the V2 calls, see the [Agent Credentials API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpublickeyv2).
+
 The endpoints, operations, request bodies, scopes, and response codes are the same in V1 and V2. This applies to JSON Web Keys (JWKs), client secrets, public key mode, and the JWKS URI. The `_links` format, the list response shape, and a new `links` query parameter differ.
 
 Errors are still `E0000001` with the same `errorCauses` messages. For example, the 50-key limit and the message that you can't delete an active key are unchanged.
@@ -683,6 +692,8 @@ With `links=ALL`, each credential includes `activate`, `deactivate`, and `delete
 ---
 
 ## Delegation Links
+
+<!-- TODO: Add the V2 API reference link for Delegation Links. Susan's list of V2 reference URLs on 2026-11-19 left it blank (owner: Susan). The spec tag is DelegationLinksV2, so the page is probably under secures-ai-workload-principals/tags/delegationlinksv2, but that is a guess. -->
 
 The endpoints, operations, query parameters, scopes, and response codes are the same in V1 and V2. The request and response bodies and the `_links` format differ.
 
@@ -819,6 +830,8 @@ In V2, `_links.self` is a plain URL string:
 ---
 
 ## AI Agent Providers
+
+For the V2 calls, see the [AI Agent Providers API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentprovidersv2).
 
 V2 makes these changes:
 
@@ -1068,11 +1081,15 @@ Both versions return `201 Created` with the provider. The V1 response has `_link
 
 ## AI Agent Schema
 
+For the V2 call, see the [AI Agent Schema API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentschemav2).
+
 The endpoints and response codes are the same. V2 removes `_links` from the schema response. The property definitions are the same.
 
 ---
 
 ## Authorization servers for resource servers
+
+For the V2 calls that create external authorization servers, see the [External Authorization Servers API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/externalauthorizationserver).
 
 MCP server, API server, and A2A server registrations share the same changes to how you add authorization servers. This section describes those changes once.
 
@@ -1142,6 +1159,8 @@ To change the endpoints or the `subjectMappingExpression` of an external authori
 ---
 
 ## MCP Server Registrations
+
+For the V2 calls, see the [MCP Server Registration API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistrationv2).
 
 The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/mcp-servers` becomes `/resource-servers/api/v2/mcp-servers`. The request and response bodies, the response codes, and how you add authorization servers differ.
 
@@ -1422,6 +1441,8 @@ To update the link in V2, send a merge patch to `PATCH /resource-servers/api/v2/
 
 ## MCP Server OAuth Client and Credentials
 
+For the V2 calls, see the [MCP Server OAuth Client API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpserverclientregistrationv2) and the [MCP Server Credentials API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/mcpservercredentialsv2).
+
 An MCP server can act as an OAuth client to a downstream resource. These calls create the OAuth client identity of the MCP server. They also manage the JSON Web Keys (JWKs) that Okta uses to verify its `private_key_jwt` client assertions.
 
 The operations and scopes are the same in V1 and V2. The path version changes, and V2 changes the JWK responses and the request to add a key.
@@ -1586,6 +1607,8 @@ In V1, read the same identity from the `oauthClient` property of the MCP server.
 ---
 
 ## MCP Server Capabilities
+
+For the V2 calls, see the [MCP Server Registration API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistrationv2).
 
 The endpoints and response codes are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/mcp-servers/{mcpServerId}/metadata/discover` becomes `/resource-servers/api/v2/mcp-servers/{mcpServerId}/metadata/discover`. The same applies to the `metadata/discovery` and `tools` endpoints.
 
@@ -1826,6 +1849,8 @@ The `search` parameter is required on the tools list in both versions. In V2, it
 
 ## API Server Registration
 
+For the V2 calls, see the [API Server Registration API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/apiserverregistrationv2).
+
 The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/api-servers` becomes `/resource-servers/api/v2/api-servers`.
 
 ### Synchronous writes
@@ -2005,6 +2030,8 @@ The V2 response is `201 Created` with a link object:
 
 ## Agent-to-Agent Server Registrations
 
+For the V2 calls, see the [A2A Server Registration API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/a2aserverregistrationv2).
+
 The endpoints and operations are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/a2a-servers` becomes `/resource-servers/api/v2/a2a-servers`. This API lists and retrieves A2A servers and manages their authorization servers.
 
 V2 makes these changes:
@@ -2108,6 +2135,8 @@ The V2 response is `201 Created` with a link object:
 ---
 
 ## Client Authentication Settings
+
+For the V2 calls, see the [Client Authentication Settings API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettingsv2).
 
 The endpoints, operations, and scopes are the same in V1 and V2. V2 restructures the payload so that all OAuth client fields are under one `oauthClientConfiguration` object.
 
@@ -2322,11 +2351,11 @@ Both versions return `201` with the settings, in the same shape as the previous 
 
 Token request settings tell Okta where to get an access token when it discovers the tools of an MCP server. They name the Okta authorization server and the scopes to request. Use them when an Okta authorization server protects the MCP server and Okta has no client registration there. If Okta holds a client registration, use [Client Authentication Settings](#client-authentication-settings) instead.
 
-The endpoints, operations, request bodies, response bodies, scopes, and response codes are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/token-request-settings` becomes `/resource-servers/api/v2/token-request-settings`. For the details, see the Token Request Settings API reference.
+The endpoints, operations, request bodies, response bodies, scopes, and response codes are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/token-request-settings` becomes `/resource-servers/api/v2/token-request-settings`. For the details, see the [Token Request Settings API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceservertokenrequestsettingsv2).
 
 An MCP server can have several settings for the same authorization server, for example with different scope sets.
 
-<!-- Trimmed 2026-11-19 at Susan's request: the Operations table, scopes sentence, Properties table, and List search subsections only repeated the API reference, since nothing changes between V1 and V2 except the path. Facts removed, all in the specs: name is required on create and can't be cleared once set; resourceOrn and authorizationServerOrn are required on create and immutable; scopes need at least one and are updatable; purposes is one item, TOOL_DISCOVERY_OKTA_AS, immutable; list search supports eq on resourceOrn and authorizationServerOrn combined with and; lists return plain-string _links, single objects return none; reads and writes accept the okta.resourceServers.mcpServers or okta.resourceServers scopes. TODO: Link the words "API reference" above when the See also links are supplied (owner: Susan). -->
+<!-- Trimmed 2026-11-19 at Susan's request: the Operations table, scopes sentence, Properties table, and List search subsections only repeated the API reference, since nothing changes between V1 and V2 except the path. Facts removed, all in the specs: name is required on create and can't be cleared once set; resourceOrn and authorizationServerOrn are required on create and immutable; scopes need at least one and are updatable; purposes is one item, TOOL_DISCOVERY_OKTA_AS, immutable; list search supports eq on resourceOrn and authorizationServerOrn combined with and; lists return plain-string _links, single objects return none; reads and writes accept the okta.resourceServers.mcpServers or okta.resourceServers scopes. Susan supplied the V2 API reference link on 2026-11-19, and it is now on the words "API reference" above. The page returned 404 on 2026-11-19, probably because the V2 reference isn't published yet. TODO: Recheck the link after the okta-oas3 release this week and before the PR (owner: Susan, or ask me to recheck). Only V2 is linked, since no customer has V1 token request settings. -->
 
 ### Use with MCP server discovery
 
@@ -2398,6 +2427,8 @@ GET /resource-servers/api/v2/token-request-settings?search=resourceOrn%20eq%20%2
 
 ## Resource Connections
 
+For the V2 calls, see the [Resource Connections API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/resourceconnectionsv2).
+
 V2 consolidates the AI Agent Connections, MCP Server Connections, Virtual MCP Connections, Managed Connections, and Potential Connections APIs into the Resource Connections API.
 
 This is the largest change in the migration. The path, the actor, the connection type, and the request and response bodies all change.
@@ -2410,7 +2441,7 @@ In V1, each actor type has its own path. The reverse lookup by resource is a sep
 | --- | --- | --- |
 | AI agent connections | `/workload-principals/api/v1/ai-agents/{agentId}/connections` | `/resource-connections/api/v2/connections` |
 | MCP server connections | `/workload-principals/api/v1/mcp-servers/{mcpServerId}/connections` | `/resource-connections/api/v2/connections` |
-| Virtual MCP server connections | `/workload-principals/api/v1/virtual-mcp-servers/{virtualMcpServerId}/connections` | `/resource-connections/api/v2/connections` |
+| Virtual MCP server (Agent Gateway) connections | `/workload-principals/api/v1/virtual-mcp-servers/{virtualMcpServerId}/connections` | `/resource-connections/api/v2/connections` |
 | Reverse lookup by resource | `/workload-principals/api/v1/managed-connections` | `/resource-connections/api/v2/connections` with `search` |
 | Potential connections | `/workload-principals/api/v1/potential-connections` | `/resource-connections/api/v2/potential-connections` |
 
@@ -2440,7 +2471,7 @@ Use this table to convert a V1 `connectionType`.
 
 Not every actor can use every connection type. This table shows which actors can use each combination of protocol and resource.
 
-| Protocol | Resource | AI agent | MCP server | Virtual MCP server |
+| Protocol | Resource | AI agent | MCP server | Agent Gateway |
 | --- | --- | --- | --- | --- |
 | `IDENTITY_ASSERTION` | None (custom authorization server) | Yes | Yes | No |
 | `IDENTITY_ASSERTION` | `API_SERVER` | Yes | Yes | No |
@@ -2450,7 +2481,9 @@ Not every actor can use every connection type. This table shows which actors can
 | `STS` | `MCP_SERVER` | Yes | Keep only | Yes |
 | `STS` | `SERVICE_ACCOUNT` or `VAULT_SECRET` | Yes | No | No |
 
-Virtual MCP server actors can create `STS` connections to MCP servers. The table uses these values:
+<!-- Source: okta-oas3 specs/monolith/secures-ai/spec/v2/resource-connections/resource-connections-common-v2.yaml (master, 2026-11-19). The actor.wlpType enum still lists VIRTUAL_MCP_SERVER, described as "A virtual MCP server", while the agent gateway APIs use /agent-gateways. Susan confirmed on 2026-11-19 that Agent Gateway is the permanent name. TODO: Ask Haisheng Wu or Kamron whether the wlpType value will be renamed before release (owner: Susan decides who). -->
+
+Agent Gateway actors can create `STS` connections to MCP servers. In the V2 connection APIs, the `actor.wlpType` value for an Agent Gateway is still `VIRTUAL_MCP_SERVER`. The table uses these values:
 
 - **Yes:** You can create, read, update, activate, deactivate, and delete the connection.
 - **Keep only:** Create and activate return `400`. STS needs a user, and the downstream call of an MCP server has none. You can still read, list, update, deactivate, and delete an existing connection.
@@ -3022,6 +3055,8 @@ V1 managed connections and the AI agent, MCP server, and virtual MCP server conn
 
 ## Workload Principal Operations
 
+For the V2 calls, see the [Workload Principal Operations API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/workloadprincipaloperationsv2).
+
 V2 makes these changes:
 
 - Removes `_links` from each object that the API returns. Lists still return `_links` for pagination.
@@ -3057,7 +3092,7 @@ If your code filters or branches on the operation `type`, update it to handle on
 
 <!-- The Registry team confirmed that V2 removes the virtual-mcp types because those writes are synchronous. Their wording was "removed virtual Mcp and V1 Registry Register, Delete, Activate, Deactivate and update". The Registry team gave the same wording again on 2026-11-16, without saying what "update" means. Mymoona confirmed on 2026-11-17 that "update" means virtual-mcp:ReplaceCapabilities. Replace was added for ai-agent:update, and it applies to virtual MCP servers too. The guide's reading is correct. -->
 
-The `virtual-mcp` types are also gone because agent gateway registration writes are synchronous.
+The `virtual-mcp` types are also gone because Agent Gateway registration writes are synchronous.
 
 ### Examples
 
@@ -3155,6 +3190,8 @@ In V2, the list `_links` are plain URL strings:
 ---
 
 ## Resource Server Operations
+
+For the V2 calls, see the [Resource Server Operations API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserveroperationsv2).
 
 The list and retrieve endpoints are the same in V1 and V2. Only the version in the path changes: `/resource-servers/api/v1/operations` becomes `/resource-servers/api/v2/operations`.
 
@@ -3267,12 +3304,12 @@ There's no V2 version of this API. Keep using the V1 STS callback endpoint.
 10. Create external authorization servers with the External Authorization Servers API, then link them to resource servers by `orn`. Move `subjectMappingExpression` and endpoint changes to that API.
 11. For MCP servers, replace `protocolConfigured` and `tenantId` with `protocolConfigurations`.
 12. Poll a resource server operation only after you register a `DISCOVERABLE` MCP server, change an MCP server `resourceUrl`, or start MCP server discovery.
-13. Change the paths for virtual MCP servers from `/virtual-mcp-servers` to `/agent-gateways` in the Workload Principals and Resource Servers APIs.
+13. Rename virtual MCP servers to Agent Gateways. Change the paths from `/virtual-mcp-servers` to `/agent-gateways` in the Workload Principals and Resource Servers APIs.
 14. In MCP server discovery requests, move `type` (renamed `authType`), `clientAuthSettingsOrn`, and `tokenRequestSettingsOrn` under `credential`. Change `CLIENT_AUTH_SETTINGS` to `BROKERED_CONSENT`.
-15. Call `/resource-connections/api/v2/connections` for AI agent, MCP server, and virtual MCP server connections. Send `actor.wlpId` in the body, and replace `connectionType` with `protocol.protocolType` and `resource.resourceType`.
+15. Call `/resource-connections/api/v2/connections` for AI agent, MCP server, and Agent Gateway connections. Send `actor.wlpId` in the body, and replace `connectionType` with `protocol.protocolType` and `resource.resourceType`.
 16. In connection calls, move `scopeCondition`, `scopes`, and `clientIdAtResource` under `protocol`, and rename `resourceIndicator` to `resourceIdentifier`.
 17. Replace the `filter` parameter and the managed connections call with `search`. Deactivate a connection before you delete it.
-18. Stop calling the add and remove authorization server operations on virtual MCP servers. V2 doesn't include them.
+18. Stop calling the add and remove authorization server operations on virtual MCP servers (Agent Gateways). V2 doesn't include them.
 19. Replace potential connections `connectionType` filters with `search` on `protocol.protocolType` and `resource.resourceType`. You must anchor on `actor.wlpId`, `resource.orn`, or `resource.appInstance.orn`.
 20. Change the path for token request settings from `/resource-servers/api/v1/token-request-settings` to `/resource-servers/api/v2/token-request-settings`.
 21. Change the paths for MCP server OAuth client and JWK calls from `/workload-principals/api/v1/mcp-servers/{mcpServerId}` to `/workload-principals/api/v2/mcp-servers/{mcpServerId}`. Remove `status` from add key requests, and stop reading `_links` on JWK responses.
@@ -3281,4 +3318,4 @@ There's no V2 version of this API. Keep using the V1 STS callback endpoint.
 
 ## See also
 
-<!-- TODO: Add links to the V2 API reference and the V1 deprecation announcement. -->
+<!-- TODO: Add links to the V2 API reference and the V1 deprecation announcement. TODO: Recheck every V2 API reference link in this guide after the okta-oas3 release this week and before the PR. Susan supplied the URLs on 2026-11-19 (Delegation Links was blank). On 2026-11-19 the Token Request Settings, AI Agent Registration, and MCP Server Registration pages returned 404, probably because the V2 reference isn't published yet. I did not fetch the others (owner: Susan, or ask me to recheck). -->
