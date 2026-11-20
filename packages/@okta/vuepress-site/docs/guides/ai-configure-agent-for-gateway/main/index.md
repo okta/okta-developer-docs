@@ -4,7 +4,7 @@ excerpt: Configure supported AI agents to authenticate with Okta and call tools 
 layout: Guides
 ---
 
-Configure your AI agent to call tools through an Agent Gateway. Agent Gateway exposes a single Okta-secured MCP endpoint, and you can point any AI agent that supports an external MCP endpoint at it without code changes.
+Configure your AI agent to call tools through an Agent Gateway. Agent Gateway exposes a single Okta-secured MCP endpoint. You can point any AI agent that supports an external MCP endpoint at it without code changes.
 
 > **Note**: Agent Gateway is available with the Okta for AI Agents subscription. Contact your Okta account team to enable the feature.
 
@@ -65,6 +65,14 @@ When your AI agent connects to the Agent Gateway for the first time, the followi
 1. The Agent Gateway handles credential injection to upstream MCP servers. Your AI agent never holds or sees upstream credentials.
 
 > **Note**: See the [Okta Agent Gateway concept doc](/docs/concepts/agent-gateway/) for a flow diagram of the sequence.
+
+### If an admin deactivates your AI agent
+
+The Agent Gateway checks that your AI agent is active on every request. If an admin deactivates the AI agent, the gateway rejects its requests. This applies even if your access token hasn't expired.
+
+The gateway returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`. It returns the same response for a deactivated AI agent as for any other invalid token, so you can't tell the cause from the response. Your AI agent should authenticate again. While the AI agent is deactivated, Okta refuses to issue it a new token, so authentication fails until an admin reactivates the AI agent. If authentication keeps failing, ask your admin whether the AI agent was deactivated.
+
+After an admin [reactivates the AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/activateaiagent), authenticating again gives your AI agent a new token. The gateway then allows its tool calls.
 
 ## Client identity methods
 
@@ -188,7 +196,8 @@ After your AI agent is connected to Agent Gateway, perform these tasks:
 - Verify the connection by running a tool call and confirming the response.
 - Review AI agent activity in the Okta System Log under **AI Agent activity** (admin events).
 - To adjust which tools the AI agent can call, update the tool selection on the Agent Gateway. See [Add tools](/docs/guides/ai-configure-agent-gateway/main/#add-tools).
-- To revoke the AI agent's access, deactivate the agent-to-agent gateway resource connection in the Okta Admin Console.
+- To block the AI agent, including requests that use tokens that it already holds, an admin deactivates the AI agent. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+- To revoke the AI agent's access to a specific remote MCP server, an admin deactivates the agent-to-agent gateway resource connection in the Okta Admin Console.
 
 ## Related topics
 
