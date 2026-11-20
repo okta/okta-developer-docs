@@ -210,8 +210,8 @@ After discovery succeeds, create the connection and then select the tools to exp
 
 <!--
   TODO before publishing (confirm, then remove this comment):
-  - Justin Abrokwah: does tool discovery for Okta-hosted MCP servers (Okta org authorization server) ship with this GA? The program page says scopes are chosen at configuration time. The 2026-10-28 thread says scopes stay on the agent connection. Add a bullet once confirmed.
-  - Kevin Tang (OKTA-1318840): does this guide document the discovery API, or does the Admin Console (Help Center) own discovery? Add request and response examples if the API is public.
+  - Justin Abrokwah: confirm tool discovery for Okta-hosted MCP servers (Okta org authorization server) ships with this GA. The program page (2026-11-19, v61) says it uses the same UI as the custom authorization server, with scopes chosen at configuration time and fine-grained control through tool-level policy. His PR was due to merge the week of 2026-11-16. Add a bullet once he confirms.
+  - Kevin Tang (OKTA-1318840, Resolved 2026-11-13): the discovery API layer is merged. Still confirm whether this guide documents the discovery API or the Admin Console (Help Center) owns discovery. Add request and response examples only if the API is public.
   - Ted Zhou / Kevin Huang / Ishan Korde: error handling when a requested scope isn't offered, or when the scope list comes back empty. Document the error once it is defined.
   - Raymond Jia / Kevin Huang: whether choosing all available scopes saves an explicit list or a wildcard. Affects how this section describes scope selection.
 -->
@@ -222,10 +222,10 @@ A resource connection authorizes the gateway to obtain tokens for a remote MCP s
 
 <!--
   TODO before publishing (confirm, then remove this comment):
-  - Isaiah Cummins / Daniel Zeller (OKTA-1306547): confirm the public connectionType for each XAA case. Per the 2026-11-01 thread in #agent-gateway-xaa, an external AS connection is modeled as STS_ACCESS_TOKEN and Okta uses the ID-JAG internally. The custom AS case is not confirmed.
+  - Isaiah Cummins / Daniel Zeller (OKTA-1306547, Resolved 2026-11-06): confirm the public connectionType for each XAA case. Per the 2026-11-01 thread in #agent-gateway-xaa, an external AS connection is modeled as STS_ACCESS_TOKEN and Okta uses the ID-JAG internally. The custom AS case is not confirmed. On 2026-11-20 Raymond Jia questioned this in #agent-gateway-xaa (okta-core PR 145019, whose 400 error says to "create an STS connection that uses client auth settings with the XAA purpose"). Daniel Zeller and Kamron Batmanghelich were tagged and had not replied. Wait for the answer before rewording this section or the "Separate credentials for XAA and STS" bullet.
   - Isaiah Cummins / Kamron Batmanghelich: what customers see in the API and the System Log when an ID-JAG is used. The thread left this open.
-  - Gianfranco Monzon / Isaiah Cummins: the final connection request shape. The v2 draft adds a credential object with credentialType (CLIENT_AUTH_SETTINGS or INTERNAL_AUTH_SETTINGS) and an orn. Not final.
-  - Isaiah Cummins / Mohamed Moselhy: how an admin adds the gateway to the custom AS policy so ID-JAG exchanges work. The API allows it today and a UI call is in progress. Add a step to this guide when it ships.
+  - Gianfranco Monzon / Isaiah Cummins: the final connection request shape. The v2 draft adds a credential object with credentialType (CLIENT_AUTH_SETTINGS or INTERNAL_AUTH_SETTINGS) and an orn. Not final. Also ask whether the V1 connection API accepts the XAA cases at GA, or only V2. The program page (v61) says gateway XAA must work with both V1 and V2 virtual MCP servers behind the V2 flag. This guide is V1-only today. If XAA is V2-only, write the XAA examples once during the post-release V2 rewrite (about 2026-12-09) instead of twice.
+  - Isaiah Cummins / Mohamed Moselhy (OKTA-1308930, in progress, due 2026-11-20): how an admin adds the gateway to the custom AS policy so ID-JAG exchanges work. Nakul Joshi and Daniel Zeller accepted an extra call to the existing /clients endpoint as a short-term workaround, with clients normalized on /oauth2/v1/clients longer term. Add a step to this guide when the UI ships.
 -->
 
 ### Create the connection
@@ -301,7 +301,7 @@ Keep the following in mind when the gateway uses XAA to get access tokens for a 
   TODO before publishing (confirm, then remove this comment):
   - Antoine Crepin / Kevin Huang: "Shared client identity" comes from the 2026-10-01 decisions. On 2026-10-21 Raymond Jia said the design must support multiple credential sets for gateways, so confirm it still holds.
   - Kevin Huang / Raymond Jia: the program page says one XAA configuration per authorization server. The 2026-10-28 design (option 3a) allows multiple configurations per MCP server. Confirm the limit before adding it here.
-  - Justin Abrokwah (Kevin Huang, 2026-11-12): confirm "Blocked deletion" ships for the XAA configuration at GA. Kevin Huang said to clean up the XAA validation to match brokered consent.
+  - Kevin Huang decided on 2026-11-12 to block deletion of an authorization server or credential set that tool discovery or the gateway uses, matching brokered consent. The follow-up stories OKTA-1326716, OKTA-1326717, and OKTA-1326718 (IDENTITY_ASSERTION removal error message) were still open on the program page (v61). Confirm with Justin Abrokwah and Kevin Tang that "Blocked deletion" ships at GA.
   - Daniel Zeller / Antoine Crepin: where scopes are stored (a single scopes field or scopes plus accessTokenScopes) before describing scope behavior in more detail.
 -->
 
