@@ -176,21 +176,36 @@ ServiceNow issues a token without these scopes, but the AI agent APIs then retur
 
 ### Create the AI agent in AI Agent Studio
 
-If you don't already have an AI agent to call, create one. In ServiceNow, go to **AI Agent Studio** > **Create and manage**, and use the following settings:
+If you don't already have an AI agent to call, create one. In ServiceNow, go to **AI Agent Studio** > **Home** > **Create new agentic solution** > **New AI agent for a task**, and use the following settings:
 
 | Setting | Value | Why it matters |
 | --- | --- | --- |
 | Name and description | For example, `Okta E2E Test Agent` | These fields are mandatory |
 | Role and instructions | For example, "You greet users. The message tells you the user's name and email. Reply with one friendly sentence that includes their name." | Defines what the AI agent does with the identity text that your wrapper sends |
 | Tool | A **Script** tool, for example, `Greet User`, with an input named `name` (string) that returns `'Hello ' + name + ', ServiceNow received your request through Okta.'`. Set the execution mode to **Autonomous**. | With no tool, the run completes but the AI agent answers that it can't complete the task |
-| External discoverable | On | When this is off, which is the default, the AI agent APIs answer *"No agent available"* |
-| Active | On | |
+| Third-party access | On | When this is off, which is the default, the AI agent APIs answer *"No agent available"*. This checkbox appears only if an admin first turns on **Allow third party to access ServiceNow AI agents** in **AI Agent Studio** > **Settings** > **External AI agents** > **Discoverability** |
+| Active | On | The AI agent must be active to run. In the current UI, **Active** is the state of the AI agent, and you set it with the **Activate** action when you finish creating it |
+| Allowed users | **Any authenticated user**, or a role that the service user holds | ServiceNow checks the service user against this access rule when your wrapper invokes the AI agent. With **Users with specified roles**, the service user must hold at least one of the selected roles, or the invocation fails |
 
-Note the AI agent's `sys_id`. Use the AI agent record (`sn_aia_agent`), not an `sn_aia_agent_config` row. You need it for `SN_AGENT_SYS_ID`.
+> **Note:** In the legacy AI Agent Studio UI, go to **AI Agent Studio** > **Create and manage** to create the AI agent. The **Third-party access** checkbox is called **External discoverable** there. **External discoverable** and **Active** are settings on the AI agent's configuration record (`sn_aia_agent_config.public` and `sn_aia_agent_config.active`). Both must be on.
+
+Note the AI agent's `sys_id`. You need it for `SN_AGENT_SYS_ID`. To find it, open the AI agent in AI Agent Studio. The `sys_id` is the last segment of the browser URL:
+
+```text
+https://example.service-now.com/now/agent-studio/agent-setup/<sys_id>
+```
+
+You can also query the table API for the AI agent by name, with the following request:
+
+```text
+GET /api/now/table/sn_aia_agent?sysparm_query=name=<agent name>&sysparm_fields=sys_id,name
+```
+
+Use the AI agent record (`sn_aia_agent`), not an `sn_aia_agent_config` row.
 
 > **Important:** Every tool that the AI agent uses must be accessible to the service user. A Now Assist skill that was attached as a tool was denied for the service user, and every run ended with **Terminated: Security Violation**. A Script tool passed the same check.
 
-<span style="color: #c0392b;">**TODO:** The AI Agent Studio field labels and settings in this table come from engineering's test run on a ServiceNow developer instance. ServiceNow's [Create an AI agent](https://www.servicenow.com/docs/r/intelligent-experiences/create-aia-new.html) page describes a different path (**AI Agent Studio** > **Home** > **Create new agentic solution** > **New AI agent for a task**) and an **Activate** button. It doesn't use the labels **External discoverable** or **Active**, and it doesn't say where to find the sys_id. ServiceNow's [Define access rules for an AI agent](https://www.servicenow.com/docs/r/intelligent-experiences/define-sec-aia-new.html) page describes two settings that may relate to **External discoverable**: the **Third-party access** checkbox (only third-party AI agents with the correct user access can invoke the AI agent) and the **Allowed users** dropdown (who can discover or invoke the AI agent, which generates an ACL). No ServiceNow page links either setting to the "No agent available" error. Confirm the following on a current instance: the navigation path for creating an AI agent, which setting (if either) the "No agent available" error depends on and what it's called in the UI, whether **Active** corresponds to the **Activate** button, and where an admin finds the sys_id.</span>
+<span style="color: #c0392b;">**TODO:** Engineering confirmed the settings, the `sys_id` location, and the legacy navigation path on a developer instance that used the legacy AI Agent Studio UI. A follow-up says that **External discoverable** is now the **Third-party access** checkbox, that the checkbox depends on a global **Allow third party to access ServiceNow AI agents** setting, that **Active** is the state that the **Activate** action sets, and that the service user must pass the **Allowed users** access rule. The follow-up names no ServiceNow source, and engineering didn't run the current UI. Confirm those labels and the global setting path on a current instance, using ServiceNow's [Create an AI agent](https://www.servicenow.com/docs/r/intelligent-experiences/create-aia-new.html) and [Define access rules for an AI agent](https://www.servicenow.com/docs/r/intelligent-experiences/define-sec-aia-new.html) pages. Also confirm which **Allowed users** value engineering used in the verified run, because the guide's service user holds `sn_aia.admin` and `web_service_admin`, and the follow-up mentions other roles (`sn_aia.integration`) that this guide doesn't grant.</span>
 
 ### Collect your configuration values
 
@@ -504,7 +519,7 @@ The following errors are specific to the ServiceNow integration:
 | Client credentials token request fails even with correct credentials | The `glide.oauth.inbound.client.credential.grant_type.enabled` system property is missing or set to `false` | Set the property to `true` in `sys_properties.list` |
 | `403` with `Missing required api access scope: List AI Agents`, while the token request returned `200` | The Application Registry lacks that auth scope | In the registry's **Auth Scopes** section, add **List AI Agents** |
 | `403` with `Missing required api access scope` on `/api/sn_aia/...` calls | The Application Registry lacks the `a2aauthscope` auth scope | In the registry's **Auth Scopes** section, add `a2aauthscope` |
-| *"No agent available"* from the AI agent APIs | The AI agent isn't **External discoverable** | Turn on **External discoverable** for the AI agent |
+| *"No agent available"* from the AI agent APIs | The AI agent doesn't allow third-party access (`sn_aia_agent_config.public` is off), or the global third-party setting is off | Turn on **Third-party access** for the AI agent. If the checkbox isn't visible, turn on **Allow third party to access ServiceNow AI agents** first. In the legacy UI, turn on **External discoverable** |
 | The invoke call returns `status: "Success"` with an empty `result` | The AI agent invoke API is asynchronous | Read the answer from the execution tables. See [Read the answer from ServiceNow](#read-the-answer-from-servicenow) |
 | The run ends with **Terminated: Security Violation** | The service user can't run one of the AI agent's tools. This happened with a Now Assist skill attached as a tool | Use a tool that the service user can run, such as a Script tool, or grant the service user access to the tool |
 | The run ends with **Terminated: Execution Failed**, and the tool task stays `ongoing` | The Script tool didn't return a value | Return a string from the script, and check that the input name matches |
