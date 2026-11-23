@@ -90,7 +90,7 @@ Register the trust domain of the SPIFFE IDs that your workloads use. The registr
 Complete this task before you configure any client. Okta rejects a client configuration, and token requests from a CIMD client, when the trust domain of the SPIFFE ID isn't registered.
 
 1. Find the trust domain of your workloads' SPIFFE IDs and the HTTPS URL of its bundle endpoint. Both come from your SPIFFE implementation. For `spiffe://example.org/payments-service`, the trust domain is `example.org`.
-1. Send a `POST` request to the [Create a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/createspiffetrustdomainregistration) endpoint to register the trust domain.
+1. Send a `POST` request to the [Create a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/spiffetrustdomainregistration/other/createspiffetrustdomainregistration) endpoint to register the trust domain.
    1. Set `trustDomain` to the trust domain and `bundleUrl` to the HTTPS URL of the bundle endpoint.
    1. Save the `id` from the response. You need it to update or delete the registration.
    [[style="list-style-type:lower-alpha"]]
@@ -305,11 +305,11 @@ If authentication fails, Okta returns an `invalid_client` error. Check the follo
 
 A trust domain registration tells Okta where to get the keys that verify JWT-SVIDs from that trust domain. Keep the trust domain in sync with your SPIFFE setup. Update the registration if the URL of the bundle endpoint changes. Delete it if you stop using the trust domain, or to make room under the limit of 100 registrations per org.
 
-The following tasks change the trust domain registration, but not the clients that use it. Each request needs the ID of the registration. To find it, send a `GET` request to the [List all SPIFFE trust domain registrations](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/listspiffetrustdomainregistrations) endpoint with the query `search=trustDomain eq "example.org"`.
+The following tasks change the trust domain registration, but not the clients that use it. Each request needs the ID of the registration. To find it, send a `GET` request to the [List all SPIFFE trust domain registrations](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/spiffetrustdomainregistration/other/listspiffetrustdomainregistrations) endpoint with the query `search=trustDomain eq "example.org"`.
 
 #### Update the bundle endpoint
 
-Update the registration when your SPIFFE implementation serves the trust domain's bundle from a different URL. Until you update it, Okta keeps requesting the old URL. To change the bundle endpoint of a trust domain, send a `PUT` request to the [Replace a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/replacespiffetrustdomainregistration) endpoint. Include the new `bundleUrl` and the existing `trustDomain` in the request body. The request can't change the `trustDomain`. If a CIMD document includes `spiffe_bundle_endpoint`, it must match the new `bundleUrl`, so ask the app owner to update it.
+Update the registration when your SPIFFE implementation serves the trust domain's bundle from a different URL. Until you update it, Okta keeps requesting the old URL. To change the bundle endpoint of a trust domain, send a `PUT` request to the [Replace a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/spiffetrustdomainregistration/other/replacespiffetrustdomainregistration) endpoint. Include the new `bundleUrl` and the existing `trustDomain` in the request body. The request can't change the `trustDomain`. If a CIMD document includes `spiffe_bundle_endpoint`, it must match the new `bundleUrl`, so ask the app owner to update it.
 
 ```bash
 curl -i -X PUT \
@@ -332,7 +332,7 @@ Delete the registration when you no longer use the trust domain, for example aft
    [[style="list-style-type:lower-alpha"]]
    1. Send a `GET` request to the [List all AI agents](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/listaiagents) endpoint with the query `spiffeTrustDomainId={trustDomainRegistrationId}`.
 1. Stop using the trust domain in each app integration and AI agent that the requests return, whether it's active or inactive. For an app integration, change its authentication method, change its `spiffe_id` to a SPIFFE ID in another registered trust domain, or delete it. For an AI agent, change or delete it.
-1. Send a `DELETE` request to the [Delete a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/management/spiffetrustdomainregistration/deletespiffetrustdomainregistration) endpoint to delete the registration. A successful request returns `204 No Content`.
+1. Send a `DELETE` request to the [Delete a SPIFFE trust domain registration](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/spiffetrustdomainregistration/other/deletespiffetrustdomainregistration) endpoint to delete the registration. A successful request returns `204 No Content`.
 
    ```bash
    curl -i -X DELETE \
