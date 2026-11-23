@@ -11,6 +11,14 @@ Access Gateway generates the `clientId` and `clientSecret` for your app. You don
     1. In the `oidc` object, set `redirectUris` as your client app's callback URL.
     1. In the `oidc` object, for `allowedScopes`, include any combination of `openid`, `profile`, `email`, and `offline_access`. This determines which scopes the app can request.
     1. In the `oidc` object, for `accessTokenLifetime` and `refreshTokenLifetime`, set the desired values in seconds. These determine how long tokens issued for this app are valid.
+    1. Optional. In the `oidc` object, set `codeChallengeMethod` to the PKCE code challenge method that the app must use. This applies only when `pkceRequired` is `true`. The only supported value is `S256`, which is the default.
+    1. Optional. In the `oidc` object, configure sign-out behavior for the app:
+        * Set `postLogoutRedirectUris` to the URIs that the user can be redirected to after signing out.
+        * Set `frontChannelLogoutEnabled` to `true` and `frontChannelLogoutUrl` to the URL that signs the user out of the app by using front-channel logout. Set `frontChannelLogoutSessionRequired` to `true` to include the session ID (`sid`) and issuer (`iss`) in the request.
+        * Set `backChannelLogoutUrl` to the URL that signs the user out of the app by using back-channel logout. Set `backChannelLogoutSessionRequired` to `true` to include the session ID (`sid`) in the logout token. Set `backChannelLogoutRevokeOfflineSessions` to `true` to revoke offline sessions (refresh tokens) when the back-channel logout request is sent.
+        * Set `logoutConfirmationRequired` to `true` to require the user to confirm sign-out.
+
+        The logout properties default to `false`. All logout URLs must use HTTPS, except for `localhost` and `127.0.0.1`, and can't contain wildcards.
     [[style="list-style-type:lower-alpha"]]
 1. Send the POST request.
 
@@ -40,6 +48,7 @@ curl -i -X POST \
       ],
       "tokenEndpointAuthMethod": "client_secret",
       "pkceRequired": true,
+      "codeChallengeMethod": "S256",
       "allowedScopes": [
         "openid",
         "profile",
@@ -47,7 +56,17 @@ curl -i -X POST \
         "offline_access"
       ],
       "accessTokenLifetime": 3600,
-      "refreshTokenLifetime": 86400
+      "refreshTokenLifetime": 86400,
+      "postLogoutRedirectUris": [
+        "https://example.com/signed-out"
+      ],
+      "frontChannelLogoutEnabled": true,
+      "frontChannelLogoutUrl": "https://example.com/frontchannel-logout",
+      "frontChannelLogoutSessionRequired": true,
+      "backChannelLogoutUrl": "https://example.com/backchannel-logout",
+      "backChannelLogoutSessionRequired": true,
+      "backChannelLogoutRevokeOfflineSessions": false,
+      "logoutConfirmationRequired": false
     }
   }'
 ```
@@ -77,6 +96,7 @@ curl -i -X POST \
     ],
     "tokenEndpointAuthMethod": "client_secret",
     "pkceRequired": true,
+    "codeChallengeMethod": "S256",
     "allowedScopes": [
       "openid",
       "profile",
@@ -85,7 +105,17 @@ curl -i -X POST \
     ],
     "accessTokenLifetime": 3600,
     "refreshTokenLifetime": 86400,
-    "clientCredentialsEnabled": false
+    "clientCredentialsEnabled": false,
+    "postLogoutRedirectUris": [
+      "https://example.com/signed-out"
+    ],
+    "frontChannelLogoutEnabled": true,
+    "frontChannelLogoutUrl": "https://example.com/frontchannel-logout",
+    "frontChannelLogoutSessionRequired": true,
+    "backChannelLogoutUrl": "https://example.com/backchannel-logout",
+    "backChannelLogoutSessionRequired": true,
+    "backChannelLogoutRevokeOfflineSessions": false,
+    "logoutConfirmationRequired": false
   },
   "_embedded": {
     "behavior": {
