@@ -278,7 +278,7 @@ Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/gover
 
 If you need to find the request ID to cancel, use [List all requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2) to search for your desired request with the `filter` query parameter.
 
-> **Note:** You can't cancel a request if any of its tasks are already resolved.
+> **Note:** You can't cancel your own a resolved (`COMPLETED`) request (that you requested). As an Access Request admin, you can cancel all other requests.
 
 | **API** | Access Requests - V2 |
 | ------- | --------- |
@@ -582,4 +582,4 @@ curl -v -X PATCH \
 The following System Logs are triggered when you manage access request tasks and requests:
 
 * [access.request.cancel](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.cancel): When an access request has been canceled
-* [access.request.update](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.update): When an update to an access request has been made, such as changes to the request tasks
+* [access.request.update](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.update): When an update to an access request has been made, such as changes to the request tasks. These task changes include a status change, an assignee change, or a question is answered for the first time.
