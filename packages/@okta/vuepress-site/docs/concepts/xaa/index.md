@@ -160,13 +160,13 @@ If you're an ISV and want to add your resource app with XAA capabilities to the 
 
 ### OIN integrations that support Cross App Access
 
-The following integrations in the [OIN catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) support XAA. The table includes the following columns:
+The following integrations in the [OIN catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) support XAA. For the integrations that support AI agent imports, see [Apps that support AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-import-supported-apps.htm). The table includes the following columns:
 
 * **XAA role**: The role that the integration takes in the XAA flow, based on the [Cross-App Access implementations](https://oauth.net/cross-app-access/) on oauth.net and on Okta integration data:
   * **Client**: The requesting app that accesses a protected resource on behalf of the user.
   * **Resource app**: The app that contains the protected resources.
   * **Gateway**: A service that brokers XAA connections between AI agents and resource apps.
-* **AI agent import**: Whether Okta for AI Agents can import AI agents from the integration. See [Apps that support AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-import-supported-apps.htm).
+* **AI agent import**: Whether Okta for AI Agents can import AI agents from the integration.
 
 | Integration | XAA role | AI agent import |
 | ----------- | -------- | --------------- |
@@ -203,5 +203,3 @@ The following integrations in the [OIN catalog](https://www.okta.com/integration
 | [Willow](https://www.okta.com/integrations/willow/) | Gateway | — |
 | [Zendesk](https://www.okta.com/integrations/zendesk/) | Resource app | — |
 | [Zoom](https://www.okta.com/integrations/zoom/) | Client, resource app | — |
-
-> **Note:** More integrations appear in the OIN catalog as they add XAA support. For the current list, filter the [OIN catalog](https://www.okta.com/integrations/?filters=okta%3Aoin%2Ffunctionalities%2Fcross-app-access) by **Cross App Access**.
