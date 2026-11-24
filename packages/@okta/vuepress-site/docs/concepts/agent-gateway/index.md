@@ -112,6 +112,7 @@ The following sequence occurs when an admin deactivates an AI agent:
 1. The gateway doesn't use cached downstream credentials for a request that it rejects, so the AI agent can't reach the remote service.
 
 Agent Gateway records the deactivation within seconds, and enforcement begins then. Enforcement isn't instant. It can be delayed if the gateway can't process the deactivation event.
+
 While the AI agent is deactivated, Okta refuses to issue it new tokens. When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
 
 Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
