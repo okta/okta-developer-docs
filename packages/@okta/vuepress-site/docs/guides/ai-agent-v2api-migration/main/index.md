@@ -29,7 +29,7 @@ Okta for AI Agents has V2 versions of its APIs. The V2 endpoints use the `/api/v
 
 > **Note:** Okta is deprecating the V1 APIs and plans to end support for them on April 30, 2027. <!-- Source: Lalitha Pidaparthi, #secureai-apis-ga, 2026-11-19, with Jeff Taylor agreeing: Okta is tracking April 30 as the soft shutdown, and it's OK to publish April 30 as the end-of-life date in the developer docs. Okta grants extensions only on a need basis, through a review and approval process (see the "Comms for API v1 Deprecation" Google doc that Lalitha shared). Lalitha didn't state the year. Susan confirmed 2027 on 2026-11-20. The Confluence page "O4AA API V1 Deprecation and EOL Strategy" (EH 1142655530, version 8, last edited 2026-10-21) still has no dates, so it's stale. The "Comms for API v1 Deprecation" Google doc tells customers to move by April 23, 2027 and calls April 30 the soft shutdown. Susan decided on 2026-11-24 to keep April 30, 2027 in the guide. -->
 
-Until then, both versions work side by side. The V1 reference pages remain available and are marked as deprecated.
+Until then, both versions work side by side. The V1 reference pages remain available, and Okta marks them as deprecated.
 
 ### Who needs to migrate
 
@@ -43,8 +43,8 @@ V2 offers these benefits:
 
 - **Fewer round trips:** Most write operations return the result instead of `202 Accepted`. You no longer poll an operation after you create, update, delete, activate, or deactivate an object. Your client tracks less state, and the Operations APIs have fewer operation types.
 - **Simpler responses:** V2 drops `_links` from individual objects, and lists return plain URL strings. Use the `links` query parameter to request only the links that you need. Page through lists with the `Link` response header.
-- **One model for connections:** One Resource Connections collection replaces the separate connection APIs for agents, MCP servers, and Agent Gateways. Reverse lookups and potential connections use `search`.
-- **Cleaner requests:** V2 removes deprecated properties, such as `appId`. Use the Delegation Links API instead. Related request properties are grouped together, and you link authorization servers by `orn`. Filtering and sorting providers are part of the base API.
+- **One model for connections:** One Resource Connections collection replaces the separate connection APIs for agents, Model Context Protocol (MCP) servers, and Agent Gateways. Reverse lookups and potential connections use `search`.
+- **Cleaner requests:** V2 removes deprecated properties, such as `appId`. Use the Delegation Links API instead. V2 groups related request properties together, and you link authorization servers by `orn`. Filtering and sorting providers are part of the base API.
 - **Asynchronous only where needed:** Long-running work, such as provider import and staging or MCP server discovery, stays asynchronous. Everything else returns immediately.
 
 <!-- Why migrate, regrouped on 2026-11-19. Susan decided on 2026-11-17 to wait for all dev summaries and then generalize them into a few themes, not an exhaustive list per API. She said on 2026-11-19 that no more summaries are coming, so the five bullets cover the whole guide: synchronous writes (summary table, AI Agent Registration, MCP Server Registrations, API Server Registration, Agent-to-Agent Server Registrations), links (Changes that affect most APIs), Resource Connections (summary table and section), removed properties and grouped request properties (summary table rows for registration, capabilities, and client authentication settings), and the asynchronous exceptions (discovery-based registration, resourceUrl changes, and discovery). The Operations bullet text matches the Workload Principal Operations and Resource Server Operations rows. -->
@@ -55,7 +55,7 @@ V2 offers these benefits:
 
 Many V2 APIs share the same changes:
 
-- **Links:** V2 responses don't include `_links` on individual objects. `_links` are returned only on lists, for pagination. Where V2 returns `_links`, the values are plain URL strings instead of objects with an `href`. Some APIs add a `links` query parameter that selects which links the response includes.
+- **Links:** V2 responses don't include `_links` on individual objects. Lists include `_links` only for pagination. Where V2 returns `_links`, the values are plain URL strings instead of objects with an `href`. Some APIs add a `links` query parameter that selects which links the response includes.
 - **Agent Gateways:** V2 renames virtual MCP servers to Agent Gateways. The paths change from `/virtual-mcp-servers` to `/agent-gateways`. See [Virtual MCP Server Registrations](#virtual-mcp-server-registrations-agent-gateways) and [Virtual MCP Servers](#virtual-mcp-servers-agent-gateways).
 - **Synchronous writes:** Write operations that were asynchronous in V1 are synchronous in V2. Calls that returned `202 Accepted` now return `200`, `201`, or `204`. You no longer poll an operation to get the result.
 
@@ -75,7 +75,7 @@ Use this table to find the API that you call. Select the link in the last column
 | Delegation Links | Available | `_links` removed from individual objects. `to.authorizationServerOrn` removed from create requests. New `ID_TOKEN` links can't be created. | [Delegation Links](#delegation-links) |
 | AI Agent Providers | Available | `_links` removed. `configuration` references a client authentication settings object instead of holding OAuth credentials. Filtering and sorting are part of the base API. | [AI Agent Providers](#ai-agent-providers) |
 | AI Agent Schema | Available | `_links` removed from the response. | [AI Agent Schema](#ai-agent-schema) |
-| **MCP, API, and A2A servers** | | | |
+| **MCP, API, and Agent-to-agent (A2A) servers** | | | |
 | MCP Server Registrations | Available | Writes are synchronous, except discovery-based registration and `resourceUrl` changes. `_links` and `detectedMetadata` removed. Request properties moved under `metadata`. Authorization servers are linked by `orn`. | [MCP Server Registrations](#mcp-server-registrations) |
 | MCP Server OAuth Client and Credentials | Available | The path version changes. `_links` removed from JWK responses and from the JWK list. `status` is no longer accepted when you add a key. | [MCP Server OAuth Client and Credentials](#mcp-server-oauth-client-and-credentials) |
 | MCP Server Capabilities | Available | Discovery request properties moved under `credential`. `CLIENT_AUTH_SETTINGS` renamed `BROKERED_CONSENT`. `_links` removed from individual objects. Discovery is asynchronous. | [MCP Server Capabilities](#mcp-server-capabilities) |
@@ -89,7 +89,7 @@ Use this table to find the API that you call. Select the link in the last column
 | **Operations and other APIs** | | | |
 | Workload Principal Operations | Available | `_links` removed from individual objects. Operation types for registration writes removed. | [Workload Principal Operations](#workload-principal-operations) |
 | Resource Server Operations | Available | `_links` removed from the `resource`, and `orn` added. Fewer operation types. | [Resource Server Operations](#resource-server-operations) |
-| STS Authorization | Not applicable | No V2 version. Keep using the V1 STS callback endpoint. | [STS Authorization](#sts-authorization) |
+| STS Authorization | Not applicable | No V2 version. Keep using the V1 Security Token Service (STS) callback endpoint. | [STS Authorization](#sts-authorization) |
 
 ## AI Agent Registration
 
@@ -567,7 +567,7 @@ The V2 response from `GET /resource-servers/api/v2/agent-gateways/wlp1aB2cD3eF4g
 
 For the V2 calls, see the [Agent Credentials API reference](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpublickeyv2).
 
-The endpoints, operations, request bodies, scopes, and response codes are the same in V1 and V2. This applies to JSON Web Keys (JWKs), client secrets, public key mode, and the JWKS URI. The `_links` format, the list response shape, and a new `links` query parameter differ.
+The endpoints, operations, request bodies, scopes, and response codes are the same in V1 and V2. This applies to JSON Web Keys (JWKs), client secrets, public key mode, and the JSON Web Key Set (JWKS) URI. The `_links` format, the list response shape, and a new `links` query parameter differ.
 
 Errors are still `E0000001` with the same `errorCauses` messages. For example, the 50-key limit and the message that you can't delete an active key are unchanged.
 
@@ -897,7 +897,7 @@ This V2 response has the same attributes and no `_links`:
 }
 ```
 
-### Filtering and sorting
+### Filters and sort order
 
 The list call, `GET /workload-principals/api/v2/ai-agent-providers`, takes these query parameters.
 
@@ -1094,7 +1094,7 @@ MCP server, API server, and A2A server registrations share the same changes to h
 
 In V1, you add an authorization server inline. The request includes a `type` and, for a manual server, the issuer and endpoints.
 
-In V2, you link an existing authorization server by its `orn`. External authorization servers are a separate resource. Create them first with the External Authorization Servers API, then link them. For an Okta custom authorization server, you only link it by `orn`.
+In V2, you link an existing authorization server by its `orn`. External authorization servers are a separate resource. Create them first with the External Authorization Servers API, and then link them. For an Okta custom authorization server, you only link it by `orn`.
 
 | Area | V1 | V2 |
 | --- | --- | --- |
@@ -1192,7 +1192,7 @@ V2 documents `409` on register and update, for a duplicate `resourceUrl` or `dis
 | `detectedMetadata` | Separate object with `lastRefreshedAt`, `resourceName`, and `scopesSupported` | Removed. Those properties are read-only properties of `metadata`. |
 | `_embedded` | Returned only when you pass `expand=stats` | Always returned, with `counts.authorizationServers` and `counts.clientAuthSettings` |
 | `expand` query parameter | Supported on list and retrieve | Removed |
-| `orgConfigPropertyValues` | Request only | Also returned for servers registered from the OIN catalog |
+| `orgConfigPropertyValues` | Request only | Also returned for servers registered from the Okta Integration Network (OIN) catalog |
 | List `search` on the resource name | `detectedMetadata.resourceName` | `metadata.resourceName` |
 | `_links` | `self` and `authorization-servers` | Removed on objects. On a list, plain URL strings and a `Link` response header for pagination. |
 
@@ -1212,7 +1212,7 @@ The changes in [Authorization servers for resource servers](#authorization-serve
 - Read `resourceName`, `lastRefreshedAt`, and `scopesSupported` from `metadata` instead of `detectedMetadata`.
 - Stop passing `expand`. Read `_embedded.counts`.
 - Poll an operation only after you register a `DISCOVERABLE` server or change a `resourceUrl`.
-- Create external authorization servers first, then link them by `orn`.
+- Create external authorization servers first, and then link them by `orn`.
 
 ### Examples
 
@@ -1379,7 +1379,7 @@ In V2, create the external authorization server first, as shown in [Authorizatio
 }
 ```
 
-The V2 response is `201 Created` with a link object. The `authorizationServer` is embedded, and the outer `created` and `lastUpdated` describe the link:
+The V2 response is `201 Created` with a link object. The link object embeds the `authorizationServer`, and the outer `created` and `lastUpdated` describe the link:
 
 ```json
 {
@@ -1886,13 +1886,13 @@ The changes in [Authorization servers for resource servers](#authorization-serve
 | Update request | Changes the authorization server, including `tenantId` | `PATCH` on the link changes only `protocolConfigurations`. The authorization server isn't changed. |
 | API server without an app instance | | Sending `protocolConfigurations` returns `400`. |
 
-Okta emits the tenant ID as the `aud_tenant` claim in the ID-JAG token. To change it on an existing link, send a `PATCH` request to `/resource-servers/api/v2/api-servers/{apiServerId}/authorization-servers/{authorizationServerId}` with the `application/merge-patch+json` content type. Omitted properties stay the same. Set `tenantId` to `null` to clear it. A request that changes nothing returns `200` with the unchanged link.
+Okta emits the tenant ID as the `aud_tenant` claim in the Identity Assertion JWT Authorization Grant (ID-JAG) token. To change it on an existing link, send a `PATCH` request to `/resource-servers/api/v2/api-servers/{apiServerId}/authorization-servers/{authorizationServerId}` with the `application/merge-patch+json` content type. Omitted properties stay the same. Set `tenantId` to `null` to clear it. A request that changes nothing returns `200` with the unchanged link.
 
 ### What to change
 
 - Move `displayName`, `description`, `scopesSupported`, and `app` under `metadata` in create and update requests.
 - Stop parsing `_links`.
-- Create external authorization servers first, then link them by `orn`.
+- Create external authorization servers first, and then link them by `orn`.
 - Stop polling operations for API server writes.
 
 ### Examples
@@ -2210,7 +2210,7 @@ The `name`, `protocol`, `resourceOrn`, and `authorizationServerOrn` properties a
 
 ### Valid grant types by purpose
 
-Okta rejects a grant type that isn't allowed for the purpose.
+Okta rejects a grant type that the purpose doesn't allow.
 
 | Purpose | V1 | V2 |
 | --- | --- | --- |
@@ -2278,7 +2278,7 @@ This example creates client authentication settings for an MCP server resource. 
 }
 ```
 
-Send the V2 request to `POST /resource-servers/api/v2/client-auth-settings`. The OAuth fields are under `oauthClientConfiguration`, and `grantTypes` and `credentialType` are included:
+Send the V2 request to `POST /resource-servers/api/v2/client-auth-settings`. The OAuth fields move under `oauthClientConfiguration`, and the request adds `grantTypes` and `credentialType`:
 
 ```json
 {
@@ -2391,7 +2391,7 @@ Send the V2 request to `POST /resource-servers/api/v2/client-auth-settings`:
 }
 ```
 
-Both versions return `201` with the settings, in the same shape as the previous responses. Use the settings ORN in your [STS connection to the Okta MCP Server](#connect-to-the-okta-mcp-server).
+Both versions return `201` with the settings, in the same shape as the previous responses. Use the Okta Resource Name (ORN) of the settings in your [STS connection to the Okta MCP Server](#connect-to-the-okta-mcp-server).
 
 <!-- Source for the Okta MCP Server STS settings: the V1 request is the spec example CreateClientAuthSettingsSTSOktaMcpServerExample from okta-oas3 PR 4402 (Justin Abrokwah, commit 1bcb482ba, merged 2026-11-17, gated by XAA_OKTA_MCP_SERVER). The V2 request was first built from the V2 property changes above and verified live on 2026-11-17: V2 create returned 201 with purposes STS, protocol OAUTH2, STATIC registration, and grantTypes authorization_code. Justin confirmed on 2026-11-19 that the request is correct for V2 and that no other property is needed. He added the same V2 example to the spec in okta-oas3 PR 4427 (commit 0780227a1, merged 2026-11-19, CreateClientAuthSettingsSTSOktaMcpServerV2Example, gated by XAA_OKTA_MCP_SERVER). The scope okta.users.read is from the PR's connection examples. In my test the client ID was the test app's own, so the credentials aren't a real STS client. Justin also confirmed on 2026-11-19 that STS and identity assertion to the Okta MCP Server work at release, for Okta for AI Agents orgs when XAA_OKTA_MCP_SERVER is enabled. -->
 
@@ -3318,7 +3318,7 @@ This V2 response from `GET /resource-servers/api/v2/operations/op-1a2b3c4d` has 
 }
 ```
 
-A failed operation has a `status` of `FAILED` and an `errorDetails` object. This V2 response is from a `client-auth-settings:Create` operation for DCR settings, where registration with the authorization server failed. The `resource` is missing, because Okta didn't create the settings. V1 returns the same `errorDetails`:
+A failed operation has a `status` of `FAILED` and an `errorDetails` object. This V2 response is from a `client-auth-settings:Create` operation for Dynamic Client Registration (DCR) settings, where registration with the authorization server failed. The `resource` is missing, because Okta didn't create the settings. V1 returns the same `errorDetails`:
 
 ```json
 {
