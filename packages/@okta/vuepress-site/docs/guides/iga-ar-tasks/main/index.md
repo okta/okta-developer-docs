@@ -34,6 +34,8 @@ You can perform the following operations with these APIs:
 * Monitor in-flight requests: Query active tasks, assignees, and timestamps to build real-time reporting dashboards for system health and SLA tracking.
 * Cancel requests: Programmatically allow admins and end users to cancel unnecessary requests.
 
+See [Access Requests](https://help.okta.com/okta_help.htm?type=oie&id=ext-ar) in the product documentation for access request concepts and Admin Console task procedures.
+
 ## Make secure API requests with OAuth 2.0
 
 <CreateOAuth2Token/><br>
