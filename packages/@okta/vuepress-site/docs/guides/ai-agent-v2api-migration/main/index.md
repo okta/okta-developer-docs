@@ -14,7 +14,7 @@ Learn how the Okta for AI Agents V2 APIs differ from the V1 APIs, and what to ch
 
 - Understand which Okta for AI Agents APIs have a V2 version.
 - Identify the changes that affect your API calls.
-- Update your requests and response handling for V2.
+- Update your request and response handling for V2.
 
 #### What you need
 
@@ -33,7 +33,7 @@ Until then, both versions work side by side. The V1 reference pages remain avail
 
 ### Who needs to migrate
 
-You need to migrate if you call the Okta for AI Agents APIs directly. For example, you call them from Postman, scripts, your own applications, or AI agents.
+You need to migrate if you call the Okta for AI Agents APIs directly. For example, you call them from Postman, scripts, your own apps, or AI agents.
 
 If you only use the Admin Console, you don't need to do anything. The Admin Console calls the V2 APIs for you.
 
