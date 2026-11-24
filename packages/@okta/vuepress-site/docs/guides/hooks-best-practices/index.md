@@ -76,11 +76,11 @@ See inline hook [Time out and retry](/docs/concepts/inline-hooks/#timeout-and-re
 
 ## Limits, duplicates, and order of hook calls
 
-The number of hook calls and the limits per org are available in the following table. Keep in mind these numbers and limits when designing your hook solution.
+The number of hook calls and the limits per org are available in the following table. Consider these limits when you design your hook solution.
 
-Your external service that processes hook requests must consider that the order of events or inline hook calls aren't guaranteed. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
+Your external service that processes hook requests must consider that the order of events or inline hook calls isn't guaranteed. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
 
-For information on event hook delivery, see [Ongoing event delivery](/docs/concepts/event-hooks/#ongoing-event-delivery).
+Event hook requests can batch multiple events, including different event types, in one `data.events` array. See [Ongoing event delivery](/docs/concepts/event-hooks/#ongoing-event-delivery).
 
 | Hook type | Limit type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
