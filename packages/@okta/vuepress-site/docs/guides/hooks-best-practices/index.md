@@ -80,6 +80,8 @@ The number of hook calls and the limits per org are available in the following t
 
 Your external service that processes hook requests must consider that the order of events or inline hook calls aren't guaranteed. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
 
+For information on event hook delivery, see [Ongoing event delivery](/docs/concepts/event-hooks/#ongoing-event-delivery).
+
 | Hook type | Limit type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
 | Event hook | Number of daily events | 400,000 | A maximum of 400,000 applicable events that trigger event hooks, per org, per day. Event hooks aren't recorded or replayed after this point. If a request times out after three seconds, event hooks are retried once. Retries don't count toward the org limit.

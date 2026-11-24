@@ -67,7 +67,15 @@ See [Event hooks](/docs/guides/event-hook-implementation) for an example of an e
 
 After verification, for ongoing notification of events, Okta sends HTTPS POST requests to your service. The JSON payload of these requests is where Okta provides specific information about events that have occurred.
 
-Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array that contains multiple events in a single POST request. Events that occur within a short time of each other are amalgamated in the array, and each array element contains information on one event.
+Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array. Events that occur within a short time of each other are batched into a single POST request, and each array element contains information on one event. Your service must process every element in the array, not only the first one.
+Batching has the following characteristics:
+
+* Okta batches events for each event hook. A single POST request never contains events for more than one event hook.
+* If an event hook is registered for one event type, a payload can contain multiple occurrences of that event type.
+* If an event hook is registered for multiple event types, a payload can contain a mix of those event types. Check the `eventType` of each element, and route each event to the right logic.
+* A payload contains at most 100 events.
+* The order of events in the array isn’t guaranteed. For example, the event that occurred first can be the last element in the array. To establish ordering, use the published property of each event.
+* You can’t configure or turn off batching. Okta controls batching and can change it. Don’t assume any batching behavior beyond what this section describes.
 
 The content of each array element is an object of the `LogEvent` type. This is the same object that the System Log API defines for system log events. See the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) for information on the object and its sub-objects.
 
