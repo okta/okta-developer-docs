@@ -1,12 +1,12 @@
 ---
-title: Manage access request tasks
+title: Manage and customize open access requests
 meta:
   - name: description
-    content: How to manage access request tasks using Okta Identity Governance APIs
+    content: How to manage or customize open access request tasks using Okta Identity Governance APIs
 layout: Guides
 ---
 
-This guide describes how to manage in-flight access request tasks using the Okta Identity Governance (OIG) APIs.
+This guide describes how to manage or customize open access request tasks using the Okta Identity Governance (OIG) APIs.
 
 ---
 
@@ -23,9 +23,9 @@ Learn how to use OIG admin [Tasks](https://developer.okta.com/docs/api/iga/opena
 
 ## Overview
 
-The Okta Identity Governance (OIG) [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. By using the Tasks API, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
+The Okta Identity Governance (OIG) [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. Open access requests can also be canceled by the admin or end user through the [Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests) and [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests) APIs. By using the Tasks and Requests APIs, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
 
-With the OIG Tasks APIs, you can:
+You can perform the following operations with these APIs:
 
 * Automate task decisions: Connect tasks to automation tools like Okta Workflows to run prerequisite checks (such as verifying training completion) and automatically approve or deny tasks.
 * Resolve stuck or unassigned tasks: Detect unassigned or stalled tasks and programmatically reassign them to team managers, resource owners, or backup administrators.
@@ -53,6 +53,27 @@ If your workflow uses an OIDC client for user-based access, you don't need to as
 ## Admin tasks
 
 With the access request admin role, use these API requests to manage in-flight tasks in your org.
+
+### Task type
+
+The following table describes each [task type](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/gettaskv2#tasks/gettaskv2/t=response&c=200&path=type) for resources in the Tasks APIs:
+
+| Task type | Description |
+| ---- | ----------- |
+| `QUESTION` | A task that asks a user to provide an answer or additional information. |
+| `APPROVAL` | A task that asks a user to approve or deny a request. |
+| `TODO` | A task that asks a user to complete a required action. |
+
+### Task status
+
+The following table describes each [task status](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/gettaskv2#tasks/gettaskv2/t=response&c=200&path=status) for resources in the Tasks APIs:
+
+| Status | Description |
+| ------ | ----------- |
+| `OPEN` | The task is open and awaiting action. |
+| `COMPLETED` | The task is completed. |
+| `ASSIGNING` | The task is in the process of being assigned. |
+| `LOCKED` | The task is locked. |
 
 ### List tasks in your org
 
@@ -152,7 +173,7 @@ curl -v -X GET \
 
 Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an access request task to another set of users or to a single user.
 
-> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign up to a maximum of ten assignees.
+> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign a maxium of 50 assignees for each task.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
