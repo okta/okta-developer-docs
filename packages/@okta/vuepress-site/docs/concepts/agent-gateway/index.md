@@ -111,16 +111,10 @@ The following sequence occurs when an admin deactivates an AI agent:
 1. The gateway compares the token's issue time with the deactivation time. It rejects the request because the token is older. It returns a `401` response with `WWW-Authenticate: Bearer error="invalid_token"`.
 1. The gateway doesn't use cached downstream credentials for a request that it rejects, so the AI agent can't reach the remote service.
 
-Agent Gateway records the deactivation within seconds, and enforcement begins then. Enforcement isn't instant. It can be delayed if the gateway can't process the deactivation event. The check is deterministic and doesn't depend on AI or machine learning.
-
+Agent Gateway records the deactivation within seconds, and enforcement begins then. Enforcement isn't instant. It can be delayed if the gateway can't process the deactivation event.
 While the AI agent is deactivated, Okta refuses to issue it new tokens. When an admin reactivates the AI agent, the agent authenticates again to get a new access token. The gateway then allows its requests.
 
 Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
-
-<!--
-  TODO before publishing (confirm, then remove this comment):
-  - Kevin Huang (PM for Connections): confirm whether "Resource connections" is renamed to "Outbound connections" and who owns the doc change. Antoine Crepin answered 2026-11-17.
--->
 
 ## Key concepts
 
