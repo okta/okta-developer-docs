@@ -278,7 +278,7 @@ Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/gover
 
 If you need to find the request ID to cancel, use [List all requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2) to search for your desired request with the `filter` query parameter.
 
-> **Note:** You can't cancel your own a resolved (`COMPLETED`) request (that you requested). As an Access Request admin, you can cancel all other requests.
+> **Note:** You can't cancel your own request if all of its tasks are resolved (`COMPLETED`). As an Access Request admin, you can cancel all other requests.
 
 | **API** | Access Requests - V2 |
 | ------- | --------- |
