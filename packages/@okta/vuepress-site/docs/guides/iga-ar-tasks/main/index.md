@@ -23,7 +23,7 @@ Learn how to use OIG admin [Tasks](https://developer.okta.com/docs/api/iga/opena
 
 ## Overview
 
-The Okta Identity Governance (OIG) [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. Open access requests can also be canceled by the admin or end user through the [Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests) and [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests) APIs. By using the Tasks and Requests APIs, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
+The Okta Identity Governance (OIG) [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. You can also cancel access requests with the [Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests) and [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests) APIs. By using the Tasks and Requests APIs, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
 
 You can perform the following operations with these APIs:
 
@@ -52,7 +52,7 @@ If your workflow uses an OIDC client for user-based access, you don't need to as
 
 ## Admin tasks
 
-With the access request admin role, use these API requests to manage in-flight tasks in your org.
+With the Access Requests admin role, use these API requests to manage in-flight tasks in your org.
 
 ### Task type
 
@@ -173,14 +173,14 @@ curl -v -X GET \
 
 Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an access request task to another set of users or to a single user.
 
-> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign a maxium of 50 assignees for each task.
+> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign a maximum of 50 assignees for each task.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
 | **Request** | [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) |
 | **Request URI** | `PATCH /governance/api/v2/tasks/{taskId}` |
 | **Scopes required** | `okta.accessRequests.tasks.manage` |
-| **Admin role required** | Super admin (`SUPER_ADMIN`) or access requests admin (`ACCESS_REQUESTS_ADMIN`) |
+| **Admin role required** | Super admin (`SUPER_ADMIN`) or Access Requests admin (`ACCESS_REQUESTS_ADMIN`) |
 
 ##### Request example
 
@@ -238,7 +238,7 @@ Use the [Resolve a task](https://developer.okta.com/docs/api/iga/openapi/governa
 | **Request** | [Resolve a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/resolvetaskv2) |
 | **Endpoint** | `POST /governance/api/v2/tasks/{taskId}/resolve` |
 | **Scopes required** | `okta.accessRequests.tasks.manage` |
-| **Admin role required** | Super admin (`SUPER_ADMIN`) or access requests admin (`ACCESS_REQUESTS_ADMIN`) |
+| **Admin role required** | Super admin (`SUPER_ADMIN`) or Access Requests admin (`ACCESS_REQUESTS_ADMIN`) |
 
 ##### Request example
 
@@ -274,7 +274,7 @@ curl -v -X POST \
 
 ### Cancel a request
 
-Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) API to cancel an access request that's no longer needed. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) API to cancel a request that's no longer needed. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
 
 If you need to find the request ID to cancel, use [List all requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2) to search for your desired request with the `filter` query parameter.
 
@@ -355,7 +355,7 @@ The following API requests allow end users to retrieve and resolve tasks assigne
 
 ### List all my tasks
 
-Use the [List all my tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/listallmytasksv2) request to retrieve a list of tasks assigned to you from access requests managed by OIG access request conditions.
+Use the [List all my tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/listallmytasksv2) request to retrieve a list of tasks assigned to you from requests managed by OIG access request conditions.
 
 | **API** | My Tasks |
 | ------- | ----------- |
@@ -579,7 +579,7 @@ curl -v -X PATCH \
 
 ## System Logs
 
-The following System Logs are triggered when you manage access request tasks and requests:
+The following System Logs are triggered when you manage access requests and their tasks:
 
 * [access.request.cancel](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.cancel): When an access request has been canceled
 * [access.request.update](https://developer.okta.com/docs/reference/api/event-types/?q=access.request.update): When an update to an access request has been made, such as changes to the request tasks. These task changes include a status change, an assignee change, or a question is answered for the first time.
