@@ -1068,7 +1068,7 @@ export const guides = [
             guideName: "iga-security-access-review"
           },
           {
-            title: "Manage and customize open access request tasks",
+            title: "Manage and customize open-access requests",
             guideName: "iga-ar-tasks"
           },
           {

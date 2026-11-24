@@ -362,7 +362,7 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
   * [Manage governance labels](/docs/guides/iga-labels)
   * [Manage delegates for governance](/docs/guides/iga-delegates)
 * Access requests
-  * [Manage and customize open access request tasks](/docs/guides/iga-ar-tasks)
+  * [Manage and customize open-access requests](/docs/guides/iga-ar-tasks)
 
 <!-- Categories for future guides
 * Access requests
