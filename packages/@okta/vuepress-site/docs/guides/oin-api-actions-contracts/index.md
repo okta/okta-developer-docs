@@ -5,7 +5,7 @@ meta:
     content: Provides references to API Integration Actions schema contracts inorder to create flows for API actions.
 ---
 
-This reference provides the API Integration Actions schema contracts supported in the Integration Builder. Use them to create API action flows to your APIs.
+This reference provides the API Integration Actions schema contracts supported in the [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder). Use them to create API action flows to your APIs.
 
 ## Schema rules and validation
 
