@@ -8,6 +8,7 @@ guides:
  - ai-agent-cimd-registration
  - ai-agent-secure-datarobot
  - ai-agent-secure-azure
+ - ai-agent-secure-claude
  - ai-agent-secure-google-vertex
  - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-third-party
