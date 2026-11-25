@@ -276,7 +276,7 @@ curl -v -X POST \
 
 ### Cancel a request
 
-Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) API to cancel a request that's no longer needed. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+Use the [Update a request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/updaterequestv2) API to cancel a request that's no longer needed. Set the request `status` to `CANCELED`. After you cancel a request, you can take no further actions on it.
 
 If you need to find the request ID to cancel, use [List all requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2) to search for your desired request with the `filter` query parameter.
 
