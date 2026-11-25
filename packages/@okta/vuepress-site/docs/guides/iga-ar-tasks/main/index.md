@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide describes how to manage or customize open-access request tasks using the Okta Identity Governance (OIG) APIs.
+This guide describes how to manage or customize in-flight access request tasks and cancel requests using the Okta Identity Governance (OIG) APIs.
 
 ---
 
