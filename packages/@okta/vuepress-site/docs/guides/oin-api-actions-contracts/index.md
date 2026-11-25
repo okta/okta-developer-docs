@@ -69,6 +69,128 @@ List actions accept `pagination.cursor` and `pagination.limit` in the request, a
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.manager.ref** | URI format |
 | **scim.authMode** | Must be `header`, `bearer`, or `oauth` |
 
+## Error handling
+
+Flows that you build in the [Integration Builder](/docs/guides/oin-api-actions/) must report errors in the response body, not through the HTTP status of the flow.
+
+### Report errors in the response body
+
+* Respond with HTTP 200 whenever the flow handles the request, including when the downstream API fails.
+* Don't pass the downstream HTTP status back as the flow's own response status.
+* To report a failure, return `executionStatus.status` as `FAILED` with a non-empty `executionStatus.errors` list.
+
+### Error object
+
+Each entry in `executionStatus.errors` has the following fields:
+
+| Field | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| **type** | Enum | Yes | Error category shown to the admin. See [Error types](#error-types). |
+| **summary** | String | Yes | Human-readable description of what failed. Shown to admins as written. |
+| **httpStatusCode** | Integer | No (recommended) | HTTP status code returned by the external system. Shown to admins when set. |
+| **details** | Array of strings | No | Raw details for debugging. |
+| **requestId** | String | No | Correlation ID from the external system. |
+| **code** | String | No | Reserved. |
+
+Admins see the error in the format `Action error: {type} [HTTP {httpStatusCode}]: {summary}`. For example, `Action error: RESOURCE_NOT_FOUND [HTTP 404]: User not found`.
+
+* Don't put JSON-escaped strings or raw responses in `summary`. Admins see it verbatim.
+* Don't put tokens, credentials, or other sensitive data in `details`. It can be logged.
+
+### Error types
+
+Use the most specific type that applies.
+
+| Type | When to use |
+| ----- | ----- |
+| `INVALID_CREDENTIALS` | Authentication failure, such as a 401 response or a wrong token or password. |
+| `TOKEN_EXPIRED` | The authentication token has expired and must be refreshed. |
+| `RATE_LIMIT_EXCEEDED` | Too many requests (429). |
+| `RESOURCE_NOT_FOUND` | The target resource doesn't exist (404). |
+| `GENERIC_FAILURE` | Any other failure not covered by the other types. |
+
+### Error examples
+
+**Valid error**
+
+```json
+{
+  "executionStatus": {
+    "status": "FAILED",
+    "errors": [
+      {
+        "type": "INVALID_CREDENTIALS",
+        "summary": "Authentication failed: invalid API token",
+        "httpStatusCode": 401,
+        "details": [
+          "HTTP 401 from target-api.example.com"
+        ],
+        "requestId": "abc123"
+      }
+    ]
+  }
+}
+```
+
+**Invalid error**
+
+The following response is invalid. It has no `type`, and the `summary` is an escaped JSON blob that exposes headers and an `Authorization` token to admins.
+
+```json
+{
+  "executionStatus": {
+    "status": "FAILED",
+    "errors": [
+      {
+        "summary": "{\"status\":401,\"headers\":{\"Authorization\":\"Bearer <token>\"},\"body\":\"Unauthorized\"}"
+      }
+    ]
+  }
+}
+```
+
+### Connection test
+
+When an admin saves credentials on the **Provisioning** tab, Okta calls the **Provisioning Get User by ID** action with a user ID that doesn't exist.
+
+* The flow must return HTTP 200 with `executionStatus.status` as `FAILED`, an error of type `RESOURCE_NOT_FOUND`, and a `summary`. Setting `httpStatusCode` to 404 is recommended. Okta treats this response as a valid connection.
+* If the flow errors on the downstream "not found" response, saving credentials fails with `Unexpected error occurred when invoking action provider`, even when the token is valid.
+
+### Handle errors with Try/Catch in the Integration Builder
+
+Wrap the whole main flow in a Try/Catch. When an HTTP Raw Request card fails, the cards after it don't run, so the catch branch is the only place that can build the response.
+
+For example, in the Get User by ID flow:
+
+1. The HTTP Raw Request card calls the downstream API and receives a 404.
+1. The flow moves to the catch branch.
+1. The catch branch returns HTTP 200 with the following response:
+
+   ```json
+   {
+     "executionStatus": {
+       "status": "FAILED",
+       "errors": [
+         {
+           "type": "RESOURCE_NOT_FOUND",
+           "summary": "User not found",
+           "httpStatusCode": 404
+         }
+       ]
+     }
+   }
+   ```
+
+If your API reports "not found" with a different status, such as 400, check the error body in the catch branch and map it to `RESOURCE_NOT_FOUND`. Set `httpStatusCode` to 404 if you can.
+
+### Troubleshoot error handling
+
+**Symptom:** Saving credentials fails with `Error authenticating: Unexpected error occurred when invoking action provider`, and the authping flow never runs.
+
+**Likely cause:** The Get User by ID flow returned a non-200 response or didn't handle the downstream error. See [Connection test](#connection-test).
+
+Also check that the action name uses the correct case. Action names are case sensitive. For example, use `getUserById`, not `getUserByID`.
+
 ## Universal Logout
 
 The following are schema contracts for Universal Logout actions.
