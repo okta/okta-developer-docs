@@ -639,6 +639,10 @@ export const guides = [
                 title: "Secure a Salesforce Agentforce AI agent",
                 guideName: "ai-agent-secure-salesforce-agentforce",
               },
+              {
+                title: "Secure a ServiceNow AI Agent Studio AI agent",
+                guideName: "ai-agent-secure-servicenow-ai-agent-studio",
+              },
             ],
           },
         ],
