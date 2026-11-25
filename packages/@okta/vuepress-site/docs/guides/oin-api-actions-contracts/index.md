@@ -21,9 +21,9 @@ Okta rejects any property that isn't listed in the [Universal Logout action cont
 
 While most request and response objects have `additionalProperties` set to `false`, the following objects are open and accept additional properties:
 
-* **SCIM user** (`user` in the user actions and `resources[]` in List Users): Allows custom attributes at the top level of the user object. Nested objects within the user, such as `name`, `emails[]`, and the enterprise extension, are strict.
-* **SCIM group** (`group` in the group actions and `resources[]` in the group list actions): Allows custom attributes.
-* **`schemaProperties[].__metadata`** and **`schemaProperties[].enumTitles`**: Allow arbitrary keys.
+* **SCIM user** (`user` in the [user action contracts](#provisioning-user-action-contracts) and `resources[]` in [list users](#provisioning-list-users)): Allows custom attributes at the top level of the user object. Nested objects within the user, such as `name`, `emails[]`, and the enterprise extension, are strict.
+* **SCIM group** (`group` in the [group action contracts](#provisioning-group-action-contracts) and `resources[]` in the [list groups](#provisioning-list-groups)): Allows custom attributes.
+* **SCIM entitlements** (`schemaProperties[].__metadata` and `schemaProperties[].enumTitles`): Allow arbitrary keys.
 
 All other objects are strict. This includes the `executionStatus`, `executionStatus.errors[]`, and `pagination` objects, and the group member objects.
 
@@ -50,9 +50,9 @@ List actions accept `pagination.cursor` and `pagination.limit` in the request, a
 
 ### Action-specific behavior
 
-* **Get User by UserName**: When the user doesn't exist, return `executionStatus.status` as `FAILED` with an error of type `RESOURCE_NOT_FOUND`.
-* **List Entitlement Schema** and **List Entitlement Schema Property Values**: Include these flows in your integration even if it only supports provisioning and not entitlement management.
-* **Entitlement schema property types**: The schema allows all `propertyType` values, but the entitlement actions accept only `STRING` and `ARRAY`. The import fails for any other type.
+* [Get User by UserName](#provisioning-get-user-by-username): When the user doesn't exist, return `executionStatus.status` as `FAILED` with an error of type `RESOURCE_NOT_FOUND`.
+* [List Entitlement Schema](#provisioning-list-entitlement-schema) and [List Entitlement Schema Property Values](#provisioning-list-entitlement-schema-property-values): Include these flows in your integration even if it only supports provisioning and not entitlement management.
+* [Entitlement schema property types](#provisioning-list-entitlement-schema-property-values): The schema allows all `propertyType` values, but the entitlement actions accept only `STRING` and `ARRAY`. The import fails for any other type.
 * **Duplicate entitlement IDs**: Okta collapses entitlements that have the same ID without returning an error.
 
 ### Defaults, enums, and formats
@@ -168,7 +168,7 @@ Test the connection for failure response:
 
 Review the error response from this flow:
 * The flow must return HTTP 200 with `executionStatus.status` as `FAILED`, an error of type `RESOURCE_NOT_FOUND`, and a `summary`. Okta recommends setting `httpStatusCode` to 404. Okta treats this response as a valid connection.
-* If the flow errors on the downstream "not found" response, saving credentials fails with `Unexpected error occurred when invoking action provider`, even when the token is valid.
+* If the flow errors on the downstream `not found` response, saving credentials fails with `Unexpected error occurred when invoking action provider`, even when the token is valid.
 
 #### Handle errors with Try/Catch in the Integration Builder
 
@@ -195,7 +195,7 @@ For example, in the **Get User by ID** flow:
    }
    ```
 
-If your API reports "not found" with a different status, such as 400, check the error body in the catch branch and map it to `RESOURCE_NOT_FOUND`. If possible, set `httpStatusCode` to 404.
+If your API reports `not found` with a different status, such as 400, check the error body in the catch branch and map it to `RESOURCE_NOT_FOUND`. If possible, set `httpStatusCode` to 404.
 
 #### Troubleshoot connection test errors
 
@@ -236,13 +236,11 @@ The following are input (requests) and output (responses) for the **Proprietary 
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | String |  |
 | **logoutStatus** | Final logout outcome returned by the action (`SUCCESS` or `FAILURE`) | String | TRUE |
 
-## Provisioning action contracts
-
-The following are schema contracts for provisioning actions, which also includes Entitlement Management.
-
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -251,7 +249,7 @@ The following are schema contracts for provisioning actions, which also includes
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -262,7 +260,9 @@ The following are schema contracts for provisioning actions, which also includes
 }
 ```
 
-**Failure request**
+##### Failure
+
+**Request**
 
 ```json
 {
@@ -270,7 +270,7 @@ The following are schema contracts for provisioning actions, which also includes
 }
 ```
 
-**Failure response**
+**Response**
 
 ```json
 {
@@ -292,6 +292,10 @@ The following are schema contracts for provisioning actions, which also includes
   "logoutStatus": "FAILURE"
 }
 ```
+
+## Provisioning user action contracts
+
+The following are schema contracts for provisioning user actions.
 
 ### Provisioning Create User
 
@@ -481,7 +485,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -519,7 +525,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -749,7 +755,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -787,7 +795,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -856,7 +864,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -865,7 +875,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -902,7 +912,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -910,7 +922,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -947,7 +959,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -955,7 +969,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1073,7 +1087,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1081,7 +1097,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1122,7 +1138,9 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Failure request**
+##### Failure
+
+**Request**
 
 ```json
 {
@@ -1130,7 +1148,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Failure response**
+**Response**
 
 ```json
 {
@@ -1269,7 +1287,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1277,7 +1297,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1318,7 +1338,9 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Failure request**
+##### Failure
+
+**Request**
 
 ```json
 {
@@ -1326,7 +1348,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Failure response**
+**Response**
 
 ```json
 {
@@ -1460,7 +1482,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1471,7 +1495,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1517,7 +1541,9 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Last page request**
+##### Success for last page
+
+**Request**
 
 ```json
 {
@@ -1528,7 +1554,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Last page response**
+**Response**
 
 ```json
 {
@@ -1540,9 +1566,13 @@ This action schema contract is for provisioning users.
 }
 ```
 
+## Provisioning group action contracts
+
+The following are schema contracts for provisioning group actions.
+
 ### Provisioning Create Group
 
-This action schema contract is for provisioning users.
+This action schema contract is for provisioning groups.
 
 #### Input
 
@@ -1576,7 +1606,9 @@ This action schema contract is for provisioning users.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1590,7 +1622,7 @@ This action schema contract is for provisioning users.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1644,7 +1676,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1659,7 +1693,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1704,7 +1738,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1712,7 +1748,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1752,7 +1788,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1766,7 +1804,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1806,7 +1844,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1820,7 +1860,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1865,7 +1905,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1876,7 +1918,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1926,7 +1968,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -1934,7 +1978,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -1952,7 +1996,9 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Failure request**
+##### Failure
+
+**Request**
 
 ```json
 {
@@ -1960,7 +2006,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Failure response**
+**Response**
 
 ```json
 {
@@ -2018,7 +2064,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -2029,7 +2077,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -2088,7 +2136,9 @@ This action schema contract is for provisioning groups.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -2099,7 +2149,7 @@ This action schema contract is for provisioning groups.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -2119,6 +2169,10 @@ This action schema contract is for provisioning groups.
   }
 }
 ```
+
+## Provisioning schema and entitlement action contracts
+
+The following are schema contracts for provisioning schema and Entitlement Management actions.
 
 ### Provisioning List User Schema
 
@@ -2191,7 +2245,9 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -2215,7 +2271,7 @@ This action schema contract is for provisioning Entitlement Management.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -2309,7 +2365,9 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -2333,7 +2391,7 @@ This action schema contract is for provisioning Entitlement Management.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -2406,7 +2464,9 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -2430,7 +2490,7 @@ This action schema contract is for provisioning Entitlement Management.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
@@ -2500,7 +2560,9 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Examples
 
-**Success request**
+##### Success
+
+**Request**
 
 ```json
 {
@@ -2525,7 +2587,7 @@ This action schema contract is for provisioning Entitlement Management.
 }
 ```
 
-**Success response**
+**Response**
 
 ```json
 {
