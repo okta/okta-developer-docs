@@ -122,7 +122,7 @@ Register an AI agent identity in Okta for your Databricks Genie integration. The
 
 Importing a Databricks AI agent works differently than registering an AI agent directly with its own key pair. Okta connects to your Databricks account through an OAuth app connection, discovers the AI agents in your workspaces, and imports them. You configure this on the Databricks app integration in your org.
 
-> **Important:** The Databricks AI agent import is an Early Access feature that depends on Databricks beta APIs. Those APIs may change or be removed. Contact your Okta account team to enable Databricks AI Agent Import for your org, in addition to Okta for AI Agents. You can't turn it on yourself in **Settings** > **Features**. Until Okta enables it, the **AI Agent Import** tab doesn't appear on the Databricks app integration.
+> **Important:** The Databricks AI agent import is an Early Access feature that depends on Databricks beta APIs. Those APIs may change or be removed. Contact your Okta account team to enable Databricks AI Agent Import for your org, in addition to Okta for AI Agents. You can't turn it on yourself in **Settings** > **Features**. Until Okta enables it, the **AI agent import** tab doesn't appear on the Databricks app integration.
 
 You need the Databricks account admin role in Databricks and the super admin or AI agent admin role in Okta.
 
@@ -139,11 +139,10 @@ Create an app connection in Databricks:
 
 <span style="color: #c0392b;">**TODO:** Okta requests `workspace:read`, `provisioning:read`, `supervisor-agents:read`, `genie:read`, `knowledge-assistants:read`, and `offline_access` itself. Engineering hasn't confirmed whether the app connection must also list `offline_access`, so the `offline_access` step stays until they do.</span>
 
-Configure the import in Okta:
+Enable imports for the app in Okta:
 
-1. In the Admin Console, go to **Applications** > **Applications and Resources**.
-1. Open your Databricks app integration, and then click the **AI Agent Import** tab.
-1. Select **Enable AI agent imports**.
+1. In the Admin Console, go to **Directory** > **AI Agent Providers**, and then select your Databricks Universal Directory app integration. If you have multiple Databricks app integrations, only configure AI agent imports for one of them.
+1. Go to the **AI agent import** tab, select **Configuration**, and then select **Enable AI agent import**.
 1. Under **Configuration**, enter the following values:
    * **Client ID** and **Client Secret**: The values from your Databricks app connection
    * **Account Console URL**: `https://accounts.cloud.databricks.com` (AWS), `https://accounts.gcp.databricks.com` (Google Cloud), or `https://accounts.azuredatabricks.net` (Azure)
@@ -151,9 +150,13 @@ Configure the import in Okta:
    * **Platform**: **Genie Agents** for this guide. The other option is **Agent Bricks**. Each Databricks app instance imports exactly one of them.
    * **Workspace IDs**: Optional. Limits the import to specific workspaces.
 1. Click **Test API Credentials**, and then sign in with your Databricks credentials when prompted.
-1. Click **Save configuration**, and then run the import.
+1. Choose your import schedule, matching criteria, and preview settings, and then click **Save configuration**.
 
-<span style="color: #c0392b;">**TODO:** Confirm the Admin Console path to the Databricks app integration. The general imports article says **Directory** > **AI Agent Providers**.</span>
+   > **Note:** Saving the configuration for the first time doesn't start an import. The first import runs when you click **Import** or at the next scheduled time. Later configuration changes start an import automatically.
+
+1. To run an import on demand, go to the **Imported AI agents** tab, which is next to the **Configuration** and **Attributes** tabs, and click **Import**. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported, including AI agents waiting in preview.
+
+<span style="color: #c0392b;">**TODO:** The import steps for the **AI agent import** tab, the first-save behavior, and the **Imported AI agents** tab follow the ServiceNow guide (PR #6471), which has the latest Admin Console navigation. Engineering hasn't confirmed them for Databricks. Confirm that the Databricks app integration shows the same tabs and behavior.</span>
 
 For the optional owner, schedule, matching, and preview settings, see [Enable AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm).
 
