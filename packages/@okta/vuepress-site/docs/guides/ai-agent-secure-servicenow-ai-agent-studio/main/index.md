@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a ServiceNow AI Agent Studio agent through the AI agent invoke API. Your app owns the full flow: it exchanges the user's identity for a scoped access token that authorizes the call, obtains a separate ServiceNow access token, passes the user's verified identity to the AI agent in the message that it sends, and reads the AI agent's answer from ServiceNow.
+This guide shows you how to build a FastAPI wrapper that authenticates users with Okta. It performs Okta's two-step token exchange internally, and then calls a ServiceNow AI Agent Studio agent through the AI agent invoke API. Your app owns the full flow: it exchanges the user's identity for a scoped access token that authorizes the call, obtains a separate ServiceNow access token, passes the user's verified identity to the AI agent in the message that it sends, and reads the AI agent's answer from ServiceNow.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the ServiceNow-specific code and configuration that consumes it.
 
@@ -37,14 +37,14 @@ An AI agent has no inherent knowledge of an Okta user. To let it act for a speci
 The integration has two parts:
 
 * Okta authentication. The AI agent performs a two-step token exchange:
-  1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
+  1. Exchange the user's `id_token` for an identity assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
   This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
 * Platform integration (ServiceNow-specific). Unlike the other platforms, ServiceNow can't use an Okta-issued token. Your wrapper uses the Okta access token only to authorize the call, and then authenticates to ServiceNow separately with the OAuth 2.0 client credentials grant. It invokes the AI agent, passes the user's name and email from the `id_token` in the message text, and reads the AI agent's answer from the ServiceNow execution tables. See [Integrate the token exchange into your AI Agent Studio agent](#integrate-the-token-exchange-into-your-ai-agent-studio-agent).
 
-> **Note:** The Okta `access_token` from steps 1 and 2 authorizes the call. If either step fails, your wrapper doesn't call ServiceNow. The token isn't forwarded to ServiceNow. The ID-JAG and Okta access token use Okta's authorization server as their audience, so ServiceNow rejects them if you present them to its token endpoint. The ServiceNow token from step 3 is a separate, service-level credential that authenticates your wrapper (not the user) to ServiceNow. See [Troubleshoot your integration](#troubleshoot-your-integration).
+> **Note:** The Okta `access_token` from steps 1 and 2 authorizes the call. If either step fails, your wrapper doesn't call ServiceNow. The token isn't forwarded to ServiceNow. The ID-JAG and Okta access token use Okta's authorization server as their audience. ServiceNow rejects them if you present them to its token endpoint. The ServiceNow token from step 3 is a separate, service-level credential that authenticates your wrapper (not the user) to ServiceNow. See [Troubleshoot your integration](#troubleshoot-your-integration).
 
 For the conceptual background on AI agent token exchange, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
 
@@ -94,7 +94,7 @@ Enable imports for the app in Okta:
 Register the imported AI agent and set up its identity in Okta. Token exchange works only for AI agents that you imported and registered in Okta under **Directory** > **AI Agents**.
 
 1. Go to **Directory** > **AI Agents**, select the imported AI agent, and then register it. Importing an AI agent doesn't create its credentials, so you must register and activate it.
-1. On the **User access** tab, click **Allow user access**, and then link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app. Click **Save**.
+1. On the **User access** tab, click **Allow user access**, and then link the OIDC web app that signs users in. Either create a OIDC app linked to this AI agent, or select your existing OIDC app. Click **Save**.
 
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
 
@@ -130,8 +130,8 @@ Use a non-interactive service user rather than your own admin account.
 1. Set **User ID** to a descriptive name, for example, `api_ai_agent_user`.
 1. Select **Internal Integration User**. This prevents the user from signing in through the UI.
 1. Save the record, and then add the following roles on the **Roles** tab:
-   * `sn_aia.admin` (required to read AI Agent Studio tables)
-   * `web_service_admin` (allows access to REST APIs)
+   * `sn_aia.admin` (Required to read AI Agent Studio tables)
+   * `web_service_admin` (Allows access to REST APIs)
 
 > **Note:** These two roles worked in testing, but they're broad for a runtime credential. Roles narrower than `sn_aia.admin` and `web_service_admin` haven't been tested.
 
@@ -143,7 +143,7 @@ Use a non-interactive service user rather than your own admin account.
 
    > **Note:** If **Default Grant Type** or **OAuth Application User** aren't visible on the form, click the **Additional Actions** menu, select **Configure** > **Form Layout**, and move both fields from **Available** to **Selected**.
 
-1. Set **Default Grant Type** to **Client Credentials**.
+1. Set the **Default Grant Type** to **Client Credentials**.
 1. Set **OAuth Application User** to the service user you created in the previous section.
 1. Click **Update**, and then note the **Client ID** and **Client Secret**. You need them for `SN_CLIENT_ID` and `SN_CLIENT_SECRET`.
 1. Open the registry again by searching for its client ID. In the **Auth Scopes** section, add **List AI Agents** and `a2aauthscope`, and then click **Update**.
@@ -159,7 +159,7 @@ If you don't already have an AI agent to call, create one. In ServiceNow, go to 
 | Name and description | For example, `Okta E2E Test Agent` | These fields are mandatory |
 | Role and instructions | For example, "You greet users. The message tells you the user's name and email. Reply with one friendly sentence that includes their name." | Defines what the AI agent does with the identity text that your wrapper sends |
 | Tool | A **Script** tool, for example, `Greet User`, with an input named `name` (string) that returns `'Hello ' + name + ', ServiceNow received your request through Okta.'`. Set the execution mode to **Autonomous**. | With no tool, the run completes but the AI agent answers that it can't complete the task |
-| Allow third party to access this AI agent | On | When this is off, which is the default, the AI agent APIs answer *"No agent available"*. This per-agent setting works only if an admin also turns on the global **Allow third party to access ServiceNow AI agents** setting in **AI Agent Studio** > **Settings** > **External AI agents** > **Discoverability** |
+| Allow a third party to access this AI agent | On | When this is off, which is the default, the AI agent APIs answer *"No agent available"*. This per-agent setting works only if an admin also turns on the global **Allow third party to access ServiceNow AI agents** setting in **AI Agent Studio** > **Settings** > **External AI agents** > **Discoverability** |
 | This AI agent is active | On | The AI agent must be active to run. Turn on this toggle on the **Select channels and messages** step of the guided setup, and then click **Save and test**. ServiceNow recommends that you turn it on only after you test the AI agent in the Testing playground |
 | User access | **Public** (the value used in testing) | To set it, open the AI agent, and then go to **Define security controls** > **Define user access** > **Define who can access this AI agent (ACLs)**. Edit the ACL row, and then select a **User access** value: **Any authenticated user**, **Users with specific roles**, or **Public** ("Anyone can access this AI agent, even without logging in"). The service user in this guide held only `sn_aia.admin` and `web_service_admin`, and the invoke API still needed the OAuth token from the application registry. **Any authenticated user** and **Users with specific roles** weren't tested. With **Users with specific roles**, the service user must hold at least one of the selected roles |
 
@@ -179,7 +179,7 @@ GET /api/now/table/sn_aia_agent?sysparm_query=name=<agent name>&sysparm_fields=s
 
 Use the AI agent record (`sn_aia_agent`), not an `sn_aia_agent_config` row.
 
-> **Important:** Every tool that the AI agent uses must be accessible to the service user. A Now Assist skill that was attached as a tool was denied for the service user, and every run ended with **Terminated: Security Violation**. A Script tool passed the same check.
+> **Important:** Every tool that the AI agent uses must be accessible to the service user. If a tool isn't, the run ends with **Terminated: Security Violation**. For example, a Now Assist skill that was attached as a tool was denied for the service user in testing. This guide uses a Script tool, which the service user can run. See [Troubleshoot your integration](#troubleshoot-your-integration).
 
 ### Collect your configuration values
 
@@ -495,7 +495,7 @@ The following errors are specific to the ServiceNow integration:
 | `403` with `Missing required api access scope` on `/api/sn_aia/...` calls | The Application Registry lacks the `a2aauthscope` auth scope | In the registry's **Auth Scopes** section, add `a2aauthscope` |
 | *"No agent available"* from the AI agent APIs | The AI agent doesn't allow third-party access (`sn_aia_agent_config.public` is off), or the global third-party setting is off | Turn on **Allow third party to access this AI agent** for the AI agent, and make sure that **Allow third party to access ServiceNow AI agents** is on in **AI Agent Studio** > **Settings**. In the legacy UI, turn on **External discoverable** |
 | The invoke call returns `status: "Success"` with an empty `result` | The AI agent invoke API is asynchronous | Read the answer from the execution tables. See [Read the answer from ServiceNow](#read-the-answer-from-servicenow) |
-| The run ends with **Terminated: Security Violation** | The service user can't run one of the AI agent's tools. This happened with a Now Assist skill attached as a tool | Use a tool that the service user can run, such as a Script tool, or grant the service user access to the tool |
+| The run ends with **Terminated: Security Violation** | The service user can't run one of the AI agent's tools. For example, a Now Assist skill that was attached as a tool was denied in testing | Use a tool that the service user can run, such as a Script tool, or grant the service user access to the tool |
 | The run ends with **Terminated: Execution Failed**, and the tool task stays `ongoing` | The Script tool didn't return a value | Return a string from the script, and check that the input name matches |
 | The AI agent answers *"I am unable to complete the task since I have no instructions or actions."* | The AI agent has no tool attached | Attach a tool to the AI agent |
 | A call to the Virtual Agent Bot Integration API returns `200` but your AI agent never answers | That API runs a generic Virtual Agent conversation as a guest. It doesn't reach the AI Agent Studio agent | Use the AI agent invoke API (`/api/sn_aia/agenticai/v1`) |
