@@ -17,7 +17,7 @@ The **Required** column indicates which properties the schema requires. A nested
 
 ### Strict and open objects
 
-Okta rejects any property that isn't listed in the [Universal Logout action contracts](#universal-logout-action-contracts) or [Provioning action contracts](#provisioning-action-contracts) tables, including at the top level of the request and response.
+Okta rejects any property that isn't listed in the [Universal Logout action contracts](#universal-logout-action-contracts) or [Provisioning action contracts](#provisioning-user-action-contracts) tables, including at the top level of the request and response.
 
 While most request and response objects have `additionalProperties` set to `false`, the following objects are open and accept additional properties:
 

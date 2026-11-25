@@ -9,7 +9,7 @@ API integration actions enable you to build Okta integrations with capabilities,
 
 ## Integration Builder
 
-Integration Builder is an environment for independent software vendors (ISVs) to build, test, and deploy integrations privately or to the Okta Integration Network (OIN). It's exclusively available in [Okta Integrator Free Plan orgs](/signup) and integrates seamlessly with the OIN Wizard submission flow.
+[Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder) is an environment for independent software vendors (ISVs) to build, test, and deploy integrations privately or to the Okta Integration Network (OIN). It's exclusively available in [Okta Integrator Free Plan orgs](/signup) and integrates seamlessly with the OIN Wizard submission flow.
 
 > **Note**: Integration Builder is an evolution of the Workflows Connector Builder. See [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder) in the Workflows product documentation.
 
