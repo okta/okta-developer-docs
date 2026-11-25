@@ -9,7 +9,7 @@ This guide shows you how to build a FastAPI wrapper that authenticates users wit
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Databricks-specific code and configuration that consumes it.
 
-<span style="color: #c0392b;">**TODO:** Databricks hosts AI agents across several product areas and surfaces (Agent Bricks, Genie, and deployed custom agents). Engineering now covers Genie and Supervisor Agent on separate pages, and this guide follows the Genie page. Confirm with the PM whether the guide title and slug name Genie, and whether a separate Supervisor Agent guide is planned. If import is the primary registration path, also confirm how the guide names the import surface (Agent Bricks or Genie Agents).</span>
+<span style="color: #c0392b;">**TODO:** Databricks hosts AI agents across several product areas and surfaces (Agent Bricks, Genie, and deployed custom agents). Engineering covers Genie and Supervisor Agent on separate verified pages, and this guide follows the Genie page. Confirm with the PM whether the guide title and slug name Genie, and whether a separate Supervisor Agent guide is planned.</span>
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -46,8 +46,6 @@ The integration has two parts:
   This logic is identical for any AI agent. You add it once as a reusable module. See [Add Okta authentication to your AI agent](#add-okta-authentication-to-your-ai-agent).
 
 * Platform integration (Databricks-specific). Genie is a managed surface. It can't read Okta tokens and has no custom code hook, so it can't run the exchange itself. Your wrapper uses the Okta access token only to authorize the call, and then authenticates to Databricks separately with a service principal. It starts a Genie conversation, passes the user's name and email from the `id_token` in the message text, and polls for Genie's answer. See [Integrate the token exchange with Genie](#integrate-the-token-exchange-with-genie).
-
-<span style="color: #c0392b;">**TODO:** Replace this text-based diagram with an image.</span>
 
 ```text
 User
@@ -101,12 +99,10 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 ### Register your AI agent in Okta
 
-<span style="color: #c0392b;">**TODO:** This draft registers the AI agent manually, as in the engineering proof of concept (OKTA-1291961). Pending confirmation from engineering on whether manual registration is a supported path for Databricks and when the Databricks import provider becomes available to customers (OKTA-1284118). The engineering page (updated 2026-10-29) still describes the import as unverified stubs, and says "databricks" must be added to the `ai.agents.import.eligible.app.names` property before the provider appears. The import procedure is preserved at the end of this section. If import becomes the primary path, restore it and move this procedure to an alternative.</span>
-
-Register an AI agent identity in Okta for your Databricks Genie integration. The identity has its own client ID and key pair, and your wrapper uses them to perform the token exchange.
+Register an AI agent identity in Okta for your Databricks Genie integration. The identity has its own client ID and key pair, and your wrapper uses them to perform the token exchange. You can register the AI agent manually or import it from Databricks. The following steps use manual registration. To import instead, see [Import your AI agent from Databricks](#import-your-ai-agent-from-databricks).
 
 1. In the Admin Console, go to **Directory** > **AI Agents**, click **Register AI agent**, and then select **Register manually**.
-1. On the **Profile** page, enter a **Name** and **Description**, for example, `databricks-xaa-poc`. Under **Identifier**, enter the **Platform** (the builder platform, **Databricks**) and the **External ID** (a unique ID for the AI agent from Databricks, such as the Genie space ID). Click **Next**.
+1. On the **Profile** page, enter a **Name** and, optionally, a **Description**, for example, `databricks-xaa-poc`. Under **Identifier**, select the **Platform** and enter the **External ID**. For this guide, select **Databricks Genie Agents** as the **Platform**. For **External ID**, enter a unique ID for the AI agent from Databricks, such as the Genie space ID. Click **Next**.
 1. On the **User access** page, link the OIDC web app that signs users in. Either create a new OIDC app linked to this AI agent, or select your existing OIDC app. You can also complete this step later on the **User access** tab.
 
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
@@ -122,51 +118,46 @@ Register an AI agent identity in Okta for your Databricks Genie integration. The
 
 > **Note:** If you create the OIDC app from the AI agent's **User access** page, the app shares the AI agent's client ID. In that case, the OIDC client ID and `AGENT_CLIENT_ID` are the same `wlp` value. If you select an existing OIDC app, the two values differ, and the `id_token` `aud` claim holds the OIDC app's client ID.
 
-<span style="color: #c0392b;">**TODO:** Confirm the exact Admin Console labels and step order for manual registration against the current UI, and confirm that Databricks appears as a Platform option without the import provider enabled. The steps above come from the engineering proof of concept notes, not from a published Okta Help Center article.</span>
-
-<span style="color: #c0392b;">**TODO:** Import procedure, preserved for now. Restore as the primary or an alternative path once engineering confirms the way forward.</span>
-
-<div style="color: #c0392b;">
+### Import your AI agent from Databricks
 
 Importing a Databricks AI agent works differently than registering an AI agent directly with its own key pair. Okta connects to your Databricks account through an OAuth app connection, discovers the AI agents in your workspaces, and imports them. You configure this on the Databricks app integration in your org.
 
-Important: The Databricks import is an Early Access feature that depends on Databricks beta APIs. Those APIs may change or be removed.
-
-Open question: Confirm whether the Databricks app integration is available by default in customer orgs and whether any extra enablement is needed before the Databricks provider appears in the Admin Console. Engineering notes say "databricks" isn't in the default list of import-eligible app names (OKTA-1284118). In one test org, there was no Databricks app in the OIN or in Directory > AI Agent Providers.
+> **Important:** The Databricks AI agent import is an Early Access feature that depends on Databricks beta APIs. Those APIs may change or be removed. Contact your Okta account team to enable Databricks AI Agent Import for your org, in addition to Okta for AI Agents. You can't turn it on yourself in **Settings** > **Features**. Until Okta enables it, the **AI Agent Import** tab doesn't appear on the Databricks app integration.
 
 You need the Databricks account admin role in Databricks and the super admin or AI agent admin role in Okta.
 
 Create an app connection in Databricks:
 
-1. Sign in to the Databricks account console, for example, accounts.cloud.databricks.com.
-1. Go to Settings > App connections, and then click Add connection.
-1. In Application Name, enter a recognizable name, for example, Okta AI Agent Import.
-1. In Redirect URLs, enter your Okta org URL followed by /oauth2/v1/sts/callback, for example, https://{yourOktaDomain}/oauth2/v1/sts/callback.
-1. Under Access scopes, keep the default scopes and add provisioning, workspace, supervisor-agents, knowledge-assistants, and genie.
-   Also add offline_access. Engineering notes confirm the import needs it to receive a refresh token. Without it, the import works for about one hour and then fails with NO_REFRESH_TOKEN / E0000009. The Okta Help Center article doesn't list this scope, and the engineering notes mark the import steps as unverified, so confirm before publication.
-1. Optional. Set Single-use Refresh Tokens, Access token TTL (in minutes), and Refresh token TTL (in minutes).
-1. Click Add. Copy the Client ID and Client Secret from the dialog and store them in a secrets manager. You can't retrieve the secret after you close the dialog.
+1. Sign in to the Databricks account console, for example, `accounts.cloud.databricks.com`.
+1. Go to **Settings** > **App connections**, and then click **Add connection**.
+1. In **Application Name**, enter a recognizable name, for example, `Okta AI Agent Import`.
+1. In **Redirect URLs**, enter your Okta org URL followed by `/oauth2/v1/sts/callback`, for example, `https://{yourOktaDomain}/oauth2/v1/sts/callback`.
+1. Under **Access scopes**, keep the default scopes and add `provisioning`, `workspace`, `supervisor-agents`, `knowledge-assistants`, and `genie`, each with **Read** permission. Read permission is enough, because the import only lists AI agents.
+1. Add `offline_access`. Without a refresh token, the import works for about one hour and then fails with `NO_REFRESH_TOKEN` / `E0000009`.
+1. Optional. Set **Single-use Refresh Tokens**, **Access token TTL (in minutes)**, and **Refresh token TTL (in minutes)**.
+1. Click **Add**. Copy the **Client ID** and **Client Secret** from the dialog and store them in a secrets manager. You can't retrieve the secret after you close the dialog.
+
+<span style="color: #c0392b;">**TODO:** Okta requests `workspace:read`, `provisioning:read`, `supervisor-agents:read`, `genie:read`, `knowledge-assistants:read`, and `offline_access` itself. Engineering hasn't confirmed whether the app connection must also list `offline_access`, so the `offline_access` step stays until they do.</span>
 
 Configure the import in Okta:
 
-1. In the Admin Console, go to Applications > Applications and Resources. (The general imports article says Directory > AI Agent Providers. Confirm the current path.)
-1. Open your Databricks app integration, and then click the AI Agent Import tab.
-1. Select Enable AI agent imports.
-1. Under Configuration, enter the following values:
-   * Client ID and Client Secret: The values from your Databricks app connection
-   * Account Console URL: https://accounts.cloud.databricks.com (AWS), https://accounts.gcp.databricks.com (Google Cloud), or https://accounts.azuredatabricks.net (Azure)
-   * Account ID: Your Databricks account ID. To find it, click your profile icon in the top-right corner of the Databricks account console.
-   * Platform: Agent Bricks or Genie Agents. Each app instance imports one platform.
-   * Workspace IDs: Optional. Limits the import to specific workspaces.
-1. Click Test API Credentials, and then sign in with your Databricks credentials when prompted.
-1. Click Save configuration, and then run the import.
+1. In the Admin Console, go to **Applications** > **Applications and Resources**.
+1. Open your Databricks app integration, and then click the **AI Agent Import** tab.
+1. Select **Enable AI agent imports**.
+1. Under **Configuration**, enter the following values:
+   * **Client ID** and **Client Secret**: The values from your Databricks app connection
+   * **Account Console URL**: `https://accounts.cloud.databricks.com` (AWS), `https://accounts.gcp.databricks.com` (Google Cloud), or `https://accounts.azuredatabricks.net` (Azure)
+   * **Account ID**: Your Databricks account ID. To find it, click your profile icon in the top-right corner of the Databricks account console.
+   * **Platform**: **Genie Agents** for this guide. The other option is **Agent Bricks**. Each Databricks app instance imports exactly one of them.
+   * **Workspace IDs**: Optional. Limits the import to specific workspaces.
+1. Click **Test API Credentials**, and then sign in with your Databricks credentials when prompted.
+1. Click **Save configuration**, and then run the import.
 
-For the optional owner, schedule, matching, and preview settings, see https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm
+<span style="color: #c0392b;">**TODO:** Confirm the Admin Console path to the Databricks app integration. The general imports article says **Directory** > **AI Agent Providers**.</span>
 
-Note: Importing an AI agent creates a new AI agent identity in Okta with its own client ID and key pair. If you also registered an AI agent manually for testing, you now have two unrelated AI agent identities. Make sure that AGENT_CLIENT_ID in your wrapper points at the one you intend to use.
+For the optional owner, schedule, matching, and preview settings, see [Enable AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm).
 
-</div>
-
+> **Note:** Importing an AI agent creates a new AI agent identity in Okta with its own client ID and key pair. If you also registered an AI agent manually for testing, you now have two unrelated AI agent identities. Make sure that `AGENT_CLIENT_ID` in your wrapper points at the one that you intend to use.
 
 ## Collect your configuration values
 
@@ -198,17 +189,29 @@ Your FastAPI app reads these values as environment variables. The token exchange
 
 Genie runs as the identity that presents the Databricks token, so that identity's permissions decide what data Genie can query. Use a service principal with OAuth machine-to-machine (M2M) authentication for an unattended wrapper.
 
-1. In the Databricks account or workspace admin settings, go to **Service principals**, and add a service principal.
-1. Open the service principal, go to **Secrets**, and generate a client ID and secret. Store the secret in a secrets manager. You need them for `DB_SP_CLIENT_ID` and `DB_SP_SECRET`.
-1. Grant the service principal the following access:
-   * The **Databricks SQL** entitlement
-   * **CAN USE** on the space's SQL warehouse
-   * **CAN RUN** (or higher) on the Genie space
-   * `USE CATALOG`, `USE SCHEMA`, and `SELECT` on the tables that the space uses
+Create the service principal and its secret in the Databricks account console:
+
+1. Sign in to the Databricks account console, for example, `accounts.cloud.databricks.com`.
+1. Go to **Settings** > **User management** > **Service principals**, and then click **Add service principal**.
+1. Enter a display name for the service principal, and then click **Add service principal**.
+1. Open the service principal. On the **Principal information** tab, copy the application ID (a UUID). This is the client ID that you need for `DB_SP_CLIENT_ID`.
+1. On the **Credentials & secrets** tab, under **OAuth secrets**, click **Generate secret**. Store the secret in a secrets manager. You need it for `DB_SP_SECRET`.
+
+Add the service principal to the workspace, also in the account console:
+
+1. Go to **Workspaces**, and then click the workspace name.
+1. Open **Permissions**, and then click **Add permissions**.
+1. Under **Identity**, search for the service principal's name.
+1. Under **Workspace entitlements**, select **Databricks SQL access**.
+1. Click **Add permissions**.
+
+The roles on the service principal's **Roles** tab are account-level roles. They don't grant the access that the wrapper needs. Grant the remaining access from the workspace:
+
+* **CAN USE** on the space's SQL warehouse
+* **CAN RUN** (or higher) on the Genie space
+* `USE CATALOG`, `USE SCHEMA`, and `SELECT` on the tables that the space uses
 
 > **Note:** With a service principal, Genie sees the same data for every user. Databricks doesn't know who the Okta user is. For per-user data access, call Genie with that user's Databricks OAuth user-to-machine (U2M) token instead.
-
-<span style="color: #c0392b;">**TODO:** Confirm the Databricks Admin Console labels and navigation for creating a service principal and its secret on a current workspace. The steps come from the engineering notes, not from a verified walkthrough.</span>
 
 ## Add Okta authentication to your AI agent
 
@@ -358,8 +361,6 @@ def ask_genie(prompt: str, user_claims: dict) -> dict:
 
 To ask a follow-up question, send `POST /api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages` with `{"content": "..."}`, and then poll the new message the same way.
 
-<span style="color: #c0392b;">**TODO:** Engineering ran this sequence as a shell probe against a live workspace (2026-10-29), but hasn't run this Python. Confirm with a live run that the response fields (`conversation_id`, `message_id`, `status`, `attachments[].text.content`, `attachments[].query.query`) match what the code reads.</span>
-
 ## Wire it into the FastAPI entry point
 
 In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Genie. The following example `main_databricks.py` imports the reusable token exchange module and adds only the Databricks-specific wiring:
@@ -410,7 +411,9 @@ if __name__ == "__main__":
 
 > **Note:** Exchange the token on each request instead of caching it. The access token is valid for 24 hours while the ID-JAG is valid for only five minutes, so a cached user token carries far more risk than the exchange costs. Steps 1 and 2 are also one retryable unit. If step 2 fails, repeat both steps from the `id_token`, because the ID-JAG may have expired.
 
-<span style="color: #c0392b;">**TODO:** Engineering flagged an open security item. This wrapper accepts an id_token in the request body. The exchange proves that the token is valid, not that it came from the caller's own sign-in session, so a stolen id_token can be replayed until it expires. Decide with engineering whether this guide adds checks for the aud, exp, and nonce claims and binds the token to the session, or documents this as a prerequisite before production use. This replaces the earlier open item about comparing the id_token sub claim with the X-Forwarded-Email header, which no longer applies because the integration doesn't run in a Databricks app.</span>
+> **Important:** Before you use this pattern in production, add your own protection against `id_token` replay. This wrapper accepts an `id_token` in the request body. The exchange proves that the token is valid, not that it came from the caller's own sign-in session, so a stolen `id_token` can be replayed until it expires. Take the `id_token` from your wrapper's own sign-in session instead of the request body. If you keep the request body parameter, check that `aud` equals the OIDC app's client ID, `iss` is your Okta org, `exp` hasn't passed, and `nonce` matches if your wrapper started the sign-in.
+
+<span style="color: #c0392b;">**TODO:** Engineering suggests documenting this in a note and not adding the checks to the example code. Confirm that decision with the PM.</span>
 
 ## Verify the configuration
 
@@ -455,8 +458,6 @@ A successful response includes Genie's answer. In this example, Genie greets the
 }
 ```
 
-<span style="color: #c0392b;">**TODO:** This sample response is illustrative. Engineering's verified probe (2026-10-29) returned the answer "Hi Arvinth Raj KK." with no queries, but it didn't run this guide's code. Replace the sample with the real response from a run of the code above.</span>
-
 ## Troubleshoot your integration
 
 The following errors are specific to the Databricks integration:
@@ -470,8 +471,8 @@ The following errors are specific to the Databricks integration:
 | `403` or permission errors from Genie | The Databricks identity lacks CAN RUN on the space, CAN USE on the warehouse, or the Unity Catalog grants | Grant them to the service principal. See [Create the Databricks identity that your wrapper uses](#create-the-databricks-identity-that-your-wrapper-uses) |
 | Genie sees a different user's data than the Okta user | Genie runs as the identity of the Databricks token, not the Okta user | This is expected with a service principal. For per-user data access, call Genie with that user's Databricks U2M token |
 | Python client error `CERTIFICATE_VERIFY_FAILED: self-signed certificate in certificate chain` | A TLS-inspecting proxy is in the path, and Python's certificate bundle lacks its root CA | Use the operating system's trust store, for example, with the `truststore` package |
-
-<span style="color: #c0392b;">**TODO:** Import-specific troubleshooting row, preserved until engineering confirms the way forward. Row: "The import stops working after about one hour" / "The Databricks app connection doesn't issue a refresh token" / "Add the offline_access scope to the Databricks app connection". It comes from engineering notes and isn't in the Okta Help Center article. Confirm it before restoring.</span>
+| The import stops working after about one hour | The connection was authorized before Okta requested `offline_access`, so Databricks issued no refresh token | Click **Test API Credentials** to authorize again |
+| `access_denied` when you authorize the import | The app connection's scope permissions don't match what Okta requests | Set the listed scopes on the app connection, with at least **Read** permission |
 
 The following errors come from the Okta token exchange and are covered in [Set up imported AI agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 
