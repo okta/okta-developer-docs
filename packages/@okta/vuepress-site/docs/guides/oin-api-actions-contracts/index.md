@@ -94,13 +94,13 @@ Each entry in `executionStatus.errors` has the following fields:
 
 Admins see the error in the format:
 
-```json
+```bash
 Action error: {type} [HTTP {httpStatusCode}]: {summary}
 ```
 
 For example:
 
-```json
+```bash
 Action error: RESOURCE_NOT_FOUND [HTTP 404]: User not found.
 ```
 
