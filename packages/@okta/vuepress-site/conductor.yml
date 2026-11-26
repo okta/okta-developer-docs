@@ -1,4 +1,14 @@
 redirects:
+  - from: /docs/reference/scim/scim-20/
+    to: /docs/concepts/scim/scim-20/
+  - from: /docs/reference/scim/scim-20
+    to: /docs/concepts/scim/scim-20/
+  - from: /docs/reference/scim/scim-11/
+    to: /docs/concepts/scim/scim-11/
+  - from: /docs/reference/scim/scim-11
+    to: /docs/concepts/scim/scim-11/
+  - from: /docs/reference/scim
+    to: /docs/concepts/scim/scim-protocol/
   - from: /docs/guides/ai-agent-to-agent-token-exchange/main/index.html
     to: /docs/guides/ai-agent-token-exchange/main/
   - from: /docs/guides/ai-agent-to-agent-token-exchange
@@ -260,11 +270,11 @@ redirects:
   - from: /docs/api/getting_started/okta_expression_lang
     to: /docs/reference/okta-expression-language/index.html
   - from: /docs/guides/scim_guidance.html
-    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+    to: /docs/concepts/scim/scim-protocol/
   - from: /docs/reference/scim/
-    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+    to: /docs/concepts/scim/scim-protocol/
   - from: /docs/guides/scim_developer_program.html
-    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+    to: /docs/concepts/scim/scim-protocol/
   - from: /standards/SAML/index.html
     to: /docs/concepts/saml/
   - from: /docs/guides/saml_guidance
@@ -386,7 +396,7 @@ redirects:
   - from: /reference/postman_collections/index.html
     to: /docs/reference/postman-collections/
   - from: /reference/scim/index.html
-    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+    to: /docs/concepts/scim/scim-protocol/
   - from: /reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
   - from: /guides/index.html
@@ -724,7 +734,7 @@ redirects:
   - from: /reference/postman_collections
     to: /docs/reference/postman-collections/
   - from: /reference/scim
-    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+    to: /docs/concepts/scim/scim-protocol/
   - from: /reference/webfinger
     to: /docs/reference/api/webfinger/
   - from: /guides

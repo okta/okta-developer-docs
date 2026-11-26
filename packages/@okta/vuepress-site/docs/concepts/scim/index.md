@@ -9,7 +9,7 @@ meta:
 
 This topic covers the concepts and use cases for SCIM and Okta.
 
-When you're ready to create a SCIM integration, see [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview). For reference information on how to implement SCIM with Okta, see [SCIM Protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
+When you're ready to create a SCIM integration, see [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview). For reference information on how to implement SCIM with Okta, see [SCIM Protocol](/docs/concepts/scim/scim-protocol/).
 
 ## What is SCIM for?
 
@@ -51,7 +51,7 @@ By implementing support for the SCIM standard, an integration in the Okta Integr
 
 The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete. The four CRUD operations are the building blocks that combine to solve your end-to-end use cases.
 
-For more information about these operations for users and for groups, see the corresponding sections in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/) references.
+For more information about these operations for users and for groups, see the corresponding sections in the [SCIM V2.0](/docs/concepts/scim/scim-20/) and [SCIM V1.1](/docs/concepts/scim/scim-11/) references.
 
 ### Create
 
@@ -65,7 +65,7 @@ Information about user and group resources can be queried from your app to match
 
 If a resource in your app needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. Alternatively, if your app functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile.
 
-> **Note:** If your SCIM server is out of sync with Okta, then it might not receive updates for the out-of-sync attributes. See **Update a specific user (PUT)** in [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-put) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-put).
+> **Note:** If your SCIM server is out of sync with Okta, then it might not receive updates for the out-of-sync attributes. See **Update a specific user (PUT)** in [SCIM V2.0](/docs/concepts/scim/scim-20/#update-a-specific-user-put) and [SCIM V1.1](/docs/concepts/scim/scim-11/#update-a-specific-user-put).
 
 User attributes can be mapped from your source into Okta. Conversely, an attribute can be mapped from Okta to a target attribute in your app.
 
@@ -73,7 +73,7 @@ User attributes can be mapped from your source into Okta. Conversely, an attribu
 >
 >The first time that you assign a user to an app and `active=true` in Okta, the user is set to `active=true` on the SCIM server. Reassigning a user to an app works similarly. Afterwards, Okta doesn't pull in a user whose status is set to `active=false`, even in a full import. Even if Okta is the source of truth, updating through a profile push doesn't update the user status downstream to the SCIM app.
 >
-> See **Update a specific user (Patch)** in [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-patch).
+> See **Update a specific user (Patch)** in [SCIM V2.0](/docs/concepts/scim/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](/docs/concepts/scim/scim-11/#update-a-specific-user-patch).
 
 ### Delete (Deprovision)
 

@@ -200,6 +200,18 @@ export const concepts = [
             title: "SCIM integration concepts and requirements",
             path: "/docs/concepts/scim/faqs/",
           },
+          {
+            title: "SCIM Protocol",
+            path: "/docs/concepts/scim/scim-protocol/",
+          },
+          {
+            title: "SCIM 2.0 Protocol Reference",
+            path: "/docs/concepts/scim/scim-20/",
+          },
+          {
+            title: "SCIM 1.1 Protocol Reference",
+            path: "/docs/concepts/scim/scim-11/",
+          },
         ],
       },
     ],

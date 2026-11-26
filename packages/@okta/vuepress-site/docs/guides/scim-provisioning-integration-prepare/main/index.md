@@ -15,9 +15,9 @@ The first step in delivering your SCIM integration is building a SCIM-compliant 
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
-If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
+If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](/docs/concepts/scim/scim-protocol/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
 
-If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/).
+If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](/docs/concepts/scim/scim-20/).
 
 > **Note:** OIN integration submissions must adhere to the SCIM 2.0 specification.
 
@@ -247,7 +247,7 @@ After you've customized your SCIM test in Runscope with the details of your SCIM
 1. To see test details, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server. The HTTP status received in the response determines the success or failure of each test.
 1. After the test finishes, the main panel displays the test results.
 
-Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then, complete the test run again. If you need more technical details, see the [SCIM Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) or [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then, complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/concepts/scim/scim-protocol/) or [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 ## Share test results from Runscope
 
