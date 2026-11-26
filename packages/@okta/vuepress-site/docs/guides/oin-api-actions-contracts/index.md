@@ -73,7 +73,7 @@ List actions accept `pagination.cursor` and `pagination.limit` in the request, a
 
 Flows that you build in the [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder) must succeed and report errors in the response body. For errors coming from the downstream API, [use the try/catch block](#handle-errors-with-trycatch-in-the-integration-builder) to capture the failure and set the `executionStatus` object appropriately for Okta to consume.
 
-* A flow must execute successfully. If a card fails in a flow, the cards after it doesn't run, and the raw http response from the downstream API might not be consumed by Okta properly.
+* A flow must execute successfully. If a card fails in a flow, the cards after it doesn't run, and the raw HTTP response from the downstream API might not be consumed by Okta properly.
 * Don't pass the downstream HTTP status back as the flow's own response status, instead capture any failures and ensure that the flow executes successfully.
 * To report a failure in an action card, return `executionStatus.status` as `FAILED` with a non-empty [error object](#error-object) list (`executionStatus.errors`).
 
@@ -161,7 +161,7 @@ The following response is invalid. It has no `type`, and the `summary` is an esc
 
 The connection test uses the [Get User by ID](#provisioning-get-user-by-id) action in a flow. Okta understands that the connection is established if HTTP 200 (connection works, user found) or 404 (connection works, user not found) is returned for the flow. If the flow returns other error codes, Okta assumes the connection isn't establish and the connection test fails.
 
-Test the connection for failure response:
+To test the connection for a failure response:
 
 1. Save credentials on the [**Provisioning**](/docs/guides/build-api-actions/main/#add-provisioning-action-flows) tab.
 
@@ -205,7 +205,6 @@ Sometimes, the downstream API returns an error that isn't helpful, such as retur
 **Symptom:** Saving credentials fails with `Error authenticating: Unexpected error occurred when invoking action provider`, and the **authping** flow never runs.
 
 **Likely cause:** The **Get User by ID** flow returned a non-200 response or didn't handle the downstream error. See [Connection test](#connection-test).
-
 
 ## Universal Logout action contracts
 
