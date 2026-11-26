@@ -52,7 +52,7 @@ List actions accept `pagination.cursor` and `pagination.limit` in the request, a
 
 * [Get User by UserName](#provisioning-get-user-by-username): When the user doesn't exist, return `executionStatus.status` as `FAILED` with an error of type `RESOURCE_NOT_FOUND`.
 * [List Entitlement Schema](#provisioning-list-entitlement-schema) and [List Entitlement Schema Property Values](#provisioning-list-entitlement-schema-property-values): Include these flows in your integration even if it only supports provisioning and not entitlement management.
-* [Entitlement schema property types](#provisioning-list-entitlement-schema-property-values): The schema allows all `propertyType` values, but the entitlement actions accept only `STRING` and `ARRAY`. The import fails for any other type.
+* [Entitlement schema property types](#provisioning-list-entitlement-schema-property-values): The schema allows various `propertyType` values, but the entitlement actions accept only `STRING`, `BOOLEAN`, and `ARRAY`. The import fails for any other type.
 * **Duplicate entitlement IDs**: Okta collapses entitlements that have the same ID without returning an error.
 
 ### Defaults, enums, and formats
@@ -71,13 +71,11 @@ List actions accept `pagination.cursor` and `pagination.limit` in the request, a
 
 ### Error handling
 
-Flows that you build in the [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder) must report errors in the response body, not through the HTTP status of the flow.
+Flows that you build in the [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder) must succeed and report errors in the response body. For errors coming from the downstream API, [use the try/catch block](#handle-errors-with-trycatch-in-the-integration-builder) to capture the failure and set the `executionStatus` object appropriately for Okta to consume.
 
-#### Report errors in the response body
-
-* Respond with HTTP 200 whenever the flow handles the request, including when the downstream API fails.
-* Don't pass the downstream HTTP status back as the flow's own response status.
-* To report a failure, return `executionStatus.status` as `FAILED` with a non-empty `executionStatus.errors` list.
+* A flow must execute successfully. If a card fails in a flow, the cards after it doesn't run, and the raw http response from the downstream API might not be consumed by Okta properly.
+* Don't pass the downstream HTTP status back as the flow's own response status, instead capture any failures and ensure that the flow executes successfully.
+* To report a failure in an action card, return `executionStatus.status` as `FAILED` with a non-empty [error object](#error-object) list (`executionStatus.errors`).
 
 #### Error object
 
@@ -111,13 +109,13 @@ Action error: RESOURCE_NOT_FOUND [HTTP 404]: User not found.
 
 Use the most specific type that applies.
 
-| Type | When to use |
-| ----- | ----- |
-| `INVALID_CREDENTIALS` | Authentication failure, such as a 401 response or a wrong token or password. |
-| `TOKEN_EXPIRED` | The authentication token has expired and must be refreshed. |
-| `RATE_LIMIT_EXCEEDED` | Too many requests (429). |
-| `RESOURCE_NOT_FOUND` | The target resource doesn't exist (404). |
-| `GENERIC_FAILURE` | Any other failure not covered by the other types. |
+| Type | When to use | Recommended HTTP code |
+| ----- | ----- | ----- |
+| `INVALID_CREDENTIALS` | Authentication failure, such as a 401 response or a wrong token or password. | 401 |
+| `TOKEN_EXPIRED` | The authentication token has expired and must be refreshed. | 401 |
+| `RATE_LIMIT_EXCEEDED` | There were too many requests. | 429 |
+| `RESOURCE_NOT_FOUND` | The target resource doesn't exist. | 404 |
+| `GENERIC_FAILURE` | Any other failure not covered by the other types. | 500 |
 
 #### Error examples
 
@@ -161,24 +159,29 @@ The following response is invalid. It has no `type`, and the `summary` is an esc
 
 #### Connection test
 
+The connection test uses the [Get User by ID](#provisioning-get-user-by-id) action in a flow. Okta understands that the connection is established if HTTP 200 (connection works, user found) or 404 (connection works, user not found) is returned for the flow. If the flow returns other error codes, Okta assumes the connection isn't establish and the connection test fails.
+
 Test the connection for failure response:
+
 1. Save credentials on the [**Provisioning**](/docs/guides/build-api-actions/main/#add-provisioning-action-flows) tab.
 
    Okta calls the [Provisioning Get User by ID](#provisioning-get-user-by-id) action with a user ID that doesn't exist.
 
 Review the error response from this flow:
+
 * The flow must return HTTP 200 with `executionStatus.status` as `FAILED`, an error of type `RESOURCE_NOT_FOUND`, and a `summary`. Okta recommends setting `httpStatusCode` to 404. Okta treats this response as a valid connection.
+
 * If the flow errors on the downstream `not found` response, saving credentials fails with `Unexpected error occurred when invoking action provider`, even when the token is valid.
 
-#### Handle errors with Try/Catch in the Integration Builder
+#### Handle flow errors with try/catch
 
-Wrap the whole main flow in a `try`/`catch` block. When an HTTP [Raw Request](https://help.okta.com/okta_help.htm?type=wf&id=ext-http-method-raw) card fails, the cards after it don't run, so the catch branch is the only place that can build the response.
+Wrap the whole main flow in a `try`/`catch` block. When an HTTP [Raw Request](https://help.okta.com/okta_help.htm?type=wf&id=ext-http-method-raw) card fails, the cards after it doesn't run, so the catch branch is there to build the error response, while allowing the flow to succeed.
 
 For example, in the **Get User by ID** flow:
 
 1. The HTTP **Raw Request** card calls the downstream API and receives a 404.
 1. The flow moves to the catch branch.
-1. The catch branch returns HTTP 200 with the following response:
+1. The catch branch returns flow execution success with the following response:
 
    ```json
    {
@@ -195,7 +198,7 @@ For example, in the **Get User by ID** flow:
    }
    ```
 
-If your API reports `not found` with a different status, such as 400, check the error body in the catch branch and map it to `RESOURCE_NOT_FOUND`. If possible, set `httpStatusCode` to 404.
+Sometimes, the downstream API returns an error that isn't helpful, such as returning 400 (Bad Request) with a `not found` error. Check the error body in the catch branch and map it to an appropriate error `type` and `httpStatuscode`, such as `RESOURCE_NOT_FOUND` and `404`.
 
 #### Troubleshoot connection test errors
 
@@ -203,7 +206,6 @@ If your API reports `not found` with a different status, such as 400, check the 
 
 **Likely cause:** The **Get User by ID** flow returned a non-200 response or didn't handle the downstream error. See [Connection test](#connection-test).
 
-Also check that the action name uses the correct case. Action names are case sensitive. For example, use `getUserById`, not `getUserByID`.
 
 ## Universal Logout action contracts
 
