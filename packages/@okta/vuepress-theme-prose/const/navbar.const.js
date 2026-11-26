@@ -201,15 +201,15 @@ export const concepts = [
             path: "/docs/concepts/scim/faqs/",
           },
           {
-            title: "SCIM Protocol",
+            title: "SCIM Protocol overview",
             path: "/docs/concepts/scim/scim-protocol/",
           },
           {
-            title: "SCIM 2.0 Protocol Reference",
+            title: "SCIM V2.0",
             path: "/docs/concepts/scim/scim-20/",
           },
           {
-            title: "SCIM 1.1 Protocol Reference",
+            title: "SCIM V1.1",
             path: "/docs/concepts/scim/scim-11/",
           },
         ],
