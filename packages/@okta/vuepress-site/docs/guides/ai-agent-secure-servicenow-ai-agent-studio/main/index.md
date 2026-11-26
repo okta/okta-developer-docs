@@ -94,7 +94,7 @@ Enable imports for the app in Okta:
 Register the imported AI agent and set up its identity in Okta. Token exchange works only for AI agents that you imported and registered in Okta under **Directory** > **AI Agents**.
 
 1. Go to **Directory** > **AI Agents**, select the imported AI agent, and then register it. Importing an AI agent doesn't create its credentials, so you must register and activate it.
-1. On the **User access** tab, click **Allow user access**, and then link the OIDC web app that signs users in. Either create a OIDC app linked to this AI agent, or select your existing OIDC app. Click **Save**.
+1. On the **User access** tab, click **Allow user access**, and then link the OIDC web app that signs users in. Either create an OIDC app that's linked to this AI agent, or select your existing OIDC app. Click **Save**.
 
    > **Important:** This action permanently links the AI agent to the app. To change the link, delete the AI agent and recreate it. Each app links to one AI agent, and each AI agent links to one app.
 
