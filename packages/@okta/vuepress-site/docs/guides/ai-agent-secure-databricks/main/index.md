@@ -1,6 +1,6 @@
 ---
-title: Secure a Databricks AI agent
-excerpt: Learn how to add Okta authentication to an existing Databricks AI agent
+title: Secure a Databricks Genie AI agent
+excerpt: Learn how to add Okta authentication to an existing Databricks Genie AI agent
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
@@ -8,8 +8,6 @@ layout: Guides
 This guide shows you how to build a FastAPI wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then asks a Databricks Genie space a question. Your app owns the full flow: it exchanges the user's identity for a scoped access token that authorizes the call, obtains a separate Databricks access token, passes the user's verified identity to Genie in the message that it sends, and reads Genie's answer from Databricks.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Databricks-specific code and configuration that consumes it.
-
-<span style="color: #c0392b;">**TODO:** Databricks hosts AI agents across several product areas and surfaces (Agent Bricks, Genie, and deployed custom agents). Engineering covers Genie and Supervisor Agent on separate verified pages, and this guide follows the Genie page. Confirm with the PM whether the guide title and slug name Genie, and whether a separate Supervisor Agent guide is planned.</span>
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -133,11 +131,10 @@ Create an app connection in Databricks:
 1. In **Application Name**, enter a recognizable name, for example, `Okta AI Agent Import`.
 1. In **Redirect URLs**, enter your Okta org URL followed by `/oauth2/v1/sts/callback`, for example, `https://{yourOktaDomain}/oauth2/v1/sts/callback`.
 1. Under **Access scopes**, keep the default scopes and add `provisioning`, `workspace`, `supervisor-agents`, `knowledge-assistants`, and `genie`, each with **Read** permission. Read permission is enough, because the import only lists AI agents.
-1. Add `offline_access`. Without a refresh token, the import works for about one hour and then fails with `NO_REFRESH_TOKEN` / `E0000009`.
 1. Optional. Set **Single-use Refresh Tokens**, **Access token TTL (in minutes)**, and **Refresh token TTL (in minutes)**.
 1. Click **Add**. Copy the **Client ID** and **Client Secret** from the dialog and store them in a secrets manager. You can't retrieve the secret after you close the dialog.
 
-<span style="color: #c0392b;">**TODO:** Okta requests `workspace:read`, `provisioning:read`, `supervisor-agents:read`, `genie:read`, `knowledge-assistants:read`, and `offline_access` itself. Engineering hasn't confirmed whether the app connection must also list `offline_access`, so the `offline_access` step stays until they do.</span>
+> **Note:** You don't need to add `offline_access`. Databricks allows it automatically for app connections that you create in the account console, and Okta requests it so that Databricks issues a refresh token. Without a refresh token, the import works for about one hour and then fails with `NO_REFRESH_TOKEN` / `E0000009`. If you create the app connection with the Databricks API instead, include `offline_access` in its scopes.
 
 Enable imports for the app in Okta:
 
@@ -145,18 +142,16 @@ Enable imports for the app in Okta:
 1. Go to the **AI agent import** tab, select **Configuration**, and then select **Enable AI agent import**.
 1. Under **Configuration**, enter the following values:
    * **Client ID** and **Client Secret**: The values from your Databricks app connection
-   * **Account Console URL**: `https://accounts.cloud.databricks.com` (AWS), `https://accounts.gcp.databricks.com` (Google Cloud), or `https://accounts.azuredatabricks.net` (Azure)
+   * **Account console URL**: `https://accounts.cloud.databricks.com` (AWS), `https://accounts.gcp.databricks.com` (Google Cloud), or `https://accounts.azuredatabricks.net` (Azure)
    * **Account ID**: Your Databricks account ID. To find it, click your profile icon in the top-right corner of the Databricks account console.
    * **Platform**: **Genie Agents** for this guide. The other option is **Agent Bricks**. Each Databricks app instance imports exactly one of them.
    * **Workspace IDs**: Optional. Limits the import to specific workspaces.
-1. Click **Test API Credentials**, and then sign in with your Databricks credentials when prompted.
+1. Click **Test API Credentials**, and then sign in with your Databricks credentials in the pop-up. Allow pop-ups for your Okta org in your browser. In orgs with the enhanced AI agent schema feature, this button is labeled **Test and Save**. A successful test saves the credentials.
 1. Choose your import schedule, matching criteria, and preview settings, and then click **Save configuration**.
 
-   > **Note:** Saving the configuration for the first time doesn't start an import. The first import runs when you click **Import** or at the next scheduled time. Later configuration changes start an import automatically.
+   > **Note:** Saving the configuration for the first time doesn't start an import. The first import runs when you click **Import** or at the next scheduled time. After that, changing the connection settings starts an import automatically. The connection settings are the client credentials, account console URL, account ID, platform, and workspace IDs. Changing the schedule, matching, or preview settings doesn't start an import.
 
-1. To run an import on demand, go to the **Imported AI agents** tab, which is next to the **Configuration** and **Attributes** tabs, and click **Import**. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported, including AI agents waiting in preview.
-
-<span style="color: #c0392b;">**TODO:** The import steps for the **AI agent import** tab, the first-save behavior, and the **Imported AI agents** tab follow the ServiceNow guide (PR #6471), which has the latest Admin Console navigation. Engineering hasn't confirmed them for Databricks. Confirm that the Databricks app integration shows the same tabs and behavior.</span>
+1. To run an import on demand, go to the **Imported AI agents** tab, and click **Import**. Before you save the configuration for the first time, only the **Configuration** tab appears. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported, including AI agents waiting in preview.
 
 For the optional owner, schedule, matching, and preview settings, see [Enable AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm).
 
@@ -415,8 +410,6 @@ if __name__ == "__main__":
 > **Note:** Exchange the token on each request instead of caching it. The access token is valid for 24 hours while the ID-JAG is valid for only five minutes, so a cached user token carries far more risk than the exchange costs. Steps 1 and 2 are also one retryable unit. If step 2 fails, repeat both steps from the `id_token`, because the ID-JAG may have expired.
 
 > **Important:** Before you use this pattern in production, add your own protection against `id_token` replay. This wrapper accepts an `id_token` in the request body. The exchange proves that the token is valid, not that it came from the caller's own sign-in session, so a stolen `id_token` can be replayed until it expires. Take the `id_token` from your wrapper's own sign-in session instead of the request body. If you keep the request body parameter, check that `aud` equals the OIDC app's client ID, `iss` is your Okta org, `exp` hasn't passed, and `nonce` matches if your wrapper started the sign-in.
-
-<span style="color: #c0392b;">**TODO:** Engineering suggests documenting this in a note and not adding the checks to the example code. Confirm that decision with the PM.</span>
 
 ## Verify the configuration
 
