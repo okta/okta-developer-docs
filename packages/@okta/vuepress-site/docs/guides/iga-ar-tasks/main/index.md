@@ -508,7 +508,7 @@ curl -v -X POST \
 
 ### Cancel my request
 
-Use the [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) API to cancel an access request that you submitted and no longer need. Set the request `status` to `CANCELED`. After a request is canceled, no further actions can be taken on it.
+Use the [Update my request](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/updatemyrequestv2) API to cancel an access request that you submitted and no longer need. Set the request `status` to `CANCELED`. After you cancel a request, you can take no further actions on it.
 
 > **Note:** You can't cancel a request if any of its tasks are already resolved.
 
