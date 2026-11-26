@@ -7,7 +7,7 @@ layout: Guides
 
 This guide shows you how to build a FastAPI wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then asks a Databricks Genie space a question. Your app owns the full flow: it exchanges the user's identity for a scoped access token that authorizes the call, obtains a separate Databricks access token, passes the user's verified identity to Genie in the message that it sends, and reads Genie's answer from Databricks.
 
-The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Databricks-specific code and configuration that consumes it.
+The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Databricks-specific code and configuration that consume it.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -151,7 +151,7 @@ Enable imports for the app in Okta:
 
    > **Note:** Saving the configuration for the first time doesn't start an import. The first import runs when you click **Import** or at the next scheduled time. After that, changing the connection settings starts an import automatically. The connection settings are the client credentials, account console URL, account ID, platform, and workspace IDs. Changing the schedule, matching, or preview settings doesn't start an import.
 
-1. To run an import on demand, go to the **Imported AI agents** tab, and click **Import**. Before you save the configuration for the first time, only the **Configuration** tab appears. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported, including AI agents waiting in preview.
+1. To run an import on demand, go to the **Imported AI agents** tab, and click **Import**. Click **Monitor imports** to see the progress. The **Imported AI agents** tab also lists the AI agents that Okta imported, including AI agents waiting in preview. Before you save the configuration for the first time, only the **Configuration** tab appears.
 
 For the optional owner, schedule, matching, and preview settings, see [Enable AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-imports-enable.htm).
 
@@ -480,7 +480,7 @@ The following errors come from the Okta token exchange and are covered in [Set u
 
 ## Next steps
 
-Your AI agent can now authenticate as a user and call Okta-protected resources on their behalf. To define the resources and scopes you permit the AI agent to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
+Your AI agent can now authenticate as a user and call Okta-protected resources on their behalf. To define the resources and scopes that you permit the AI agent to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
 
 ## See also
 
