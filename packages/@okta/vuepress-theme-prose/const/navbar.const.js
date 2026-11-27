@@ -627,7 +627,11 @@ export const guides = [
                 title: "Secure Azure AI Foundry AI agents",
                 guideName: "ai-agent-secure-azure",
               },
-                            {
+              {
+                title: "Secure a Databricks Genie AI agent",
+                guideName: "ai-agent-secure-databricks",
+              },
+              {
                 title: "Secure a DataRobot AI agent",
                 guideName: "ai-agent-secure-datarobot",
               },
