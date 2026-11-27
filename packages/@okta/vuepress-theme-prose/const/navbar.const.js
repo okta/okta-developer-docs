@@ -869,6 +869,16 @@ export const guides = [
             ],
           },
           {
+            title: "On-prem connectors",
+            path: "/docs/guides/oin-on-prem-connectors-overview/",
+            subLinks: [
+              {
+                title: "On-prem Connector for SAP NetWeaver ABAP",
+                path: "/docs/guides/oin-on-prem-connector-sap/",
+              },
+            ],
+          },
+          {
             title: "API service integrations",
             path: "/docs/guides/oin-api-service-overview/",
             subLinks: [
