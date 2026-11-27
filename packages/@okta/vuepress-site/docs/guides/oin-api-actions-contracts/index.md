@@ -50,7 +50,7 @@ List actions accept `pagination.cursor` and `pagination.limit` in the request, a
 
 ### Action-specific behavior
 
-* [Get User by UserName](#provisioning-get-user-by-username): When the user doesn't exist, return `executionStatus.status` as `FAILED` with an error of type `RESOURCE_NOT_FOUND`.
+* [Get User by UserName](#provisioning-get-user-by-username): When the user doesn't exist, return `executionStatus.status` as `FAILED` with an error of type `RESOURCE_NOT_FOUND`, and a `404` HTTP code.
 <!--* [List Entitlement Schema](#provisioning-list-entitlement-schema) and [List Entitlement Schema Property Values](#provisioning-list-entitlement-schema-property-values): Include these flows in your provisioning integration even if entitlement management isn't supported. Aditi: remove for now. Need confirmation by Suraj -->
 * [Entitlement schema property types](#provisioning-list-entitlement-schema-property-values): The schema allows various `propertyType` values, but the entitlement actions accept only `STRING`, `BOOLEAN`, and `ARRAY`. The import fails for any other type.
 * **Duplicate entitlement IDs**: Okta collapses entitlements that have the same ID without returning an error.
