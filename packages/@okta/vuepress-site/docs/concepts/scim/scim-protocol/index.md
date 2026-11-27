@@ -16,7 +16,6 @@ For references on implementing the SCIM REST API with Okta and your app, see the
 * [Okta and SCIM Version 2.0](/docs/concepts/scim/scim-20/)
 * [Okta and SCIM Version 1.1](/docs/concepts/scim/scim-11/)
 * [Okta Inbound SCIM 2.0 API](https://developer.okta.com/docs/api/openapi/okta-scim/inbound/overview)
--->
 
 > **Note:** Okta currently supports both Version 2.0 and Version 1.1 of the SCIM protocol specifications. If you haven't yet implemented SCIM, Okta recommends that you implement SCIM 2.0.
 

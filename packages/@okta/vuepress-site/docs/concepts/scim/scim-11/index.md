@@ -12,7 +12,6 @@ This reference focuses on how Okta API endpoints share information with System f
 This document specifically covers **Version 1.1** of the SCIM specification. For version 2.0 of the SCIM specification, see our [SCIM 2.0 reference](/docs/concepts/scim/scim-20/).
 
 > **Note:** This reference describes **outbound** SCIM provisioning, where Okta acts as the SCIM client and calls the SCIM server that your app implements to provision users and groups. If you're instead looking for the API that lets an external SCIM client provision identities **into** Okta (inbound SCIM, where Okta is the SCIM server), see the [Okta Inbound SCIM 2.0 API](https://developer.okta.com/docs/api/openapi/okta-scim/inbound/overview).
--->
 
 The SCIM protocol is an app-level REST protocol for provisioning and managing identity data on the web. The protocol supports creation, discovery, retrieval, and modification of core identity resources.
 
