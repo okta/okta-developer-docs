@@ -1072,6 +1072,10 @@ export const guides = [
             guideName: "iga-security-access-review"
           },
           {
+            title: "Manage and customize open-access requests",
+            guideName: "iga-ar-tasks"
+          },
+          {
             title: "Manage delegates for governance",
             guideName: "iga-delegates"
           },
