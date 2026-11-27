@@ -4,7 +4,7 @@ excerpt: Learn how to build an integration with API integration actions in the W
 layout: Guides
 ---
 
-Build and validate integrations with API integration actions from the Okta Integration Network (OIN) Wizard and Integration Builder.
+Build and validate integrations with API integration actions from the Okta Integration Network (OIN) Wizard and [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder).
 
 ---
 
@@ -19,7 +19,7 @@ Build and validate integrations with API integration actions from the Okta Integ
 
 ## Overview
 
-You can build integrations with API integration actions, which Okta calls to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout. API actions to your app are built through the low-code Workflows Integration Builder, which is available in Okta Integrator Free Plan orgs.
+You can build integrations with API integration actions, which Okta calls to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout. API actions to your app are built through the low-code Workflows [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder), which is available in Okta Integrator Free Plan orgs.
 
 To begin building API actions in the Integration Builder, you must first start your integration submission within the OIN Wizard. This process ensures a seamless build-and-submit experience, as the Integration Builder is designed to integrate directly with the OIN Wizard.
 
@@ -165,7 +165,7 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
     * The **body** section contains the contract request schema. See the [Proprietary Universal Logout](/docs/guides/oin-api-actions-contracts/#proprietary-universal-logout) schema reference for input and output property definitions.
     * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 
-1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
+1. Create the action flows to your APIs. See [Flow types in Integrator Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
 1. Click **Save** to save your flow.
 1. Select **Flow is OFF**, and then set the toggle to **ON**.
 1. After you've finished building your flows, go to the **Validate and submit** tab. Click **Validate flows** to confirm that your flows are error-free.
@@ -183,12 +183,12 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
 1. Select one of the provisioning action contracts.
 
     The provisioning contract loads the following details:
-    * The **body** section contains the action contract request schema. See the [Provisioning action contracts](/docs/guides/oin-api-actions-contracts/#provisioning-action-contracts) schema reference for input and output property definitions.
+    * The **body** section contains the action contract request schema. See the [Provisioning action contracts](/docs/guides/oin-api-actions-contracts/#provisioning-user-action-contracts) schema reference for input and output property definitions.
     * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 
     Build a flow for each of the mandatory actions listed in [Provisioning API integration actions](/docs/guides/submit-wfactions-app/main/#provisioning-api-integration-actions). If your API supports them, you can also add the optional action flows.
 
-1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
+1. Create the action flows to your APIs. See [Flow types in Integrator Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
 1. Click **Save** to save your flow.
 1. Select **Flow is OFF**, and then set the toggle to **ON**.
 1. Click **Validate flows** to confirm that your flows are error-free from the **Validate and submit** tab.
