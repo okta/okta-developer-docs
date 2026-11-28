@@ -11,7 +11,7 @@ The System for Cross-domain Identity Management (SCIM) is an industry-standard, 
 
 ## SCIM integration concepts
 
-Okta supports lifecycle provisioning for both [SCIM 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM 1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/). See [SCIM reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides) to find guidance on what endpoints you need to implement for different versions of SCIM.
+Okta supports lifecycle provisioning for both [SCIM 2.0](/docs/concepts/scim/scim-20/) and [SCIM 1.1](/docs/concepts/scim/scim-11/). See [SCIM reference](/docs/concepts/scim/scim-protocol/) to find guidance on what endpoints you need to implement for different versions of SCIM.
 
 ### User lifecycle management
 
@@ -123,6 +123,6 @@ While Okta continually improves support for the SCIM protocol, the following com
 
 ## **Next steps**
 
-* **Build:** See the [SCIM 2.0 Protocol Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) for endpoint specifications.
+* **Build:** See the [SCIM 2.0 Protocol Reference](/docs/concepts/scim/scim-20/) for endpoint specifications.
 * **Test:** Use the Okta SCIM test suite in Runscope to validate your implementation.
 * **Publish:** Follow the [OIN submission process](https://developer.okta.com/docs/guides/submit-app-overview/), if you want to share your integration with other Okta customers.

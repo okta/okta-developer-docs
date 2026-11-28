@@ -163,7 +163,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - You can allow users to register an identity, reset their password, request an app, and perform other self-service functions.
 
-- Okta bases its identity storage, management, and communications on the SCIM standard. It provides a SCIM API for Okta and your apps to securely exchange user identity data with compatible Service and Identity Providers. See [SCIM](/docs/concepts/scim/) and [SCIM Protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
+- Okta bases its identity storage, management, and communications on the SCIM standard. It provides a SCIM API for Okta and your apps to securely exchange user identity data with compatible Service and Identity Providers. See [SCIM](/docs/concepts/scim/) and [SCIM Protocol](/docs/concepts/scim/scim-protocol/).
 
 - With our Terraform Okta Provider, your team can introduce or add to our Infrastructure as Code codebase and automated pipeline. See [What is Terraform?](https://www.terraform.io/intro) and [Okta Provider](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
