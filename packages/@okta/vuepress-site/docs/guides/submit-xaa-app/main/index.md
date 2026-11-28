@@ -88,14 +88,24 @@ Under **Cross App Access (XAA) roles**, select the role that your app plays in t
 
 > **Note:** This section appears if you select the client app under the Cross App Access (XAA) roles.
 
-In the **Resource client registrations** section, specify the issuer URL and client ID for each resource app that this client app connects to. You can add up to 100 registrations.
+In the **Resource client registrations** section, preconfigure the issuer URL and client ID for each resource app that this client app connects to, or let your customers add their own. You can add up to 100 registrations.
 
 | Property | Description |
 | ----- | ----------- |
+| **Allow custom client registrations** | Select this checkbox to let your customers add their own issuer URLs and client IDs when they configure your integration. Use this option if your client app doesn't have global client registrations, and customers register it with each resource app's authorization server themselves. |
 | **Issuer URL** | URL of the resource app's authorization server. |
 | **Client ID** | The unique identifier assigned to the client app when it's registered on the resource app's authorization server. |
 
-1. Click **Add resource client registrations** to add a row.
+You can configure the client registrations in one of the following ways:
+
+* **Preconfigured registrations:** Add the issuer URL and client ID for each resource app, and leave **Allow custom client registrations** cleared.
+* **Custom registrations only:** Select **Allow custom client registrations** without adding any registrations. Your customers add their issuer URLs and client IDs.
+* **Both:** Add registrations and select **Allow custom client registrations**. Your customers can use the preconfigured registrations or add their own.
+
+To add a registration:
+
+1. Click **Add Client Registration** to add a row.
+1. Enter the **Issuer URL** and **Client ID**.
 1. Click **Add**.
 
 #### XAA resource app properties
