@@ -15,7 +15,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 #### Learning outcomes
 
 * Register an Agent Gateway.
-* Create a delegation link.
+* Create an AI agent link.
 * Retrieve a virtual MCP server.
 * Connect the Agent Gateway to a remote MCP server and expose specific tools.
 * Activate the gateway so AI agents can invoke tools.
@@ -32,13 +32,13 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 ## Overview
 
-Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers and select which tools to expose, as well as selecting the AI Agents that can call the Agent Gateway. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
+Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers. You select which tools to expose and select the AI agents that can call the Agent Gateway. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
 
 ## Create the Agent Gateway
 
 Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. See [Create a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/createvirtualmcp). The Agent Gateway is created in `INACTIVE` status and isn't reachable by AI agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
 
-> **Note:** When you create the Agent Gateway, Okta automatically creates a new custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
+> **Note:** When you create the Agent Gateway, Okta automatically creates a custom authorization server. Okta supports only one custom authorization server per Agent Gateway.
 
 ### Request
 
@@ -100,11 +100,11 @@ When the operation completes, retrieve the Agent Gateway ([Retrieve a virtual MC
 }
 ```
 
-> **Note**: Make note of the `orn` in the response. You need this for additional requests.
+> **Note**: Make note of the `orn` in the response. You need this for more requests.
 
-## Create a delegation link
+## Create an AI agent link
 
-The delegation link declares that the MCP client app is authorized to delegate to this Agent Gateway on behalf of users. The gateway rejects token exchanges without a valid delegation link in place. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
+The AI agent link declares that the MCP client app is authorized to delegate to this Agent Gateway on behalf of users. The gateway rejects token exchanges without a valid AI agent link in place. The Okta APIs call this object a delegation link. See [Create a delegation link](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
 
 ### Request
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 }
 ```
 
-The `resourceOrn` is the `orn` value from the create the agent gateway response in the [last section](#create-the-agent-gateway). The `from.clientOrn` value in this example references the AI agent's ORN. If you're delegating to an MCP client app, reference the MCP client app's OAuth 2.0 ORN instead (`orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ`).
+The `resourceOrn` is the `orn` value from the "create the agent gateway" response in the [last section](#create-the-agent-gateway). The `from.clientOrn` value in this example references the AI agent's ORN. If you're delegating to an MCP client app, reference the MCP client app's OAuth 2.0 ORN instead (`orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ`).
 
 ### Response
 
@@ -439,13 +439,41 @@ After you complete all the preceding steps, the following sequence occurs when a
 1. The AI agent discovers the gateway's authorization server metadata from `{gatewayURL}/.well-known/oauth-protected-resource`.
 1. The AI agent obtains an access token from the custom authorization server through authorization code + PKCE.
 1. The AI agent presents the token to the gateway and establishes an MCP session.
-1. The gateway validates the token against the linked custom authorization server and checks that the Agent Gateway is active.
+1. The gateway validates the token against the linked custom authorization server and checks that the Agent Gateway is active. It also checks that the AI agent hasn't been deactivated since the token was issued. If it has, the gateway returns a `401` response with an `invalid_token` error.
 1. On `tools/call`, the gateway initiates an OAuth Security Token Service token exchange with the Okta org authorization server.
-1. Okta validates the delegation link and the resource connection.
+1. Okta validates the AI agent link and the resource connection.
 1. If this is the user's first time calling a tool from a specific remote server, an `interaction_required` response prompts the user to consent. After consent, subsequent calls are silent.
 1. The gateway obtains the downstream credential, injects it into the outbound call, and proxies the request to the remote MCP server.
 
 Only the tools that you selected in [Add tools](#add-tools) are reachable.
+
+## Block a compromised AI agent
+
+If an AI agent is compromised or misbehaves, deactivate it. Agent Gateway then rejects the agent's requests, even when the agent holds an access token that hasn't expired. See [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+
+Use the standard AI agent deactivation API. See [Deactivate an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/deactivateaiagent). The request requires the `okta.aiAgents.manage` scope and the super admin role.
+
+> **Note:** Kill Switch applies only to AI agents that route through Agent Gateway. AI agents that call resources directly behave as before.
+
+### Request
+
+```http
+  POST /workload-principals/api/v1/ai-agents/{agentId}/lifecycle/deactivate
+  Authorization: Bearer {token}
+```
+
+The request has no body. Replace `{agentId}` with the ID of the AI agent. To find the ID, see [List all AI agents](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/listaiagents) or [Retrieve an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/getaiagent).
+
+### Response
+
+```http
+  202 Accepted
+  Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b3c4d
+```
+
+This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status).
+
+While the AI agent is deactivated, Okta doesn't issue it new tokens. Agent Gateway rejects its requests with a `401` response. To reactivate the AI agent, see [Activate an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/activateaiagent). After you reactivate it, the AI agent authenticates again to get a new access token.
 
 ## Delete the Agent Gateway
 
@@ -474,7 +502,7 @@ Deactivating returns the same `202 Accepted` and `Location` pattern as [activati
   Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-9f8e7d6c
 ```
 
-This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status). After the operation completes, the gateway URL stops resolving, and any remaining connections and delegation links for this Agent Gateway are no longer usable.
+This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status). After the operation completes, the gateway URL stops resolving, and any remaining connections and AI agent links for this Agent Gateway are no longer usable.
 
 ## Next steps
 
@@ -482,4 +510,7 @@ Complete the following tasks after you activate the gateway:
 
 * Give your developers the gateway URL and client credentials so that they can configure their AI agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
 * Review administrative actions in the Okta System Log.
-* To revoke a specific agent's or app's access, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire. To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection instead.
+* Monitor requests that Agent Gateway rejects. When Agent Gateway rejects a request from a deactivated AI agent, it logs an `agent_gateway.request.authenticate` event. The event has the outcome `DENY` and the reason `Client is deactivated`. It identifies the client by its client ID and doesn't link to the AI agent. To match the event to an AI agent, get the agent with [Retrieve an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/getaiagent) or [List all AI agents](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentregistration/listaiagents). The client ID is the `oauthClient.clientId` value. Okta limits how often it logs these events, so the System Log doesn't show every rejected request.
+* To stop a specific agent's or app's access to new tokens, delete its AI agent link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire.
+* To block a compromised AI agent, including requests that use tokens that it already holds, deactivate the AI agent. Agent Gateway then rejects its requests. See [Block a compromised AI agent](#block-a-compromised-ai-agent) and [Kill Switch](/docs/concepts/agent-gateway/#kill-switch).
+* To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection.
