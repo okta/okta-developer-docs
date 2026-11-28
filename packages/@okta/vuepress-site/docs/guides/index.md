@@ -13,6 +13,7 @@ guides:
  - ai-agent-secure-salesforce-agentforce
  - ai-agent-secure-servicenow-ai-agent-studio
  - ai-agent-secure-third-party
+ - ai-agent-secure-tines
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
