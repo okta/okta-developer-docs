@@ -1,11 +1,15 @@
 import { Api } from "../util/api.service";
 
+// Add/Remove top-level domains from this array to have them blocked/unblocked
+const BLOCKED_EMAIL_TLD_LIST = ['ir', 'cu', 'sy', 'kp'];
+
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
     firstName: "Invalid first name.",
     lastName: "Invalid last name.",
     notWorkEmail: "Business email is required.",
+    blockedEmailDomain: "We're unable to process sign-up requests for this email domain.",
     emptyField: "This field is required."
   };
 
@@ -54,6 +58,12 @@ export class SignUpValidation {
       return;
     }
 
+    // If email domain is from a sanctioned region, display error
+    if (this._isBlockedEmailDomain(this.form[key].value)) {
+      this._setInputError(key, this.errorDictionary.blockedEmailDomain);
+      return;
+    }
+
     // If not a work email, display errror
     if (!(await this._isWorkEmail(this.form[key].value))) {
       this._setInputError(key, this.errorDictionary.notWorkEmail);
@@ -90,6 +100,11 @@ export class SignUpValidation {
   _isUrlValue(value) {
     const re = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
     return re.test(value);
+  }
+
+  _isBlockedEmailDomain(email) {
+    const tld = email.trim().split('@').pop().split('.').pop().toLowerCase();
+    return BLOCKED_EMAIL_TLD_LIST.includes(tld);
   }
 
   async _isWorkEmail(email) {
